@@ -26,8 +26,8 @@
     "waterlock":"*",
     "connect-mongo":"*",
     "waterlock-facebook-auth":"*",
-    "waterlock-google-auth":"*",
-    "waterlock-local-auth-bcryptjs":"*"
+    "waterlock-google-auth":"*"
+    
   },
   "scripts": {
     "debug": "node debug app.js",
