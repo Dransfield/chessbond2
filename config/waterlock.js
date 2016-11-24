@@ -37,6 +37,7 @@ baseUrl: 'http://www.chessbond.com',
             'gender': 'gender',
             'Picture':'picture'
         }
+        redirectUri: ' http://www.chessbond.com/auth/google_oauth2'
     },
    	{
 		name: "waterlock-facebook-auth",
