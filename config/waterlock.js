@@ -15,8 +15,8 @@ module.exports.waterlock = {
   //
   // used by auth methods for callback URI's using oauth and for password
   // reset links.
-  //baseUrl: 'http://localhost:1337',
-baseUrl: 'http://www.chessbond.com',
+  baseUrl: 'http://localhost:1337',
+//baseUrl: 'http://www.chessbond.com',
 
   // Auth Method(s
   //
@@ -37,17 +37,23 @@ baseUrl: 'http://www.chessbond.com',
             'gender': 'gender',
             'Picture':'picture'
         },
+        redirectUri: 'http://localhost:1337/auth/google_oauth2'
+		
+        /*
         redirectUri: 'http://www.chessbond.com/auth/google_oauth2/'
+		*/
     },
    	{
-		/*name: "waterlock-facebook-auth",
+		name: "waterlock-facebook-auth",
 		appId: '204930219956613',
 		appSecret:'6246902d2ef94f1dbd083fb4946c694b',
 		fieldMap: {
 			'Picture':'picture',
 			'Cover':'cover',
 			'gender': 'gender'
-		}*/
+		},
+		redirectUri: 'http://localhost:1337/auth/facebook_oauth2'
+		/*
 		name: "waterlock-facebook-auth",
 		appId: '204758053307163',
 		appSecret:'efc1758be36f4bfc488ea18f5680cb60',
@@ -57,7 +63,7 @@ baseUrl: 'http://www.chessbond.com',
 			'gender': 'gender'
 		},
 		redirectUri: 'http://www.chessbond.com/auth/facebook_oauth2/'
-		
+		*/
 	},
 	{
       name:'waterlock-local-auth-bcryptjs',
