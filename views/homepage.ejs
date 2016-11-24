@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chessbond</title>
+    
+     <!-- Viewport mobile tag for sensible mobile support -->
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <!--STYLES END-->
+    
+    </head>
+    
+    <body ng-app="HomepageModule" ng-controller="HomepageController" >
+    
+    <div ng-init="joinopengameRoom()"></div>
+     <% var actualname='blank';%>
+    <%- include partials/navbar.ejs %>
+ 
+		<div class="jumbotron text-center">
+			<div ng-init="joinmyuserIDRoom('<%- req.session.user.id %>')"></div>
+        <h1 class="text-center" >Chessbond</h1>
+     <% if (!req.session.authenticated) { %>
+          	<a ng-click="LoginPushed('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span>Login with Facebook</a>
+			<a  ng-click="LoginPushed('google')" class="btn btn-primary"><span class="fa fa-facebook"></span> Login with Google+</a>
+
+           <%}else { %>
+			<a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			<button ng-click="createopengame('<%- req.session.user.id %>','<%- actualname %>')" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+		
+		<% } %>
+		</div>
+    
+
+				  
+				  
+	  <% if (req.session.authenticated) { %>
+    <h2 class="sub-header">Your Games</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player1</th>
+                  <th>Player2</th>
+                  
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				  
+            <tr ng-repeat="game in joinedgames track by $index">
+			<td>{{game.Player1Name}}</td>
+			<td>{{game.Player2Name}}</td>
+			
+			<td>
+				
+				 
+				<button ng-click="PlayGame(game.id)" class="btn btn-lg btn-success" >Play Game</a>
+				<button ng-click="deletegame(game.id,'<%-  req.session.user.id %>')">Delete Game</button>
+				
+			</td>
+			
+			</tr>
+            </tbody>
+            </table>
+          </div>
+     
+    <% } %>
+    
+				
+				 <h2 class="sub-header">Open Games</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                  <th>Date</th>
+                  <th>Join</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="opengame in opg track by $index">
+			<td>{{opengame.Player1Name}}</td>
+			<td>{{opengame.phrase}}</td>
+			
+			     <% if (req.session.authenticated==true) { %>
+			<td>		
+				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,'<%- req.session.user.id%>','<%- actualname %>')">Join Game</button>
+			
+			</td>
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+
+    
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/angular.1.3.js"></script>
+    <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+    <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+    <script src="/js/dependencies/chess.min.js"></script>
+    <script src="/js/dependencies/stockfish.js"></script>
+    <script src="/js/dependencies/angular-toastr.js"></script>
+    <script src="/js/dependencies/bootstrap.min.js"></script>
+    <script src="/js/dependencies/compareTo.module.js"></script>
+    <script src="/js/dependencies/enginegame.js"></script>
+    <script src="/js/HomepageModule.js"></script>
+    <script src="/js/HomepageController.js"></script>
+    <script src="/js/SinglePlayerController.js"></script>
+    <script src="/js/TwoPlayerController.js"></script>
+    <!--SCRIPTS END-->
+    </body>
+   </html>
