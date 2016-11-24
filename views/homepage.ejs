@@ -24,7 +24,9 @@
     <%- include partials/navbar.ejs %>
  
 		<div class="jumbotron text-center">
+			<% if (req.session.authenticated) { %>
 			<div ng-init="joinmyuserIDRoom('<%- req.session.user.id %>')"></div>
+			<% } %>
         <h1 class="text-center" >Chessbond</h1>
      <% if (!req.session.authenticated) { %>
           	<a ng-click="LoginPushed('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span>Login with Facebook</a>
