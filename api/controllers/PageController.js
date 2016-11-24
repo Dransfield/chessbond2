@@ -193,6 +193,8 @@ deleteopengame:function(req,res){
 },
 	
 	loginbuttonpushed:function(req,res){
+		console.log('strategy is '+req.allParams()['button']);
+		//.
 	req.session.strategy=req.allParams()['button'];
 
 	
