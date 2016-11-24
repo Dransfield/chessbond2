@@ -19,6 +19,8 @@
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
     <%- JSON.stringify(req.session) %>
+    User<%- JSON.stringify(req.session.user) %>
+    
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
     <%- include partials/navbar.ejs %>
