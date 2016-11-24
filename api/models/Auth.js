@@ -10,7 +10,7 @@ module.exports = {
 
   attributes: require('waterlock').models.auth.attributes({
     
-    /* e.g.
+    /* e.g
     nickname: 'string'
     */
       firstName: 'string',
