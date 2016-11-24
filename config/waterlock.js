@@ -36,7 +36,7 @@ baseUrl: 'http://www.chessbond.com',
             'lastName': 'family_name',
             'gender': 'gender',
             'Picture':'picture'
-        }
+        },
         redirectUri: ' http://www.chessbond.com/auth/google_oauth2'
     },
    	{
