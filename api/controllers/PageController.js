@@ -197,7 +197,7 @@ deleteopengame:function(req,res){
 		//.
 	req.session.strategy=req.allParams()['button'];
 	req.session.name='bill';
-	
+	req.cookie.manname='bill';
 	return res.ok();
 	},
 	
