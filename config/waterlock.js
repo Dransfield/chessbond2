@@ -18,7 +18,7 @@ module.exports.waterlock = {
   //baseUrl: 'http://localhost:1337',
 baseUrl: 'http://www.chessbond.com',
 
-  // Auth Method(s)
+  // Auth Method(s
   //
   // this can be a single string, an object, or an array of objects for your
   // chosen auth method(s) you will need to see the individual module's README
