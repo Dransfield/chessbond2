@@ -28,7 +28,9 @@
 			<div ng-init="joinmyuserIDRoom('<%- req.session.user.id %>')"></div>
 			<% } %>
         <h1 class="text-center" >Chessbond</h1>
+        
      <% if (!req.session.authenticated) { %>
+        <p>strategy:<%- req.session.strategy %></p>
           	<a ng-click="LoginPushed('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span>Login with Facebook</a>
 			<a  ng-click="LoginPushed('google')" class="btn btn-primary"><span class="fa fa-facebook"></span> Login with Google+</a>
 
