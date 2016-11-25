@@ -80,7 +80,8 @@ module.exports.session = {
    db: 'chessdb',
    collection: 'sessions',
    auto_reconnect: false,
-   url: 'mongodb://localhost:27017',
+   url: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb', // user, password and port optional
+
   /***************************************************************************
   *                                                                          *
   * Optional Values:                                                         *
