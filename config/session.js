@@ -79,6 +79,7 @@ module.exports.session = {
    port: 27017,
    db: 'chessdb',
    collection: 'sessions',
+   auto_reconnect: false,
   /***************************************************************************
   *                                                                          *
   * Optional Values:                                                         *
