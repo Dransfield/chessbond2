@@ -75,8 +75,10 @@ module.exports.session = {
   ***************************************************************************/
 
    adapter: 'connect-mongo',
-  url: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb', // user, password and port optional
-
+   host: 'localhost',
+   port: 27017,
+   db: 'chessdb',
+   collection: 'sessions',
   /***************************************************************************
   *                                                                          *
   * Optional Values:                                                         *
@@ -89,7 +91,7 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-   collection: 'sessions',
+
    stringify: false
   // mongoOptions: {
   //   server: {
