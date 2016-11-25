@@ -35,6 +35,8 @@ module.exports.routes = {
 	'/profile': {view:'profile'},
 	'/playvsai':{view:'humanvsai'},
 	'/humanvshuman':{view:'humanvshuman'},
+	'/recordsession':'PageController.RecordSession',
+	'/MyLogout':'PageController.MyLogout',
 	'PUT /joingame':'PageController.Joingame',
 	'get /seereq':'PageController.seereq',
  	'POST /loginbuttonpushed':'PageController.loginbuttonpushed',

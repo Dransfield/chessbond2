@@ -196,11 +196,46 @@ deleteopengame:function(req,res){
 		console.log('strategy is '+req.allParams()['button']);
 		//.
 	req.session.strategy=req.allParams()['button'];
-	req.session.name='bill';
-	req.cookie.manname='bill';
+	
+	
 	return res.ok();
 	},
+	MyLogout:function(req,res){
+		
+		req.session.Loggedin='false';
+		return res.view('homepage');
+		},
+	RecordSession:function(req,res){
+		console.log('record session');
+		var object=req.session.user;
+		req.session.Loggedin='true';
+   console.log('here is req.session.user.auth');
 	
+	for (var key in req.session.user.auth) {
+   console.log(' name=' + key + ' value=' + req.session.user.auth[key]);
+   }	
+   console.log('here is req.session.user');
+	for (var key in req.session.user) {
+   if(req.session.user[key]!='')
+   {
+   console.log(' name=' + key + ' value=' + req.session.user[key]);
+	//req.session["'"+key+"'"]= req.session.user[key];
+	
+	Object.defineProperty(req.session, 'userASSSSSSSSSS'+key, {
+  value: req.session.user[key],
+  writable: true,
+  enumerable: false,
+  configurable: true
+
+});
+	return res.view('homepage');
+	}
+	else
+	{
+	console.log(key+' is undefined');	
+	}
+   }	
+	},
 	seereq:function(req,res){
 	console.log("session "+JSON.stringify(req.session));
 	console.log("session id"+req.sesssionID);
