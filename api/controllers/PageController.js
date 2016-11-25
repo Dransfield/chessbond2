@@ -203,9 +203,13 @@ deleteopengame:function(req,res){
 	MyLogout:function(req,res){
 		
 		req.session.Loggedin='false';
+		req.session.userid='';
 		return res.view('homepage');
 		},
 	RecordSession:function(req,res){
+		req.session.userid=req.session.user.id;
+		req.session.userid
+		/*
 		console.log('record session');
 		var object=req.session.user;
 		req.session.Loggedin='true';
@@ -235,7 +239,7 @@ deleteopengame:function(req,res){
 	console.log(key+' is undefined');	
 	}
    }	
-	},
+	},*/
 	seereq:function(req,res){
 	console.log("session "+JSON.stringify(req.session));
 	console.log("session id"+req.sesssionID);
