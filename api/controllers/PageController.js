@@ -239,7 +239,8 @@ deleteopengame:function(req,res){
 	console.log(key+' is undefined');	
 	}
    }	
-	},*/
+*/
+	},
 	seereq:function(req,res){
 	console.log("session "+JSON.stringify(req.session));
 	console.log("session id"+req.sesssionID);
