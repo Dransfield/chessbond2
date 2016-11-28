@@ -211,6 +211,8 @@ deleteopengame:function(req,res){
 		//req.session.username=req.session.auth.name;
 		//return res.view('homepage');
 		res.cookie("userobj",req.session.user);
+		return res.view('homepage');
+		
 		/*
 		console.log('record session');
 		var object=req.session.user;
