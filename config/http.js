@@ -56,7 +56,7 @@ module.exports.http = {
 
   myRequestLogger: function (req, res, next) {
 	  
-		var str=req.header.host;
+		var str=req.headers.host;
 		console.log(str);
          //if (str.startsWith('www')==false)
          
