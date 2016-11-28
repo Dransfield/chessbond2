@@ -20,6 +20,8 @@
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
     <%- JSON.stringify(req.session) %>
     User<%- JSON.stringify(req.session.user) %>
+    COOKIE<%- JSON.stringify(req.cookie) %>
+  SESSION  COOKIE<%- JSON.stringify(req.session.cookie) %>
     
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
