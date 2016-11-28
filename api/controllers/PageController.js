@@ -209,10 +209,11 @@ deleteopengame:function(req,res){
 	RecordSession:function(req,res){
 	//	req.session.userid=req.session.user.id;
 		//req.session.username=req.session.auth.name;
-		//return res.view('homepage');
+		res.cookie();
+		return res.view('homepage');
 	
   //  req.session.myusername=req.session.user.auth.name;
-    return res.ok();
+    
 		
 		
 		/*
