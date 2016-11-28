@@ -24,6 +24,7 @@
     "sails-mongo":"*",
     "sails-disk": "~0.10.9",
     "waterlock":"*",
+    "connect-redis":"*",
     "connect-mongo":"*",
     "waterlock-facebook-auth":"*",
     "waterlock-google-auth":"*"
