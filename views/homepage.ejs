@@ -24,6 +24,7 @@
     User<%- JSON.stringify(req.session.user) %>
     STRATEGY<%-req.session.strategy%>
     myUSERNAME<%-req.session.myusername%>
+    req.session.user.name<%-req.session.user.name%>
     COOKIE<%- JSON.stringify(req.cookies) %>
   SESSION  COOKIE<%- JSON.stringify(req.session.cookie) %>
     RESNAME:<%= res.name %>
