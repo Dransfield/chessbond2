@@ -18,17 +18,7 @@
     </head>
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
-    <!--
-    <%- JSON.stringify(req.session) %>
-    -->
-    User<%- JSON.stringify(req.session.user) %>
-    STRATEGY<%-req.session.strategy%>
-    myUSERNAME<%-req.session.myusername%>
-    <% if (req.session.user){%>
-    req.session.user.name<%-req.session.user.name%>
-    <%}%>
-    COOKIE<%- JSON.stringify(req.cookies) %>
-  SESSION  COOKIE<%- JSON.stringify(req.session.cookie) %>
+
    
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
