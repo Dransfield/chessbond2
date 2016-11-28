@@ -20,11 +20,12 @@
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
     <!--
     <%- JSON.stringify(req.session) %>
-    User<%- JSON.stringify(req.session.user) %>
     -->
+    User<%- JSON.stringify(req.session.user) %>
+    
     COOKIE<%- JSON.stringify(req.cookies) %>
   SESSION  COOKIE<%- JSON.stringify(req.session.cookie) %>
-    <%= res.name %>
+    RESNAME:<%= res.name %>
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
     <%- include partials/navbar.ejs %>
