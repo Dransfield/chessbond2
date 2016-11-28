@@ -27,7 +27,7 @@
     req.session.user.name<%-req.session.user.name%>
     COOKIE<%- JSON.stringify(req.cookies) %>
   SESSION  COOKIE<%- JSON.stringify(req.session.cookie) %>
-    RESNAME:<%= res.name %>
+   
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
     <%- include partials/navbar.ejs %>
