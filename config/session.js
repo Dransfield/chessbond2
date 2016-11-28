@@ -30,7 +30,7 @@ module.exports.session = {
   * the example below is for 24 hours                                        *
   *                                                                          *
   ***************************************************************************/
-cookie:{ path: './', httpOnly: true, secure: true, maxAge: 360*24 * 60 * 60 * 1000 },
+cookie:{ path: '/', httpOnly: true, secure: true, maxAge: 360*24 * 60 * 60 * 1000 },
   // cookie: {
   //   maxAge: 24 * 60 * 60 * 1000
   // },
