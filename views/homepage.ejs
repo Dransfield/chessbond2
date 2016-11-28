@@ -25,9 +25,12 @@
     <%- include partials/navbar.ejs %>
  
 		<div class="jumbotron text-center">
+			<% if (req.session) { %>
 			<% if (req.session.authenticated) { %>
+			
 			<div ng-init="joinmyuserIDRoom('<%- req.session.user.id %>')"></div>
 			<% } %>
+        <% } %>
         <h1 class="text-center" >Chessbond</h1>
         
      <% if (!req.session.authenticated) { %>
