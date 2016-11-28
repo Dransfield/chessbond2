@@ -148,7 +148,7 @@ baseUrl: 'http://www.chessbond.com',
       // obj - {controller: 'blog', action: 'post'}
       // string - 'custom json response string'
       // default - 'default'
-      success: '/recordsession',
+      success: '/',
 
       // This can be any one of the following
       //
