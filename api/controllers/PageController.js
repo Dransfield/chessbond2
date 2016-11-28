@@ -210,8 +210,12 @@ deleteopengame:function(req,res){
 		req.session.userid=req.session.user.id;
 		//req.session.username=req.session.auth.name;
 		//return res.view('homepage');
-		res.cookie("userobj",{ARSE:'bill',FUCK:'shit'});
-		return res.view('homepage');
+		res.cookie("userobj",{ARSE:'bill',FUCK:'shit'},{
+      signed:true,
+      httpOnly:true,
+      maxAge:1000*60*60*24*5
+    });
+		return res.ok();
 		
 		/*
 		console.log('record session');
