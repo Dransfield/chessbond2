@@ -18,7 +18,7 @@
     </head>
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
-<%- req.session %>
+
    
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
@@ -32,7 +32,7 @@
 			<% } %>
         <% } %>
         <h1 class="text-center" >Chessbond</h1>
-        <% if (!req.session) { %>
+        
      <% if (!req.session.authenticated) { %>
         
           	<a ng-click="LoginPushed('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span>Login with Facebook</a>
@@ -43,7 +43,7 @@
 			<button ng-click="createopengame('<%- req.session.user.id %>','<%- actualname %>')" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 		
 		<% } %>
-		<% } %>
+		
 		</div>
     
 
