@@ -207,15 +207,12 @@ deleteopengame:function(req,res){
 		return res.view('homepage');
 		},
 	RecordSession:function(req,res){
-		req.session.userid=req.session.user.id;
+	//	req.session.userid=req.session.user.id;
 		//req.session.username=req.session.auth.name;
 		//return res.view('homepage');
 	
-    req.session.myusername=req.session.user.auth.name;
-    return res.ok({
-  name:req.session.user.name,
-  occupation: 'developer'
-}, 'homepage');
+  //  req.session.myusername=req.session.user.auth.name;
+    return res.ok();
 		
 		
 		/*

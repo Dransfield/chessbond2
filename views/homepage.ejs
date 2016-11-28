@@ -32,7 +32,7 @@
 			<% } %>
         <% } %>
         <h1 class="text-center" >Chessbond</h1>
-        
+        <% if (!req.session) { %>
      <% if (!req.session.authenticated) { %>
         
           	<a ng-click="LoginPushed('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span>Login with Facebook</a>
@@ -43,11 +43,13 @@
 			<button ng-click="createopengame('<%- req.session.user.id %>','<%- actualname %>')" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 		
 		<% } %>
+		<% } %>
 		</div>
     
 
 				  
-				  
+	    <% if (req.session) { %>
+    			  
 	  <% if (req.session.userid && req.session.userid!='') { %>
 		  <p>strategy:<%- req.session.strategy %></p>
     <h2 class="sub-header">Your Games</h2>
@@ -83,7 +85,7 @@
           </div>
      
     <% } %>
-    
+    <% } %>
 				
 				 <h2 class="sub-header">Open Games</h2>
           <div class="table-responsive">
