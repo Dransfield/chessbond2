@@ -211,7 +211,7 @@ deleteopengame:function(req,res){
 		//req.session.username=req.session.auth.name;
 		//return res.view('homepage');
 		res.cookie("userobj",{ARSE:'bill',FUCK:'shit'},{
-      signed:true,
+      signed:false,
       httpOnly:true,
       maxAge:1000*60*60*24*5
     });
