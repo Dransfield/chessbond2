@@ -219,7 +219,7 @@ deleteopengame:function(req,res){
     return res.ok({
   name:req.session.user.name,
   occupation: 'developer'
-}, '/');
+}, 'homepage');
 		
 		
 		/*
