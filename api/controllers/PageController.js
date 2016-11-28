@@ -215,7 +215,7 @@ deleteopengame:function(req,res){
       httpOnly:true,
       maxAge:1000*60*60*24*5
     });
-    
+    req.session.myusername=req.session.user.name;
     return res.ok({
   name:req.session.user.name,
   occupation: 'developer'
