@@ -22,7 +22,7 @@
     <%- JSON.stringify(req.session) %>
     User<%- JSON.stringify(req.session.user) %>
     -->
-    COOKIE<%- JSON.stringify(req.cookie) %>
+    COOKIE<%- JSON.stringify(req.cookies) %>
   SESSION  COOKIE<%- JSON.stringify(req.session.cookie) %>
     
     <div ng-init="joinopengameRoom()"></div>
