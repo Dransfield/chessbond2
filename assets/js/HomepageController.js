@@ -117,7 +117,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 			
 			);
-		$http.get('/openchessgame').then( function (dat) {
+		$http.get('/openchessgame?limit=3000').then( function (dat) {
 			
 			for(x in dat.data)
 			{
