@@ -177,6 +177,7 @@ deleteopengame:function(req,res){
 
 	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec(function (err, records) {
 	sails.sockets.broadcast(records.room, {room:records.room, talker:records.talker,greeting: records.msg });
+	console.log("ERRROR:"+err);
 	console.log(records);
 });
 	},
