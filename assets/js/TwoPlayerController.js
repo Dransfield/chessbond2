@@ -107,9 +107,11 @@ $scope.chatting=new Array();
 		
 		$scope.chatMessage=function(usrName)
 		{
-			$http.put("/chatmsg",{talker: usrName,roomName:GameID,message:$scope.chatInput}, function (resData, jwres){
- 
-			});
+			$http.post("/chatmsg",{talker: usrName,roomName:GameID,message:$scope.chatInput})
+			.then(function onSuccess (){
+			
+			}
+			)
 			
 			/*
 			 $http.post('/Chatmessage', { talker: usrName,msg:$scope.chatInput,room:GameID})
