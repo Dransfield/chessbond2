@@ -34,7 +34,7 @@ module.exports.http = {
        'startRequestTimer',
        'cookieParser',
        'session',
-       'myRequestLogger',
+       
        'bodyParser',
        'handleBodyParserError',
        'compress',
