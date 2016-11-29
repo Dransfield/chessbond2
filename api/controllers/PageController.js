@@ -179,6 +179,7 @@ deleteopengame:function(req,res){
 	sails.sockets.broadcast(records.room, {room:records.room, talker:records.talker,greeting: records.msg });
 	console.log("ERRROR:"+err);
 	console.log(records);
+	 return res.ok();
 });
 	},
 	   subscribeToRoom: function(req, res) {
