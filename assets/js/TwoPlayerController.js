@@ -148,7 +148,7 @@ $scope.chatting="";
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-			$scope.$apply($scope.chatting=$scope.chatting+String.fromCharCode(13, 10)+usrName+":"+data.greeting+" ");
+			$scope.chatting=$scope.chatting+String.fromCharCode(13, 10)+usrName+":"+data.greeting+" ";
 			console.log(data.greeting);
 			});
 	
