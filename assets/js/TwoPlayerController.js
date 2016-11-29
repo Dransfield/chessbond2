@@ -107,7 +107,7 @@ $scope.chatting=new Array();
 		
 		$scope.chatMessage=function(usrName)
 		{
-			io.socket.put("/chatmsg",{talker: usrName,roomName:GameID,message:$scope.chatInput}, function (resData, jwres){
+			$http.put("/chatmsg",{talker: usrName,roomName:GameID,message:$scope.chatInput}, function (resData, jwres){
  
 			});
 			
