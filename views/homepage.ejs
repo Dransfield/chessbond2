@@ -18,19 +18,19 @@
     </head>
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
-<%-JSON.stringify(req.session)%>
+
    
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
     <%- include partials/navbar.ejs %>
  
 		<div class="jumbotron text-center">
-			<% if (req.session) { %>
-			<% if (req.session.authenticated) { %>
 			
+			<% if (req.session.authenticated) { %>
+			<% if (req.session.authenticated==true) { %>
 			<div ng-init="joinmyuserIDRoom('<%- req.session.user.id %>')"></div>
 			<% } %>
-        <% } %>
+			<% } %>
         <h1 class="text-center" >Chessbond</h1>
         
      <% if (!req.session.authenticated) { %>
@@ -39,9 +39,10 @@
 			<a  ng-click="LoginPushed('google')" class="btn btn-primary"><span class="fa fa-facebook"></span> Login with Google+</a>
 
            <%}else { %>
+			   <% if (req.session.authenticated==true) { %>
 			<a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 			<button ng-click="createopengame('<%- req.session.user.id %>','<%- actualname %>')" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
-		
+			<% } %>
 		<% } %>
 		
 		</div>
