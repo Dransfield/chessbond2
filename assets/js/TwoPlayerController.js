@@ -3,7 +3,7 @@ var board1 ;
 var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
-$scope.chatting="";
+$scope.chatting=new Array();
   $scope.piecethemes = [
       {name:'A'},
       {name:'B'},
@@ -75,7 +75,7 @@ $scope.chatting="";
       console.log("joined games reply"+JSON.stringify(dat.data));
 		for (m in dat.data)
 	{console.log("joined games reply2"+JSON.stringify(dat.data[m]));
-	$scope.chatting=$scope.chatting+String.fromCharCode(13, 10)+dat.data[m]['talker']+":"+dat.data[m]['msg']+" ";
+	$scope.chatting.push(dat.data[m]['talker']+":"+dat.data[m]['msg']+" ");
 	}
 	//});
     })
@@ -148,7 +148,7 @@ $scope.chatting="";
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-			$scope.chatting=$scope.chatting+String.fromCharCode(13, 10)+usrName+":"+data.greeting+" ";
+			$scope.chatting.push(usrName+":"+data.greeting+" ");
 			console.log(data.greeting);
 			});
 	
