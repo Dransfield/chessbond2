@@ -38,8 +38,8 @@ $scope.chatting="";
 		}
 		
 		
-		//$scope.$apply($scope.Player1Namer=gameRecord.Player1Name);
-		//$scope.Player2Name=gameRecord.Player2Name;
+		$scope.Player1Namer=gameRecord.Player1Name;
+		$scope.Player2Name=gameRecord.Player2Name;
 	//console.log("scopep2"+$scope.Player2Name);	
 		
 		}
