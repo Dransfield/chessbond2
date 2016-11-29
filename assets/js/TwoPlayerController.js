@@ -66,7 +66,7 @@ $scope.chatting=new Array();
 		
 	$scope.getchatmessages=function(){
 		
-	  $http.get('/chatmessage?room='+GameID, {
+	  $http.get('/getchatmessages?room='+GameID+'&limit=3000', {
       room: GameID
     })
     .then(function onSuccess (dat){
