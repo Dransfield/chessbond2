@@ -49,10 +49,10 @@
     
 
 				  
-	    <% if (req.session) { %>
+	    <% if (req.session.authenticated) { %>
     			  
-	  <% if (req.session.userid && req.session.userid!='') { %>
-		  <p>strategy:<%- req.session.strategy %></p>
+	  <% if (req.session.authenticated==true) { %>
+		 
     <h2 class="sub-header">Your Games</h2>
           <div class="table-responsive">
             <table class="table table-striped">

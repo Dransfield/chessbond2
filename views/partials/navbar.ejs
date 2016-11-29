@@ -1,12 +1,19 @@
  
     <% if (req.session.authenticated){ %>
 		
-	<%if (req.session.strategy=='google'){ %>
+	<% if (req.session.strategy=='google'){ %>
+	
+	<% if (req.session.user.auth.firstName==''){ %>
+	<%actualname=req.session.user.auth.googleEmail ;%>
+	<% }else{ %>
+	
 	<% actualname=req.session.user.auth.firstName+" "+req.session.user.auth.lastName;%>
 	<% } %>
+	<% } %>
+	
 	<% if (req.session.strategy=='facebook'){ %>
-	<%actualname=req.session.user.auth.name;%>
-	<%}%>
+	<% actualname=req.session.user.auth.name;%>
+	<% } %>
 	
     <%} %>
 
