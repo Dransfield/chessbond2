@@ -174,7 +174,7 @@ deleteopengame:function(req,res){
     });
     },
     	chatmsg:function(req,res){
-	sails.sockets.broadcast(req.param('roomName'), { greeting: req.param('message') });
+	sails.sockets.broadcast(req.param('roomName'), { talker:req.param('talker'),greeting: req.param('message') });
 	},
 	   subscribeToRoom: function(req, res) {
   if (!req.isSocket) {

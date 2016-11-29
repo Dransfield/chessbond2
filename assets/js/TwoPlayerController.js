@@ -107,7 +107,7 @@ $scope.chatting=new Array();
 		
 		$scope.chatMessage=function(usrName)
 		{
-			io.socket.put("/chatmsg",{roomName:GameID,message:$scope.chatInput}, function (resData, jwres){
+			io.socket.put("/chatmsg",{talker: usrName,roomName:GameID,message:$scope.chatInput}, function (resData, jwres){
  
 			});
 			
@@ -148,7 +148,7 @@ $scope.chatting=new Array();
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-			$scope.$apply($scope.chatting.push(usrName+":"+data.greeting+" "));
+			$scope.$apply($scope.chatting.push(data.talker+":"+data.greeting+" "));
 			console.log(data);
 			});
 	
