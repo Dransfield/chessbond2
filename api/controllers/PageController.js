@@ -175,6 +175,7 @@ deleteopengame:function(req,res){
     },
     	chatmsg:function(req,res){
 	sails.sockets.broadcast(req.param('roomName'), { talker:req.param('talker'),greeting: req.param('message') });
+	Chatmessage.Create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec();
 	},
 	   subscribeToRoom: function(req, res) {
   if (!req.isSocket) {

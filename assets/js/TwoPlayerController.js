@@ -111,7 +111,7 @@ $scope.chatting=new Array();
  
 			});
 			
-			
+			/*
 			 $http.post('/Chatmessage', { talker: usrName,msg:$scope.chatInput,room:GameID})
 			.then(function onSuccess (){
 			// Refresh the page now that we've been logged in.
@@ -138,7 +138,7 @@ $scope.chatting=new Array();
   
     .finally(function eitherWay(){
      // $scope.loginForm.loading = false;
-    })
+    })*/
 			
 		}
 	$scope.joinRoom=function (usrName)
