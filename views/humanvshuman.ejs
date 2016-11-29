@@ -87,11 +87,11 @@
    <span class="label label-default">Chat</span>
     <div float="left">
     
-     <textarea ng-model="chatting" rows="4" cols="50">
+    <table>
        <tr ng-repeat="chatmsg in chatting track by $index">
 			<td>{{chatmsg}}</td>
 		</tr>
-	</textarea>
+	</table>
 	<form ng-submit="chatMessage('<%- actualname %>')">
 	 <input type="text" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
 	<button type="submit" >chat</button>
