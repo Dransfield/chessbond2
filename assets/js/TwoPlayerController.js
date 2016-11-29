@@ -143,6 +143,7 @@ $scope.chatting="";
 		}
 	$scope.joinRoom=function (usrName)
 		{
+			
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});

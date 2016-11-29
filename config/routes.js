@@ -44,7 +44,8 @@ module.exports.routes = {
 	'PUT /newopengame':'PageController.newopengame',
 	'PUT /deleteopengame':'PageController.deleteopengame',
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
-	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame'
+	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
+	'/chatmsg':'PageController.chatmsg'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
