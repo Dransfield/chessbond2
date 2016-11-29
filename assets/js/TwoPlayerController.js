@@ -148,8 +148,8 @@ $scope.chatting=new Array();
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-			$scope.chatting.push(usrName+":"+data.greeting+" ");
-			console.log(data.greeting);
+			$scope.$apply($scope.chatting.push(usrName+":"+data.greeting+" "));
+			console.log(data);
 			});
 	
 		}
