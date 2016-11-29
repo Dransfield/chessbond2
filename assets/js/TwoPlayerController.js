@@ -149,6 +149,7 @@ $scope.chatting=new Array();
 			});
 			io.socket.on('message', function (data){
 			$scope.$apply($scope.chatting.push(data.talker+":"+data.greeting+" "));
+			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
 			console.log(data);
 			});
 	
