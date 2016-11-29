@@ -174,8 +174,11 @@ deleteopengame:function(req,res){
     });
     },
     	chatmsg:function(req,res){
-	sails.sockets.broadcast(req.param('roomName'), { talker:req.param('talker'),greeting: req.param('message') });
-	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec();
+
+	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')})function (err, records) {
+	sails.sockets.broadcast(records.room, {room:records.room, talker:records.talker,greeting: records.msg) });
+	console.log(records);
+});
 	},
 	   subscribeToRoom: function(req, res) {
   if (!req.isSocket) {
