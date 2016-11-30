@@ -174,6 +174,9 @@ deleteopengame:function(req,res){
     
     });
     },
+    chessgamemove:function(req,res){
+		
+	},
     	chatmsg:function(req,res){
 
 	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec(function (err, records) {
