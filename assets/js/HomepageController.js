@@ -73,7 +73,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		$scope.deleteopengame=function(id)
 		{
 			console.log('asked to delete'+id);
-			 $http.put('/deleteopengame', { gameid:id})
+			 io.socket.put('/deleteopengame', { gameid:id})
     .then(function onSuccess (){
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
