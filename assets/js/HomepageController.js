@@ -2,6 +2,8 @@ angular.module('HomepageModule').controller('HomepageController', ['$scope', '$h
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
 
+
+
 function phrasefordate(dat)
 	{
 	
@@ -78,19 +80,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
       //window.location.reload(true); 
 		//toastr.success('Created New Game');
     });
-			io.socket.on('deleteopengameevent', function (data)
-			{
-				console.log(data);
-				$scope.$apply(function(){
-				for(var i = $scope.opg.length - 1; i >= 0; i--) {
-				
-			if($scope.opg[i].id === data.gameid) {
-			$scope.opg.splice(i, 1);
-			}
-			}
-			}
-			);
-			});
+		
 		},
 
 	$scope.createopengame=function(id,name)
@@ -105,6 +95,22 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 	}
 	$scope.joinopengameRoom=function ()
 		{
+			
+			
+	io.socket.on('deleteopengameevent', function (data)
+			{
+				console.log(data);
+				$scope.$apply(function(){
+				for(var i = $scope.opg.length - 1; i >= 0; i--) {
+				
+			if($scope.opg[i].id === data.gameid) {
+			$scope.opg.splice(i, 1);
+			}
+			}
+			}
+			);
+			});
+			
 			io.socket.get("/subscribeToRoom",{roomName:'openchessgameroom'},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
