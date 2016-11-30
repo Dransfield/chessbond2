@@ -79,9 +79,12 @@ $scope.chatting=new Array();
 		var txtmsg = { talker:dat.data[m]['talker']   ,   // property_# may be an identifier...
             msg:dat.data[m]['msg']};
 		
+			
 	$scope.chatting.push(txtmsg);
 	}
 	//});
+	
+	$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
     })
     .catch(function onError(sailsResponse) {
 
@@ -154,6 +157,11 @@ $scope.chatting=new Array();
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
+				
+				var txtmsg = { talker:data.talker   , msg:data.msg};
+		
+	$scope.$apply($scope.chatting.push(txtmsg));
+				
 			$scope.$apply($scope.chatting.push("<b>"+data.talker+"</b>:"+data.greeting+" "));
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
 			console.log(data);
