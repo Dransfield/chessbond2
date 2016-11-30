@@ -95,7 +95,16 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 			)
 			},
-
+$scope.deletegame=function(id,user)
+		{
+			console.log('asked to delete'+id);
+			 io.socket.put('/deletegame', { gameid:id,owner:user},function  (data,jwres){
+      // Refresh the page now that we've been logged in.
+      //window.location.reload(true); 
+		//toastr.success('Created New Game');
+    });
+		
+		},
 		$scope.deleteopengame=function(id)
 		{
 			console.log('asked to delete'+id);

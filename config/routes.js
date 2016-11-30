@@ -43,6 +43,7 @@ module.exports.routes = {
 	'GET /subscribeToRoom':'PageController.subscribeToRoom',
 	'PUT /newopengame':'PageController.newopengame',
 	'PUT /deleteopengame':'PageController.deleteopengame',
+	'PUT /deletegame':'PageController.deletegame',
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
 	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
