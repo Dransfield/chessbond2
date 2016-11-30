@@ -89,7 +89,7 @@
     <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
     <table>
        <tr ng-repeat="chatmsg in chatting track by $index">
-			<td><b>{{chatmsg.talker}}</b>:chatmsg.msg</td>
+			<td><b>{{chatmsg.talker}}</b>:{{chatmsg.msg}}</td>
 		</tr>
 	</table>
 	</div>
