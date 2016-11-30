@@ -150,7 +150,7 @@ $scope.chatting=new Array();
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-			$scope.$apply($scope.chatting.push(data.talker+":"+data.greeting+" "));
+			$scope.$apply($scope.chatting.push("<b>"+data.talker+"</b>:"+data.greeting+" "));
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
 			console.log(data);
 			});
@@ -264,6 +264,7 @@ console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 		
 	})
 	
+	}
 	}
    
    
