@@ -73,12 +73,11 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		$scope.deleteopengame=function(id)
 		{
 			console.log('asked to delete'+id);
-			 io.socket.put('/deleteopengame', { gameid:id})
-    .then(function onSuccess (){
+			 io.socket.put('/deleteopengame', { gameid:id},function  (data,jwres){
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
 		//toastr.success('Created New Game');
-    })
+    });
 			io.socket.on('deleteopengameevent', function (data)
 			{
 				console.log(data);
@@ -96,12 +95,13 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 
 	$scope.createopengame=function(id,name)
 	{
-	io.socket.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() })
-    .then(function onSuccess (){
+	io.socket.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() },
+    function (resData, jwr) {
+
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
 		toastr.success('Created New Game');
-    })
+    });
 	}
 	$scope.joinopengameRoom=function ()
 		{
