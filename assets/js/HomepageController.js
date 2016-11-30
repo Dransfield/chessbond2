@@ -3,6 +3,30 @@ $scope.opg=new Array();
 $scope.joinedgames=new Array();
 
 
+	io.socket.on('deleteopengameevent', function (data)
+			{
+				console.log(data);
+				$scope.$apply(function(){
+				for(var i = $scope.opg.length - 1; i >= 0; i--) {
+				
+			if($scope.opg[i].id === data.gameid) {
+			$scope.opg.splice(i, 1);
+			}
+			}
+			}
+			);
+			});
+				io.socket.on('newopengameevent', function (data)
+			{
+				console.log('newopengameevent'+data);
+			data.phrase=phrasefordate(data.Created);
+			$scope.$apply(function(){
+			$scope.opg.push(data);
+			});
+			console.log(data);
+			}
+			
+			);
 
 function phrasefordate(dat)
 	{
@@ -97,34 +121,10 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		{
 			
 			
-	io.socket.on('deleteopengameevent', function (data)
-			{
-				console.log(data);
-				$scope.$apply(function(){
-				for(var i = $scope.opg.length - 1; i >= 0; i--) {
-				
-			if($scope.opg[i].id === data.gameid) {
-			$scope.opg.splice(i, 1);
-			}
-			}
-			}
-			);
-			});
-			
 			io.socket.get("/subscribeToRoom",{roomName:'openchessgameroom'},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-			io.socket.on('newopengameevent', function (data)
-			{
-				console.log('newopengameevent'+data);
-			data.phrase=phrasefordate(data.Created);
-			$scope.$apply(function(){
-			$scope.opg.push(data);
-			});
-			console.log(data);
-			}
-			
-			);
+		
 		$http.get('/openchessgame?limit=3000').then( function (dat) {
 			
 			for(x in dat.data)
