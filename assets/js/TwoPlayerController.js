@@ -232,6 +232,10 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
 {}
 );
 
+io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
+{}).
+);
+
 
 }
 //console.log(JSON.stringify($scope.MyPieceTheme));
@@ -258,7 +262,7 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
 		})
 		
 		
-		 io.socket.on('chessgame', function gotmsg(msg) {
+		 io.socket.on('chessgamemove', function gotmsg(msg) {
   console.log(msg);
   changeFavicon('http://www.chessbond.com/favicon2.ico');
   			$http.get('/chessgame?id='+GameID)
