@@ -89,12 +89,12 @@
     <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
     <table>
        <tr ng-repeat="chatmsg in chatting track by $index">
-			<td>{{chatmsg}}</td>
+			<td><b>{{chatmsg.talker}}</b>:chatmsg.msg</td>
 		</tr>
 	</table>
 	</div>
 	<form ng-submit="chatMessage('<%- actualname %>')">
-	 <input type="text" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
+	 <input type="text" autocomplete="off" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
 	<button type="submit" >chat</button>
 	</form>  
     </div>

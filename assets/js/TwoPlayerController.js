@@ -66,7 +66,7 @@ $scope.chatting=new Array();
 		
 	$scope.getchatmessages=function(){
 		
-	  $http.get('/chatmessage?room='+GameID+'&limit=3000', {
+	  $http.get('/chatmessage?room='+GameID+'&limit=30000', {
       room: GameID
     })
     .then(function onSuccess (dat){
@@ -75,7 +75,11 @@ $scope.chatting=new Array();
       console.log("joined games reply"+JSON.stringify(dat.data));
 		for (m in dat.data)
 	{console.log("joined games reply2"+JSON.stringify(dat.data[m]));
-	$scope.chatting.push(dat.data[m]['talker']+":"+dat.data[m]['msg']+" ");
+		
+		var txtmsg = { talker:dat.data[m]['talker']   ,   // property_# may be an identifier...
+            msg:dat.data[m]['msg']};
+		
+	$scope.chatting.push(txtmsg);
 	}
 	//});
     })
@@ -166,7 +170,7 @@ $scope.chatting=new Array();
    var gameRecord = res.data;
   console.log(gameRecord);
 
-		
+	
       
 			
 		 var onDrop = function(source, target) {
