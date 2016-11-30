@@ -112,7 +112,7 @@
 			<td>		
 				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,'<%- req.session.user.id%>','<%- actualname %>')">Join Game</button>
 				
-				<button ng-click="deleteopengame(game.id)">Delete Game</button>
+				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
 				
 			</td>
 			<% } %>
