@@ -11,6 +11,7 @@ deleteopengame:function(req,res){
 	(function(err){console.log(err);});
 	
 	sails.sockets.broadcast('openchessgameroom','deleteopengameevent', {gameid:req.param('gameid')});
+	console.log('param '+req.param('gameid'));
 	console.log('broadcast deleteopengameevent'+JSON.stringify({gameid:req.param('gameid')}));
 	}	,
 	newopengame:function(req,res){
