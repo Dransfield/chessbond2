@@ -17,6 +17,21 @@ $scope.chatting=new Array();
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
+	document.head = document.head || document.getElementsByTagName('head')[0];
+
+function changeFavicon(src) {
+ var link = document.createElement('link'),
+     oldLink = document.getElementById('dynamic-favicon');
+ link.id = 'dynamic-favicon';
+ link.rel = 'shortcut icon';
+ link.href = src;
+ if (oldLink) {
+  document.head.removeChild(oldLink);
+ }
+ document.head.appendChild(link);
+}
+	
+	
 	function updatePlayersLabel(game,gameRecord)
 	{
 		console.log("hello");
@@ -157,7 +172,7 @@ $scope.chatting=new Array();
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-				
+				changeFavicon('http://www.chessbond.com/favicon2.ico');
 				var txtmsg = { talker:data.talker   , msg:data.greeting};
 		
 	$scope.$apply($scope.chatting.push(txtmsg));
@@ -216,25 +231,15 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
     ,function(resData,jwres)
 {}
 );
-/*
-io.socket.put('/UpdateGame',{
-      fen: game.fen(),
-      id:gameRecord.id
-      }  
-      
-    ,function(resData,jwres)
-{}
-);*/
+
+
 }
-console.log(JSON.stringify($scope.MyPieceTheme));
-console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
+//console.log(JSON.stringify($scope.MyPieceTheme));
+//console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
  board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
  game = new Chess();
-  //io.socket.get('/subscribetomygames');
-  //io.socket.get('Chessgame');
-  //io.socket.get('/chessgame');
-// io.socket.get('chessgame');
+
  
 
 	board1.start();
@@ -255,6 +260,7 @@ console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 		
 		 io.socket.on('chessgame', function gotmsg(msg) {
   console.log(msg);
+  changeFavicon('http://www.chessbond.com/favicon2.ico');
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
    var gameRecordnow = res.data;
