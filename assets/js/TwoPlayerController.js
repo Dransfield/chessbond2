@@ -21,7 +21,7 @@ $scope.chatting=new Array();
 
 	 io.socket.on('chessgamemove', function (data){
   console.log(data);
-  changeFavicon('http://www.chessbond.com/favicon2.ico');
+  $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
    var gameRecordnow = res.data;
