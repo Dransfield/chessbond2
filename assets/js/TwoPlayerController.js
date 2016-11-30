@@ -265,8 +265,7 @@ console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 	})
 	
 	}
-	}
-   
+	
    
 
 		
