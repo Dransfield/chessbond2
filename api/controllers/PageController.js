@@ -12,7 +12,7 @@ module.exports = {
 		if (err) {
   console.log(err);
 		}
-			sails.sockets.broadcast({id:req.param('owner')},'deletegameevent', {gameid:req.param('gameid')});
+			sails.sockets.broadcast(req.param('owner'),'deletegameevent', {gameid:req.param('gameid')});
 	console.log('param '+req.param('gameid'));
 	console.log('broadcast deleteopengameevent'+JSON.stringify({gameid:req.param('gameid')}));
 
