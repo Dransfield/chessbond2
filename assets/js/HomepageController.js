@@ -1,7 +1,19 @@
 angular.module('HomepageModule').controller('HomepageController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
-
+io.socket.on('deletegameevent', function (data)
+			{
+				console.log(data);
+				$scope.$apply(function(){
+				for(var i = $scope.joinedgames.length - 1; i >= 0; i--) {
+				
+			if($scope.joinedgames[i].id === data.gameid) {
+			$scope.joinedgames.splice(i, 1);
+			}
+			}
+			}
+			);
+			});
 
 	io.socket.on('deleteopengameevent', function (data)
 			{
