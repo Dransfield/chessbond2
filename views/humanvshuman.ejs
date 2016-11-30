@@ -95,7 +95,7 @@
 	</div>
 	<form ng-submit="chatMessage('<%- actualname %>')">
 	 <input type="text" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
-	<button type="submit" >chat</button>
+	<button type="submit" ng-click="chatInput = null">chat</button>
 	</form>  
     </div>
     <hr>

@@ -20,7 +20,7 @@ $scope.chatting=new Array();
 	function updatePlayersLabel(game,gameRecord)
 	{
 		console.log("hello");
-		$scope.$apply($scope.Player1Namer=gameRecord.Player1Name);
+		$scope.Player1Namer=gameRecord.Player1Name;
 		$scope.Player2Name=gameRecord.Player2Name;
 	console.log("scopep2"+$scope.Player2Name);	
 	}
