@@ -159,7 +159,7 @@ $scope.chatting=new Array();
 			io.socket.on('message', function (data){
 				
 				var txtmsg = { talker:data.talker   , msg:data.msg};
-		
+		console.log(data);
 	$scope.$apply($scope.chatting.push(txtmsg));
 				
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
