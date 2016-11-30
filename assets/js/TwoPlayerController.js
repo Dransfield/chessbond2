@@ -42,7 +42,7 @@ $scope.chatting=new Array();
 		
 	})
 
-function changeFavicon(src) {
+$scope.changeFavicon=function (src) {
  var link = document.createElement('link'),
      oldLink = document.getElementById('dynamic-favicon');
  link.id = 'dynamic-favicon';
@@ -195,7 +195,7 @@ function changeFavicon(src) {
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
-				changeFavicon('http://www.chessbond.com/favicon2.ico');
+				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 				var txtmsg = { talker:data.talker   , msg:data.greeting};
 		
 	$scope.$apply($scope.chatting.push(txtmsg));
