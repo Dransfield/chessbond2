@@ -84,7 +84,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 				$scope.$apply(function(){
 				for(var i = $scope.opg.length - 1; i >= 0; i--) {
 				
-			if($scope.opg[i].id === data) {
+			if($scope.opg[i].id === data.gameid) {
 			$scope.opg.splice(i, 1);
 			}
 			}
