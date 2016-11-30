@@ -8,11 +8,18 @@
 module.exports = {
 deleteopengame:function(req,res){
 	Openchessgame.destroy({id:req.param('gameid')}).exec
-	(function(err){console.log(err);});
-	
-	sails.sockets.broadcast('openchessgameroom','deleteopengameevent', {gameid:req.param('gameid')});
+	(function(err){
+		if (err) {
+  console.log(err);
+		}
+			sails.sockets.broadcast('openchessgameroom','deleteopengameevent', {gameid:req.param('gameid')});
 	console.log('param '+req.param('gameid'));
 	console.log('broadcast deleteopengameevent'+JSON.stringify({gameid:req.param('gameid')}));
+
+		}
+	
+	);
+	
 	}	,
 	newopengame:function(req,res){
 	console.log("all params of new game"+req.allParams());
