@@ -162,7 +162,6 @@ $scope.chatting=new Array();
 		
 	$scope.$apply($scope.chatting.push(txtmsg));
 				
-			$scope.$apply($scope.chatting.push("<b>"+data.talker+"</b>:"+data.greeting+" "));
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
 			
 			});
