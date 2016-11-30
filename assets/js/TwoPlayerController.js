@@ -19,6 +19,29 @@ $scope.chatting=new Array();
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
 
+	 io.socket.on('chessgamemove', function (data){
+  console.log(data);
+  changeFavicon('http://www.chessbond.com/favicon2.ico');
+  			$http.get('/chessgame?id='+GameID)
+.then(function (res) {
+   var gameRecordnow = res.data;
+		//board1.position(gameRecordnow .fen);
+		//.if(game.load(gameRecordnow .fen)==false)
+		//{
+		//alert('couldnt load game');
+	//	}
+	console.log("last move"+gameRecordnow.lastmove);
+	var modified=(gameRecordnow.lastmove.substr(0, 2) + "-" + gameRecordnow.lastmove.substr(2));
+	console.log("with -"+modified);
+	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+gameRecordnow.lastmove.substr(2, 5)+"-");
+		game.move({ from: gameRecordnow.lastmove.substr(0, 2), to: gameRecordnow.lastmove.substr(2, 5) });
+		board1.move(modified);
+		updateTurnTakerLabel(game,gameRecordnow);
+		console.log(game.ascii());
+		})
+		
+	})
+
 function changeFavicon(src) {
  var link = document.createElement('link'),
      oldLink = document.getElementById('dynamic-favicon');
@@ -262,28 +285,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		})
 		
 		
-		 io.socket.on('chessgamemove', function gotmsg(msg) {
-  console.log(msg);
-  changeFavicon('http://www.chessbond.com/favicon2.ico');
-  			$http.get('/chessgame?id='+GameID)
-.then(function (res) {
-   var gameRecordnow = res.data;
-		//board1.position(gameRecordnow .fen);
-		//.if(game.load(gameRecordnow .fen)==false)
-		//{
-		//alert('couldnt load game');
-	//	}
-	console.log("last move"+gameRecordnow.lastmove);
-	var modified=(gameRecordnow.lastmove.substr(0, 2) + "-" + gameRecordnow.lastmove.substr(2));
-	console.log("with -"+modified);
-	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+gameRecordnow.lastmove.substr(2, 5)+"-");
-		game.move({ from: gameRecordnow.lastmove.substr(0, 2), to: gameRecordnow.lastmove.substr(2, 5) });
-		board1.move(modified);
-		updateTurnTakerLabel(game,gameRecordnow);
-		console.log(game.ascii());
-		})
-		
-	})
+	
 	
 	}
 	

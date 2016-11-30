@@ -176,7 +176,7 @@ deleteopengame:function(req,res){
     },
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
-	
+	return res.ok();
 	},
     	chatmsg:function(req,res){
 
