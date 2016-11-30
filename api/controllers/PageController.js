@@ -10,8 +10,8 @@ deleteopengame:function(req,res){
 	Openchessgame.destroy({id:req.param('gameid')}).exec
 	(function(err){console.log(err);});
 	
-	sails.sockets.broadcast('openchessgameroom','deleteopengameevent', req.param('gameid'));
-	
+	sails.sockets.broadcast('openchessgameroom','deleteopengameevent', {req.param('gameid')});
+	console.log('broadcast deleteopengameevent');
 	}	,
 	newopengame:function(req,res){
 	console.log("all params of new game"+req.allParams());
