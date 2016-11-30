@@ -215,7 +215,8 @@ function changeFavicon(src) {
    var gameRecord = res.data;
   console.log(gameRecord);
 
-	
+	if (gameRecord.Player2==me)
+	{}
       
 			
 		 var onDrop = function(source, target) {
@@ -267,7 +268,8 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
  board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
  game = new Chess();
 
- 
+ if (gameRecord.Player2==me)
+	{board1.flip();}
 
 	board1.start();
 	
