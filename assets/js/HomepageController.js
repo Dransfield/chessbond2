@@ -96,7 +96,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 
 	$scope.createopengame=function(id,name)
 	{
-	 $http.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() })
+	io.socket.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() })
     .then(function onSuccess (){
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
@@ -110,6 +110,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			});
 			io.socket.on('newopengameevent', function (data)
 			{
+				console.log('newopengameevent'+data);
 			data.phrase=phrasefordate(data.Created);
 			$scope.$apply(function(){
 			$scope.opg.push(data);
