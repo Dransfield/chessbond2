@@ -175,7 +175,7 @@ deleteopengame:function(req,res){
     });
     },
     chessgamemove:function(req,res){
-		sails.sockets.broadcast(req.param('GameID'), {room:req.param('GameID')});
+		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	
 	},
     	chatmsg:function(req,res){
