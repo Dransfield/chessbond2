@@ -21,6 +21,8 @@ $scope.chatting=new Array();
 
 	 io.socket.on('chessgamemove', function (data){
   console.log(data);
+   var audio = new Audio('alert.mp3');
+        audio.play();
   $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
@@ -195,6 +197,8 @@ $scope.changeFavicon=function (src) {
 			console.log(JSON.stringify(resData));
 			});
 			io.socket.on('message', function (data){
+				 var audio = new Audio('alert.mp3');
+        audio.play();
 				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 				var txtmsg = { talker:data.talker   , msg:data.greeting};
 		
