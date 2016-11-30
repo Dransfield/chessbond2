@@ -233,8 +233,8 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
 );
 
 io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
-{}).
-);
+{});
+
 
 
 }
