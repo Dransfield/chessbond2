@@ -319,14 +319,14 @@ $scope.changeFavicon=function (src) {
 			})
 			*/
 			
-			var gameRecord;
+			
 			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
-    gameRecord = res.data;
+    var gameRecord = res.data;
   console.log(gameRecord);
 
 	
-  });
+  
 		if (gameRecord.Player2==me)
 	{}	
 		 var onDrop = function(source, target) {
@@ -389,7 +389,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
  if (gameRecord.Player2==me)
 	{board1.flip();}
 
-	board1.start();
+	//board1.start();
 	
 		if (gameRecord.fen)
 		{
@@ -404,7 +404,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		updateTurnTakerLabel(game,gameRecord);
 		
 		
-		
+		});
 		
 		
 	
