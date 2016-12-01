@@ -60,8 +60,9 @@ $scope.PreferenceVariable[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope
 	{
 	$http.get('/user?id='+me).then(function
 			(res)
-			{
-			var obj=JSON.parse(res.data.JSONpref);	
+			{var obj={};
+				if(res.data.JSONpref)
+			{obj=JSON.parse(res.data.JSONpref);	}
 			obj[prefid]=newpref;
 				io.socket.put('/user/'+me,{
       JSONpref:JSON.parse(obj)
@@ -320,7 +321,7 @@ $scope.changeFavicon=function (src) {
 					var obj={};
 					for (opt in $scope.Preferences)
 					{
-					obj[$scope.Preferences[opt]]=$scope.PreferenceOptions[opt][0];
+					
 					$scope.ChangePreference(opt,me,$scope.PreferenceOptions[opt][0]);
 					}
 					res.data.JSONpref=JSON.stringify(obj);
