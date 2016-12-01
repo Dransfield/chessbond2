@@ -98,7 +98,7 @@ $scope.PreferenceVariable[PieceThemePref]=$scope.PreferenceOptions[PieceThemePre
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
-			if($scope.PreferenceVariable[SoundPref]=$scope.PreferenceOptions[SoundPref][1])
+			if($scope.PreferenceVariable[SoundPref]==$scope.PreferenceOptions[SoundPref][1])
 			{
 			$scope.PlayBell();
 			}
@@ -118,7 +118,7 @@ $scope.PreferenceVariable[PieceThemePref]=$scope.PreferenceOptions[PieceThemePre
   console.log(data);
   if (document.visibilityState=='hidden')
 				{
-			if($scope.PreferenceVariable[SoundPref]=$scope.PreferenceOptions[SoundPref][1];)
+			if($scope.PreferenceVariable[SoundPref]==$scope.PreferenceOptions[SoundPref][1])
 			{
 			$scope.PlayBell();
 			}
