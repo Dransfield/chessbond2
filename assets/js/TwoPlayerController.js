@@ -14,15 +14,30 @@ $scope.chatting=new Array();
 	{name:'G'},
    {name:'H'}
     ];
+    $scope.BellSound= new Audio('alert.mp3');
+       
+    $scope.PlayBell()
+    {
+		    $scope.BellSound.play();
+		 }
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
-
+	io.socket.on('message', function (data){
+				$scope.PlayBell();
+				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
+				var txtmsg = { talker:data.talker   , msg:data.greeting};
+		
+	$scope.$apply($scope.chatting.push(txtmsg));
+				
+			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
+			
+			});
+			
 	 io.socket.on('chessgamemove', function (data){
   console.log(data);
-   var audio = new Audio('alert.mp3');
-        audio.play();
+  $scope.PlayBell();
   $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
@@ -196,17 +211,7 @@ $scope.changeFavicon=function (src) {
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-			io.socket.on('message', function (data){
-				 var audio = new Audio('alert.mp3');
-        audio.play();
-				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
-				var txtmsg = { talker:data.talker   , msg:data.greeting};
 		
-	$scope.$apply($scope.chatting.push(txtmsg));
-				
-			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
-			
-			});
 	
 		}
 	$scope.setBoard=function (me)
