@@ -32,8 +32,10 @@ $scope.PreferenceOptions[$scope.PieceThemePref][4]='E';
 $scope.PreferenceOptions[$scope.PieceThemePref][5]='F';
 
 $scope.PreferenceVariable=new Array();
-$scope.PreferenceVariable[$scope.SoundPref]=$scope.PreferenceOptions[$scope.SoundPref][0];
-$scope.PreferenceVariable[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope.PieceThemePref][0];
+
+$scope.PreferenceInitialValue=new Array();
+$scope.PreferenceInitialValue[$scope.SoundPref]=$scope.PreferenceOptions[$scope.SoundPref][1];
+$scope.PreferenceInitialValue[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope.PieceThemePref][0];
 
   $scope.piecethemes = [
       {name:'A'},
@@ -320,16 +322,16 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{//res.data.JSONpref=null;
-				if(!res.data.JSONpref )
-				{
+			//	if(!res.data.JSONpref )
+				//{
 					var obj={};
 					for (opt in $scope.Preferences)
 					{
-					obj[$scope.Preferences[opt]]=$scope.PreferenceOptions[opt][0];
-					$scope.ChangePreference(opt,me,$scope.PreferenceOptions[opt][0]);
+					obj[$scope.Preferences[opt]]=$scope.PreferenceInitialValue[opt];
+					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[opt]);
 					}
 					res.data.JSONpref=JSON.stringify(obj);
-				}
+				//}
 				
 				
 				console.log(res.data.JSONpref);
