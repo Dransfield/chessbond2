@@ -65,7 +65,7 @@ $scope.PreferenceVariable[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope
 			{obj=JSON.parse(res.data.JSONpref);	}
 			obj[prefid]=newpref;
 				io.socket.put('/user/'+me,{
-      JSONpref:JSON.parse(obj)
+      JSONpref:JSON.stringify(obj)
       }  
       
     ,function(resData,jwres)
