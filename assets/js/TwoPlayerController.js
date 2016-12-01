@@ -340,7 +340,8 @@ $scope.changeFavicon=function (src) {
 					//if (obj[obby])
 					//{
 					$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
-				//console.log("obby"+obj[obby]);
+				console.log(obj[Object.keys(obj)[mykey]]);
+				console.log(Object.keys(obj)[mykey]);
 				}
 				
 				
