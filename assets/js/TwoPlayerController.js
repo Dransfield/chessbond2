@@ -350,7 +350,7 @@ $scope.changeFavicon=function (src) {
 	   return 'snapback';}
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
-};
+}
 
 function updateStatus(game,gameRecord,move)
 {
