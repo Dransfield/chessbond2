@@ -342,7 +342,7 @@ $scope.changeFavicon=function (src) {
 					//$scope.PreferenceVariable[obby]=obj[obby];
 				//console.log("obby"+obj[obby]);
 				}
-				}
+				
 				
 				/*
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
