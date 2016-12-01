@@ -44,6 +44,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
     {
 	$scope.BellSound.play();
 	}
+	/*
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
 	$http.get('/user?id='+me).then(function
@@ -213,7 +214,7 @@ $scope.changeFavicon=function (src) {
 		}
 		}
 		
-		
+		*/
 	$scope.getchatmessages=function(){
 		
 	  $http.get('/chatmessage?room='+GameID+'&limit=30000', {
