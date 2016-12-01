@@ -323,10 +323,7 @@ $scope.changeFavicon=function (src) {
 					obj.[$scope.Preferences[opt]]=$scope.PreferenceOptions[opt][0];
 					console.log($scope.Preferences[opt]+" is "+obj.[$scope.Preferences[opt]]);
 					
-							for (opt2 in $scope.PreferenceOptions[opt])
-							{
-							console.log($scope.PreferenceOptions[opt][opt2]);
-							}
+						
 					}
 				}
 				else
