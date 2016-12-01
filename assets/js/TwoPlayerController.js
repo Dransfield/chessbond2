@@ -51,8 +51,9 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 			{var obj={};
 			for (opti in $scope.PreferenceNames)
 				{
-				obj[$scope.PreferenceNames[opti]]=$scope.PreferenceInitialValues[opti];
-				console.log($scope.PreferenceInitialValues[opti]);
+				
+				obj[$scope.PreferenceNames[opti]]=$scope.PreferenceInitialValues[$scope.PreferenceNames[opti]];
+				
 				}
 				
 				if(res.data.JSONpref)
