@@ -281,9 +281,9 @@ $scope.changeFavicon=function (src) {
 			(res)
 			{
 				console.log(res);
-				if (res.SoundEnabled=='true' || res.SoundEnabled=='false')
+				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
-			$scope.SoundEnabled=res.SoundEnabled;
+			$scope.SoundEnabled=res.data.SoundEnabled;
 			
 		}
 			})
