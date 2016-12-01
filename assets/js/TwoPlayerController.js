@@ -315,11 +315,12 @@ $scope.changeFavicon=function (src) {
 					{
 					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
 					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
+					console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
+				
 					}
 					res.data.JSONpref=JSON.stringify(obj);
 				//}
-				console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-				
+	
 				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
 				for (mykey in Object.keys(obj))
