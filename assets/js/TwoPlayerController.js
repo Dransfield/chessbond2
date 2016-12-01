@@ -16,13 +16,9 @@ $scope.chatting=new Array();
     ];
     $scope.BellSound= new Audio('alert.mp3');
 
-       document.onreadystatechange = () => {
-		   console.log('ready state change');
-  if (document.readyState === 'complete') {
-    // document ready
-  }
-};
-
+document.addEventListener("visibilitychange", function() {
+  console.log( document.visibilityState );
+});
     $scope.PlayBell=function()
     {
 		    $scope.BellSound.play();
