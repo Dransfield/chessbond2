@@ -318,15 +318,17 @@ $scope.changeFavicon=function (src) {
 	
 			})
 			*/
+			
+			var gameRecord;
 			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
-   var gameRecord = res.data;
+    gameRecord = res.data;
   console.log(gameRecord);
 
-	if (gameRecord.Player2==me)
-	{}
-      
-			
+	
+  });
+		if (gameRecord.Player2==me)
+	{}	
 		 var onDrop = function(source, target) {
   
   if (usersTurn(game,gameRecord,me)==false)
@@ -347,7 +349,8 @@ $scope.changeFavicon=function (src) {
 	  //console.log('in draw?'+game.in_draw());
 	   
 	  
-	   return 'snapback';}
+	   return 'snapback';
+	   }
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
 }
@@ -380,9 +383,9 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- //board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
  game = new Chess();
-board1 = ChessBoard('board');
+
  if (gameRecord.Player2==me)
 	{board1.flip();}
 
@@ -399,9 +402,9 @@ board1 = ChessBoard('board');
 	
 		}
 		updateTurnTakerLabel(game,gameRecord);
-		}
 		
-		);
+		
+		
 		
 		
 	
