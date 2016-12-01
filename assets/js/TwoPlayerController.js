@@ -280,8 +280,11 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{
+				if (res.SoundEnabled=='true' || res.SoundEnabled=='false')
+				{ 
 			$scope.SoundEnabled=res.SoundEnabled;
 			console.log(res);
+		}
 			})
 			
 			$http.get('/chessgame?id='+GameID)
