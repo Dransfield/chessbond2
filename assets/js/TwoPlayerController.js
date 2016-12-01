@@ -319,9 +319,9 @@ $scope.changeFavicon=function (src) {
 		{
 			$http.get('/user?id='+me).then(function
 			(res)
-			{res.data.JSONpref=null;
-				//if(!res.data.JSONpref )
-				//{
+			{//res.data.JSONpref=null;
+				if(!res.data.JSONpref )
+				{
 					var obj={};
 					for (opt in $scope.Preferences)
 					{
@@ -329,17 +329,17 @@ $scope.changeFavicon=function (src) {
 					$scope.ChangePreference(opt,me,$scope.PreferenceOptions[opt][0]);
 					}
 					res.data.JSONpref=JSON.stringify(obj);
-				//}
+				}
 				
 				
 				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
 				for (mykey in Object.keys(obj))
 				{
-					console.log(Object.keys(obj)[mykey]);
+					//console.log(Object.keys(obj)[mykey]);
 					//if (obj[obby])
 					//{
-					//$scope.PreferenceVariable[obby]=obj[obby];
+					$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
 				//console.log("obby"+obj[obby]);
 				}
 				
