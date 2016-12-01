@@ -84,6 +84,7 @@
         </form>-->
         <span class="label label-default" ng-model="TurnTaker">It's {{TurnTaker}}'s Turn</span>
    <hr>
+   {{SoundPref}}
    <button ng-click="PrefToggleButtonClicked=function(SoundPref,'<%-req.session.user.id%>')" class="btn btn-success">{{PreferenceVariable[SoundPref]}}</button>
    <hr>
    <span class="label label-default">Chat</span>
