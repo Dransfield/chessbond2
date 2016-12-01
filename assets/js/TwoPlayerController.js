@@ -50,11 +50,16 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 			(res)
 			{var obj={};
 			for (opti in $scope.PreferenceNames)
-			{obj[$scope.PreferenceNames[opti]]=$scope.PreferenceInitialValues[opti];}
+				{
+				obj[$scope.PreferenceNames[opti]]=$scope.PreferenceInitialValues[opti];
+				console.log($scope.PreferenceInitialValues[opti]);
+				}
+				
 				if(res.data.JSONpref)
-			{
+				{
 				obj=JSON.parse(res.data.JSONpref);
 				}
+			
 			obj[$scope.PreferenceNames[prefid]]=newpref;
 				io.socket.put('/user/id='+me,{
       JSONpref:JSON.stringify(obj)
