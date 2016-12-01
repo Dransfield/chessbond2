@@ -330,7 +330,7 @@ $scope.changeFavicon=function (src) {
 				
 				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
-				for (obbj in obj)
+				for (obby in obj)
 				{
 				console.log("obby"+obj[obby]);
 					
