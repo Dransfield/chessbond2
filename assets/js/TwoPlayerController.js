@@ -380,9 +380,9 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
+ //board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
  game = new Chess();
-
+board1 = ChessBoard('board');
  if (gameRecord.Player2==me)
 	{board1.flip();}
 
