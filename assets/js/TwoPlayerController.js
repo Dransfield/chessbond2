@@ -142,9 +142,9 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 		board1.move(modified);
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
-		})
+		});
 		
-	})
+	});
 
 $scope.changeFavicon=function (src) {
  var link = document.createElement('link'),
@@ -269,7 +269,7 @@ $scope.changeFavicon=function (src) {
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
-			)
+			);
 			
 			
 			
@@ -401,7 +401,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		updateTurnTakerLabel(game,gameRecord);
 		}
 		
-		)
+		);
 		
 		
 	
