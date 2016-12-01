@@ -16,7 +16,7 @@ $scope.chatting=new Array();
     ];
     $scope.BellSound= new Audio('alert.mp3');
        
-    $scope.PlayBell()
+    $scope.PlayBell=function()
     {
 		    $scope.BellSound.play();
 		 }
