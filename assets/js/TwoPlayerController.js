@@ -250,7 +250,14 @@ $scope.changeFavicon=function (src) {
 
   // illegal move
   
-  if (move === null) return 'snapback';
+  if (move === null){
+	  console.log('gameover?'+game.game_over());
+	  console.log('in check?'+game.in_check());
+	  console.log('in checkmate?'+game.in_checkmate());
+	  console.log('in draw?'+game.in_draw());
+	   
+	  
+	   return 'snapback';}
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
 };
