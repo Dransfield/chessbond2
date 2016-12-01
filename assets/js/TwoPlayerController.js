@@ -315,24 +315,26 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{
-				if(!res.data.JSONpref)
+				if(!res.data.JSONpref )
 				{
 					var obj={};
 					for (opt in $scope.Preferences)
 					{
 					obj[$scope.Preferences[opt]]=$scope.PreferenceOptions[opt][0];
-					console.log($scope.Preferences[opt]+" is "+obj[$scope.Preferences[opt]]);
-					
-						
+					$scope.ChangePreference(opt,me,$scope.PreferenceOptions[opt][0]);
 					}
+					res.data.JSONpref=JSON.stringify(obj);
 				}
-				else
-				{
+				
+				
 				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
 				for (obbj in obj)
-				{console.log("obby"+obj[obby]);}
+				{
+				console.log("obby"+obj[obby]);
+					
 				}
+				
 				/*
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
