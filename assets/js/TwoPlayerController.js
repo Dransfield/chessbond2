@@ -5,8 +5,8 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 
-var SoundPref=0;
-var PieceThemePref=1;
+$scope.SoundPref=0;
+$scope.PieceThemePref=1;
 
 $scope.Preferences=new Array();
 $scope.Preferences[SoundPref]='Sound';
