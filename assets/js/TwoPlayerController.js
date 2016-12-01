@@ -33,7 +33,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 	{name:'G'},
    {name:'H'}
     ];
-    //$scope.BellSound= new Audio('alert.mp3');
+   $scope.BellSound= new Audio('alert.mp3');
 
 //document.addEventListener("visibilitychange", function() {
   //console.log( document.visibilityState );
@@ -44,7 +44,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
     {
 	$scope.BellSound.play();
 	};
-	/*
+	
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
 	$http.get('/user?id='+me).then(function
@@ -92,7 +92,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
 	}
 	}
-	*/
+	
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
