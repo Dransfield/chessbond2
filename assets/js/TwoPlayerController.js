@@ -36,6 +36,7 @@ document.addEventListener("visibilitychange", function() {
 				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 			console.log('recieved chat message'+document.visibilityState);
 			}
+			console.log(document.visibilityState);
 				var txtmsg = { talker:data.talker   , msg:data.greeting};
 		
 	$scope.$apply($scope.chatting.push(txtmsg));
