@@ -63,10 +63,10 @@ $scope.PreferenceVariable[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope
 			{var obj={};
 			for (opti in $scope.Preferences)
 			{obj[$scope.Preferences[opti]]=$scope.PreferenceOptions[opti][0];}
-			//	if(res.data.JSONpref)
-			//{
-			//	obj=JSON.parse(res.data.JSONpref);
-			//	}
+				if(res.data.JSONpref)
+			{
+				obj=JSON.parse(res.data.JSONpref);
+				}
 			obj[$scope.Preferences[prefid]]=newpref;
 				io.socket.put('/user/'+me,{
       JSONpref:JSON.stringify(obj)
