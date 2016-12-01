@@ -5,11 +5,35 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 
-$scope.Preferences=new Array();
-$scope.Preferences[0]='Sound ';
+var SoundPref=0;
+var PieceThemePref=1;
 
-$scope.SoundButtonPhrase="SoundEnabled";
-$scope.SoundEnabled='true';
+$scope.Preferences=new Array();
+$scope.Preferences[SoundPref]='Sound';
+$scope.Preferences[1]='ChessPieceTheme';
+
+
+
+$scope.PreferencesGUIType=new Array();
+$scope.PreferencesGUIType[SoundPref]='Toggle';
+$scope.PreferencesGUIType[1]='Select';
+
+$scope.PreferenceOptions=new Array();
+$scope.PreferenceOptions[SoundPref]=new Array();
+$scope.PreferenceOptions[SoundPref][1]='SoundEnabled';
+$scope.PreferenceOptions[SoundPref][0]='SoundDisabled';
+
+$scope.PreferenceOptions[1]=new Array();
+$scope.PreferenceOptions[1][0]='A';
+$scope.PreferenceOptions[1][1]='B';
+$scope.PreferenceOptions[1][2]='C';
+$scope.PreferenceOptions[1][3]='D';
+$scope.PreferenceOptions[1][4]='E';
+$scope.PreferenceOptions[1][5]='F';
+
+$scope.PreferenceVariable=new Array();
+$scope.PreferenceVariable[SoundPref]=$scope.PreferenceOptions[SoundPref][0];
+$scope.PreferenceVariable[PieceThemePref]=$scope.PreferenceOptions[PieceThemePref][0];
 
   $scope.piecethemes = [
       {name:'A'},
@@ -32,40 +56,38 @@ $scope.SoundEnabled='true';
     {
 	$scope.BellSound.play();
 	}
-	$scope.SoundButtonClicked=function(me)
+	$scope.ChangePreference=function(prefid,me,newpref)
 	{
-	if ($scope.SoundButtonPhrase=='SoundEnabled')	
-	{
-	$scope.SoundEnabled='false';
-	$scope.SoundButtonPhrase='SoundDisabled';
-	
-	io.socket.put('/user/'+me,{
-      SoundEnabled:'false'
+	$http.get('/user?id='+me).then(function
+			(res)
+			{
+			var obj=JSON.parse(res.data.JSONpref);	
+			obj.prefid=newpref;
+				io.socket.put('/user/'+me,{
+      JSONpref:JSON.parse(obj)
       }  
       
     ,function(resData,jwres)
-{console.log(me);
-	console.log(resData);
-	console.log(jwres);
+{//console.log(me);
+	//console.log(resData);
+	//console.log(jwres);
 	}
 );
+			}	
+		
+	}
 	
+	$scope.PrefToggleButtonClicked=function(pref,me)
+	{
+	if ($scope.PreferenceVariable[pref]==$scope.PreferenceOptions[pref][1])	
+	{
+	$scope.PreferenceVariable[pref]=$scope.PreferenceOptions[pref][0];
+	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
 	}
 	else
 	{
-	$scope.SoundEnabled='true';
-	$scope.SoundButtonPhrase='SoundEnabled';
-	io.socket.put('/user/'+me,{
-      SoundEnabled:'true'
-      }  
-      
-    ,function(resData,jwres)
-	{console.log(me);
-		console.log(resData);
-	console.log(jwres);
-			
-		}
-	);
+	$scope.PreferenceVariable[pref]=$scope.PreferenceOptions[pref][1];
+	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
 	}
 	}
 	
@@ -76,7 +98,7 @@ $scope.SoundEnabled='true';
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
-			if($scope.SoundEnabled=='true')
+			if($scope.PreferenceVariable[SoundPref]=$scope.PreferenceOptions[SoundPref][1];)
 			{
 			$scope.PlayBell();
 			}
@@ -96,7 +118,7 @@ $scope.SoundEnabled='true';
   console.log(data);
   if (document.visibilityState=='hidden')
 				{
-			if($scope.SoundEnabled=='true')
+			if($scope.PreferenceVariable[SoundPref]=$scope.PreferenceOptions[SoundPref][1];)
 			{
 			$scope.PlayBell();
 			}
@@ -291,7 +313,7 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{
-				console.log("data.soundenabled"+res.data['SoundEnabled']);
+				
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
 			$scope.SoundEnabled=res.data.SoundEnabled;
