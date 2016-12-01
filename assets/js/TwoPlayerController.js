@@ -104,7 +104,9 @@ $scope.changeFavicon=function (src) {
 		if (game.turn()=='w')
 		{
 		if (gameRecord.Player1==me)
-		{return true;}
+		{
+			console.log('it is your turn');
+			return true;}
 		else
 		{
 			console.log('its '+gameRecord.Player1+'s turn'+me);
@@ -113,7 +115,9 @@ $scope.changeFavicon=function (src) {
 		else
 		{
 		if (gameRecord.Player2==me)
-		{return true;}
+		{
+			console.log('it is your turn');
+			return true;}
 		else
 		{
 			console.log('its '+gameRecord.Player2+'s turn'+me);
