@@ -62,7 +62,7 @@ $scope.PreferenceVariable[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope
 			(res)
 			{
 			var obj=JSON.parse(res.data.JSONpref);	
-			obj.prefid=newpref;
+			obj[prefid]=newpref;
 				io.socket.put('/user/'+me,{
       JSONpref:JSON.parse(obj)
       }  
@@ -316,6 +316,10 @@ $scope.changeFavicon=function (src) {
 			(res)
 			{
 				
+				var obj=JSON.parse(res.data.JSONpref);	
+				for (obbj in obj)
+				{console.log("obby"+obj[obby]);}
+				/*
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
 			$scope.SoundEnabled=res.data.SoundEnabled;
@@ -331,7 +335,7 @@ $scope.changeFavicon=function (src) {
 			$scope.SoundButtonPhrase='SoundDisabled';
 			}
 		
-		}
+		}*/
 			})
 			
 			$http.get('/chessgame?id='+GameID)
