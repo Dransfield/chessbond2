@@ -291,7 +291,15 @@ $scope.changeFavicon=function (src) {
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
 			$scope.SoundEnabled=res.data.SoundEnabled;
-			
+			if ($scope.SoundEnabled=='true')
+			{
+			$scope.SoundButtonPhrase=='SoundEnabled';
+			}
+			if ($scope.SoundEnabled=='false')
+			{
+			$scope.SoundButtonPhrase=='SoundDisabled';
+			}
+		
 		}
 			})
 			
