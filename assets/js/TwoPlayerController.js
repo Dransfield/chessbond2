@@ -311,7 +311,7 @@ $scope.changeFavicon=function (src) {
 			//	if(!res.data.JSONpref )
 				//{
 					var obj={};
-					for (opt in $scope.Preferences)
+					for (opt in $scope.PreferenceNames)
 					{
 					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
 					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
