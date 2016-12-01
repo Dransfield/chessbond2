@@ -5,7 +5,7 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 
-/*
+
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
 $scope.PreferencesGUIType=new Array();
@@ -22,7 +22,7 @@ $scope.PreferenceVariable=new Array();
 $scope.PreferenceInitialValue=new Array();
 $scope.PreferenceInitialValue['Sound']='SoundEnabled';
 $scope.PreferenceInitialValue['ChessPieceTheme']='A';
-*/
+
   $scope.piecethemes = [
       {name:'A'},
       {name:'B'},
@@ -284,7 +284,7 @@ $scope.changeFavicon=function (src) {
 	
 		};
 	$scope.setBoard=function (me)
-		{/*
+		{
 			$http.get('/user?id='+me).then(function
 			(res)
 			{//res.data.JSONpref=null;
@@ -317,7 +317,7 @@ $scope.changeFavicon=function (src) {
 				
 	
 			})
-			*/
+			
 			
 			
 			$http.get('/chessgame?id='+GameID)
@@ -343,10 +343,10 @@ $scope.changeFavicon=function (src) {
   // illegal move
   
   if (move === null){
-	 // console.log('gameover?'+game.game_over());
-	  //console.log('in check?'+game.in_check());
-	  //console.log('in checkmate?'+game.in_checkmate());
-	  //console.log('in draw?'+game.in_draw());
+	 console.log('gameover?'+game.game_over());
+	  console.log('in check?'+game.in_check());
+	  console.log('in checkmate?'+game.in_checkmate());
+	  console.log('in draw?'+game.in_draw());
 	   
 	  
 	   return 'snapback';
@@ -362,7 +362,7 @@ gameRecord.fen=game.fen();
 gameRecord.lastmove=move.from+move.to;
 updateTurnTakerLabel(game,gameRecord);
 updatePlayersLabel(game,gameRecord);
-//game.load(gameRecord.fen);
+game.load(gameRecord.fen);
 
 
 io.socket.put('/Chessgame/'+gameRecord.id,{
