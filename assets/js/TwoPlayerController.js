@@ -50,7 +50,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 			(res)
 			{var obj={};
 			for (opti in $scope.PreferenceNames)
-			{obj[$scope.PreferenceNames[opti]]=$scope.PreferenceOptions[opti][0];}
+			{obj[$scope.PreferenceNames[opti]]=$scope.PreferenceInitialValues[opti];}
 				if(res.data.JSONpref)
 			{
 				obj=JSON.parse(res.data.JSONpref);
@@ -61,9 +61,9 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
       }  
       
     ,function(resData,jwres)
-{//console.log(me);
-	//console.log(resData);
-	//console.log(jwres);
+{console.log(me);
+	console.log(resData);
+	console.log(jwres);
 	}
 );
 			})	
