@@ -5,37 +5,23 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 
-$scope.SoundPref=0;
-$scope.PieceThemePref=1;
 
-$scope.Preferences=new Array();
-$scope.Preferences[$scope.SoundPref]='Sound';
-$scope.Preferences[$scope.PieceThemePref]='ChessPieceTheme';
-
-
+$scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
 $scope.PreferencesGUIType=new Array();
-$scope.PreferencesGUIType[$scope.SoundPref]='Toggle';
-$scope.PreferencesGUIType[$scope.PieceThemePref]='Select';
+$scope.PreferencesGUIType['Sound']='Toggle';
+$scope.PreferencesGUIType['ChessPieceTheme']='Select';
 
 $scope.PreferenceOptions=new Array();
-$scope.PreferenceOptions[$scope.SoundPref]=new Array();
-$scope.PreferenceOptions[$scope.SoundPref][1]='SoundEnabled';
-$scope.PreferenceOptions[$scope.SoundPref][0]='SoundDisabled';
+$scope.PreferenceOptions['Sound']=['SoundEnabled','SoundDisabled'];
+$scope.PreferenceOptions['ChessPieceTheme']=['A','B','C','D','E','F'];
 
-$scope.PreferenceOptions[$scope.PieceThemePref]=new Array();
-$scope.PreferenceOptions[$scope.PieceThemePref][0]='A';
-$scope.PreferenceOptions[$scope.PieceThemePref][1]='B';
-$scope.PreferenceOptions[$scope.PieceThemePref][2]='C';
-$scope.PreferenceOptions[$scope.PieceThemePref][3]='D';
-$scope.PreferenceOptions[$scope.PieceThemePref][4]='E';
-$scope.PreferenceOptions[$scope.PieceThemePref][5]='F';
 
 $scope.PreferenceVariable=new Array();
 
 $scope.PreferenceInitialValue=new Array();
-$scope.PreferenceInitialValue[$scope.SoundPref]=$scope.PreferenceOptions[$scope.SoundPref][1];
-$scope.PreferenceInitialValue[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope.PieceThemePref][0];
+$scope.PreferenceInitialValue['Sound']='SoundEnabled';
+$scope.PreferenceInitialValue['ChessPieceTheme']='A';
 
   $scope.piecethemes = [
       {name:'A'},
@@ -107,7 +93,7 @@ $scope.PreferenceInitialValue[$scope.PieceThemePref]=$scope.PreferenceOptions[$s
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
-			if($scope.PreferenceVariable[$scope.SoundPref]==$scope.PreferenceOptions[$scope.SoundPref][1])
+			if($scope.PreferenceVariable['Sound']=='SoundEnabled')
 			{
 			$scope.PlayBell();
 			}
@@ -127,7 +113,7 @@ $scope.PreferenceInitialValue[$scope.PieceThemePref]=$scope.PreferenceOptions[$s
   console.log(data);
   if (document.visibilityState=='hidden')
 				{
-			if($scope.PreferenceVariable[$scope.SoundPref]==$scope.PreferenceOptions[$scope.SoundPref][1])
+			if($scope.PreferenceVariable['Sound']=='SoundEnabled')
 			{
 			$scope.PlayBell();
 			}
