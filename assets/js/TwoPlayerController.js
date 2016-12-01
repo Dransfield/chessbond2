@@ -19,7 +19,7 @@ $scope.chatting=new Array();
 document.addEventListener("visibilitychange", function() {
   console.log( document.visibilityState );
   if (document.visibilityState=='visible')
-  {}
+  {console.log('document is visible');}
 });
     $scope.PlayBell=function()
     {
