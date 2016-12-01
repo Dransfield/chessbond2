@@ -15,7 +15,14 @@ $scope.chatting=new Array();
    {name:'H'}
     ];
     $scope.BellSound= new Audio('alert.mp3');
-       
+
+       document.onreadystatechange = () => {
+		   console.log('ready state change');
+  if (document.readyState === 'complete') {
+    // document ready
+  }
+};
+
     $scope.PlayBell=function()
     {
 		    $scope.BellSound.play();
