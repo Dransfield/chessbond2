@@ -106,14 +106,19 @@ $scope.changeFavicon=function (src) {
 		if (gameRecord.Player1==me)
 		{return true;}
 		else
-		{return false;}
+		{
+			console.log('its '+gameRecord.Player1+'s turn'+me);
+			return false;}
 		}
 		else
 		{
 		if (gameRecord.Player2==me)
 		{return true;}
 		else
-		{return false;}
+		{
+			console.log('its '+gameRecord.Player2+'s turn'+me);
+		
+		return false;}
 		
 		}
 		}
