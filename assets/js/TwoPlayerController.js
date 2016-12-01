@@ -83,6 +83,8 @@ $scope.PreferenceVariable[$scope.PieceThemePref]=$scope.PreferenceOptions[$scope
 	{
 	$scope.PreferenceVariable[pref]=$scope.PreferenceOptions[pref][0];
 	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
+	console.log("$scope.PreferenceVariable[pref]"+$scope.PreferenceVariable[pref]);
+	console.log("pref "+pref);
 	}
 	else
 	{
