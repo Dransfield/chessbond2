@@ -284,7 +284,7 @@ $scope.changeFavicon=function (src) {
 	
 		}
 	$scope.setBoard=function (me)
-		{
+		{/*
 			$http.get('/user?id='+me).then(function
 			(res)
 			{//res.data.JSONpref=null;
@@ -317,7 +317,7 @@ $scope.changeFavicon=function (src) {
 				
 	
 			})
-			
+			*/
 			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
    var gameRecord = res.data;
@@ -341,10 +341,10 @@ $scope.changeFavicon=function (src) {
   // illegal move
   
   if (move === null){
-	  console.log('gameover?'+game.game_over());
-	  console.log('in check?'+game.in_check());
-	  console.log('in checkmate?'+game.in_checkmate());
-	  console.log('in draw?'+game.in_draw());
+	 // console.log('gameover?'+game.game_over());
+	  //console.log('in check?'+game.in_check());
+	  //console.log('in checkmate?'+game.in_checkmate());
+	  //console.log('in draw?'+game.in_draw());
 	   
 	  
 	   return 'snapback';}
