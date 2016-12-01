@@ -322,7 +322,7 @@ $scope.changeFavicon=function (src) {
 					console.log($scope.Preferences[opt]);
 							for (opt2 in $scope.PreferenceOptions[opt])
 							{
-							console.log($scope.PreferenceOptions[opt][opt2];
+							console.log($scope.PreferenceOptions[opt][opt2]);
 							}
 					}
 				}
