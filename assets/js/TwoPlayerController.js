@@ -62,7 +62,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 				}
 			
 			obj[$scope.PreferenceNames[prefid]]=newpref;
-				io.socket.put('/user?id='+me,{
+				io.socket.put('/user/'+me,{
       JSONpref:JSON.stringify(obj)
       }  
       
