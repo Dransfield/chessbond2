@@ -295,12 +295,12 @@ $scope.changeFavicon=function (src) {
 			if ($scope.SoundEnabled=='true')
 			{
 				console.log("changed soundbutton phrase to enanled");
-			$scope.SoundButtonPhrase=='SoundEnabled';
+			$scope.$apply($scope.SoundButtonPhrase=='SoundEnabled');
 			}
 			if ($scope.SoundEnabled=='false')
 			{
 				console.log("changed soundbutton phrase to disabled");
-			$scope.SoundButtonPhrase=='SoundDisabled';
+			$scope.$apply($scope.SoundButtonPhrase=='SoundDisabled');
 			}
 		
 		}
