@@ -4,6 +4,10 @@ var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
+
+$scope.Preferences=new Array();
+$scope.Preferences[0]='Sound ';
+
 $scope.SoundButtonPhrase="SoundEnabled";
 $scope.SoundEnabled='true';
 
@@ -287,7 +291,7 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{
-				console.log("data.soundenabled"+res.data.SoundEnabled);
+				console.log("data.soundenabled"+res.data['SoundEnabled']);
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
 			$scope.SoundEnabled=res.data.SoundEnabled;
@@ -295,12 +299,12 @@ $scope.changeFavicon=function (src) {
 			if ($scope.SoundEnabled=='true')
 			{
 				console.log("changed soundbutton phrase to enanled");
-			$scope.SoundButtonPhrase=='SoundEnabled';
+			$scope.SoundButtonPhrase='SoundEnabled';
 			}
 			if ($scope.SoundEnabled=='false')
 			{
 				console.log("changed soundbutton phrase to disabled");
-			$scope.SoundButtonPhrase=='SoundDisabled';
+			$scope.SoundButtonPhrase='SoundDisabled';
 			}
 		
 		}
