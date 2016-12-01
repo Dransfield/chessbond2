@@ -43,7 +43,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
     $scope.PlayBell=function()
     {
 	$scope.BellSound.play();
-	}
+	};
 	/*
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
@@ -156,7 +156,7 @@ $scope.changeFavicon=function (src) {
   document.head.removeChild(oldLink);
  }
  document.head.appendChild(link);
-}
+};
 	
 	
 	function updatePlayersLabel(game,gameRecord)
@@ -273,7 +273,7 @@ $scope.changeFavicon=function (src) {
 			
 			
 			
-		}
+		};
 	$scope.joinRoom=function (usrName)
 		{
 			
@@ -282,7 +282,7 @@ $scope.changeFavicon=function (src) {
 			});
 		
 	
-		}
+		};
 	$scope.setBoard=function (me)
 		{/*
 			$http.get('/user?id='+me).then(function
@@ -331,7 +331,7 @@ $scope.changeFavicon=function (src) {
 	{}	
 		 var onDrop = function(source, target) {
   
-  if (usersTurn(game,gameRecord,me)==false)
+  if (usersTurn(game,gameRecord,me)===false)
   { return 'snapback';}
   // see if the move is legal
   var move = game.move({
@@ -353,7 +353,7 @@ $scope.changeFavicon=function (src) {
 	   }
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
-}
+};
 
 function updateStatus(game,gameRecord,move)
 {
@@ -394,7 +394,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		if (gameRecord.fen)
 		{
 		board1.position(gameRecord.fen);
-		if(game.load(gameRecord.fen)==false)
+		if(game.load(gameRecord.fen)===false)
 		{
 		alert('couldnt load game');
 		}
@@ -409,7 +409,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		
 	
 	
-	}
+	};
 	
    
 
