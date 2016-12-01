@@ -40,7 +40,7 @@ $scope.SoundEnabled='true';
       }  
       
     ,function(resData,jwres)
-{
+{console.log(me);
 	console.log(resData);
 	console.log(jwres);
 	}
@@ -56,7 +56,8 @@ $scope.SoundEnabled='true';
       }  
       
     ,function(resData,jwres)
-	{console.log(resData);
+	{console.log(me);
+		console.log(resData);
 	console.log(jwres);
 			
 		}
