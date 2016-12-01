@@ -317,9 +317,12 @@ $scope.changeFavicon=function (src) {
 			{
 				if(!res.data.JSONpref)
 				{
+					var obj={};
 					for (opt in $scope.Preferences)
 					{
-					console.log($scope.Preferences[opt]);
+					obj.[$scope.Preferences[opt]]=$scope.PreferenceOptions[opt][0];
+					console.log($scope.Preferences[opt]+" is "+obj.[$scope.Preferences[opt]]);
+					
 							for (opt2 in $scope.PreferenceOptions[opt])
 							{
 							console.log($scope.PreferenceOptions[opt][opt2]);
