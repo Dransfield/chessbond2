@@ -96,7 +96,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
-	//document.head = document.head || document.getElementsByTagName('head')[0];
+	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
