@@ -315,7 +315,7 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{
-				
+				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
 				for (obbj in obj)
 				{console.log("obby"+obj[obby]);}
