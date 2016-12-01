@@ -4,6 +4,7 @@ var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
+$scope.SoundButtonPhrase="SoundEnabled";
   $scope.piecethemes = [
       {name:'A'},
       {name:'B'},
@@ -16,24 +17,38 @@ $scope.chatting=new Array();
     ];
     $scope.BellSound= new Audio('alert.mp3');
 
-document.addEventListener("visibilitychange", function() {
-  console.log( document.visibilityState );
-  if (document.visibilityState=='visible')
-  {console.log('document is visible');}
-});
+//document.addEventListener("visibilitychange", function() {
+  //console.log( document.visibilityState );
+ // if (document.visibilityState=='visible')
+ // {console.log('document is visible');}
+//});
     $scope.PlayBell=function()
     {
-		    $scope.BellSound.play();
-		 }
+	$scope.BellSound.play();
+	}
+	$scope.SoundButtonClicked=function()
+	{
+	if ($scope.SoundButtonPhrase=='SoundEnabled')	
+	{
+	$scope.SoundEnabled=false;
+	$scope.SoundButtonPhrase='SoundDisabled';
+	}
+	else
+	{
+	$scope.SoundEnabled=true;
+	$scope.SoundButtonPhrase='SoundEnabled';
+	}
+	}
+	
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
-				{
-				$scope.PlayBell();
-				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
+			{
+			$scope.PlayBell();
+			$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 			console.log('recieved chat message'+document.visibilityState);
 			}
 			console.log(document.visibilityState);
