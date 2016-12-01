@@ -287,16 +287,19 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{
-				console.log(res);
+				console.log("data.soundenabled"+res.data.SoundEnabled);
 				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
 				{ 
 			$scope.SoundEnabled=res.data.SoundEnabled;
+			console.log("$scope.SoundEnabled "+$scope.SoundEnabled);
 			if ($scope.SoundEnabled=='true')
 			{
+				console.log("changed soundbutton phrase to enanled");
 			$scope.SoundButtonPhrase=='SoundEnabled';
 			}
 			if ($scope.SoundEnabled=='false')
 			{
+				console.log("changed soundbutton phrase to disabled");
 			$scope.SoundButtonPhrase=='SoundDisabled';
 			}
 		
