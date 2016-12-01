@@ -5,6 +5,8 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 $scope.SoundButtonPhrase="SoundEnabled";
+$scope.SoundEnabled='true';
+
   $scope.piecethemes = [
       {name:'A'},
       {name:'B'},
@@ -26,17 +28,33 @@ $scope.SoundButtonPhrase="SoundEnabled";
     {
 	$scope.BellSound.play();
 	}
-	$scope.SoundButtonClicked=function()
+	$scope.SoundButtonClicked=function(me)
 	{
 	if ($scope.SoundButtonPhrase=='SoundEnabled')	
 	{
-	$scope.SoundEnabled=false;
+	$scope.SoundEnabled='false';
 	$scope.SoundButtonPhrase='SoundDisabled';
+	
+	io.socket.put('/user/'+me,{
+      SoundEnabled:'false'
+      }  
+      
+    ,function(resData,jwres)
+{}
+);
+	
 	}
 	else
 	{
-	$scope.SoundEnabled=true;
+	$scope.SoundEnabled='true';
 	$scope.SoundButtonPhrase='SoundEnabled';
+	io.socket.put('/user/'+me,{
+      SoundEnabled:'true'
+      }  
+      
+    ,function(resData,jwres)
+	{}
+	);
 	}
 	}
 	
@@ -47,7 +65,10 @@ $scope.SoundButtonPhrase="SoundEnabled";
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
+			if($scope.SoundEnabled=='true')
+			{
 			$scope.PlayBell();
+			}
 			$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 			console.log('recieved chat message'+document.visibilityState);
 			}
@@ -64,7 +85,10 @@ $scope.SoundButtonPhrase="SoundEnabled";
   console.log(data);
   if (document.visibilityState=='hidden')
 				{
-  $scope.PlayBell();
+			if($scope.SoundEnabled=='true')
+			{
+			$scope.PlayBell();
+			}
   $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 }
   			$http.get('/chessgame?id='+GameID)
@@ -253,8 +277,12 @@ $scope.changeFavicon=function (src) {
 		}
 	$scope.setBoard=function (me)
 		{
-			
-
+			$http.get('/user?id='+me).then(function
+			(res)
+			{
+			$scope.SoundEnabled=res.SoundEnabled;
+			console.log(res);
+			})
 			
 			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
@@ -337,7 +365,9 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 	
 		}
 		updateTurnTakerLabel(game,gameRecord);
-		})
+		}
+		
+		)
 		
 		
 	

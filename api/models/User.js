@@ -10,10 +10,10 @@ module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
     
-    /* e.g.
-    nickname: 'string'
-    */
-    
+     SoundEnabled: {
+      type: 'string',
+      defaultsTo: 'true'
+    }
   }),
   
   beforeCreate: require('waterlock').models.user.beforeCreate,

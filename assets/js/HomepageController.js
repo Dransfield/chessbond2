@@ -17,9 +17,9 @@ io.socket.on('deletegameevent', function (data)
 
 	io.socket.on('deleteopengameevent', function (data)
 			{
-				console.log(data);
-				$scope.$apply(function(){
-				for(var i = $scope.opg.length - 1; i >= 0; i--) {
+			console.log(data);
+			$scope.$apply(function(){
+			for(var i = $scope.opg.length - 1; i >= 0; i--) {
 				
 			if($scope.opg[i].id === data.gameid) {
 			$scope.opg.splice(i, 1);
