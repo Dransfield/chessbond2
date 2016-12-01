@@ -10,26 +10,26 @@ $scope.PieceThemePref=1;
 
 $scope.Preferences=new Array();
 $scope.Preferences[$scope.SoundPref]='Sound';
-$scope.Preferences[1]='ChessPieceTheme';
+$scope.Preferences[$scope.PieceThemePref]='ChessPieceTheme';
 
 
 
 $scope.PreferencesGUIType=new Array();
 $scope.PreferencesGUIType[$scope.SoundPref]='Toggle';
-$scope.PreferencesGUIType[1]='Select';
+$scope.PreferencesGUIType[$scope.PieceThemePref]='Select';
 
 $scope.PreferenceOptions=new Array();
 $scope.PreferenceOptions[$scope.SoundPref]=new Array();
 $scope.PreferenceOptions[$scope.SoundPref][1]='SoundEnabled';
 $scope.PreferenceOptions[$scope.SoundPref][0]='SoundDisabled';
 
-$scope.PreferenceOptions[1]=new Array();
-$scope.PreferenceOptions[1][0]='A';
-$scope.PreferenceOptions[1][1]='B';
-$scope.PreferenceOptions[1][2]='C';
-$scope.PreferenceOptions[1][3]='D';
-$scope.PreferenceOptions[1][4]='E';
-$scope.PreferenceOptions[1][5]='F';
+$scope.PreferenceOptions[$scope.PieceThemePref]=new Array();
+$scope.PreferenceOptions[$scope.PieceThemePref][0]='A';
+$scope.PreferenceOptions[$scope.PieceThemePref][1]='B';
+$scope.PreferenceOptions[$scope.PieceThemePref][2]='C';
+$scope.PreferenceOptions[$scope.PieceThemePref][3]='D';
+$scope.PreferenceOptions[$scope.PieceThemePref][4]='E';
+$scope.PreferenceOptions[$scope.PieceThemePref][5]='F';
 
 $scope.PreferenceVariable=new Array();
 $scope.PreferenceVariable[$scope.SoundPref]=$scope.PreferenceOptions[$scope.SoundPref][0];
@@ -339,7 +339,7 @@ $scope.changeFavicon=function (src) {
 					//console.log(Object.keys(obj)[mykey]);
 					//if (obj[obby])
 					//{
-					$scope.$apply($scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]]);
+					$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
 				console.log(obj[Object.keys(obj)[mykey]]);
 				console.log(Object.keys(obj)[mykey]);
 				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
