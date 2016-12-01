@@ -73,7 +73,7 @@ $scope.PreferenceVariable[PieceThemePref]=$scope.PreferenceOptions[PieceThemePre
 	//console.log(jwres);
 	}
 );
-			}	
+			})	
 		
 	}
 	
