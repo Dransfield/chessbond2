@@ -18,6 +18,8 @@ $scope.chatting=new Array();
 
 document.addEventListener("visibilitychange", function() {
   console.log( document.visibilityState );
+  if (document.visibilityState=='visible')
+  {}
 });
     $scope.PlayBell=function()
     {
@@ -28,8 +30,11 @@ document.addEventListener("visibilitychange", function() {
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('message', function (data){
+		if (document.visibilityState=='hidden')
+				{
 				$scope.PlayBell();
 				$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
+			}
 				var txtmsg = { talker:data.talker   , msg:data.greeting};
 		
 	$scope.$apply($scope.chatting.push(txtmsg));
@@ -40,8 +45,11 @@ document.addEventListener("visibilitychange", function() {
 			
 	 io.socket.on('chessgamemove', function (data){
   console.log(data);
+  if (document.visibilityState=='hidden')
+				{
   $scope.PlayBell();
   $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
+}
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
    var gameRecordnow = res.data;
