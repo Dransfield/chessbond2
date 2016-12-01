@@ -51,7 +51,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 			{var obj={};
 			for (opti in $scope.PreferenceNames)
 				{
-				var init=$scope.PreferenceInitialValues[$scope.PreferenceNames[opti]];
+				var init=$scope.PreferenceInitialValue[$scope.PreferenceNames[opti]];
 				
 				obj[$scope.PreferenceNames[opti]]=init;
 				}
