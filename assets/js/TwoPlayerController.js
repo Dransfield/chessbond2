@@ -5,7 +5,7 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 
-
+/*
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
 $scope.PreferencesGUIType=new Array();
@@ -22,7 +22,7 @@ $scope.PreferenceVariable=new Array();
 $scope.PreferenceInitialValue=new Array();
 $scope.PreferenceInitialValue['Sound']='SoundEnabled';
 $scope.PreferenceInitialValue['ChessPieceTheme']='A';
-
+*/
   $scope.piecethemes = [
       {name:'A'},
       {name:'B'},
@@ -33,7 +33,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 	{name:'G'},
    {name:'H'}
     ];
-    $scope.BellSound= new Audio('alert.mp3');
+    //$scope.BellSound= new Audio('alert.mp3');
 
 //document.addEventListener("visibilitychange", function() {
   //console.log( document.visibilityState );
@@ -96,7 +96,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
-	document.head = document.head || document.getElementsByTagName('head')[0];
+	//document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
