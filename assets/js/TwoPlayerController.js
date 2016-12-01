@@ -313,12 +313,12 @@ $scope.changeFavicon=function (src) {
 					var obj={};
 					for (opt in $scope.Preferences)
 					{
-					obj[$scope.Preferences[opt]]=$scope.PreferenceInitialValue[opt];
-					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[opt]);
+					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
+					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
 					}
 					res.data.JSONpref=JSON.stringify(obj);
 				//}
-				
+				console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
 				
 				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
