@@ -92,7 +92,7 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
 	}
 	}
-	
+	*/
     $scope.MyPieceTheme=[$scope.piecethemes[0]];
 	// set-up loginForm loading state
 	
@@ -214,7 +214,7 @@ $scope.changeFavicon=function (src) {
 		}
 		}
 		
-		*/
+		
 	$scope.getchatmessages=function(){
 		
 	  $http.get('/chatmessage?room='+GameID+'&limit=30000', {
@@ -271,34 +271,7 @@ $scope.changeFavicon=function (src) {
 			}
 			)
 			
-			/*
-			 $http.post('/Chatmessage', { talker: usrName,msg:$scope.chatInput,room:GameID})
-			.then(function onSuccess (){
-			// Refresh the page now that we've been logged in.
-			//window.location.reload(true); 
-			//toastr.success('Created New Game');
-			})
-			.catch(function onError(sailsResponse) {
-			toastr.error("Can't Create New chat message"+sailsResponse.status);
-			console.log(JSON.stringify(sailsResponse));
-			// Handle known error type(s).
-			// Invalid username / password combination.
-			if (sailsResponse.status === 400 || 404) {
-				// $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
-				//
-				//toastr.error('Invalid email/password combination.', 'Error', {
-				// closeButton: true
-				}
-				else
-				{
-				toastr.error('An unexpected error occurred, please try again.', 'Error');
-				}
-				return;
-      })
-  
-    .finally(function eitherWay(){
-     // $scope.loginForm.loading = false;
-    })*/
+			
 			
 		}
 	$scope.joinRoom=function (usrName)
@@ -342,23 +315,7 @@ $scope.changeFavicon=function (src) {
 				}
 				
 				
-				/*
-				if (res.data.SoundEnabled=='true' || res.data.SoundEnabled=='false')
-				{ 
-			$scope.SoundEnabled=res.data.SoundEnabled;
-			console.log("$scope.SoundEnabled "+$scope.SoundEnabled);
-			if ($scope.SoundEnabled=='true')
-			{
-				console.log("changed soundbutton phrase to enanled");
-			$scope.SoundButtonPhrase='SoundEnabled';
-			}
-			if ($scope.SoundEnabled=='false')
-			{
-				console.log("changed soundbutton phrase to disabled");
-			$scope.SoundButtonPhrase='SoundDisabled';
-			}
-		
-		}*/
+	
 			})
 			
 			$http.get('/chessgame?id='+GameID)
