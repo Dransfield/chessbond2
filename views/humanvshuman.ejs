@@ -84,7 +84,7 @@
         </form>-->
         <span class="label label-default" ng-model="TurnTaker">It's {{TurnTaker}}'s Turn</span>
    <hr>
-   <button ng-click="SoundButtonClicked('req.session.user.id')" class="btn btn-success">{{SoundButtonPhrase}}</button>
+   <button ng-click="SoundButtonClicked('<%-req.session.user.id%>')" class="btn btn-success">{{SoundButtonPhrase}}</button>
    <hr>
    <span class="label label-default">Chat</span>
     <div float="left">
