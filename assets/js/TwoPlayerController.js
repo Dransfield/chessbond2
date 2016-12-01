@@ -49,13 +49,13 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 	$http.get('/user?id='+me).then(function
 			(res)
 			{var obj={};
-			for (opti in $scope.Preferences)
-			{obj[$scope.Preferences[opti]]=$scope.PreferenceOptions[opti][0];}
+			for (opti in $scope.PreferenceNames)
+			{obj[$scope.PreferenceNames[opti]]=$scope.PreferenceOptions[opti][0];}
 				if(res.data.JSONpref)
 			{
 				obj=JSON.parse(res.data.JSONpref);
 				}
-			obj[$scope.Preferences[prefid]]=newpref;
+			obj[$scope.PreferenceNames[prefid]]=newpref;
 				io.socket.put('/user/'+me,{
       JSONpref:JSON.stringify(obj)
       }  
@@ -308,8 +308,8 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+me).then(function
 			(res)
 			{//res.data.JSONpref=null;
-			//	if(!res.data.JSONpref )
-				//{
+				if(!res.data.JSONpref )
+				{
 					var obj={};
 					for (opt in $scope.PreferenceNames)
 					{
@@ -319,7 +319,7 @@ $scope.changeFavicon=function (src) {
 				
 					}
 					res.data.JSONpref=JSON.stringify(obj);
-				//}
+				}
 	
 				console.log(res.data.JSONpref);
 				var obj=JSON.parse(res.data.JSONpref);	
