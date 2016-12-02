@@ -20,6 +20,8 @@
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
 			<% if (req.session.authenticated) { %>
 <%- req.session.user.id%>
+<%- req.session.user.auth.Picture%>
+<%- req.session.user.auth.facebookId%>
 <%}%>   
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
