@@ -77,7 +77,7 @@ deleteopengame:function(req,res){
 			if (!user) {
 			sails.log.verbose('Session refers to a user who no longer exists.');
 			sentresponse=true;
-			return res.backToHomePage();
+			return res.notFound();
 			}
 		PlayerName=req.param('PlayerName');
 		PlayerID=req.param('PlayerID');
