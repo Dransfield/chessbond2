@@ -435,7 +435,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
  if (gameRecord.Player2==me)
 	{board1.flip();}
 
-	//board1.start();
+	board1.start();
 	
 		if (gameRecord.fen)
 		{
