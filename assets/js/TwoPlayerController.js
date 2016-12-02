@@ -311,7 +311,7 @@ $scope.changeFavicon=function (src) {
 				console.log(picurl);
 			$scope.oppopicurl=picurl;
 			}});
-			
+		}
 		}
 	$scope.joinRoom=function (usrName)
 		{
