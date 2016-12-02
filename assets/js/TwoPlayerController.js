@@ -289,6 +289,7 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+idtoget).then(function
 			(res)
 			{
+				console.log(res);
 			console.log(res.data.user.auth.Picture);	
 			console.log(res.data.user.auth.facebookid);	
 			
