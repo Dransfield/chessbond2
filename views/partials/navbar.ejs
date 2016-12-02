@@ -13,7 +13,7 @@
 	<% } %>
 	
 	<% if (req.session.strategy=='facebook'){ %>
-	<%picurl="http://graph.facebook.com/"+req.session.user.auth.facebookid+"/picture?type=square";%>
+	<%picurl="http://graph.facebook.com/"+req.session.user.auth.facebookId+"/picture?type=square";%>
 	<% actualname=req.session.user.auth.name;%>
 	<% } %>
 	

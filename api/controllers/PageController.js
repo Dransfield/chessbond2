@@ -250,11 +250,7 @@ deleteopengame:function(req,res){
 	Auth.findOne({
 		id:user.auth
 	},function foundAuth(err,auth){
-			console.log('AUTH');
-			console.log(auth);
-			console.log('ENDAUTH');
-			console.log(auth.Picture);
-			console.log(auth.facebookId);
+		
 	auth.facebookId=0;
 	auth.Picture='';
 	auth.save();
