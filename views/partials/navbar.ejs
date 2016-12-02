@@ -2,10 +2,10 @@
     <% if (req.session.authenticated){ %>
 		
 	<% if (req.session.strategy=='google'){ %>
-	
+	<% picurl=req.session.user.auth.Picture;%>
 	<% if (req.session.user.auth.firstName==''){ %>
 	<%actualname=req.session.user.auth.googleEmail ;%>
-	<%picurl=req.session.user.auth.Picture;%>
+	
 	<% }else{ %>
 	
 	<% actualname=req.session.user.auth.firstName+" "+req.session.user.auth.lastName;%>
@@ -13,7 +13,7 @@
 	<% } %>
 	
 	<% if (req.session.strategy=='facebook'){ %>
-	<%picurl=http://graph.facebook.com/"+req.session.user.auth.facebookid+"/picture?type=square;%>
+	<%picurl="http://graph.facebook.com/"+req.session.user.auth.facebookid+"/picture?type=square";%>
 	<% actualname=req.session.user.auth.name;%>
 	<% } %>
 	
