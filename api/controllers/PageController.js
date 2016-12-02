@@ -246,7 +246,8 @@ deleteopengame:function(req,res){
       id: req.session.user.id
 	},function foundUser(err,user){
 		if (!err){
-			
+			console.log(user);
+			console.log(user.auth.Picture);
 	user.auth.facebookId='';
 	user.auth.Picture='';
 	user.save();
