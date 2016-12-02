@@ -240,9 +240,21 @@ deleteopengame:function(req,res){
 	},
 	MyLogout:function(req,res){
 		
-		req.session.Loggedin='false';
-		req.session.userid='';
-		return res.view('homepage');
+		//req.session.Loggedin='false';
+		//req.session.userid='';
+		 User.findOne({
+      id: req.session.user.id
+	},function foundUser(err,user){
+		if (!err){
+			
+	user.auth.facebookId='';
+	user.auth.Picture='';
+	user.save();
+	return res.ok();
+	
+	}
+	});
+		return res.view('/auth/logout');
 		},
 	RecordSession:function(req,res){
 	//	req.session.userid=req.session.user.id;
