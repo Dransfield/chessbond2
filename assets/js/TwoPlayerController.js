@@ -274,6 +274,27 @@ $scope.changeFavicon=function (src) {
 			
 			
 		};
+		function ShowOpponentsAvatar(me,gameRecord)
+		{
+			var idtoget;
+			if (me==gameRecord.Player1)
+			{
+				idtoget=gameRecord.Player2;
+			}
+			if (me==gameRecord.Player2)
+			{
+				idtoget=gameRecord.Player1;
+			}
+			
+			$http.get('/user?id='+idtoget).then(function
+			(res)
+			{
+			console.log(res.data.user.auth.Picture);	
+			console.log(res.data.user.auth.facebookid);	
+			
+			});
+			
+		}
 	$scope.joinRoom=function (usrName)
 		{
 			
@@ -308,7 +329,7 @@ $scope.changeFavicon=function (src) {
 					//console.log(Object.keys(obj)[mykey]);
 					//if (obj[obby])
 					//{
-					$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
+				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
 				console.log(obj[Object.keys(obj)[mykey]]);
 				console.log(Object.keys(obj)[mykey]);
 				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
@@ -316,7 +337,7 @@ $scope.changeFavicon=function (src) {
 				
 				
 	
-			})
+			});
 			
 			
 			
@@ -325,7 +346,7 @@ $scope.changeFavicon=function (src) {
     var gameRecord = res.data;
   console.log(gameRecord);
 
-	
+	ShowOpponentsAvatar(me,gameRecord);
   
 		if (gameRecord.Player2==me)
 	{}	

@@ -59,6 +59,7 @@ deleteopengame:function(req,res){
 		if (!err){
 			req.session.user.GameID=req.param('GameID');
 	user.GameID=req.param('GameID');
+	user.opponent=req.param('oppo');
 	user.save();
 	return res.ok();
 	

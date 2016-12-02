@@ -79,16 +79,16 @@ function phrasefordate(dat)
 		return phrase;
 	}
 	
-$scope.PlayGame=function(GameID)
+$scope.PlayGame=function(GameID,Player2)
 	{
 		$http.put('/ChangeUsersCurrentGame', {
-			  GameID: GameID
+			  GameID: GameID,
+			  oppo:Player2
     })
     .then(function onSuccess (dat){
-      // Refresh the page now that we've been logged in.
-      //$scope.$apply(function() {
+     
      window.location="/humanvshuman";
-	//});
+	
     })
 	}
 	
