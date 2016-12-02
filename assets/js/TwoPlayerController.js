@@ -434,7 +434,8 @@ $scope.changeFavicon=function (src) {
   console.log("html"+square.html());
   console.log("height"+square.height());
   console.log("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
-  square.append("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
+  square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
+  square.append("<img  src='/images/circle.png'>");
   
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
