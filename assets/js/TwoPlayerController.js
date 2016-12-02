@@ -39,12 +39,12 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
 $scope.smallimage=function()
 {
 	
-$scope.picheight=100; $scope.piccoord=40;	
+$scope.picheight=50; $scope.piccoord=40;	
 }
 $scope.bigimage=function()
 {
 	
-$scope.picheight=200; $scope.piccoord=70;	
+$scope.picheight=200; $scope.piccoord=160;	
 }
 //document.addEventListener("visibilitychange", function() {
   //console.log( document.visibilityState );
