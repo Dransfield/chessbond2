@@ -72,7 +72,7 @@
         <hr>
         <div style="position: relative; left: 0; top: 0;"> 
 	<img style="position:relative;height:100px;" src='/images/eye.png'>
-	<img style="position:absolute;left:40px;top:40px;" height = '50px' src='<%-picurl%>'>
+	<img style="position:absolute;left:{{piccoord}}px;top:{{piccoord}}px;"ng-mouseleave="smallimage()" ng-mouseenter="bigimage()" height = '{{picheight}}px' src='<%-picurl%>'>
 	</div>
         <div id="engineStatus">...</div>
       </div>
