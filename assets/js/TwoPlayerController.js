@@ -292,7 +292,7 @@ $scope.changeFavicon=function (src) {
 				var picurl='blank';
 				if (res.data.auth.Picture)
 				{
-				if (res.data.auth.Picture!=''
+				if (res.data.auth.Picture!='')
 				{
 				picurl=res.data.auth.Picture;	
 				}
