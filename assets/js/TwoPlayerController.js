@@ -290,8 +290,8 @@ $scope.changeFavicon=function (src) {
 			(res)
 			{
 				console.log(res);
-			console.log(res.data.user.auth.Picture);	
-			console.log(res.data.user.auth.facebookid);	
+			console.log(res.data.auth.Picture);	
+			console.log(res.data.auth.facebookid);	
 			
 			});
 			
