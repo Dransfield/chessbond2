@@ -44,7 +44,7 @@ $scope.picheight=50; $scope.piccoord=40;
 $scope.bigimage=function()
 {
 	
-$scope.picheight=200; $scope.piccoord=-40;	
+$scope.picheight=200; $scope.piccoord=-50;	
 }
 //document.addEventListener("visibilitychange", function() {
   //console.log( document.visibilityState );
