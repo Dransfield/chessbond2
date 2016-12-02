@@ -45,7 +45,7 @@ $scope.pic1height=50; $scope.pic1coordx=40; $scope.pic1coordy=40;
 }
 $scope.bigimage1=function()
 {
-$scope.pic1height=200; $scope.pic1coordx=10;	$scope.pic1coordy=-60;
+$scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-60;
 }
 
 
