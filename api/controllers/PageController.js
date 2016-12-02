@@ -239,12 +239,12 @@ deleteopengame:function(req,res){
 	return res.ok();
 	},
 	MyLogout:function(req,res){
-		console.log(req.session.user);
+	/*	console.log(req.session.user);
 		//req.session.Loggedin='false';
 		//req.session.userid='';
-		 User.findOne({
-      id: req.session.user.id
-	},function foundUser(err,user){
+		// User.findOne({
+      //id: req.session.user.id
+	//},function foundUser(err,user){
 		if (!err){
 			
 	Auth.findOne({
@@ -253,12 +253,13 @@ deleteopengame:function(req,res){
 		
 	auth.facebookId=0;
 	auth.Picture='';
-	auth.save();
-	return res.redirect('/auth/logout');
+	user.save();
 	
 	});
 	}
 	});
+	*/
+	return res.redirect('/auth/logout');
 		
 		},
 	RecordSession:function(req,res){
