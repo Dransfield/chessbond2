@@ -171,7 +171,7 @@ deleteopengame:function(req,res){
 		// If session refers to a user who no longer exists, still allow logout.
 			if (!user) {
 			sails.log.verbose('Session refers to a user who no longer exists.');
-			return res.backToHomePage();
+			return res.notFound();
 			}
 		sails.log.verbose('about to update user level.');
        if (!user.DifficultyLevelBeaten)
