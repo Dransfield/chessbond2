@@ -5,7 +5,7 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 $scope.oppopicurl="";
-
+$scope.picheight=50;
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
 $scope.PreferencesGUIType=new Array();
