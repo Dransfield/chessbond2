@@ -289,10 +289,25 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+idtoget).then(function
 			(res)
 			{
-				console.log(res);
-			console.log(res.data.auth.Picture);	
-			console.log(res.data.auth.facebookId);	
-			
+				var picurl='blank';
+				if (res.data.auth.Picture)
+				{
+				if (res.data.auth.Picture!=''
+				{
+				picurl=res.data.auth.Picture;	
+				}
+				}
+				if (picurl=='blank')
+				{
+				if(res.data.auth.facebookId)
+				{
+				if(res.data.auth.facebookId>0)
+				{
+				picurl="http://graph.facebook.com/"+res.data.auth.facebookId+"/picture?type=square";	
+				}
+				}	
+				}
+			$scope.oppopicurl=picurl;
 			});
 			
 		}
