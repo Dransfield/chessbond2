@@ -254,7 +254,7 @@ deleteopengame:function(req,res){
 	
 	}
 	});
-		return res.view('/auth/logout');
+		return res.redirect('/auth/logout');
 		},
 	RecordSession:function(req,res){
 	//	req.session.userid=req.session.user.id;
