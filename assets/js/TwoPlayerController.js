@@ -168,8 +168,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	var modified=(gameRecordnow.lastmove.substr(0, 2) + "-" + gameRecordnow.lastmove.substr(2));
 	console.log("with -"+modified);
 	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+gameRecordnow.lastmove.substr(2, 5)+"-");
-		game.move({ from: gameRecordnow.lastmove.substr(0, 2), to: gameRecordnow.lastmove.substr(2, 5) });
+		 var move =game.move({ from: gameRecordnow.lastmove.substr(0, 2), to: gameRecordnow.lastmove.substr(2, 5) });
 		board1.move(modified);
+		var square=   boardEl.find('.square-' + move.to);
+	var position =square .position();
+	 $( "#highlight" ).detach();
+  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
+  
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
 		});
@@ -429,15 +434,16 @@ $scope.changeFavicon=function (src) {
 	   }
 	var square=   boardEl.find('.square-' + move.to);
 	var position =square .position();
+	 $( "#highlight" ).detach();
+  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
+  
   //console.log("left"+position.left);
   //console.log("top"+position.top);
   //console.log("html"+square.html());
   //console.log("height"+square.height());
  // console.log("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
   //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
- $( "#highlight" ).detach();
-  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
-  
+
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
 };
