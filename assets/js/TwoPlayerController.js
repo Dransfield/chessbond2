@@ -291,7 +291,7 @@ $scope.changeFavicon=function (src) {
 			{
 				console.log(res);
 			console.log(res.data.auth.Picture);	
-			console.log(res.data.auth.facebookid);	
+			console.log(res.data.auth.facebookId);	
 			
 			});
 			
