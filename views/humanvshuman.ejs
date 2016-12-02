@@ -50,8 +50,10 @@
 	
 	<button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
 	</form>
+	<div style="position: relative; left: 0; top: 0;"> 
 	<img height = '100px' src='/images/eye.png'>
-	<img height = '50px' src='<%-picurl%>'>
+	<img style="position:absolute;left:40;top:40;" height = '50px' src='<%-picurl%>'>
+	</div>
 	<span class="label label-default">Players</span>
 	<br>
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
