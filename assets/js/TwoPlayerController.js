@@ -285,7 +285,8 @@ $scope.changeFavicon=function (src) {
 			{
 				idtoget=gameRecord.Player1;
 			}
-			
+			if (idtoget)
+			{
 			$http.get('/user?id='+idtoget).then(function
 			(res)
 			{
@@ -307,8 +308,9 @@ $scope.changeFavicon=function (src) {
 				}
 				}	
 				}
+				console.log(picurl);
 			$scope.oppopicurl=picurl;
-			});
+			}});
 			
 		}
 	$scope.joinRoom=function (usrName)
