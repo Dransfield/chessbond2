@@ -59,7 +59,7 @@ $scope.pic2height=50; $scope.pic2coordx=40; $scope.pic2coordy=40;
 }
 $scope.bigimage2=function()
 {
-$scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-10;
+$scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 }
 
 //document.addEventListener("visibilitychange", function() {
