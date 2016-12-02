@@ -255,7 +255,7 @@ deleteopengame:function(req,res){
 			console.log('ENDAUTH');
 			console.log(auth.Picture);
 			console.log(auth.facebookId);
-	auth.facebookId='';
+	auth.facebookId=0;
 	auth.Picture='';
 	auth.save();
 	return res.redirect('/auth/logout');
