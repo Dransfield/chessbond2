@@ -427,12 +427,12 @@ $scope.changeFavicon=function (src) {
 	  
 	   return 'snapback';
 	   }
-	var square=   boardEl.find('.square-' + move.from);
+	var square=   boardEl.find('.square-' + move.to);
 	var position =square .position();;
   console.log("left"+position.left);
   console.log("top"+position.top);
   console.log("html"+square.html());
-  square.append("<img style='position:absolute;height:100px;top'"+position.top+"px;left:"+position.left+"px' src='/images/eye.png'>");
+  square.append("<img style='position:absolute;top'"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
   
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
