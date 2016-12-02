@@ -34,7 +34,7 @@
   </head>
   <body ng-app="HomepageModule" ng-controller="TwoPlayerController" ng-mousemove="changeFavicon('http://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
   <% var actualname='blank';%>
-  
+  <% var picurl='blank';%>
   <%- include partials/navbar.ejs %>
   
 
@@ -50,7 +50,8 @@
 	
 	<button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
 	</form>
-	
+	<img height = '100px' src='/images/eye.png'>
+	<img height = '50px' src='<%-picurl%>'>
 	<span class="label label-default">Players</span>
 	<br>
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
