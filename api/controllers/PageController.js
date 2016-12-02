@@ -246,15 +246,20 @@ deleteopengame:function(req,res){
       id: req.session.user.id
 	},function foundUser(err,user){
 		if (!err){
+			
+	Auth.findOne({
+		id:user.auth
+	},function foundAuth(err,auth){
 			console.log('USER');
 			console.log(user);
 			console.log('ENDUSER');
 			console.log(user.auth.Picture);
-	user.auth.facebookId='';
-	user.auth.Picture='';
-	user.save();
+	auth.facebookId='';
+	auth.Picture='';
+	auth.save();
 	return res.redirect('/auth/logout');
-	
+	}
+	});
 	}
 	});
 		
