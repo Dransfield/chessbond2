@@ -308,7 +308,7 @@ $scope.changeFavicon=function (src) {
 				}
 				}	
 				}
-				console.log(picurl);
+				console.log("PICURL"+picurl);
 			$scope.oppopicurl=picurl;
 			});
 		}
