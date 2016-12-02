@@ -277,12 +277,15 @@ $scope.changeFavicon=function (src) {
 		function ShowOpponentsAvatar(me,gameRecord)
 		{
 			var idtoget;
+			console.log("me "+me);
 			if (me==gameRecord.Player1)
 			{
-				idtoget=gameRecord.Player2;
+			console.log("im player1");
+			idtoget=gameRecord.Player2;
 			}
 			if (me==gameRecord.Player2)
 			{
+			console.log("im player2");
 				idtoget=gameRecord.Player1;
 			}
 			if (idtoget)
@@ -308,11 +311,11 @@ $scope.changeFavicon=function (src) {
 				}
 				}	
 				}
-				console.log("PICURL"+picurl);
+				
 			$scope.oppopicurl=picurl;
 			});
 		}
-		
+		console.log("PICURL"+picurl);
 		}
 	$scope.joinRoom=function (usrName)
 		{
