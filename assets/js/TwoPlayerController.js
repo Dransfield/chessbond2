@@ -5,8 +5,6 @@ $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
 $scope.oppopicurl="";
-$scope.picheight=50;
-$scope.piccoord=40;
 
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
@@ -36,16 +34,34 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
    {name:'H'}
     ];
    $scope.BellSound= new Audio('alert.mp3');
-$scope.smallimage=function()
+
+$scope.pic1height=50;
+$scope.pic1coordy=40;
+$scope.pic1coordx=40;
+
+$scope.smallimage1=function()
 {
-	
-$scope.picheight=50; $scope.piccoord=40;	
+$scope.pic1height=50; $scope.pic1coordx=40; $scope.pic1coordy=40;	
 }
-$scope.bigimage=function()
+$scope.bigimage1=function()
 {
-	
-$scope.picheight=200; $scope.piccoord=-40;	
+$scope.pic1height=200; $scope.pic1coordx=-40;	$scope.pic1coordy=30;
 }
+
+
+$scope.pic2height=50;
+$scope.pic2coordy=40;
+$scope.pic2coordx=40;
+
+$scope.smallimage2=function()
+{
+$scope.pic2height=50; $scope.pic2coordx=40; $scope.pic2coordy=40;	
+}
+$scope.bigimage2=function()
+{
+$scope.pic2height=200; $scope.pic2coordx=-40;	$scope.pic2coordy=30;
+}
+
 //document.addEventListener("visibilitychange", function() {
   //console.log( document.visibilityState );
  // if (document.visibilityState=='visible')

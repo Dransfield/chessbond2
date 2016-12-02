@@ -59,7 +59,7 @@
 	<hr>
 	<div style="position: relative; left: 0; top: 0;"> 
 	<img style="position:relative;height:100px;" src='/images/eye2.png'>
-	<img id="opponentpic" style="position:absolute;left:{{piccoord}}px;top:{{piccoord}}px;"ng-mouseleave="smallimage()" ng-mouseenter="bigimage()" height = '{{picheight}}px' ng-src="{{oppopicurl}}">
+	<img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{oppopicurl}}">
 	</div>
     <div class="row" id="whole thing" >
 
@@ -72,7 +72,7 @@
         <hr>
         <div style="position: relative; left: 0; top: 0;"> 
 	<img style="position:relative;height:100px;" src='/images/eye.png'>
-	<img style="position:absolute;left:{{piccoord}}px;top:{{piccoord}}px;"ng-mouseleave="smallimage()" ng-mouseenter="bigimage()" height = '{{picheight}}px' src='<%-picurl%>'>
+	<img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='<%-picurl%>'>
 	</div>
         <div id="engineStatus">...</div>
       </div>
