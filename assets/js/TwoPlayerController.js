@@ -16,7 +16,10 @@ $scope.PreferenceOptions=new Array();
 $scope.PreferenceOptions['Sound']=['SoundEnabled','SoundDisabled'];
 $scope.PreferenceOptions['ChessPieceTheme']=['A','B','C','D','E','F'];
 
-
+var squareClass = 'square-55d63';
+  var squareToHighlight;
+  boardEl = $('#board');
+  
 $scope.PreferenceVariable=new Array();
 
 $scope.PreferenceInitialValue=new Array();
@@ -424,6 +427,12 @@ $scope.changeFavicon=function (src) {
 	  
 	   return 'snapback';
 	   }
+	var square=   boardEl.find('.square-' + move.from);
+	var position =square .position();;
+  console.log("left"+position.left);
+  console.log("top"+position.top);
+  square.innerHTML="<img style='position:relative;height:100px;top'"+position.top+"px' src='/images/eye.png'>";
+  
   console.log('move'+JSON.stringify(move));
 updateStatus(game,gameRecord,move);
 };
