@@ -18,7 +18,7 @@
     </head>
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
-
+<%- req.session.user.id%>
    
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
