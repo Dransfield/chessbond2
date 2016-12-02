@@ -18,8 +18,9 @@
     </head>
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" >
+			<% if (req.session.authenticated) { %>
 <%- req.session.user.id%>
-   
+<%}%>   
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
    <% var picurl='blank';%>
