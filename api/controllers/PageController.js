@@ -239,7 +239,7 @@ deleteopengame:function(req,res){
 	return res.ok();
 	},
 	MyLogout:function(req,res){
-		
+		console.log(req.session.user);
 		//req.session.Loggedin='false';
 		//req.session.userid='';
 		 User.findOne({
