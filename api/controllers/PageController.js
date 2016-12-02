@@ -253,12 +253,12 @@ deleteopengame:function(req,res){
 			console.log('USER');
 			console.log(user);
 			console.log('ENDUSER');
-			console.log(user.auth.Picture);
+			console.log(auth.Picture);
 	auth.facebookId='';
 	auth.Picture='';
 	auth.save();
 	return res.redirect('/auth/logout');
-	}
+	
 	});
 	}
 	});
