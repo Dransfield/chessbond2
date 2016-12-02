@@ -277,6 +277,7 @@ $scope.changeFavicon=function (src) {
 		function ShowOpponentsAvatar(me,gameRecord)
 		{
 			var idtoget;
+			var picurl;
 			console.log("me "+me);
 			if (me==gameRecord.Player1)
 			{
