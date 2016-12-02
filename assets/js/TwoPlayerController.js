@@ -36,7 +36,16 @@ $scope.PreferenceInitialValue['ChessPieceTheme']='A';
    {name:'H'}
     ];
    $scope.BellSound= new Audio('alert.mp3');
-
+$scope.smallimage=function()
+{
+	
+$scope.picheight=100; $scope.piccoord=40;	
+}
+$scope.bigimage=function()
+{
+	
+$scope.picheight=200; $scope.piccoord=70;	
+}
 //document.addEventListener("visibilitychange", function() {
   //console.log( document.visibilityState );
  // if (document.visibilityState=='visible')
