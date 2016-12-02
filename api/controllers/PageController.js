@@ -250,11 +250,11 @@ deleteopengame:function(req,res){
 	user.auth.facebookId='';
 	user.auth.Picture='';
 	user.save();
-	return res.ok();
+	return res.redirect('/auth/logout');
 	
 	}
 	});
-		return res.redirect('/auth/logout');
+		
 		},
 	RecordSession:function(req,res){
 	//	req.session.userid=req.session.user.id;
