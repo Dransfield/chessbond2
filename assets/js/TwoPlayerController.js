@@ -113,7 +113,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.PrefSelectChanged=function(pref,me,func)
 	{
 		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
-		func();
+		func(me);
 	}
 	$scope.PrefToggleButtonClicked=function(pref,me)
 	{
@@ -546,7 +546,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 			
 			
 			
-$scope.resetBoard();
+$scope.resetBoard(me);
 		
 		
 	});
