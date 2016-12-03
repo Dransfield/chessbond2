@@ -109,7 +109,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			})	
 		
 	}
-	
+	$scope.PrefSelectChanged=function(pref,me,func)
+	{
+		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
+		func(me);
+	}
 	$scope.PrefToggleButtonClicked=function(pref,me)
 	{
 	if ($scope.PreferenceVariable[pref]==$scope.PreferenceOptions[pref][1])	
@@ -126,7 +130,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	}
 	}
 	
-    $scope.MyPieceTheme=[$scope.piecethemes[0]];
+    
 	// set-up loginForm loading state
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
@@ -502,7 +506,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.MyPieceTheme[0]['name']+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme']+'/{piece}.png'} );
  game = new Chess();
 
  if (gameRecord.Player2==me)

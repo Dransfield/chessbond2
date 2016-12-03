@@ -115,12 +115,12 @@
       
       <span class="label label-default">Chesspiece Theme</span>
         <select class="form-control"
-		  ng-model="MyPieceTheme"
+		  ng-model="PreferenceVariable['ChessPieceTheme']"
 		  name="string"
 		  multiple="string"
 		  required="string"
 		  ng-required="string"
-		  ng-change="setBoard('<%- req.session.user.id %>')"
+		  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.user.id%>',setBoard)"
 		 
 		  ng-options="theme.name for theme in piecethemes" >
 
