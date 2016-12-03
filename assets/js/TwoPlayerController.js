@@ -357,8 +357,7 @@ $scope.changeFavicon=function (src) {
 			});
 			
 		}
-		console.log("PICURL"+picurl);
-		}
+
 		
 		function PicUrlForUser(usr)
 		{
