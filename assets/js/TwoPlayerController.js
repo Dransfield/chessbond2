@@ -463,6 +463,7 @@ game.load(gameRecord.fen);
 
 io.socket.put('/Chessgame/'+gameRecord.id,{
       fen: game.fen(),
+      pgn:game.pgn(max_width: 5, newline_char: '-' ),
       lastmove:move.from+move.to
       }  
       

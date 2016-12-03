@@ -204,7 +204,7 @@ deleteopengame:function(req,res){
 ,2000);
 	return res.ok();
 	},
-    	chatmsg:function(req,res){
+    chatmsg:function(req,res){
 
 	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec(function (err, records) {
 	sails.sockets.broadcast(records.room,'message', {room:records.room, talker:records.talker,greeting: records.msg });
@@ -212,9 +212,9 @@ deleteopengame:function(req,res){
 	 return res.ok();
 });
 	},
-	   subscribeToRoom: function(req, res) {
-  if (!req.isSocket) {
-    return res.badRequest();}
+	subscribeToRoom: function(req, res) {
+		if (!req.isSocket) {
+		return res.badRequest();}
  
 
 		
