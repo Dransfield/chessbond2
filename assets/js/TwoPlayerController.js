@@ -435,8 +435,7 @@ $scope.changeFavicon=function (src) {
 
 	ShowPlayersAvatars(gameRecord);
   
-		if (gameRecord.Player2==me)
-	{}	
+
 		 var onDrop = function(source, target) {
   
   if (usersTurn(game,gameRecord,me)===false)
@@ -520,8 +519,13 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		{
 		alert('couldnt load game');
 		}
+		console.log("last move"+gameRecord.lastmove);
 		
-	
+		var square=   boardEl.find('.square-' + gameRecord.lastmove.substr(2, 5));
+	var position =square .position();
+	 $( "#highlight" ).detach();
+  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
+  
 		}
 		updateTurnTakerLabel(game,gameRecord);
 		
