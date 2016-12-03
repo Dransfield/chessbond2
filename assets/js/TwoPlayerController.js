@@ -396,7 +396,7 @@ $scope.changeFavicon=function (src) {
 		
 	
 		};
-		$scope.resetBoard=function()
+		$scope.resetBoard=function(me)
 		{
 						$http.get('/chessgame?id='+GameID)
 .then(function (res) {
