@@ -113,7 +113,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.PrefSelectChanged=function(pref,me,func)
 	{
 		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
-		func(me);
+		func();
 	}
 	$scope.PrefToggleButtonClicked=function(pref,me)
 	{
@@ -396,51 +396,9 @@ $scope.changeFavicon=function (src) {
 		
 	
 		};
-	$scope.setBoard=function (me)
+		$scope.resetBoard()
 		{
-			$http.get('/user?id='+me).then(function
-			(res)
-			{//res.data.JSONpref=null;
-				if(!res.data.JSONpref )
-				{
-					var obj={};
-					for (opt in $scope.PreferenceNames)
-					{
-					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
-					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-					console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-				
-					}
-					res.data.JSONpref=JSON.stringify(obj);
-				}
-	
-				console.log(res.data.JSONpref);
-				var obj=JSON.parse(res.data.JSONpref);	
-				for (mykey in Object.keys(obj))
-				{
-					//console.log(Object.keys(obj)[mykey]);
-					//if (obj[obby])
-					//{
-				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
-				console.log(obj[Object.keys(obj)[mykey]]);
-				console.log(Object.keys(obj)[mykey]);
-				if (Object.keys(obj)[mykey]=='ChessPieceTheme')
-				{
-				if (!Array.isArray(obj[Object.keys(obj)[mykey]]))
-				{
-				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=$scope.PreferenceInitialValue['ChessPieceTheme'];
-				}	
-				}
-				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
-				}
-				
-				
-	
-			
-			
-			
-			
-			$http.get('/chessgame?id='+GameID)
+						$http.get('/chessgame?id='+GameID)
 .then(function (res) {
     var gameRecord = res.data;
   console.log(gameRecord);
@@ -543,6 +501,52 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		
 		
 		});
+			};
+	$scope.setBoard=function (me)
+		{
+			$http.get('/user?id='+me).then(function
+			(res)
+			{//res.data.JSONpref=null;
+				if(!res.data.JSONpref )
+				{
+					var obj={};
+					for (opt in $scope.PreferenceNames)
+					{
+					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
+					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
+					console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
+				
+					}
+					res.data.JSONpref=JSON.stringify(obj);
+				}
+	
+				console.log(res.data.JSONpref);
+				var obj=JSON.parse(res.data.JSONpref);	
+				for (mykey in Object.keys(obj))
+				{
+					//console.log(Object.keys(obj)[mykey]);
+					//if (obj[obby])
+					//{
+				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
+				console.log(obj[Object.keys(obj)[mykey]]);
+				console.log(Object.keys(obj)[mykey]);
+				if (Object.keys(obj)[mykey]=='ChessPieceTheme')
+				{
+				if (!Array.isArray(obj[Object.keys(obj)[mykey]]))
+				{
+				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=$scope.PreferenceInitialValue['ChessPieceTheme'];
+				}	
+				}
+				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
+				}
+				
+				
+	
+			
+			
+			
+			
+resetBoard();
 		
 		
 	});

@@ -120,7 +120,7 @@
 		  multiple="string"
 		  required="string"
 		  ng-required="string"
-		  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.user.id%>',setBoard)"
+		  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.user.id%>',resetBoard)"
 		 
 		  ng-options="theme.name for theme in piecethemes" >
 
