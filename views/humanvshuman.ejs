@@ -56,7 +56,20 @@
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
 	<br>
 	<span class="text-info" ng-model="Player2Name">Player2:<span class="label label-success">{{Player2Name}}</span></span>
+	    <span class="label label-default">Chesspiece Theme</span>
+        <select class="form-control"
+		  ng-model="PreferenceVariable['ChessPieceTheme']"
+		  name="string"
+		  multiple="string"
+		  required="string"
+		  ng-required="string"
+		  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.user.id%>',resetBoard)"
+		 
+		  ng-options="theme.name for theme in piecethemes" >
+
+		</select>
 	<hr>
+	
 	<div style="position: relative; left: 0; top: 0;"> 
 	<img style="position:relative;height:100px;" src='/images/eye2.png'>
 	<img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{TopPlayerPic}}">
@@ -113,17 +126,6 @@
     <hr>
     <hr>
       
-      <span class="label label-default">Chesspiece Theme</span>
-        <select class="form-control"
-		  ng-model="PreferenceVariable['ChessPieceTheme']"
-		  name="string"
-		  multiple="string"
-		  required="string"
-		  ng-required="string"
-		  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.user.id%>',resetBoard)"
-		 
-		  ng-options="theme.name for theme in piecethemes" >
-
-		</select>
+  
   </body>
 </html>
