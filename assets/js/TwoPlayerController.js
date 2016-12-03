@@ -546,7 +546,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 			
 			
 			
-resetBoard();
+$scope.resetBoard();
 		
 		
 	});
