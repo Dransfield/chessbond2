@@ -459,12 +459,12 @@ gameRecord.lastmove=move.from+move.to;
 
 updateTurnTakerLabel(game,gameRecord);
 updatePlayersLabel(game,gameRecord);
-game.load(gameRecord.fen);
+//game.load(gameRecord.fen);
 
 
 io.socket.put('/Chessgame/'+gameRecord.id,{
       fen: game.fen(),
-      pgn:game.pgn(max_width: 5, newline_char: '-' ),
+      pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to
       }  
       
