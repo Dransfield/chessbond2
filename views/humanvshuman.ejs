@@ -50,6 +50,7 @@
 	
 	<button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
 	</form>
+	<button ng-click="ShowOptions=!ShowOptions"></button>
 	<table ng-hide="ShowOptions">
 	<tr>
 
@@ -66,6 +67,10 @@
 		  ng-options="theme.name for theme in piecethemes" >
 
 		</select>
+	</td>
+	<td>
+	 <button ng-click="PrefToggleButtonClicked('Sound','<%-req.session.user.id%>')" class="btn btn-success">{{PreferenceVariable['Sound']}}</button>
+  
 	</td>
 	</tr>
 	</table>
@@ -111,11 +116,10 @@
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
 	<br>
 	<span class="text-info" ng-model="Player2Name">Player2:<span class="label label-success">{{Player2Name}}</span></span>
-	
+	<br>
         <span class="label label-default" ng-model="TurnTaker">It's {{TurnTaker}}'s Turn</span>
    <hr>
    
-   <button ng-click="PrefToggleButtonClicked('Sound','<%-req.session.user.id%>')" class="btn btn-success">{{PreferenceVariable['Sound']}}</button>
    <hr>
    <span class="label label-default">Chat</span>
     <div float="left">
