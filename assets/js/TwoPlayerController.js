@@ -317,7 +317,7 @@ $scope.changeFavicon=function (src) {
 			var idtoget;
 			var picurl;
 			
-			console.log("me "+me);
+			
 			console.log("player1"+gameRecord.Player1);
 			console.log("player2"+gameRecord.Player2);
 			
