@@ -96,6 +96,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				}
 			
 			obj[prefid]=newpref;
+			console.log(JSON.stringify(obj));
 				io.socket.put('/user/'+me,{
       JSONpref:JSON.stringify(obj)
       }  
