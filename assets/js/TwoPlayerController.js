@@ -181,15 +181,17 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	console.log("with -"+modified);
 	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+gameRecordnow.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: gameRecordnow.lastmove.substr(0, 2), to: gameRecordnow.lastmove.substr(2, 5) });
+		if (move!=null){
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
 		var square=   boardEl.find('.square-' + move.to);
 	var position =square .position();
 	 $( "#highlight" ).detach();
   square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
-  
+	
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
+		}
 		});
 		
 	});
