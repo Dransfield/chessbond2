@@ -7,7 +7,7 @@ $scope.chatting=new Array();
 
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
-
+$scope.ShowOptions=true;
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
 $scope.PreferencesGUIType=new Array();
