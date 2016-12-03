@@ -4,7 +4,9 @@ var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
-$scope.oppopicurl="";
+
+$scope.BottomPlayerPic="";
+$scope.TopPlayerPic="";
 
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
@@ -16,6 +18,7 @@ $scope.PreferenceOptions=new Array();
 $scope.PreferenceOptions['Sound']=['SoundEnabled','SoundDisabled'];
 $scope.PreferenceOptions['ChessPieceTheme']=['A','B','C','D','E','F'];
 
+$scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#board');
@@ -309,51 +312,75 @@ $scope.changeFavicon=function (src) {
 			
 			
 		};
-		function ShowOpponentsAvatar(me,gameRecord)
+		function ShowPlayerAvatars(gameRecord)
 		{
 			var idtoget;
 			var picurl;
+			
 			console.log("me "+me);
 			console.log("player1"+gameRecord.Player1);
 			console.log("player2"+gameRecord.Player2);
-			if (me==gameRecord.Player1)
-			{
-			console.log("im player1");
-			idtoget=gameRecord.Player2;
-			}
-			if (me==gameRecord.Player2)
-			{
-			console.log("im player2");
-				idtoget=gameRecord.Player1;
-			}
-			if (idtoget)
-			{
-			$http.get('/user?id='+idtoget).then(function
+			
+			
+			
+			
+			$http.get('/user?id='+gameRecord.Player1).then(function
 			(res)
 			{
-				var picurl='blank';
-				if (res.data.auth.Picture)
+				var picurl=PicUrlForUser(res.data);
+				if ($scope.PlayerOnBottom=='White')
+			{
+			$scope.BottomPlayerPic=picurl;
+				
+			}
+			else
+			{
+			$scope.TopPlayerPic=picurl;
+			}
+			
+			});
+			
+			$http.get('/user?id='+gameRecord.Player2).then(function
+			(res)
+			{
+				var picurl=PicUrlForUser(res.data);
+				if ($scope.PlayerOnBottom=='White')
+			{
+			$scope.TopPlayerPic=picurl;
+				
+			}
+			else
+			{
+			$scope.BottomPlayerPic=picurl;
+			}
+			
+			});
+			
+		}
+		console.log("PICURL"+picurl);
+		}
+		
+		function PicUrlForUser(usr)
+		{
+		 var picurl='blank';
+				if (usr.auth.Picture)
 				{
-				if (res.data.auth.Picture!='')
+				if (usr.auth.Picture!='')
 				{
-				picurl=res.data.auth.Picture;	
+				picurl=usr.auth.Picture;	
 				}
 				}
 				if (picurl=='blank')
 				{
-				if(res.data.auth.facebookId)
+				if(usr.auth.facebookId)
 				{
-				if(res.data.auth.facebookId>0)
+				if(usr.auth.facebookId>0)
 				{
-				picurl="http://graph.facebook.com/"+res.data.auth.facebookId+"/picture?type=square";	
+				picurl="http://graph.facebook.com/"+usr.auth.facebookId+"/picture?type=square";	
 				}
 				}	
 				}
-				
-			$scope.oppopicurl=picurl;
-			});
-		}
-		console.log("PICURL"+picurl);
+		return picurl;
 		}
 	$scope.joinRoom=function (usrName)
 		{
@@ -406,7 +433,7 @@ $scope.changeFavicon=function (src) {
     var gameRecord = res.data;
   console.log(gameRecord);
 
-	ShowOpponentsAvatar(me,gameRecord);
+	ShowPlayersAvatars(gameRecord);
   
 		if (gameRecord.Player2==me)
 	{}	
