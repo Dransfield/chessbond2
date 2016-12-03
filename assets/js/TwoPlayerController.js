@@ -312,7 +312,7 @@ $scope.changeFavicon=function (src) {
 			
 			
 		};
-		function ShowPlayerAvatars(gameRecord)
+		function ShowPlayersAvatars(gameRecord)
 		{
 			var idtoget;
 			var picurl;
