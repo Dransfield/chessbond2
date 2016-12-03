@@ -429,7 +429,7 @@ $scope.changeFavicon=function (src) {
 				
 				
 	
-			});
+			
 			
 			
 			
@@ -507,7 +507,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme']['name']+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme']+'/{piece}.png'} );
  game = new Chess();
 
  if (gameRecord.Player2==me)
@@ -538,7 +538,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		});
 		
 		
-	
+	});
 	
 	};
 	
