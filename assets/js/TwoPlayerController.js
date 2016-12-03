@@ -328,7 +328,8 @@ $scope.changeFavicon=function (src) {
 			(res)
 			{
 				var picurl=PicUrlForUser(res.data);
-				if ($scope.PlayerOnBottom=='White')
+				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
+			if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.BottomPlayerPic=picurl;
 				
@@ -506,7 +507,9 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
  game = new Chess();
 
  if (gameRecord.Player2==me)
-	{board1.flip();}
+	{board1.flip();
+		$scope.PlayerOnBottom='Black';
+		}
 
 	board1.start();
 	
