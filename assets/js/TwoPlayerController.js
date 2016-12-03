@@ -406,19 +406,19 @@ $scope.changeFavicon=function (src) {
 		$scope.resetBoard=function(me)
 		{
 						$http.get('/chessgame?id='+GameID)
-.then(function (res) {
-    var gameRecord = res.data;
-  console.log(gameRecord);
+						.then(function (res) {
+							var gameRecord = res.data;
+							console.log(gameRecord);
 
-	ShowPlayersAvatars(gameRecord);
+							ShowPlayersAvatars(gameRecord);
   
 
-		 var onDrop = function(source, target) {
+								var onDrop = function(source, target) {
   
-  if (usersTurn(game,gameRecord,me)===false)
-  { return 'snapback';}
-  // see if the move is legal
-  var move = game.move({
+							if (usersTurn(game,gameRecord,me)===false)
+						{ return 'snapback';}
+						// see if the move is legal
+						var move = game.move({
     from: source,
     to: target,
     promotion: 'q' // NOTE: always promote to a queen for example simplicity
@@ -456,6 +456,7 @@ function updateStatus(game,gameRecord,move)
 	console.log("update status");
 gameRecord.fen=game.fen();
 gameRecord.lastmove=move.from+move.to;
+
 updateTurnTakerLabel(game,gameRecord);
 updatePlayersLabel(game,gameRecord);
 game.load(gameRecord.fen);
@@ -493,7 +494,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		if (gameRecord.fen)
 		{
 		board1.position(gameRecord.fen);
-		if(game.load(gameRecord.fen)===false)
+		if(game.load(chess.load_pgn(gameRecord.pgn.join('-'));)===false)
 		{
 		alert('couldnt load game');
 		}
