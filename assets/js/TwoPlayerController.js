@@ -494,7 +494,8 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		if (gameRecord.fen)
 		{
 		board1.position(gameRecord.fen);
-		if(game.load_pgn(gameRecord.pgn.join('-'))===false)
+		console.log("pgn "+gameRecord.pgn)
+		if(game.load_pgn(gameRecord.pgn)===false)
 		{
 		alert('couldnt load game');
 		}
