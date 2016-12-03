@@ -136,8 +136,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('timeevent',function(data){
-		toastr.success(data.message);
-		console.log("timevent "+data);
+		toastr.success(data.data.message);
+		console.log("recieved timevent "+JSON.stringify(data));
 	});
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
@@ -159,7 +159,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			});
 			
 	 io.socket.on('chessgamemove', function (data){
-  console.log(data);
+  console.log("recieved chess game move"+JSON.stringify(data));
   if (document.visibilityState=='hidden')
 				{
 			if($scope.PreferenceVariable['Sound']=='SoundEnabled')
