@@ -135,6 +135,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	// set-up loginForm loading state
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
+	io.socket.on('timeevent',function(data){
+		toastr.success(data.message);
+		console.log("timevent "+data);
+	});
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{

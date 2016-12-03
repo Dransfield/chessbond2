@@ -200,7 +200,8 @@ deleteopengame:function(req,res){
     },
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
-
+	setTimeout(		sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Two Seconds have passed"});
+,2000)
 	return res.ok();
 	},
     	chatmsg:function(req,res){
