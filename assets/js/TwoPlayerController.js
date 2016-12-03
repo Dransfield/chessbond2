@@ -27,7 +27,7 @@ $scope.PreferenceVariable=new Array();
 
 $scope.PreferenceInitialValue=new Array();
 $scope.PreferenceInitialValue['Sound']='SoundEnabled';
-$scope.PreferenceInitialValue['ChessPieceTheme']={name:'A'};
+$scope.PreferenceInitialValue['ChessPieceTheme']=[{name:'A'}];
 
   $scope.piecethemes = [
       {name:'A'},
@@ -507,7 +507,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme']['name']+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme'][0]['name']+'/{piece}.png'} );
  game = new Chess();
 
  if (gameRecord.Player2==me)
