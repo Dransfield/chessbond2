@@ -419,7 +419,9 @@ $scope.changeFavicon=function (src) {
 								var onDrop = function(source, target) {
   
 							if (usersTurn(game,gameRecord,me)===false)
-						{ return 'snapback';}
+						{ 
+							toastr.warning("It's not your turn");
+							return 'snapback';}
 						// see if the move is legal
 						var move = game.move({
     from: source,
@@ -430,6 +432,15 @@ $scope.changeFavicon=function (src) {
   // illegal move
   
   if (move === null){
+	  if (game.game_over())
+		{
+	  toastr.warning("The game is over");
+	 }
+	  if (game.in_check())
+		{
+	  toastr.warning("You are in check");
+	 }
+	 
 	 console.log('gameover?'+game.game_over());
 	  console.log('in check?'+game.in_check());
 	  console.log('in checkmate?'+game.in_checkmate());
@@ -438,6 +449,17 @@ $scope.changeFavicon=function (src) {
 	  
 	   return 'snapback';
 	   }
+	
+	  if (game.in_draw())
+		{
+	  toastr.success("It's a draw");
+	 }
+	  if (game.in_checkmate())
+		{
+	  toastr.success("Checkmate!");
+	 }
+	 
+	
 	var square=   boardEl.find('.square-' + move.to);
 	var position =square .position();
 	 $( "#highlight" ).detach();
