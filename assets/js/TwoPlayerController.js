@@ -424,7 +424,7 @@ $scope.changeFavicon=function (src) {
 									{
 									console.log("game is different to gameRecord");
 									console.log("game"+JSON.stringify(game));	
-									console.log("move"+JSON.stringify(move));
+								//	console.log("move"+JSON.stringify(move));
 									console.log("gameRecord"+JSON.stringify(gameRecord));
 										
 									
@@ -473,7 +473,7 @@ $scope.changeFavicon=function (src) {
 							  toastr.success("Checkmate!");
 							 }
 	 
-	
+							console.log("move from ondrop "+JSON.stringify(move));
 							var square=   boardEl.find('.square-' + move.to);
 							var position =square .position();
 							 $( "#highlight" ).detach();
