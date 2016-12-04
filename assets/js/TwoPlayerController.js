@@ -10,6 +10,8 @@ $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
 $scope.PreferenceNames=['Sound','ChessPieceTheme'];
 
+$scope.HideInject=true;
+
 $scope.PreferencesGUIType=new Array();
 $scope.PreferencesGUIType['Sound']='Toggle';
 $scope.PreferencesGUIType['ChessPieceTheme']='Select';
@@ -495,6 +497,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 		{
 		board1.position(gameRecord.fen);
 		console.log("pgn "+gameRecord.pgn)
+		$scope.Moves=gameRecord.pgn;
 		if(game.load_pgn(gameRecord.pgn)===false)
 		{
 		alert('couldnt load game');

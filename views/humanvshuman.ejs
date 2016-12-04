@@ -43,7 +43,7 @@
 		<p id="fenshower">
 	
 	</p>
-	<form ng-submit="injectfen()">
+	<form ng-hide="HideInject" ng-submit="injectfen()">
 	<input ng-model="fenform.fen" type="text" id="feninject">
 	
 	</input>
@@ -135,9 +135,10 @@
 	<button type="submit" >chat</button>
 	</form>  
     </div>
+    
     <hr>
     <div id="movelist" class="list-group">
-    
+    {{Moves}}
     </div>
     <hr>
       
