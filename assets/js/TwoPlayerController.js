@@ -420,6 +420,8 @@ $scope.changeFavicon=function (src) {
 									console.log(game.ascii());
 									console.log(gameRecord.fen);
 									console.log(game.fen);
+									if (gameRecord.fen)
+									{
 									if (game.fen!=gameRecord.fen)
 									{
 									console.log("game is different to gameRecord");
@@ -428,7 +430,7 @@ $scope.changeFavicon=function (src) {
 									console.log("gameRecord"+JSON.stringify(gameRecord));
 										
 									
-									}
+									}}
 								};
 								var onDrop = function(source, target) {
   
