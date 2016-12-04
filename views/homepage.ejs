@@ -92,6 +92,39 @@
     <% } %>
     <% } %>
 				
+				
+				<h2 class="sub-header">Visitors</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="player in Players track by $index">
+			<td>{{player.name}}</td>
+	
+			<% if (req.session.authenticated) { %>
+    		<% if (req.session.authenticated==true) { %>
+			<td>		
+				
+				
+			</td>
+			<% } %>
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+				
+				
 				 <h2 class="sub-header">Open Games</h2>
           <div class="table-responsive">
             <table class="table table-striped">

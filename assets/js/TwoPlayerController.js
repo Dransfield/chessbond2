@@ -204,7 +204,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			console.log("move is null updating game and board with");
 		board1.position(gameRecordnow.fen);
-		game.load(gameRecordnow.fen);
+		//game.load(gameRecordnow.fen);
 		console.log("after update "+game.ascii());
 		}
 		

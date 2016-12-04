@@ -28,9 +28,9 @@ io.socket.on('deletegameevent', function (data)
 			}
 			);
 			});
-				io.socket.on('newopengameevent', function (data)
+		io.socket.on('newopengameevent', function (data)
 			{
-				console.log('newopengameevent'+data);
+			console.log('newopengameevent'+data);
 			data.phrase=phrasefordate(data.Created);
 			$scope.$apply(function(){
 			$scope.opg.push(data);
@@ -101,7 +101,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			MyID:MyID,
 			MyName:MyName
 			})
-		.then(function onSuccess(sailsResponse){
+			.then(function onSuccess(sailsResponse){
 			
 			$scope.deleteopengame(GameID);
 			}
