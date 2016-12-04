@@ -487,7 +487,7 @@ $scope.changeFavicon=function (src) {
 					  //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
 
 					  console.log('move'+JSON.stringify(move));
-					//updateStatus(game,gameRecord,move);
+					updateStatus(game,gameRecord,move);
 };
 
 function updateStatus(game,gameRecord,move)
