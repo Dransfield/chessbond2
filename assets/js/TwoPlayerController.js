@@ -415,7 +415,9 @@ $scope.changeFavicon=function (src) {
 
 							ShowPlayersAvatars(gameRecord);
   
-
+							var onSnapEnd = function() {
+									board.position(game.fen());
+								};
 								var onDrop = function(source, target) {
   
 							if (usersTurn(game,gameRecord,me)===false)
@@ -506,7 +508,7 @@ io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme'][0]['name']+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme'][0]['name']+'/{piece}.png'} );
  game = new Chess();
 
  if (gameRecord.Player2==me)
