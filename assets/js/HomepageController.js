@@ -1,11 +1,11 @@
 angular.module('HomepageModule').controller('HomepageController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
-io.socket.on('deletegameevent', function (data)
+	io.socket.on('deletegameevent', function (data)
 			{
-				console.log(data);
-				$scope.$apply(function(){
-				for(var i = $scope.joinedgames.length - 1; i >= 0; i--) {
+			console.log(data);
+			$scope.$apply(function(){
+			for(var i = $scope.joinedgames.length - 1; i >= 0; i--) {
 				
 			if($scope.joinedgames[i].id === data.gameid) {
 			$scope.joinedgames.splice(i, 1);
@@ -28,7 +28,7 @@ io.socket.on('deletegameevent', function (data)
 			}
 			);
 			});
-		io.socket.on('newopengameevent', function (data)
+	io.socket.on('newopengameevent', function (data)
 			{
 			console.log('newopengameevent'+data);
 			data.phrase=phrasefordate(data.Created);
@@ -38,11 +38,11 @@ io.socket.on('deletegameevent', function (data)
 			console.log(data);
 			}
 			
-			);
+		);
 
-function phrasefordate(dat)
-	{
-	
+		function phrasefordate(dat)
+			{
+			
 		var n = Date.now();
 		
 		var newnum=n-dat;
