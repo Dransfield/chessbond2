@@ -193,6 +193,12 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
 		$scope.Moves=game.pgn();
+		
+		if (game.fen()!=board1.fen())
+		{
+			board1.position(game.fen());
+		}
+		
 		}
 		else
 		{
