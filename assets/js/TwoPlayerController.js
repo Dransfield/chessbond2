@@ -419,10 +419,10 @@ $scope.changeFavicon=function (src) {
 									console.log("on snap end");
 									console.log(game.ascii());
 									console.log(gameRecord.fen);
-									console.log(game.fen);
+									console.log(game.fen());
 									if (gameRecord.fen)
 									{
-									if (game.fen!=gameRecord.fen)
+									if (game.fen()!=gameRecord.fen)
 									{
 									console.log("game is different to gameRecord");
 									console.log("game"+JSON.stringify(game));	
