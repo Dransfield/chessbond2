@@ -193,6 +193,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
+		$scope.Moves=game.pgn();
 		}
 		});
 		
@@ -441,7 +442,7 @@ $scope.changeFavicon=function (src) {
 	var position =square .position();
 	 $( "#highlight" ).detach();
   square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
-  
+  $scope.Moves=game.pgn();
   //console.log("left"+position.left);
   //console.log("top"+position.top);
   //console.log("html"+square.html());
