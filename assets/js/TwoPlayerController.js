@@ -416,7 +416,7 @@ $scope.changeFavicon=function (src) {
 							ShowPlayersAvatars(gameRecord);
   
 							var onSnapEnd = function() {
-									board.position(game.fen());
+									board1.position(game.fen());
 								};
 								var onDrop = function(source, target) {
   
