@@ -417,6 +417,8 @@ $scope.changeFavicon=function (src) {
   
 							var onSnapEnd = function() {
 									board1.position(game.fen());
+									console.log("on snap end");
+									console.log(game.ascii());
 								};
 								var onDrop = function(source, target) {
   
