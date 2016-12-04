@@ -187,10 +187,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
 		var square=   boardEl.find('.square-' + move.to);
-	var position =square .position();
-	 $( "#highlight" ).detach();
-  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
-	
+		var position =square .position();
+		$( "#highlight" ).detach();
+		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
 		$scope.Moves=game.pgn();
@@ -416,9 +415,20 @@ $scope.changeFavicon=function (src) {
 							ShowPlayersAvatars(gameRecord);
   
 							var onSnapEnd = function() {
-									board1.position(game.fen());
+									//board1.position(game.fen());
 									console.log("on snap end");
 									console.log(game.ascii());
+									console.log(gameRecord.fen);
+									console.log(game.fen);
+									if (game.fen!=gameRecord.fen)
+									{
+									console.log("game is different to gameRecord");
+									console.log("game"+JSON.stringify(game));	
+									console.log("move"+JSON.stringify(move));
+									console.log("gameRecord"+JSON.stringify(gameRecord));
+										
+									
+									}
 								};
 								var onDrop = function(source, target) {
   
@@ -428,56 +438,56 @@ $scope.changeFavicon=function (src) {
 							return 'snapback';}
 						// see if the move is legal
 						var move = game.move({
-    from: source,
-    to: target,
-    promotion: 'q' // NOTE: always promote to a queen for example simplicity
-  });
+							from: source,
+							to: target,
+							promotion: 'q' // NOTE: always promote to a queen for example simplicity
+						  });
 
-  // illegal move
-  
-  if (move === null){
-	  if (game.game_over())
-		{
-	  toastr.warning("The game is over");
-	 }
-	  if (game.in_check())
-		{
-	  toastr.warning("You are in check");
-	 }
+					  // illegal move
+					  
+					  if (move === null){
+						  if (game.game_over())
+							{
+						  toastr.warning("The game is over");
+						 }
+						  if (game.in_check())
+							{
+						  toastr.warning("You are in check");
+						 }
 	 
-	 console.log('gameover?'+game.game_over());
-	  console.log('in check?'+game.in_check());
-	  console.log('in checkmate?'+game.in_checkmate());
-	  console.log('in draw?'+game.in_draw());
-	   
-	  
-	   return 'snapback';
-	   }
+						 console.log('gameover?'+game.game_over());
+						  console.log('in check?'+game.in_check());
+						  console.log('in checkmate?'+game.in_checkmate());
+						  console.log('in draw?'+game.in_draw());
+						   
+						  
+						   return 'snapback';
+						   }
 	
-	  if (game.in_draw())
-		{
-	  toastr.success("It's a draw");
-	 }
-	  if (game.in_checkmate())
-		{
-	  toastr.success("Checkmate!");
-	 }
+							  if (game.in_draw())
+								{
+							  toastr.success("It's a draw");
+							 }
+							  if (game.in_checkmate())
+								{
+							  toastr.success("Checkmate!");
+							 }
 	 
 	
-	var square=   boardEl.find('.square-' + move.to);
-	var position =square .position();
-	 $( "#highlight" ).detach();
-  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
-  $scope.Moves=game.pgn();
-  //console.log("left"+position.left);
-  //console.log("top"+position.top);
-  //console.log("html"+square.html());
-  //console.log("height"+square.height());
- // console.log("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
-  //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
+							var square=   boardEl.find('.square-' + move.to);
+							var position =square .position();
+							 $( "#highlight" ).detach();
+						  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
+						  $scope.Moves=game.pgn();
+					  //console.log("left"+position.left);
+					  //console.log("top"+position.top);
+					  //console.log("html"+square.html());
+					  //console.log("height"+square.height());
+					 // console.log("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
+					  //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
 
-  console.log('move'+JSON.stringify(move));
-updateStatus(game,gameRecord,move);
+					  console.log('move'+JSON.stringify(move));
+					//updateStatus(game,gameRecord,move);
 };
 
 function updateStatus(game,gameRecord,move)
@@ -498,11 +508,13 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
       }  
       
     ,function(resData,jwres)
-{}
+{
+	io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
+{});
+	}
 );
 console.log('about to putsocket');
-io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
-{});
+
 
 
 
