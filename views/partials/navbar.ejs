@@ -1,4 +1,4 @@
- 
+ Strategy is:<%-req.session.strategy%>
     <% if (req.session.authenticated){ %>
 		
 	<% if (req.session.strategy=='google'){ %>
@@ -17,8 +17,9 @@
 	<% actualname=req.session.user.auth.name;%>
 	<% } %>
 	
-    <%} %>
-
+    <%}else{ %>
+	<%actualname="not authenticated"%>
+	<% }%>
 <nav class="navbar navbar-default navbar-inverse"  ng-controller="HomepageController" ng-cloak>
 	<div class="container-fluid">
 		<div class="navbar-header">
