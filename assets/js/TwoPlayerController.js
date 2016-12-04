@@ -194,6 +194,12 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		console.log(game.ascii());
 		$scope.Moves=game.pgn();
 		}
+		else
+		{
+		board1.position(gameRecord.fen);
+		game.load(gameRecord.fen);
+		}
+		
 		});
 		
 	});
@@ -428,9 +434,25 @@ $scope.changeFavicon=function (src) {
 									console.log("game"+JSON.stringify(game));	
 								//	console.log("move"+JSON.stringify(move));
 									console.log("gameRecord"+JSON.stringify(gameRecord));
+										io.socket.put('/Chessgame/'+gameRecord.id,{
+										  fen: game.fen(),
+										  pgn:game.pgn({max_width: 5, newline_char: '-' }),
+										  lastmove:move.from+move.to
+										  }  
+										  
+										,function(resData,jwres)
+									{
+										io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
+										{
 										
+										});
+										}
+									);
 									
-									}}
+									}
+									
+									
+									}
 								};
 								var onDrop = function(source, target) {
   
@@ -512,7 +534,9 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
     ,function(resData,jwres)
 {
 	io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
-{});
+	{
+	
+	});
 	}
 );
 console.log('about to putsocket');
