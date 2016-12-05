@@ -221,15 +221,15 @@ deleteopengame:function(req,res){
 		console.log("last heartbeat "+nuser.LastHomePageHeartbeat);
 		var diff=(n-nuser.LastHomePageHeartbeat);
 		console.log("difference "+diff);
-			if(diff>5000)
+			if(diff>7000)
 			{
-					user.SetForRemovalFromHomePage='true';
+					nuser.SetForRemovalFromHomePage='true';
 				console.log("user  removal:"+req.param('name'));
 			}
 			
 					
 	}
-			,6000);
+			,10000);
 			
 		});
 			
