@@ -2,6 +2,7 @@ angular.module('HomepageModule').controller('HomepageController', ['$scope', '$h
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
+
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -29,6 +30,7 @@ $scope.Players=new Array();
 			}
 			);
 			});
+			
 	io.socket.on('newopengameevent', function (data)
 			{
 			console.log('newopengameevent'+data);
@@ -40,8 +42,9 @@ $scope.Players=new Array();
 			}
 			
 		);
-io.socket.on('userleft',function(data)
-			{console.log('user left'+data);
+		
+io.socket.on('userpresence',function(data)
+			{console.log('user presence '+data);
 			});
 		function phrasefordate(dat)
 			{

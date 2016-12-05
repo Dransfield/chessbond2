@@ -205,6 +205,8 @@ deleteopengame:function(req,res){
     HomepageHeartbeat:function(req,res){
 		//console.log("recieved heartbeat from:"+req.param('name'));
 		User.findOne(req.session.user.id, function foundUser(err, user) {
+			
+			sails.sockets.broadcast('openchessgameroom','userpresence', user);
 		});
 	},
 	
