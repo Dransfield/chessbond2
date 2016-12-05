@@ -44,7 +44,7 @@ $scope.Players=new Array();
 		);
 		
 io.socket.on('userpresence',function(data)
-			{console.log('user presence '+JSON.stringify(data));
+			{console.log('user presence '+JSON.stringify(data.id));
 			});
 		function phrasefordate(dat)
 			{
