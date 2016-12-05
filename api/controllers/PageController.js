@@ -203,36 +203,9 @@ deleteopengame:function(req,res){
     },
     
     HomepageHeartbeat:function(req,res){
-		console.log("recieved heartbeat from:"+req.param('name'));
+		//console.log("recieved heartbeat from:"+req.param('name'));
 		User.findOne(req.session.user.id, function foundUser(err, user) {
-			user.OnHomePage='true';
-			user.SetForRemovalFromHomePage='false';
-				var d = new Date();
-				var n = d.getTime();
-			user.LastHomePageHeartbeat=n;
-			user.save();
-			
-			var interval = setInterval(function(user) {
- 					var d = new Date();
-				var n = d.getTime();
-		console.log("now is "+n);
-		console.log("last heartbeat "+user.LastHomePageHeartbeat);
-		var diff=(n-user.LastHomePageHeartbeat);
-		console.log("difference "+diff);
-			if(diff>7000)
-			{
-				clearInterval(interval);
-					user.SetForRemovalFromHomePage='true';
-				console.log("user  removal:"+req.param('name'));
-			}
-			
-					
-			
-	
-			}, 1000, user);
-			
-			
-		});
+		
 	},
 	
 
