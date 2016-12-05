@@ -218,11 +218,11 @@ deleteopengame:function(req,res){
 		return res.badRequest();}
  
     io.sockets.on('connection', function(socket){
-          console.log("Connected Socket = " + socket.id)
+          console.log("Connected Socket = " + socket.id);
           socket.on('disconnect', function(){
                  console.log("Disconnected Socket = " + socket.id);
           });
- } 
+ } );
 		
   var roomName = req.param('roomName');
   sails.sockets.join(req, roomName, function(err) {
