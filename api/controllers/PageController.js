@@ -213,11 +213,13 @@ deleteopengame:function(req,res){
 			user.save();
 			
 			setTimeout(function(){
+					User.findOne(req.session.user.id, function foundUser(err, nuser) {
+	
 						var d = new Date();
 				var n = d.getTime();
 		console.log("now is "+n);
-		console.log("last heartbeat "+user.LastHomePageHeartbeat);
-		var diff=(n-user.LastHomePageHeartbeat);
+		console.log("last heartbeat "+nuser.LastHomePageHeartbeat);
+		var diff=(n-nuser.LastHomePageHeartbeat);
 		console.log("difference "+diff);
 			if(diff>5000)
 			{
@@ -229,7 +231,7 @@ deleteopengame:function(req,res){
 	}
 			,6000);
 			
-		
+		});
 			
 		});
 	},
