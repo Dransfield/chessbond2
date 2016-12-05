@@ -79,7 +79,7 @@ io.socket.on('userpresence',function(data)
 		if (foundPlayer==false)
 		{
 			console.log("actual name"+actualname);
-			$scope.Players.push({name:actualname});}
+			$scope.$apply($scope.Players.push({name:actualname}));}
     
     
 				});
