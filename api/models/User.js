@@ -13,7 +13,7 @@ module.exports = {
     {
       type: 'string',
       defaultsTo: 'false'
-    }
+    },
      SoundEnabled: {
       type: 'string',
       defaultsTo: 'true'
