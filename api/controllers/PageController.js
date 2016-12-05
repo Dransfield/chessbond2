@@ -204,14 +204,18 @@ deleteopengame:function(req,res){
 		console.log("recieved heartbeat from:"+req.param('name'));
 		User.findOne(req.session.user.id, function foundUser(err, user) {
 			user.OnHomePage='true';
-			setTimeout(function(user){
+			setTimeout(SetHomePageInterval(user)
+			,6000);
+		});
+	},
+	SetHomePageInterval:function(user)
+	{
+		
 				if (user.OnHomePage=='false')
 				{sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
 				else
 				{user.OnHomePage='false';}
-				}	
-			,6000);
-		});
+					
 	},
 	UpdateHomePageChatRoom:function(req,res){
 	
