@@ -207,31 +207,26 @@ deleteopengame:function(req,res){
 		User.findOne(req.session.user.id, function foundUser(err, user) {
 			user.OnHomePage='true';
 			user.SetForRemovalFromHomePage='false';
+				var d = new Date();
+				var n = d.getTime();
+			user.LastHomePageHeartbeat=n;
+			user.save();
+			
 			setTimeout(function(){
-				
+						var d = new Date();
+				var n = d.getTime();
 		
-			
+			if((n-user.LastHomePageHeartbeat)>5000)
+			{
 					user.SetForRemovalFromHomePage='true';
-				console.log("user set for removal:"+req.param('name'));
-				
-					setTimeout(function(){
-				
+				console.log("user  removal:"+req.param('name'));
+			}
+			
+					
+	}
+			,6000);
+			
 		
-				if (user.SetForRemovalFromHomePage=='true')
-				{
-				
-				console.log("removing:"+req.param('name'));
-				
-					sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
-				
-					
-	}
-			,2000);
-					
-	}
-			,4000);
-			
-			
 			
 		});
 	},
