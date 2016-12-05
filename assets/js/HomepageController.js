@@ -46,7 +46,7 @@ $scope.Players=new Array();
 io.socket.on('userpresence',function(data)
 			{
 			io.socket.get("/auth?id="+data.auth,{},function (resData,jwres){
-			console.log(JSON.stringify(resData));
+			
 			var picurl;
 			var actualname;
 		if(resData.Picture)
@@ -75,6 +75,7 @@ io.socket.on('userpresence',function(data)
 			foundPlayer=true;
 			}
 			}
+			console.log("foundPlayer= "+foundPlayer);
 		if (foundPlayer==false)
 		{
 			console.log("actual name"+actualname);
