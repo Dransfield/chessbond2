@@ -211,10 +211,16 @@ deleteopengame:function(req,res){
 				
 		
 				if (user.SetForRemovalFromHomePage=='true')
-				{sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
+				{
+				console.log("user set for removal:"+req.param('name'));
+				console.log("removing:"+req.param('name'));
+				
+					sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
 				else
-				{user.SetForRemovalFromHomePage='true';
-					
+				{
+					user.SetForRemovalFromHomePage='true';
+				console.log("user set for removal:"+req.param('name'));
+				
 					}
 					
 	}
