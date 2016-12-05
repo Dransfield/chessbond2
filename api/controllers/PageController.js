@@ -212,26 +212,25 @@ deleteopengame:function(req,res){
 			user.LastHomePageHeartbeat=n;
 			user.save();
 			
-			setTimeout(function(){
-					User.findOne(req.session.user.id, function foundUser(err, nuser) {
-	
-						var d = new Date();
+			var interval = setInterval(function(user) {
+ 					var d = new Date();
 				var n = d.getTime();
 		console.log("now is "+n);
-		console.log("last heartbeat "+nuser.LastHomePageHeartbeat);
-		var diff=(n-nuser.LastHomePageHeartbeat);
+		console.log("last heartbeat "+user.LastHomePageHeartbeat);
+		var diff=(n-user.LastHomePageHeartbeat);
 		console.log("difference "+diff);
 			if(diff>7000)
 			{
-					nuser.SetForRemovalFromHomePage='true';
+				clearInterval(interval);
+					user.SetForRemovalFromHomePage='true';
 				console.log("user  removal:"+req.param('name'));
 			}
 			
 					
-	}
-			,15000);
 			
-		});
+	
+			}, 1000, user);
+			
 			
 		});
 	},
