@@ -210,14 +210,7 @@ deleteopengame:function(req,res){
 			setTimeout(function(){
 				
 		
-				if (user.SetForRemovalFromHomePage=='true')
-				{
-				console.log("user set for removal:"+req.param('name'));
-				console.log("removing:"+req.param('name'));
-				
-					sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
-				else
-				{
+			
 					user.SetForRemovalFromHomePage='true';
 				console.log("user set for removal:"+req.param('name'));
 				
@@ -225,6 +218,21 @@ deleteopengame:function(req,res){
 					
 	}
 			,4000);
+			
+			setTimeout(function(){
+				
+		
+				if (user.SetForRemovalFromHomePage=='true')
+				{
+				
+				console.log("removing:"+req.param('name'));
+				
+					sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
+				}
+					
+	}
+			,6000);
+			
 		});
 	},
 	
