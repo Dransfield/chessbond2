@@ -221,7 +221,7 @@ deleteopengame:function(req,res){
           console.log("Connected Socket = " + socket.id)
           socket.on('disconnect', function(){
                  console.log("Disconnected Socket = " + socket.id);
-          }
+          });
  } 
 		
   var roomName = req.param('roomName');
