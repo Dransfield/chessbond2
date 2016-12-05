@@ -1,6 +1,7 @@
 angular.module('HomepageModule').controller('HomepageController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
+$scope.Players=new Array();
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);

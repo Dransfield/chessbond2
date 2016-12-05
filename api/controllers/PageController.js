@@ -164,6 +164,7 @@ deleteopengame:function(req,res){
 		 });
     
     },
+
 	 UpdateLevelBeaten: function(req,res)  {
 		User.findOne(req.session.user.id, function foundUser(err, user) {
 		if (err) return res.negotiate(err);
@@ -216,7 +217,12 @@ deleteopengame:function(req,res){
 		if (!req.isSocket) {
 		return res.badRequest();}
  
-
+    io.sockets.on('connection', function(socket){
+          console.log("Connected Socket = " + socket.id)
+          socket.on('disconnect', function(){
+                 console.log("Disconnected Socket = " + socket.id);
+          }
+ } 
 		
   var roomName = req.param('roomName');
   sails.sockets.join(req, roomName, function(err) {
@@ -229,6 +235,9 @@ deleteopengame:function(req,res){
       message: 'Subscribed to a room called '+roomName+'!'
     });
   });
+  
+  
+  
 },
 	
 	loginbuttonpushed:function(req,res){
@@ -239,6 +248,7 @@ deleteopengame:function(req,res){
 	
 	return res.ok();
 	},
+	
 	MyLogout:function(req,res){
 	/*	console.log(req.session.user);
 		//req.session.Loggedin='false';
