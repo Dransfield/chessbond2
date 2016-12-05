@@ -44,7 +44,43 @@ $scope.Players=new Array();
 		);
 		
 io.socket.on('userpresence',function(data)
-			{console.log('user presence '+JSON.stringify(data.id));
+			{
+			io.socket.get("/auth?id="+data.auth,{},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			var picurl;
+			var actualname;
+		if(resData.Picture)
+		{	
+	 picurl=resData.Picture;
+	 if (resData.firstName==''){ 
+	 actualname=resData.auth.googleEmail ;
+	
+	 }else{ 
+	
+	 actualname=resData.auth.firstName+" "+resData.auth.lastName;
+	 } 
+	 } 
+	
+	if (resData.auth.facebookId)
+	{
+	picurl="http://graph.facebook.com/"+req.session.user.auth.facebookId+"/picture?type=square";
+	 actualname=redData.auth.name;
+	 }
+	 
+	var foundPlayer=false;
+    
+    	for(var i = $scope.Players.length - 1; i >= 0; i--) {
+				
+			if($scope.Players[i].name === actualname) {
+			foundPlayer=true;
+			}
+			}
+		if (foundPlayer==false)
+		{$scope.Players.push({name:actualname});}
+    
+    
+				});
+				
 			});
 		function phrasefordate(dat)
 			{
