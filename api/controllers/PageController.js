@@ -215,8 +215,11 @@ deleteopengame:function(req,res){
 			setTimeout(function(){
 						var d = new Date();
 				var n = d.getTime();
-		
-			if((n-user.LastHomePageHeartbeat)>5000)
+		console.log("now is "+n);
+		console.log("last heartbeat "+user.LastHomePageHeartbeat);
+		var diff=(n-user.LastHomePageHeartbeat);
+		console.log("difference "+diff);
+			if(diff>5000)
 			{
 					user.SetForRemovalFromHomePage='true';
 				console.log("user  removal:"+req.param('name'));
