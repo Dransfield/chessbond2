@@ -4,7 +4,7 @@
 	<% if (req.session.strategy=='google'){ %>
 	<% picurl=req.session.user.auth.Picture;%>
 	<% if (req.session.user.auth.firstName==''){ %>
-	<%actualname=req.session.user.auth.googleEmail ;%>
+	<% actualname=req.session.user.auth.googleEmail ;%>
 	
 	<% }else{ %>
 	

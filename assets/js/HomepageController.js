@@ -142,7 +142,8 @@ $scope.deletegame=function(id,user)
 	$scope.joinopengameRoom=function ()
 		{
 			
-			
+		
+		
 			io.socket.get("/subscribeToRoom",{roomName:'openchessgameroom'},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
@@ -169,7 +170,7 @@ $scope.deletegame=function(id,user)
 			});
 		}
 	
-	$scope.joinmyuserIDRoom=function(MyID)
+	$scope.joinmyuserIDRoom=function(MyName,MyID)
 	{
 		
 		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
@@ -184,6 +185,13 @@ $scope.deletegame=function(id,user)
 			});
 			console.log(data);
 			});
+			
+				setInterval(function (MyID)
+		{
+				io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
+			
+			});
+		}, 5000);
 			
 	}
 	

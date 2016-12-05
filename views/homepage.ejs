@@ -32,7 +32,7 @@
 			
 			<% if (req.session.authenticated) { %>
 			<% if (req.session.authenticated==true) { %>
-			<div ng-init="joinmyuserIDRoom('<%- req.session.user.id %>')"></div>
+			<div ng-init="joinmyuserIDRoom('<%-actualname%>','<%- req.session.user.id %>')"></div>
 			<% } %>
 			<% } %>
         <h1 class="text-center" >Chessbond</h1>

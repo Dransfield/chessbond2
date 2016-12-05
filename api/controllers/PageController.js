@@ -199,12 +199,21 @@ deleteopengame:function(req,res){
     
     });
     },
+    
+    HomepageHeartbeat:function(req,res){
+		console.log("recieved heartbeat from:"+req.param('name'));
+		User.findOne(req.session.user.id, function foundUser(err, user) {
+			
+		});
+	},
+	
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	setTimeout(		function(){sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Two Seconds have passed"});}
 ,2000);
 	return res.ok();
 	},
+	
     chatmsg:function(req,res){
 
 	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec(function (err, records) {
