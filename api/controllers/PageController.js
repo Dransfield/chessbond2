@@ -214,12 +214,7 @@ deleteopengame:function(req,res){
 					user.SetForRemovalFromHomePage='true';
 				console.log("user set for removal:"+req.param('name'));
 				
-					
-					
-	}
-			,4000);
-			
-			setTimeout(function(){
+					setTimeout(function(){
 				
 		
 				if (user.SetForRemovalFromHomePage=='true')
@@ -231,7 +226,12 @@ deleteopengame:function(req,res){
 				
 					
 	}
-			,6000);
+			,2000);
+					
+	}
+			,4000);
+			
+			
 			
 		});
 	},
