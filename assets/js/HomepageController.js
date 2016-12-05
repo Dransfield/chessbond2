@@ -53,18 +53,18 @@ io.socket.on('userpresence',function(data)
 		{	
 	 picurl=resData.Picture;
 	 if (resData.firstName==''){ 
-	 actualname=resData.auth.googleEmail ;
+	 actualname=resData.googleEmail ;
 	
 	 }else{ 
 	
-	 actualname=resData.auth.firstName+" "+resData.auth.lastName;
+	 actualname=resData.firstName+" "+resData.lastName;
 	 } 
 	 } 
 	
-	if (resData.auth.facebookId)
+	if (resData.facebookId)
 	{
-	picurl="http://graph.facebook.com/"+req.session.user.auth.facebookId+"/picture?type=square";
-	 actualname=redData.auth.name;
+	picurl="http://graph.facebook.com/"+resData.facebookId+"/picture?type=square";
+	 actualname=resData.name;
 	 }
 	 
 	var foundPlayer=false;
