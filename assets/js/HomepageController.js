@@ -40,7 +40,9 @@ $scope.Players=new Array();
 			}
 			
 		);
-
+io.socket.on('userleft',function(data)
+			{console.log('user left'+data);
+			});
 		function phrasefordate(dat)
 			{
 			
@@ -176,6 +178,7 @@ $scope.deletegame=function(id,user)
 		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
+			
 			io.socket.on('newmygameevent', function (data)
 			{
 				console.log('recieved new game event'+data);
@@ -189,7 +192,14 @@ $scope.deletegame=function(id,user)
 				setInterval(function (MyID)
 		{
 				io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
+				$http.put('/user?id='+MyID, {
+			OnHomePage:'true'
+			})
+			.then(function onSuccess(sailsResponse){
 			
+			$scope.deleteopengame(GameID);
+			}
+			)
 			});
 		}, 5000);
 			
