@@ -228,7 +228,7 @@ deleteopengame:function(req,res){
 				console.log("removing:"+req.param('name'));
 				
 					sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
-				}
+				
 					
 	}
 			,6000);
