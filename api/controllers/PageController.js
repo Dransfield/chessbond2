@@ -6,6 +6,17 @@
  */
 
 module.exports = {
+	
+	function SetHomePageInterval(user)
+	{
+		
+				if (user.OnHomePage=='false')
+				{sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
+				else
+				{user.OnHomePage='false';}
+					
+	}
+	
 	deletegame:function(req,res){
 	Chessgame.destroy({id:req.param('gameid')}).exec
 	(function(err){
@@ -208,15 +219,7 @@ deleteopengame:function(req,res){
 			,6000);
 		});
 	},
-	SetHomePageInterval:function(user)
-	{
-		
-				if (user.OnHomePage=='false')
-				{sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
-				else
-				{user.OnHomePage='false';}
-					
-	},
+	
 	UpdateHomePageChatRoom:function(req,res){
 	
 	},
