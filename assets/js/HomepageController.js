@@ -76,7 +76,9 @@ io.socket.on('userpresence',function(data)
 			}
 			}
 		if (foundPlayer==false)
-		{$scope.Players.push({name:actualname});}
+		{
+			console.log("actual name"+actualname);
+			$scope.Players.push({name:actualname});}
     
     
 				});
