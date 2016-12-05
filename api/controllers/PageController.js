@@ -206,7 +206,7 @@ deleteopengame:function(req,res){
 			user.OnHomePage='true';
 			setTimeout(function(user){
 				if (user.OnHomePage=='false')
-				{sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});
+				{sails.sockets.broadcast('openchessgameroom','userleft',{id:req.session.user.id});}
 				else
 				{user.OnHomePage='false';}
 				}	
