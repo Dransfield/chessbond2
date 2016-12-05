@@ -9,7 +9,11 @@
 module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
-    
+    OnHomePage:
+    {
+      type: 'string',
+      defaultsTo: 'false'
+    }
      SoundEnabled: {
       type: 'string',
       defaultsTo: 'true'
