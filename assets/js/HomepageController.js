@@ -232,6 +232,15 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			
 			setInterval(function (MyID)
 			{
+				
+				for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			$scope.Players[i].time=$scope.Players[i].time+1;
+			console.log($scope.Players[i].name+" "+$scope.Players[i].time);
+			if($scope.Players[i].time>3) {
+			$scope.Players.splice(i, 1);
+			}
+			}
+				
 			io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
 			$http.put('/user?id='+MyID, {
 			OnHomePage:'true'
@@ -239,13 +248,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			.then(function onSuccess(sailsResponse){
 			
 			
-			for(var i = $scope.Players.length - 1; i >= 0; i--) {
-			$scope.Players[i].time=$scope.Players[i].time+1;
-			console.log($scope.Players[i].name+" "+$scope.Players[i].time);
-			if($scope.Players[i].time>3) {
-			$scope.Players.splice(i, 1);
-			}
-			}
+			
 		
 			
 			}
