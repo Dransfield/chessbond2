@@ -73,6 +73,7 @@ io.socket.on('userpresence',function(data)
 				
 			if($scope.Players[i].name === actualname) {
 			foundPlayer=true;
+			$scope.Players[i].time=0;
 			}
 			}
 			console.log("foundPlayer= "+foundPlayer);
@@ -152,14 +153,14 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 			)
 			},
-$scope.deletegame=function(id,user)
+		$scope.deletegame=function(id,user)
 		{
 			console.log('asked to delete game '+id);
 			 io.socket.put('/deletegame', { gameid:id,owner:user},function  (data,jwres){
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
 		//toastr.success('Created New Game');
-    });
+		});
 		
 		},
 		$scope.deleteopengame=function(id)
@@ -231,15 +232,23 @@ $scope.deletegame=function(id,user)
 			console.log(data);
 			});
 			
-				setInterval(function (MyID)
-		{
-				io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
-				$http.put('/user?id='+MyID, {
+			setInterval(function (MyID)
+			{
+			io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
+			$http.put('/user?id='+MyID, {
 			OnHomePage:'true'
 			})
 			.then(function onSuccess(sailsResponse){
 			
-			$scope.deleteopengame(GameID);
+			
+			for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			$scope.Players[i].time=$scope.Players[i].time+1;
+			if($scope.Players[i].time>3) {
+			$scope.Players.splice(i, 1);
+			}
+			}
+		
+			
 			}
 			)
 			});
