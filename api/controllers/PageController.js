@@ -281,6 +281,7 @@ deleteopengame:function(req,res){
 	*/
 	req.session.authenticated=false;
 	req.session.auth=null;
+	req.session.passport=null;
 	return res.redirect('/');
 		
 		},

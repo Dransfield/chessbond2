@@ -33,7 +33,7 @@
 			<% } %>
         <h1 class="text-center" >Chessbond</h1>
         
-     <% if (!req.session.authenticated) { %>
+     <% if (!req.session.passport) { %>
         
          <a class="btn btn-primary" href="/loginfacebook">Login with Facebook</a>
 			<a class="btn btn-primary"href="/logintwitter">Login with Twitter</a>
