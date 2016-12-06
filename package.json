@@ -27,8 +27,8 @@
     "connect-redis":"*",
     "connect-mongo":"*",
     "waterlock-facebook-auth":"*",
-    "waterlock-google-auth":"*"
-    
+    "waterlock-google-auth":"*",
+    "waterlock-twitter-auth":"*"
   },
   "scripts": {
     "debug": "node debug app.js",

@@ -44,6 +44,12 @@ baseUrl: 'http://www.chessbond.com',
         redirectUri: 'http://www.chessbond.com/auth/google_oauth2/'
 		
     },
+    {
+		name: "waterlock-twitter-auth",
+		consumerKey: "ovZrQ8rjklukSpUdgyaxIFbM5",
+		consumerSecret: "Ldrie1diKTTgQMWEV0AvL8WTa7jEYkaxPECoWbWDowig929PWd",
+		redirectUri: 'http://www.chessbond.com/auth/twitter_oauth/'
+	},
    	{
 		/*
 		name: "waterlock-facebook-auth",
