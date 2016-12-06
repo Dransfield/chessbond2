@@ -18,7 +18,9 @@ module.exports = {
         gender: 'string',
         timezone: 'number',
         Picture:'string',
-        Cover:'string'
+        Cover:'string',
+        location:'string',
+        profile_image_url:'string'
   }),
   
   beforeCreate: require('waterlock').models.auth.beforeCreate,
