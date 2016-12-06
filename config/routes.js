@@ -49,6 +49,13 @@ module.exports.routes = {
 	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
 	'PUT /chessgamemove':'PageController.chessgamemove'
+	
+		'/logintwitter': 'AuthController.logintwitter',
+ '/auth/google_oauth2':'AuthController.googlecallback',
+	'/logingoogle': 'AuthController.logingoogle',
+'/auth/twitter_oauth':'AuthController.twittercallback',
+  	'/loginfacebook': 'AuthController.loginfacebook',
+  '/auth/facebook_oauth2':'AuthController.facebookcallback',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

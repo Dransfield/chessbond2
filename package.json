@@ -26,9 +26,11 @@
     "waterlock":"*",
     "connect-redis":"*",
     "connect-mongo":"*",
-    "waterlock-facebook-auth":"*",
-    "waterlock-google-auth":"*",
-    "waterlock-twitter-auth":"*"
+        "passport": "~0.2.1",
+    "passport-local": "~1.0.0",
+    "passport-facebook": "*",
+    "passport-twitter": "*",
+    "passport-google-oauth20": "*",
   },
   "scripts": {
     "debug": "node debug app.js",
