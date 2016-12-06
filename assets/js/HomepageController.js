@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('HomepageController', ['$scope', '$h
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
-
+$scope.actualname='Fred';
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -51,34 +51,34 @@ io.socket.on('userpresence',function(data)
 			var actualname;
 		if(resData.Picture)
 		{	
-	 picurl=resData.Picture;
-	 if (resData.firstName==''){ 
-	 actualname=resData.googleEmail ;
+		 picurl=resData.Picture;
+		 if (resData.firstName==''){ 
+		 actualname=resData.googleEmail ;
+		
+		 }else{ 
+		
+		 actualname=resData.firstName+" "+resData.lastName;
+		 } 
+		 } 
 	
-	 }else{ 
-	
-	 actualname=resData.firstName+" "+resData.lastName;
-	 } 
-	 } 
-	
-	if (resData.facebookId)
-	{
-	picurl="http://graph.facebook.com/"+resData.facebookId+"/picture?type=square";
-	 actualname=resData.name;
-	 }
-	 
-	var foundPlayer=false;
-    
-    	for(var i = $scope.Players.length - 1; i >= 0; i--) {
-				
-			if($scope.Players[i].name === actualname) {
-			foundPlayer=true;
-			$scope.Players[i].time=0;
-			}
-			}
-			//console.log("foundPlayer= "+foundPlayer);
-		if (foundPlayer==false)
+		if (resData.facebookId)
 		{
+		picurl="http://graph.facebook.com/"+resData.facebookId+"/picture?type=square";
+		 actualname=resData.name;
+		 }
+		 
+		var foundPlayer=false;
+		
+			for(var i = $scope.Players.length - 1; i >= 0; i--) {
+					
+				if($scope.Players[i].name === actualname) {
+				foundPlayer=true;
+				$scope.Players[i].time=0;
+				}
+				}
+				//console.log("foundPlayer= "+foundPlayer);
+			if (foundPlayer==false)
+			{
 			//console.log("actual name"+actualname);
 			$scope.$apply($scope.Players.push({name:actualname,time:0}));}
     	});
