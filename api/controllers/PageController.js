@@ -279,7 +279,8 @@ deleteopengame:function(req,res){
 	}
 	});
 	*/
-	return res.redirect('/auth/logout');
+	req.session='';
+	return res.redirect('/');
 		
 		},
 	RecordSession:function(req,res){

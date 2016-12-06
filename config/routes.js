@@ -50,6 +50,7 @@ module.exports.routes = {
 	'POST /chatmsg':'PageController.chatmsg',
 	'PUT /chessgamemove':'PageController.chessgamemove',
 	
+	
 		'/logintwitter': 'AuthController.logintwitter',
  '/auth/google_oauth2':'AuthController.googlecallback',
 	'/logingoogle': 'AuthController.logingoogle',
