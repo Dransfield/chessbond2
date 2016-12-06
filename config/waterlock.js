@@ -48,6 +48,11 @@ baseUrl: 'http://www.chessbond.com',
 		name: "waterlock-twitter-auth",
 		consumerKey: "ovZrQ8rjklukSpUdgyaxIFbM5",
 		consumerSecret: "Ldrie1diKTTgQMWEV0AvL8WTa7jEYkaxPECoWbWDowig929PWd",
+		fieldMap: {
+			'profile_image_url':'profile_image_url',
+			'location':'location',
+			'gender': 'gender'
+		},
 		redirectUri: 'http://www.chessbond.com/auth/twitter_oauth/'
 	},
    	{
