@@ -279,7 +279,7 @@ deleteopengame:function(req,res){
 	}
 	});
 	*/
-	req.session='';
+	req.session.auth=null;
 	return res.redirect('/');
 		
 		},
