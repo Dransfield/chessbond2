@@ -1,25 +1,5 @@
  
-    <% if (req.session.authenticated){ %>
 		
-	<% if (req.session.strategy=='google'){ %>
-	<% picurl=req.session.user.auth.Picture;%>
-	<% if (req.session.user.auth.firstName==''){ %>
-	<% actualname=req.session.user.auth.googleEmail ;%>
-	
-	<% }else{ %>
-	
-	<% actualname=req.session.user.auth.firstName+" "+req.session.user.auth.lastName;%>
-	<% } %>
-	<% } %>
-	
-	<% if (req.session.strategy=='facebook'){ %>
-	<%picurl="http://graph.facebook.com/"+req.session.user.auth.facebookId+"/picture?type=square";%>
-	<% actualname=req.session.user.auth.name;%>
-	<% } %>
-	
-    <%}else{ %>
-	<%actualname="not authenticated"%>
-	<% }%>
 <nav class="navbar navbar-default navbar-inverse"  ng-controller="HomepageController" ng-cloak>
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -37,7 +17,7 @@
         <div id="navbar" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 			<ul class="nav navbar-right">
 			
-				<% if (!req.session.authenticated) { %>
+				<% if (!req.session.passport) { %>
 				
 					
 						
