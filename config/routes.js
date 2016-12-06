@@ -48,7 +48,7 @@ module.exports.routes = {
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
 	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
-	'PUT /chessgamemove':'PageController.chessgamemove'
+	'PUT /chessgamemove':'PageController.chessgamemove',
 	
 		'/logintwitter': 'AuthController.logintwitter',
  '/auth/google_oauth2':'AuthController.googlecallback',

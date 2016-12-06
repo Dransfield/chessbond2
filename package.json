@@ -30,7 +30,7 @@
     "passport-local": "~1.0.0",
     "passport-facebook": "*",
     "passport-twitter": "*",
-    "passport-google-oauth20": "*",
+    "passport-google-oauth20": "*"
   },
   "scripts": {
     "debug": "node debug app.js",
