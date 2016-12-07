@@ -172,7 +172,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		
 		},
 
-	$scope.createopengame=function(id,name)
+	$scope.createopengame=function(id)
 	{
 	io.socket.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() },
     function (resData, jwr) {
@@ -219,13 +219,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			$http.get('/user?id='+MyID, {
 			})
 			.then(function onSuccess(sailsResponse){
-			$scope.User={};
 			$scope.User=sailsResponse.data;
-			console.log("username "+$scope.User.name);
-			
-			
-		
-			
 			}
 			)
 		
