@@ -213,8 +213,21 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			});
 		}
 	
-	$scope.joinmyuserIDRoom=function(MyName,MyID)
+	$scope.joinmyuserIDRoom=function(MyID)
 	{
+		
+			$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.User={};
+			$scope.User=sailsResponse;
+			console.log("sailsResponse "+sailsResponse);
+			
+			
+		
+			
+			}
+			)
 		
 		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
@@ -222,7 +235,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			
 			io.socket.on('newmygameevent', function (data)
 			{
-				console.log('recieved new game event'+data);
+			console.log('recieved new game event '+data);
 			data.phrase=phrasefordate(data.Created);
 			$scope.$apply(function(){
 			$scope.joinedgames.push(data);
@@ -242,17 +255,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 				
 			io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
-			$http.put('/user?id='+MyID, {
-			OnHomePage:'true'
-			})
-			.then(function onSuccess(sailsResponse){
-			
-			
-			
 		
-			
-			}
-			)
 			});
 		}, 5000);
 			

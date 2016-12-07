@@ -26,10 +26,8 @@
  
 		<div class="jumbotron text-center">
 			
-			<% if (req.session.authenticated) { %>
-			<% if (req.session.authenticated==true) { %>
-			<div ng-init="joinmyuserIDRoom('<%-actualname%>','<%- req.session.user.id %>')"></div>
-			<% } %>
+			<% if (req.session.passport) { %>
+			<div ng-init="joinmyuserIDRoom('<%- req.session.passport.user %>')"></div>
 			<% } %>
         <h1 class="text-center" >Chessbond</h1>
         
@@ -41,7 +39,7 @@
            <%}else { %>
 			   <% if (req.session.authenticated==true) { %>
 			<a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-			<button ng-click="createopengame('<%- req.session.user.id %>','<%- actualname %>')" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<button ng-click="createopengame(<%- req.session.passport.user%> )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 			<% } %>
 		<% } %>
 		
