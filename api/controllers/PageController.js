@@ -56,7 +56,7 @@ deleteopengame:function(req,res){
 	
 	   ChangeUsersCurrentGame: function (req,res){
 	    User.findOne({
-      id: req.session.user.id
+      id: req.session.passport.user
 	},function foundUser(err,user){
 		if (!err){
 			req.session.user.GameID=req.param('GameID');
@@ -168,7 +168,7 @@ deleteopengame:function(req,res){
     },
 
 	 UpdateLevelBeaten: function(req,res)  {
-		User.findOne(req.session.user.id, function foundUser(err, user) {
+		User.findOne(req.session.passport.user, function foundUser(err, user) {
 		if (err) return res.negotiate(err);
 
 		// If session refers to a user who no longer exists, still allow logout.
@@ -205,7 +205,7 @@ deleteopengame:function(req,res){
     HomepageHeartbeat:function(req,res){
 		//console.log("recieved heartbeat from:"+req.param('name'));
 		if (req.session.user){
-		User.findOne(req.session.user.id, function foundUser(err, user) {
+		User.findOne(req.session.passport.user, function foundUser(err, user) {
 			
 			sails.sockets.broadcast('openchessgameroom','userpresence', user);
 		});}
