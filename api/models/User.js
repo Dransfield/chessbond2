@@ -5,6 +5,7 @@
  * @description :: This is the base user model
  * @docs        :: http://waterlock.ninja/documentation
  */
+md5=require("MD5");
 
 module.exports = {
 
