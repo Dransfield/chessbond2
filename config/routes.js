@@ -60,7 +60,7 @@ module.exports.routes = {
   	'/loginfacebook': 'AuthController.loginfacebook',
   '/auth/facebook_oauth2':'AuthController.facebookcallback',
   'POST /register':'AuthController.register',
-  'POST /login':'AuthController.login'
+  'PUT /login':'AuthController.login'
   
   /***************************************************************************
   *                                                                          *
