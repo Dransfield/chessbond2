@@ -46,10 +46,8 @@
     
 
 				  
-	    <% if (req.session.authenticated) { %>
+	    <% if (req.session.passport) { %>
     			  
-	  <% if (req.session.authenticated==true) { %>
-		 
     <h2 class="sub-header">Your Games</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -71,7 +69,7 @@
 			
 			<td>
 				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
-				<button ng-click="deletegame(game.id,'<%-  req.session.user.id %>')">Delete Game</button>
+				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
 			</td>
 			
 			</tr>
@@ -79,7 +77,6 @@
             </table>
           </div>
      
-    <% } %>
     <% } %>
 				
 				
