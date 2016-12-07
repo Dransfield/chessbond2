@@ -31,16 +31,16 @@
 			<% } %>
         <h1 class="text-center" >Chessbond</h1>
         
-     <% if (!req.session.passport) { %>
+     
         
          <a class="btn btn-primary" href="/loginfacebook">Login with Facebook</a>
 			<a class="btn btn-primary"href="/logintwitter">Login with Twitter</a>
 			<a class="btn btn-primary" href="/logingoogle">Login with Google</a>
-           <%}else { %>
+          
 			<a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-			<button ng-hide="User" ng-click="createopengame(User.id,User.name )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<button ng-show="User" ng-click="createopengame(User.id,User.name )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 			
-		<% } %>
+		
 		
 		</div>
     
