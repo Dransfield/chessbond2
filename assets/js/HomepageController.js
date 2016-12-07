@@ -212,16 +212,20 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			
 			});
 		}
-	
-	$scope.joinmyuserIDRoom=function(MyID)
+	$scope.getuser=function(MyID)
 	{
-		
-			$http.get('/user?id='+MyID, {
+		$http.get('/user?id='+MyID, {
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			}
-			)
+			)	
+		
+	}
+	$scope.joinmyuserIDRoom=function(MyID)
+	{
+		
+		
 		
 		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
 			console.log(JSON.stringify(resData));

@@ -20,14 +20,15 @@
     <body ng-app="HomepageModule" ng-controller="HomepageController" ngcloak>
 <%- JSON.stringify(req.session) %>
     <div ng-init="joinopengameRoom()"></div>
-     <% var actualname='blank';%>
-   <% var picurl='blank';%>
+ 
     <%- include partials/navbar.ejs %>
  
 		<div class="jumbotron ">
 			
 			<% if (req.session.passport) { %>
 			<div ng-init="joinmyuserIDRoom('<%- req.session.passport.user %>')"></div>
+			<div ng-init="getuser('<%- req.session.passport.user %>')"></div>
+			
 			<% } %>
 	     <div class="row">
 	     <div class="col-md-4">
