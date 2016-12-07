@@ -146,7 +146,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		$scope.login=function()
 		{
 			
-			$http.put("/login",{user:$scope.vm.username,password:$scope.vm.password})
+			$http.put("/login",{email:$scope.vm.username,password:$scope.vm.password})
 			.then(function onSuccess (resData, jwr){
 			console.log(resData);
 			}

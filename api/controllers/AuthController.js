@@ -63,7 +63,7 @@ register: function (req, res) {
   },
     login: function(req, res) {
 
-        passport.authenticate('local', function(err, user, info) {
+        passport.authenticate('local', function(err, user, req) {
             if ((err) || (!user)) {
                 return res.send({
                     message: info.message,
