@@ -142,6 +142,9 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		});
 		
 		},
+		
+		$scope.vm.login=function()
+		{},
 		$scope.deleteopengame=function(id)
 		{
 			console.log('asked to delete'+id);
