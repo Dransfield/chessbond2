@@ -59,7 +59,7 @@ deleteopengame:function(req,res){
       id: req.session.passport.user
 	},function foundUser(err,user){
 		if (!err){
-			req.session.user.GameID=req.param('GameID');
+			req.session.GameID=req.param('GameID');
 	user.GameID=req.param('GameID');
 	user.opponent=req.param('oppo');
 	user.save();
