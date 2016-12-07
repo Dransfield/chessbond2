@@ -331,7 +331,7 @@ $scope.changeFavicon=function (src) {
 		
 		$scope.chatMessage=function(usrName)
 		{
-			$http.post("/chatmsg",{talker: usrName,roomName:GameID,message:$scope.chatInput})
+			$http.post("/chatmsg",{talker: $scope.User.name,roomName:GameID,message:$scope.chatInput})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
