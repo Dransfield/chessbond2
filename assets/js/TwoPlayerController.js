@@ -355,7 +355,9 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+gameRecord.Player1).then(function
 			(res)
 			{
-				var picurl=PicUrlForUser(res.data);
+				console.log(JSON.stringify(res.data));
+				
+				var picurl=(res.data.picture);
 				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			if ($scope.PlayerOnBottom=='White')
 			{
