@@ -155,7 +155,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			else
 			{
 			toastr.success(resData.data.message);
-				$http.get("/");
+				$window.location.href = '/';
 			}
 			}
 			);
