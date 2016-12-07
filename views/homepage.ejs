@@ -17,7 +17,7 @@
     
     </head>
     
-    <body ng-app="HomepageModule" ng-controller="HomepageController" >
+    <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
 <%- JSON.stringify(req.session) %>
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
