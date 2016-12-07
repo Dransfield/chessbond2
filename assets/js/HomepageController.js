@@ -220,8 +220,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User={};
-			$scope.User=sailsResponse;
-			console.log("sailsResponse "+JSON.stringify(sailsResponse));
+			$scope.User=sailsResponse.data;
+			console.log("username "+$scope.User.name);
 			
 			
 		
