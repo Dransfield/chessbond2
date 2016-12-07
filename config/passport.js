@@ -45,7 +45,7 @@ passport.use(new GoogleStrategy({
                     googleId: profile.id, // set the users facebook id                   
                     googletoken : refreshToken, // we will save the token that facebook provides to the user                    
                     name:profile.displayName,
-                    picture:profile.photos[0]
+                    picture:profile.photos[0].value
                                         }).exec( // look at the passport user profile to see how names are returned
                     
                     //facebookemail:  profile.emails[0].value}).exec( // facebook can return multiple emails so we'll take the first

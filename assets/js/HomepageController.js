@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('HomepageController', ['$scope', '$h
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
-$scope.actualname='Fred';
+$scope.User;
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -45,7 +45,7 @@ $scope.actualname='Fred';
 		
 io.socket.on('userpresence',function(data)
 			{
-			io.socket.get("/auth?id="+data.auth,{},function (resData,jwres){
+			io.socket.get("/user?id="+data.auth,{},function (resData,jwres){
 			
 			var picurl;
 			var actualname;
