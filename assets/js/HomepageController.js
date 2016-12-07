@@ -143,8 +143,16 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		
 		},
 		
-		$scope.vm.login=function()
-		{},
+		$scope.login=function()
+		{
+			
+			$http.post("/login",{username:$scope.vm.username,password:$scope.vm.password})
+			.then(function onSuccess (){
+			
+			}
+			);
+			
+			},
 		$scope.deleteopengame=function(id)
 		{
 			console.log('asked to delete'+id);
