@@ -17,7 +17,7 @@
     
     </head>
     
-    <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
+    <body ng-app="HomepageModule" ng-controller="HomepageController" >
 <%- JSON.stringify(req.session) %>
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
@@ -33,12 +33,12 @@
         
      
         
-         <a ng-show="!User" class="btn btn-primary" href="/loginfacebook">Login with Facebook</a>
-			<a ng-show="!User" class="btn btn-primary"href="/logintwitter">Login with Twitter</a>
-			<a ng-show="!User" class="btn btn-primary" href="/logingoogle">Login with Google</a>
+         <a ng-cloak ng-show="!User" class="btn btn-primary" href="/loginfacebook">Login with Facebook</a>
+			<a ng-cloak ng-show="!User" class="btn btn-primary"href="/logintwitter">Login with Twitter</a>
+			<a ng-cloak ng-show="!User" class="btn btn-primary" href="/logingoogle">Login with Google</a>
           
-			<a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-			<button ng-show="User" ng-click="createopengame(User.id,User.name )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<a ng-cloak href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			<button ng-cloak ng-show="User" ng-click="createopengame(User.id,User.name )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 			
 		
 		
