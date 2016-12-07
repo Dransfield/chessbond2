@@ -221,7 +221,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			.then(function onSuccess(sailsResponse){
 			$scope.User={};
 			$scope.User=sailsResponse;
-			console.log("sailsResponse "+sailsResponse);
+			console.log("sailsResponse "+JSON.stringify(sailsResponse));
 			
 			
 		
@@ -254,7 +254,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 			}
 				
-			io.socket.get("/HomepageHeartbeat",{name:MyName,id:MyID},function (resData,jwres){
+			io.socket.get("/HomepageHeartbeat",{id:MyID},function (resData,jwres){
 		
 			});
 		}, 5000);
