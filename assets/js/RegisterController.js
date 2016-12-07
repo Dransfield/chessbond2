@@ -8,9 +8,11 @@ angular.module('HomepageModule').controller('RegisterController', ['$scope', '$h
 $scope.register=function()
 {
 console.log($scope.vm.user.password);
-$http.post("/register",{username:$scope.vm.user.username,email: $scope.vm.user.email,password:$scope.vm.user.password})
-			.then(function onSuccess (){
-			
+io.socket.post("/register",{name:$scope.vm.user.username,email: $scope.vm.user.email,password:$scope.vm.user.password},function(resData,jwres)
+
+{
+	console.log(jwres);
+	console.log(resData);			
 			}
 			);
 	
