@@ -45,11 +45,11 @@ $scope.PreferenceInitialValue['ChessPieceTheme']=[{name:'A'}];
 
 $scope.pic1height=50;
 $scope.pic1coordy=40;
-$scope.pic1coordx=50;
+$scope.pic1coordx=48;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=50; $scope.pic1coordx=50; $scope.pic1coordy=40;	
+$scope.pic1height=50; $scope.pic1coordx=48; $scope.pic1coordy=40;	
 }
 $scope.bigimage1=function()
 {
@@ -59,11 +59,11 @@ $scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-60;
 
 $scope.pic2height=50;
 $scope.pic2coordy=40;
-$scope.pic2coordx=50;
+$scope.pic2coordx=48;
 
 $scope.smallimage2=function()
 {
-$scope.pic2height=50; $scope.pic2coordx=50; $scope.pic2coordy=40;	
+$scope.pic2height=50; $scope.pic2coordx=48; $scope.pic2coordy=40;	
 }
 $scope.bigimage2=function()
 {
