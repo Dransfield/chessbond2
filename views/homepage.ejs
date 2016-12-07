@@ -38,7 +38,7 @@
 			<a class="btn btn-primary" href="/logingoogle">Login with Google</a>
            <%}else { %>
 			<a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-			<button ng-click="createopengame(User.name )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<button ng-click="createopengame(User.id,User.name )" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 			
 		<% } %>
 		

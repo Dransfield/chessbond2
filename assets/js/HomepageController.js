@@ -172,7 +172,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		
 		},
 
-	$scope.createopengame=function(id)
+	$scope.createopengame=function(id,name)
 	{
 	io.socket.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() },
     function (resData, jwr) {
