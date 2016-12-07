@@ -47,12 +47,12 @@ io.socket.on('userpresence',function(data)
 			{
 			io.socket.get("/user?id="+data.id,{},function (resData,jwres){
 			
-			console.log("name "+resData.data.name);
+			console.log("name "+resData.name);
 		var foundPlayer=false;
 		
 			for(var i = $scope.Players.length - 1; i >= 0; i--) {
 					
-				if($scope.Players[i].name === resData.data.name) {
+				if($scope.Players[i].name === resData.name) {
 				foundPlayer=true;
 				$scope.Players[i].time=0;
 				}
@@ -61,7 +61,7 @@ io.socket.on('userpresence',function(data)
 			if (foundPlayer==false)
 			{
 			//console.log("actual name"+actualname);
-			$scope.$apply($scope.Players.push({name:resData.data.name,time:0}));}
+			$scope.$apply($scope.Players.push({name:resData.name,time:0}));}
     	});
 				
 			});
