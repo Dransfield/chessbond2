@@ -374,7 +374,7 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+gameRecord.Player2).then(function
 			(res)
 			{
-				var picurl=PicUrlForUser(res.data);
+				var picurl=(res.data.picture);
 				if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.TopPlayerPic=picurl;
@@ -390,28 +390,7 @@ $scope.changeFavicon=function (src) {
 		}
 
 		
-		function PicUrlForUser(usr)
-		{
-		 var picurl='blank';
-				if (usr.auth.Picture)
-				{
-				if (usr.auth.Picture!='')
-				{
-				picurl=usr.auth.Picture;	
-				}
-				}
-				if (picurl=='blank')
-				{
-				if(usr.auth.facebookId)
-				{
-				if(usr.auth.facebookId>0)
-				{
-				picurl="http://graph.facebook.com/"+usr.auth.facebookId+"/picture?type=square";	
-				}
-				}	
-				}
-		return picurl;
-		}
+		
 	$scope.joinRoom=function (usrName)
 		{
 			
