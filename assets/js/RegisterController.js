@@ -16,7 +16,7 @@ io.socket.post("/register",{name:$scope.vm.user.username,email: $scope.vm.user.e
 			console.log(jwres.error.details);
 			if(jwres.error)
 			{
-			toastr(jwres.error.details);
+			toastr.info(jwres.error.details);
 			}
 			}
 			);
