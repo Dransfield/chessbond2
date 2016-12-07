@@ -17,7 +17,7 @@
     
     </head>
     
-    <body ng-app="HomepageModule" ng-controller="HomepageController" ngCloak>
+    <body ng-app="HomepageModule" ng-controller="HomepageController" ngcloak>
 <!--<%- JSON.stringify(req.session) %>-->
     <div ng-init="joinopengameRoom()"></div>
      <% var actualname='blank';%>
@@ -33,7 +33,7 @@
         
      <% if (!req.session.passport) { %>
         
-         <a   ng-hide="!user" class="btn btn-primary" href="/loginfacebook">Login with Facebook</a>
+         <a    ng-show="!User" class="btn btn-primary" href="/loginfacebook">Login with Facebook</a>
 			<a class="btn btn-primary"href="/logintwitter">Login with Twitter</a>
 			<a  class="btn btn-primary" href="/logingoogle">Login with Google</a>
           <%}else{%>
