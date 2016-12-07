@@ -391,13 +391,17 @@ $scope.changeFavicon=function (src) {
 
 		
 		
-	$scope.joinRoom=function (usrName)
+	$scope.joinRoom=function (usr)
 		{
 			
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-		
+		$http.get('/user?id='+usr)
+						.then(function (res) {
+							$scope.User = res.data;
+							
+						};
 	
 		};
 		$scope.resetBoard=function(me)

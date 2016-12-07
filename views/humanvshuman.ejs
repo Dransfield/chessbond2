@@ -84,7 +84,7 @@
 
       <div class="col-sm-7 col-md-6">
         <span class="h3" id="time1">0:05:00</span>
-		<div ng-init="joinRoom('<%- actualname %>')"></div>
+		<div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
 		<div ng-init="getchatmessages()"></div>
         <div ng-init="setBoard('<%- req.session.passport.user%>')" id="board" style="width: 400px"></div>
         <span class="h3" id="time2">0:05:00</span>
@@ -130,7 +130,7 @@
 		</tr>
 	</table>
 	</div>
-	<form ng-submit="chatMessage('<%- actualname %>')">
+	<form ng-submit="chatMessage('<%- req.session.passport.user %>')">
 	 <input type="text" autocomplete="off" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
 	<button type="submit" >chat</button>
 	</form>  
