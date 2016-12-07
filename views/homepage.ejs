@@ -24,7 +24,7 @@
    <% var picurl='blank';%>
     <%- include partials/navbar.ejs %>
  
-		<div class="jumbotron text-center">
+		<div class="jumbotron ">
 			
 			<% if (req.session.passport) { %>
 			<div ng-init="joinmyuserIDRoom('<%- req.session.passport.user %>')"></div>
