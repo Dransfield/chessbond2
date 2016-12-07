@@ -401,7 +401,7 @@ $scope.changeFavicon=function (src) {
 						.then(function (res) {
 							$scope.User = res.data;
 							
-						};
+						});
 	
 		};
 		$scope.resetBoard=function(me)
