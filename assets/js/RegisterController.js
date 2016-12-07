@@ -7,7 +7,13 @@ angular.module('HomepageModule').controller('RegisterController', ['$scope', '$h
 	}
 $scope.register=function()
 {
-console.log($scope.vm.user.password);	
+console.log($scope.vm.user.password);
+$http.post("/register",{email: $scope.vm.user.email,password:$scope.vm.user.password})
+			.then(function onSuccess (){
+			
+			}
+			);
+	
 }
 	
 	

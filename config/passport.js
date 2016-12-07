@@ -188,7 +188,7 @@ passport.use(new LocalStrategy({
         return done(null, false, { message: 'Incorrect email.' });
       }
 
-     if(password==user.password) {
+     if(md5(password)==user.password) {
           
             
           var returnUser = {

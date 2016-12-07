@@ -49,6 +49,18 @@ passport.authenticate('facebook',{ scope : [ 'email'] })(req, res);
             failureRedirect : '/'
         })(req, res);;
 	},
+register: function (req, res) {
+    var params = {email: req.param('email'), password: req.param('password')};
+ 
+    User.create(params).exec(function(err, user) {
+      if (err) {
+        res.serverError(err);
+      }
+      else {
+        res.send(user);
+      }
+    });
+  },
     login: function(req, res) {
 
         passport.authenticate('local', function(err, user, info) {

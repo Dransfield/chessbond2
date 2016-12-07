@@ -34,7 +34,8 @@ module.exports.routes = {
 	'GET /': {view: 'homepage'},
 	'/profile': {view:'profile'},
 	'/playvsai':{view:'humanvsai'},
-	'GET /register':{view:'register'},
+	'GET /registerpage':{view:'registerpage'},
+	
 	'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	'/humanvshuman':{view:'humanvshuman'},
 	'/recordsession':'PageController.RecordSession',
@@ -58,6 +59,7 @@ module.exports.routes = {
 '/auth/twitter_oauth':'AuthController.twittercallback',
   	'/loginfacebook': 'AuthController.loginfacebook',
   '/auth/facebook_oauth2':'AuthController.facebookcallback',
+  'POST /register':'AuthController.register'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

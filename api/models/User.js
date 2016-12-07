@@ -8,5 +8,8 @@
 
 module.exports = {
 
- 
+  beforeCreate: function(user, cb) {
+    user.password = md5(user.password);
+    cb();
+  }
 };
