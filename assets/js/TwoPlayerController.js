@@ -49,7 +49,7 @@ $scope.pic1coordx=40;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=50; $scope.pic1coordx=75; $scope.pic1coordy=40;	
+$scope.pic1height=50; $scope.pic1coordx=95; $scope.pic1coordy=40;	
 }
 $scope.bigimage1=function()
 {
