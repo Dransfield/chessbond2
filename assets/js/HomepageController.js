@@ -148,7 +148,15 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			
 			$http.put("/login",{email:$scope.vm.username,password:$scope.vm.password})
 			.then(function onSuccess (resData, jwr){
-			console.log(resData);
+				if (resData.data.message!="Logged In Successfully")
+				{
+			toastr.info(resData.data.message);
+			}
+			else
+			{
+			toastr.success(resData.data.message);
+				$http.get("/");
+			}
 			}
 			);
 			
