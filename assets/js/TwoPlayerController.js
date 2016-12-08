@@ -352,6 +352,11 @@ $scope.changeFavicon=function (src) {
 			
 			
 		};
+		$scope.countryTofilename=function(country)
+{
+	return country.replace(/ /gi, "_");
+}
+		
 		function ShowPlayersAvatars(gameRecord)
 		{
 			var idtoget;
