@@ -3,6 +3,7 @@ $scope.opg=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
+$scope.PreferenceVariable['Country']="";
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -545,6 +546,13 @@ $scope.countries=[
 	{name:'Zambia'},
 	{name:'Zimbabwe'}
 ]
+$scope.PreferenceNames=['Sound','ChessPieceTheme','Country'];
+$scope.PreferenceVariable=new Array();
+$scope.PreferenceInitialValue=new Array();
+$scope.PreferenceInitialValue['Sound']='SoundEnabled';
+$scope.PreferenceInitialValue['ChessPieceTheme']=[{name:'A'}];
+$scope.PreferenceInitialValue['Country']='United States';
+
 		$scope.ChangePreference=function(prefid,me,newpref)
 	{
 	$http.get('/user?id='+me).then(function
