@@ -137,7 +137,13 @@
     
     <hr>
     <div id="movelist" class="list-group">
-    {{Moves}}
+       <div style=".mov:last-of-type {
+    color: #800;
+}" ng-repeat="mov in Moves track by $index">
+		{{mov}}	
+		</div>
+	
+    
     </div>
     <hr>
       
