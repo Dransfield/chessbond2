@@ -318,7 +318,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 	
 $scope.countryTofilename=function(country)
 {
-	return country.replace(" ", "_");
+	return country.replace(/ /gi, "_");
 }
 $scope.countries=[
 	{name:'Afghanistan'},
