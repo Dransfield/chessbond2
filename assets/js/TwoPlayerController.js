@@ -370,7 +370,7 @@ $scope.changeFavicon=function (src) {
 				console.log(JSON.stringify(res.data));
 				
 				var picurl=(res.data.picture);
-				console.log("COUNTRY IS"+res.data.JSONpref);
+				console.log("COUNTRY IS"+res.data.JSONpref['Country']);
 				var flagurl=res.data.JSONpref['Country'];
 				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			if ($scope.PlayerOnBottom=='White')
