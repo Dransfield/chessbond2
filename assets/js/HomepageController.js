@@ -211,7 +211,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			
 			
 			});
-		}
+		};
 	$scope.getuser=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
@@ -221,7 +221,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 			)	
 		
-	}
+	};
 	$scope.joinmyuserIDRoom=function(MyID)
 	{
 		

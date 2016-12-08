@@ -32,7 +32,16 @@ angular.module('HomepageModule').controller('SinglePlayerController', ['$scope',
 	toastr.success("Playing at difficulty level "+$scope.LevelForm.level);
 	console.log("HELLO");
 	console.log($scope.chess);
-	
+	$scope.getuser=function(MyID)
+	{
+		$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.User=sailsResponse.data;
+			}
+			)	
+		
+	};
 	 setInterval(function (chess)
 		{
         if (announced_game_over) {

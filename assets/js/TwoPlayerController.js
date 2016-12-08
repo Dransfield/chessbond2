@@ -79,7 +79,16 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
     {
 	$scope.BellSound.play();
 	};
-	
+	$scope.getuser=function(MyID)
+	{
+		$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.User=sailsResponse.data;
+			}
+			)	
+		
+	}
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
 	$http.get('/user?id='+me).then(function
