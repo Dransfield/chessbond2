@@ -202,6 +202,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		 square=   boardEl.find('.square-' + move.from);
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
 		
+			 square=   $("b[id='lastpgn']");
+							$( "img[id='pgnhighlight']" ).detach();
+						  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
+					
+		
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
 		$scope.Moves=game.pgn().split(".");
@@ -525,6 +530,13 @@ $scope.changeFavicon=function (src) {
 							var position =square .position();
 							 $( "img[id='highlight']" ).detach();
 						  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
+					
+							 square=   $("b[id='lastpgn']");
+							$( "img[id='pgnhighlight']" ).detach();
+						  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
+					
+						  
+						  
 						  square=   boardEl.find('.square-' + move.from);
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
 		
@@ -602,6 +614,11 @@ console.log('about to putsocket');
   square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
    square=   boardEl.find('.square-' + gameRecord.lastmove.substr(0, 2));
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
+		
+			 square=   $("b[id='lastpgn']");
+							$( "img[id='pgnhighlight']" ).detach();
+						  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
+					
 		
 		}
 		updateTurnTakerLabel(game,gameRecord);
