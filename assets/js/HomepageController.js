@@ -589,7 +589,7 @@ $scope.loadprefs=function(me)
 				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
 				}
 				
-			}};
+			})};
 		$scope.ChangePreference=function(prefid,me,newpref)
 	{
 		console.log(me);
