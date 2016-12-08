@@ -26,10 +26,10 @@ angular.module('HomepageModule').controller('SinglePlayerController', ['$scope',
    
 	$scope.PressedGoButton=function(){
 	$scope.hideboard=false;
-
+$scope.User={};
 	$scope.chess=init($scope.LevelForm.level,$scope.MyPieceTheme[0]['name']);
 	$scope.hidedifficulty=true;
-	toastr.success("Playing at difficulty level "+$scope.LevelForm.level);
+	toastr.success("Playing at difficulty level plank"+$scope.LevelForm.level);
 	console.log("HELLO");
 	console.log($scope.chess);
 	$scope.getuser=function(MyID)
