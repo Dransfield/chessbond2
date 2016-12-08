@@ -590,6 +590,9 @@ $scope.PreferenceInitialValue['Country']='United States';
 	};
 	$scope.PrefSelectChanged=function(pref,me,func)
 	{
+		console.log("pref "+pref);
+		console.log("me "+me);
+		console.log($scope.PreferenceVariable[pref]);
 		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
 		if(func)
 		{
