@@ -573,7 +573,7 @@ console.log('about to putsocket');
 		console.log("pgn "+gameRecord.pgn)
 		$scope.Moves=gameRecord.pgn.split(".");
 		for (x in $scope.Moves)
-		{$scope.Moves[x]="<b>"+$scope.Moves[x]+"</b>}
+		{$scope.Moves[x]="<b>"+$scope.Moves[x]+"</b>";}
 		console.log($scope.Moves);
 		if(game.load_pgn(gameRecord.pgn)===false)
 		{
