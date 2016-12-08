@@ -1,5 +1,6 @@
- 
+  <% if(req.session.passport){ %>
 	 <div ng-init="getuser('<%- req.session.passport.user %>')"></div>	
+<% }%>
 <nav class="navbar navbar-default navbar-inverse"  ng-controller="HomepageController" ng-cloak>
 	<div class="container-fluid">
 		<div class="navbar-header">
