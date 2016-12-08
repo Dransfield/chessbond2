@@ -37,13 +37,11 @@
     </div>
     <div class="col-md-4">
 		 <select class="form-control" name="mySelect" id="mySelect"
-      
-      ng-model="data.selectedOption">
-      <option ng-repeat="c in countries track by $index" ng-value="option.value"
       ng-model="PreferenceVariable['Country']"
-        ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
-		 
-      >{{c.name}}</option>
+      ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
+      >
+      <option ng-repeat="c in countries track by $index" ng-value="option.value">
+		  {{c.name}}</option>
 					
 				</select>
 				</div>
