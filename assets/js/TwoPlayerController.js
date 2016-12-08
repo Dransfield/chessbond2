@@ -399,14 +399,10 @@ $scope.changeFavicon=function (src) {
 			{
 				var picurl=(res.data.picture);
 				var obj=JSON.parse(res.data.JSONpref);
-				console.log("COUNTRY IS"+obj.Country);
-				var flagurl=obj['Country'];
-				console.log("flagurl"+flagurl);
-				for (x in Object.keys(obj))
-				{
-					console.log(Object.keys(obj)[x]);
-					}
-				console.log(obj);
+				var flagurl="/images/flags/"+$scope.countryTofilename(obj['Country'])+".png";
+				
+				
+			
 				if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.TopPlayerPic=picurl;
