@@ -142,9 +142,10 @@
      
     <% } %>
       <select name="mySelect" id="mySelect"
-      ng-options="c.name for c in countries track by $index"
+      
       ng-model="data.selectedOption">
-					<img src="/images/flags/{{countryTofilename(c.name)}}.png">
+      <option ng-repeat="c in countries track by $index" ng-value="option.value">{{c.name}}<img src="/images/flags/{{countryTofilename(c.name)}}.png"></option>
+					
 				</select>
 				<h2 class="sub-header">Visitors</h2>
           <div class="table-responsive">
