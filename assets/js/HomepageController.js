@@ -545,5 +545,44 @@ $scope.countries=[
 	{name:'Zambia'},
 	{name:'Zimbabwe'}
 ]
-	
+		$scope.ChangePreference=function(prefid,me,newpref)
+	{
+	$http.get('/user?id='+me).then(function
+			(res)
+			{var obj={};
+			for (opti in $scope.PreferenceNames)
+				{
+				var init=$scope.PreferenceInitialValue[$scope.PreferenceNames[opti]];
+				
+				obj[$scope.PreferenceNames[opti]]=init;
+				}
+				
+				if(res.data.JSONpref)
+				{
+				obj=JSON.parse(res.data.JSONpref);
+				}
+			
+			obj[prefid]=newpref;
+			console.log(JSON.stringify(obj));
+				io.socket.put('/user/'+me,{
+      JSONpref:JSON.stringify(obj)
+      }  
+      
+    ,function(resData,jwres)
+{console.log(me);
+	console.log(resData);
+	console.log(jwres);
+	}
+);
+			})	
+		
+	};
+	$scope.PrefSelectChanged=function(pref,me,func)
+	{
+		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
+		if(func)
+		{
+		func(me);
+		}
+	};
 }]);
