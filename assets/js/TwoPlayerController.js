@@ -8,7 +8,7 @@ $scope.chatting=new Array();
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
-$scope.PreferenceNames=['Sound','ChessPieceTheme'];
+$scope.PreferenceNames=['Sound','ChessPieceTheme','Country'];
 
 $scope.HideInject=true;
 
@@ -19,7 +19,7 @@ $scope.PreferencesGUIType['ChessPieceTheme']='Select';
 $scope.PreferenceOptions=new Array();
 $scope.PreferenceOptions['Sound']=['SoundEnabled','SoundDisabled'];
 $scope.PreferenceOptions['ChessPieceTheme']=['A','B','C','D','E','F'];
-
+$scope.PreferenceOptions['Country']=['United States'];
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
   var squareToHighlight;
@@ -370,15 +370,20 @@ $scope.changeFavicon=function (src) {
 				console.log(JSON.stringify(res.data));
 				
 				var picurl=(res.data.picture);
+				console.log(res.data.JSONpref);
+				var flagurl=res.data.JSONpref['Country'];
 				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.BottomPlayerPic=picurl;
-				
+			$scope.BottomPlayerFlag=flagurl;	
+			
 			}
 			else
 			{
 			$scope.TopPlayerPic=picurl;
+			$scope.TopPlayerFlag=flagurl;	
+		
 			}
 			
 			});
@@ -387,14 +392,16 @@ $scope.changeFavicon=function (src) {
 			(res)
 			{
 				var picurl=(res.data.picture);
+				var flagurl=res.data.JSONpref['Country'];
 				if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.TopPlayerPic=picurl;
-				
+			$scope.TopPlayerFlag=flagurl;	
 			}
 			else
 			{
 			$scope.BottomPlayerPic=picurl;
+			$scope.BottomPlayerFlag=flagurl;	
 			}
 			
 			});
