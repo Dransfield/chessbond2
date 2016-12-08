@@ -141,8 +141,9 @@
           </div>
      
     <% } %>
-				
-				
+				<div ng-repeat="c in countries track by $index">
+					<img src="/images/flags/{{c}}.png">
+				</div>
 				<h2 class="sub-header">Visitors</h2>
           <div class="table-responsive">
             <table class="table table-striped">
