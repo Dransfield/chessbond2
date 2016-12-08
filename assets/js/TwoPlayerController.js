@@ -88,7 +88,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			}
 			)	
 		
-	}
+	};
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
 	$http.get('/user?id='+me).then(function
