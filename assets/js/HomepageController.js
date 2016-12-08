@@ -3,232 +3,6 @@ $scope.opg=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
-
-$scope.countries={Afghanistan
-	,Albania
-	,Algeria
-	,American Samoa
-	,Andorra
-	,Angola
-	,Anguilla
-	,Antigua and Barbuda
-	,Argentina
-	,Armenia
-	,Aruba
-	,Australia
-	,Austria
-	,Azerbaijan
-	,Bahamas
-	,Bahrain
-	,Bangladesh
-	,Barbados
-	,Belarus
-	,Belgium
-	,Belize
-	,Benin
-	,Bermuda
-	,Bhutan
-	,Bolivia
-	,Bosnia
-	,Botswana
-	,Brazil
-	,British Virgin Islands
-	,Brunei
-	,Bulgaria
-	,Burkina Faso
-	,Burundi
-	,Cambodia
-	,Cameroon
-	,Canada
-	,Cape Verde
-	,Cayman Islands
-	,Central African Republic
-	,Chad
-	,Chile
-	,China
-	,Christmas Island
-	,Colombia
-	,Comoros
-	,Cook Islands
-	,Costa Rica
-	,Croatia
-	,Cuba
-	,Cyprus
-	,Czech Republic
-	,Côte d'Ivoire
-	,Democratic Republic of the Congo
-	,Denmark
-	,Djibouti
-	,Dominica
-	,Dominican Republic
-	,Ecuador
-	,Egypt
-	,El Salvador
-	,Equatorial Guinea
-	,Eritrea
-	,Estonia
-	,Ethiopia
-	,Falkland Islands
-	,Faroe Islands
-	,Fiji
-	,Finland
-	,France
-	,French Polynesia
-	,Gabon
-	,Gambia
-	,Georgia
-	,Germany
-	,Ghana
-	,Gibraltar
-	,Greece
-	,Greenland
-	,Grenada
-	,Guam
-	,Guatemala
-	,Guinea
-	,Guinea Bissau
-	,Guyana
-	,Haiti
-	,Honduras
-	,Hong Kong
-	,Hungary
-	,Iceland
-	,India
-	,Indonesia
-	,Iran
-	,Iraq
-	,Ireland
-	,Israel
-	,Italy
-	,Jamaica
-	,Japan
-	,Jordan
-	,Kazakhstan
-	,Kenya
-	,Kiribati
-	,Kuwait
-	,Kyrgyzstan
-	,Laos
-	,Latvia
-	,Lebanon
-	,Lesotho
-	,Liberia
-	,Libya
-	,Liechtenstein
-	,Lithuania
-	,Luxembourg
-	,Macao
-	,Macedonia
-	,Madagascar
-	,Malawi
-	,Malaysia
-	,Maldives
-	,Mali
-	,Malta
-	,Marshall Islands
-	,Martinique
-	,Mauritania
-	,Mauritius
-	,Mexico
-	,Micronesia
-	,Moldova
-	,Monaco
-	,Mongolia
-	,Montserrat
-	,Morocco
-	,Mozambique
-	,Myanmar
-	,Namibia
-	,Nauru
-	,Nepal
-	,Netherlands
-	,Netherlands Antilles
-	,New Zealand
-	,Nicaragua
-	,Niger
-	,Nigeria
-	,Niue
-	,Norfolk Island
-	,North Korea
-	,Norway
-	,Oman
-	,Pakistan
-	,Palau
-	,Panama
-	,Papua New Guinea
-	,Paraguay
-	,Peru
-	,Philippines
-	,Pitcairn Islands
-	,Poland
-	,Portugal
-	,Puerto Rico
-	,Qatar
-	,Republic of the Congo
-	,Romania
-	,Russian Federation
-	,Rwanda
-	,Saint Kitts and Nevis
-	,Saint Lucia
-	,Saint Pierre
-	,Saint Vincent and the Grenadines
-	,Samoa
-	,San Marino
-	,Sao Tomé and Príncipe
-	,Saudi Arabia
-	,Senegal
-	,Serbia and Montenegro
-	,Seychelles
-	,Sierra Leone
-	,Singapore
-	,Slovakia
-	,Slovenia
-	,Solomon Islands
-	,Somalia
-	,South Africa
-	,South Georgia
-	,South Korea
-	,Soviet Union
-	,Spain
-	,Sri Lanka
-	,Sudan
-	,Suriname
-	,Swaziland
-	,Sweden
-	,Switzerland
-	,Syria
-	,Taiwan
-	,Tajikistan
-	,Tanzania
-	,Thailand
-	,Tibet
-	,Timor-Leste
-	,Togo
-	,Tonga
-	,Trinidad and Tobago
-	,Tunisia
-	,Turkey
-	,Turkmenistan
-	,Turks and Caicos Islands
-	,Tuvalu
-	,UAE
-	,Uganda
-	,Ukraine
-	,United Kingdom
-	,United States of America
-	,Uruguay
-	,US Virgin Islands
-	,Uzbekistan
-	,Vanuatu
-	,Vatican City
-	,Venezuela
-	,Vietnam
-	,Wallis and Futuna
-	,Yemen
-	,Zambia
-	,Zimbabwe
-}
-
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -543,6 +317,229 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 	}
 	
 
-
+$countries=[{name:Afghanistan},
+	{name:Albania},
+	{name:Algeria},
+	{name:American Samoa},
+	{name:Andorra},
+	{name:Angola},
+	{name:Anguilla},
+	{name:Antigua and Barbuda},
+	{name:Argentina},
+	{name:Armenia},
+	{name:Aruba},
+	{name:Australia},
+	{name:Austria},
+	{name:Azerbaijan},
+	{name:Bahamas},
+	{name:Bahrain},
+	{name:Bangladesh},
+	{name:Barbados},
+	{name:Belarus},
+	{name:Belgium},
+	{name:Belize},
+	{name:Benin},
+	{name:Bermuda},
+	{name:Bhutan},
+	{name:Bolivia},
+	{name:Bosnia},
+	{name:Botswana},
+	{name:Brazil},
+	{name:British Virgin Islands},
+	{name:Brunei},
+	{name:Bulgaria},
+	{name:Burkina Faso},
+	{name:Burundi},
+	{name:Cambodia},
+	{name:Cameroon},
+	{name:Canada},
+	{name:Cape Verde},
+	{name:Cayman Islands},
+	{name:Central African Republic},
+	{name:Chad},
+	{name:Chile},
+	{name:China},
+	{name:Christmas Island},
+	{name:Colombia},
+	{name:Comoros},
+	{name:Cook Islands},
+	{name:Costa Rica},
+	{name:Croatia},
+	{name:Cuba},
+	{name:Cyprus},
+	{name:Czech Republic},
+	{name:Côte d'Ivoire},
+	{name:Democratic Republic of the Congo},
+	{name:Denmark},
+	{name:Djibouti},
+	{name:Dominica},
+	{name:Dominican Republic},
+	{name:Ecuador},
+	{name:Egypt},
+	{name:El Salvador},
+	{name:Equatorial Guinea},
+	{name:Eritrea},
+	{name:Estonia},
+	{name:Ethiopia},
+	{name:Falkland Islands},
+	{name:Faroe Islands},
+	{name:Fiji},
+	{name:Finland},
+	{name:France},
+	{name:French Polynesia},
+	{name:Gabon},
+	{name:Gambia},
+	{name:Georgia},
+	{name:Germany},
+	{name:Ghana},
+	{name:Gibraltar},
+	{name:Greece},
+	{name:Greenland},
+	{name:Grenada},
+	{name:Guam},
+	{name:Guatemala},
+	{name:Guinea},
+	{name:Guinea Bissau},
+	{name:Guyana},
+	{name:Haiti},
+	{name:Honduras},
+	{name:Hong Kong},
+	{name:Hungary},
+	{name:Iceland},
+	{name:India},
+	{name:Indonesia},
+	{name:Iran},
+	{name:Iraq},
+	{name:Ireland},
+	{name:Israel},
+	{name:Italy},
+	{name:Jamaica},
+	{name:Japan},
+	{name:Jordan},
+	{name:Kazakhstan},
+	{name:Kenya},
+	{name:Kiribati},
+	{name:Kuwait},
+	{name:Kyrgyzstan},
+	{name:Laos},
+	{name:Latvia},
+	{name:Lebanon},
+	{name:Lesotho},
+	{name:Liberia},
+	{name:Libya},
+	{name:Liechtenstein},
+	{name:Lithuania},
+	{name:Luxembourg},
+	{name:Macao},
+	{name:Macedonia},
+	{name:Madagascar},
+	{name:Malawi},
+	{name:Malaysia},
+	{name:Maldives},
+	{name:Mali},
+	{name:Malta},
+	{name:Marshall Islands},
+	{name:Martinique},
+	{name:Mauritania},
+	{name:Mauritius},
+	{name:Mexico},
+	{name:Micronesia},
+	{name:Moldova},
+	{name:Monaco},
+	{name:Mongolia},
+	{name:Montserrat},
+	{name:Morocco},
+	{name:Mozambique},
+	{name:Myanmar},
+	{name:Namibia},
+	{name:Nauru},
+	{name:Nepal},
+	{name:Netherlands},
+	{name:Netherlands Antilles},
+	{name:New Zealand},
+	{name:Nicaragua},
+	{name:Niger},
+	{name:Nigeria},
+	{name:Niue},
+	{name:Norfolk Island},
+	{name:North Korea},
+	{name:Norway},
+	{name:Oman},
+	{name:Pakistan},
+	{name:Palau},
+	{name:Panama},
+	{name:Papua New Guinea},
+	{name:Paraguay},
+	{name:Peru},
+	{name:Philippines},
+	{name:Pitcairn Islands},
+	{name:Poland},
+	{name:Portugal},
+	{name:Puerto Rico},
+	{name:Qatar},
+	{name:Republic of the Congo},
+	{name:Romania},
+	{name:Russian Federation},
+	{name:Rwanda},
+	{name:Saint Kitts and Nevis},
+	{name:Saint Lucia},
+	{name:Saint Pierre},
+	{name:Saint Vincent and the Grenadines},
+	{name:Samoa},
+	{name:San Marino},
+	{name:Sao Tomé and Príncipe},
+	{name:Saudi Arabia},
+	{name:Senegal},
+	{name:Serbia and Montenegro},
+	{name:Seychelles},
+	{name:Sierra Leone},
+	{name:Singapore},
+	{name:Slovakia},
+	{name:Slovenia},
+	{name:Solomon Islands},
+	{name:Somalia},
+	{name:South Africa},
+	{name:South Georgia},
+	{name:South Korea},
+	{name:Soviet Union},
+	{name:Spain},
+	{name:Sri Lanka},
+	{name:Sudan},
+	{name:Suriname},
+	{name:Swaziland},
+	{name:Sweden},
+	{name:Switzerland},
+	{name:Syria},
+	{name:Taiwan},
+	{name:Tajikistan},
+	{name:Tanzania},
+	{name:Thailand},
+	{name:Tibet},
+	{name:Timor-Leste},
+	{name:Togo},
+	{name:Tonga},
+	{name:Trinidad and Tobago},
+	{name:Tunisia},
+	{name:Turkey},
+	{name:Turkmenistan},
+	{name:Turks and Caicos Islands},
+	{name:Tuvalu},
+	{name:UAE},
+	{name:Uganda},
+	{name:Ukraine},
+	{name:United Kingdom},
+	{name:United States of America},
+	{name:Uruguay},
+	{name:US Virgin Islands},
+	{name:Uzbekistan},
+	{name:Vanuatu},
+	{name:Vatican City},
+	{name:Venezuela},
+	{name:Vietnam},
+	{name:Wallis and Futuna},
+	{name:Yemen},
+	{name:Zambia},
+	{name:Zimbabwe}
+]
 	
 }]);
