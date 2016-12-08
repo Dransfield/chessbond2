@@ -317,7 +317,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 	}
 	
 
-$countries=[
+$scope.countries=[
 	{name:'Afghanistan'},
 	{name:'Albania'},
 	{name:'Algeria'},
