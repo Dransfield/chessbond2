@@ -34,6 +34,7 @@ $scope.User={};
 	console.log($scope.chess);
 	$scope.getuser=function(MyID)
 	{
+		console.log("AAAARGHHH");
 		toastr.success("getting user "+MyID);
 		$http.get('/user?id='+MyID, {
 			})
