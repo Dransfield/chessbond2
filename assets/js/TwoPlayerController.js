@@ -204,7 +204,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		
 		updateTurnTakerLabel(game,gameRecordnow);
 		console.log(game.ascii());
-		$scope.Moves=game.pgn();
+		$scope.Moves=game.pgn().split(".");
 		
 		if (game.fen()!=board1.fen())
 		{
@@ -511,7 +511,7 @@ $scope.changeFavicon=function (src) {
 						  square=   boardEl.find('.square-' + move.from);
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/circle.png'>");
 		
-						  $scope.Moves=game.pgn();
+						  $scope.Moves=game.pgn().split(".");
 					  //console.log("left"+position.left);
 					  //console.log("top"+position.top);
 					  //console.log("html"+square.html());
@@ -571,7 +571,7 @@ console.log('about to putsocket');
 		{
 		board1.position(gameRecord.fen);
 		console.log("pgn "+gameRecord.pgn)
-		$scope.Moves=gameRecord.pgn;
+		$scope.Moves=gameRecord.pgn.split(".");
 		console.log($scope.Moves);
 		if(game.load_pgn(gameRecord.pgn)===false)
 		{
