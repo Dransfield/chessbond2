@@ -116,7 +116,7 @@ $scope.PlayGame=function(GameID,Player2)
      window.location="/humanvshuman";
 	
     })
-	}
+	};
 	
 $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		console.log("joingame player1"+PlayerID+" player2"+MyID+" player1name "+PlayerName+" Player2Name "+MyName);
@@ -132,7 +132,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			$scope.deleteopengame(GameID);
 			}
 			)
-			},
+			};
+			
 		$scope.deletegame=function(id,user)
 		{
 			console.log('asked to delete game '+id);
@@ -142,7 +143,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		//toastr.success('Created New Game');
 		});
 		
-		},
+		};
 		
 		$scope.login=function()
 		{
@@ -161,7 +162,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 			}
 			);
 			
-			},
+			};
+			
 		$scope.deleteopengame=function(id)
 		{
 			console.log('asked to delete'+id);
@@ -171,7 +173,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		//toastr.success('Created New Game');
     });
 		
-		},
+		};
 
 	$scope.createopengame=function(id,name)
 	{
@@ -182,7 +184,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
       //window.location.reload(true); 
 		toastr.success('Created New Game');
     });
-	}
+	};
 	$scope.joinopengameRoom=function ()
 		{
 			
@@ -315,7 +317,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 
     })
 	
-	}
+	};
 	
 $scope.countryTofilename=function(country)
 {
