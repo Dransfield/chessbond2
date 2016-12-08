@@ -555,11 +555,14 @@ $scope.PreferenceInitialValue['Country']='United States';
 
 		$scope.ChangePreference=function(prefid,me,newpref)
 	{
+		console.log(me);
 	$http.get('/user?id='+me).then(function
 			(res)
 			{var obj={};
+				console.log(res.data);
 			for (opti in $scope.PreferenceNames)
 				{
+					console.log($scope.PreferenceInitialValue[$scope.PreferenceNames[opti]]);
 				var init=$scope.PreferenceInitialValue[$scope.PreferenceNames[opti]];
 				
 				obj[$scope.PreferenceNames[opti]]=init;
