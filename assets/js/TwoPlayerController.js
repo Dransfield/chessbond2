@@ -20,14 +20,7 @@ var squareClass = 'square-55d63';
 
 
   $scope.piecethemes = [
-      {name:'A'},
-      {name:'B'},
-      {name:'C'},
-      {name:'D'},
-      {name:'E'},
-	  {name:'F'},
-	{name:'G'},
-   {name:'H'}
+      'A','B','C','D','E','F','G','H'
     ];
    $scope.BellSound= new Audio('alert.mp3');
 
