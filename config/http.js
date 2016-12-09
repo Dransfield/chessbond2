@@ -24,6 +24,7 @@ module.exports.http = {
   middleware: {
 passportInit    : require('passport').initialize(),
     passportSession : require('passport').session(),
+   
   /***************************************************************************
   *                                                                          *
   * The order in which middleware should be run for HTTP request. (the Sails *
@@ -37,6 +38,7 @@ passportInit    : require('passport').initialize(),
        'session',
          'passportInit',     
             'passportSession',
+             'InitUser',
        'bodyParser',
        'handleBodyParserError',
        'compress',
@@ -55,7 +57,39 @@ passportInit    : require('passport').initialize(),
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
   ****************************************************************************/
-
+	InitUser:function(req,res,next){
+	var fields=['ChessPieceTheme'];
+	var InitField=['A'];
+	if (req.session.passport.user)
+	{
+		
+		User.findOne({
+      id: req.session.passport.user
+	},function foundUser(err,user){
+		if (err)
+		{req.session.passport=null;
+			  return next();
+    
+			}
+		
+		if (!err){
+	for(x in fields)
+	{
+		if (!user[field[x]])
+		{user[field[x]]=InitField[x];}
+		
+		}
+	  return next();
+    
+	}
+	});
+			
+     }
+     else
+     {
+	  return next();
+     }
+	},
   myRequestLogger: function (req, res, next) {
 	  
 		var str=req.headers.host;
