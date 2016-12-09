@@ -36,11 +36,9 @@
 	
 	 </div>
     </div>
-    <div>
-		<img src="/images/flags/{{countryTofilename(PreferenceVariable['Country'])}}.png">
-	</div>
+   <div id="row">
     <div class="col-md-4">
-		 <select class="form-control" name="mySelect" id="mySelect"
+	 <select class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"
       ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
       >
@@ -49,7 +47,12 @@
 					
 				</select>
 				</div>
-
+    <div class="col-md-4">
+	 <div>
+	<img src="/images/flags/{{countryTofilename(User.Country)}}.png">
+	</div>
+	</div>
+	</div>
 
 
 
