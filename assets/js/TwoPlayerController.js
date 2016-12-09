@@ -380,8 +380,13 @@ $scope.changeFavicon=function (src) {
 				console.log(JSON.stringify(res.data));
 				
 				var picurl=(res.data.picture);
-				var obj=JSON.parse(res.data.JSONpref);
-				var flagurl="/images/flags/"+$scope.countryTofilename(obj['Country'])+".png";
+				var obj={};
+				var flagurl;
+				if (res.data.JSONpref)
+				{
+				obj=JSON.parse(res.data.JSONpref);
+				flagurl="/images/flags/"+$scope.countryTofilename(obj['Country'])+".png";
+				}
 				console.log("flagurl "+flagurl);
 				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			if ($scope.PlayerOnBottom=='White')
@@ -403,9 +408,14 @@ $scope.changeFavicon=function (src) {
 			(res)
 			{
 				var picurl=(res.data.picture);
-				var obj=JSON.parse(res.data.JSONpref);
-				var flagurl="/images/flags/"+$scope.countryTofilename(obj['Country'])+".png";
+				var obj={};
+				var flagurl;
 				
+				if(res.data.JSONpref)
+				{
+				obj=JSON.parse(res.data.JSONpref);
+				flagurl="/images/flags/"+$scope.countryTofilename(obj['Country'])+".png";
+				}
 				
 			
 				if ($scope.PlayerOnBottom=='White')
