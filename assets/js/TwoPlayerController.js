@@ -74,7 +74,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			
-			
+			setBoard(MyID);
+      
 			
 			
 			}
