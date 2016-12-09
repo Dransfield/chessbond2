@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('HomepageController', ['$scope', '$h
 $scope.opg=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
-$scope.User={Country:"United Kingdom",name:"Bill"};
+$scope.User;
 
 	io.socket.on('deletegameevent', function (data)
 			{
