@@ -94,6 +94,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.PrefSelectChanged=function(pref,me,func)
 	{
 		$scope.ChangePreference(pref,me,$scope.User[pref]);
+		console.log("changed "+pref+" to "+JSON.stringify($scope.User[pref]));
 		func(me);
 	}
 	$scope.PrefToggleButtonClicked=function(pref,me,state1,state2)
