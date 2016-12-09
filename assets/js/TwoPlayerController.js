@@ -78,19 +78,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	
 	$scope.RecordGameResult=function()
 	{
-		var elo = require('elo-rank')(15);
- 
-var playerA = 1200;
-var playerB = 1400;
- 
- 
-//Gets expected score for first parameter 
-var expectedScoreA = elo.getExpected(playerA, playerB);
-var expectedScoreB = elo.getExpected(playerB, playerA);
- 
-//update score, 1 if won 0 if lost 
-playerA = elo.updateRating(expectedScoreA, 1, playerA);
-playerB = elo.updateRating(expectedScoreB, 0, playerB);
+	$http.get('/chessgame?id='+GameID)
+	.then(function (res) {
+    var gameRecordnow = res.data;
+    console.log(res.data);
+	});
 	};
 	
 	$scope.ChangePreference=function(prefid,me,newpref)
@@ -149,7 +141,7 @@ playerB = elo.updateRating(expectedScoreB, 0, playerB);
 			console.log('recieved chat message'+document.visibilityState);
 			}
 			console.log(document.visibilityState);
-				var txtmsg = { talker:data.talker   , msg:data.greeting};
+				var txtmsg = { talker:data.talker,msg:data.greeting};
 		
 	$scope.$apply($scope.chatting.push(txtmsg));
 				
@@ -158,8 +150,8 @@ playerB = elo.updateRating(expectedScoreB, 0, playerB);
 			});
 			
 	 io.socket.on('chessgamemove', function (data){
-  console.log("recieved chess game move"+JSON.stringify(data));
-  if (document.visibilityState=='hidden')
+		console.log("recieved chess game move"+JSON.stringify(data));
+		if (document.visibilityState=='hidden')
 				{
 			if($scope.User)
 			{		
@@ -514,6 +506,7 @@ $scope.changeFavicon=function (src) {
 							  if (game.in_checkmate())
 								{
 							  toastr.success("Checkmate!");
+							  $scope.RecordGameResult();
 							 }
 	 
 							console.log("move from ondrop "+JSON.stringify(move));
