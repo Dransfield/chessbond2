@@ -217,7 +217,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		};
 	$scope.getuser=function(MyID)
 	{
-		console.log(MyID);
+		
 		$http.get('/user?id='+MyID, {
 			})
 			.then(function onSuccess(sailsResponse){
