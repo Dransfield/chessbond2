@@ -21,13 +21,14 @@
 
   <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
  
-	
-    <div ng-init="loadprefs('<%- req.session.passport.user%>')"></div>
+	<% if (req.session.passport){%>
+     <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
+   <%}%>
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
     <div class="jumbotron">
         <h1>Profile1</h1>
-         <% if (req.session.authenticated){ %>
+         <% if (req.session.passport){ %>
 		
           <h2>Highest Difficulty Level Beaten:<%- req.session.user.DifficultyLevelBeaten%></h2>
            <% } %>
