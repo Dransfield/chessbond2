@@ -219,6 +219,12 @@ deleteopengame:function(req,res){
 	return res.ok();
 	},
 	
+	RecordGameResult:function(req,res){
+	console.log("winner "+req.param('winner'));
+	console.log("loser "+req.param('loser'));
+	
+	},
+    
     chatmsg:function(req,res){
 
 	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec(function (err, records) {

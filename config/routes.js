@@ -51,7 +51,7 @@ module.exports.routes = {
 	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
 	'PUT /chessgamemove':'PageController.chessgamemove',
-	
+	'PUT //RecordGameResult':'PageController.RecordGameResult',
 	
 		'/logintwitter': 'AuthController.logintwitter',
  '/auth/google_oauth2':'AuthController.googlecallback',

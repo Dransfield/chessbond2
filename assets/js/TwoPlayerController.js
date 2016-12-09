@@ -76,7 +76,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		
 	};
 	
-	$scope.RecordGameResult=function()
+	$scope.RecordGameResult=function(MyID)
 	{
 	$http.get('/chessgame?id='+GameID)
 	.then(function (res) {
@@ -86,9 +86,45 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
     if (game.in_checkmate())
     {
 	if (game.turn()=='w')
-		{toastr.info("black won");}
+		{
+			toastr.info("black won");
+			if (MyID==gameRecord.Player2)
+			{
+			
+	io.socket.put('/RecordGameResult',{
+				winner:gameRecord.Player2,
+				loser:gameRecord.Player1
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+			
+			}
+			}
 	if (game.turn()=='b')
-		{toastr.info("white won");}
+		{
+			
+			toastr.info("white won");
+			if (MyID==gameRecord.Player1)
+			{
+			io.socket.put('/RecordGameResult',{
+				winner:gameRecord.Player1,
+				loser:gameRecord.Player2
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+			
+			}
+			}
 	}
     
     
