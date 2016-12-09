@@ -86,7 +86,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	{
 		
 			io.socket.put('/user/'+me,{
-				""+prefid+"":newpref	 
+				''+prefid+'':newpref	 
 					  }  
 				  
 				,function(resData,jwres)
