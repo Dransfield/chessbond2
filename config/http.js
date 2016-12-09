@@ -83,7 +83,7 @@ passportInit    : require('passport').initialize(),
 		}
 		else
 		{
-		console.log("already has "+	fields[x];
+		console.log("already has "+	fields[x]);
 		}
 		}
 	  return next();
