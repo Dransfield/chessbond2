@@ -79,7 +79,7 @@ passportInit    : require('passport').initialize(),
 		{
 			
 		user[fields[x]]=InitField[x];
-		console.log("Setting field "+fields[x]+"to "+user[fields[x]];
+		console.log("Setting field "+fields[x]+"to "+user[fields[x]]);
 		}
 		else
 		{
