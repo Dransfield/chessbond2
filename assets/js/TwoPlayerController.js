@@ -101,7 +101,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		$scope.ChangePreference(pref,me,angmodel);
 		func(me);
 	}
-	$scope.PrefToggleButtonClicked=function(pref,me,state1,state2,model)
+	$scope.PrefToggleButtonClicked=function(pref,me,state1,state2)
 	{
 	if ($scope.User[pref]==state1)	
 	{
@@ -113,7 +113,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.User[pref]=state1;
 	$scope.ChangePreference(pref,me,state1);
 	}
-	}
+	};
 	
     
 	// set-up loginForm loading state

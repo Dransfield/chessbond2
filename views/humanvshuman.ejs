@@ -56,7 +56,7 @@
 	<td>
 	    <span class="label label-default">Chesspiece Theme</span>
         <select class="form-control"
-		  ng-model="ChessPieceTheme"
+		  ng-model="User.ChessPieceTheme"
 		  name="string"
 		  multiple="string"
 		  required="string"
@@ -68,7 +68,7 @@
 		</select>
 	</td>
 	<td>
-	 <button ng-click="PrefToggleButtonClicked('Sound','<%-req.session.passport.user%>')" class="btn btn-success">{{PreferenceVariable['Sound']}}</button>
+	 <button ng-click="PrefToggleButtonClicked('SoundEnabled','<%-req.session.passport.user%>','Sound Enabled','Sound Disabled')" class="btn btn-success">{{User.SoundEnabled}}</button>
   
 	</td>
 	</tr>
