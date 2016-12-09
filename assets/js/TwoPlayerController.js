@@ -9,7 +9,7 @@ $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
 
-$scope.HideInject=true;
+$scope.HideInject=false;
 
 
 $scope.PlayerOnBottom='White';
