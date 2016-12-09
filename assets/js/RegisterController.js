@@ -19,7 +19,7 @@ io.socket.post("/register",{name:$scope.vm.user.username,email: $scope.vm.user.e
 			}
 			else
 			{
-			
+			$window.location.href = '/';
 			}
 			}
 			);
