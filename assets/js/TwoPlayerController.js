@@ -82,6 +82,16 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	.then(function (res) {
     var gameRecordnow = res.data;
     console.log(res.data);
+    
+    if (game.in_checkmate())
+    {
+	if (game.turn()='w')
+		{toastr.info("black won");}
+	if (game.turn()='b')
+		{toastr.info("white won");}
+	}
+    
+    
 	});
 	};
 	
