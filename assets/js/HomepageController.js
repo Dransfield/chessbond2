@@ -548,94 +548,29 @@ $scope.countries=[
 	{name:'Zambia'},
 	{name:'Zimbabwe'}
 ]
-$scope.PreferenceNames=['Sound','ChessPieceTheme','Country'];
-$scope.PreferenceVariable=new Array();
-$scope.PreferenceInitialValue=new Array();
-$scope.PreferenceInitialValue['Sound']='SoundEnabled';
-$scope.PreferenceInitialValue['ChessPieceTheme']=[{name:'A'}];
-$scope.PreferenceInitialValue['Country']='United States';
-$scope.loadprefs=function(me)
-{$http.get('/user?id='+me).then(function
-			(res)
-			{//res.data.JSONpref=null;
-				if(!res.data.JSONpref )
-				{
-					var obj={};
-					for (opt in $scope.PreferenceNames)
-					{
-					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
-					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-					console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-				
-					}
-					res.data.JSONpref=JSON.stringify(obj);
-				}
-	
-				console.log(res.data.JSONpref);
-				var obj=JSON.parse(res.data.JSONpref);	
-				for (mykey in Object.keys(obj))
-				{
-					//console.log(Object.keys(obj)[mykey]);
-					//if (obj[obby])
-					//{
-				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
-				console.log(obj[Object.keys(obj)[mykey]]);
-				console.log(Object.keys(obj)[mykey]);
-				if (Object.keys(obj)[mykey]=='ChessPieceTheme')
-				{
-				if (!Array.isArray(obj[Object.keys(obj)[mykey]]))
-				{
-				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=$scope.PreferenceInitialValue['ChessPieceTheme'];
-				}	
-				}
-				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
-				}
-				
-			})};
+
+
 		$scope.ChangePreference=function(prefid,me,newpref)
 	{
-		console.log(me);
-	$http.get('/user?id='+me).then(function
-			(res)
-			{var obj={};
-				console.log(res.data);
-			for (opti in $scope.PreferenceNames)
-				{
-					console.log($scope.PreferenceInitialValue[$scope.PreferenceNames[opti]]);
-				var init=$scope.PreferenceInitialValue[$scope.PreferenceNames[opti]];
-				
-				obj[$scope.PreferenceNames[opti]]=init;
-				}
-				
-				if(res.data.JSONpref)
-				{
-				obj=JSON.parse(res.data.JSONpref);
-				}
-			
-			obj[prefid]=newpref;
-			console.log(JSON.stringify(obj));
-				io.socket.put('/user/'+me,{
-      JSONpref:JSON.stringify(obj)
-      }  
-      
-    ,function(resData,jwres)
-{console.log(me);
-	console.log(resData);
-	console.log(jwres);
-	}
-);
-			})	
 		
-	};
-	$scope.PrefSelectChanged=function(pref,me,func)
+			io.socket.put('/user/'+me+"?"+prefid+"="+newpref,{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+     
+		
+	}
+		$scope.PrefSelectChanged=function(pref,me,func)
 	{
-		console.log("pref "+pref);
-		console.log("me "+me);
-		console.log($scope.PreferenceVariable[pref]);
-		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
-		if(func)
-		{
-		func(me);
-		}
-	};
+		$scope.ChangePreference(pref,me,$scope.User[pref]);
+		console.log("changed "+pref+" to "+JSON.stringify($scope.User[pref]));
+		if(func){
+		func(me);}
+	}
 }]);
