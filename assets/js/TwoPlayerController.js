@@ -127,7 +127,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
-			if($scope.User['SoundEnabled']=='true')
+			if($scope.User['SoundEnabled']=='Sound Enabled')
 			{
 			$scope.PlayBell();
 			}
@@ -149,7 +149,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				{
 			if($scope.User)
 			{		
-			if($scope.User.SoundEnabled=='true')
+			if($scope.User.SoundEnabled=='Sound Enabled')
 			{
 			$scope.PlayBell();
 			}
