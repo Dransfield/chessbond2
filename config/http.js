@@ -60,7 +60,7 @@ passportInit    : require('passport').initialize(),
 	InitUser:function(req,res,next){
 	var fields=['ChessPieceTheme','Country'];
 	var InitField=['A',"United Kingdom"];
-	if (req.session.passport.user)
+	if (req.session.passport)
 	{
 		
 		User.findOne({
