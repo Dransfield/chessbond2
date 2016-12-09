@@ -8,28 +8,16 @@ $scope.chatting=new Array();
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
-$scope.PreferenceNames=['Sound','ChessPieceTheme','Country'];
 
 $scope.HideInject=true;
 
-$scope.PreferencesGUIType=new Array();
-$scope.PreferencesGUIType['Sound']='Toggle';
-$scope.PreferencesGUIType['ChessPieceTheme']='Select';
 
-$scope.PreferenceOptions=new Array();
-$scope.PreferenceOptions['Sound']=['SoundEnabled','SoundDisabled'];
-$scope.PreferenceOptions['ChessPieceTheme']=['A','B','C','D','E','F'];
-$scope.PreferenceOptions['Country']=['United States'];
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#board');
   
-$scope.PreferenceVariable=new Array();
 
-$scope.PreferenceInitialValue=new Array();
-$scope.PreferenceInitialValue['Sound']='SoundEnabled';
-$scope.PreferenceInitialValue['ChessPieceTheme']=[{name:'A'}];
 
   $scope.piecethemes = [
       {name:'A'},
@@ -86,23 +74,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			
-			var PreferenceOptions=new Array();
-			var PreferenceNames=['Sound','ChessPieceTheme','Country'];
 			
-			console.log("lets set a variable:");
-			$scope.User['Country']="Bra Land";
-			console.log("lets set a variable1:"+$scope.User['Country']);
-			console.log("lets set a variable2:"+$scope.User.Country);
-					io.socket.put('/user/'+MyID,{
-					 'Country':$scope.User['Country']
-					  }  
-				  
-				,function(resData,jwres)
-			{
-				console.log(resData);
-				console.log(jwres);
-				}
-			);
 			
 			
 			}
@@ -111,54 +83,35 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	};
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
-	$http.get('/user?id='+me).then(function
-			(res)
-			{var obj={};
-			for (opti in $scope.PreferenceNames)
-				{
-				var init=$scope.PreferenceInitialValue[$scope.PreferenceNames[opti]];
-				
-				obj[$scope.PreferenceNames[opti]]=init;
+			io.socket.put('/user/'+me,{
+					 prefid:newpref
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
 				}
-				
-				if(res.data.JSONpref)
-				{
-				obj=JSON.parse(res.data.JSONpref);
-				}
-			
-			obj[prefid]=newpref;
-			console.log(JSON.stringify(obj));
-				io.socket.put('/user/'+me,{
-      JSONpref:JSON.stringify(obj)
-      }  
-      
-    ,function(resData,jwres)
-{console.log(me);
-	console.log(resData);
-	console.log(jwres);
-	}
-);
-			})	
+			);
+     
 		
 	}
-	$scope.PrefSelectChanged=function(pref,me,func)
+	$scope.PrefSelectChanged=function(pref,me,func,angmodel)
 	{
-		$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
+		$scope.ChangePreference(pref,me,angmodel);
 		func(me);
 	}
-	$scope.PrefToggleButtonClicked=function(pref,me)
+	$scope.PrefToggleButtonClicked=function(pref,me,state1,state2,model)
 	{
-	if ($scope.PreferenceVariable[pref]==$scope.PreferenceOptions[pref][1])	
+	if ($scope.User[pref]==state1)	
 	{
-	$scope.PreferenceVariable[pref]=$scope.PreferenceOptions[pref][0];
-	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
-	console.log("$scope.PreferenceVariable[pref]"+$scope.PreferenceVariable[pref]);
-	console.log("pref "+pref);
+	$scope.User[pref]=state2;
+	$scope.ChangePreference(pref,me,state2);
 	}
 	else
 	{
-	$scope.PreferenceVariable[pref]=$scope.PreferenceOptions[pref][1];
-	$scope.ChangePreference(pref,me,$scope.PreferenceVariable[pref]);
+	$scope.User[pref]=state1;
+	$scope.ChangePreference(pref,me,state1);
 	}
 	}
 	
@@ -173,7 +126,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
 			{
-			if($scope.PreferenceVariable['Sound']=='SoundEnabled')
+			if($scope.User['SoundEnabled']=='true')
 			{
 			$scope.PlayBell();
 			}
@@ -193,9 +146,12 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
   console.log("recieved chess game move"+JSON.stringify(data));
   if (document.visibilityState=='hidden')
 				{
-			if($scope.PreferenceVariable['Sound']=='SoundEnabled')
+			if($scope.User)
+			{		
+			if($scope.User.SoundEnabled=='true')
 			{
 			$scope.PlayBell();
+			}
 			}
   $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 }
@@ -616,7 +572,7 @@ console.log('about to putsocket');
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: 'img/chesspieces/'+$scope.PreferenceVariable['ChessPieceTheme'][0]['name']+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: 'img/chesspieces/'+$scope.User.ChessPieceTheme+'/{piece}.png'} );
  game = new Chess();
 
  if (gameRecord.Player2==me)
@@ -661,38 +617,9 @@ console.log('about to putsocket');
 			$http.get('/user?id='+me).then(function
 			(res)
 			{//res.data.JSONpref=null;
-				if(!res.data.JSONpref )
-				{
-					var obj={};
-					for (opt in $scope.PreferenceNames)
-					{
-					obj[$scope.PreferenceNames[opt]]=$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]];
-					$scope.ChangePreference(opt,me,$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-					console.log("$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]"+$scope.PreferenceInitialValue[$scope.PreferenceNames[opt]]);
-				
-					}
-					res.data.JSONpref=JSON.stringify(obj);
-				}
+			
 	
-				console.log(res.data.JSONpref);
-				var obj=JSON.parse(res.data.JSONpref);	
-				for (mykey in Object.keys(obj))
-				{
-					//console.log(Object.keys(obj)[mykey]);
-					//if (obj[obby])
-					//{
-				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=obj[Object.keys(obj)[mykey]];
-				console.log(obj[Object.keys(obj)[mykey]]);
-				console.log(Object.keys(obj)[mykey]);
-				if (Object.keys(obj)[mykey]=='ChessPieceTheme')
-				{
-				if (!Array.isArray(obj[Object.keys(obj)[mykey]]))
-				{
-				$scope.PreferenceVariable[Object.keys(obj)[mykey]]=$scope.PreferenceInitialValue['ChessPieceTheme'];
-				}	
-				}
-				console.log($scope.PreferenceVariable[Object.keys(obj)[mykey]]);
-				}
+				
 				
 				
 	
