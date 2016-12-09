@@ -85,6 +85,26 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
+			
+			var PreferenceOptions=new Array();
+			var PreferenceNames=['Sound','ChessPieceTheme','Country'];
+			
+			console.log("lets set a variable:");
+			$scope.User['Country']="Bra Land";
+			console.log("lets set a variable1:"+$scope.User['Country']);
+			console.log("lets set a variable2:"+$scope.User.Country);
+					io.socket.put('/user/'+me,{
+					 'Country':$scope.User['Country']
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+			
+			
 			}
 			)	
 		
@@ -418,7 +438,7 @@ $scope.changeFavicon=function (src) {
 				}
 				
 			
-				if ($scope.PlayerOnBottom=='White')
+			if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
