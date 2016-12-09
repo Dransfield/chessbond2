@@ -75,8 +75,8 @@ passportInit    : require('passport').initialize(),
 		if (!err){
 	for(x in fields)
 	{
-		if (!user[field[x]])
-		{user[field[x]]=InitField[x];}
+		if (!user[fields[x]])
+		{user[fields[x]]=InitField[x];}
 		
 		}
 	  return next();
