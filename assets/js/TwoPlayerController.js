@@ -358,7 +358,7 @@ $scope.changeFavicon=function (src) {
 				
 				var picurl=(res.data.picture);
 				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
-				}
+				
 				console.log("flagurl "+flagurl);
 				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			if ($scope.PlayerOnBottom=='White')
