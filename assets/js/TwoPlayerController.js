@@ -98,9 +98,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
      
 		
 	}
-	$scope.PrefSelectChanged=function(pref,me,func,angmodel)
+	$scope.PrefSelectChanged=function(pref,me,func)
 	{
-		$scope.ChangePreference(pref,me,angmodel);
+		$scope.ChangePreference(pref,me,$scope.User[pref]);
 		func(me);
 	}
 	$scope.PrefToggleButtonClicked=function(pref,me,state1,state2)
