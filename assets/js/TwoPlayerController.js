@@ -9,7 +9,7 @@ $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
 
-$scope.HideInject=false;
+$scope.HideInject=true;
 
 
 $scope.PlayerOnBottom='White';
@@ -75,6 +75,24 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			)	
 		
 	};
+	
+	$scope.RecordGameResult=function()
+	{
+		var elo = require('elo-rank')(15);
+ 
+var playerA = 1200;
+var playerB = 1400;
+ 
+ 
+//Gets expected score for first parameter 
+var expectedScoreA = elo.getExpected(playerA, playerB);
+var expectedScoreB = elo.getExpected(playerB, playerA);
+ 
+//update score, 1 if won 0 if lost 
+playerA = elo.updateRating(expectedScoreA, 1, playerA);
+playerB = elo.updateRating(expectedScoreB, 0, playerB);
+	};
+	
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
 		
@@ -622,12 +640,7 @@ $scope.resetBoard(me);
 	};
 	
    
-	$scope.injectfen=function (){
-	
-	
-	game.injectboard('3Q1R2/8/5R2/P7/6p1/2K1k1P1/P6B/8 w - - 0 55');
-	game.injectgame('3Q1R2/8/5R2/P7/6p1/2K1k1P1/P6B/8 w - - 0 55');
-	}
+
 		
 	 
 
