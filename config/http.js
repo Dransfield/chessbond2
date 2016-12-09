@@ -58,8 +58,8 @@ passportInit    : require('passport').initialize(),
   *                                                                           *
   ****************************************************************************/
 	InitUser:function(req,res,next){
-	var fields=['ChessPieceTheme'];
-	var InitField=['A'];
+	var fields=['ChessPieceTheme','Country'];
+	var InitField=['A',"United Kingdom"];
 	if (req.session.passport.user)
 	{
 		
