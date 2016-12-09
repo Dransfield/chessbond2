@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('RegisterController', ['$scope', '$http', 'toastr', function($scope, $http, toastr){
+angular.module('HomepageModule').controller('RegisterController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
 
 	// set-up loginForm loading state
 	
