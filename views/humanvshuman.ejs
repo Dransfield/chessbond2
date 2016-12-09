@@ -63,7 +63,7 @@
 		  ng-required="string"
 		  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.passport.user%>',resetBoard)"
 		 
-		  ng-options="theme[0] for theme in piecethemes" >
+		  ng-options="theme[0] for theme[0] in piecethemes" >
 
 		</select>
 	</td>
