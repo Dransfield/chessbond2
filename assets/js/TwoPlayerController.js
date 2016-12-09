@@ -93,7 +93,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.User['Country']="Bra Land";
 			console.log("lets set a variable1:"+$scope.User['Country']);
 			console.log("lets set a variable2:"+$scope.User.Country);
-					io.socket.put('/user/'+me,{
+					io.socket.put('/user/'+MyID,{
 					 'Country':$scope.User['Country']
 					  }  
 				  
