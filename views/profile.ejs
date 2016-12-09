@@ -20,10 +20,10 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
- 
-	<% if (req.session.passport){%>
-     <div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-   <%}%>
+   <% if(req.session.passport){ %>
+	 <div ng-init="getuser('<%- req.session.passport.user %>')"></div>	
+<% }%>
+
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
     <div class="jumbotron">
