@@ -76,8 +76,15 @@ passportInit    : require('passport').initialize(),
 	for(x in fields)
 	{
 		if (!user[fields[x]])
-		{user[fields[x]]=InitField[x];}
-		
+		{
+			
+		user[fields[x]]=InitField[x];
+		console.log("Setting field "+fields[x]+"to "+user[fields[x]];
+		}
+		else
+		{
+		console.log("already has "+	fields[x];
+		}
 		}
 	  return next();
     
