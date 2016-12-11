@@ -214,7 +214,7 @@ deleteopengame:function(req,res){
 	RecordGameResult:function(req,res){
 	
 	
-		var elo = require('elo-rank');
+		var elo = require('elo-rank')(32);
 	console.log("winner "+req.param('winner'));
 	console.log("loser "+req.param('loser'));
 	//var expectedScoreA = elo.getExpected(playerA, playerB);
