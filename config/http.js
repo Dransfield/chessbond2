@@ -59,8 +59,6 @@ passportInit    : require('passport').initialize(),
   ****************************************************************************/
 	InitUser:function(req,res,next){
 	
-	var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO",'DifficultyLevelBeaten'];
-	var InitField=['A',"United Kingdom","Sound Enabled",0,0];
 	if (req.session.passport)
 	{
 		//console.log("passport user"+req.session.passport.user);
@@ -82,6 +80,9 @@ passportInit    : require('passport').initialize(),
 		return next();
     	}
 		if (!err){
+			var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO",'DifficultyLevelBeaten'];
+	var InitField=['A',"United Kingdom","Sound Enabled",1200,0];
+	
 			//console.log("user "+JSON.stringify(user));
 	for(x in fields)
 	{

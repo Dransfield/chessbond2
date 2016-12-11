@@ -39,9 +39,9 @@
  <%-JSON.stringify(req.session.passport) %>
  
  <% if (req.session.passport){%>
-	  <% if (req.session.passport.user){%>
-     <div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-   <%}%>
+		<% if (req.session.passport.user){%>
+		<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
+		<%}%>
    <%}%>
     <div ng-init="joinopengameRoom()"></div>
  

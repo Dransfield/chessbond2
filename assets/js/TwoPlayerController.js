@@ -18,6 +18,17 @@ var squareClass = 'square-55d63';
   boardEl = $('#board');
   
 
+$scope.WhiteTime=5*60;
+$scope.BlackTime=5*60;
+
+$scope.StartWhiteClock=function()
+	{
+	setInterval(function (){
+		$scope.WhiteTime=-1;
+		
+		},1000);	
+		
+	};
 
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
@@ -71,6 +82,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.CheckMateSound.play();
 	};
 	
+
 	$scope.getuser=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
