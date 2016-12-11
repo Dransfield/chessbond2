@@ -230,13 +230,27 @@ deleteopengame:function(req,res){
 	console.log("loser is "+winnersandlosers[0].name);
 	console.log("winner is "+winnersandlosers[1].name);
 	
-	var expectedScoreA = elo.getExpected(winnersandlosers[0].ELO, winnersandlosers[1].ELO);
-	var expectedScoreB = elo.getExpected(winnersandlosers[1].ELO, winnersandlosers[0].ELO);
+	var winnerRecord;
+	var loserRecord;
+	if (req.param('winner')==winnersandlosers[0].id)
+	{winnerRecord=winnersandlosers[0];
+		loserRecord=winnersandlosers[1];
+		}
+		else
+		{
+		winnerRecord=winnersandlosers[1];
+		loserRecord=winnersandlosers[0];
+		
+		}
 	
-	winnersandlosers[0].ELO = elo.updateRating(expectedScoreA, 0, winnersandlosers[0].ELO);
-	winnersandlosers[1].ELO = elo.updateRating(expectedScoreB, 1, winnersandlosers[1].ELO);
-	winnersandlosers[0].save();
-	winnersandlosers[1].save();
+	
+	var expectedScoreA = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	var expectedScoreB = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
+	
+	loserRecord.ELO = elo.updateRating(expectedScoreA, 0, winnerRecord.ELO);
+	winnerRecord.ELO = elo.updateRating(expectedScoreB, 1, loserRecord.ELO);
+	loserRecord.save();
+	winnerRecord.save();
 	
 	});
 	
