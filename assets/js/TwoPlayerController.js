@@ -22,8 +22,8 @@ var squareClass = 'square-55d63';
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
-   $scope.BellSound= new Audio('alert.mp3');
-
+$scope.BellSound= new Audio('alert.mp3');
+$scope.MoveSound=new Audio('move.mp3');
 $scope.pic1height=50;
 $scope.pic1coordy=40;
 $scope.pic1coordx=48;
@@ -60,6 +60,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
     {
 	$scope.BellSound.play();
 	};
+	$scope.PlayMove=function()
+    {
+	$scope.MoveSound.play();
+	};
+	
 	$scope.getuser=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
@@ -201,17 +206,17 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 	 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
-		if (document.visibilityState=='hidden')
-				{
+	//	if (document.visibilityState=='hidden')
+				//{
 			if($scope.User)
 			{		
 			if($scope.User.SoundEnabled=='Sound Enabled')
 			{
-			$scope.PlayBell();
+			$scope.PlayMove();
 			}
 			}
   $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
-}
+//}
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
    var gameRecordnow = res.data;
