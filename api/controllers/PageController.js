@@ -214,7 +214,7 @@ deleteopengame:function(req,res){
 	RecordGameResult:function(req,res){
 	
 	
-		var elo = require('elo-rank')(15);
+		var elo = require('elo-rank');
 	console.log("winner "+req.param('winner'));
 	console.log("loser "+req.param('loser'));
 	//var expectedScoreA = elo.getExpected(playerA, playerB);
@@ -224,11 +224,6 @@ deleteopengame:function(req,res){
   id : [req.param('winner'), req.param('loser')]
 	}).exec(function (err, winnersandlosers){
 	console.log(JSON.stringify(winnersandlosers));
-	console.log("loser record:"+JSON.stringify(winnersandlosers[0]));
-	console.log("winner record:"+JSON.stringify(winnersandlosers[1]));
-	
-	console.log("loser is "+winnersandlosers[0].name);
-	console.log("winner is "+winnersandlosers[1].name);
 	
 	var winnerRecord;
 	var loserRecord;
@@ -243,12 +238,17 @@ deleteopengame:function(req,res){
 		
 		}
 	
+	console.log("loser record:"+JSON.stringify(loserRecord));
+	console.log("winner record:"+JSON.stringify(winnerRecord));
 	
-	var expectedScoreA = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
-	var expectedScoreB = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
+	console.log("loser is "+loserRecord.name);
+	console.log("winner is "+winnerRecord.name);
 	
-	loserRecord.ELO = elo.updateRating(expectedScoreA, 0, winnerRecord.ELO);
-	winnerRecord.ELO = elo.updateRating(expectedScoreB, 1, loserRecord.ELO);
+	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
+	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	
+	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
+	loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
 	loserRecord.save();
 	winnerRecord.save();
 	
