@@ -36,9 +36,9 @@ passportInit    : require('passport').initialize(),
        'startRequestTimer',
        'cookieParser',
        'session',
-         'passportInit',     
-            'passportSession',
-             'InitUser',
+       'InitUser',
+        'passportInit',     
+        'passportSession',
        'bodyParser',
        'handleBodyParserError',
        'compress',
@@ -58,21 +58,31 @@ passportInit    : require('passport').initialize(),
   *                                                                           *
   ****************************************************************************/
 	InitUser:function(req,res,next){
-	var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO"];
-	var InitField=['A',"United Kingdom","Sound Enabled",0];
+	
+	var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO",'DifficultyLevelBeaten'];
+	var InitField=['A',"United Kingdom","Sound Enabled",0,0];
 	if (req.session.passport)
 	{
+		//console.log("passport user"+req.session.passport.user);
+		if(!req.session.passport.user)
+		{return next();
+    	}
 		
 		User.findOne({
       id: req.session.passport.user
 	},function foundUser(err,user){
 		if (err)
-		{req.session.passport=null;
+		{//req.session.passport=null;
 			  return next();
     
 			}
-		
+		if (!user)
+		{
+		console.log("no user");
+		return next();
+    	}
 		if (!err){
+			//console.log("user "+JSON.stringify(user));
 	for(x in fields)
 	{
 		if (!user[fields[x]])
@@ -103,7 +113,9 @@ passportInit    : require('passport').initialize(),
          
          {res.redirect('http://www.chessbond.com');}
          return next();
+     
      }
+      
 
 
   /***************************************************************************

@@ -8,7 +8,7 @@ angular.module('HomepageModule').controller('RegisterController', ['$scope', '$h
 	$scope.login=function()
 		{
 			
-			$http.put("/login",{email:$scope.vm.user.username,password:$scope.vm.user.password})
+			$http.put("/login",{email:$scope.vm.user.email,password:$scope.vm.user.password})
 			.then(function onSuccess (resData, jwr){
 				if (resData.data.message!="Logged In Successfully")
 				{

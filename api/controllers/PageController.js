@@ -39,7 +39,7 @@ deleteopengame:function(req,res){
 	
 	}	,
 	newopengame:function(req,res){
-	console.log("all params of new game"+req.allParams());
+	console.log("all params of new open game"+req.allParams());
 	Openchessgame.create(
 	req.allParams()
 	).exec(function (err, newgam){
@@ -74,10 +74,10 @@ deleteopengame:function(req,res){
 	   var sentresponse=false;
 		User.findOne(req.param('MyID'), function foundUser(err, user) {
 		if (err) return res.negotiate(err);
-
+		
 		// If session refers to a user who no longer exists, still allow logout.
 			if (!user) {
-			sails.log.verbose('Session refers to a user who no longer exists.');
+			console.log('Session refers to a user who no longer exists.');
 			sentresponse=true;
 			return res.notFound();
 			}
@@ -87,27 +87,19 @@ deleteopengame:function(req,res){
 		MyID=req.param('MyID');
 		MyName=req.param('MyName');
 		Openchessgame.findOne(GameID, function foundUser(err, game) {
-		if (err) 
-		{
-		if (sentresponse==false)
-		{
-		sentresponse=true;
-		
-			return res.negotiate(err);
-		}
-		}
+	
 		// If session refers to a user who no longer exists, still allow logout.
-			
+	
+		
 			if (!game) {
 			console.log('Session refers to a game that no longer exists.');
 		if (sentresponse==false)
 		{
 		sentresponse=true;
-		
-			return res.backToHomePage();
+		return res.backToHomePage();
 		}	
 			}
-			
+			console.log("game.Player2 "+game.Player2);
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
@@ -129,7 +121,7 @@ deleteopengame:function(req,res){
 			
 			if(sentresponse==false)
 			{
-			sentrespone=true;
+			sentresponse=true;
 			
 			return res.ok();
 			}
@@ -220,8 +212,33 @@ deleteopengame:function(req,res){
 	},
 	
 	RecordGameResult:function(req,res){
+	
+	
+		var elo = require('elo-rank')(15);
 	console.log("winner "+req.param('winner'));
 	console.log("loser "+req.param('loser'));
+	//var expectedScoreA = elo.getExpected(playerA, playerB);
+	//var expectedScoreB = elo.getExpected(playerB, playerA);
+	
+	User.find({
+  id : [req.param('winner'), req.param('loser')]
+	}).exec(function (err, winnersandlosers){
+	console.log(JSON.stringify(winnersandlosers));
+	console.log("loser record:"+JSON.stringify(winnersandlosers[0]));
+	console.log("winner record:"+JSON.stringify(winnersandlosers[1]));
+	
+	console.log("loser is "+winnersandlosers[0].name);
+	console.log("winner is "+winnersandlosers[1].name);
+	
+	var expectedScoreA = elo.getExpected(winnersandlosers[0].ELO, winnersandlosers[1].ELO);
+	var expectedScoreB = elo.getExpected(winnersandlosers[1].ELO, winnersandlosers[0].ELO);
+	
+	winnersandlosers[0].ELO = elo.updateRating(expectedScoreA, 0, winnersandlosers[0].ELO);
+	winnersandlosers[1].ELO = elo.updateRating(expectedScoreB, 1, winnersandlosers[1].ELO);
+	winnersandlosers[0].save();
+	winnersandlosers[1].save();
+	
+	});
 	
 	},
     

@@ -88,12 +88,14 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	if (game.turn()=='w')
 		{
 			toastr.info("black won");
-			if (MyID==gameRecord.Player2)
+			console.log("I am "+MyID+" player1 "+gameRecordnow.Player1);
+			console.log("I am "+MyID+" player2 "+gameRecordnow.Player2);
+			if (MyID==gameRecordnow.Player2)
 			{
 			
 	io.socket.put('/RecordGameResult',{
-				winner:gameRecord.Player2,
-				loser:gameRecord.Player1
+				winner:gameRecordnow.Player2,
+				loser:gameRecordnow.Player1
 					  }  
 				  
 				,function(resData,jwres)
@@ -109,11 +111,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			
 			toastr.info("white won");
-			if (MyID==gameRecord.Player1)
+			console.log("I am "+MyID+" player1 "+gameRecordnow.Player1);
+			console.log("I am "+MyID+" player2 "+gameRecordnow.Player2);
+			if (MyID==gameRecordnow.Player1)
 			{
 			io.socket.put('/RecordGameResult',{
-				winner:gameRecord.Player1,
-				loser:gameRecord.Player2
+				winner:gameRecordnow.Player1,
+				loser:gameRecordnow.Player2
 					  }  
 				  
 				,function(resData,jwres)
@@ -552,7 +556,7 @@ $scope.changeFavicon=function (src) {
 							  if (game.in_checkmate())
 								{
 							  toastr.success("Checkmate!");
-							  $scope.RecordGameResult();
+							  $scope.RecordGameResult(me);
 							 }
 	 
 							console.log("move from ondrop "+JSON.stringify(move));

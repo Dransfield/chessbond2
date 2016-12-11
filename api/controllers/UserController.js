@@ -1,17 +1,11 @@
 /**
- * UserController.js 
- * 
- * @module      :: Controller
- * @description :: Provides the base user
- *                 actions used to make waterlock work.
- *                 
- * @docs        :: http://waterlock.ninja/documentation
+ * UserController
+ *
+ * @description :: Server-side logic for managing users
+ * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-module.exports = require('waterlock').actions.user({
-  /* e.g.
-    action: function(req, res){
-  
-    }
-  */
-});
+module.exports = {
+	
+};
+

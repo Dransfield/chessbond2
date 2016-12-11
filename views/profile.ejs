@@ -27,10 +27,13 @@
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
     <div class="jumbotron">
-        <h1>Profile1</h1>
+        <h1>Profile</h1>
          <% if (req.session.passport){ %>
-		
-          <h2>Highest Difficulty Level Beaten:<%- req.session.user.DifficultyLevelBeaten%></h2>
+			<% if (req.session.passport.user){ %>
+          <h2>Highest Difficulty Level Beaten:<%- {{User.DifficultyLevelBeaten}} %></h2>
+            <h2>ELO rating score:<%- {{User.ELO}} %></h2>
+         
+           <% } %>
            <% } %>
             <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 	
@@ -70,6 +73,7 @@
     <script src="/js/dependencies/enginegame.js"></script>
     <script src="/js/HomepageModule.js"></script>
     <script src="/js/HomepageController.js"></script>
+    <script src="/js/RegisterController.js"></script>
     <script src="/js/SinglePlayerController.js"></script>
     <script src="/js/TwoPlayerController.js"></script>
     <!--SCRIPTS END-->

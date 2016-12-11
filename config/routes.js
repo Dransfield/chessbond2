@@ -39,7 +39,7 @@ module.exports.routes = {
 	'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	'/humanvshuman':{view:'humanvshuman'},
 	'/recordsession':'PageController.RecordSession',
-	'/MyLogout':'PageController.MyLogout',
+	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
 	'get /seereq':'PageController.seereq',
  	'POST /loginbuttonpushed':'PageController.loginbuttonpushed',
@@ -51,16 +51,16 @@ module.exports.routes = {
 	'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
 	'PUT /chessgamemove':'PageController.chessgamemove',
-	'PUT //RecordGameResult':'PageController.RecordGameResult',
+	'PUT /RecordGameResult':'PageController.RecordGameResult',
 	
-		'/logintwitter': 'AuthController.logintwitter',
- '/auth/google_oauth2':'AuthController.googlecallback',
+	'/logintwitter': 'AuthController.logintwitter',
+	'/auth/google_oauth2':'AuthController.googlecallback',
 	'/logingoogle': 'AuthController.logingoogle',
-'/auth/twitter_oauth':'AuthController.twittercallback',
+	'/auth/twitter_oauth':'AuthController.twittercallback',
   	'/loginfacebook': 'AuthController.loginfacebook',
-  '/auth/facebook_oauth2':'AuthController.facebookcallback',
-  'POST /register':'AuthController.register',
-  'PUT /login':'AuthController.login'
+	'/auth/facebook_oauth2':'AuthController.facebookcallback',
+	'POST /register':'AuthController.register',
+	'PUT /login':'AuthController.login'
   
   /***************************************************************************
   *                                                                          *

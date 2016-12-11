@@ -83,7 +83,11 @@ register: function (req, res) {
 
     logout: function(req, res) {
         req.logout();
+        console.log("logging out");
+        req.session.destroy();
+        
         res.redirect('/');
+        
     }
 };
 

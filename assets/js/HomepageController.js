@@ -47,8 +47,8 @@ $scope.User;
 io.socket.on('userpresence',function(data)
 			{
 			io.socket.get("/user?id="+data.id,{},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			console.log("name "+resData.name);
+			//console.log(JSON.stringify(resData));
+			//console.log("name "+resData.name);
 		var foundPlayer=false;
 		
 			for(var i = $scope.Players.length - 1; i >= 0; i--) {

@@ -23,7 +23,7 @@
     "rc": "1.0.1",
     "sails-mongo":"*",
     "sails-disk": "~0.10.9",
-    "waterlock":"*",
+    
     "connect-redis":"*",
     "connect-mongo":"*",
     "MD5":"*",
