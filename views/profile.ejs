@@ -20,9 +20,11 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
-   <% if(req.session.passport){ %>
+   <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
 	 <div ng-init="getuser('<%- req.session.passport.user %>')"></div>	
-<% }%>
+   <% } %>
+           <% } %>
 
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
@@ -30,8 +32,8 @@
         <h1>Profile</h1>
          <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
-          <h2>Highest Difficulty Level Beaten:<%- {{User.DifficultyLevelBeaten}} %></h2>
-            <h2>ELO rating score:<%- {{User.ELO}} %></h2>
+          <h2>Highest Difficulty Level Beaten:{{User.DifficultyLevelBeaten}}</h2>
+            <h2>ELO rating score:{{User.ELO}}</h2>
          
            <% } %>
            <% } %>
@@ -39,6 +41,9 @@
 	
 	 </div>
     </div>
+    
+       <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
    <div id="row">
     <div class="col-md-4">
 	 <select class="form-control" name="mySelect" id="mySelect"
@@ -49,11 +54,13 @@
 		  {{c.name}}</option>
 					
 				</select>
-				</div>
+	</div>
     <div class="col-md-4">
 	 <div>
 	<img src="/images/flags/{{countryTofilename(User.Country)}}.png">
 	</div>
+	  <% } %>
+           <% } %>
 	</div>
 	</div>
 
