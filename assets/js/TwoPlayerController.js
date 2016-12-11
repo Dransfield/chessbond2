@@ -17,15 +17,21 @@ var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#board');
   
+$scope.TopTime=0;
+$scope.BottomTime=0;
 
 $scope.WhiteTime=5*60;
 $scope.BlackTime=5*60;
 
+$scope.WhiteTimeDisplay=0;
+$scope.BlackTimeDisplay=0;
+
+
 $scope.StartWhiteClock=function()
 	{
 	setInterval(function (){
-		$scope.$apply($scope.WhiteTime-=1);
-		
+		$scope.WhiteTime-=1;
+		$scope.$apply($scope.WhiteTimeDisplay=($scope.WhiteTime/60)+":"+($scope.WhiteTime ^ 60)
 		},1000);	
 		
 	};
