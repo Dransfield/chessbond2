@@ -24,7 +24,7 @@ $scope.BlackTime=5*60;
 $scope.StartWhiteClock=function()
 	{
 	setInterval(function (){
-		$scope.WhiteTime-=1;
+		$scope.$apply($scope.WhiteTime-=1);
 		
 		},1000);	
 		
