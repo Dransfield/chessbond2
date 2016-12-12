@@ -35,7 +35,7 @@ $scope.StartWhiteClock=function()
 		var minstring=minutes.toString();
 		var seconds=parseInt($scope.WhiteTime % 60);
 		var secstring=seconds.toString();
-		$scope.$apply($scope.WhiteTimeDisplay=minstring+":"+secstring);
+		$scope.$apply($scope.WhiteTimeDisplay=(minstring+":"+secstring));
 		},1000);	
 		
 	};
