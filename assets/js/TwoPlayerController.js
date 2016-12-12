@@ -31,7 +31,11 @@ $scope.StartWhiteClock=function()
 	{
 	setInterval(function (){
 		$scope.WhiteTime-=1;
-		$scope.$apply($scope.WhiteTimeDisplay=parseInt(($scope.WhiteTime/60))+":"+parseInt($scope.WhiteTime % 60));
+		var minutes=parseInt(($scope.WhiteTime/60));
+		var minstring=minutes.toString();
+		var seconds=parseInt($scope.WhiteTime % 60);
+		var secstring=seconds.toString();
+		$scope.$apply($scope.WhiteTimeDisplay=minstring+":"+secstring);
 		},1000);	
 		
 	};
