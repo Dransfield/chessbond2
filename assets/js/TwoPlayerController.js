@@ -23,19 +23,18 @@ $scope.BottomTime=0;
 $scope.WhiteTime=5*60;
 $scope.BlackTime=5*60;
 
-$scope.WhiteTimeDisplay="";
-$scope.BlackTimeDisplay="";
+$scope.WhiteTimeDisplay="string";
+$scope.WhiteMinutes;
+$scope.WhiteSeconds;
+$scope.BlackTimeDisplay="string";
 
 
 $scope.StartWhiteClock=function()
 	{
 	setInterval(function (){
 		$scope.WhiteTime-=1;
-		var minutes=parseInt(($scope.WhiteTime/60));
-		var minstring=minutes.toString();
-		var seconds=parseInt($scope.WhiteTime % 60);
-		var secstring=seconds.toString();
-		$scope.$apply($scope.WhiteTimeDisplay=(minstring+":"+secstring));
+		$scope.$apply($scope.WhiteMinutes=parseInt(($scope.WhiteTime/60)));
+		$scope.$apply($scope.WhiteSeconds=parseInt($scope.WhiteTime % 60));
 		},1000);	
 		
 	};
