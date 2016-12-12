@@ -186,7 +186,7 @@ deleteopengame:function(req,res){
 		user.save(function(err, savedUser){
 		sails.log.verbose('saving user error.');
        
-        });
+      });
       // Either send a 200 OK or redirect to the home page
 		return res.ok();
 		}
@@ -206,8 +206,8 @@ deleteopengame:function(req,res){
 
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
-	setTimeout(		function(){sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Two Seconds have passed"});}
-,2000);
+	console.log(setinterval(		function(){sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
+,10000));
 	return res.ok();
 	},
 	

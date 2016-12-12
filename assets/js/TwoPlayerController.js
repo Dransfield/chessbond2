@@ -644,7 +644,7 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
       
     ,function(resData,jwres)
 {
-	io.socket.put('/chessgamemove',{GameID:gameRecord.id},function(resData,jwres)
+	io.socket.put('/chessgamemove',{GameID:gameRecord.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
 	console.log(jwres);
 	});
