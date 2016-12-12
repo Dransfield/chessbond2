@@ -23,8 +23,8 @@ $scope.BottomTime=0;
 $scope.WhiteTime=5*60;
 $scope.BlackTime=5*60;
 
-$scope.WhiteTimeDisplay=0;
-$scope.BlackTimeDisplay=0;
+$scope.WhiteTimeDisplay="";
+$scope.BlackTimeDisplay="";
 
 
 $scope.StartWhiteClock=function()
