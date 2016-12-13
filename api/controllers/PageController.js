@@ -212,7 +212,7 @@ deleteopengame:function(req,res){
 	var td=0;
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		td=cg.InfoNum;
-		});
+		
 	setTimeout(		function(cg){
 		
 			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
@@ -224,7 +224,7 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
 		,td*60);
 	
-	
+	});
 	return res.ok();
 	},
 	
