@@ -123,8 +123,8 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
-    console.log("socket disconnected socket:"+socket;
-    console.log("socket disconnected session:"+session;
+    console.log("socket disconnected socket:"+socket);
+    console.log("socket disconnected session:"+session);
     
      // By default: do nothing.
      return cb();
