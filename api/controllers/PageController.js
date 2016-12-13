@@ -87,6 +87,7 @@ deleteopengame:function(req,res){
 		MyID=req.param('MyID');
 		MyName=req.param('MyName');
 		GameTypeID=req.param('GameType');
+		num=req.param("InfoNum");
 		Openchessgame.findOne(GameID, function foundUser(err, game) {
 	
 		// If session refers to a user who no longer exists, still allow logout.
@@ -104,7 +105,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
-			Chessgame.create({GameType:GameTypeID,Move:1,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
+			Chessgame.create({InfoNum:num,GameType:GameTypeID,Move:1,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -208,8 +209,22 @@ deleteopengame:function(req,res){
 
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
-	//setInterval(		function(){sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
-//,10000);
+	var td=0;
+		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
+		td=cg.InfoNum;
+		});
+	setTimeout(		function(){
+		
+			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
+		console.log("chess game turn duration"+cgame.InfoNum);
+		console.log("chess game move in timer"+cgame.Move);
+		console.log("chess game move outside of timer "+cg.Move);
+		
+		});
+		sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
+		,td*60);
+	
+	
 	return res.ok();
 	},
 	

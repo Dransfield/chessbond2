@@ -590,7 +590,7 @@ $scope.changeFavicon=function (src) {
 						  
 						   return 'snapback';
 						   }
-	
+							gameRecord.Move+=1;
 							  if (game.in_draw())
 								{
 							  toastr.success("It's a draw");
@@ -642,7 +642,8 @@ updatePlayersLabel(game,gameRecord);
 io.socket.put('/Chessgame/'+gameRecord.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
-      lastmove:move.from+move.to
+      lastmove:move.from+move.to,
+      Move:gameRecord.Move
       }  
       
     ,function(resData,jwres)

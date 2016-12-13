@@ -175,9 +175,9 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
 		
 		};
 
-	$scope.createopengame=function(id,name)
+	$scope.createopengame=function(type,infonum,id,name)
 	{
-	io.socket.put('/newopengame', { Player1: id,Player1Name:name,Created:Date.now() },
+	io.socket.put('/newopengame', { GameType:type,InfoNum:infonum,Player1: id,Player1Name:name,Created:Date.now() },
     function (resData, jwr) {
 
       // Refresh the page now that we've been logged in.
