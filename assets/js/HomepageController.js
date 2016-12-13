@@ -118,14 +118,16 @@ $scope.PlayGame=function(GameID,Player2)
     })
 	};
 	
-$scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName){
+$scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum){
 		console.log("joingame player1"+PlayerID+" player2"+MyID+" player1name "+PlayerName+" Player2Name "+MyName);
 		$http.put('/joingame', {
 			GameID:GameID,
 			PlayerID:PlayerID,
 			PlayerName:PlayerName,
 			MyID:MyID,
-			MyName:MyName
+			MyName:MyName,
+			GameType:GamType,
+			InfoNum:infonum
 			})
 			.then(function onSuccess(sailsResponse){
 			
