@@ -212,7 +212,9 @@ deleteopengame:function(req,res){
 	var td=0;
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		td=cg.InfoNum;
+		console.log("delay is "+td);
 		var OldMoveNumber=cg.Move;
+		console.log("old move outside of timer"+OldMoveNumber);
 	setTimeout(		function(cg){
 		
 			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
