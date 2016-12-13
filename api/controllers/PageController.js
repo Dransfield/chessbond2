@@ -213,7 +213,7 @@ deleteopengame:function(req,res){
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		td=cg.InfoNum;
 		});
-	setTimeout(		function(){
+	setTimeout(		function(cg){
 		
 			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		console.log("chess game turn duration"+cgame.InfoNum);
