@@ -11,6 +11,7 @@ $scope.ShowOptions=true;
 
 $scope.HideInject=true;
 
+$scope.ChessGameObject={};
 
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
@@ -121,7 +122,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	.then(function (res) {
     var gameRecordnow = res.data;
     console.log(res.data);
-    
+    $scope.ChessGameObject=res.data;
     if (game.in_checkmate())
     {
 	if (game.turn()=='w')
@@ -254,6 +255,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
    var gameRecordnow = res.data;
+   $scope.ChessGameObject=res.data;
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
@@ -518,6 +520,7 @@ $scope.changeFavicon=function (src) {
 						$http.get('/chessgame?id='+GameID)
 						.then(function (res) {
 							var gameRecord = res.data;
+							$scope.ChessGameObject=res.data;
 							console.log(gameRecord);
 
 							ShowPlayersAvatars(gameRecord);
@@ -559,7 +562,7 @@ $scope.changeFavicon=function (src) {
 								};
 								var onDrop = function(source, target) {
   
-							if (usersTurn(game,gameRecord,me)===false)
+							if (usersTurn(game,$scope.ChessGameObject,me)===false)
 						{ 
 							toastr.warning("It's not your turn");
 							return 'snapback';}
@@ -590,9 +593,9 @@ $scope.changeFavicon=function (src) {
 						  
 						   return 'snapback';
 						   }
-						   console.log("adding one to Move"+gameRecord.Move);
-							gameRecord.Move+=1;
-						   console.log("added one to Move"+gameRecord.Move);
+						   console.log("adding one to Move"+$scope.ChessGameObject.Move);
+							$scope.ChessGameObject.Move+=1;
+						   console.log("added one to Move"+$scope.ChessGameObject.Move);
 							
 							  if (game.in_draw())
 								{
@@ -628,7 +631,7 @@ $scope.changeFavicon=function (src) {
 					  //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
 
 					  console.log('move'+JSON.stringify(move));
-					updateStatus(game,gameRecord,move);
+					updateStatus(game,$scope.ChessGameObject,move);
 };
 
 function updateStatus(game,gameRecord,move)
