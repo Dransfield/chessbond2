@@ -47,6 +47,7 @@ passportInit    : require('passport').initialize(),
        '$custom',
        'router',
        'www',
+       'forcedomain',
        'favicon',
        '404',
        '500'
@@ -57,6 +58,10 @@ passportInit    : require('passport').initialize(),
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
   ****************************************************************************/
+	forcedomain:function(req,res){
+	console.log(JSON.stringify(req));
+	}
+	
 	InitUser:function(req,res,next){
 	
 	if (req.session.passport)
