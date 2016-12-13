@@ -58,8 +58,9 @@ passportInit    : require('passport').initialize(),
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
   ****************************************************************************/
-	forcedomain:function(req,res){
-	console.log(req);
+	forcedomain:function(req,res,next){
+	console.log(req.baseUrl);
+	
 	},
 	
 	InitUser:function(req,res,next){
