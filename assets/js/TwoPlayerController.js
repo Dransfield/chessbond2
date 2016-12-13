@@ -590,7 +590,10 @@ $scope.changeFavicon=function (src) {
 						  
 						   return 'snapback';
 						   }
+						   console.log("adding one to Move"+gameRecord.Move);
 							gameRecord.Move+=1;
+						   console.log("added one to Move"+gameRecord.Move);
+							
 							  if (game.in_draw())
 								{
 							  toastr.success("It's a draw");
