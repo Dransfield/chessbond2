@@ -59,7 +59,7 @@ passportInit    : require('passport').initialize(),
   *                                                                           *
   ****************************************************************************/
 	forcedomain:function(req,res,next){
-	console.log(req.baseUrl);
+	console.log(req.param('baseUrl'));
 	
 	},
 	
