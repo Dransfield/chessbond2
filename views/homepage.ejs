@@ -223,7 +223,7 @@
 			<% if (req.session.passport) { %>
     		
 			<td>		
-				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,'<%- req.session.passport.user%>',User.name)">Join Game</button>
+				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,'<%- req.session.passport.user%>',User.name,opengame.GameType,opengame.InfoNum)">Join Game</button>
 				
 				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
 				
