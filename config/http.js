@@ -60,7 +60,7 @@ passportInit    : require('passport').initialize(),
   ****************************************************************************/
 	forcedomain:function(req,res){
 	console.log(JSON.stringify(req));
-	}
+	},
 	
 	InitUser:function(req,res,next){
 	

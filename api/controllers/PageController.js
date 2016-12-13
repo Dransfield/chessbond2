@@ -208,8 +208,8 @@ deleteopengame:function(req,res){
 
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
-	console.log(setInterval(		function(){sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
-,10000));
+	//setInterval(		function(){sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
+//,10000);
 	return res.ok();
 	},
 	
