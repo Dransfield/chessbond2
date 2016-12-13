@@ -215,7 +215,7 @@ deleteopengame:function(req,res){
 		console.log("delay is "+td);
 		var OldMoveNumber=cg.Move;
 		console.log("old move outside of timer"+OldMoveNumber);
-	setTimeout(		function(cg){
+	setTimeout(		function(){
 		
 			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		console.log("chess game turn duration"+cgame.InfoNum);
