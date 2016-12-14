@@ -120,11 +120,12 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	{
 	$http.get('/chessgame?id='+GameID)
 	.then(function (gam) {
+	console.log("scope chessgame object before:"+$scope.ChessGameObject);
     console.log("result before:"+$scope.ChessGameObject.Result);
     console.log(gam.data);
     console.log("result from raw data "+gam.data.Result);
     $scope.ChessGameObject=gam.data;
-    console.log($scope.ChessGameObject);
+    console.log("scope chessgame object after:"+$scope.ChessGameObject);
     console.log("player1 name:"+$scope.ChessGameObject.Player1Name);
     
     console.log("result after:"+$scope.ChessGameObject.Result);
@@ -137,7 +138,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			toastr.info("black won");
 			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1);
 			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2);
-			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player2+" beat "+$scope.ChessGameObject.Player1;
+			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player2Name+" beat "+$scope.ChessGameObject.Player1Name;
 			if (MyID==$scope.ChessGameObject.Player2)
 			{
 			
@@ -159,9 +160,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			
 			toastr.info("white won");
-			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1);
-			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2);
-			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player1+" beat "+$scope.ChessGameObject.Player2;
+			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1Name);
+			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2Name);
+			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player1Name+" beat "+$scope.ChessGameObject.Player2Name;
 			
 			if (MyID==$scope.ChessGameObject.Player1)
 			{
@@ -616,6 +617,7 @@ $scope.changeFavicon=function (src) {
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
 							  $scope.RecordGameResult(me);
+							  console.log("result after record result: "+$scope.ChessGameObject.Result);
 							 }
 	 
 							console.log("move from ondrop "+JSON.stringify(move));
@@ -657,6 +659,7 @@ updatePlayersLabel(game);
 //game.load(gameRecord.fen);
 
 console.log("put chessgame result is :"+$scope.ChessGameObject.Result);
+console.log("put chessgame move is :"+$scope.ChessGameObject.Move);
 io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
