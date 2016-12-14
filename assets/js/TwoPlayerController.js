@@ -130,10 +130,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			toastr.info("black won");
 			console.log("I am "+MyID+" player1 "+gameRecordnow.Player1);
 			console.log("I am "+MyID+" player2 "+gameRecordnow.Player2);
+			$scope.ChessGameObject.Result=gameRecordnow.Player2+" beat "+gameRecordnow.Player1;
 			if (MyID==gameRecordnow.Player2)
 			{
 			
-	io.socket.put('/RecordGameResult',{
+				io.socket.put('/RecordGameResult',{
 				winner:gameRecordnow.Player2,
 				loser:gameRecordnow.Player1
 					  }  
@@ -153,6 +154,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			toastr.info("white won");
 			console.log("I am "+MyID+" player1 "+gameRecordnow.Player1);
 			console.log("I am "+MyID+" player2 "+gameRecordnow.Player2);
+			$scope.ChessGameObject.Result=gameRecordnow.Player1+" beat "+gameRecordnow.Player2;
+			
 			if (MyID==gameRecordnow.Player1)
 			{
 			io.socket.put('/RecordGameResult',{
