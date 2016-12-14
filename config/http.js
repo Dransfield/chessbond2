@@ -68,7 +68,7 @@ passportInit    : require('passport').initialize(),
         console.log("Already http://www; don't do anything special.??");
         next();
     } else {
-        console.log('REDIRECTING http://www.' + req.headers.host + req.url);
+        console.log('REDIRECTING http://www.' + req.headers.host);
         res.redirect('http://www.' + req.headers.host + req.url);
     }
 
