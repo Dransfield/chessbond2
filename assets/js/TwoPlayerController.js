@@ -123,6 +123,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
     
     console.log(res.data);
     $scope.ChessGameObject=res.data;
+    console.log($scope.ChessGameObject);
+    console.log($scope.ChessGameObject.Result);
     if (game.in_checkmate())
     {
 	if (game.turn()=='w')
@@ -259,6 +261,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 .then(function (res) {
    
    $scope.ChessGameObject=res.data;
+   console.log(res.data);
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
@@ -280,8 +283,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 			 square=   $("b[id='lastpgn']");
-							$( "img[id='pgnhighlight']" ).detach();
-						  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
+			$( "img[id='pgnhighlight']" ).detach();
+			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
 					
 		
 		updateTurnTakerLabel(game);
@@ -311,7 +314,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 
 $scope.changeFavicon=function (src) {
  var link = document.createElement('link'),
-     oldLink = document.getElementById('dynamic-favicon');
+    oldLink = document.getElementById('dynamic-favicon');
  link.id = 'dynamic-favicon';
  link.rel = 'shortcut icon';
  link.href = src;
