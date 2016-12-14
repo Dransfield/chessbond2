@@ -603,7 +603,7 @@ $scope.changeFavicon=function (src) {
 								{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							  $scope.ChessGameObject.Result=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,game));
+							  $scope.ChessGameObject.Result=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,game);
 							  console.log("result after record result: "+$scope.ChessGameObject.Result);
 							 }
 	 
