@@ -46,8 +46,9 @@ passportInit    : require('passport').initialize(),
        'poweredBy',
        '$custom',
        'router',
-       'www',
        'forcedomain',
+       'www',
+       
        'favicon',
        '404',
        '500'
