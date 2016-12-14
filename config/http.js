@@ -70,7 +70,7 @@ passportInit    : require('passport').initialize(),
         console.log('http://www' + req.headers.host + req.url);
         res.redirect('http://www' + req.headers.host + req.url);
     }
-};
+
 	},
 	
 	InitUser:function(req,res,next){
