@@ -119,11 +119,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.RecordGameResult=function(MyID)
 	{
 	$http.get('/chessgame?id='+GameID)
-	.then(function (res) {
+	.then(function (gam) {
     console.log("result before:"+$scope.ChessGameObject.Result);
-    console.log(res.data);
-    console.log("result from raw data "+res.data.Result);
-    $scope.ChessGameObject=res.data;
+    console.log(gam.data);
+    console.log("result from raw data "+gam.data.Result);
+    $scope.ChessGameObject=gam.data;
     console.log($scope.ChessGameObject);
     console.log("player1 name:"+$scope.ChessGameObject.Player1Name);
     
@@ -263,10 +263,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			}
 
   			$http.get('/chessgame?id='+GameID)
-.then(function (res) {
+.then(function (latest) {
    
-   $scope.ChessGameObject=res.data;
-   console.log(res.data);
+   $scope.ChessGameObject=latest.data;
+   console.log(latest.data);
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
