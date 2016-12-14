@@ -88,8 +88,8 @@
     <div class="row" id="whole thing" >
 
       <div class="col-sm-7 col-md-6">
-        <ng_show "WhiteMinutes>0" span class="h3" id="time1">{{WhiteMinutes}}:{{WhiteSeconds}}</span>
-        <ng_show "WhiteMinutes=0" span class="h3" id="time1" style="color:#DD0000">{{WhiteMinutes}}:{{WhiteSeconds}}</span>
+        <ng_show ="WhiteMinutes>0" span class="h3" id="time1">{{WhiteMinutes}}:{{WhiteSeconds}}</span>
+        <ng_show ="WhiteMinutes=0" span class="h3" id="time1" style="color:#DD0000">{{WhiteMinutes}}:{{WhiteSeconds}}</span>
        
         <div id="board" style="width: 400px"></div>
         <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
