@@ -131,9 +131,13 @@ passportInit    : require('passport').initialize(),
 	
          if (str.startsWith('www')==false)
          
-         {res.redirect('http://www.chessbond.com');}
+         {
+		 res.redirect('http://www.chessbond.com');
+		 }
+		 else
+			{
          return next();
-     
+			}
      }
       
 
