@@ -33,6 +33,7 @@ passportInit    : require('passport').initialize(),
   ***************************************************************************/
 
      order: [
+     'myRequestLogger',
        'startRequestTimer',
        'cookieParser',
        'session',
@@ -46,7 +47,7 @@ passportInit    : require('passport').initialize(),
        'poweredBy',
        '$custom',
        'router',
-       'forcedomain',
+       
        'www',
        
        'favicon',
