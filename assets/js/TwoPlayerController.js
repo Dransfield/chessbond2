@@ -270,7 +270,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	console.log("last move"+$scope.ChessGameObject.lastmove);
 	var modified=($scope.ChessGameObject.lastmove.substr(0, 2) + "-" + $scope.ChessGameObject.lastmove.substr(2));
 	console.log("with -"+modified);
-	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
+	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 		console.log("move returned from game "+JSON.stringify(move));
