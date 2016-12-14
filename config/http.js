@@ -62,9 +62,9 @@ passportInit    : require('passport').initialize(),
 	console.log(req.session.baseUrl);
 	console.log(req.baseUrl);
 	console.log(req.wantsJSON);
-	
+	console.log(req.baseUrl.indexOf('http://www'));
     if (req.baseUrl.indexOf('http://www') == 0)  {
-        // Already https; don't do anything special.
+        console.log("Already http://www; don't do anything special.??");
         next();
     } else {
         console.log('http://www' + req.headers.host + req.url);
