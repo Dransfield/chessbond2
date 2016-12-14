@@ -303,7 +303,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		}
 		if (game.in_checkmate())
 		{$scope.PlayCheckMate();
-			Toastr.success("CheckMate!");
+			toastr.success("CheckMate!");
 			}
 		});
 		
@@ -652,7 +652,9 @@ io.socket.put('/Chessgame/'+gameRecord.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
-      Move:gameRecord.Move
+      Move:gameRecord.Move,
+      Result:$scope.ChessGameObject.Result
+			
       }  
       
     ,function(resData,jwres)
