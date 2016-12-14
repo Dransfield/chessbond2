@@ -116,35 +116,23 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		
 	};
 	
-	$scope.RecordGameResult=function(MyID)
+	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,game)
 	{
-	$http.get('/chessgame?id='+GameID)
-	.then(function (gam) {
-	console.log("scope chessgame object before:"+JSON.stringify($scope.ChessGameObject));
-    console.log("result before:"+$scope.ChessGameObject.Result);
-    console.log(gam.data);
-    console.log("result from raw data "+gam.data.Result);
-    $scope.ChessGameObject=gam.data;
-    console.log("scope chessgame object after:"+JSON.stringify($scope.ChessGameObject));
-    console.log("player1 name:"+$scope.ChessGameObject.Player1Name);
-    
-    console.log("result after:"+$scope.ChessGameObject.Result);
-    console.log("param result after:"+$scope.ChessGameObject['Result']);
-    
+		var result="";
     if (game.in_checkmate())
     {
 	if (game.turn()=='w')
 		{
 			toastr.info("black won");
-			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1);
-			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2);
-			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player2Name+" beat "+$scope.ChessGameObject.Player1Name;
-			if (MyID==$scope.ChessGameObject.Player2)
+			console.log("I am "+MyID+" player1 "+Player1);
+			console.log("I am "+MyID+" player2 "+Player2);
+			result=Player2Name+" beat "+Player1Name;
+			if (MyID==Player2)
 			{
 			
 				io.socket.put('/RecordGameResult',{
-				winner:$scope.ChessGameObject.Player2,
-				loser:$scope.ChessGameObject.Player1
+				winner:Player2,
+				loser:Player1
 					  }  
 				  
 				,function(resData,jwres)
@@ -160,15 +148,14 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			
 			toastr.info("white won");
-			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1Name);
-			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2Name);
-			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player1Name+" beat "+$scope.ChessGameObject.Player2Name;
-			console.log("did it fucking work "+$scope.ChessGameObject.Result);
-			if (MyID==$scope.ChessGameObject.Player1)
+			console.log("I am "+MyID+" player1 "+Player1Name);
+			console.log("I am "+MyID+" player2 "+Player2Name);
+			result=Player1Name+" beat "+Player2Name;
+			if (MyID==Player1)
 			{
 			io.socket.put('/RecordGameResult',{
-				winner:$scope.ChessGameObject.Player1,
-				loser:$scope.ChessGameObject.Player2
+				winner:Player1,
+				loser:Player2
 					  }  
 				  
 				,function(resData,jwres)
@@ -616,7 +603,7 @@ $scope.changeFavicon=function (src) {
 								{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							  $scope.RecordGameResult(me);
+							  $scope.ChessGameObject.Result=$scope.RecordGameResult(me);
 							  console.log("result after record result: "+$scope.ChessGameObject.Result);
 							 }
 	 
