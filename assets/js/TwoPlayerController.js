@@ -120,7 +120,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	{
 	$http.get('/chessgame?id='+GameID)
 	.then(function (res) {
-    var gameRecordnow = res.data;
+    
     console.log(res.data);
     $scope.ChessGameObject=res.data;
     if (game.in_checkmate())
@@ -128,15 +128,15 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	if (game.turn()=='w')
 		{
 			toastr.info("black won");
-			console.log("I am "+MyID+" player1 "+gameRecordnow.Player1);
-			console.log("I am "+MyID+" player2 "+gameRecordnow.Player2);
-			$scope.ChessGameObject.Result=gameRecordnow.Player2+" beat "+gameRecordnow.Player1;
-			if (MyID==gameRecordnow.Player2)
+			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1);
+			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2);
+			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player2+" beat "+$scope.ChessGameObject.Player1;
+			if (MyID==$scope.ChessGameObject.Player2)
 			{
 			
 				io.socket.put('/RecordGameResult',{
-				winner:gameRecordnow.Player2,
-				loser:gameRecordnow.Player1
+				winner:$scope.ChessGameObject.Player2,
+				loser:$scope.ChessGameObject.Player1
 					  }  
 				  
 				,function(resData,jwres)
@@ -152,15 +152,15 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			
 			toastr.info("white won");
-			console.log("I am "+MyID+" player1 "+gameRecordnow.Player1);
-			console.log("I am "+MyID+" player2 "+gameRecordnow.Player2);
-			$scope.ChessGameObject.Result=gameRecordnow.Player1+" beat "+gameRecordnow.Player2;
+			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1);
+			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2);
+			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player1+" beat "+$scope.ChessGameObject.Player2;
 			
-			if (MyID==gameRecordnow.Player1)
+			if (MyID==$scope.ChessGameObject.Player1)
 			{
 			io.socket.put('/RecordGameResult',{
-				winner:gameRecordnow.Player1,
-				loser:gameRecordnow.Player2
+				winner:$scope.ChessGameObject.Player1,
+				loser:$scope.ChessGameObject.Player2
 					  }  
 				  
 				,function(resData,jwres)
@@ -257,18 +257,18 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 
   			$http.get('/chessgame?id='+GameID)
 .then(function (res) {
-   var gameRecordnow = res.data;
+   
    $scope.ChessGameObject=res.data;
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
 		//alert('couldnt load game');
 	//	}
-	console.log("last move"+gameRecordnow.lastmove);
-	var modified=(gameRecordnow.lastmove.substr(0, 2) + "-" + gameRecordnow.lastmove.substr(2));
+	console.log("last move"+$scope.ChessGameObject.lastmove);
+	var modified=($scope.ChessGameObject.lastmove.substr(0, 2) + "-" + $scope.ChessGameObject.lastmove.substr(2));
 	console.log("with -"+modified);
-	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+gameRecordnow.lastmove.substr(2, 5)+"-");
-		 var move =game.move({ from: gameRecordnow.lastmove.substr(0, 2), to: gameRecordnow.lastmove.substr(2, 5) });
+	console.log("from "+gameRecordnow.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
+		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
@@ -284,7 +284,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 						  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
 					
 		
-		updateTurnTakerLabel(game,gameRecordnow);
+		updateTurnTakerLabel(game);
 		console.log(game.ascii());
 		$scope.Moves=game.pgn().split(".");
 		
@@ -297,13 +297,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		else
 		{
 			console.log("move is null updating game and board with");
-		board1.position(gameRecordnow.fen);
+		board1.position($scope.ChessGameObject.fen);
 		//game.load(gameRecordnow.fen);
 		console.log("after update "+game.ascii());
 		}
 		if (game.in_checkmate())
 		{$scope.PlayCheckMate();
-			toastr.success("CheckMate!");
+			//toastr.success("CheckMate!");
 			}
 		});
 		
@@ -322,55 +322,55 @@ $scope.changeFavicon=function (src) {
 };
 	
 	
-	function updatePlayersLabel(game,gameRecord)
+	function updatePlayersLabel(game)
 	{
 		console.log("hello");
-		$scope.Player1Namer=gameRecord.Player1Name;
-		$scope.Player2Name=gameRecord.Player2Name;
+		$scope.Player1Namer=$scope.ChessGameObject.Player1Name;
+		$scope.Player2Name=$scope.ChessGameObject.Player2Name;
 	console.log("scopep2"+$scope.Player2Name);	
 	}
 	
-	function updateTurnTakerLabel(game,gameRecord)
+	function updateTurnTakerLabel(game)
 	{
 		if (game.turn()=='w')
 		{
-		$scope.TurnTaker=gameRecord.Player1Name;
+		$scope.TurnTaker=$scope.ChessGameObject.Player1Name;
 		}
 		else
 		{
-		$scope.TurnTaker=gameRecord.Player2Name;
+		$scope.TurnTaker=$scope.ChessGameObject.Player2Name;
 		
 		}
 		
 		
-		$scope.Player1Namer=gameRecord.Player1Name;
-		$scope.Player2Name=gameRecord.Player2Name;
+		$scope.Player1Namer=$scope.ChessGameObject.Player1Name;
+		$scope.Player2Name=$scope.ChessGameObject.Player2Name;
 	//console.log("scopep2"+$scope.Player2Name);	
 		
 		}
 		
-		function usersTurn(game,gameRecord,me)
+		function usersTurn(game,me)
 		{
 		if (game.turn()=='w')
 		{
-		if (gameRecord.Player1==me)
+		if ($scope.ChessGameObject.Player1==me)
 		{
 			console.log('it is your turn');
 			return true;}
 		else
 		{
-			console.log('its '+gameRecord.Player1+'s turn'+me);
+			console.log('its '+$scope.ChessGameObject.Player1+'s turn'+me);
 			return false;}
 		}
 		else
 		{
-		if (gameRecord.Player2==me)
+		if ($scope.ChessGameObject.Player2==me)
 		{
 			console.log('it is your turn');
 			return true;}
 		else
 		{
-			console.log('its '+gameRecord.Player2+'s turn'+me);
+			console.log('its '+$scope.ChessGameObject.Player2+'s turn'+me);
 		
 		return false;}
 		
@@ -442,19 +442,19 @@ $scope.changeFavicon=function (src) {
 	return country.replace(/ /gi, "_");
 }
 		
-		function ShowPlayersAvatars(gameRecord)
+		function ShowPlayersAvatars()
 		{
 			var idtoget;
 			var picurl;
 			
 			
-			console.log("player1"+gameRecord.Player1);
-			console.log("player2"+gameRecord.Player2);
+			console.log("player1"+$scope.ChessGameObject.Player1);
+			console.log("player2"+$scope.ChessGameObject.Player2);
 			
 			
 			
 			
-			$http.get('/user?id='+gameRecord.Player1).then(function
+			$http.get('/user?id='+$scope.ChessGameObject.Player1).then(function
 			(res)
 			{
 				console.log(JSON.stringify(res.data));
@@ -479,7 +479,7 @@ $scope.changeFavicon=function (src) {
 			
 			});
 			
-			$http.get('/user?id='+gameRecord.Player2).then(function
+			$http.get('/user?id='+$scope.ChessGameObject.Player2).then(function
 			(res)
 			{
 				var picurl=(res.data.picture);
@@ -522,11 +522,10 @@ $scope.changeFavicon=function (src) {
 		{
 						$http.get('/chessgame?id='+GameID)
 						.then(function (res) {
-							var gameRecord = res.data;
+							
 							$scope.ChessGameObject=res.data;
-							console.log(gameRecord);
-
-							ShowPlayersAvatars(gameRecord);
+							
+							ShowPlayersAvatars();
   
 							var onSnapEnd = function() {
 									//board1.position(game.fen());
@@ -565,7 +564,7 @@ $scope.changeFavicon=function (src) {
 								};
 								var onDrop = function(source, target) {
   
-							if (usersTurn(game,$scope.ChessGameObject,me)===false)
+							if (usersTurn(game,me)===false)
 						{ 
 							toastr.warning("It's not your turn");
 							return 'snapback';}
@@ -636,32 +635,32 @@ $scope.changeFavicon=function (src) {
 					
 					  console.log('move'+JSON.stringify(move));
 					console.log("result: "+$scope.ChessGameObject.Result);
-					updateStatus(game,$scope.ChessGameObject,move);
+					updateStatus(game,move);
 };
 
-function updateStatus(game,gameRecord,move)
+function updateStatus(game,move)
 {
 	console.log("update status");
-gameRecord.fen=game.fen();
-gameRecord.lastmove=move.from+move.to;
+$scope.ChessGameObject.fen=game.fen();
+$scope.ChessGameObject.lastmove=move.from+move.to;
 
-updateTurnTakerLabel(game,gameRecord);
-updatePlayersLabel(game,gameRecord);
+updateTurnTakerLabel(game);
+updatePlayersLabel(game);
 //game.load(gameRecord.fen);
 
-console.log("put chessgame result is :"+gameRecord.Result);
-io.socket.put('/Chessgame/'+gameRecord.id,{
+console.log("put chessgame result is :"+$scope.ChessGameObject.Result);
+io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
-      Move:gameRecord.Move,
-      Result:gameRecord.Result
+      Move:$scope.ChessGameObject.Move,
+      Result:$scope.ChessGameObject.Result
 			
       }  
       
     ,function(resData,jwres)
 {
-	io.socket.put('/chessgamemove',{GameID:gameRecord.id,ColorToMove:game.turn()},function(resData,jwres)
+	io.socket.put('/chessgamemove',{GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
 	console.log(jwres);
 	});
@@ -679,30 +678,30 @@ console.log('about to putsocket');
  board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: 'img/chesspieces/'+$scope.User.ChessPieceTheme+'/{piece}.png'} );
  game = new Chess();
 
- if (gameRecord.Player2==me)
+ if ($scope.ChessGameObject.Player2==me)
 	{board1.flip();
 		$scope.PlayerOnBottom='Black';
 		}
 
 	board1.start();
 	
-		if (gameRecord.fen)
+		if ($scope.ChessGameObject.fen)
 		{
-		board1.position(gameRecord.fen);
-		console.log("pgn "+gameRecord.pgn)
-		$scope.Moves=gameRecord.pgn.split(".");
+		board1.position($scope.ChessGameObject.fen);
+		console.log("pgn "+$scope.ChessGameObject.pgn)
+		$scope.Moves=$scope.ChessGameObject.pgn.split(".");
 		console.log($scope.Moves);
-		if(game.load_pgn(gameRecord.pgn)===false)
+		if(game.load_pgn($scope.ChessGameObject.pgn)===false)
 		{
 		alert('couldnt load game');
 		}
-		console.log("last move"+gameRecord.lastmove);
+		console.log("last move"+$scope.ChessGameObject.lastmove);
 		
-		var square=   boardEl.find('.square-' + gameRecord.lastmove.substr(2, 5));
+		var square=   boardEl.find('.square-' + $scope.ChessGameObject.lastmove.substr(2, 5));
 	var position =square .position();
 	 $( "img[id='highlight']").detach();
   square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
-   square=   boardEl.find('.square-' + gameRecord.lastmove.substr(0, 2));
+   square=   boardEl.find('.square-' + $scope.ChessGameObject.lastmove.substr(0, 2));
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 			 square=   $("b[id='lastpgn']");
@@ -711,7 +710,7 @@ console.log('about to putsocket');
 					
 		
 		}
-		updateTurnTakerLabel(game,gameRecord);
+		updateTurnTakerLabel(game);
 		
 		
 		});
