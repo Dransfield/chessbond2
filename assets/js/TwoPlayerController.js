@@ -647,13 +647,13 @@ updateTurnTakerLabel(game,gameRecord);
 updatePlayersLabel(game,gameRecord);
 //game.load(gameRecord.fen);
 
-
+console.log("put chessgame result is :"+gameRecord.Result);
 io.socket.put('/Chessgame/'+gameRecord.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:gameRecord.Move,
-      Result:$scope.ChessGameObject.Result
+      Result:gameRecord.Result
 			
       }  
       
