@@ -70,6 +70,7 @@ passportInit    : require('passport').initialize(),
     } else {
         console.log('REDIRECTING http://www.' + req.headers.host);
         res.redirect('http://www.' + req.headers.host + req.url);
+        return next();
     }
 
 	},
