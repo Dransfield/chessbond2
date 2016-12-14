@@ -120,11 +120,15 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	{
 	$http.get('/chessgame?id='+GameID)
 	.then(function (res) {
-    
+    console.log("result before:"+$scope.ChessGameObject.Result);
     console.log(res.data);
     $scope.ChessGameObject=res.data;
     console.log($scope.ChessGameObject);
-    console.log($scope.ChessGameObject.Result);
+    console.log("player1 name:"+$scope.ChessGameObject.Player1Name);
+    
+    console.log("result after:"+$scope.ChessGameObject.Result);
+    console.log("param result after:"+$scope.ChessGameObject['Result']);
+    
     if (game.in_checkmate())
     {
 	if (game.turn()=='w')
