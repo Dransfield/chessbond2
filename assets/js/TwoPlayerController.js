@@ -120,12 +120,12 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	{
 	$http.get('/chessgame?id='+GameID)
 	.then(function (gam) {
-	console.log("scope chessgame object before:"+$scope.ChessGameObject);
+	console.log("scope chessgame object before:"+JSON.stringify($scope.ChessGameObject));
     console.log("result before:"+$scope.ChessGameObject.Result);
     console.log(gam.data);
     console.log("result from raw data "+gam.data.Result);
     $scope.ChessGameObject=gam.data;
-    console.log("scope chessgame object after:"+$scope.ChessGameObject);
+    console.log("scope chessgame object after:"+JSON.stringify($scope.ChessGameObject));
     console.log("player1 name:"+$scope.ChessGameObject.Player1Name);
     
     console.log("result after:"+$scope.ChessGameObject.Result);
@@ -163,7 +163,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			console.log("I am "+MyID+" player1 "+$scope.ChessGameObject.Player1Name);
 			console.log("I am "+MyID+" player2 "+$scope.ChessGameObject.Player2Name);
 			$scope.ChessGameObject.Result=$scope.ChessGameObject.Player1Name+" beat "+$scope.ChessGameObject.Player2Name;
-			
+			console.log("did it fucking work "+$scope.ChessGameObject.Result);
 			if (MyID==$scope.ChessGameObject.Player1)
 			{
 			io.socket.put('/RecordGameResult',{
