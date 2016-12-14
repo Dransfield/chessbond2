@@ -218,14 +218,16 @@ deleteopengame:function(req,res){
 	setTimeout(		function(){
 		
 			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
+		if (cgame)
+		{
 		console.log("chess game turn duration"+cgame.InfoNum);
 		console.log("chess game move in timer"+cgame.Move);
 		console.log("chess game move outside of timer "+OldMoveNumber);
-		
+		}
 		});
 		sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}
 		//,td*60);
-	,(1*60)*1000);
+	,(td*60)*1000);
 	
 	});
 	return res.ok();
