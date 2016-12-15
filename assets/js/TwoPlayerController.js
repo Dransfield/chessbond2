@@ -125,11 +125,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				console.log(resData);
 				console.log(jwres);
 				console.log("Ping:"+(Date.now()-$PingStartTime));
+				$scope.PingDisplay=(Date.now()-$PingStartTime);
+				console.log(Date.now());
 				return (Date.now()-$PingStartTime)
 				}
 			);
 			
-	}
+	};
 	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,gameid,game)
 	{
 		var result="";

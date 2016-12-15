@@ -85,7 +85,7 @@
 	<img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{TopPlayerPic}}">
 	</div>
 	<img id="opponentflag" ng-src="{{TopPlayerFlag}}">
-    <div>HELLO {{ShowPing}}</div>
+    <div ng-init="DoPing()">HELLO {{PingDisplay}}</div>
     <div class="row" id="whole thing" >
 
       <div class="col-sm-7 col-md-6">
