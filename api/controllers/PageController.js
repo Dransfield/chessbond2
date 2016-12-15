@@ -292,8 +292,8 @@ deleteopengame:function(req,res){
 	loserRecord.save();
 	winnerRecord.save();
 	
-	var Res1=winnerName+"'s ELO score went from "+winnerFirstELO+" to "+winnerEndELO;
-	var Res2=loserName+"'s ELO score went from "+loserFirstELO+" to "+loserEndELO;
+	var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
+	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	ChessGame.update({id:GameID},{EloResult1:Res1,ELOResult2:Res2}).exec(function afterwards(err, updated){
 	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',updated);
 	});
