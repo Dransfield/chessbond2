@@ -292,9 +292,12 @@ deleteopengame:function(req,res){
 	loserRecord.save();
 	winnerRecord.save();
 	
+	var Res1=winnerName+"'s ELO score went from "+winnerFirstELO+" to "+winnerEndELO;
+	var Res2=loserName+"'s ELO score went from "+loserFirstELO+" to "+loserEndELO;
+	ChessGame.update({id:GameID},{EloResult1:Res1,ELOResult2:Res2}).exec(function afterwards(err, updated){
+	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',updated);
+	});
 	
-	
-	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',{winnerName:winnerRecord.name,loserName:loserRecord.name,winnerFirstELO:winnerstartELO,loserFirstELO:loserstartELO,winnerEndELO:winnerRecord.ELO,loserEndELO:loserRecord.ELO});
 	
 	});
 	

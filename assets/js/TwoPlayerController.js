@@ -4,7 +4,7 @@ var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
-$scope.ELOResult="";
+
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
@@ -235,9 +235,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			});
 	io.socket.on('ELOAdjustments',function(data){
-	$scope.EloResult1=data.winnerName+"'s ELO score went from "+data.winnerFirstELO+" to "+data.winnerEndELO;
-	$scope.EloResult2=data.loserName+"'s ELO score went from "+data.loserFirstELO+" to "+data.loserEndELO;
-
+	$scope.ChessGameObject=data;
 	});
 	 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
