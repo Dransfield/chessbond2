@@ -263,6 +263,7 @@ c
    console.log(latest.data);
    if ($scope.ChessGameObject2!=null)
    { 
+	   console.log("object2 "+$scope.ChessGameObject2);
 	  $scope.ChessGameObject= $scope.ChessGameObject2;
   }
 		//board1.position(gameRecordnow .fen);
