@@ -211,6 +211,7 @@ deleteopengame:function(req,res){
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		td=cg.InfoNum;
 		console.log("delay is "+td);
+		
 		var OldMoveNumber=cg.Move;
 		console.log("old move outside of timer"+OldMoveNumber);
 	setTimeout(		function(){
@@ -293,6 +294,7 @@ deleteopengame:function(req,res){
 	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	Chessgame.update({id:GameID},{EloResult1:Res1,ELOResult2:Res2}).exec(function afterwards(err, updated){
 	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',updated);
+	console.log("ELO results"+JSON.stringify(updated));
 	});
 	
 	
