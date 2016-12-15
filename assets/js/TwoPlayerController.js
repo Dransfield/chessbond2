@@ -12,7 +12,7 @@ $scope.ShowOptions=true;
 $scope.HideInject=true;
 
 $scope.ChessGameObject={};
-$scope.ChessGameObject2=null;
+$scope.ChessGameObject2={};
 
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
@@ -261,9 +261,9 @@ c
    
    $scope.ChessGameObject=latest.data;
    console.log(latest.data);
-   if ($scope.ChessGameObject2!=null)
+   if ($scope.ChessGameObject2.id)
    { 
-	   console.log("object2 "+$scope.ChessGameObject2);
+	   console.log("object2 "+JSON.stringify($scope.ChessGameObject2));
 	  $scope.ChessGameObject= $scope.ChessGameObject2;
   }
 		//board1.position(gameRecordnow .fen);
