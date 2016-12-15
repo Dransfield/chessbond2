@@ -4,7 +4,7 @@ var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
-
+$scope.ELOResult="";
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
@@ -106,17 +106,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
-			
 			$scope.setBoard(MyID);
-      
-			
-			
-			}
+      		}
 			)	
 		
 	};
 	
-	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,game)
+	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,gameid,game)
 	{
 		var result="";
     if (game.in_checkmate())
@@ -132,7 +128,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 				io.socket.put('/RecordGameResult',{
 				winner:Player2,
-				loser:Player1
+				loser:Player1,
+				GameID:gameid
 					  }  
 				  
 				,function(resData,jwres)
@@ -155,7 +152,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			{
 			io.socket.put('/RecordGameResult',{
 				winner:Player1,
-				loser:Player2
+				loser:Player2,
+				GameID:gameid
 					  }  
 				  
 				,function(resData,jwres)
@@ -236,7 +234,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
 			
 			});
-			
+	io.socket.on('ELOAdjustments',function(data){
+	$scope.EloResult1=data.winnerName+"'s ELO score went from "+data.winnerFirstELO+" to "+data.winnerEndELO;
+	$scope.EloResult2=data.loserName+"'s ELO score went from "+data.loserFirstELO+" to "+data.loserEndELO;
+
+	});
 	 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
 		if (document.visibilityState=='hidden')

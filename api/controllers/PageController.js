@@ -85,6 +85,7 @@ deleteopengame:function(req,res){
 		PlayerID=req.param('PlayerID');
 		GameID=req.param('GameID');
 		MyID=req.param('MyID');
+		
 		MyName=req.param('MyName');
 		GameTypeID=req.param('GameType');
 		num=req.param("InfoNum");
@@ -217,7 +218,7 @@ deleteopengame:function(req,res){
 		console.log("old move outside of timer"+OldMoveNumber);
 	setTimeout(		function(){
 		
-			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
+		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		if (cgame)
 		{
 		console.log("chess game turn duration"+cgame.InfoNum);
@@ -266,13 +267,19 @@ deleteopengame:function(req,res){
 	console.log("loser is "+loserRecord.name);
 	console.log("winner is "+winnerRecord.name);
 	
+	
+	var winnerstartELO=winnerRecord.ELO;
+	var loserstartELO=loserRecord.ELO;
+	
 	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
 	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
 	
 	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
-	loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
+	 loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
 	loserRecord.save();
 	winnerRecord.save();
+	
+	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',{winnerName:winnerRecord.name,loserName:loserRecord.name,winnerFirstELO:winnerstartELO,loserFirstELO:loserstartELO,winnerEndELO:winnerRecord.ELO,loserEndELO:loserRecord.ELO});
 	
 	});
 	
