@@ -235,7 +235,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			});
 	io.socket.on('ELOAdjustments',function(data){
-	$scope.ChessGameObject=data;
+	//$scope.ChessGameObject=data;
+	
 	});
 	 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
@@ -657,11 +658,13 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       }  
       
     ,function(resData,jwres)
-{
+	{
+	
 	io.socket.put('/chessgamemove',{GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
 	console.log(jwres);
 	});
+	
 	}
 );
 console.log('about to putsocket');
