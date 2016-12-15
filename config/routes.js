@@ -52,7 +52,7 @@ module.exports.routes = {
 	'POST /chatmsg':'PageController.chatmsg',
 	'PUT /chessgamemove':'PageController.chessgamemove',
 	'PUT /RecordGameResult':'PageController.RecordGameResult',
-	
+	'PUT /pingtest':'PageController.ReturnPing',
 	'/logintwitter': 'AuthController.logintwitter',
 	'/auth/google_oauth2':'AuthController.googlecallback',
 	'/logingoogle': 'AuthController.logingoogle',

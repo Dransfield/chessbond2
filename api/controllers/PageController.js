@@ -231,7 +231,10 @@ deleteopengame:function(req,res){
 	});
 	return res.ok();
 	},
+	ReturnPing:function(req,res){
+	return res.ok();
 	
+	},
 	RecordGameResult:function(req,res){
 	var EloRating = require('elo-rating');
 	

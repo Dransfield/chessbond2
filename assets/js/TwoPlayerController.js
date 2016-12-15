@@ -30,6 +30,7 @@ $scope.WhiteMinutes;
 $scope.WhiteSeconds;
 $scope.BlackTimeDisplay="string";
 
+$PingStartTime=0;
 
 $scope.StartWhiteClock=function()
 	{
@@ -112,7 +113,21 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			)	
 		
 	};
-	
+	$scope.DoPing=function()
+	{
+	$PingStartTime=Date.now()
+		io.socket.put('/pingtest',{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				console.log("Ping:"+(Date.now()-$PingStartTime));
+				}
+			);
+	}
 	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,gameid,game)
 	{
 		var result="";
@@ -257,15 +272,15 @@ c
 			}
 
   			$http.get('/chessgame?id='+GameID)
-.then(function (latest) {
-   
-   $scope.ChessGameObject=latest.data;
-   console.log(latest.data);
-   if ($scope.ChessGameObject2.id)
-   { 
-	   console.log("object2 "+JSON.stringify($scope.ChessGameObject2));
-	  $scope.ChessGameObject= $scope.ChessGameObject2;
-  }
+		.then(function (latest) {
+		   
+		   $scope.ChessGameObject=latest.data;
+		   console.log(latest.data);
+		   if ($scope.ChessGameObject2.id)
+		   { 
+			   console.log("object2 "+JSON.stringify($scope.ChessGameObject2));
+			  $scope.ChessGameObject= $scope.ChessGameObject2;
+		  }
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
