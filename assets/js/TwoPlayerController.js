@@ -214,6 +214,9 @@ c
 	// set-up loginForm loading state
 	
 	document.head = document.head || document.getElementsByTagName('head')[0];
+	io.socket.on('disconnect',function(data){
+	console.log("DISCONNECT DETECTED!!!!");
+	});
 	io.socket.on('timeevent',function(data){
 		//toastr.success(data.data.message);
 		console.log("recieved timevent "+JSON.stringify(data));
