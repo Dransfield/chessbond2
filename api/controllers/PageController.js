@@ -274,10 +274,25 @@ deleteopengame:function(req,res){
 	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
 	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
 	
+	
+	console.log("expectedScoreA is "+expectedScoreA);
+	console.log("expectedScoreB is "+expectedScoreB);
+	console.log("loser ELO was "+loserRecord.ELO);
+	
+	console.log("winner ELO was "+winnerRecord.ELO);
+	
 	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
 	 loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
+	
+	
+	console.log("loser ELO is "+loserRecord.ELO);
+	
+	console.log("winner ELO is "+winnerRecord.ELO);
+	
 	loserRecord.save();
 	winnerRecord.save();
+	
+	
 	
 	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',{winnerName:winnerRecord.name,loserName:loserRecord.name,winnerFirstELO:winnerstartELO,loserFirstELO:loserstartELO,winnerEndELO:winnerRecord.ELO,loserEndELO:loserRecord.ELO});
 	
