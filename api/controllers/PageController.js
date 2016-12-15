@@ -233,9 +233,9 @@ deleteopengame:function(req,res){
 	},
 	
 	RecordGameResult:function(req,res){
+	var EloRating = require('elo-rating');
 	
-	
-		var elo = require('elo-rank')(32);
+		//var elo = require('elo-rank')(32);
 	console.log("winner "+req.param('winner'));
 	console.log("loser "+req.param('loser'));
 	//var expectedScoreA = elo.getExpected(playerA, playerB);
@@ -269,34 +269,36 @@ deleteopengame:function(req,res){
 	var winnerstartELO=winnerRecord.ELO;
 	var loserstartELO=loserRecord.ELO;
 	
-	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
-	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	//var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
+	//var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	var obj=EloRating.calculate(winnerRecord.ELO, loserRecord.ELO);
+	winnerRecord.ELO=obj.playerRating;
+	loserRecord.ELO=obj.opponentRating;
+	
+	//console.log("expectedScoreA is "+expectedScoreA);
+	//console.log("expectedScoreB is "+expectedScoreB);
+	//console.log("loser ELO was "+loserRecord.ELO);
+	
+	//console.log("winner ELO was "+winnerRecord.ELO);
+	
+//	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
+	// loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
 	
 	
-	console.log("expectedScoreA is "+expectedScoreA);
-	console.log("expectedScoreB is "+expectedScoreB);
-	console.log("loser ELO was "+loserRecord.ELO);
+	//console.log("loser ELO is "+loserRecord.ELO);
 	
-	console.log("winner ELO was "+winnerRecord.ELO);
-	
-	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
-	 loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
-	
-	
-	console.log("loser ELO is "+loserRecord.ELO);
-	
-	console.log("winner ELO is "+winnerRecord.ELO);
+	//console.log("winner ELO is "+winnerRecord.ELO);
 	
 	loserRecord.save();
 	winnerRecord.save();
 	
 	var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
-	console.log("GameID "+req.param('GameID'));
+	//console.log("GameID "+req.param('GameID'));
 	Chessgame.update({id:req.param('GameID')},{EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
 	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',updated);
-	console.log("ELO results"+JSON.stringify(updated));
-	console.log(JSON.stringify(err));
+	//console.log("ELO results"+JSON.stringify(updated));
+	//console.log(JSON.stringify(err));
 	});
 	
 	
