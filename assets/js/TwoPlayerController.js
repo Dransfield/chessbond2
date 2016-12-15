@@ -12,6 +12,7 @@ $scope.ShowOptions=true;
 $scope.HideInject=true;
 
 $scope.ChessGameObject={};
+$scope.ChessGameObject2=null;
 
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
@@ -119,6 +120,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
     {
 	if (game.turn()=='w')
 		{
+c
 			toastr.info("black won");
 			console.log("I am "+MyID+" player1 "+Player1);
 			console.log("I am "+MyID+" player2 "+Player2);
@@ -235,7 +237,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			});
 	io.socket.on('ELOAdjustments',function(data){
-	//$scope.ChessGameObject=data;
+	$scope.ChessGameObject2=data;
 	
 	});
 	 io.socket.on('chessgamemove', function (data){
@@ -256,6 +258,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
    
    $scope.ChessGameObject=latest.data;
    console.log(latest.data);
+   if ($scope.ChessGameObject2!=null)
+   { 
+	  $scope.ChessGameObject= $scope.ChessGameObject2;
+  }
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
