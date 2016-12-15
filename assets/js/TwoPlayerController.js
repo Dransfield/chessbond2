@@ -113,6 +113,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			)	
 		
 	};
+	$scope.DoPingInterval=function()
+	{
+		
+	setInterval(function (){
+		$scope.DoPing();
+	},1000);
+	}
 	$scope.DoPing=function()
 	{
 	$PingStartTime=Date.now()
