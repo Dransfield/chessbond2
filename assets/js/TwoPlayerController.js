@@ -52,13 +52,13 @@ $scope.WhiteInterval=	setInterval(function (){
 		console.log("$scope.PlayerOnBottom "+$scope.PlayerOnBottom);
 		if($scope.PlayerOnBottom=='White')
 		{
-		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
-		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
+		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);	
+		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
 		}
 		else
 		{
-		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);	
-		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
+		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
+		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
 		}
 		
 		
