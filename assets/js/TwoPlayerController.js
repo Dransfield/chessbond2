@@ -174,7 +174,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				console.log(jwres);
 				console.log("Ping:"+(Date.now()-$PingStartTime));
 				$scope.PingDisplay=(Date.now()-$PingStartTime);
-				console.log(Date.now());
+				//console.log(Date.now());
 				return (Date.now()-$PingStartTime)
 				}
 			);
@@ -721,6 +721,7 @@ $scope.ChessGameObject.lastmove=move.from+move.to;
 
 if (game.turn()=='b')
 {
+	console.log("$scope.WhiteInterval "+$scope.WhiteInterval);
 	clearInterval($scope.WhiteInterval);
 	$scope.StartBlackClock();
 	}
