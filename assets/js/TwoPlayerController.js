@@ -49,7 +49,7 @@ $scope.WhiteInterval=	setInterval(function (){
 		console.log("in white interval");
 		$scope.WhiteMinutes=parseInt(($scope.WhiteTime/60));
 		$scope.WhiteSeconds=parseInt($scope.WhiteTime % 60);
-	
+		console.log("$scope.PlayerOnBottom "+$scope.PlayerOnBottom);
 		if($scope.PlayerOnBottom=='white')
 		{
 		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
