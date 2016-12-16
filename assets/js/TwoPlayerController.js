@@ -36,7 +36,8 @@ $scope.BlackMinutes;
 $scope.BlackSeconds;
 $PingStartTime=0;
 
-$WhiteInterval;
+$scope.WhiteInterval;
+$scope.BlackInterval;
 
 $scope.StartWhiteClock=function()
 	{
