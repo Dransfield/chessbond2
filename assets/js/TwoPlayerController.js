@@ -362,6 +362,24 @@ c
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
+			
+			if (game.turn()=='b')
+			{
+			
+			clearInterval($scope.WhiteInterval);
+			clearInterval($scope.BlackInterval);
+			$scope.StartBlackClock();
+			}
+			else
+			{
+			clearInterval($scope.WhiteInterval);
+			clearInterval($scope.BlackInterval);
+			$scope.StartWhiteClock();
+				
+				
+			}
+			
+			
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
 		var square=   boardEl.find('.square-' + move.to);
@@ -741,10 +759,12 @@ if (game.turn()=='b')
 {
 	console.log("$scope.WhiteInterval "+$scope.WhiteInterval);
 	clearInterval($scope.WhiteInterval);
+	clearInterval($scope.BlackInterval);
 	$scope.StartBlackClock();
 	}
 	else
 	{
+	clearInterval($scope.WhiteInterval);
 	clearInterval($scope.BlackInterval);
 	$scope.StartWhiteClock();
 		
