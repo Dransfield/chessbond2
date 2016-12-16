@@ -806,7 +806,7 @@ console.log('about to putsocket');
 		alert('couldnt load game');
 		}
 		console.log("last move"+$scope.ChessGameObject.lastmove);
-		
+		$scope.StartRightClock();
 		var square=   boardEl.find('.square-' + $scope.ChessGameObject.lastmove.substr(2, 5));
 	var position =square .position();
 	 $( "img[id='highlight']").detach();
