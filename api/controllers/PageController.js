@@ -208,6 +208,7 @@ deleteopengame:function(req,res){
     chessgamemove:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	var td=0;
+	console.log("ColorToMove "+req.param('ColorToMove'));
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		td=cg.InfoNum;
 		console.log("delay is "+td);
