@@ -719,7 +719,7 @@ function updateStatus(game,move)
 $scope.ChessGameObject.fen=game.fen();
 $scope.ChessGameObject.lastmove=move.from+move.to;
 
-if (game.turn()='b')
+if (game.turn()=='b')
 {
 	clearInterval($scope.WhiteInterval);
 	$scope.StartBlackClock();
