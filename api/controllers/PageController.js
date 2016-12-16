@@ -222,6 +222,10 @@ deleteopengame:function(req,res){
 		console.log("chess game turn duration"+cgame.InfoNum);
 		console.log("chess game move in timer"+cgame.Move);
 		console.log("chess game move outside of timer "+OldMoveNumber);
+		if (cgame.Move==OldMoveNumber)
+		{
+		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});}
+		}
 		}
 		});
 		sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});}

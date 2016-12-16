@@ -19,8 +19,11 @@ var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#board');
   
-$scope.TopTime=0;
-$scope.BottomTime=0;
+$scope.TopMinutes=0;
+$scope.TopSeconds=0;
+
+$scope.BottomMinutes=0;
+$scope.BottomSeconds=0;
 
 $scope.WhiteTime=5*60;
 $scope.BlackTime=5*60;
@@ -29,23 +32,58 @@ $scope.WhiteTimeDisplay="string";
 $scope.WhiteMinutes;
 $scope.WhiteSeconds;
 $scope.BlackTimeDisplay="string";
-
+$scope.BlackMinutes;
+$scope.BlackSeconds;
 $PingStartTime=0;
 
 $scope.StartWhiteClock=function()
 	{
 	setInterval(function (){
+		if ($scope.WhiteTime>0)
+		{
 		$scope.WhiteTime-=1;
-		$scope.$apply($scope.WhiteMinutes=parseInt(($scope.WhiteTime/60)));
-		$scope.$apply($scope.WhiteSeconds=parseInt($scope.WhiteTime % 60));
+		}
+		$scope.WhiteMinutes=parseInt(($scope.WhiteTime/60));
+		$scope.WhiteSeconds=parseInt($scope.WhiteTime % 60);
+	
+		if($scope.PlayerOnBottom=='white')
+		{
+		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
+		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
+		}
+		else
+		{
+		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);	
+		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
+		}
+		
+		
+		
+		
 		},1000);	
 		
 	};
 $scope.StartBlackClock=function()
 	{
 	setInterval(function (){
+		
+		if ($scope.BlackTime>0)
+		{
 		$scope.BlackTime-=1;
-		$scope.$apply($scope.BlackTimeDisplay=parseInt(($scope.BlackTime/60))+":"+parseInt($scope.BlackTime % 60));
+		}
+		$scope.BlackMinutes=parseInt(($scope.BlackTime/60));
+		$scope.BlackSeconds=parseInt($scope.BlackTime % 60);
+		if($scope.PlayerOnBottom=='white')
+		{
+		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
+		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
+		}
+		else
+		{
+		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);	
+		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
+			
+		}
 		},1000);	
 		
 	};
@@ -118,7 +156,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		
 	setInterval(function (){
 		$scope.DoPing();
-	},20000);
+	},20wh000);
 	}
 	$scope.DoPing=function()
 	{

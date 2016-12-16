@@ -89,15 +89,16 @@
     <div class="row" id="whole thing" >
 
       <div class="col-sm-7 col-md-6">
-        <span ng_show ="WhiteMinutes>0" span class="h3" id="time1">{{WhiteMinutes}}:{{WhiteSeconds}}</span>
-        <span ng_show ="WhiteMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{WhiteMinutes}}:{{WhiteSeconds}}</span>
+        <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}</span>
+        <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}</span>
        
         <div id="board" style="width: 400px"></div>
         <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
 		<div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
 		<div ng-init="getchatmessages()"></div>
 		<div ng-init="StartWhiteClock()"></div>
-        <span class="h3" id="time2">0:05:00</span>
+         <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}</span>
+        <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}</span>
         <hr>
         <div style="position: relative; left: 0; top: 0;"> 
 	<img style="position:relative;height:100px;" src='/images/eye.png'>
