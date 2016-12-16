@@ -96,7 +96,7 @@
         <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
 		<div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
 		<div ng-init="getchatmessages()"></div>
-		<div ng-init="StartWhiteClock()"></div>
+		<div ng-init="StartRightClock()"></div>
          <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}</span>
         <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}</span>
         <hr>

@@ -39,6 +39,20 @@ $PingStartTime=0;
 $scope.WhiteInterval=0;
 $scope.BlackInterval=0;
 
+$scope.StartRightClock=function()
+{
+	if(game.turn()=='b')
+	{
+	$scope.StartBlackClock();	
+	}
+	if(game.turn()=='w')
+	{
+	$scope.StartWhiteClock();	
+	}
+	
+	
+}
+
 $scope.StartWhiteClock=function()
 	{
 $scope.WhiteInterval=	setInterval(function (){
@@ -172,7 +186,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				
 					  }  
 				  
-				,function(resData,jwres)
+		,function(resData,jwres)
 			{
 				console.log(resData);
 				console.log(jwres);
