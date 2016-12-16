@@ -156,7 +156,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		
 	setInterval(function (){
 		$scope.DoPing();
-	},20wh000);
+	},20000);
 	}
 	$scope.DoPing=function()
 	{
