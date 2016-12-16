@@ -36,9 +36,11 @@ $scope.BlackMinutes;
 $scope.BlackSeconds;
 $PingStartTime=0;
 
+$WhiteInterval;
+
 $scope.StartWhiteClock=function()
 	{
-	setInterval(function (){
+$scope.WhiteInterval=	setInterval(function (){
 		if ($scope.WhiteTime>0)
 		{
 		$scope.WhiteTime-=1;
@@ -65,7 +67,7 @@ $scope.StartWhiteClock=function()
 	};
 $scope.StartBlackClock=function()
 	{
-	setInterval(function (){
+	$scope.BlackInterval=setInterval(function (){
 		
 		if ($scope.BlackTime>0)
 		{
@@ -715,6 +717,19 @@ function updateStatus(game,move)
 	console.log("update status");
 $scope.ChessGameObject.fen=game.fen();
 $scope.ChessGameObject.lastmove=move.from+move.to;
+
+if (game.turn()='b')
+{
+	clearInterval($scope.WhiteInterval);
+	$scope.StartBlackClock();
+	}
+	else
+	{
+	clearInterval($scope.BlackInterval);
+	$scope.StartWhiteClock();
+		
+		
+	}
 
 updateTurnTakerLabel(game);
 updatePlayersLabel(game);
