@@ -46,6 +46,7 @@ $scope.WhiteInterval=	setInterval(function (){
 		{
 		$scope.WhiteTime-=1;
 		}
+		console.log("in white interval");
 		$scope.WhiteMinutes=parseInt(($scope.WhiteTime/60));
 		$scope.WhiteSeconds=parseInt($scope.WhiteTime % 60);
 	
@@ -75,7 +76,7 @@ $scope.StartBlackClock=function()
 		{
 		$scope.BlackTime-=1;
 		}
-		console.log("in black itnerval");
+		console.log("in black interval");
 		$scope.BlackMinutes=parseInt(($scope.BlackTime/60));
 		$scope.BlackSeconds=parseInt($scope.BlackTime % 60);
 		if($scope.PlayerOnBottom=='white')
