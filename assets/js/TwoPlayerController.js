@@ -197,9 +197,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				  
 		,function(resData,jwres)
 			{
-				console.log(resData);
-				console.log(jwres);
-				console.log("Ping:"+(Date.now()-$PingStartTime));
+				//console.log(resData);
+				//console.log(jwres);
+				//console.log("Ping:"+(Date.now()-$PingStartTime));
 				$scope.PingDisplay=(Date.now()-$PingStartTime);
 				//console.log(Date.now());
 				return (Date.now()-$PingStartTime)
