@@ -377,8 +377,9 @@ c
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 			if (move.captured)
-			{console.log(move.captured);
-				capturedpieces.push(move.captured);
+				{
+				console.log(move.captured);
+				$scope.capturedpieces.push(move.captured);
 				}
 			if (game.turn()=='b')
 			{
