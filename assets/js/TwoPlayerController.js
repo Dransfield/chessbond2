@@ -97,7 +97,7 @@ $scope.StartBlackClock=function()
 		}
 		var bythousand=$scope.BlackTime/1000;
 		$scope.BlackSeconds=parseInt(bythousand);
-		$scope.BlackMinutes=parseInt((bythousand)/60));
+		$scope.BlackMinutes=parseInt((bythousand)/60);
 		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
 		
 		if($scope.PlayerOnBottom=='White')
