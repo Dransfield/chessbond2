@@ -273,13 +273,14 @@ c
 	
 	};
 	
-	$scope.Showcapturedpiece=function(cap)
+	$scope.Showcapturedpiece=function(cap,colour)
 	{
 	if (cap)
 	{
 		var str=cap;
 		var pieceUpper=str.toUpperCase();
-		$scope.capturedpieces.push(pieceUpper);
+		var newstr=colour+pieceUpper;
+		$scope.capturedpieces.push(newstr);
 	}
 	};
 	
@@ -388,7 +389,7 @@ c
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 		
-			$scope.Showcapturedpiece(move.captured);
+			$scope.Showcapturedpiece(move.captured,move.color);
 			if (game.turn()=='b')
 			{
 			
@@ -733,7 +734,7 @@ $scope.changeFavicon=function (src) {
 						   }
 						   console.log("adding one to Move"+$scope.ChessGameObject.Move);
 							$scope.ChessGameObject.Move+=1;
-						  $scope.Showcapturedpiece(move.captured);
+						  $scope.Showcapturedpiece(move.captured,move.color);
 						   console.log("added one to Move"+$scope.ChessGameObject.Move);
 							
 							  if (game.in_draw())
