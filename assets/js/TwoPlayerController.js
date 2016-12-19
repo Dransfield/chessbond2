@@ -41,6 +41,7 @@ $scope.BlackInterval=0;
 
 $scope.StartRightClock=function()
 {
+	console.log("turn "+game.turn());
 	if(game.turn()=='b')
 	{
 	$scope.StartBlackClock();	
@@ -445,7 +446,7 @@ $scope.changeFavicon=function (src) {
 		console.log("hello");
 		$scope.Player1Namer=$scope.ChessGameObject.Player1Name;
 		$scope.Player2Name=$scope.ChessGameObject.Player2Name;
-	console.log("scopep2"+$scope.Player2Name);	
+		console.log("scopep2"+$scope.Player2Name);	
 	}
 	
 	function updateTurnTakerLabel(game)
