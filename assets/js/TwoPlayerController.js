@@ -25,8 +25,8 @@ $scope.TopSeconds=0;
 $scope.BottomMinutes=0;
 $scope.BottomSeconds=0;
 
-$scope.WhiteTime=5*60;
-$scope.BlackTime=5*60;
+$scope.WhiteTime=((5*60)*1000);
+$scope.BlackTime=((5*60)*1000);
 
 $scope.WhiteTimeDisplay="string";
 $scope.WhiteMinutes;
