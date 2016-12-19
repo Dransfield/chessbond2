@@ -90,7 +90,7 @@ $scope.WhiteInterval=	setInterval(function (){
 	};
 $scope.StartBlackClock=function()
 	{
-		$scope.BlackTime=((5*60)*1000)+1100;
+		$scope.BlackTime=((5*60)*1000)+11100;
 	$scope.BlackInterval=setInterval(function (){
 		
 		if ($scope.BlackTime>0)
