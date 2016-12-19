@@ -63,7 +63,7 @@ $scope.WhiteInterval=	setInterval(function (){
 		}
 		var bythousand=$scope.WhiteTime/1000;
 		$scope.WhiteSeconds=parseInt(bythousand);
-		$scope.WhiteMinutes=parseInt((bythousand)/60));
+		$scope.WhiteMinutes=parseInt((bythousand)/60);
 		$scope.WhiteMilliseconds=parseInt($scope.WhiteTime % 1000);
 		
 		if($scope.PlayerOnBottom=='White')
