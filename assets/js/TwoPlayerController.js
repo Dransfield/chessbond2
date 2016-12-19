@@ -279,6 +279,10 @@ c
 	{
 		var str=cap;
 		var pieceUpper=str.toUpperCase();
+		if (colour=='w')
+		{colour='b';}
+		else
+		{colour='w';}
 		var newstr=colour+pieceUpper;
 		$scope.capturedpieces.push(newstr);
 	}
