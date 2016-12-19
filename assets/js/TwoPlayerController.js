@@ -59,7 +59,7 @@ $scope.StartRightClock=function()
 $scope.StartWhiteClock=function()
 	{
 		$scope.BlackTime=((5*60)*1000);
-$scope.WhiteInterval=	setInterval(function (){
+	$scope.WhiteInterval=	setInterval(function (){
 		if ($scope.WhiteTime>0)
 		{
 		$scope.WhiteTime-=121;
@@ -68,7 +68,7 @@ $scope.WhiteInterval=	setInterval(function (){
 		$scope.WhiteSeconds=parseInt(bythousand % 60);
 		$scope.WhiteMinutes=parseInt((bythousand)/60);
 		$scope.WhiteMilliseconds=parseInt($scope.WhiteTime % 1000);
-			if ($scope.WhiteSeconds<10)
+		if ($scope.WhiteSeconds<10)
 		{$scope.WhiteSeconds="0"+$scope.WhiteSeconds;}
 		if($scope.PlayerOnBottom=='White')
 		{
@@ -182,7 +182,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			$scope.setBoard(MyID);
-			StartRightClock();
+			$scope.StartRightClock();
       		}
 			)	
 		
@@ -388,7 +388,7 @@ c
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 		
-			
+			$scope.Showcapturedpiece(move.captured);
 			if (game.turn()=='b')
 			{
 			
@@ -733,6 +733,7 @@ $scope.changeFavicon=function (src) {
 						   }
 						   console.log("adding one to Move"+$scope.ChessGameObject.Move);
 							$scope.ChessGameObject.Move+=1;
+						  $scope.Showcapturedpiece(move.captured);
 						   console.log("added one to Move"+$scope.ChessGameObject.Move);
 							
 							  if (game.in_draw())
