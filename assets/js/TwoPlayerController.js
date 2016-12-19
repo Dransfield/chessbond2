@@ -101,7 +101,7 @@ $scope.StartBlackClock=function()
 		$scope.BlackMinutes=parseInt((bythousand)/60);
 		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
 		
-		if($scope.PlayerOnBottom=='White')
+		if($scope.PlayerOnBottom=='Black')
 		{
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);	
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
@@ -820,6 +820,7 @@ console.log('about to putsocket');
  if ($scope.ChessGameObject.Player2==me)
 	{board1.flip();
 		$scope.PlayerOnBottom='Black';
+		console.log("black is on bottom ");
 		}
 
 	board1.start();
