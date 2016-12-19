@@ -379,8 +379,11 @@ c
 		if (move!=null){
 			if (move.captured)
 				{
-				console.log(move.captured);
-				$scope.capturedpieces.push(move.captured);
+					var str = move.captured;
+					var pieceUpper = str.toUpperCase();
+					
+				console.log(pieceUpper);
+				$scope.capturedpieces.push(pieceUpper);
 				}
 			if (game.turn()=='b')
 			{
