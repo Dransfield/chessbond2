@@ -273,6 +273,16 @@ c
 	
 	};
 	
+	$scope.Showcapturedpiece=function(cap)
+	{
+	if (cap)
+	{
+		var str=cap;
+		var pieceUpper=str.toUpperCase();
+		$scope.capturedpieces.push(pieceUpper);
+	}
+	};
+	
 	$scope.ChangePreference=function(prefid,me,newpref)
 	{
 		
@@ -377,14 +387,8 @@ c
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
-			if (move.captured)
-				{
-					var str = move.captured;
-					var pieceUpper = str.toUpperCase();
-					
-				console.log(pieceUpper);
-				$scope.capturedpieces.push(pieceUpper);
-				}
+		
+			
 			if (game.turn()=='b')
 			{
 			
