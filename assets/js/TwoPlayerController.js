@@ -62,7 +62,7 @@ $scope.WhiteInterval=	setInterval(function (){
 		$scope.WhiteTime-=121;
 		}
 		var bythousand=$scope.WhiteTime/1000;
-		$scope.WhiteSeconds=parseInt(bythousand);
+		$scope.WhiteSeconds=parseInt(bythousand % 60);
 		$scope.WhiteMinutes=parseInt((bythousand)/60);
 		$scope.WhiteMilliseconds=parseInt($scope.WhiteTime % 1000);
 		
@@ -96,7 +96,7 @@ $scope.StartBlackClock=function()
 		$scope.BlackTime-=121;
 		}
 		var bythousand=$scope.BlackTime/1000;
-		$scope.BlackSeconds=parseInt(bythousand);
+		$scope.BlackSeconds=parseInt(bythousand % 60);
 		$scope.BlackMinutes=parseInt((bythousand)/60);
 		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
 		
