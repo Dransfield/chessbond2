@@ -129,7 +129,7 @@ $scope.pic1coordx=60;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=50; $scope.pic1coordx=48; $scope.pic1coordy=40;	
+$scope.pic1height=25; $scope.pic1coordx=60; $scope.pic1coordy=50;	
 }
 $scope.bigimage1=function()
 {
