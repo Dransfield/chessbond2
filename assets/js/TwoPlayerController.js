@@ -105,7 +105,7 @@ $scope.StartBlackClock=function()
 		{
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);	
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
-		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMillseconds);
+		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMilliseconds);
 		}
 		else
 		{
