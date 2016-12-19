@@ -55,57 +55,65 @@ $scope.StartRightClock=function()
 
 $scope.StartWhiteClock=function()
 	{
+		$scope.BlackTime=(5*60)*1000;
 $scope.WhiteInterval=	setInterval(function (){
 		if ($scope.WhiteTime>0)
 		{
-		$scope.WhiteTime-=1;
+		$scope.WhiteTime-=121;
 		}
-		console.log("in white interval");
-		$scope.WhiteMinutes=parseInt(($scope.WhiteTime/60));
-		$scope.WhiteSeconds=parseInt($scope.WhiteTime % 60);
-		console.log("$scope.PlayerOnBottom "+$scope.PlayerOnBottom);
+		var bythousand=$scope.WhiteTime/1000;
+		$scope.WhiteSeconds=parseInt(bythousand);
+		$scope.WhiteMinutes=parseInt((bythousand)/60));
+		$scope.WhiteMilliseconds=parseInt($scope.WhiteTime % 1000);
+		
 		if($scope.PlayerOnBottom=='White')
 		{
 		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);	
 		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
+		$scope.$apply($scope.BottomMilliseconds=$scope.WhiteMillseconds);
 		}
 		else
 		{
 		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
+		$scope.$apply($scope.TopMilliseconds=$scope.WhiteMilliseconds);	
+		
 		}
 		
 		
 		
 		
-		},1000);	
+		},121);	
 		
 	};
 $scope.StartBlackClock=function()
 	{
-		$scope.BlackTime=5*60;
+		$scope.BlackTime=(5*60)*1000;
 	$scope.BlackInterval=setInterval(function (){
 		
 		if ($scope.BlackTime>0)
 		{
-		$scope.BlackTime-=1;
+		$scope.BlackTime-=121;
 		}
-		console.log("in black interval");
-		$scope.BlackMinutes=parseInt(($scope.BlackTime/60));
-		$scope.BlackSeconds=parseInt($scope.BlackTime % 60);
-		console.log("$scope.PlayerOnBottom "+$scope.PlayerOnBottom);
+		var bythousand=$scope.BlackTime/1000;
+		$scope.BlackSeconds=parseInt(bythousand);
+		$scope.BlackMinutes=parseInt((bythousand)/60));
+		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
+		
 		if($scope.PlayerOnBottom=='White')
-		{
-		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
-		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
-		}
-		else
 		{
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);	
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
-			
+		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMillseconds);
 		}
-		},1000);	
+		else
+		{
+		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
+		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
+		$scope.$apply($scope.TopMilliseconds=$scope.BlackMilliseconds);	
+		
+		}
+		},121);	
 		
 	};
   $scope.piecethemes = [
