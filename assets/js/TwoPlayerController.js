@@ -718,8 +718,7 @@ $scope.changeFavicon=function (src) {
 							$scope.ChessGameObject=res.data;
 							
 							ShowPlayersAvatars();
-							$scope.ShowCapturedPieces();
-							$scope.StartRightClock();
+							
 							var onSnapEnd = function() {
 									//board1.position(game.fen());
 								/*	console.log("on snap end");
@@ -910,6 +909,8 @@ console.log('about to putsocket');
 		{
 		alert('couldnt load game');
 		}
+		$scope.ShowCapturedPieces();
+		$scope.StartRightClock();
 		console.log("last move"+$scope.ChessGameObject.lastmove);
 		
 		var square=   boardEl.find('.square-' + $scope.ChessGameObject.lastmove.substr(2, 5));
