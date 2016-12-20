@@ -295,12 +295,12 @@ c
 		if (colour=='w')
 		{
 		$scope.capturedWhitepieces.push(pieceUpper);
-		$scope.ChessGameObject.capturedWhitepieces+=","+(pieceUpper);
+		$scope.ChessGameObject.capturedWhitepieces+=(pieceUpper)+",";
 		}
 		else
 		{
 		$scope.capturedBlackpieces.push(pieceUpper);
-		$scope.ChessGameObject.capturedBlackpieces+=","+(pieceUpper);
+		$scope.ChessGameObject.capturedBlackpieces+=(pieceUpper)+",";
 		}
 	}
 	};
