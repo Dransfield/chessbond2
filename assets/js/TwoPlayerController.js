@@ -295,12 +295,26 @@ c
 		if (colour=='w')
 		{
 		$scope.capturedWhitepieces.push(pieceUpper);
-		$scope.ChessGameObject.capturedWhitepieces+=(pieceUpper)+",";
+		if($scope.ChessGameObject.capturedWhitepieces)
+		{
+		$scope.ChessGameObject.capturedWhitepieces+=","+(pieceUpper);
+		}
+		else
+		{
+		$scope.ChessGameObject.capturedWhitepieces+=(pieceUpper);
+		}
 		}
 		else
 		{
 		$scope.capturedBlackpieces.push(pieceUpper);
-		$scope.ChessGameObject.capturedBlackpieces+=(pieceUpper)+",";
+		if($scope.ChessGameObject.capturedBlackpieces)
+		{
+		$scope.ChessGameObject.capturedBlackpieces+=","+(pieceUpper);
+		}
+		else
+		{
+		$scope.ChessGameObject.capturedBlackpieces+=(pieceUpper);
+		}
 		}
 	}
 	};
