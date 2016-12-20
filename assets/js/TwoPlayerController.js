@@ -790,6 +790,9 @@ $scope.changeFavicon=function (src) {
 						   }
 						   console.log("adding one to Move"+$scope.ChessGameObject.Move);
 							$scope.ChessGameObject.Move+=1;
+						 console.log("before show captured piece whites:"+$scope.ChessGameObject.capturedWhitepieces);
+							console.log("before show captured piece Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
+
 						  $scope.Showcapturedpiece(move.captured,move.color);
 						   console.log("added one to Move"+$scope.ChessGameObject.Move);
 							
