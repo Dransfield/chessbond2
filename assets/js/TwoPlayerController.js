@@ -43,7 +43,7 @@ $scope.BlackInterval=0;
 
 $scope.StartRightClock=function()
 {
-	console.log("turn "+game.turn());
+	
 	if(game.turn()=='b')
 	{
 	$scope.StartBlackClock();	
@@ -52,7 +52,6 @@ $scope.StartRightClock=function()
 	{
 	$scope.StartWhiteClock();	
 	}
-	
 	
 }
 
@@ -342,7 +341,7 @@ c
 	});
 	io.socket.on('timeevent',function(data){
 		//toastr.success(data.data.message);
-		console.log("recieved timevent "+JSON.stringify(data));
+		console.log(" timevent "+JSON.stringify(data));
 	});
 	io.socket.on('message', function (data){
 		if (document.visibilityState=='hidden')
@@ -402,9 +401,9 @@ c
 		if (move!=null){
 		
 			$scope.Showcapturedpiece(move.captured,move.color);
+			
 			if (game.turn()=='b')
 			{
-			
 			clearInterval($scope.WhiteInterval);
 			clearInterval($scope.BlackInterval);
 			$scope.StartBlackClock();
@@ -414,8 +413,6 @@ c
 			clearInterval($scope.WhiteInterval);
 			clearInterval($scope.BlackInterval);
 			$scope.StartWhiteClock();
-				
-				
 			}
 			
 			
@@ -428,6 +425,10 @@ c
 		 square=   boardEl.find('.square-' + move.from);
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
+			square.each(function( index ) {
+		console.log( index + ": " + $( this ).text() );
+		});
+
 			 square=   $("b[id='lastpgn']");
 			$( "img[id='pgnhighlight']" ).detach();
 			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
@@ -726,7 +727,7 @@ $scope.changeFavicon=function (src) {
 
 					  // illegal move
 					  
-					  if (move === null){
+					  if (move === null || game.in_draw()){
 						  if (game.game_over())
 							{
 						  toastr.warning("The game is over");
