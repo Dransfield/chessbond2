@@ -294,13 +294,14 @@ c
 		{colour='w';}
 		if (colour=='w')
 		{
-		$scope.ChessGameObject.capturedWhitepieces.push(pieceUpper);
+		$scope.capturedWhitepieces.push(pieceUpper);
+		$scope.ChessGameObject.capturedWhitepieces+=","+(pieceUpper);
 		}
 		else
 		{
-		$scope.ChessGameObject.capturedBlackpieces.push(pieceUpper);
+		$scope.capturedBlackpieces.push(pieceUpper);
+		$scope.ChessGameObject.capturedBlackpieces+=","+(pieceUpper);
 		}
-		
 	}
 	};
 	
@@ -678,6 +679,18 @@ $scope.changeFavicon=function (src) {
 						});
 	
 		};
+		
+							
+		$scope.ShowCapturedPieces=function()
+		{
+			if($scope.ChessGameObject.capturedWhitepieces)
+			{
+			$scope.capturedWhitepieces=$scope.ChessGameObject.capturedWhitepieces.split(",");
+			$scope.capturedWhitepieces=$scope.ChessGameObject.capturedWhitepieces.split(",");
+			
+			}
+		};
+		
 		$scope.resetBoard=function(me)
 		{
 						$http.get('/chessgame?id='+GameID)
@@ -686,7 +699,7 @@ $scope.changeFavicon=function (src) {
 							$scope.ChessGameObject=res.data;
 							
 							ShowPlayersAvatars();
-  
+							ShowCapturedPieces();
 							var onSnapEnd = function() {
 									//board1.position(game.fen());
 								/*	console.log("on snap end");
