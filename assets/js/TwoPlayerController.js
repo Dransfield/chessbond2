@@ -699,7 +699,7 @@ $scope.changeFavicon=function (src) {
 							$scope.ChessGameObject=res.data;
 							
 							ShowPlayersAvatars();
-							ShowCapturedPieces();
+							$scope.ShowCapturedPieces();
 							var onSnapEnd = function() {
 									//board1.position(game.fen());
 								/*	console.log("on snap end");
