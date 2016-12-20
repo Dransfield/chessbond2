@@ -59,7 +59,7 @@ $scope.StartRightClock=function()
 $scope.StartWhiteClock=function()
 	{
 		$scope.BlackTime=((5*60)*1000);
-	$scope.WhiteInterval=	setInterval(function (){
+		$scope.WhiteInterval=	setInterval(function (){
 		if ($scope.WhiteTime>0)
 		{
 		$scope.WhiteTime-=121;
@@ -129,13 +129,13 @@ $scope.BellSound= new Audio('alert.mp3');
 $scope.MoveSound=new Audio('move.mp3');
 $scope.CheckMateSound=new Audio("checkmate.mp3");
 
-$scope.pic1height=25;
+$scope.pic1height=30;
 $scope.pic1coordy=50;
 $scope.pic1coordx=60;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=25; $scope.pic1coordx=60; $scope.pic1coordy=50;	
+$scope.pic1height=30; $scope.pic1coordx=60; $scope.pic1coordy=50;	
 }
 $scope.bigimage1=function()
 {
