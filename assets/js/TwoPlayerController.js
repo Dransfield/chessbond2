@@ -290,8 +290,15 @@ c
 		{colour='b';}
 		else
 		{colour='w';}
-		var newstr=colour+pieceUpper;
-		$scope.capturedpieces.push(newstr);
+		if (colour=='w')
+		{
+		$scope.capturedWhitepieces.push(pieceUpper);
+		}
+		else
+		{
+		$scope.capturedBlackpieces.push(pieceUpper);
+		}
+		
 	}
 	};
 	

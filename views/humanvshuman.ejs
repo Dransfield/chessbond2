@@ -101,8 +101,13 @@
          <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
         <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
         <hr>
-        <span ng-repeat="piece in capturedpieces track by $index">
-		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme}}/{{piece}}.png">
+        <span ng-repeat="piece in capturedWhitepieces track by $index">
+		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme}}/w{{piece}}.png">
+		 
+		</span>
+		 <hr>
+        <span ng-repeat="piece in capturedBlackpieces track by $index">
+		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme}}/b{{piece}}.png">
 		 
 		</span>
 		<hr>
