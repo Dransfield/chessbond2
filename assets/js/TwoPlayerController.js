@@ -130,12 +130,12 @@ $scope.MoveSound=new Audio('move.mp3');
 $scope.CheckMateSound=new Audio("checkmate.mp3");
 
 $scope.pic1height=30;
-$scope.pic1coordy=50;
+$scope.pic1coordy=48;
 $scope.pic1coordx=56;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=30; $scope.pic1coordx=56; $scope.pic1coordy=50;	
+$scope.pic1height=30; $scope.pic1coordx=56; $scope.pic1coordy=48;	
 }
 $scope.bigimage1=function()
 {
