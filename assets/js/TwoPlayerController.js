@@ -301,7 +301,7 @@ c
 		}
 		else
 		{
-		$scope.ChessGameObject.capturedWhitepieces+=(pieceUpper);
+		$scope.ChessGameObject.capturedWhitepieces=(pieceUpper);
 		}
 		}
 		else
@@ -313,7 +313,7 @@ c
 		}
 		else
 		{
-		$scope.ChessGameObject.capturedBlackpieces+=(pieceUpper);
+		$scope.ChessGameObject.capturedBlackpieces=(pieceUpper);
 		}
 		}
 	}
