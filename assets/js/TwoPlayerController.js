@@ -294,11 +294,11 @@ c
 		{colour='w';}
 		if (colour=='w')
 		{
-		$scope.capturedWhitepieces.push(pieceUpper);
+		$scope.ChessGameObject.capturedWhitepieces.push(pieceUpper);
 		}
 		else
 		{
-		$scope.capturedBlackpieces.push(pieceUpper);
+		$scope.ChessGameObject.capturedBlackpieces.push(pieceUpper);
 		}
 		
 	}
@@ -833,10 +833,10 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:$scope.ChessGameObject.Move,
-      Result:$scope.ChessGameObject.Result
-			
+      Result:$scope.ChessGameObject.Result,
+	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
+      capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces
       }  
-      
     ,function(resData,jwres)
 	{
 	
