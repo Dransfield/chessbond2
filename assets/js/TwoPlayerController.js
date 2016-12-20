@@ -36,7 +36,9 @@ $scope.BlackMinutes;
 $scope.BlackSeconds;
 $PingStartTime=0;
 
-$scope.capturedpieces=[];
+$scope.capturedWhitepieces=[];
+
+$scope.capturedBlackpieces=[];
 
 $scope.WhiteInterval=0;
 $scope.BlackInterval=0;
