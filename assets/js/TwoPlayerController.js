@@ -424,7 +424,9 @@ c
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
-		console.log("show captured piece");
+		console.log("before show captured piece whites2:"+$scope.ChessGameObject.capturedWhitepieces);
+		console.log("before show captured piece Blacks2:"+$scope.ChessGameObject.capturedBlackpieces);
+
 			$scope.Showcapturedpiece(move.captured,move.color);
 			
 			if (game.turn()=='b')
@@ -801,7 +803,7 @@ $scope.changeFavicon=function (src) {
 							  toastr.success("It's a draw");
 							 }
 							  if (game.in_checkmate())
-								{
+							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
 							  $scope.ChessGameObject.Result=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,GameID,game);
