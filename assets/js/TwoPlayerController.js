@@ -298,6 +298,7 @@ c
 		if($scope.ChessGameObject.capturedWhitepieces)
 		{
 		$scope.ChessGameObject.capturedWhitepieces+=","+(pieceUpper);
+		console.log("adding white piece to captured");
 		}
 		else
 		{
@@ -423,7 +424,7 @@ c
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
-		
+		console.log("show captured piece");
 			$scope.Showcapturedpiece(move.captured,move.color);
 			
 			if (game.turn()=='b')
@@ -817,7 +818,7 @@ $scope.changeFavicon=function (src) {
 						  
 						  
 						  square=   boardEl.find('.square-' + move.from);
-		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+							square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 						  $scope.Moves=game.pgn().split(".");
 					  //console.log("left"+position.left);
@@ -860,6 +861,9 @@ updatePlayersLabel(game);
 
 console.log("put chessgame result is :"+$scope.ChessGameObject.Result);
 console.log("put chessgame move is :"+$scope.ChessGameObject.Move);
+console.log("put chessgame captured whites:"+$scope.ChessGameObject.capturedWhitepieces);
+console.log("put chessgame captured Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
+
 io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
