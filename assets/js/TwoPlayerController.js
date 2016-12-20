@@ -191,7 +191,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			$scope.setBoard(MyID);
-			$scope.StartRightClock();
+			
       		}
 			)	
 		
@@ -700,8 +700,13 @@ $scope.changeFavicon=function (src) {
 			if($scope.ChessGameObject.capturedWhitepieces)
 			{
 			$scope.capturedWhitepieces=$scope.ChessGameObject.capturedWhitepieces.split(",");
-			$scope.capturedWhitepieces=$scope.ChessGameObject.capturedWhitepieces.split(",");
+			}
 			
+			if($scope.ChessGameObject.capturedBlackpieces)
+			{
+				
+			$scope.capturedBlackpieces=$scope.ChessGameObject.capturedBlackpieces.split(",");
+			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
 		
@@ -714,6 +719,7 @@ $scope.changeFavicon=function (src) {
 							
 							ShowPlayersAvatars();
 							$scope.ShowCapturedPieces();
+							$scope.StartRightClock();
 							var onSnapEnd = function() {
 									//board1.position(game.fen());
 								/*	console.log("on snap end");
@@ -905,7 +911,7 @@ console.log('about to putsocket');
 		alert('couldnt load game');
 		}
 		console.log("last move"+$scope.ChessGameObject.lastmove);
-		$scope.StartRightClock();
+		
 		var square=   boardEl.find('.square-' + $scope.ChessGameObject.lastmove.substr(2, 5));
 	var position =square .position();
 	 $( "img[id='highlight']").detach();
