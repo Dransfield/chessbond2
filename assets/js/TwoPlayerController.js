@@ -429,6 +429,10 @@ c
 
 			$scope.Showcapturedpiece(move.captured,move.color);
 			
+				console.log("after show captured piece whites2:"+$scope.ChessGameObject.capturedWhitepieces);
+		console.log("after show captured piece Blacks2:"+$scope.ChessGameObject.capturedBlackpieces);
+
+			
 			if (game.turn()=='b')
 			{
 			clearInterval($scope.WhiteInterval);
