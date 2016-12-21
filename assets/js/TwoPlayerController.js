@@ -300,7 +300,7 @@ c
 		if($scope.ChessGameObject.capturedWhitepieces)
 		{
 		$scope.ChessGameObject.capturedWhitepieces+=","+(pieceUpper);
-		console.log("adding white piece to captured");
+		
 		}
 		else
 		{
@@ -430,14 +430,10 @@ c
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
-		console.log("before show captured piece whites2:"+$scope.ChessGameObject.capturedWhitepieces);
-		console.log("before show captured piece Blacks2:"+$scope.ChessGameObject.capturedBlackpieces);
-
+	
 			$scope.Showcapturedpiece(move.captured,move.color,false);
 			
-				console.log("after show captured piece whites2:"+$scope.ChessGameObject.capturedWhitepieces);
-		console.log("after show captured piece Blacks2:"+$scope.ChessGameObject.capturedBlackpieces);
-
+	
 			
 			if (game.turn()=='b')
 			{
@@ -800,14 +796,10 @@ $scope.changeFavicon=function (src) {
 						  
 						   return 'snapback';
 						   }
-						   console.log("adding one to Move"+$scope.ChessGameObject.Move);
 							$scope.ChessGameObject.Move+=1;
-						 console.log("before show captured piece whites:"+$scope.ChessGameObject.capturedWhitepieces);
-							console.log("before show captured piece Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
-
+						
 						  $scope.Showcapturedpiece(move.captured,move.color,true);
-						   console.log("added one to Move"+$scope.ChessGameObject.Move);
-							
+						
 							  if (game.in_draw())
 								{
 							  toastr.success("It's a draw");
