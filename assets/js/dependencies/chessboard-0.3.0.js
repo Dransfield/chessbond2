@@ -666,7 +666,7 @@ function buildPiece(piece, hidden, id) {
   'data-piece="' + piece + '" ' +
   'style="width: ' + ((SQUARE_SIZE/100)*scale) + 'px;' +
 	'vertical-align: middle'+
-	'text-align: center '+
+	'horizontal-align: middle '+
   'height: ' + ((SQUARE_SIZE/100)*scale) + 'px;';
   if (hidden === true) {
     html += 'display:none;';
