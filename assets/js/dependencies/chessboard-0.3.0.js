@@ -1183,11 +1183,14 @@ function beginDraggingPiece(source, piece, x, y) {
 
   // capture the x, y coords of all squares in memory
   captureSquareOffsets();
-
+	var scale=75;
+	if (piece.endsWith("P"))
+	{scale=40;}
   // create the dragged piece
   draggedPieceEl.attr('src', buildPieceImgSrc(piece))
     .css({
       display: '',
+      width: ((SQUARE_SIZE/100)*scale)px,
       position: 'absolute',
       left: x - (SQUARE_SIZE / 2),
       top: y - (SQUARE_SIZE / 2)
