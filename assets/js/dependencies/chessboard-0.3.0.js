@@ -16,7 +16,8 @@
 // Chess Util Functions
 //------------------------------------------------------------------------------
 var COLUMNS = 'abcdefgh'.split('');
-
+var regularscale=85;
+var pawnscale=55;
 function validMove(move) {
   // move should be a string
   if (typeof move !== 'string') return false;
@@ -654,9 +655,9 @@ function buildPieceImgSrc(piece) {
 function buildPiece(piece, hidden, id) {
 	 console.log("piece "+piece);
   console.log("CSS.piece "+CSS.piece);
-  var scale=85;
+  var scale=regularscale;
   if (piece.endsWith("P"))
-  {scale=55;}
+  {scale=pawnscale;}
   var html = '<img src="' + buildPieceImgSrc(piece) + '" ';
   if (id && typeof id === 'string') {
     html += 'id="' + id + '" ';
@@ -1183,9 +1184,9 @@ function beginDraggingPiece(source, piece, x, y) {
 
   // capture the x, y coords of all squares in memory
   captureSquareOffsets();
-	var scale=75;
+	var scale=regularscale;
 	if (piece.endsWith("P"))
-	{scale=40;}
+	{scale=pawnscale;}
 	var wid=((SQUARE_SIZE/100)*scale);
 	var hei=((SQUARE_SIZE/100)*scale);
   // create the dragged piece
