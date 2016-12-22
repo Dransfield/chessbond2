@@ -134,6 +134,7 @@ $scope.StartBlackClock=function()
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
+    $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
 $scope.BellSound= new Audio('alert.mp3');
 $scope.MoveSound=new Audio('move.mp3');
 $scope.CheckMateSound=new Audio("checkmate.mp3");
@@ -826,7 +827,7 @@ $scope.changeFavicon=function (src) {
 						  
 						  square=   boardEl.find('.square-' + move.from);
 							square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
-		
+						console.log(square.children());
 						  $scope.Moves=game.pgn().split(".");
 					  //console.log("left"+position.left);
 					  //console.log("top"+position.top);
