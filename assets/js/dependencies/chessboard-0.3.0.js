@@ -668,8 +668,8 @@ function buildPiece(piece, hidden, id) {
 	' position: absolute;'+
     'top: 50%;'+
     'left: 50%;'+
-    'margin-right: -50%;'+
-    'transform: translate(-50%, -50%);'+
+    //'margin-right: -50%;'+
+   // 'transform: translate(-50%, -50%);'+
   'height: ' + ((SQUARE_SIZE/100)*scale) + 'px;';
   if (hidden === true) {
     html += 'display:none;';
