@@ -59,7 +59,7 @@ $scope.StartRightClock=function()
 
 $scope.StartWhiteClock=function()
 	{
-		$scope.BlackTime=((5*60)*1000);
+		$scope.WhiteTime=((5*60)*1000);
 		$scope.WhiteInterval=	setInterval(function (){
 		if ($scope.WhiteTime>0)
 		{
