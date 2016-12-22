@@ -827,7 +827,7 @@ $scope.changeFavicon=function (src) {
 						  
 						  square=   boardEl.find('.square-' + move.from);
 							square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
-						console.log(square.children());
+						
 						  $scope.Moves=game.pgn().split(".");
 					  //console.log("left"+position.left);
 					  //console.log("top"+position.top);
