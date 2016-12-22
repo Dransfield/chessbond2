@@ -34,11 +34,11 @@
     </head>
     
     <body ng-app="HomepageModule" ng-controller="HomepageController" ngcloak>
- HELLO
- 
+
+<!-- 
  <%-JSON.stringify(req.session) %>
  <%-JSON.stringify(req.session.passport) %>
- 
+ -->
  <% if (req.session.passport){%>
 		<% if (req.session.passport.user){%>
 		<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
