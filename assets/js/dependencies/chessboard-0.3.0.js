@@ -654,6 +654,9 @@ function buildPieceImgSrc(piece) {
 function buildPiece(piece, hidden, id) {
 	 console.log("piece "+piece);
   console.log("CSS.piece "+CSS.piece);
+  var scale=75;
+  if (piece.endsWith("P"))
+  {scale=40;}
   var html = '<img src="' + buildPieceImgSrc(piece) + '" ';
   if (id && typeof id === 'string') {
     html += 'id="' + id + '" ';
@@ -661,10 +664,10 @@ function buildPiece(piece, hidden, id) {
   html += 'alt="" ' +
   'class="' + CSS.piece + '" ' +
   'data-piece="' + piece + '" ' +
-  'style="width: ' + SQUARE_SIZE + 'px;' +
+  'style="width: ' + ((SQUARE_SIZE/100)*scale) + 'px;' +
  
   
-  'height: ' + SQUARE_SIZE + 'px;';
+  'height: ' + ((SQUARE_SIZE/100)*scale) + 'px;';
   if (hidden === true) {
     html += 'display:none;';
   }
