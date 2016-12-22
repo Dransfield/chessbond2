@@ -1195,8 +1195,8 @@ function beginDraggingPiece(source, piece, x, y) {
       width: wid+'px',
       height:hei+'px',
       position: 'absolute',
-      left: x ,
-      top: y
+      left: x+wid ,
+      top: y+hei
     });
 
   if (source !== 'spare') {
