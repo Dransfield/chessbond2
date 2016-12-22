@@ -1186,11 +1186,12 @@ function beginDraggingPiece(source, piece, x, y) {
 	var scale=75;
 	if (piece.endsWith("P"))
 	{scale=40;}
+	var wid=((SQUARE_SIZE/100)*scale)
   // create the dragged piece
   draggedPieceEl.attr('src', buildPieceImgSrc(piece))
     .css({
       display: '',
-      width: ((SQUARE_SIZE/100)*scale)px,
+      width: wid+'px',
       position: 'absolute',
       left: x - (SQUARE_SIZE / 2),
       top: y - (SQUARE_SIZE / 2)
