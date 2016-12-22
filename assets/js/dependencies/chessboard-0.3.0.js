@@ -713,8 +713,8 @@ function animateSquareToSquare(src, dest, piece, completeFn) {
   animatedPieceEl.css({
     display: '',
     position: 'absolute',
-    top: srcSquarePosition+(SQUARE_SIZE/2),
-    left: srcSquarePosition+(SQUARE_SIZE/2)
+    x: srcSquarePosition+(SQUARE_SIZE/2),
+    y: srcSquarePosition+(SQUARE_SIZE/2)
   });
 
   // remove original piece from source square
