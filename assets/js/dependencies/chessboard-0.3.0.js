@@ -654,9 +654,9 @@ function buildPieceImgSrc(piece) {
 function buildPiece(piece, hidden, id) {
 	 console.log("piece "+piece);
   console.log("CSS.piece "+CSS.piece);
-  var scale=75;
+  var scale=85;
   if (piece.endsWith("P"))
-  {scale=40;}
+  {scale=55;}
   var html = '<img src="' + buildPieceImgSrc(piece) + '" ';
   if (id && typeof id === 'string') {
     html += 'id="' + id + '" ';
@@ -665,7 +665,7 @@ function buildPiece(piece, hidden, id) {
   'class="' + CSS.piece + '" ' +
   'data-piece="' + piece + '" ' +
   'style="width: ' + ((SQUARE_SIZE/100)*scale) + 'px;' +
- 
+	'vertical-align: middle'+
   
   'height: ' + ((SQUARE_SIZE/100)*scale) + 'px;';
   if (hidden === true) {
