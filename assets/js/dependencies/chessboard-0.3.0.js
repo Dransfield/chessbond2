@@ -666,9 +666,9 @@ function buildPiece(piece, hidden, id) {
   'data-piece="' + piece + '" ' +
   'style="width: ' + ((SQUARE_SIZE/100)*scale) + 'px;' +
 	' position: absolute;'+
-    //'top: 50%;'+
-   // 'left: 50%;'+
-    //'margin-right: -50%;'+
+    'top: 50%;'+
+    'left: 50%;'+
+    'margin-right: -50%;'+
     'transform: translate(-50%, -50%);'+
   'height: ' + ((SQUARE_SIZE/100)*scale) + 'px;';
   if (hidden === true) {
@@ -1209,8 +1209,8 @@ function beginDraggingPiece(source, piece, x, y) {
 function updateDraggedPiece(x, y) {
   // put the dragged piece over the mouse cursor
   draggedPieceEl.css({
-    left: x - (SQUARE_SIZE / 2),
-    top: y - (SQUARE_SIZE / 2)
+    left: x,
+    top: y
   });
 
   // get location
