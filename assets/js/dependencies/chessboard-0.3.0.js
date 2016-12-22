@@ -652,6 +652,8 @@ function buildPieceImgSrc(piece) {
 }
 
 function buildPiece(piece, hidden, id) {
+	 console.log("piece "+piece);
+  console.log("CSS.piece "+CSS.piece);
   var html = '<img src="' + buildPieceImgSrc(piece) + '" ';
   if (id && typeof id === 'string') {
     html += 'id="' + id + '" ';
@@ -660,8 +662,7 @@ function buildPiece(piece, hidden, id) {
   'class="' + CSS.piece + '" ' +
   'data-piece="' + piece + '" ' +
   'style="width: ' + SQUARE_SIZE + 'px;' +
-  console.log("piece "+piece);
-  console.log("CSS.piece "+CSS.piece);
+ 
   
   'height: ' + SQUARE_SIZE + 'px;';
   if (hidden === true) {
