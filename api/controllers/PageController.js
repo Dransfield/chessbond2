@@ -247,9 +247,9 @@ deleteopengame:function(req,res){
 		// create reusable transporter object using the default SMTP transport
 		var transporter = nodemailer.createTransport('smtps://slenkar@gmail.com:Fuckthisshit@smtp.gmail.com');
 	var mailOptions = {
-    from: '"Fred Foo ?" <slenkar@gmail.com>', // sender address
-    to: 'slenkar@gmail.com, baz@blurdybloop.com', // list of receivers
-    subject: 'Hello ✔', // Subject line
+    from: '"Prakash" <admin@chessbond.com>', // sender address
+    to: req.param('address'), // list of receivers
+    subject: 'Forgotten Password', // Subject line
     text: 'Hello world ?', // plaintext body
     html: '<b>Hello world ?</b>' // html body
 };
