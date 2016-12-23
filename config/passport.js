@@ -153,7 +153,7 @@ passport.use(new FacebookStrategy({
 					function (err, records) {
 						console.log(err);
 						if (err)
-						{return res.redirect("/socialemailinuse");}
+						{return done(err,null);}
 						else
 					{return done(null, records);}
 				
