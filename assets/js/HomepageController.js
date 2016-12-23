@@ -324,7 +324,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 	$scope.showflash=function(msg)
 	{
 		console.log(msg);
-		toastr.error(msg);
+		msg=msg.Split("•");
+		toastr.error(msg[msg.length]);
 	}
 $scope.countryTofilename=function(country)
 {
