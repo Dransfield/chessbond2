@@ -14,6 +14,8 @@ $scope.HideInject=true;
 $scope.ChessGameObject={};
 $scope.ChessGameObject2={};
 
+
+
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
   var squareToHighlight;
@@ -135,6 +137,18 @@ $scope.StartBlackClock=function()
       'A','B','C','D','E','F','G','H'
     ];
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
+    
+    $scope.ChangeOverallScore=function(piece,colour)
+    {if (colour=='b')
+		{
+		$scope.ChessGameObject.OverallScore-=$scope.piecevalues[piece];
+		}
+		else
+		{
+		$scope.ChessGameObject.OverallScore+=$scope.piecevalues[piece];	
+		}
+	}
+    
 $scope.BellSound= new Audio('alert.mp3');
 $scope.MoveSound=new Audio('move.mp3');
 $scope.CheckMateSound=new Audio("checkmate.mp3");
@@ -798,7 +812,7 @@ $scope.changeFavicon=function (src) {
 						   return 'snapback';
 						   }
 							$scope.ChessGameObject.Move+=1;
-						
+						$scope.ChangeOverallScore();
 						  $scope.Showcapturedpiece(move.captured,move.color,true);
 						
 							  if (game.in_draw())
@@ -879,7 +893,8 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       Move:$scope.ChessGameObject.Move,
       Result:$scope.ChessGameObject.Result,
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
-      capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces
+      capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
+      OverallScore:$scope.ChessGameObject.OverallScore
       }  
     ,function(resData,jwres)
 	{
