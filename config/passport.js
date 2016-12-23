@@ -152,7 +152,8 @@ passport.use(new FacebookStrategy({
                     //facebookemail:  profile.emails[0].value}).exec( // facebook can return multiple emails so we'll take the first
 					function (err, records) {
 						console.log(err);
-						 if (!records) { return done(err, false); }
+						 if (err) { return done(err); }
+						 if (!records) { return done(null, false); }
 					return done(null, records);
 				
 					});
