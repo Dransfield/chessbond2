@@ -325,7 +325,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 	{
 		console.log(msg);
 		msg=msg.split("•");
-		toastr.error(msg[msg.length]);
+		console.log("msg.length"+msg.length);
+		toastr.error(msg[msg.length-1]);
 	}
 $scope.countryTofilename=function(country)
 {
