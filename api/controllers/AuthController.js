@@ -46,7 +46,8 @@ passport.authenticate('facebook',{ scope : [ 'email'] })(req, res);
 		
 		 passport.authenticate('facebook',{
             successRedirect : '/profile',
-            failureRedirect : '/'
+            failureRedirect : '/',
+            failureFlash: true
         })(req, res);;
 	},
 register: function (req, res) {
