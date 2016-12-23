@@ -139,8 +139,9 @@ $scope.StartBlackClock=function()
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
     
     $scope.ChangeOverallScore=function(piece,colour)
-    if (piece)
     {
+    if (piece)
+    
     {piece=piece.toUpperCase();
     if (colour=='b')
 		{
