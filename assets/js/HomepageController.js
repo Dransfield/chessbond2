@@ -321,7 +321,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
     })
 	
 	};
-	$scope.showflash(msg)
+	$scope.showflash=function(msg)
 	{
 		toastr.failure(msg);
 	}
