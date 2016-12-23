@@ -812,7 +812,7 @@ $scope.changeFavicon=function (src) {
 						   return 'snapback';
 						   }
 							$scope.ChessGameObject.Move+=1;
-						$scope.ChangeOverallScore();
+						$scope.ChangeOverallScore(move.captured,move.color);
 						  $scope.Showcapturedpiece(move.captured,move.color,true);
 						
 							  if (game.in_draw())
