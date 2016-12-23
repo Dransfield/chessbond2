@@ -16,8 +16,7 @@
 // Chess Util Functions
 //------------------------------------------------------------------------------
 var COLUMNS = 'abcdefgh'.split('');
-var regularscale=85;
-var pawnscale=55;
+
 function validMove(move) {
   // move should be a string
   if (typeof move !== 'string') return false;
@@ -653,11 +652,6 @@ function buildPieceImgSrc(piece) {
 }
 
 function buildPiece(piece, hidden, id) {
-	 console.log("piece "+piece);
-  console.log("CSS.piece "+CSS.piece);
-  var scale=regularscale;
-  if (piece.endsWith("P"))
-  {scale=pawnscale;}
   var html = '<img src="' + buildPieceImgSrc(piece) + '" ';
   if (id && typeof id === 'string') {
     html += 'id="' + id + '" ';
@@ -665,13 +659,8 @@ function buildPiece(piece, hidden, id) {
   html += 'alt="" ' +
   'class="' + CSS.piece + '" ' +
   'data-piece="' + piece + '" ' +
-  'style="width: ' + ((SQUARE_SIZE/100)*scale) + 'px;' +
-	' position: absolute;'+
-    'top: 50%;'+
-    'left: 50%;'+
-    'margin-right: -50%;'+
-    'transform: translate(-50%, -50%);'+
-  'height: ' + ((SQUARE_SIZE/100)*scale) + 'px;';
+  'style="width: ' + SQUARE_SIZE + 'px;' +
+  'height: ' + SQUARE_SIZE + 'px;';
   if (hidden === true) {
     html += 'display:none;';
   }
@@ -713,9 +702,8 @@ function animateSquareToSquare(src, dest, piece, completeFn) {
   animatedPieceEl.css({
     display: '',
     position: 'absolute',
-    
-    left: srcSquarePosition,
-    top: srcSquarePosition
+    top: srcSquarePosition.top,
+    left: srcSquarePosition.left
   });
 
   // remove original piece from source square
@@ -1185,20 +1173,14 @@ function beginDraggingPiece(source, piece, x, y) {
 
   // capture the x, y coords of all squares in memory
   captureSquareOffsets();
-	var scale=regularscale;
-	if (piece.endsWith("P"))
-	{scale=pawnscale;}
-	var wid=((SQUARE_SIZE/100)*scale);
-	var hei=((SQUARE_SIZE/100)*scale);
+
   // create the dragged piece
   draggedPieceEl.attr('src', buildPieceImgSrc(piece))
     .css({
       display: '',
-      width: wid+'px',
-      height:hei+'px',
       position: 'absolute',
-      left: x ,
-      top: y
+      left: x - (SQUARE_SIZE / 2),
+      top: y - (SQUARE_SIZE / 2)
     });
 
   if (source !== 'spare') {
@@ -1211,8 +1193,8 @@ function beginDraggingPiece(source, piece, x, y) {
 function updateDraggedPiece(x, y) {
   // put the dragged piece over the mouse cursor
   draggedPieceEl.css({
-    left: x,
-    top: y
+    left: x - (SQUARE_SIZE / 2),
+    top: y - (SQUARE_SIZE / 2)
   });
 
   // get location
