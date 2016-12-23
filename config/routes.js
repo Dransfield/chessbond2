@@ -41,6 +41,7 @@ module.exports.routes = {
 	'/recordsession':'PageController.RecordSession',
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
+	'/SendMail':'PageController.SendMail',
 	'get /seereq':'PageController.seereq',
  	'POST /loginbuttonpushed':'PageController.loginbuttonpushed',
 	'GET /subscribeToRoom':'PageController.subscribeToRoom',
