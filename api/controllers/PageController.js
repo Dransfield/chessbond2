@@ -231,8 +231,7 @@ deleteopengame:function(req,res){
 		}
 		
 		});
-		sails.sockets.broadcast(req.param('GameID'), 'timeevent',{msg:"Ten Seconds have passed"});
-		}
+	}
 		//,td*60);
 	,(td*60)*1000);
 	

@@ -393,6 +393,7 @@ c
 	});
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
+	$scope.ChessGameObject.Result=game.turn()+" lost due to running out of time";
 	});
 	io.socket.on('timeevent',function(data){
 		//toastr.success(data.data.message);
@@ -802,7 +803,7 @@ $scope.changeFavicon=function (src) {
 
 					  // illegal move
 					  
-					  if (move === null || game.in_draw()){
+					  if (move === null || game.in_draw() ||$scope.ChessGameObject.Result){
 						  if (game.game_over())
 							{
 						  toastr.warning("The game is over");
@@ -811,7 +812,7 @@ $scope.changeFavicon=function (src) {
 							{
 						  toastr.warning("You are in check");
 						 }
-	 
+						
 						 console.log('gameover?'+game.game_over());
 						  console.log('in check?'+game.in_check());
 						  console.log('in checkmate?'+game.in_checkmate());
