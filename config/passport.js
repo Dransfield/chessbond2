@@ -153,7 +153,7 @@ passport.use(new FacebookStrategy({
 					function (err, records) {
 						console.log(err);
 						
-						 if (!records) { return done(null, false,{message:'The email associated with that social media account already exists'}); }
+						 if (!records) { return done(null, false); }
 					return done(null, records);
 				
 					});
