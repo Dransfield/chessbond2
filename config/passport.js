@@ -153,7 +153,7 @@ passport.use(new FacebookStrategy({
 					function (err, records) {
 						console.log(err);
 						
-						 if (!records) { return done(null, false,{message:JSON.stringify(err)}); }
+						 if (!records) { return done(null, false,err); }
 					return done(null, records);
 				
 					});
