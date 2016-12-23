@@ -158,7 +158,7 @@ passport.use(new FacebookStrategy({
 					}
 					else
 					{
-					return done(err);
+					return (err);
 					}
 					});
 
