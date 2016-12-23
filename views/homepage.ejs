@@ -54,6 +54,11 @@
 			<div ng-init="joinmyuserIDRoom('<%- req.session.passport.user %>')"></div>
 		
 			
+			<% }else{ %>
+			<% if (req.session.flash){%>
+			<% if (req.session.flash.error){%>
+			<div ng-init="showflash(<%- req.session.flash.error %>)"></div>
+			<% } %>
 			<% } %>
 	     <div class="row">
 	     <div class="col-md-4">
@@ -61,6 +66,7 @@
          <div class="col-md-4 text-center">
 	    <h1 >Chessbond</h1>
     
+
 			 </div>
     
          <div class="col-md-4">

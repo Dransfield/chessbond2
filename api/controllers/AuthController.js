@@ -23,7 +23,8 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		
 		 passport.authenticate('google',{
             successRedirect : '/profile',
-            failureRedirect : '/'
+            failureRedirect : '/',
+            failureFlash: true
         })(req, res);;
 	},
     
@@ -35,7 +36,8 @@ passport.authenticate('twitter')(req, res);
 		
 		 passport.authenticate('twitter',{
             successRedirect : '/profile',
-            failureRedirect : '/'
+            failureRedirect : '/',
+            failureFlash: true
         })(req, res);;
 	},
 	loginfacebook:function(req,res){

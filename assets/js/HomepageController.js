@@ -321,7 +321,10 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
     })
 	
 	};
-	
+	$scope.showflash(msg)
+	{
+		toastr.failure(msg);
+	}
 $scope.countryTofilename=function(country)
 {
 	return country.replace(/ /gi, "_");
