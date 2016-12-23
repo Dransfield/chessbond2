@@ -141,6 +141,12 @@ $scope.StartBlackClock=function()
     $scope.ChangeOverallScore=function(piece,colour)
     {if (colour=='b')
 		{
+			console.log($scope.piecevalues[piece]);
+			console.log("piece "+piece);
+			console.log("$scope.piecevalues['P'] "+$scope.piecevalues['P']);
+			console.log("$scope.piecevalues.P "+$scope.piecevalues.P);
+			console.log("$scope.piecevalues.piece "+$scope.piecevalues.piece);
+			
 		$scope.ChessGameObject.OverallScore-=$scope.piecevalues[piece];
 		}
 		else
