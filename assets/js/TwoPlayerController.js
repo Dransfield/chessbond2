@@ -145,12 +145,7 @@ $scope.StartBlackClock=function()
     {piece=piece.toUpperCase();
     if (colour=='b')
 		{
-			console.log("$scope.piecevalues[piece] "+$scope.piecevalues[piece]);
-			console.log("piece "+piece);
-			console.log("$scope.piecevalues['P'] "+$scope.piecevalues['P']);
-			console.log("$scope.piecevalues.P "+$scope.piecevalues.P);
-			console.log("$scope.piecevalues.piece "+$scope.piecevalues.piece);
-			
+
 		$scope.ChessGameObject.OverallScore-=$scope.piecevalues[piece];
 		}
 		else
@@ -395,6 +390,9 @@ c
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('disconnect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
+	});
+	io.socket.on('timeoutevent',function(data){
+	console.log(game.turn()+" timed out!");
 	});
 	io.socket.on('timeevent',function(data){
 		//toastr.success(data.data.message);
