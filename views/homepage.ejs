@@ -57,7 +57,7 @@
 			<% }else{ %>
 			<% if (req.session.flash){%>
 			<% if (req.session.flash.error){%>
-			<div ng-init="showflash(<%- req.session.flash.error %>)"></div>
+			<div ng-init="showflash('<%- req.session.flash.error %>')"></div>
 			<% } %>
 			<% } %>
 	     <% } %>
