@@ -32,7 +32,8 @@
     "passport-facebook": "*",
     "passport-twitter": "*",
     "passport-google-oauth20": "*",
-    "elo-rank":"*"
+    "elo-rank":"*",
+    "nodemailer":"*"
   },
   "scripts": {
     "debug": "node debug app.js",
