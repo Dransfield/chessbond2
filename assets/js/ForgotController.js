@@ -8,7 +8,7 @@ angular.module('HomepageModule').controller('RegisterController', ['$scope', '$h
 	$scope.ForgotPassword=function()
 		{
 			
-			$http.put("/SendEmail",{address:$scope.vm.address})
+			$http.put("/SendMail",{address:$scope.vm.address})
 			.then(function onSuccess (resData, jwr){
 			toastr.info(resData.data.message);
 			}
