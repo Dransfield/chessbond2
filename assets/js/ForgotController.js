@@ -8,8 +8,10 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 	$scope.NewPassword=function(coder)
 	{
 		
-		$http.put("/ResetPassword",{address:$scope.vm.password,code:coder})
+		$http.put("/ResetPassword",{psw:$scope.vm.password,code:coder})
 			.then(function onSuccess (resData, jwr){
+				console.log("resData"+resData);
+				console.log("jwr "+jwr);
 			toastr.info(resData.data.message);
 			}
 			
