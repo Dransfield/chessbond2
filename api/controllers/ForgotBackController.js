@@ -7,10 +7,13 @@ module.exports = {
       passwordcode: req.param('code')
 	},function foundUser(err,user){
 		if (!err){
+			if(user)
+			{
 			user.password=md5(req.param('psw'));
 			user.passwordcode="";
 			user.save();
 	return res.ok();
+	}
 	}
 	else
 	{return (err);}
