@@ -10,9 +10,8 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 		
 		$http.put("/ResetPassword",{psw:$scope.vm.password,code:coder})
 			.then(function onSuccess (resData, jwr){
-				console.log("resData"+resData);
-				console.log("jwr "+jwr);
-			toastr.info(resData.data.message);
+			if (resData.status==200)
+					{	toastr.success("Password changed!");	}
 			}
 			
 			);
@@ -24,11 +23,11 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			
 			$http.put("/SendMail",{address:$scope.vm.address})
 			.then(function onSuccess (resData, jwr){
-			toastr.info(resData.data.message);
-					console.log("resData"+JSON.stringify(resData));
+			
+					
 					if (resData.status==200)
 					{	toastr.success("Email Sent!");	}
-				console.log("jwr "+jwr);
+				
 			}
 			
 			);
