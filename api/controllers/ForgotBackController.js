@@ -15,6 +15,7 @@ module.exports = {
     to: req.param('address'), // list of receivers
     subject: 'Forgotten Password', // Subject line
     text: 'Here is your link to reset your password:', // plaintext body
+    md5=require("MD5");
     var code=md5(Date.now()+user.id);
     
     user.passwordcode =code;
