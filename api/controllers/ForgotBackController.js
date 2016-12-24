@@ -35,5 +35,5 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 	}
 });
-};
+}
 		
