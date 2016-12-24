@@ -1,7 +1,9 @@
 md5=require("MD5");
 module.exports = {
 	
-	
+	ResetPassword:function(req,res){
+		
+	},
 	SendMail:function(req,res){
 		 User.findOne({
       email: req.param('address')
