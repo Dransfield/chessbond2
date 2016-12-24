@@ -14,14 +14,15 @@ module.exports = {
     
     user.passwordcode =code;
     user.save();
-    
+    console.log("code "+code);
+    var adrString="http://www.chessbond.com/forgot/password/"+code;
 	var mailOptions = {
     from: '"Prakash" <admin@chessbond.com>', // sender address
     to: req.param('address'), // list of receivers
     subject: 'Forgotten Password', // Subject line
     text: 'Here is your link to reset your password:', // plaintext body
-    console.log("code "+code);
-    html: "<h1>Chessbond</h1><br><a href='http://www.chessbond.com/forgot/password/"+code+"'>Click Here to reset your password</a>" // html body
+    
+    html: "<h1>Chessbond</h1><br><a href='"+adrString+"'>Click Here to reset your password</a>" // html body
 };
 
 // send mail with defined transport object
