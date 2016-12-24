@@ -25,6 +25,8 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			$http.put("/SendMail",{address:$scope.vm.address})
 			.then(function onSuccess (resData, jwr){
 			toastr.info(resData.data.message);
+					console.log("resData"+resData);
+				console.log("jwr "+jwr);
 			}
 			
 			);

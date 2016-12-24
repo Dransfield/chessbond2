@@ -45,6 +45,8 @@ transporter.sendMail(mailOptions, function(error, info){
     if(error){
         return console.log(error);
     }
+    else
+    {return res.ok();}
     console.log('Message sent: ' + info.response);
 	});
 	
