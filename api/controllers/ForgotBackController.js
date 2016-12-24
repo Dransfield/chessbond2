@@ -14,6 +14,7 @@ module.exports = {
 	}
 	else
 	{return (err);}
+	}
 	);
 	},
 	SendMail:function(req,res){
