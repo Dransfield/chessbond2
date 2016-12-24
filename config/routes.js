@@ -45,7 +45,7 @@ module.exports.routes = {
 	'PUT /joingame':'PageController.Joingame',
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
-	'PUT /forgot/password/:code':{view:'newpassword'},
+	'GET /forgot/password/:code':{view:'newpassword'},
 	
 	'get /seereq':'PageController.seereq',
  	'POST /loginbuttonpushed':'PageController.loginbuttonpushed',
