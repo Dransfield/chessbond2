@@ -2,7 +2,7 @@ md5=require("MD5");
 module.exports = {
 	
 	ResetPassword:function(req,res){
-		console.log(req.param('code');
+		console.log(req.param('code'));
 		 User.findOne({
       passwordcode: req.param('code')
 	},function foundUser(err,user){
