@@ -26,6 +26,8 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			.then(function onSuccess (resData, jwr){
 			toastr.info(resData.data.message);
 					console.log("resData"+JSON.stringify(resData));
+					if (resData.status==200)
+					{	toastr.success("Email Sent!");	}
 				console.log("jwr "+jwr);
 			}
 			
