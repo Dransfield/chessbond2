@@ -128,7 +128,8 @@ passportInit    : require('passport').initialize(),
   myRequestLogger: function (req, res, next) {
 	  
 		var str=req.headers.host;
-	
+	if(str)
+	{
          if (str.startsWith('www')==false)
          
          {
@@ -138,6 +139,7 @@ passportInit    : require('passport').initialize(),
 			{
          return next();
 			}
+     }
      }
       
 
