@@ -4,6 +4,38 @@ $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
 
+io.socket.on('connect',function(data){
+	console.log("DISCONNECT DETECTED!!!!");
+	$scope.joinopengameRoom();
+	$scope.joinmyuserIDRoom($scope.User.id);
+	});
+
+	io.socket.on('newmygameevent', function (data)
+			{
+			console.log('recieved new game event '+data);
+			data.phrase=phrasefordate(data.Created);
+			$scope.$apply(function(){
+			$scope.joinedgames.push(data);
+			});
+			console.log(data);
+			});
+			
+			setInterval(function (MyID)
+			{
+				
+				for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			$scope.Players[i].time=$scope.Players[i].time+1;
+			//console.log($scope.Players[i].name+" "+$scope.Players[i].time);
+			if($scope.Players[i].time>3) {
+			$scope.$apply($scope.Players.splice(i, 1));
+			}
+			}
+				
+			io.socket.get("/HomepageHeartbeat",{id:MyID},function (resData,jwres){
+		
+			});
+		}, 5000);
+
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -197,7 +229,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 			});
 		
 		$http.get('/openchessgame?limit=3000').then( function (dat) {
-			
+			$scope.opg=[];
 			for(x in dat.data)
 			{
 			dat.data[x].phrase=phrasefordate(dat.data[x].Created);
@@ -207,7 +239,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 			
 			});
 			$http.get('/chessgame').then( function (dat) {
-			
+			$scope.joinedgames=[];
 			for(x in dat.data)
 			{
 			dat.data[x].phrase=phrasefordate(dat.data[x].Created);
@@ -237,33 +269,9 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 			console.log(JSON.stringify(resData));
 			});
 			
-			io.socket.on('newmygameevent', function (data)
-			{
-			console.log('recieved new game event '+data);
-			data.phrase=phrasefordate(data.Created);
-			$scope.$apply(function(){
-			$scope.joinedgames.push(data);
-			});
-			console.log(data);
-			});
-			
-			setInterval(function (MyID)
-			{
-				
-				for(var i = $scope.Players.length - 1; i >= 0; i--) {
-			$scope.Players[i].time=$scope.Players[i].time+1;
-			//console.log($scope.Players[i].name+" "+$scope.Players[i].time);
-			if($scope.Players[i].time>3) {
-			$scope.$apply($scope.Players.splice(i, 1));
-			}
-			}
-				
-			io.socket.get("/HomepageHeartbeat",{id:MyID},function (resData,jwres){
 		
-			});
-		}, 5000);
 			
-	}
+	};
 	
 	$scope.joinmygameRoom=function (GameID)
 		{
