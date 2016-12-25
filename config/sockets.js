@@ -124,7 +124,7 @@ module.exports.sockets = {
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
     console.log("socket disconnected socket:"+socket);
-    console.log("socket disconnected session:"+session);
+    console.log("socket disconnected session:"+JSON.stringify(session));
    
     User.findOne({
       id: session.passport.user
