@@ -125,7 +125,25 @@ module.exports.sockets = {
    afterDisconnect: function(session, socket, cb) {
     console.log("socket disconnected socket:"+socket);
     console.log("socket disconnected session:"+session);
+   
+    User.findOne({
+      id: req.session.passport.user
+	},function foundUser(err,user){
+		if (err)
+		{//req.session.passport=null;
+			  return cb();
     
+			}
+		if (!user)
+		{
+		console.log("no user");
+		return cb();
+    	}
+		if (!err){
+		 sails.sockets.leaveAll(user.GameID, cb);
+		}
+	}
+	);
      // By default: do nothing.
      return cb();
    },

@@ -353,7 +353,7 @@ transporter.sendMail(mailOptions, function(error, info){
 
 		
   var roomName = req.param('roomName');
-  sails.sockets.leave(req, roomName, function(err){
+ 
   sails.sockets.join(req, roomName, function(err) {
     if (err) {
       return res.serverError(err);
@@ -365,7 +365,7 @@ transporter.sendMail(mailOptions, function(error, info){
     });
   });
   
-   });
+   
   
 },
 	
