@@ -394,7 +394,7 @@ c
 	
 	
 $scope.ConnectSockets=function(){
-	
+	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
