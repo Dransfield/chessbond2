@@ -346,6 +346,8 @@ transporter.sendMail(mailOptions, function(error, info){
 	 return res.ok();
 });
 	},
+	
+	
 	subscribeToRoom: function(req, res) {
 		if (!req.isSocket) {
 		return res.badRequest();}
