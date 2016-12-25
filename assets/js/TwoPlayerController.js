@@ -15,7 +15,11 @@ $scope.ChessGameObject={};
 $scope.ChessGameObject2={};
 
 
-
+io.socket.on('disconnect',function(data){
+	console.log("DISCONNECT DETECTED!!!!");
+	$scope.ConnectSockets();
+	});
+	
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
   var squareToHighlight;
@@ -387,10 +391,7 @@ c
     
 	// set-up loginForm loading state
 	
-	io.socket.on('disconnect',function(data){
-	console.log("DISCONNECT DETECTED!!!!");
-	$scope.ConnectSockets();
-	});
+	
 	
 $scope.ConnectSockets=function(){
 	document.head = document.head || document.getElementsByTagName('head')[0];
