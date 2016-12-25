@@ -394,9 +394,7 @@ c
 	
 	
 $scope.ConnectSockets=function(){
-	io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			});
+	
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
@@ -725,6 +723,9 @@ $scope.changeFavicon=function (src) {
 		
 	$scope.joinRoom=function (usr)
 		{
+			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
 			$scope.ConnectSockets();
 			
 		$http.get('/user?id='+usr)
