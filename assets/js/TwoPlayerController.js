@@ -722,7 +722,7 @@ $scope.changeFavicon=function (src) {
 		
 	$scope.joinRoom=function (usr)
 		{
-			
+			$scope.ConnectSockets();
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
