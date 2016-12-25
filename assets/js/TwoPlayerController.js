@@ -17,7 +17,7 @@ $scope.ChessGameObject2={};
 
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
-	$scope.ConnectSockets();
+	$scope.Subscribe();
 	});
 	
 $scope.PlayerOnBottom='White';
@@ -392,6 +392,14 @@ c
 	// set-up loginForm loading state
 	
 	
+	$scope.Subscribe=function()
+	{
+			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			
+			});
+		
+	};
 	
 $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
@@ -723,10 +731,7 @@ $scope.changeFavicon=function (src) {
 		
 	$scope.joinRoom=function (usr)
 		{
-			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			
-			});
+		$scope.Subscribe();
 			
 			$scope.ConnectSockets();
 		$http.get('/user?id='+usr)
