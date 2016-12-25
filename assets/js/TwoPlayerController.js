@@ -65,7 +65,7 @@ $scope.StartRightClock=function()
 
 $scope.StartWhiteClock=function()
 	{
-		$scope.WhiteTime=((5*60)*1000);
+		$scope.WhiteTime=(($scope.ChessGameObject.InfoNum*60)*1000);
 		$scope.WhiteInterval=	setInterval(function (){
 		if ($scope.WhiteTime>0)
 		{
@@ -103,7 +103,7 @@ $scope.StartWhiteClock=function()
 	};
 $scope.StartBlackClock=function()
 	{
-		$scope.BlackTime=((5*60)*1000);
+		$scope.BlackTime=(($scope.ChessGameObject.InfoNum*60)*1000);
 	$scope.BlackInterval=setInterval(function (){
 		
 		if ($scope.BlackTime>0)
