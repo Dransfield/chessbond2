@@ -127,7 +127,7 @@ module.exports.sockets = {
     console.log("socket disconnected session:"+session);
    
     User.findOne({
-      id: req.session.passport.user
+      id: session.passport.user
 	},function foundUser(err,user){
 		if (err)
 		{//req.session.passport=null;
