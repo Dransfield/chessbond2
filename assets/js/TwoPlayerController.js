@@ -15,7 +15,7 @@ $scope.ChessGameObject={};
 $scope.ChessGameObject2={};
 
 
-io.socket.on('disconnect',function(data){
+io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
 	$scope.ConnectSockets();
 	});
@@ -722,7 +722,7 @@ $scope.changeFavicon=function (src) {
 		
 	$scope.joinRoom=function (usr)
 		{
-			$scope.ConnectSockets();
+			
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
