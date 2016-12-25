@@ -387,10 +387,13 @@ c
     
 	// set-up loginForm loading state
 	
-	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('disconnect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
+	$scope.ConnectSockets();
 	});
+	
+$scope.ConnectSockets=function(){
+	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
 	$scope.ChessGameObject.Result=game.turn()+" lost due to running out of time";
@@ -517,6 +520,8 @@ c
 		});
 		
 	});
+
+};
 
 $scope.changeFavicon=function (src) {
  var link = document.createElement('link'),
@@ -716,7 +721,7 @@ $scope.changeFavicon=function (src) {
 		
 	$scope.joinRoom=function (usr)
 		{
-			
+			$scope.ConnectSockets();
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
