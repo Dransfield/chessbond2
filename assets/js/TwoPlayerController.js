@@ -576,11 +576,11 @@ $scope.changeFavicon=function (src) {
 		{
 		if (game.turn()=='w')
 		{
-		if ($scope.ChessGameObject.Player1==me && $scope.ChessGameObject.Player1Color='White' )
+		if ($scope.ChessGameObject.Player1==me && $scope.ChessGameObject.Player1Color=='White' )
 		{
 			return true;
 		}
-		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player1Color='Black' )
+		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player1Color=='Black' )
 		{
 			
 			return true;
@@ -589,11 +589,11 @@ $scope.changeFavicon=function (src) {
 		
 		if (game.turn()=='b')
 		{
-		if ($scope.ChessGameObject.Player1==me && $scope.ChessGameObject.Player1Color='Black' )
+		if ($scope.ChessGameObject.Player1==me && $scope.ChessGameObject.Player1Color=='Black' )
 		{
 			return true;
 		}
-		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player1Color='White' )
+		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player1Color=='White' )
 		{
 			
 			return true;
