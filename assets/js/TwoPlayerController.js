@@ -891,7 +891,7 @@ $scope.changeFavicon=function (src) {
 								}
 								}
 							}
-							 }
+							 
 	 
 							console.log("move from ondrop "+JSON.stringify(move));
 							var square=   boardEl.find('.square-' + move.to);
