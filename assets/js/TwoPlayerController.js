@@ -246,49 +246,73 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			);
 			
 	};
-	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,gameid,game)
+	
+
+	
+	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,Player1Color,gameid,game)
 	{
+		var winnerID;
+		var loserID;
 		var result="";
     if (game.in_checkmate())
     {
 	if (game.turn()=='w')
 		{
-c
+
 			toastr.info("black won");
 			console.log("I am "+MyID+" player1 "+Player1);
 			console.log("I am "+MyID+" player2 "+Player2);
-			result=Player2Name+" beat "+Player1Name;
-			if (MyID==Player2)
-			{
 			
-				io.socket.put('/RecordGameResult',{
-				winner:Player2,
-				loser:Player1,
-				GameID:gameid
-					  }  
-				  
-				,function(resData,jwres)
+			
+			if (Player1Color=='Black')
 			{
-				console.log(resData);
-				console.log(jwres);
-				}
-			);
+			winnerID=Player1;
+			loserID=Player2;
 			
 			}
+			else
+			{
+			winnerID=Player2;
+			loserID=Player1;
+			
 			}
+			
+			
+		}
+	
+	
 	if (game.turn()=='b')
 		{
-			
+
 			toastr.info("white won");
-			console.log("I am "+MyID+" player1 "+Player1Name);
-			console.log("I am "+MyID+" player2 "+Player2Name);
-			result=Player1Name+" beat "+Player2Name;
-			if (MyID==Player1)
+			console.log("I am "+MyID+" player1 "+Player1);
+			console.log("I am "+MyID+" player2 "+Player2);
+			
+			
+			if (Player1Color=='Black')
 			{
-			io.socket.put('/RecordGameResult',{
-				winner:Player1,
-				loser:Player2,
-				GameID:gameid
+			winnerID=Player2;
+			loserID=Player1;
+			
+			}
+			else
+			{
+			winnerID=Player1;
+			loserID=Player2;
+		
+			}
+			
+			
+		}
+	
+		if(MyID==winnerID)
+		{
+		io.socket.put('/RecordGameResult',{
+				winner:winnerID,
+				loser:loserID,
+				GameID:gameid,
+				Timeout:'false'
+				
 					  }  
 				  
 				,function(resData,jwres)
@@ -298,11 +322,11 @@ c
 				}
 			);
 			
-			}
-			}
+		}
+	
 	}
-    
-    return result;
+	
+	
 	
 	};
 	
@@ -405,7 +429,8 @@ $scope.ConnectSockets=function(){
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
-	$scope.ChessGameObject.Result=game.turn()+" lost due to running out of time";
+	
+	
 	});
 	io.socket.on('timeevent',function(data){
 		//toastr.success(data.data.message);
@@ -848,8 +873,8 @@ $scope.changeFavicon=function (src) {
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							  $scope.ChessGameObject.Result=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,GameID,game);
-							  console.log("result after record result: "+$scope.ChessGameObject.Result);
+							  $scope.HiddenResult=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,$scope.ChessGameObject.Player1Color,GameID,game);
+							  
 							 }
 	 
 							console.log("move from ondrop "+JSON.stringify(move));
@@ -916,7 +941,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:$scope.ChessGameObject.Move,
-      Result:$scope.ChessGameObject.Result,
+    
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
       capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
       OverallScore:$scope.ChessGameObject.OverallScore

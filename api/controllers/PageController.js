@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-	function DoGameResult(winner,loser,GameID)
+	function DoGameResult(winner,loser,GameID,timeout)
 	{
 	var EloRating = require('elo-rating');
 	
@@ -39,7 +39,13 @@
 	
 	var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
-	Chessgame.update({id:GameID},{EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
+	var resultstring="";
+	if (timeout=='false')
+	{resultstring=winnerRecord.name+" beat "+loserRecord.name;}
+	else
+	{resultstring=loserRecord.name+" ran out of time. "+winnerRecord.name+" wins."}
+	
+	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
 	sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 	
 	});
@@ -280,11 +286,11 @@ deleteopengame:function(req,res){
 		console.log("cgame.Player1Color "+cgame.Player1Color);
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,cgame.id);
+		DoGameResult(cgame.Player2,cgame.Player1,cgame.id,'true');
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,cgame.id);
+		DoGameResult(cgame.Player1,cgame.Player2,cgame.id,'true');
 		}
 		}
 		
@@ -327,7 +333,7 @@ transporter.sendMail(mailOptions, function(error, info){
 
 
 	RecordGameResult:function(req,res){
-		DoGameResult(req.param('winner'),req.param('loser'),req.param('GameID'));
+		DoGameResult(req.param('winner'),req.param('loser'),req.param('GameID'),req.param('Timeout'));
 	
 	},
     
