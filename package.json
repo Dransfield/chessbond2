@@ -33,7 +33,8 @@
     "passport-twitter": "*",
     "passport-google-oauth20": "*",
     "elo-rank":"*",
-    "nodemailer":"*"
+    "nodemailer":"*",
+    "chess.js":"*"
   },
   "scripts": {
     "debug": "node debug app.js",

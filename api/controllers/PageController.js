@@ -369,97 +369,10 @@ transporter.sendMail(mailOptions, function(error, info){
   
    
   
-},
-	
-	loginbuttonpushed:function(req,res){
-		console.log('strategy is '+req.allParams()['button']);
-		//.
-	req.session.strategy=req.allParams()['button'];
+}
 	
 	
-	return res.ok();
-	},
 	
-	MyLogout:function(req,res){
-	/*	console.log(req.session.user);
-		//req.session.Loggedin='false';
-		//req.session.userid='';
-		// User.findOne({
-      //id: req.session.user.id
-	//},function foundUser(err,user){
-		if (!err){
-			
-	Auth.findOne({
-		id:user.auth
-	},function foundAuth(err,auth){
-		
-	auth.facebookId=0;
-	auth.Picture='';
-	user.save();
 	
-	});
-	}
-	});
-	*/
-	req.session.authenticated=false;
-	req.session.auth=null;
-	req.session.passport=null;
-	return res.redirect('/');
-		
-		},
-	RecordSession:function(req,res){
-	//	req.session.userid=req.session.user.id;
-		//req.session.username=req.session.auth.name;
-		res.cookie();
-		return res.view('homepage');
-	
-  //  req.session.myusername=req.session.user.auth.name;
-    
-		
-		
-		/*
-		console.log('record session');
-		var object=req.session.user;
-		req.session.Loggedin='true';
-   console.log('here is req.session.user.auth');
-	
-	for (var key in req.session.user.auth) {
-   console.log(' name=' + key + ' value=' + req.session.user.auth[key]);
-   }	
-   console.log('here is req.session.user');
-	for (var key in req.session.user) {
-   if(req.session.user[key]!='')
-   {
-   console.log(' name=' + key + ' value=' + req.session.user[key]);
-	//req.session["'"+key+"'"]= req.session.user[key];
-	
-	Object.defineProperty(req.session, 'userASSSSSSSSSS'+key, {
-  value: req.session.user[key],
-  writable: true,
-  enumerable: false,
-  configurable: true
-
-});
-	return res.view('homepage');
-	}
-	else
-	{
-	console.log(key+' is undefined');	
-	}
-   }	
-*/
-	},
-	seereq:function(req,res){
-	console.log("session "+JSON.stringify(req.session));
-	console.log("session id"+req.sesssionID);
-	},
-	Homepage:function(req,res){
-	console.log("session auth? "+JSON.stringify(req.session.authenticated));
-	//console.log("session name "+JSON.stringify(req.session.name));
-	//console.log("session user "+JSON.stringify(req.session.user));
-	//console.log("session username "+JSON.stringify(req.session.user.name));
-	//console.log("session user auth name "+JSON.stringify(req.session.user.auth.name));		
-	return res.view('homepage',JSON.stringify(req.session));
-	}
 };
 

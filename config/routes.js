@@ -40,15 +40,15 @@ module.exports.routes = {
 	
 	'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	'/humanvshuman':{view:'humanvshuman'},
-	'/recordsession':'PageController.RecordSession',
+	
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
 	'GET /forgot/password/:code':{view:'newpassword'},
 	
-	'get /seereq':'PageController.seereq',
- 	'POST /loginbuttonpushed':'PageController.loginbuttonpushed',
+	
+ 	
 	'GET /subscribeToRoom':'PageController.subscribeToRoom',
 	'PUT /newopengame':'PageController.newopengame',
 	'PUT /deleteopengame':'PageController.deleteopengame',

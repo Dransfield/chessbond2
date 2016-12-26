@@ -299,36 +299,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 			
 			});*/
 
-		}
-	$scope.LoginPushed=function (btton){
-	$http.post('/loginbuttonpushed', {
-      button:btton
-    })
-    .then(function onSuccess (dat){
-         console.log("login reply"+JSON.stringify(dat.data));
-         $window.location.href = '/auth/login?type='+btton;
-	    })
-    .catch(function onError(sailsResponse) {
-
-      // Handle known error type(s).
-      // Invalid username / password combination.
-      if (sailsResponse.status === 400 || 404) {
-        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
-        //
-        toastr.error('Cant logged in.', 'Error', {
-          
-        });
-        return;
-      }
-
-				toastr.error('An unexpected error occurred trying to log in to facebook.', 'Error', {
-					
-				});
-				return;
-
-    })
+		};
 	
-	};
 	$scope.showflash=function(msg)
 	{
 		msg=msg.split("•");
