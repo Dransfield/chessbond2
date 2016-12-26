@@ -580,7 +580,7 @@ $scope.changeFavicon=function (src) {
 		{
 			return true;
 		}
-		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player2Color='White' )
+		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player1Color='Black' )
 		{
 			
 			return true;
@@ -593,7 +593,7 @@ $scope.changeFavicon=function (src) {
 		{
 			return true;
 		}
-		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player2Color='Black' )
+		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player1Color='White' )
 		{
 			
 			return true;
