@@ -83,12 +83,13 @@ deleteopengame:function(req,res){
 			}
 		PlayerName=req.param('PlayerName');
 		PlayerID=req.param('PlayerID');
+		PlayerColor=req.param('PlayerColor');
 		GameID=req.param('GameID');
 		MyID=req.param('MyID');
 		
 		MyName=req.param('MyName');
 		GameTypeID=req.param('GameType');
-		num=req.param("InfoNum");
+		num=req.param("TimeLimit");
 		Openchessgame.findOne(GameID, function foundUser(err, game) {
 	
 		// If session refers to a user who no longer exists, still allow logout.
@@ -103,7 +104,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
-			Chessgame.create({InfoNum:num,GameType:GameTypeID,Move:1,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
+			Chessgame.create({TimeLimit:num,GameType:GameTypeID,Move:1,Player1Color:PlayerColor,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -210,7 +211,7 @@ deleteopengame:function(req,res){
 	var td=0;
 	console.log("ColorToMove "+req.param('ColorToMove'));
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
-		td=cg.InfoNum;
+		td=cg.TimeLimit;
 		console.log("delay is "+td);
 		
 		var OldMoveNumber=cg.Move;
@@ -220,7 +221,7 @@ deleteopengame:function(req,res){
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		if (cgame)
 		{
-		console.log("chess game turn duration"+cgame.InfoNum);
+		console.log("chess game turn duration"+cgame.TimeLimit);
 		console.log("chess game move in timer"+cgame.Move);
 		console.log("chess game move outside of timer "+OldMoveNumber);
 		if (cgame.Move==OldMoveNumber)

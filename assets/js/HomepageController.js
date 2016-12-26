@@ -8,7 +8,18 @@ $scope.GameForm={};
 $scope.GameForm.timelimit=5;
 $scope.GameForm.color='White';
 
+	$scope.createopengame=function(type,id,name)
+	{
+	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name,Created:Date.now() },
+    function (resData, jwr) {
 
+      // Refresh the page now that we've been logged in.
+      //window.location.reload(true); 
+		toastr.success('Created New Game');
+    });
+	};
+	
+	
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
 	$scope.joinopengameRoom();
@@ -155,16 +166,17 @@ $scope.PlayGame=function(GameID,Player2)
     })
 	};
 	
-$scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum){
+$scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamType,timelimit){
 		console.log("joingame player1"+PlayerID+" player2"+MyID+" player1name "+PlayerName+" Player2Name "+MyName);
 		$http.put('/joingame', {
 			GameID:GameID,
 			PlayerID:PlayerID,
 			PlayerName:PlayerName,
+			PlayerColor:playercolor,
 			MyID:MyID,
 			MyName:MyName,
 			GameType:GamType,
-			InfoNum:infonum
+			TimeLimit:timelimit
 			})
 			.then(function onSuccess(sailsResponse){
 			
@@ -214,16 +226,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,MyID,MyName,GamType,infonum)
 		
 		};
 
-	$scope.createopengame=function(type,infonum,id,name)
-	{
-	io.socket.put('/newopengame', { GameType:type,InfoNum:infonum,Player1: id,Player1Name:name,Created:Date.now() },
-    function (resData, jwr) {
 
-      // Refresh the page now that we've been logged in.
-      //window.location.reload(true); 
-		toastr.success('Created New Game');
-    });
-	};
 	$scope.joinopengameRoom=function ()
 		{
 			
