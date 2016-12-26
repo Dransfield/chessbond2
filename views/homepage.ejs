@@ -52,7 +52,8 @@
 			
 			<% if (req.session.passport) { %>
 			<div ng-init="joinmyuserIDRoom('<%- req.session.passport.user %>')"></div>
-		
+			<div ng-init="ReconnectFunction('<%- req.session.passport.user %>')"></div>
+			
 			
 			<% }else{ %>
 			<% if (req.session.flash){%>

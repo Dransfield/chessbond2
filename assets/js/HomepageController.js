@@ -19,7 +19,8 @@ $scope.GameForm.color='White';
     });
 	};
 	
-	
+	$scope.ReconnectFunction=function(MyID)
+	{
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
 	$scope.joinopengameRoom();
@@ -39,7 +40,7 @@ io.socket.on('connect',function(data){
 			)		
 	}
 	});
-
+	};
 	io.socket.on('newmygameevent', function (data)
 			{
 			console.log('recieved new game event '+data);
