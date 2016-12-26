@@ -576,30 +576,32 @@ $scope.changeFavicon=function (src) {
 		{
 		if (game.turn()=='w')
 		{
-		if ($scope.ChessGameObject.Player1==me)
+		if ($scope.ChessGameObject.Player1==me && $scope.ChessGameObject.Player1Color='White' )
 		{
-			console.log('it is your turn');
-			return true;}
-		else
-		{
-			console.log('its '+$scope.ChessGameObject.Player1+'s turn'+me);
-			return false;}
+			return true;
 		}
-		else
+		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player2Color='White' )
 		{
-		if ($scope.ChessGameObject.Player2==me)
-		{
-			console.log('it is your turn');
-			return true;}
-		else
-		{
-			console.log('its '+$scope.ChessGameObject.Player2+'s turn'+me);
-		
-		return false;}
-		
+			
+			return true;
 		}
 		}
 		
+		if (game.turn()=='b')
+		{
+		if ($scope.ChessGameObject.Player1==me && $scope.ChessGameObject.Player1Color='Black' )
+		{
+			return true;
+		}
+		if ($scope.ChessGameObject.Player2==me && $scope.ChessGameObject.Player2Color='Black' )
+		{
+			
+			return true;
+		}
+
+		}
+	return false;
+	}
 		
 	$scope.getchatmessages=function(){
 		
