@@ -270,10 +270,15 @@ deleteopengame:function(req,res){
 		console.log("chess game move outside of timer "+OldMoveNumber);
 		if (cgame.Move==OldMoveNumber)
 		{
+			var clrtomove;
+			if (req.param('ColorToMove')=='w')
+			{clrtomove='White';}
+			else
+			{clrtomove='Black';}
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
 		console.log('ColorToMove'+req.param('ColorToMove'));
 		console.log("cgame.Player1Color "+cgame.Player1Color);
-		if (req.param('ColorToMove')==cgame.Player1Color)
+		if (clrtomove==cgame.Player1Color)
 		{
 		DoGameResult(cgame.Player2,cgame.Player1,cgame.id);
 		}
