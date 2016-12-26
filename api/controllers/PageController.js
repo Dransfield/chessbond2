@@ -229,11 +229,11 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
 		if (req.param('ColorToMove')==cgame.Player1Color)
 		{
-		$scope.DoGameResult(cgame.Player1,cgame.Player2);
+		DoGameResult(cgame.Player1,cgame.Player2);
 		}
 		else
 		{
-		$scope.DoGameResult(cgame.Player2,cgame.Player1);
+		DoGameResult(cgame.Player2,cgame.Player1);
 		}
 		}
 		
