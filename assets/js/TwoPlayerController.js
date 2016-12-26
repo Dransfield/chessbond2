@@ -952,26 +952,26 @@ console.log("put chessgame move is :"+$scope.ChessGameObject.Move);
 console.log("put chessgame captured whites:"+$scope.ChessGameObject.capturedWhitepieces);
 console.log("put chessgame captured Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 
-var inchk;
-if (game.in_checkmate())
-{inchk='true';}
-else
-{inchk='false';}
+
 
 io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:$scope.ChessGameObject.Move,
-		incheckmate:inchk,
+		
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
       capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
       OverallScore:$scope.ChessGameObject.OverallScore
       }  
     ,function(resData,jwres)
 	{
-	
-	io.socket.put('/chessgamemove',{GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
+	var inchk;
+	if (game.in_checkmate())
+	{inchk='true';}
+	else
+	{inchk='false';}
+	io.socket.put('/chessgamemove',{incheckmate:inchk,GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
 	console.log(jwres);
 	});
