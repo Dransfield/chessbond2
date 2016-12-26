@@ -456,6 +456,7 @@ $scope.ConnectSockets=function(){
 			});
 	io.socket.on('ELOAdjustments',function(data){
 	$scope.ChessGameObject2=data;
+	console.log("recieved elo adjustments!");
 	
 	});
 	 io.socket.on('chessgamemove', function (data){
