@@ -18,7 +18,7 @@
 	
 	var winnerRecord;
 	var loserRecord;
-	if (winner)==winnersandlosers[0].id)
+	if (winner==winnersandlosers[0].id)
 	{winnerRecord=winnersandlosers[0];
 		loserRecord=winnersandlosers[1];
 		}
