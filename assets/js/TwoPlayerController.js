@@ -31,8 +31,8 @@ $scope.TopSeconds=0;
 $scope.BottomMinutes=0;
 $scope.BottomSeconds=0;
 
-$scope.WhiteTime=((5*60)*1000);
-$scope.BlackTime=((5*60)*1000);
+$scope.WhiteTime=0;
+$scope.BlackTime=0;
 
 $scope.WhiteTimeDisplay="string";
 $scope.WhiteMinutes;
@@ -123,7 +123,6 @@ $scope.StartBlackClock=function()
 		if($scope.PlayerOnBottom=='Black')
 		{
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);
-			
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
 		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMilliseconds);
 		}
@@ -942,11 +941,24 @@ console.log('about to putsocket');
  board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: 'img/chesspieces/'+$scope.User.ChessPieceTheme+'/{piece}.png'} );
  game = new Chess();
 
- if ($scope.ChessGameObject.Player2==me)
-	{board1.flip();
+	if ($scope.ChessGameObject.Player2==me){
+		if ($scope.ChessGameObject.Player1Color=='White')
+		{
+		board1.flip();
 		$scope.PlayerOnBottom='Black';
 		console.log("black is on bottom ");
 		}
+	
+	
+	}
+	if ($scope.ChessGameObject.Player1==me){
+		if ($scope.ChessGameObject.Player1Color=='Black')
+		{
+		board1.flip();
+		$scope.PlayerOnBottom='Black';
+		console.log("black is on bottom ");
+		}
+	}
 
 	board1.start();
 	
@@ -981,103 +993,19 @@ console.log('about to putsocket');
 		
 		
 		});
-			};
+		};
 	$scope.setBoard=function (me)
 		{
 			$http.get('/user?id='+me).then(function
 			(res)
 			{//res.data.JSONpref=null;
-			
-	
-				
-				
-				
-	
-			
-			
-			
-			
-$scope.resetBoard(me);
-		
-		
-	});
-	
-	};
+			$scope.resetBoard(me);
+			});
+		};
 	
    
 
 		
-	 
-
-
-	   /* 
-     
-	 setInterval(function ()
-		{
-        if (announced_game_over) {
-            return;
-        }
-        }
-        )
-        
-        if (chess.game_over())
-        {
-        if (chess.game_checkmate())
-        {
-        if (chess.NotPlayersTurn())
-        {
-            announced_game_over = true;
-           toastr.success("You Won!");
-           $http.put('/updatelevelbeaten', {
-			DifficultyLevelBeaten:$scope.LevelForm.level,
-			})
-			.then(function onSuccess (){
-			//Refresh the page now that we've been logged in.
-			toastr.success('Your victory has been recorded in your profile');
-			})   
-            .catch(function onError(sailsResponse) {
-
-      // Handle known error type(s).
-      // Invalid username / password combination.
-      if (sailsResponse.status === 500) {
-        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
-        //
-        toastr.error('Log in to record your victories.', 'Error', {
-          closeButton: true
-        });
-        return;
-      }
-		
-				toastr.error('An unexpected error occurred, please try again.', 'Error', {
-					closeButton: true
-				});
-				return;
-
-    })
-           
-        }
-        }
-		}
-        
-    }, 1000);
-     
-    
-	$scope.injectfen=function (){
-	
-	
-	chess.injectboard('3Q1R2/8/5R2/P7/6p1/2K1k1P1/P6B/8 w - - 0 55');
-	chess.injectgame('3Q1R2/8/5R2/P7/6p1/2K1k1P1/P6B/8 w - - 0 55');
-	}
-	
-	
-	$scope.PressedGoButton=function(){
-	$scope.hideboard=false;
-	chess=init($scope.LevelForm.level);
-	$scope.hidedifficulty=true;
-	toastr.success("Playing at difficulty level "+$scope.LevelForm.level);
-	
-	};
-	 */
 }]
  )
  ;
