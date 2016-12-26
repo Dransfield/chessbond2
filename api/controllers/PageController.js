@@ -263,20 +263,26 @@ deleteopengame:function(req,res){
 	
 	if (req.param('incheckmate')=='true')
 	{
+		
+		
+			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
+		
 			var clrtomove;
 			if (req.param('ColorToMove')=='w')
 			{clrtomove='White';}
 			else
 			{clrtomove='Black';}
-	if (clrtomove==cgame.Player1Color)
+	if (clrtomove==cg.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,cgame.id,'true');
+		DoGameResult(cg.Player2,cgame.Player1,cg.id,'true');
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,cgame.id,'true');
+		DoGameResult(cg.Player1,cgame.Player2,cg.id,'true');
 		}
 
+	});
+	
 	}
 	else
 	{
@@ -356,10 +362,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	},
 
 
-	RecordGameResult:function(req,res){
-		DoGameResult(req.param('winner'),req.param('loser'),req.param('GameID'),req.param('Timeout'));
 	
-	},
     
     chatmsg:function(req,res){
 

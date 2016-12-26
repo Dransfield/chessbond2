@@ -249,86 +249,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	
 
 	
-	$scope.RecordGameResult=function(MyID,Player1,Player2,Player1Name,Player2Name,Player1Color,gameid,game)
-	{
-		var winnerID;
-		var loserID;
-		var result="";
-    if (game.in_checkmate())
-    {
-	if (game.turn()=='w')
-		{
-
-			toastr.info("black won");
-			console.log("I am "+MyID+" player1 "+Player1);
-			console.log("I am "+MyID+" player2 "+Player2);
-			
-			
-			if (Player1Color=='Black')
-			{
-			winnerID=Player1;
-			loserID=Player2;
-			
-			}
-			else
-			{
-			winnerID=Player2;
-			loserID=Player1;
-			
-			}
-			
-			
-		}
 	
-	
-	if (game.turn()=='b')
-		{
-
-			toastr.info("white won");
-			console.log("I am "+MyID+" player1 "+Player1);
-			console.log("I am "+MyID+" player2 "+Player2);
-			
-			
-			if (Player1Color=='Black')
-			{
-			winnerID=Player2;
-			loserID=Player1;
-			
-			}
-			else
-			{
-			winnerID=Player1;
-			loserID=Player2;
-		
-			}
-			
-			
-		}
-	
-		if(MyID==winnerID)
-		{
-		io.socket.put('/RecordGameResult',{
-				winner:winnerID,
-				loser:loserID,
-				GameID:gameid,
-				Timeout:'false'
-				
-					  }  
-				  
-				,function(resData,jwres)
-			{
-				console.log(resData);
-				console.log(jwres);
-				}
-			);
-			
-		}
-	
-	}
-	
-	
-	
-	};
 	
 	$scope.Showcapturedpiece=function(cap,colour,updaterecord)
 	{
@@ -879,9 +800,7 @@ $scope.changeFavicon=function (src) {
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							 // $scope.HiddenResult=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,$scope.ChessGameObject.Player1Color,GameID,game);
 							
-								
 								if($scope.User)
 								{		
 								if($scope.User.SoundEnabled=='Sound Enabled')
