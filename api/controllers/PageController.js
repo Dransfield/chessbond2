@@ -47,7 +47,7 @@
 	
 	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
-		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
+		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
 	
 	});
 	
