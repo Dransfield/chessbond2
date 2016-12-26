@@ -454,23 +454,13 @@ $scope.ConnectSockets=function(){
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
 			
 			});
-	io.socket.on('ELOAdjustments',function(data){
-	$scope.ChessGameObject2=data;
-	console.log("recieved elo adjustments!");
-	
-	});
+
 	 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
 		if (document.visibilityState=='hidden')
 				{  $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
 					}
-			if($scope.User)
-			{		
-			if($scope.User.SoundEnabled=='Sound Enabled')
-			{
-			$scope.PlayMove();
-			}
-			}
+			
 
   			$http.get('/chessgame?id='+GameID)
 		.then(function (latest) {
@@ -493,7 +483,13 @@ $scope.ConnectSockets=function(){
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
-	
+		if($scope.User)
+			{		
+			if($scope.User.SoundEnabled=='Sound Enabled')
+			{
+			$scope.PlayMove();
+			}
+			}
 			$scope.Showcapturedpiece(move.captured,move.color,false);
 			
 	
@@ -540,6 +536,18 @@ $scope.ConnectSockets=function(){
 			board1.position(game.fen());
 		}
 		
+		if (game.in_checkmate())
+		{
+			if($scope.User)
+			{		
+			if($scope.User.SoundEnabled=='Sound Enabled')
+			{
+			$scope.PlayCheckMate();
+			toastr.success("CheckMate!");
+			}
+			}
+		}
+		
 		}
 		else
 		{
@@ -548,10 +556,7 @@ $scope.ConnectSockets=function(){
 		//game.load(gameRecordnow.fen);
 		console.log("after update "+game.ascii());
 		}
-		if (game.in_checkmate())
-		{$scope.PlayCheckMate();
-			//toastr.success("CheckMate!");
-			}
+		
 		});
 		
 	});
@@ -875,7 +880,17 @@ $scope.changeFavicon=function (src) {
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
 							  $scope.HiddenResult=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,$scope.ChessGameObject.Player1Color,GameID,game);
-							  
+							
+								
+								if($scope.User)
+								{		
+								if($scope.User.SoundEnabled=='Sound Enabled')
+								{
+								$scope.PlayCheckMate();
+								
+								}
+								}
+							}
 							 }
 	 
 							console.log("move from ondrop "+JSON.stringify(move));
