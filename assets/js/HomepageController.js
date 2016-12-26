@@ -23,7 +23,21 @@ $scope.GameForm.color='White';
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
 	$scope.joinopengameRoom();
+	if($scope.User)
+	{
 	$scope.joinmyuserIDRoom($scope.User.id);
+	}
+	else
+	{
+		$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.User=sailsResponse.data;
+			$scope.joinmyuserIDRoom($scope.User.id);
+	
+			}
+			)		
+	}
 	});
 
 	io.socket.on('newmygameevent', function (data)
