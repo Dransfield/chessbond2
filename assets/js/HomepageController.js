@@ -4,6 +4,7 @@ $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
 
+$scope.GameForm={};
 $scope.GameForm.timelimit=5;
 $scope.GameForm.color='White';
 
