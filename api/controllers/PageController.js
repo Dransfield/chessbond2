@@ -46,7 +46,8 @@
 	{resultstring=loserRecord.name+" ran out of time. "+winnerRecord.name+" wins."}
 	
 	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
-	sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
+	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
+		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	
 	});
 	
@@ -257,9 +258,31 @@ deleteopengame:function(req,res){
 	
 
     chessgamemove:function(req,res){
-		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	var td=0;
-	console.log("ColorToMove "+req.param('ColorToMove'));
+	console.log("req.param('incheckmate')"+req.param('incheckmate'));
+	
+	if (req.param('incheckmate')==true)
+	{
+			var clrtomove;
+			if (req.param('ColorToMove')=='w')
+			{clrtomove='White';}
+			else
+			{clrtomove='Black';}
+	if (clrtomove==cgame.Player1Color)
+		{
+		DoGameResult(cgame.Player2,cgame.Player1,cgame.id,'true');
+		}
+		else
+		{
+		DoGameResult(cgame.Player1,cgame.Player2,cgame.id,'true');
+		}
+
+	}
+	else
+	{
+	sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
+	
+		console.log("ColorToMove "+req.param('ColorToMove'));
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		td=cg.TimeLimit;
 		console.log("delay is "+td);
@@ -303,6 +326,7 @@ deleteopengame:function(req,res){
 	
 	});
 	return res.ok();
+	}
 	},
 	ReturnPing:function(req,res){
 	return res.ok();

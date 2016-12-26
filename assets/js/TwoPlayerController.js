@@ -879,7 +879,7 @@ $scope.changeFavicon=function (src) {
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							  $scope.HiddenResult=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,$scope.ChessGameObject.Player1Color,GameID,game);
+							 // $scope.HiddenResult=$scope.RecordGameResult(me,$scope.ChessGameObject.Player1,$scope.ChessGameObject.Player2,$scope.ChessGameObject.Player1Name,$scope.ChessGameObject.Player2Name,$scope.ChessGameObject.Player1Color,GameID,game);
 							
 								
 								if($scope.User)
@@ -957,7 +957,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:$scope.ChessGameObject.Move,
-    
+		incheckmate:game.in_checkmate(),
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
       capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
       OverallScore:$scope.ChessGameObject.OverallScore
