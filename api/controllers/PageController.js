@@ -227,7 +227,14 @@ deleteopengame:function(req,res){
 		if (cgame.Move==OldMoveNumber)
 		{
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
-		DoGameResult(req.param('winner'),req.param('loser'));
+		if (req.param('ColorToMove')==cgame.Player1Color)
+		{
+		DoGameResult(cgame.Player1,cgame.Player2);
+		}
+		else
+		{
+		DoGameResult(cgame.Player2,cgame.Player1);
+		}
 		}
 		
 		}
