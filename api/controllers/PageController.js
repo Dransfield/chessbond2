@@ -5,12 +5,12 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-	function DoGameResult(winner,loser)
+	function DoGameResult(winner,loser,GameID)
 	{
 	var EloRating = require('elo-rating');
 	
-	console.log("winner "+req.param('winner'));
-	console.log("loser "+req.param('loser'));
+	console.log("winner "+winner);
+	console.log("loser "+loser);
 			User.find({
   id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
@@ -18,7 +18,7 @@
 	
 	var winnerRecord;
 	var loserRecord;
-	if (req.param('winner')==winnersandlosers[0].id)
+	if (winner)==winnersandlosers[0].id)
 	{winnerRecord=winnersandlosers[0];
 		loserRecord=winnersandlosers[1];
 		}
@@ -39,8 +39,8 @@
 	
 	var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
-	Chessgame.update({id:req.param('GameID')},{EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
-	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',updated);
+	Chessgame.update({id:GameID},{EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
+	sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 	
 	});
 	
@@ -273,11 +273,11 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
 		if (req.param('ColorToMove')==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player1,cgame.Player2);
+		DoGameResult(cgame.Player1,cgame.Player2,cgame.id);
 		}
 		else
 		{
-		DoGameResult(cgame.Player2,cgame.Player1);
+		DoGameResult(cgame.Player2,cgame.Player1,cgame.id);
 		}
 		}
 		
@@ -320,7 +320,7 @@ transporter.sendMail(mailOptions, function(error, info){
 
 
 	RecordGameResult:function(req,res){
-		DoGameResult(req.param('winner'),req.param('loser'));
+		DoGameResult(req.param('winner'),req.param('loser'),req.param('GameID'));
 	
 	},
     
