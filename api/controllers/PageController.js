@@ -274,11 +274,11 @@ deleteopengame:function(req,res){
 			{clrtomove='Black';}
 	if (clrtomove==cg.Player1Color)
 		{
-		DoGameResult(cg.Player2,cg.Player1,cg.id,'true');
+		DoGameResult(cg.Player2,cg.Player1,cg.id,'false');
 		}
 		else
 		{
-		DoGameResult(cg.Player1,cg.Player2,cg.id,'true');
+		DoGameResult(cg.Player1,cg.Player2,cg.id,'false');
 		}
 
 	});
