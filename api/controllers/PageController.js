@@ -271,13 +271,15 @@ deleteopengame:function(req,res){
 		if (cgame.Move==OldMoveNumber)
 		{
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
+		console.log('ColorToMove'+req.param('ColorToMove'));
+		console.log("cgame.Player1Color "+cgame.Player1Color);
 		if (req.param('ColorToMove')==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,cgame.id);
+		DoGameResult(cgame.Player2,cgame.Player1,cgame.id);
 		}
 		else
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,cgame.id);
+		DoGameResult(cgame.Player1,cgame.Player2,cgame.id);
 		}
 		}
 		
