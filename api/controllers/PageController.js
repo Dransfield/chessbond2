@@ -226,6 +226,7 @@ deleteopengame:function(req,res){
 		if (cgame.Move==OldMoveNumber)
 		{
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
+		DoGameResult(req.param('winner'),req.param('loser'));
 		}
 		
 		}
@@ -264,17 +265,14 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 	
 	},
-	RecordGameResult:function(req,res){
+	DoGameResult:function(winner,loser)
+	{
 	var EloRating = require('elo-rating');
 	
-		//var elo = require('elo-rank')(32);
 	console.log("winner "+req.param('winner'));
 	console.log("loser "+req.param('loser'));
-	//var expectedScoreA = elo.getExpected(playerA, playerB);
-	//var expectedScoreB = elo.getExpected(playerB, playerA);
-	
-	User.find({
-  id : [req.param('winner'), req.param('loser')]
+			User.find({
+  id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
 	console.log(JSON.stringify(winnersandlosers));
 	
@@ -291,50 +289,28 @@ transporter.sendMail(mailOptions, function(error, info){
 		
 		}
 	
-	console.log("loser record:"+JSON.stringify(loserRecord));
-	console.log("winner record:"+JSON.stringify(winnerRecord));
-	
-	console.log("loser is "+loserRecord.name);
-	console.log("winner is "+winnerRecord.name);
-	
-	
 	var winnerstartELO=winnerRecord.ELO;
 	var loserstartELO=loserRecord.ELO;
-	
-	//var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
-	//var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
 	var obj=EloRating.calculate(winnerRecord.ELO, loserRecord.ELO);
 	winnerRecord.ELO=obj.playerRating;
 	loserRecord.ELO=obj.opponentRating;
-	
-	//console.log("expectedScoreA is "+expectedScoreA);
-	//console.log("expectedScoreB is "+expectedScoreB);
-	//console.log("loser ELO was "+loserRecord.ELO);
-	
-	//console.log("winner ELO was "+winnerRecord.ELO);
-	
-//	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
-	// loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
-	
-	
-	//console.log("loser ELO is "+loserRecord.ELO);
-	
-	//console.log("winner ELO is "+winnerRecord.ELO);
-	
 	loserRecord.save();
 	winnerRecord.save();
 	
 	var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
-	//console.log("GameID "+req.param('GameID'));
 	Chessgame.update({id:req.param('GameID')},{EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
 	sails.sockets.broadcast(req.param('GameID'), 'ELOAdjustments',updated);
-	//console.log("ELO results"+JSON.stringify(updated));
-	//console.log(JSON.stringify(err));
+	
 	});
 	
 	
 	});
+
+	},
+
+	RecordGameResult:function(req,res){
+		DoGameResult(req.param('winner'),req.param('loser'));
 	
 	},
     
