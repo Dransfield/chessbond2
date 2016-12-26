@@ -229,11 +229,11 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
 		if (req.param('ColorToMove')==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player1,cgame.Player2);
+		this.DoGameResult(cgame.Player1,cgame.Player2);
 		}
 		else
 		{
-		DoGameResult(cgame.Player2,cgame.Player1);
+		this.DoGameResult(cgame.Player2,cgame.Player1);
 		}
 		}
 		
@@ -273,7 +273,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 	
 	},
-	DoGameResult=function(winner,loser)
+	DoGameResult:function(winner,loser)
 	{
 	var EloRating = require('elo-rating');
 	
