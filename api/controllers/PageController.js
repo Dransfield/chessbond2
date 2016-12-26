@@ -273,7 +273,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 	
 	},
-	DoGameResult:function(winner,loser)
+	DoGameResult=function(winner,loser)
 	{
 	var EloRating = require('elo-rating');
 	
