@@ -4,6 +4,10 @@ $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
 
+$scope.GameForm.timelimit=5;
+$scope.GameForm.color='White';
+
+
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
 	$scope.joinopengameRoom();
