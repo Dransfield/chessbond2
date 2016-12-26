@@ -261,7 +261,7 @@ deleteopengame:function(req,res){
 	var td=0;
 	console.log("req.param('incheckmate')"+req.param('incheckmate'));
 	
-	if (req.param('incheckmate')==true)
+	if (req.param('incheckmate')=='true')
 	{
 			var clrtomove;
 			if (req.param('ColorToMove')=='w')

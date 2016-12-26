@@ -952,12 +952,18 @@ console.log("put chessgame move is :"+$scope.ChessGameObject.Move);
 console.log("put chessgame captured whites:"+$scope.ChessGameObject.capturedWhitepieces);
 console.log("put chessgame captured Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 
+var inchk;
+if (game.in_checkmate())
+{inchk='true';}
+else
+{inchk='false';}
+
 io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       fen: game.fen(),
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:$scope.ChessGameObject.Move,
-		incheckmate:game.in_checkmate(),
+		incheckmate:inchk,
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
       capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
       OverallScore:$scope.ChessGameObject.OverallScore
