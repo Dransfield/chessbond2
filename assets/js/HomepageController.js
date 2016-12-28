@@ -262,7 +262,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			console.log(JSON.stringify(resData));
 			});
 		
-		$http.get('/subscription?room='+roomname'&limit=3000').then( function (dat) {
+		$http.get('/subscription?room='+roomname+'&limit=3000').then( function (dat) {
 			$scope.Players=[];
 			for(x in dat.data)
 			{
