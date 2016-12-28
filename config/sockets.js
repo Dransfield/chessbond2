@@ -125,10 +125,14 @@ module.exports.sockets = {
    afterDisconnect: function(session, socket, cb) {
     //console.log("socket disconnected socket:"+socket);
     //console.log("socket disconnected session:"+JSON.stringify(session));
-   Subscription.find(subscriber:session.passport.user).exec(function (err, records) {
+  if(session.passport)
+  {
+	  if(session.passport.user)
+	  {
+   Subscription.find({subscriber:session.passport.user}).exec(function (err, records) {
 	console.log(JSON.stringify(records));
 	});
-   
+   }}
      // By default: do nothing.
      return cb();
    },
