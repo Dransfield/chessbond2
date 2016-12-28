@@ -256,13 +256,13 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 	$scope.joinopengameRoom=function ()
 		{
 			
+		var roomname='openchessgameroom';
 		
-		
-			io.socket.get("/subscribeToRoom",{roomName:'openchessgameroom'},function (resData,jwres){
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
 		
-		$http.get('/subscription?limit=3000&room=\'openchessgameroom\'').then( function (dat) {
+		$http.get('/subscription?limit=3000&room='+roomname).then( function (dat) {
 			$scope.opg=[];
 			for(x in dat.data)
 			{
