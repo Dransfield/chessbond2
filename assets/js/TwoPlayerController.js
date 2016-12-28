@@ -347,11 +347,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		
 	};
 	
-$scope.ConnectSockets=function(){
-	console.log("Connect Sockets");
-	document.head = document.head || document.getElementsByTagName('head')[0];
-	
-	var roomname=GameID;
+	$scope.LoadSubscribers=function(){
+		var roomname=GameID;
 	
 	$http.get('/subscription?room='+roomname+'&limit=3000').then( function (dat) {
 			$scope.Players=[];
@@ -397,6 +394,13 @@ $scope.ConnectSockets=function(){
 			
 			
 			});
+			};
+	
+$scope.ConnectSockets=function(){
+	console.log("Connect Sockets");
+	document.head = document.head || document.getElementsByTagName('head')[0];
+	
+	
 	
 	io.socket.on('left room',function(data)
 			{
@@ -819,6 +823,8 @@ $scope.changeFavicon=function (src) {
 						.then(function (res) {
 							
 							$scope.ChessGameObject=res.data;
+							
+							$scope.LoadSubscribers();
 							
 							ShowPlayersAvatars();
 							
