@@ -403,7 +403,7 @@ $scope.ConnectSockets=function(){
 		
 	io.socket.on('secondelapsed',function(data)
 			{
-			console.log("second passed");
+			console.log("second passed"+data.msg);
 				
 			});
 	
