@@ -270,7 +270,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			$http.get('/user?id='+dat.data.id, {
 			})
 			.then(function onSuccess(sailsResponse){
-			$scope.Players.push(sailsResponse.name);
+			$scope.Players.push({name:sailsResponse.name});
 			}
 			)
 			 // => {id:9, name: 'Timmy Mendez'}
