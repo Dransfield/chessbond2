@@ -353,6 +353,21 @@ $scope.ConnectSockets=function(){
 		console.log("left room"+JSON.stringify(data));
 	});
 	
+	io.socket.on('left room',function(data)
+			{
+			io.socket.get("/user?id="+data.leaver,{},function (resData,jwres){
+					for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			
+			if($scope.Players[i].name==resData.name) {
+			$scope.$apply($scope.Players.splice(i, 1));
+			}
+			}
+			
+			
+    	});
+				
+			});
+	
 	io.socket.on('joined room',function(data)
 			{
 			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
