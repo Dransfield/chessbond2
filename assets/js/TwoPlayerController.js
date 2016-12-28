@@ -349,12 +349,11 @@ $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	
-	io.socket.on('left room',function(data){
-		console.log("left room"+JSON.stringify(data));
-	});
+	
 	
 	io.socket.on('left room',function(data)
 			{
+	console.log("left room"+JSON.stringify(data));
 			io.socket.get("/user?id="+data.leaver,{},function (resData,jwres){
 					for(var i = $scope.Players.length - 1; i >= 0; i--) {
 			
