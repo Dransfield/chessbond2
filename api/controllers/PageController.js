@@ -386,6 +386,12 @@ transporter.sendMail(mailOptions, function(error, info){
     if (err) {
       return res.serverError(err);
     }
+    if (req.session)
+    {
+	if (req.session.passport)
+    {
+	if (req.session.passport.user)
+    {	
 	Subscription.create({subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 			if (err)
@@ -398,7 +404,7 @@ transporter.sendMail(mailOptions, function(error, info){
       message: 'Subscribed to a room called '+roomName+'!'
     });
 			});
-   
+   }}}
   });
   
    
