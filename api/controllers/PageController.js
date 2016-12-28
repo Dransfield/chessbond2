@@ -386,7 +386,7 @@ transporter.sendMail(mailOptions, function(error, info){
     if (err) {
       return res.serverError(err);
     }
-	Subscription.Create({subscriber:req.session.passport.user,room:roomName}).exec
+	Subscription.create({subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 		 return res.json({
 		
