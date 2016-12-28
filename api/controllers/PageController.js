@@ -386,14 +386,14 @@ transporter.sendMail(mailOptions, function(error, info){
     if (err) {
       return res.serverError(err);
     }
-
-    return res.json({
-		Subscription.Create({subscriber:req.session.passport.user,room:roomName}).exec
+	Subscription.Create({subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
-
-			});
+		 return res.json({
+		
       message: 'Subscribed to a room called '+roomName+'!'
     });
+			});
+   
   });
   
    
