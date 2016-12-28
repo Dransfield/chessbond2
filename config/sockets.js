@@ -144,7 +144,7 @@ module.exports.sockets = {
    
    }
    }
-	}
+	
      // By default: do nothing.
      return cb();
    }
