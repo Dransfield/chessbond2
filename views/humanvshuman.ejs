@@ -148,12 +148,13 @@
 	<span class="label label-default">Players</span>
 	<br>
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
-			<td ng-show="Players.indexOf(Player1Namer)!=-1" color="green">ONLINE</td>
-
+			
+			<td >{{Player1Online}}</td>
+	
 	<br>
 	<span class="text-info" ng-model="Player2Name">Player2:<span class="label label-success">{{Player2Name}}</span></span>
 	<br>
-			<td ng-show="Players.indexOf({name:Player2Name})!=-1" color="green">ONLINE</td>
+			<td >{{Player2Online}}</td>
 	
         <span class="label label-default" ng-model="TurnTaker">It's {{TurnTaker}}'s Turn</span>
    <hr>

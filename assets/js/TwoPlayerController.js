@@ -7,6 +7,8 @@ $scope.chatting=new Array();
 $scope.Players=[];
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
+$scope.Player1Online="";
+$scope.Player2Online="";
 $scope.ShowOptions=true;
 
 $scope.HideInject=true;
@@ -383,6 +385,14 @@ $scope.ConnectSockets=function(){
 			if (foundplayer==false)
 			{
 			$scope.$apply($scope.Players.push({name:resData.name}));
+			if (resData.name==$scope.Player1Namer)
+			{
+			$scope.Player1Online=" Online";	
+			}
+			if (resData.name==$scope.Player2Name)
+			{
+			$scope.Player2Online=" Online";	
+			}
 			}
     	});
 				
