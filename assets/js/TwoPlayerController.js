@@ -376,7 +376,7 @@ $scope.ConnectSockets=function(){
 			if (foundplayer==false)
 			{
 			$scope.Players.push({name:sailsResponse.data.name});
-			
+			console.log("foundsubscriber "+sailsResponse.data.name);
 			
 			if (sailsResponse.data.name==$scope.Player1Namer)
 			{
