@@ -343,11 +343,11 @@ deleteopengame:function(req,res){
 	}
 		//,td*60);
 	,(td*60)*1000);
-	
-	});
 	*/
+	});
+	
 	return res.ok();
-	}
+	
 	}
 	},
 	ReturnPing:function(req,res){
