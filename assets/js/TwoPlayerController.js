@@ -1014,7 +1014,7 @@ console.log('about to putsocket');
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: 'img/chesspieces/'+$scope.User.ChessPieceTheme+'/{piece}.png'} );
+ board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme+'/{piece}.png'} );
  game = new Chess();
 
 	if ($scope.ChessGameObject.Player2==me){
