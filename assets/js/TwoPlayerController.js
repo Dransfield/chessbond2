@@ -361,7 +361,14 @@ $scope.ConnectSockets=function(){
 					for(var i = $scope.Players.length - 1; i >= 0; i--) {
 			console.log("player in list"+$scope.Players[i].name);
 			if($scope.Players[i].name==resData.name) {
-				console.log("got here");
+			if (resData.name==$scope.Player1Namer)
+			{
+			$scope.Player1Online=""
+			}
+			if (resData.name==$scope.Player2Name)
+			{
+			$scope.Player2Online=""
+			}
 			$scope.$apply($scope.Players.splice(i, 1));
 			}
 			}
