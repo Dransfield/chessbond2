@@ -262,12 +262,12 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			console.log(JSON.stringify(resData));
 			});
 		
-		$http.get('/subscription?limit=3000&room='+roomname).then( function (dat) {
-			$scope.opg=[];
+		$http.get('/subscription?room='+roomname'&limit=3000').then( function (dat) {
+			$scope.Players=[];
 			for(x in dat.data)
 			{
 			
-			$http.get('/user?id='+MyID, {
+			$http.get('/user?id='+dat.data.id, {
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.Players.push(sailsResponse.name);
