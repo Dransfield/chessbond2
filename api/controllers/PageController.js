@@ -295,6 +295,20 @@ deleteopengame:function(req,res){
 		
 		var OldMoveNumber=cg.Move;
 		console.log("old move outside of timer"+OldMoveNumber);
+		if(cg.interval)
+		{
+		clearInterval(cg.interval);
+		}
+		
+		myint=setInterval(function(){
+		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:"one second"});
+		
+		},1000);
+		
+		cg.interval=myint;
+		cg.save();
+		
+	/*
 	setTimeout(		function(){
 		
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
@@ -331,6 +345,7 @@ deleteopengame:function(req,res){
 	,(td*60)*1000);
 	
 	});
+	*/
 	return res.ok();
 	}
 	},

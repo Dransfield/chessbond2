@@ -400,7 +400,12 @@ $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	
-	
+		
+	io.socket.on('secondelapsed',function(data)
+			{
+			console.log("second passed");
+				
+			});
 	
 	io.socket.on('left room',function(data)
 			{
