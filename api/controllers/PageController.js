@@ -300,10 +300,11 @@ deleteopengame:function(req,res){
 		
 		for (x in TimerList)
 		{
-		if (TimerObject[x].Game==req.param('GameID'))
+		
+		if (TimerList[x].Game==req.param('GameID'))
 		{
-			console.log("clearing timer "+TimerObject[x].Timer);
-		clearInterval(TimerObject[x].Timer);	
+			console.log("clearing timer "+TimerList[x].Timer);
+		clearInterval(TimerList[x].Timer);	
 		}
 		}
 		
