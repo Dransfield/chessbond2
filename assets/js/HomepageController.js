@@ -266,10 +266,10 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			$scope.Players=[];
 			for(x in dat.data)
 			{
-			console.log(dat.data[x].id);
+			console.log(dat.data[x].subscriber);
 			console.log(JSON.stringify(dat.data));
 			
-			$http.get('/user?id='+dat.data[x].id, {
+			$http.get('/user?id='+dat.data[x].subscriber, {
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.Players.push({name:sailsResponse.name});
