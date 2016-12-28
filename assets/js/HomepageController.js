@@ -51,7 +51,7 @@ io.socket.on('connect',function(data){
 			console.log(data);
 			});
 			
-			setInterval(function (MyID)
+		/*	setInterval(function (MyID)
 			{
 				
 				for(var i = $scope.Players.length - 1; i >= 0; i--) {
@@ -66,7 +66,7 @@ io.socket.on('connect',function(data){
 		
 			});
 		}, 5000);
-
+	*/
 	io.socket.on('deletegameevent', function (data)
 			{
 			console.log(data);
@@ -107,28 +107,16 @@ io.socket.on('connect',function(data){
 			
 		);
 		
-io.socket.on('userpresence',function(data)
+io.socket.on('joined room',function(data)
 			{
-			io.socket.get("/user?id="+data.id,{},function (resData,jwres){
-			//console.log(JSON.stringify(resData));
-			//console.log("name "+resData.name);
-		var foundPlayer=false;
+			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
 		
-			for(var i = $scope.Players.length - 1; i >= 0; i--) {
-					
-				if($scope.Players[i].name === resData.name) {
-				foundPlayer=true;
-				$scope.Players[i].time=0;
-				}
-				}
-				//console.log("foundPlayer= "+foundPlayer);
-			if (foundPlayer==false)
-			{
 			//console.log("actual name"+actualname);
-			$scope.$apply($scope.Players.push({name:resData.name,time:0}));}
+			$scope.$apply($scope.Players.push({name:resData.name));}
     	});
 				
 			});
+		
 		function phrasefordate(dat)
 			{
 			

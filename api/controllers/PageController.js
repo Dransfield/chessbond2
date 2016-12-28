@@ -392,13 +392,18 @@ transporter.sendMail(mailOptions, function(error, info){
     {
 	if (req.session.passport.user)
     {	
+		
 	Subscription.create({subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 			if (err)
 			{
 				console.log(JSON.stringify(err));
 			}
-			
+			else
+			{
+			sails.sockets.broadcast(roomName,"joined room",{joiner:req.session.passport.user});
+	
+			}
 		 return res.json({
 		
       message: 'Subscribed to a room called '+roomName+'!'
