@@ -351,7 +351,50 @@ $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	
-	
+	$http.get('/subscription?room='+roomname+'&limit=3000').then( function (dat) {
+			$scope.Players=[];
+			for(x in dat.data)
+			{
+			console.log(dat.data[x].subscriber);
+			console.log(JSON.stringify(dat.data));
+			
+			$http.get('/user?id='+dat.data[x].subscriber, {
+			})
+			.then(function onSuccess(sailsResponse){
+				
+			
+			var foundplayer=false;
+			for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			
+				if($scope.Players[i].name==sailsResponse.data.name) {
+				foundplayer=true;
+				}
+			}
+			
+			if (foundplayer==false)
+			{
+			$scope.Players.push({name:sailsResponse.data.name});
+			
+			
+			if (sailsResponse.data.name==$scope.Player1Namer)
+			{
+			$scope.Player1Online=" Online";	
+			}
+			if (sailsResponse.data.name==$scope.Player2Name)
+			{
+			$scope.Player2Online=" Online";	
+			}
+			
+			}
+			
+			}
+			)
+			 // => {id:9, name: 'Timmy Mendez'}
+			
+			}
+			
+			
+			});
 	
 	io.socket.on('left room',function(data)
 			{
