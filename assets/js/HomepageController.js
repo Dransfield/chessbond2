@@ -111,7 +111,7 @@ io.socket.on('joined room',function(data)
 			{
 			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
 		
-			console.log("actual name"+actualname);
+			console.log("actual name"+resData.name);
 			$scope.$apply($scope.Players.push({name:resData.name}));
     	});
 				
