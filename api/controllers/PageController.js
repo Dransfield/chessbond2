@@ -388,7 +388,10 @@ transporter.sendMail(mailOptions, function(error, info){
     }
 
     return res.json({
-	
+		Subscription.Create(subscriber:req.session.passport.user,room:roomName).exec
+		(function (err, records) {
+
+			});
       message: 'Subscribed to a room called '+roomName+'!'
     });
   });
