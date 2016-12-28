@@ -310,7 +310,7 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:req.param('ColorToMove')});
 		
 		},1000);
-		TimerObject={Game:req.param('GameID'),Timer:myint});
+		TimerObject={Game:req.param('GameID'),Timer:myint};
 		
 		
 	/*
