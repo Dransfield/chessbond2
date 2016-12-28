@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing Pages
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+ var TimerList={};
 
 	function DoGameResult(winner,loser,GameID,timeout)
 	{
@@ -295,18 +296,22 @@ deleteopengame:function(req,res){
 		
 		var OldMoveNumber=cg.Move;
 		console.log("old move outside of timer"+OldMoveNumber);
-		if(cg.interval)
+		
+		
+		for (x in TimerList)
 		{
-		clearInterval(cg.interval);
+		if (TimerObject[x].Game=req.param('GameID'))
+		{
+		clearInterval(TimerObject[x].Timer);	
+		}
 		}
 		
 		var myint=setInterval(function(){
-		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:"one second"});
+		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:req.param('ColorToMove')});
 		
 		},1000);
-		console.log(myint);
-		cg.interval=myint;
-		cg.save();
+		TimerObject={Game:req.param('GameID'),Timer:myint});
+		
 		
 	/*
 	setTimeout(		function(){
