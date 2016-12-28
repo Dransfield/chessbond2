@@ -131,6 +131,8 @@ module.exports.sockets = {
 	  {
    Subscription.find({subscriber:session.passport.user}).exec(function (err, records) {
 	
+	if(records)
+	{
  
 	console.log("found:"+JSON.stringify(records));
 	for (x in records)
@@ -140,6 +142,7 @@ module.exports.sockets = {
 	  Subscription.destroy({subscriber:session.passport.user}).exec(function (err, records) {
 	console.log("destroyed:"+JSON.stringify(records));
 	});
+	}
 	});
    
    }
