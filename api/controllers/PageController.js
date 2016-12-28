@@ -388,7 +388,7 @@ transporter.sendMail(mailOptions, function(error, info){
     }
 
     return res.json({
-		Subscription.Create(subscriber:req.session.passport.user,room:roomName).exec
+		Subscription.Create({subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 
 			});
