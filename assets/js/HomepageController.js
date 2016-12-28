@@ -117,7 +117,7 @@ io.socket.on('joined room',function(data)
 			foundplayer=true;
 			}
 			}
-			console.log("actual name"+resData.name);
+			
 			if (foundplayer==false)
 			{
 			$scope.$apply($scope.Players.push({name:resData.name}));
@@ -272,8 +272,21 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			$http.get('/user?id='+dat.data[x].subscriber, {
 			})
 			.then(function onSuccess(sailsResponse){
-				console.log(sailsResponse);
-			$scope.Players.push({name:sailsResponse.data.name});
+				
+			
+			var foundplayer=false;
+			for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			
+				if($scope.Players[i].name==sailsResponse.data.name) {
+				foundplayer=true;
+				}
+			}
+			
+			if (foundplayer==false)
+			{
+			scope.Players.push({name:sailsResponse.data.name});
+			}
+			
 			}
 			)
 			 // => {id:9, name: 'Timmy Mendez'}
