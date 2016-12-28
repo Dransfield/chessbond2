@@ -262,7 +262,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			console.log(JSON.stringify(resData));
 			});
 		
-		$http.get('/subscription?limit=3000&room=openchessgameroom').then( function (dat) {
+		$http.get('/subscription?limit=3000&room=\'openchessgameroom\'').then( function (dat) {
 			$scope.opg=[];
 			for(x in dat.data)
 			{
