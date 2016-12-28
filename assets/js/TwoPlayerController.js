@@ -351,6 +351,8 @@ $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	
+	var roomname=GameID;
+	
 	$http.get('/subscription?room='+roomname+'&limit=3000').then( function (dat) {
 			$scope.Players=[];
 			for(x in dat.data)
