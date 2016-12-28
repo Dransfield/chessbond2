@@ -110,9 +110,18 @@ io.socket.on('connect',function(data){
 io.socket.on('joined room',function(data)
 			{
 			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
-		
+		var foundplayer=false;
+					for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			
+			if($scope.Players[i].name==resData.name) {
+			foundplayer=true;
+			}
+			}
 			console.log("actual name"+resData.name);
+			if (foundplayer==false)
+			{
 			$scope.$apply($scope.Players.push({name:resData.name}));
+			}
     	});
 				
 			});
