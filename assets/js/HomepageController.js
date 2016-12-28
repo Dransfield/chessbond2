@@ -181,15 +181,16 @@ io.socket.on('joined room',function(data)
 	
 $scope.PlayGame=function(GameID,Player2)
 	{
-		$http.put('/ChangeUsersCurrentGame', {
+		/*$http.put('/ChangeUsersCurrentGame', {
 			  GameID: GameID,
 			  oppo:Player2
     })
     .then(function onSuccess (dat){
-     
-     window.location="/humanvshuman";
-	
+     */
+     window.location="/humanvshuman/"+GameID;
+	/*
     })
+    */
 	};
 	
 $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamType,timelimit){
