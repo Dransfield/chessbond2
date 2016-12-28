@@ -348,6 +348,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
+	
+	io.socket.on('left room',function(data){
+		console.log("left room"+JSON.stringify(data));
+	});
+	
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
 	

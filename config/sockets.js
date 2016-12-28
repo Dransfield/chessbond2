@@ -129,13 +129,25 @@ module.exports.sockets = {
   {
 	  if(session.passport.user)
 	  {
-   Subscription.destroy({subscriber:session.passport.user}).exec(function (err, records) {
+   Subscription.find({subscriber:session.passport.user}).exec(function (err, records) {
+	
+ 
+	console.log("found:"+JSON.stringify(records));
+	for (x in records)
+	{
+	sails.sockets.broadcast(records[x].room,"left room",{leaver:records[x].subscriber});
+	}
+	  Subscription.destroy({subscriber:session.passport.user}).exec(function (err, records) {
 	console.log("destroyed:"+JSON.stringify(records));
 	});
-   }}
+	});
+   
+   }
+   }
+	}
      // By default: do nothing.
      return cb();
-   },
+   }
 
   /***************************************************************************
   *                                                                          *
