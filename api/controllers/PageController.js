@@ -304,7 +304,7 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:"one second"});
 		
 		},1000);
-		console.log(JSON.stringify(myint));
+		console.log(myint);
 		cg.interval=myint;
 		cg.save();
 		
