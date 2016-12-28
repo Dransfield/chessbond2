@@ -355,7 +355,7 @@ $scope.ConnectSockets=function(){
 			{
 	console.log("left room"+JSON.stringify(data));
 			io.socket.get("/user?id="+data.leaver,{},function (resData,jwres){
-				console.log("found leaver");
+				console.log("found leaver"+resData.name);
 					for(var i = $scope.Players.length - 1; i >= 0; i--) {
 			console.log("player in list"+$scope.Players[i].name);
 			if($scope.Players[i].name==resData.name) {
