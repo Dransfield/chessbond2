@@ -4,7 +4,7 @@ var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
 $scope.chatting=new Array();
-
+$scope.Players=[];
 $scope.BottomPlayerPic="";
 $scope.TopPlayerPic="";
 $scope.ShowOptions=true;
@@ -352,6 +352,25 @@ $scope.ConnectSockets=function(){
 	io.socket.on('left room',function(data){
 		console.log("left room"+JSON.stringify(data));
 	});
+	
+	io.socket.on('joined room',function(data)
+			{
+			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
+		var foundplayer=false;
+					for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			
+			if($scope.Players[i].name==resData.name) {
+			foundplayer=true;
+			}
+			}
+			
+			if (foundplayer==false)
+			{
+			$scope.$apply($scope.Players.push({name:resData.name}));
+			}
+    	});
+				
+			});
 	
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");

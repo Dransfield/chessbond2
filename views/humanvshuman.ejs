@@ -148,6 +148,8 @@
 	<span class="label label-default">Players</span>
 	<br>
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
+	<tr ng-repeat="player in Players track by $index">
+			<td ng-show="player.name=Player1Namer">ONLINE</td>
 	<br>
 	<span class="text-info" ng-model="Player2Name">Player2:<span class="label label-success">{{Player2Name}}</span></span>
 	<br>
