@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing Pages
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
- var TimerList={};
+ var TimerList=[];
 
 	function DoGameResult(winner,loser,GameID,timeout)
 	{
@@ -300,8 +300,9 @@ deleteopengame:function(req,res){
 		
 		for (x in TimerList)
 		{
-		if (TimerObject[x].Game=req.param('GameID'))
+		if (TimerObject[x].Game==req.param('GameID'))
 		{
+			console.log("clearing timer "+TimerObject[x].Timer);
 		clearInterval(TimerObject[x].Timer);	
 		}
 		}
@@ -311,7 +312,7 @@ deleteopengame:function(req,res){
 		
 		},1000);
 		TimerObject={Game:req.param('GameID'),Timer:myint};
-		
+		TimerList.push(TimerObject);
 		
 	/*
 	setTimeout(		function(){
