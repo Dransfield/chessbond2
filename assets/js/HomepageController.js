@@ -262,6 +262,24 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			console.log(JSON.stringify(resData));
 			});
 		
+		$http.get('/subscription?limit=3000&room=openchessgameroom').then( function (dat) {
+			$scope.opg=[];
+			for(x in dat.data)
+			{
+			
+			$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.Players.push(sailsResponse.name);
+			}
+			)
+			 // => {id:9, name: 'Timmy Mendez'}
+			
+			}
+			
+			
+			});
+		
 		$http.get('/openchessgame?limit=3000').then( function (dat) {
 			$scope.opg=[];
 			for(x in dat.data)
