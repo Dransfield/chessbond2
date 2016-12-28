@@ -300,7 +300,7 @@ deleteopengame:function(req,res){
 		clearInterval(cg.interval);
 		}
 		
-		myint=setInterval(function(){
+		var myint=setInterval(function(){
 		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:"one second"});
 		
 		},1000);
