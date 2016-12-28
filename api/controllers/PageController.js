@@ -388,6 +388,11 @@ transporter.sendMail(mailOptions, function(error, info){
     }
 	Subscription.create({subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
+			if (err)
+			{
+				console.log(JSON.stringify(err));
+			}
+			
 		 return res.json({
 		
       message: 'Subscribed to a room called '+roomName+'!'

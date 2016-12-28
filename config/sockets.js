@@ -129,8 +129,8 @@ module.exports.sockets = {
   {
 	  if(session.passport.user)
 	  {
-   Subscription.find({subscriber:session.passport.user}).exec(function (err, records) {
-	console.log(JSON.stringify(records));
+   Subscription.destroy({subscriber:session.passport.user}).exec(function (err, records) {
+	console.log("destroyed:"+JSON.stringify(records));
 	});
    }}
      // By default: do nothing.
