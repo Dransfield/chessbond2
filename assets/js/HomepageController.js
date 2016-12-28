@@ -284,7 +284,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			
 			if (foundplayer==false)
 			{
-			scope.Players.push({name:sailsResponse.data.name});
+			$scope.Players.push({name:sailsResponse.data.name});
 			}
 			
 			}
