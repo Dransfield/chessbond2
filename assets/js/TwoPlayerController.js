@@ -567,7 +567,7 @@ $scope.ConnectSockets=function(){
 					
 		
 		updateTurnTakerLabel(game);
-		console.log(game.ascii());
+		//console.log(game.ascii());
 		$scope.Moves=game.pgn().split(".");
 		
 		if (game.fen()!=board1.fen())
