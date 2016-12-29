@@ -86,9 +86,9 @@
 	var tts="Status:Game over";
 	var resultstring="";
 	if (timeout=='false')
-	{resultstring="<span>"+winnerRecord.name+" Won by checkmate against "+loserRecord.name"</span><br>Result:Checkmate<br>";}
+	{resultstring="<span>"+winnerRecord.name+" Won by checkmate against "+loserRecord.name+"</span><br>Result:Checkmate<br>";}
 	else
-	{resultstring="<span>"+winnerRecord.name+" Won by timeout against "+loserRecord.name"</span><br>Result:Timeout<br>";}
+	{resultstring="<span>"+winnerRecord.name+" Won by timeout against "+loserRecord.name+"</span><br>Result:Timeout<br>";}
 	
 	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
