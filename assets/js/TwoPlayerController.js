@@ -55,9 +55,9 @@ $scope.BlackInterval=0;
       'A','B','C','D','E','F','G','H'
     ];
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
-    $scope.BellSound= new Audio('alert.mp3');
-$scope.MoveSound=new Audio('move.mp3');
-$scope.CheckMateSound=new Audio("checkmate.mp3");
+    $scope.BellSound= new Audio('/alert.mp3');
+$scope.MoveSound=new Audio('/move.mp3');
+$scope.CheckMateSound=new Audio("/checkmate.mp3");
 
 
 $scope.StartRightClock=function()
