@@ -341,7 +341,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.Subscribe=function()
 	{
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
-			console.log(JSON.stringify(resData));
+			//console.log(JSON.stringify(resData));
 			
 			});
 		
@@ -373,7 +373,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			if (foundplayer==false)
 			{
 			$scope.Players.push({name:sailsResponse.data.name});
-			console.log("foundsubscriber "+sailsResponse.data.name);
+			//console.log("foundsubscriber "+sailsResponse.data.name);
 			
 			if (sailsResponse.data.name==$scope.Player1Namer)
 			{
@@ -403,7 +403,7 @@ $scope.ConnectSockets=function(){
 		
 	io.socket.on('secondelapsed',function(data)
 			{
-			console.log("second passed"+data.msg);
+			//console.log("second passed"+data.msg);
 				
 			});
 	
@@ -747,13 +747,13 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+$scope.ChessGameObject.Player1).then(function
 			(res)
 			{
-				console.log(JSON.stringify(res.data));
+				//console.log(JSON.stringify(res.data));
 				
 				var picurl=(res.data.picture);
 				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
-				console.log("flagurl "+flagurl);
-				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
+				//console.log("flagurl "+flagurl);
+				//console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			if ($scope.PlayerOnBottom=='White')
 			{
 			$scope.BottomPlayerPic=picurl;
