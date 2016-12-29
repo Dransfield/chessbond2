@@ -79,10 +79,27 @@
 	
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
-	var Res1="New ELO ratings of "+winnerRecord.name+": "+winnerRecord.ELO+" ("+(winnerRecord.ELO-winnerstartELO)+")";
-	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+(loserRecord.ELO-loserstartELO)+")";
+	var WinnereloSentence="";
+	if(winnerRecord.ELO>winnerstartELO)
+	{WinnereloSentence="+"+(winnerRecord.ELO-winnerstartELO);}
+	else
+	{WinnereloSentence=(winnerRecord.ELO-winnerstartELO);}
+	
+	var LosereloSentence="";
+	if(loserRecord.ELO>loserstartELO)
+	{LosereloSentence="+"+(loserRecord.ELO-loserstartELO);}
+	else
+	{LosereloSentence=(loserRecord.ELO-loserstartELO);}
+	
+	
+	var Res1="New ELO ratings of "+winnerRecord.name+": "+winnerRecord.ELO+" ("+WinnereloSentence+")";
+	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+LosereloSentence+")";
 	var tts="Status:Game over";
 	var resultstring="";
+	
+	
+	
+	
 	if (timeout=='false')
 	{resultstring="<span>"+winnerRecord.name+" Won by checkmate against "+loserRecord.name+"</span><br>Result:Checkmate<br>";}
 	else
