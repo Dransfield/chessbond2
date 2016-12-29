@@ -524,6 +524,8 @@ $scope.ConnectSockets=function(){
 			$scope.PlayMove();
 			}
 			}
+			else
+			{console.log("NO USER");}
 			$scope.Showcapturedpiece(move.captured,move.color,false);
 			
 	
