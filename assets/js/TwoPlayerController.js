@@ -518,6 +518,7 @@ $scope.ConnectSockets=function(){
 	//console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
+			$scope.PlayMove();
 		if($scope.User)
 			{	
 					
@@ -591,6 +592,7 @@ $scope.ConnectSockets=function(){
 		{
 			//console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
+		$scope.PlayMove();
 		//game.load(gameRecordnow.fen);
 		//console.log("after update "+game.ascii());
 		}
