@@ -205,6 +205,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.PlayMove=function()
     {
 		console.log("play move sound" +$scope.MoveSound);
+		$scope.MoveSound.volume = 0.6;
 	$scope.MoveSound.play();
 	};
 	$scope.PlayCheckMate=function()
