@@ -147,12 +147,15 @@
 	<br>
 	<span class="label label-default">Players</span>
 	<br>
-	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span><div ng-show="ChessGameObject.Player1Color=='White' ">WHITE</div></span>
-			
+	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
+		<div ng-show="ChessGameObject.Player1Color=='White' ">WHITE</div>	
+		<div ng-show="ChessGameObject.Player1Color!='White' ">BLACK</div>	
 			<td >{{Player1Online}}</td>
 	
 	<br>
 	<span class="text-info" ng-model="Player2Name">Player2:<span class="label label-success">{{Player2Name}}{{Player2ColorBox}}</span></span>
+		<div ng-show="ChessGameObject.Player1Color=='White' ">BLACK</div>	
+		<div ng-show="ChessGameObject.Player1Color!='White' ">WHITE</div>	
 	
 			<td >{{Player2Online}}</td>
 	<br>
