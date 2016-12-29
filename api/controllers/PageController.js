@@ -247,7 +247,7 @@ deleteopengame:function(req,res){
     
     });
     },
-    
+   /* 
     HomepageHeartbeat:function(req,res){
 		//console.log("recieved heartbeat from:"+req.param('name'));
 		if (req.session.passport){
@@ -257,7 +257,7 @@ deleteopengame:function(req,res){
 		});}
 	},
 	
-
+*/
     chessgamemove:function(req,res){
 	var td=0;
 	console.log("req.param('incheckmate')"+req.param('incheckmate'));

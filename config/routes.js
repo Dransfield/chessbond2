@@ -38,7 +38,7 @@ module.exports.routes = {
 	
 	'GET /registerpage':{view:'register'},
 	
-	'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
+	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
 	'/MyLogout':'AuthController.logout',
