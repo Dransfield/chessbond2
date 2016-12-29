@@ -46,10 +46,8 @@
 	
 	function DoGameResult(winner,loser,GameID,timeout)
 	{
-	var EloRating = require('elo-rating');
+	var elo = require('elo-rank')(15);
 	
-	console.log("winner "+winner);
-	console.log("loser "+loser);
 			User.find({
   id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
