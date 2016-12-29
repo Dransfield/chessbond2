@@ -147,17 +147,19 @@
 	<br>
 	<span class="label label-default">Players</span>
 	<br>
+	<span style="color:blue;">{{Player1Online}}</span>
 	<span class="text-info" ng-model="Player1Namer">Player1:<span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
 		<span ng-show="ChessGameObject.Player1Color=='White' ">WHITE</span>	
 		<span ng-show="ChessGameObject.Player1Color!='White' ">BLACK</span>	
-			<p style="color:blue;">{{Player1Online}}</p>
+			
 	
 	<br>
+	<span style="color:blue;">{{Player2Online}}</span>
 	<span class="text-info" ng-model="Player2Name">Player2:<span class="label label-success">{{Player2Name}}</span></span>
 		<span ng-show="ChessGameObject.Player1Color=='White' ">BLACK</span>	
 		<span ng-show="ChessGameObject.Player1Color!='White' ">WHITE</span>	
 	
-			<span style="color:blue;">{{Player2Online}}</span>
+			
 	<br>
         <span class="label label-default" ng-model="TurnTaker">It's {{TurnTaker}}'s Turn</span>
    <hr>
