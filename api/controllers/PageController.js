@@ -7,11 +7,39 @@
  var TimerList=[];
 	function DoDraw(player1,player2,GameID,GameDescriptor)
 	{
-		var EloRating = require('elo-rating');
+		var elo = require('elo-rank')(15);
 		User.find({
   id : [player1,player2]
 	}).exec(function (err, players){
-	EloRating.updateRating(expectedA,1,1200)
+	var player1=players[0];
+	var player2=players[1];
+	
+	var player1startELO=player1.ELO;
+	var player2startELO=player2.ELO;
+	
+	var expectedScoreA = elo.getExpected(player1.ELO, player2.ELO);
+	var expectedScoreB = elo.getExpected(player2.ELO, player1.ELO);
+	player1.ELO = elo.updateRating(expectedScoreA, 0.5, player1.ELO);
+	player2.ELO = elo.updateRating(expectedScoreB, 0.5, player2.ELO);
+	
+	player1.save();
+	player2.save();
+	
+	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
+	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
+	var Res1="New ELO ratings of "+player1.name+": "+player1.ELO+" ("+(player1.ELO-player1startELO)+")";
+	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+(loserRecord.ELO-loserstartELO)+")";
+	
+	var resultstring="";
+	resultstring="<span>"+player1.name+" drew by "+GameDescriptor+" against "+player2.name+"</span><br>Result:"+GameDescriptor+"<br>";
+	var tts="Status:Game over";
+	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
+	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
+		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+	
+	});
+	
+	
 	});
 	
 	}
@@ -42,9 +70,12 @@
 	
 	var winnerstartELO=winnerRecord.ELO;
 	var loserstartELO=loserRecord.ELO;
-	var obj=EloRating.calculate(winnerRecord.ELO, loserRecord.ELO);
-	winnerRecord.ELO=obj.playerRating;
-	loserRecord.ELO=obj.opponentRating;
+	
+	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
+	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
+	loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
+	
 	loserRecord.save();
 	winnerRecord.save();
 	
@@ -52,14 +83,14 @@
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	var Res1="New ELO ratings of "+winnerRecord.name+": "+winnerRecord.ELO+" ("+(winnerRecord.ELO-winnerstartELO)+")";
 	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+(loserRecord.ELO-loserstartELO)+")";
-	
+	var tts="Status:Game over";
 	var resultstring="";
 	if (timeout=='false')
-	{resultstring=winnerRecord.name+" beat "+loserRecord.name;}
+	{resultstring="<span>"+winnerRecord.name+" Won by checkmate against "+loserRecord.name"</span><br>Result:Checkmate<br>";}
 	else
-	{resultstring=loserRecord.name+" ran out of time. "+winnerRecord.name+" wins."}
+	{resultstring="<span>"+winnerRecord.name+" Won by timeout against "+loserRecord.name"</span><br>Result:Timeout<br>";}
 	
-	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2}).exec(function afterwards(err, updated){
+	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
 	
