@@ -516,9 +516,11 @@ $scope.ConnectSockets=function(){
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 		if($scope.User)
-			{		
+			{	
+				console.log("there is a scope user");	
 			if($scope.User.SoundEnabled=='Sound Enabled')
 			{
+				console.log("playmove");
 			$scope.PlayMove();
 			}
 			}
@@ -883,7 +885,7 @@ $scope.changeFavicon=function (src) {
 
 					  // illegal move
 					  
-					  if (move === null || game.in_draw() ||$scope.ChessGameObject.Result){
+					  if (move === null || game.in_draw() || $scope.ChessGameObject.Result){
 						  if (game.game_over())
 							{
 						  toastr.warning("The game is over");
@@ -998,12 +1000,31 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       }  
     ,function(resData,jwres)
 	{
-	var inchk;
+		
+	var state="playing";
+	var descriptor="playing";
+	var gameover='false';
+	
+	if (game.game_over())
+	{gameover='true';}
+	
+	if (game.in_draw())
+	{state='draw';}
+	
 	if (game.in_checkmate())
-	{inchk='true';}
-	else
-	{inchk='false';}
-	io.socket.put('/chessgamemove',{incheckmate:inchk,GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
+	{state='checkmate';}
+
+	if (game.insufficient_material())
+	{descriptor='insufficient material';}
+	
+	if (game.in_threefold_repetition())
+	{descriptor='in threefold repetition';}
+	
+	if (game.in_stalemate())
+	{descriptor='stalemate';}
+	
+	
+	io.socket.put('/chessgamemove',{GameState:state,GameDescriptor:descriptor,GameOver:gameover,GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
 	console.log(jwres);
 	});

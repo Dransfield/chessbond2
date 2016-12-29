@@ -5,7 +5,17 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
  var TimerList=[];
-
+	function DoDraw(player1,player2,GameID,GameDescriptor)
+	{
+		var EloRating = require('elo-rating');
+		User.find({
+  id : [player1,player2]
+	}).exec(function (err, players){
+	EloRating.updateRating(expectedA,1,1200)
+	});
+	
+	}
+	
 	function DoGameResult(winner,loser,GameID,timeout)
 	{
 	var EloRating = require('elo-rating');
@@ -38,8 +48,11 @@
 	loserRecord.save();
 	winnerRecord.save();
 	
-	var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
-	var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
+	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
+	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
+	var Res1="New ELO ratings of "+winnerRecord.name+": "+winnerRecord.ELO+" ("+(winnerRecord.ELO-winnerstartELO)+")";
+	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+(loserRecord.ELO-loserstartELO)+")";
+	
 	var resultstring="";
 	if (timeout=='false')
 	{resultstring=winnerRecord.name+" beat "+loserRecord.name;}
@@ -260,14 +273,21 @@ deleteopengame:function(req,res){
 */
     chessgamemove:function(req,res){
 	var td=0;
-	console.log("req.param('incheckmate')"+req.param('incheckmate'));
+	console.log("req.param('GameOver')"+req.param('GameOver'));
 	
-	if (req.param('incheckmate')=='true')
+	if (req.param('GameOver')=='true')
 	{
 		
 		
 			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		
+		var GameState=req.param('GameState');
+		var GameDescriptor=req.param('GameDescriptor');
+		if(GameState=='draw')
+		{DoDraw(cg.Player2,cg.Player1,cg.id,GameDescriptor);}
+		
+		if (GameState=='checkmate')
+		{
 			var clrtomove;
 			if (req.param('ColorToMove')=='w')
 			{clrtomove='White';}
@@ -281,7 +301,8 @@ deleteopengame:function(req,res){
 		{
 		DoGameResult(cg.Player1,cg.Player2,cg.id,'false');
 		}
-
+	}
+	
 	});
 	
 	}
