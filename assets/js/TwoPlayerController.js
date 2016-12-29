@@ -51,6 +51,15 @@ $scope.capturedBlackpieces=[];
 $scope.WhiteInterval=0;
 $scope.BlackInterval=0;
 
+  $scope.piecethemes = [
+      'A','B','C','D','E','F','G','H'
+    ];
+    $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
+    $scope.BellSound= new Audio('alert.mp3');
+$scope.MoveSound=new Audio('move.mp3');
+$scope.CheckMateSound=new Audio("checkmate.mp3");
+
+
 $scope.StartRightClock=function()
 {
 	
@@ -138,11 +147,7 @@ $scope.StartBlackClock=function()
 		},121);	
 		
 	};
-  $scope.piecethemes = [
-      'A','B','C','D','E','F','G','H'
-    ];
-    $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
-    
+
     $scope.ChangeOverallScore=function(piece,colour)
     {
     if (piece)
@@ -160,9 +165,6 @@ $scope.StartBlackClock=function()
 	}
 	}
     
-$scope.BellSound= new Audio('alert.mp3');
-$scope.MoveSound=new Audio('move.mp3');
-$scope.CheckMateSound=new Audio("checkmate.mp3");
 
 $scope.pic1height=30;
 $scope.pic1coordy=48;
@@ -354,8 +356,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.Players=[];
 			for(x in dat.data)
 			{
-			console.log(dat.data[x].subscriber);
-			console.log(JSON.stringify(dat.data));
+			//console.log(dat.data[x].subscriber);
+			//console.log(JSON.stringify(dat.data));
 			
 			$http.get('/user?id='+dat.data[x].subscriber, {
 			})
@@ -498,7 +500,7 @@ $scope.ConnectSockets=function(){
 		.then(function (latest) {
 		   
 		   $scope.ChessGameObject=latest.data;
-		   console.log(latest.data);
+		//   console.log(latest.data);
 		   if ($scope.ChessGameObject2.id)
 		   { 
 			   console.log("object2 "+JSON.stringify($scope.ChessGameObject2));
@@ -509,23 +511,22 @@ $scope.ConnectSockets=function(){
 		//{
 		//alert('couldnt load game');
 	//	}
-	console.log("last move"+$scope.ChessGameObject.lastmove);
+	//console.log("last move"+$scope.ChessGameObject.lastmove);
 	var modified=($scope.ChessGameObject.lastmove.substr(0, 2) + "-" + $scope.ChessGameObject.lastmove.substr(2));
-	console.log("with -"+modified);
-	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
+	//console.log("with -"+modified);
+	//console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 		if($scope.User)
 			{	
-				console.log("there is a scope user");	
+					
 			if($scope.User.SoundEnabled=='Sound Enabled')
 			{
-				console.log("playmove");
+			
 			$scope.PlayMove();
 			}
 			}
-			else
-			{console.log("NO USER");}
+		
 			$scope.Showcapturedpiece(move.captured,move.color,false);
 			
 	
@@ -587,10 +588,10 @@ $scope.ConnectSockets=function(){
 		}
 		else
 		{
-			console.log("move is null updating game and board with");
+			//console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
 		//game.load(gameRecordnow.fen);
-		console.log("after update "+game.ascii());
+		//console.log("after update "+game.ascii());
 		}
 		
 		});
@@ -614,10 +615,10 @@ $scope.changeFavicon=function (src) {
 	
 	function updatePlayersLabel(game)
 	{
-		console.log("hello");
+		//console.log("hello");
 		$scope.Player1Namer=$scope.ChessGameObject.Player1Name;
 		$scope.Player2Name=$scope.ChessGameObject.Player2Name;
-		console.log("scopep2"+$scope.Player2Name);	
+		//console.log("scopep2"+$scope.Player2Name);	
 	}
 	
 	function updateTurnTakerLabel(game)
@@ -929,7 +930,7 @@ $scope.changeFavicon=function (src) {
 							}
 							 
 	 
-							console.log("move from ondrop "+JSON.stringify(move));
+						//	console.log("move from ondrop "+JSON.stringify(move));
 							var square=   boardEl.find('.square-' + move.to);
 							var position =square .position();
 							 $( "img[id='highlight']" ).detach();
@@ -952,20 +953,20 @@ $scope.changeFavicon=function (src) {
 					 // console.log("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
 					  //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
 					
-					  console.log('move'+JSON.stringify(move));
-					console.log("result: "+$scope.ChessGameObject.Result);
+					 // console.log('move'+JSON.stringify(move));
+					//console.log("result: "+$scope.ChessGameObject.Result);
 					updateStatus(game,move);
 };
 
 function updateStatus(game,move)
 {
-	console.log("update status");
+	//console.log("update status");
 $scope.ChessGameObject.fen=game.fen();
 $scope.ChessGameObject.lastmove=move.from+move.to;
 
 if (game.turn()=='b')
 {
-	console.log("$scope.WhiteInterval "+$scope.WhiteInterval);
+	//console.log("$scope.WhiteInterval "+$scope.WhiteInterval);
 	clearInterval($scope.WhiteInterval);
 	clearInterval($scope.BlackInterval);
 	$scope.StartBlackClock();
@@ -983,10 +984,10 @@ updateTurnTakerLabel(game);
 updatePlayersLabel(game);
 //game.load(gameRecord.fen);
 
-console.log("put chessgame result is :"+$scope.ChessGameObject.Result);
-console.log("put chessgame move is :"+$scope.ChessGameObject.Move);
-console.log("put chessgame captured whites:"+$scope.ChessGameObject.capturedWhitepieces);
-console.log("put chessgame captured Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
+//console.log("put chessgame result is :"+$scope.ChessGameObject.Result);
+//console.log("put chessgame move is :"+$scope.ChessGameObject.Move);
+//console.log("put chessgame captured whites:"+$scope.ChessGameObject.capturedWhitepieces);
+//console.log("put chessgame captured Blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 
 
 
@@ -1028,12 +1029,12 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 	
 	io.socket.put('/chessgamemove',{GameState:state,GameDescriptor:descriptor,GameOver:gameover,GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
-	console.log(jwres);
+	//console.log(jwres);
 	});
 	
 	}
 );
-console.log('about to putsocket');
+//console.log('about to putsocket');
 
 
 
