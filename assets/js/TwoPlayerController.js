@@ -566,7 +566,7 @@ $scope.ConnectSockets=function(){
 			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
 					
 		
-		updateTurnTakerLabel(game);
+		//updateTurnTakerLabel(game);
 		//console.log(game.ascii());
 		$scope.Moves=game.pgn().split(".");
 		
@@ -998,7 +998,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:$scope.ChessGameObject.Move,
-		
+	TurnTakerSentence:$scope.ChessGameObject.TurnTakerSentence,
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
       capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
       OverallScore:$scope.ChessGameObject.OverallScore
