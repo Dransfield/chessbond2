@@ -653,8 +653,7 @@ $scope.changeFavicon=function (src) {
 		}
 		
 		
-		$scope.Player1Namer=$scope.ChessGameObject.Player1Name;
-		$scope.Player2Name=$scope.ChessGameObject.Player2Name;
+		
 	//console.log("scopep2"+$scope.Player2Name);	
 		
 		}
@@ -1064,7 +1063,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 
  board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  game = new Chess();
-
+updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
 		{
