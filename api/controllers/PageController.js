@@ -108,7 +108,7 @@
 	
 	
 
-	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
+	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
 	
