@@ -10,7 +10,8 @@ $scope.TopPlayerPic="";
 $scope.Player1Online="";
 $scope.Player2Online="";
 $scope.ShowOptions=true;
-
+ $scope.to_trusted = function(html_code) {
+    return $sce.trustAsHtml(html_code);
 $scope.HideInject=true;
 
 $scope.ChessGameObject={};
