@@ -11,9 +11,8 @@ $scope.Player1Online="";
 $scope.Player2Online="";
 $scope.ShowOptions=true;
 $scope.to_trusted = function(someHTML) {
-    var compiledVal = $compile(someHTML)($scope);
-    var compiledHTML = compiledVal.outerHTML;
-    return $sce.trustAsHtml(compiledHTML);
+    
+    return $sce.trustAsHtml(someHTML);
 }
 $scope.HideInject=true;
 
