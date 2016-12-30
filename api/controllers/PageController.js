@@ -164,7 +164,7 @@ deleteopengame:function(req,res){
 	
 	
 	},
-	
+	/*
 	   ChangeUsersCurrentGame: function (req,res){
 	    User.findOne({
       id: req.session.passport.user
@@ -180,7 +180,7 @@ deleteopengame:function(req,res){
 	});
    },
    
-	
+	*/
 	Joingame: function(req,res)  {
 	   var sentresponse=false;
 		User.findOne(req.param('MyID'), function foundUser(err, user) {

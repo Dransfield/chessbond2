@@ -628,12 +628,11 @@ $scope.changeFavicon=function (src) {
 	{
 		if (game.turn()=='w')
 		{
-		$scope.TurnTaker=$scope.ChessGameObject.Player1Name;
+		$scope.ChessGameObject.TurnTakerSentence="It's "+$scope.ChessGameObject.Player1Namer"'s turn";
 		}
 		else
 		{
-		$scope.TurnTaker=$scope.ChessGameObject.Player2Name;
-		
+		$scope.ChessGameObject.TurnTakerSentence="It's "+$scope.ChessGameObject.Player2Name"'s turn";
 		}
 		
 		
