@@ -1113,7 +1113,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 					
 		
 		}
-		updateTurnTakerLabel(game);
+		
 		
 		
 		});
