@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('TwoPlayerController', ['$scope', '$http', 'toastr','ngSanitize' function($scope, $http, toastr,ngSanitize){
+angular.module('HomepageModule').controller('TwoPlayerController', ['$scope', '$http', 'toastr','ngSanitize', function($scope, $http, toastr,ngSanitize){
 var board1 ;
 var game;
 $scope.Player1Namer="";
