@@ -99,9 +99,9 @@
 	{resultstring+="<span style='color:red;'>"+winnerRecord.name+"</span> Won by<span style='color:red;'> timeout</span><span> against </span><span style='color:red;'>"+loserRecord.name+"</span><br><span>Result:</span><span style='color:red;'>Timeout</span><br>";}
 	
 	
-	resultstring+="<span>New</span> <span style='color:red;'>ELO ratings </span><span>of</span><span style='color:red;'> "+winnerRecord.name+"</span><span>:</span> <span style='color:red;'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
-	resultstring+="<span>New</span> <span style='color:red;'>ELO ratings </span><span>of</span><span style='color:red;'>"+loserRecord.name+"</span><span>:</span> <span style='color:red;'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
-	var tts="Status:<span style='color:red;'>Game over</span>";
+	resultstring+="<span>New</span> <span style='color:red'>ELO ratings </span><span>of</span><span style='color:red'> "+winnerRecord.name+"</span><span>:</span> <span style='color:red'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
+	resultstring+="<br><span>New</span> <span style='color:red'>ELO ratings </span><span>of</span><span style='color:red'> "+loserRecord.name+"</span><span>:</span> <span style='color:red'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
+	var tts="Status:<span style='color:red'>Game over</span>";
 	
 	
 	
