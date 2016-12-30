@@ -28,6 +28,7 @@ var jsFilesToInject = [
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
 	'js/dependencies/angular.1.3.js',
+	'js/dependencies/angular-sanitize.js',
 	'js/dependencies/jquery-1.10.1.min.js',
 	  'js/dependencies/chessboard-0.3.0.min.js',
   'js/dependencies/chess.min.js',
