@@ -628,11 +628,28 @@ $scope.changeFavicon=function (src) {
 	{
 		if (game.turn()=='w')
 		{
+		if(	$scope.ChessGameObject.Player1Color=='White')
+		{
 		$scope.ChessGameObject.TurnTakerSentence="It's "+$scope.ChessGameObject.Player1Name+"'s turn";
 		}
 		else
 		{
 		$scope.ChessGameObject.TurnTakerSentence="It's "+$scope.ChessGameObject.Player2Name+"'s turn";
+		}
+		
+		}
+		else
+		{
+		
+		if(	$scope.ChessGameObject.Player1Color=='Black')
+		{
+		$scope.ChessGameObject.TurnTakerSentence="It's "+$scope.ChessGameObject.Player1Name+"'s turn";
+		}
+		else
+		{
+		$scope.ChessGameObject.TurnTakerSentence="It's "+$scope.ChessGameObject.Player2Name+"'s turn";
+		}
+		
 		}
 		
 		
