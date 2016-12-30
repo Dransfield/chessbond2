@@ -91,20 +91,23 @@
 	else
 	{LosereloSentence=(loserRecord.ELO-loserstartELO);}
 	
-	
-	var Res1="New ELO ratings of "+winnerRecord.name+": "+winnerRecord.ELO+" ("+WinnereloSentence+")";
-	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+LosereloSentence+")";
-	var tts="Status:Game over";
 	var resultstring="";
 	
-	
-	
-	
-	if (timeout=='false')
-	{resultstring="<span>"+winnerRecord.name+" Won by checkmate against "+loserRecord.name+"</span><br>Result:Checkmate<br>";}
+		if (timeout=='false')
+	{resultstring+="<span style='color:red;'>"+winnerRecord.name+"</span> Won by<span style='color:red;'> checkmate</span><span> against </span><span style='color:red;'>"+loserRecord.name+"</span><br><span>Result:</span><span style='color:red;'>Checkmate</span><br>";}
 	else
-	{resultstring="<span>"+winnerRecord.name+" Won by timeout against "+loserRecord.name+"</span><br>Result:Timeout<br>";}
+	{resultstring+="<span style='color:red;'>"+winnerRecord.name+"</span> Won by<span style='color:red;'> timeout</span><span> against </span><span style='color:red;'>"+loserRecord.name+"</span><br><span>Result:</span><span style='color:red;'>Timeout</span><br>";}
 	
+	
+	resultstring+="<span>New</span> <span style='color:red;'>ELO ratings </span><span>of</span><span style='color:red;'> "+winnerRecord.name+"</span><span>:</span> <span style='color:red;'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
+	resultstring+="<span>New</span> <span style='color:red;'>ELO ratings </span><span>of</span><span style='color:red;'>"+loserRecord.name+"</span><span>:</span> <span style='color:red;'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
+	var tts="Status:<span style='color:red;'>Game over</span>";
+	
+	
+	
+	
+	
+
 	Chessgame.update({id:GameID},{Result:resultstring,EloResult1:Res1,EloResult2:Res2,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
