@@ -139,7 +139,7 @@
      <span class="label label-default" ng-hide="(ChessGameObject.Result)">Result:*,in progress</span>
     
     <span class="label label-default" ng-show="(ChessGameObject.Result)">Result:</span>
-    <div  ng-show="(ChessGameObject.Result)" ng-bind-html="to_trusted(ChessGameObject.Result)"></div>   	
+    <div  ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>   	
 	<!--
 	<br>
 	<span class="text-info" ng-show="(ChessGameObject.Result)">{{ChessGameObject.EloResult1}}</span>
@@ -172,7 +172,7 @@
     <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
     <table>
        <tr ng-repeat="chatmsg in chatting track by $index">
-     <td >{{chatmsg.content}}</td>
+    <!-- <td >{{chatmsg.content}}</td>-->
 		
 			<td ng-bind-html="chatmsg.content"></td>
 		</tr>
