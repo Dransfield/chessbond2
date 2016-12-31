@@ -485,8 +485,8 @@ $scope.ConnectSockets=function(){
 			console.log('recieved chat message'+document.visibilityState);
 			}
 			console.log(document.visibilityState);
-				var txtmsg = { talker:data.talker,msg:data.greeting};
-		
+				var txtmsg = { content:data.content};
+		console.log(data.content);
 	$scope.$apply($scope.chatting.push(txtmsg));
 				
 			$("#chatdiv").scrollTop($("#chatdiv")[0].scrollHeight);
