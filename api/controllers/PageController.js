@@ -111,8 +111,12 @@
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
-		sails.sockets.broadcast(GameID,'message', {room:GameID,content:resultstring });
+
+	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
+	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
 	
+	 return res.ok();
+});
 	});
 	
 	
