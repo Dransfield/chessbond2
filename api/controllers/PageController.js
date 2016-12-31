@@ -115,7 +115,7 @@
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
 	
-	 return res.ok();
+	 
 });
 	});
 	
