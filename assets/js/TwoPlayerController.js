@@ -12,7 +12,7 @@ $scope.Player2Online="";
 $scope.ShowOptions=true;
 $scope.to_trusted = function(someHTML) {
     
-    return $sce.trustAsHtml(someHTML);
+    return $sce.trustAsHtml(somecHTML);
 }
 $scope.HideInject=true;
 
@@ -742,7 +742,7 @@ $scope.changeFavicon=function (src) {
 		
 		$scope.chatMessage=function(usrName)
 		{
-			$http.post("/chatmsg",{talker: $scope.User.name,roomName:GameID,message:$scope.chatInput})
+			$http.post("/chatmsg",{content:<td><b>$scope.User.name</b>:$scope.chatInput</td>,roomName:GameID})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}

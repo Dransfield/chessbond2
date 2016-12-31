@@ -111,6 +111,7 @@
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+		sails.sockets.broadcast(GameID,'message', {room:GameID,content:resultstring });
 	
 	});
 	
@@ -459,8 +460,8 @@ transporter.sendMail(mailOptions, function(error, info){
     
     chatmsg:function(req,res){
 
-	Chatmessage.create({room:req.param('roomName'),talker:req.param('talker'),msg:req.param('message')}).exec(function (err, records) {
-	sails.sockets.broadcast(records.room,'message', {room:records.room, talker:records.talker,greeting: records.msg });
+	Chatmessage.create({room:req.param('roomName'),content:req.param('content')}).exec(function (err, records) {
+	sails.sockets.broadcast(records.room,'message', {room:records.room,content: records.content });
 	
 	 return res.ok();
 });
