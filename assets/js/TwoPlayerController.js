@@ -700,12 +700,11 @@ $scope.changeFavicon=function (src) {
     .then(function onSuccess (dat){
       // Refresh the page now that we've been logged in.
       //$scope.$apply(function() {
-      console.log("joined games reply"+JSON.stringify(dat.data));
+     // console.log("joined games reply"+JSON.stringify(dat.data));
 		for (m in dat.data)
-	{console.log("joined games reply2"+JSON.stringify(dat.data[m]));
+	{//console.log("joined games reply2"+JSON.stringify(dat.data[m]));
 		
-		var txtmsg = { talker:dat.data[m]['talker']   ,   // property_# may be an identifier...
-            msg:dat.data[m]['msg']};
+		var txtmsg = {content:dat.data[m]['content']};
 		
 			
 	$scope.chatting.push(txtmsg);
