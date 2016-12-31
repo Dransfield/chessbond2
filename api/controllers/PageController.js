@@ -94,14 +94,14 @@
 	var resultstring="";
 	
 		if (timeout=='false')
-	{resultstring+="<span style='color:red;'>"+winnerRecord.name+"</span> Won by<span style='color:red;'> checkmate</span><span> against </span><span style='color:red;'>"+loserRecord.name+"</span><br><span>Result:</span><span style='color:red;'>Checkmate</span><br>";}
+	{resultstring+="<span id='redtext'>"+winnerRecord.name+"</span> Won by<span id='redtext'> checkmate</span><span> against </span><span id='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span id='redtext'>Checkmate</span><br>";}
 	else
-	{resultstring+="<span style='color:red;'>"+winnerRecord.name+"</span> Won by<span style='color:red;'> timeout</span><span> against </span><span style='color:red;'>"+loserRecord.name+"</span><br><span>Result:</span><span style='color:red;'>Timeout</span><br>";}
+	{resultstring+="<span id='redtext'>"+winnerRecord.name+"</span> Won by<span id='redtext'> timeout</span><span> against </span><span id='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span id='redtext'>Timeout</span><br>";}
 	
 	
-	resultstring+="<span>New</span> <span style='color:rgba(220,0,0,1);'>ELO ratings </span><span>of</span><span style='color:red'> "+winnerRecord.name+"</span><span>:</span> <span style='color:red'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
-	resultstring+="<br><span>New</span> <span style='color:red'>ELO ratings </span><span>of</span><span style='color:red'> "+loserRecord.name+"</span><span>:</span> <span style='color:red'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
-	var tts="Status:<span style='color:red'>Game over</span>";
+	resultstring+="<span>New</span> <span id='redtext'>ELO ratings </span><span>of</span><span id='redtext'> "+winnerRecord.name+"</span><span>:</span> <span id='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
+	resultstring+="<br><span>New</span> <span id='redtext'>ELO ratings </span><span>of</span><span id='redtext'> "+loserRecord.name+"</span><span>:</span> <span id='redtext'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
+	var tts="Status:<span id='redtext'>Game over</span>";
 	
 	
 	
