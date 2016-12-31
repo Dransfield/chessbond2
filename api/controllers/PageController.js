@@ -76,15 +76,17 @@
 	
 	var winnerstartELO=winnerRecord.ELO;
 	var loserstartELO=loserRecord.ELO;
-	
 	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
 	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	if (winner!=loser)
+	{
+	
 	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
 	loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
 	
 	loserRecord.save();
 	winnerRecord.save();
-	
+	}
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	var WinnereloSentence="";
