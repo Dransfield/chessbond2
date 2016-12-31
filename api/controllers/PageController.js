@@ -47,11 +47,13 @@
 	function DoGameResult(winner,loser,GameID,timeout)
 	{
 	var elo = require('elo-rank')(15);
+	console.log("winner "+winner);
+	console.log("loser "+loser);
 	
 			User.find({
   id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
-	console.log(JSON.stringify(winnersandlosers));
+	console.log("winners and losers:"+JSON.stringify(winnersandlosers));
 	
 	var winnerRecord;
 	var loserRecord;
@@ -65,6 +67,12 @@
 		loserRecord=winnersandlosers[0];
 		
 		}
+	
+	if (winner==loser)
+	{
+		winnerRecord=winnersandlosers[0];
+		loserRecord=winnersandlosers[0];
+	}
 	
 	var winnerstartELO=winnerRecord.ELO;
 	var loserstartELO=loserRecord.ELO;
