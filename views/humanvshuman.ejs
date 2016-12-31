@@ -76,6 +76,22 @@
 	 <button ng-click="PrefToggleButtonClicked('SoundEnabled','<%-req.session.passport.user%>','Sound Enabled','Sound Disabled')" class="btn btn-success">{{User.SoundEnabled}}</button>
   
 	</td>
+		<td>
+	    <span class="label label-default">Board Size</span>
+        <select class="form-control"
+		  ng-model="User.BoardSized"
+		  name="string"
+		  multiple="string"
+		  required="string"
+		  ng-required="string"
+		  ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>',resetBoard)"
+		
+		 >
+		  <option ng-repeat="size in boardsizes" value="{{theme}}">
+		  {{theme}}
+		</option>
+		</select>
+	</td>
 	</tr>
 	</table>
 	<hr>

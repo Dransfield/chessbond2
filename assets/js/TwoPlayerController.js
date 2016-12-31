@@ -57,6 +57,10 @@ $scope.BlackInterval=0;
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
+    
+  $scope.boardsizes = [
+      'Small','Medium','Large','ExtraLarge'
+    ];
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
     $scope.BellSound= new Audio('/alert.mp3');
 $scope.MoveSound=new Audio('/move.mp3');
