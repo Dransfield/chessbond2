@@ -742,7 +742,7 @@ $scope.changeFavicon=function (src) {
 		
 		$scope.chatMessage=function(usrName)
 		{
-			$http.post("/chatmsg",{content:<td><b>$scope.User.name</b>:$scope.chatInput</td>,roomName:GameID})
+			$http.post("/chatmsg",{content:"<td><b>"+$scope.User.name+"</b>:"+$scope.chatInput+"</td>",roomName:GameID})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
