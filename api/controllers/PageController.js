@@ -99,9 +99,9 @@
 	{resultstring+="<span id='redtext'>"+winnerRecord.name+"</span> Won by<span id='redtext'> timeout</span><span> against </span><span id='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span id='redtext'>Timeout</span><br>";}
 	
 	
-	resultstring+="<span>New</span> <span id='redtext'>ELO ratings </span><span>of</span><span id='redtext'> "+winnerRecord.name+"</span><span>:</span> <span id='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
+	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span id='redtext'> "+winnerRecord.name+"</span><span>:</span> <span id='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
 	resultstring+="<br><span>New</span> <span id='redtext'>ELO ratings </span><span>of</span><span id='redtext'> "+loserRecord.name+"</span><span>:</span> <span id='redtext'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
-	var tts="Status:<span id='redtext'>Game over</span>";
+	var tts="Status:<span class='redtext'>Game over</span>";
 	
 	
 	
