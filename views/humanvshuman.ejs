@@ -91,6 +91,9 @@
 		  {{size}}
 		</option>
 		</select>
+		 <select name="repeatSelect" id="repeatSelect" ng-model="User.BoardSize">
+      <option ng-repeat="option in boardsizes" value="{{option.value}}">{{option.name}}</option>
+    </select>
 	</td>
 	</tr>
 	</table>
