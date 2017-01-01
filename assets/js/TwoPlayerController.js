@@ -332,7 +332,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		$scope.ChangePreference(pref,me,$scope.User[pref]);
 		console.log("changed "+pref+" to "+JSON.stringify($scope.User[pref]));
 		if(func){
-		func(me);}
+		func(me,true);}
 	}
 	$scope.PrefToggleButtonClicked=function(pref,me,state1,state2)
 	{
@@ -854,32 +854,67 @@ $scope.changeFavicon=function (src) {
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
-		$scope.resizeBoard=function(me)
+		$scope.resizeBoard=function(me,apply)
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
 			if ($scope.User.BoardSize==600)
 			{
+			if (apply==true)
+			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
+			{
+			else
+			{
+			$scope.boardcontainerstyle="col-sm-9 col-md-8";
+			$scope.sideofboardstyle="col-sm-3 col-md-4";
+			{
+			
 			}
 			
 		if ($scope.User.BoardSize==400)
 			{
+			
+			if (apply==true)
+			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-7 col-md-6");
 			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");
 			}
-			if ($scope.User.BoardSize==300)
+			else
+			{
+			$scope.boardcontainerstyle="col-sm-7 col-md-6";
+			$scope.sideofboardstyle="col-sm-5 col-md-6";
+			}
+		}
+		if ($scope.User.BoardSize==300)
+		{
+			if(apply==true)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-6 col-md-5");
 			$scope.$apply($scope.sideofboardstyle="col-sm-6 col-md-7");
 			}
+			else
+			{
+			$scope.boardcontainerstyle="col-sm-6 col-md-5";
+			$scope.sideofboardstyle="col-sm-6 col-md-7";
+			}
+		
+		}
 		if ($scope.User.BoardSize==200)
+		{
+			if (apply==true)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-5 col-md-4");
 			$scope.$apply($scope.sideofboardstyle="col-sm-7 col-md-8");
 			}
+			else
+			{
+			$scope.boardcontainerstyle="col-sm-5 col-md-4";
+			$scope.sideofboardstyle="col-sm-7 col-md-8";
+			}
+		}
 				
 		board1.resize();	
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
@@ -1104,7 +1139,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
- resizeBoard(me);
+ resizeBoard(me,false);
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
