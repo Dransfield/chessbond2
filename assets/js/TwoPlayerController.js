@@ -854,7 +854,7 @@ $scope.changeFavicon=function (src) {
 		$scope.resizeBoard=function()
 		{
 			console.log("board1 "+board1);
-		board.resize();	
+		board1.resize();	
 			
 		};
 		$scope.resetBoard=function(me)
