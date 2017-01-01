@@ -917,10 +917,9 @@ $scope.changeFavicon=function (src) {
 			$scope.sideofboardstyle="col-sm-7 col-md-8";
 			}
 		}
-			if (apply==true)
-			{	
+	
 		board1.resize();	
-		}
+		
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
 		};
