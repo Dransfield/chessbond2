@@ -100,36 +100,7 @@
         <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
         <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <div id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
-       <!-- <div id="board" ng-style="{width: User.BoardSize+'px'}"></div>-->
-        <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
-		<div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
-		<div ng-init="getchatmessages()"></div>
-		
-		
-         <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
-        <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
-        <hr>
-        <span ng-repeat="piece in capturedWhitepieces track by $index">
-		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{piece}}.png">
-		 
-		</span>
-		 <hr>
-		 <h1>{{ChessGameObject.OverallScore}}</h1>
-        <hr>
-		 
-        <span ng-repeat="piece in capturedBlackpieces track by $index">
-		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{piece}}.png">
-		 
-		</span>
-		<hr>
-        <div style="position: relative; left: 0; top: 0;"> 
-	<img style="position:relative;height:100px;" src='/images/eye.png'>
-	<img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
-	</div>
-	<img ng-src="{{BottomPlayerFlag}}">
-        <div id="engineStatus">...</div>
-      </div>
-      <div id ="sideofboard" ng-class="sideofboardstyle" >
+        <div id ="sideofboard" ng-class="sideofboardstyle" >
         
         <!--  <form class="form-horizontal">
           <div class="form-group">
@@ -204,6 +175,36 @@
     
     </div>
     <hr>
+       <!-- <div id="board" ng-style="{width: User.BoardSize+'px'}"></div>-->
+        <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
+		<div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
+		<div ng-init="getchatmessages()"></div>
+		
+		
+         <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+        <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+        <hr>
+        <span ng-repeat="piece in capturedWhitepieces track by $index">
+		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{piece}}.png">
+		 
+		</span>
+		 <hr>
+		 <h1>{{ChessGameObject.OverallScore}}</h1>
+        <hr>
+		 
+        <span ng-repeat="piece in capturedBlackpieces track by $index">
+		 <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{piece}}.png">
+		 
+		</span>
+		<hr>
+        <div style="position: relative; left: 0; top: 0;"> 
+	<img style="position:relative;height:100px;" src='/images/eye.png'>
+	<img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+	</div>
+	<img ng-src="{{BottomPlayerFlag}}">
+        <div id="engineStatus">...</div>
+      </div>
+     
       
   
   </body>
