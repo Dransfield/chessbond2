@@ -59,7 +59,7 @@ $scope.BlackInterval=0;
     ];
     
   $scope.boardsizes = [
-      {width:100},{width:200},{width:400},'800'
+      {width:'100'},{width:'200'},{width:'400'},'800'
     ];
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
     $scope.BellSound= new Audio('/alert.mp3');
