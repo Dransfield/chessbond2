@@ -78,20 +78,8 @@
 	</td>
 		<td>
 	    <span class="label label-default">Board Size</span>
-        <select class="form-control"
-		  ng-model="User.BoardSize"
-		  name="string"
-		  multiple="string"
-		  required="string"
-		  ng-required="string"
-		  ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resetBoard)"
-		
-		 >
-		  <option ng-repeat="size in boardsizes" value="{{size}}">
-		  {{size}}
-		</option>
-		</select>
-		 <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardSize"   ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resetBoard)"
+       
+		 <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardSize"   ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resizeBoard)"
 		>
       <option ng-repeat="option in boardsizes" value="{{option.value}}">{{option.name}}</option>
     </select>
