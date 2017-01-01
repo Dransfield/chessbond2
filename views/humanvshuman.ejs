@@ -108,7 +108,7 @@
         <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
         <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
        
-        <div id="board" ng-style="{width: User.BoardSize + 'px'}"></div>
+        <div id="board" ng-style="{width: "+User.BoardSize+"px}"></div>
         <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
 		<div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
 		<div ng-init="getchatmessages()"></div>
