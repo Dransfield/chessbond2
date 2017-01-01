@@ -1089,7 +1089,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
- board1 = ChessBoard('board',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
+ board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
 updatePlayersLabel(game);
