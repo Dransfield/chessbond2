@@ -851,7 +851,7 @@ $scope.changeFavicon=function (src) {
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
-		$scope.resizeBoard=function()
+		$scope.resizeBoard=function(me)
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
