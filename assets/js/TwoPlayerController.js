@@ -851,7 +851,12 @@ $scope.changeFavicon=function (src) {
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
-		
+		$scope.resizeBoard=function()
+		{
+			console.log("board1 "+board1);
+		board.resize();	
+			
+		};
 		$scope.resetBoard=function(me)
 		{
 						$http.get('/chessgame?id='+GameID)

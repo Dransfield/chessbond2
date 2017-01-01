@@ -84,7 +84,7 @@
 		  multiple="string"
 		  required="string"
 		  ng-required="string"
-		  ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', board1.resize())"
+		  ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resizeBoard)"
 		
 		 >
 		  <option ng-repeat="size in boardsizes" value="{{size}}">
