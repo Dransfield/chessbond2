@@ -859,7 +859,16 @@ $scope.changeFavicon=function (src) {
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
+			if ($scope.User.BoardSize=600)
+			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
+			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
+			}
+			else
+			{
+			$scope.$apply($scope.boardcontainerstyle="col-sm-7 col-md-6");
+			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");	
+			}
 		board1.resize();	
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			

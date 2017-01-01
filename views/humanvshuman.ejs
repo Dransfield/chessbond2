@@ -96,7 +96,7 @@
     <div ng-init="DoPingInterval()">Ping {{PingDisplay}}</div>
     <div class="row" id="whole thing" >
 
-      <div id ="boardcontainer" ng-class="boardcontainerstyle" >
+      <div id ="boardcontainer" ng-class="boardcontainerstyle" class="col-sm-7 col-md-6">
         <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
         <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
        
@@ -129,7 +129,7 @@
 	<img ng-src="{{BottomPlayerFlag}}">
         <div id="engineStatus">...</div>
       </div>
-      <div id ="sideofboard" class="col-sm-5 col-md-6">
+      <div id ="sideofboard" ng-class="sideofboardstyle" >
         
         <!--  <form class="form-horizontal">
           <div class="form-group">
