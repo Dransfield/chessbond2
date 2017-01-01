@@ -140,9 +140,9 @@
          </div>
          <hr>
        </div>
-       </div>
        
-       <br>
+       <div class="col-sm-12 col-md-12">
+       
          <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
          <div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
          <div ng-init="getchatmessages()"></div>
@@ -165,6 +165,6 @@
          </div>
          <img ng-src="{{BottomPlayerFlag}}">
          <div id="engineStatus">...</div>
-      
+		</div>
    </body>
 </html>
