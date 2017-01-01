@@ -865,12 +865,12 @@ $scope.changeFavicon=function (src) {
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
-			{
+			}
 			else
 			{
 			$scope.boardcontainerstyle="col-sm-9 col-md-8";
 			$scope.sideofboardstyle="col-sm-3 col-md-4";
-			{
+			}
 			
 			}
 			
