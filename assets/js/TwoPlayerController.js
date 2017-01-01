@@ -857,7 +857,7 @@ $scope.changeFavicon=function (src) {
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
-			
+			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
 		board1.resize();	
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
