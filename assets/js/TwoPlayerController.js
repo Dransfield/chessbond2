@@ -1104,6 +1104,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
+ resizeBoard(me);
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
