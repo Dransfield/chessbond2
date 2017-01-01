@@ -152,7 +152,7 @@
          <span ng-repeat="piece in capturedWhitepieces track by $index">
          <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{piece}}.png">
          </span>
-         <hr>
+         <hr ng-show="ChessGameObject.OverallScore">
          <h1>{{ChessGameObject.OverallScore}}</h1>
          <hr>
          <span ng-repeat="piece in capturedBlackpieces track by $index">
