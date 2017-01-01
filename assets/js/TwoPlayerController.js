@@ -233,6 +233,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			if (!$scope.User.BoardSize)
 			{
 				console.log("board size undefined"+$scope.User.BoardSize);
+				console.log("$scope.User"+$scope.User);
 				$scope.User.BoardSize=400;
 				
 				}
