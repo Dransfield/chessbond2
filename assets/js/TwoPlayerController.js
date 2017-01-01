@@ -57,6 +57,7 @@ $scope.BlackInterval=0;
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
+    $scope.boardcontainerstyle="col-sm-7 col-md-6";
      $scope.boardsizes = [
       {id: '1', name: 'Small',value:200},
       {id: '2', name: 'Medium',value:300},
@@ -858,6 +859,7 @@ $scope.changeFavicon=function (src) {
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
+			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 		board1.resize();	
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
