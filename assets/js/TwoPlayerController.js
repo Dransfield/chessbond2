@@ -858,7 +858,9 @@ $scope.changeFavicon=function (src) {
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
+			if (apply==true){
 			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
+			}
 			if ($scope.User.BoardSize==600)
 			{
 			if (apply==true)
@@ -915,8 +917,10 @@ $scope.changeFavicon=function (src) {
 			$scope.sideofboardstyle="col-sm-7 col-md-8";
 			}
 		}
-				
+			if (apply==true)
+			{	
 		board1.resize();	
+		}
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
 		};
@@ -1135,11 +1139,11 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 }
 //console.log(JSON.stringify($scope.MyPieceTheme));
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
-
+resizeBoard(me,false);
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
-// resizeBoard(me,false);
+ 
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
