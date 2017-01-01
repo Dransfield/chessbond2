@@ -91,7 +91,8 @@
 		  {{size}}
 		</option>
 		</select>
-		 <select name="repeatSelect" id="repeatSelect" ng-model="User.BoardSize">
+		 <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardSize"   ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resetBoard)"
+		>
       <option ng-repeat="option in boardsizes" value="{{option.value}}">{{option.name}}</option>
     </select>
 	</td>
