@@ -870,7 +870,7 @@ $scope.changeFavicon=function (src) {
 			$scope.$apply($scope.boardcontainerstyle="col-sm-7 col-md-6");
 			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");
 			}
-			if ($scope.User.BoardSize==200)
+			if ($scope.User.BoardSize==300)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-6 col-md-5");
 			$scope.$apply($scope.sideofboardstyle="col-sm-6 col-md-7");
