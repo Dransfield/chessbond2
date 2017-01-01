@@ -859,7 +859,7 @@ $scope.changeFavicon=function (src) {
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
-			if ($scope.User.BoardSize=600)
+			if ($scope.User.BoardSize==600)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
