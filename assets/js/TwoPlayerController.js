@@ -1210,11 +1210,9 @@ updatePlayersLabel(game);
 		};
 	$scope.setBoard=function (me)
 		{
-			$http.get('/user?id='+me).then(function
-			(res)
-			{//res.data.JSONpref=null;
+			
 			$scope.resetBoard(me);
-			});
+			
 		};
 	
    
