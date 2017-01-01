@@ -864,11 +864,23 @@ $scope.changeFavicon=function (src) {
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
 			}
-			else
+			
+		if ($scope.User.BoardSize==400)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-7 col-md-6");
-			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");	
+			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");
 			}
+			if ($scope.User.BoardSize==200)
+			{
+			$scope.$apply($scope.boardcontainerstyle="col-sm-6 col-md-5");
+			$scope.$apply($scope.sideofboardstyle="col-sm-6 col-md-7");
+			}
+		if ($scope.User.BoardSize==200)
+			{
+			$scope.$apply($scope.boardcontainerstyle="col-sm-5 col-md-4");
+			$scope.$apply($scope.sideofboardstyle="col-sm-7 col-md-8");
+			}
+				
 		board1.resize();	
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
