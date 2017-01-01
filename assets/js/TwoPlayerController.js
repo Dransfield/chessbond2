@@ -57,9 +57,11 @@ $scope.BlackInterval=0;
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
-    
-  $scope.boardsizes = [
-      200,300,400,600
+     $scope.boardsizes = [
+      {id: '1', name: 'Small',value:200},
+      {id: '2', name: 'Medium',value:300},
+      {id: '3', name: 'Large',value:400},
+	  {id: '4', name: 'Big',value:600}
     ];
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
     $scope.BellSound= new Audio('/alert.mp3');
