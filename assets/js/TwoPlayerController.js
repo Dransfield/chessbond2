@@ -230,6 +230,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			$scope.setBoard(MyID);
+			/*
 			if (!$scope.User.BoardSize)
 			{
 				console.log("board size undefined"+$scope.User.BoardSize);
@@ -243,7 +244,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 
 			if ($scope.User.BoardSize==0)
 			{$scope.User.BoardSize=400;}
-      		}
+      		}*/
 			)	
 		
 	};
