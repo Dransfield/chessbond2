@@ -121,13 +121,7 @@
     <div  ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>   	
  	
 	
-	<!--
 	<br>
-	<span class="text-info" ng-show="(ChessGameObject.Result)">{{ChessGameObject.EloResult1}}</span>
-	<br>
-	<span class="text-info" ng-show="(ChessGameObject.Result)">{{ChessGameObject.EloResult2}}</span>
-	<br>
-	-->
 	<span class="label label-default">Players</span>
 	<br>
 	<span style="color:blue;">{{Player1Online}}</span>
@@ -149,7 +143,7 @@
    
   
    <span class="label label-default">Chat</span>
-    <div float="left">
+    <div >
     <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
     <table>
        <tr ng-repeat="chatmsg in chatting track by $index">
