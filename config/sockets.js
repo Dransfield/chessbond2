@@ -132,11 +132,11 @@ module.exports.sockets = {
   {
 	  if(session.passport.user)
 	  {
-   Subscription.find({subscriber:session.passport.user,socketid:socket['id']}).exec(function (err, records) {
+   Subscription.find({socketid:socket['id']}).exec(function (err, records) {
 	
 	if(records)
 	{
- 
+	console.log("subscription socket id "+records[x].socketid);
 	console.log("found:"+JSON.stringify(records));
 	for (x in records)
 	{
