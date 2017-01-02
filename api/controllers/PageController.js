@@ -9,8 +9,8 @@
  
  function deleteAllSubs()
  {
-	User.find().exec(function callBack(err,results){
-    console.log(results)
+	Subscription.destroy({}).exec(function callBack(err){
+    console.log(err)
     //results.destroy();
     }); 
 	 
@@ -513,7 +513,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	if (req.session.passport.user)
     {	
 		
-	Subscription.create({socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
+	Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 			if (err)
 			{
