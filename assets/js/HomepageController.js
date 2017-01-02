@@ -16,6 +16,7 @@ $scope.SoleConnectorVariable="";
 			.then(function onSuccess(sailsResponse){
 			$scope.SoleConnectorVariable="false";
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
+			console.log(JSON.stringify(sailsResponse));
 			})
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
