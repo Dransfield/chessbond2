@@ -125,7 +125,7 @@ module.exports.sockets = {
    afterDisconnect: function(session, socket, cb) {
     //console.log("socket disconnected socket:"+sails.sockets.getId(req));
    // console.log("socket disconnected socket:"+JSON.stringify(socket));
-  console.log("socket id is "+socket['id'];
+  console.log("socket id is "+socket['id']);
   Object.keys(socket).forEach(function(trait) {
   console.log('socket ', trait,': ', socket[trait]);
 });
