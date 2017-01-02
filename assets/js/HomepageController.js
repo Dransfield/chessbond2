@@ -11,7 +11,7 @@ $scope.SoleConnectorVariable="";
 	
 	$scope.SoleConnectorFunction=function(id)
 	{
-		$http.get('/subscription?subscriber='+MyID, {
+		$http.get('/subscription?subscriber='+id, {
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.SoleConnectorVariable="false";
