@@ -23,9 +23,11 @@ $scope.SoleConnectorVariable="";
 			$scope.joinopengameRoom();
 			$scope.SoleConnectorVariable="true";
 			}
-			}
 			
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
+			
+			}
+			
 			
 			)
 			.catch(function onError(sailsResponse) {
