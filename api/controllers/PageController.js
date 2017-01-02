@@ -226,7 +226,7 @@ deleteopengame:function(req,res){
 		
 			if (!game) {
 			console.log('Session refers to a game that no longer exists.');
-			return res.backToHomePage();
+			return res.notFound();
 			}	
 			
 			console.log("game.Player2 "+game.Player2);
