@@ -4,6 +4,18 @@
  * @description :: Server-side logic for managing Pages
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+ 
+ sails.on("lower", deleteAllSubs);
+ 
+ function deleteAllSubs()
+ {
+	Subscription.find().exec(function callBack(err,results){
+    console.log(results)
+    results.destroy();
+    }); 
+	 
+	}
+ 
  var TimerList=[];
 	function DoDraw(player1,player2,GameID,GameDescriptor)
 	{
