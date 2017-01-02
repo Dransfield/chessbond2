@@ -42,7 +42,7 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			
 			)
 			.catch(function onError(sailsResponse) {
-			if (resData.status==404)
+			if (sailsResponse.status==404)
 			{
 			toastr.error("Please request another change of password");	
 			
