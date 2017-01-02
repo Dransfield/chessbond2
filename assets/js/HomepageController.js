@@ -17,6 +17,10 @@ $scope.SoleConnectorVariable="";
 			$scope.SoleConnectorVariable="false";
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			console.log(JSON.stringify(sailsResponse));
+			if(sailsResponse.data=[])
+			{	joinmyuserIDRoom(id);
+			ReconnectFunction(id);
+			joinopengameRoom();}
 			})
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
