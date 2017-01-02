@@ -138,14 +138,14 @@
 	};
 
 
-	  deleteAllSubs();
+	 sails.on("lifted", deleteAllSubs);
  
  function deleteAllSubs()
  {
-	//Subscription.destroy({}).exec(function callBack(err){
-   // console.log(err)
-    //results.destroy();
-   // }); 
+	Subscription.destroy({}).exec(function callBack(err){
+    console.log(err)
+   //results.destroy();
+    }); 
 	 
 	}
 
