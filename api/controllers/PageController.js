@@ -501,7 +501,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	if (req.session.passport.user)
     {	
 		
-	Subscription.create({subscriber:req.session.passport.user,room:roomName}).exec
+	Subscription.create({socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 			if (err)
 			{

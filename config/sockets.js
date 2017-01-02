@@ -126,15 +126,13 @@ module.exports.sockets = {
     //console.log("socket disconnected socket:"+sails.sockets.getId(req));
    // console.log("socket disconnected socket:"+JSON.stringify(socket));
   console.log("socket id is "+socket['id']);
-  Object.keys(socket).forEach(function(trait) {
-  console.log('socket ', trait,': ', socket[trait]);
-});
+ 
   
   if(session.passport)
   {
 	  if(session.passport.user)
 	  {
-   Subscription.find({subscriber:session.passport.user}).exec(function (err, records) {
+   Subscription.find({subscriber:session.passport.user,socketid:socket['id']}).exec(function (err, records) {
 	
 	if(records)
 	{
