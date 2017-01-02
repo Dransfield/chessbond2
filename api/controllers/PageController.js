@@ -5,16 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
  
- sails.on("lower", deleteAllSubs);
- 
- function deleteAllSubs()
- {
-	Subscription.destroy({}).exec(function callBack(err){
-    console.log(err)
-    //results.destroy();
-    }); 
-	 
-	}
+
  
  var TimerList=[];
 	function DoDraw(player1,player2,GameID,GameDescriptor)
@@ -146,9 +137,21 @@
 
 	};
 
+
+	 sails.on("lift", deleteAllSubs);
+ 
+ function deleteAllSubs()
+ {
+	Subscription.destroy({}).exec(function callBack(err){
+    console.log(err)
+    //results.destroy();
+    }); 
+	 
+	}
+
 module.exports = {
 	
-	
+
 	deletegame:function(req,res){
 	Chessgame.destroy({id:req.param('gameid')}).exec
 	(function(err){
