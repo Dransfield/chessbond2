@@ -33,11 +33,6 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 				console.log("HELLO");
 				console.log(JSON.stringify(jwr));
 						console.log(JSON.stringify(resData));
-			if (resData.status==404)
-			{
-			toastr.error("Please request another change of password");	
-			
-			}
 			if (resData.status==200)
 					{	
 						
@@ -45,7 +40,16 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 						toastr.success("Password changed!");	}
 			}
 			
-			);
+			)
+			.catch(function onError(sailsResponse) {
+			if (resData.status==404)
+			{
+			toastr.error("Please request another change of password");	
+			
+			}
+			
+			})
+			;
 	
 	
 	};
