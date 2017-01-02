@@ -9,9 +9,9 @@
  
  function deleteAllSubs()
  {
-	Subscription.find().exec(function callBack(err,results){
+	User.find().exec(function callBack(err,results){
     console.log(results)
-    results.destroy();
+    //results.destroy();
     }); 
 	 
 	}
