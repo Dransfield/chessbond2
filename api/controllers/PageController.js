@@ -138,7 +138,7 @@
 	};
 
 
-	 sails.on("lift", deleteAllSubs);
+	  deleteAllSubs();
  
  function deleteAllSubs()
  {
