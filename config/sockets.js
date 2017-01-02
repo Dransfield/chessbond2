@@ -136,10 +136,11 @@ module.exports.sockets = {
 	
 	if(records)
 	{
-	console.log("subscription socket id "+records[x].socketid);
+	
 	console.log("found:"+JSON.stringify(records));
 	for (x in records)
 	{
+		console.log("subscription socket id "+records[x].socketid);
 	sails.sockets.broadcast(records[x].room,"left room",{leaver:records[x].subscriber});
 	}
 	  Subscription.destroy({subscriber:session.passport.user}).exec(function (err, records) {
