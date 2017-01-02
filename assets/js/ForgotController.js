@@ -6,10 +6,10 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 		loading: false
 	}
 	
-	$scope.login=function()
+	$scope.login=function(myemail,pswd)
 		{
 			
-			$http.put("/login",{email:$scope.vm.user.email,password:$scope.vm.user.password})
+			$http.put("/login",{email:myemail,password:pswd})
 			.then(function onSuccess (resData, jwr){
 				if (resData.data.message!="Logged In Successfully")
 				{
@@ -37,7 +37,10 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 					{	
 						
 						console.log(JSON.stringify(resData));
-						toastr.success("Password changed!");	}
+						toastr.success("Password changed!");	
+						$scope.login(resData.data.email,$scope.vm.password);
+						
+						}
 			}
 			
 			)
