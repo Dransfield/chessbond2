@@ -13,8 +13,13 @@ module.exports = {
 			user.passwordcode="";
 			user.save();
 			return res.ok(user);
-	}
-	}
+			}
+			else
+			{
+			return res.notFound();
+				
+			}
+			}
 	else
 	{return (err);}
 	}
