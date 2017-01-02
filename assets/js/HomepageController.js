@@ -20,7 +20,9 @@ $scope.SoleConnectorVariable="";
 			if(sailsResponse.data=[])
 			{	joinmyuserIDRoom(id);
 			ReconnectFunction(id);
-			joinopengameRoom();}
+			joinopengameRoom();
+			$scope.SoleConnectorVariable="true";
+			}
 			})
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
