@@ -123,8 +123,8 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
-    //console.log("socket disconnected socket:"+socket);
-    //console.log("socket disconnected session:"+JSON.stringify(session));
+    console.log("socket disconnected socket:"+sails.sockets.getId(req));
+    console.log("socket disconnected socket:"+JSON.stringify(socket));
   if(session.passport)
   {
 	  if(session.passport.user)
