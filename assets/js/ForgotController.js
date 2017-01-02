@@ -35,7 +35,7 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 						console.log(JSON.stringify(resData));
 			if (resData.status==404)
 			{
-			toastr.error("Please request another change of password");	}
+			toastr.error("Please request another change of password");	
 			
 			}
 			if (resData.status==200)
