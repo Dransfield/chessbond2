@@ -45,7 +45,7 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			if (sailsResponse.status==404)
 			{
 			toastr.error("Please request another change of password");	
-			
+			$window.location.href = '/forgot';
 			}
 			
 			})
