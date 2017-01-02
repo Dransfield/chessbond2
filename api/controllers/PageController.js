@@ -142,10 +142,10 @@
  
  function deleteAllSubs()
  {
-	Subscription.destroy({}).exec(function callBack(err){
-    console.log(err)
+	//Subscription.destroy({}).exec(function callBack(err){
+   // console.log(err)
     //results.destroy();
-    }); 
+   // }); 
 	 
 	}
 
