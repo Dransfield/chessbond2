@@ -44,16 +44,14 @@
 		<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
 		<%}%>
    <%}%>
-    <div ng-init="joinopengameRoom()"></div>
- 
-    <%- include partials/navbar.ejs %>
- 
+    
+	
+  <%- include partials/navbar.ejs %>
+	
 		<div class="jumbotron ">
 			
 			<% if (req.session.passport) { %>
-			<div ng-init="joinmyuserIDRoom('<%- req.session.passport.user %>')"></div>
-			<div ng-init="ReconnectFunction('<%- req.session.passport.user %>')"></div>
-			
+			<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
 			
 			<% }else{ %>
 			<% if (req.session.flash){%>
@@ -80,13 +78,13 @@
 			 <div class="col-md-2 ">  
 			</div>
 			<div class="text-center col-md-3">
-			<a  href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			<a  ng-show="SoleConnectorVariable=='true'" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 			</div>
 		 <div class="col-md-2 ">  
 			</div>
 		 <div class="text-center col-md-3">
 		 
-			<button   ng-click="ShowNewGameOptions=!ShowNewGameOptions" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<button  ng-show="SoleConnectorVariable=='true'" ng-click="ShowNewGameOptions=!ShowNewGameOptions" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 			</div>
 		<div class="col-md-2 ">  
 			</div>

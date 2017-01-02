@@ -7,7 +7,26 @@ $scope.User;
 $scope.GameForm={};
 $scope.GameForm.timelimit=5;
 $scope.GameForm.color='White';
-
+$scope.SoleConnectorVariable="";
+	
+	$scope.SoleConnectorFunction=function(id)
+	{
+		$http.get('/subscription?subscriber='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.SoleConnectorVariable="false";
+			})
+			.catch(function onError(sailsResponse) {
+			$scope.SoleConnectorVariable="true";
+			
+			joinmyuserIDRoom(id);
+			ReconnectFunction(id);
+			joinopengameRoom();
+			
+			
+			});
+	}
+	
 	$scope.createopengame=function(type,id,name)
 	{
 	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name,Created:Date.now() },
