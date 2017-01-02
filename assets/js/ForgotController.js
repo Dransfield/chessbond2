@@ -18,7 +18,7 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			else
 			{
 			//toastr.success(resData.data.message);
-				$window.location.href = '/';
+				$window.location.href = '/profile';
 			}
 			}
 			);
