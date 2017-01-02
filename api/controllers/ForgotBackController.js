@@ -12,7 +12,7 @@ module.exports = {
 			user.password=md5(req.param('psw'));
 			user.passwordcode="";
 			user.save();
-	return res.ok(user);
+			return res.ok(user);
 	}
 	}
 	else

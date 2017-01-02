@@ -30,6 +30,7 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 		
 		$http.put("/ResetPassword",{psw:$scope.vm.password,code:coder})
 			.then(function onSuccess (resData, jwr){
+				console.log("HELLO");
 						console.log(JSON.stringify(resData));
 			
 			if (resData.status==200)
