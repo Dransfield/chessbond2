@@ -18,18 +18,18 @@ $scope.SoleConnectorVariable="";
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			console.log(JSON.stringify(sailsResponse));
 			if(sailsResponse.data=[])
-			{	joinmyuserIDRoom(id);
-			ReconnectFunction(id);
-			joinopengameRoom();
+			{	$scope.joinmyuserIDRoom(id);
+			$scope.ReconnectFunction(id);
+			$scope.joinopengameRoom();
 			$scope.SoleConnectorVariable="true";
 			}
 			})
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
 			
-			joinmyuserIDRoom(id);
-			ReconnectFunction(id);
-			joinopengameRoom();
+			$scope.joinmyuserIDRoom(id);
+			$scope.ReconnectFunction(id);
+			$scope.joinopengameRoom();
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
