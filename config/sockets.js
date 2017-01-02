@@ -143,7 +143,7 @@ module.exports.sockets = {
 		console.log("subscription socket id "+records[x].socketid);
 	sails.sockets.broadcast(records[x].room,"left room",{leaver:records[x].subscriber});
 	}
-	  Subscription.destroy({subscriber:session.passport.user}).exec(function (err, records) {
+	  Subscription.destroy({socketid:socket['id']}).exec(function (err, records) {
 	console.log("destroyed:"+JSON.stringify(records));
 	});
 	}
