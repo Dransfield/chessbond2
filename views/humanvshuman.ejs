@@ -42,6 +42,8 @@
          </input>
          <button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
       </form>
+        <% if (req.session.passport){ %>
+	<% if (req.session.passport.user){ %>
       <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Show Options</button>
       <table ng-hide="ShowOptions">
          <tr>
@@ -72,6 +74,8 @@
             </td>
          </tr>
       </table>
+      <%}%>
+      <%}%>
       <hr>
       <div style="position: relative; left: 0; top: 0;"> 
          <img style="position:relative;height:100px;" src='/images/eye2.png'>
@@ -142,7 +146,8 @@
        </div>
        
        <div style="{clear:left}" class="col-sm-12 col-md-12">
-       
+       	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+
          <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
          <div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
          <div ng-init="getchatmessages()"></div>

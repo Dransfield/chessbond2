@@ -377,7 +377,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.LoadSubscribers=function(){
 		var roomname=GameID;
 	
-	$http.get('/subscription?room='+roomname+'&limit=3000').then( function (dat) {
+		$http.get('/subscription?room='+roomname+'&limit=3000').then( function (dat) {
 			$scope.Players=[];
 			for(x in dat.data)
 			{
@@ -392,7 +392,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			var foundplayer=false;
 			for(var i = $scope.Players.length - 1; i >= 0; i--) {
 			
-				if($scope.Players[i].name==sailsResponse.data.name) {
+				if($scope.Players[i].name==sailsResponse.data.name)
+				{
 				foundplayer=true;
 				}
 			}
