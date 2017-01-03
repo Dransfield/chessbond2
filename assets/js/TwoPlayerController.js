@@ -448,6 +448,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
 			$scope.SoleConnectorVariable="true";
+			$scope.setBoard(id);
 			}
 			
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
