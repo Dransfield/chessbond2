@@ -886,8 +886,11 @@ $scope.changeFavicon=function (src) {
 		
 	$scope.joinRoom=function (usr)
 		{
-		$scope.Subscribe();
+		
+				io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
+			//console.log(JSON.stringify(resData));
 			
+			});
 			$scope.ConnectSockets();
 	//	$http.get('/user?id='+usr)
 		//				.then(function (res) {
