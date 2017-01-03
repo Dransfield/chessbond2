@@ -20,7 +20,7 @@ $scope.SoleConnectorVariable="";
 			if(sailsResponse.data.length==0)
 			{	$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
-		
+			$scope.getuser(id);
 			$scope.SoleConnectorVariable="true";
 			}
 			
@@ -35,7 +35,7 @@ $scope.SoleConnectorVariable="";
 			
 			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
-		
+			$scope.getuser(id);
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
