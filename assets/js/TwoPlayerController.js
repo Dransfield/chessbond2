@@ -444,7 +444,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			console.log(JSON.stringify(sailsResponse));
 			if(sailsResponse.data.length==0)
 			{	
-				joinRoom(id)
+			$scope.joinRoom(id)
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
 			$scope.SoleConnectorVariable="true";
@@ -459,7 +459,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
 			
-			$scope.joinmyuserIDRoom(id);
+			$scope.joinRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
