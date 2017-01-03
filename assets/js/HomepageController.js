@@ -20,7 +20,7 @@ $scope.SoleConnectorVariable="";
 			if(sailsResponse.data.length==0)
 			{	$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
-			$scope.joinopengameRoom();
+		
 			$scope.SoleConnectorVariable="true";
 			}
 			
@@ -35,7 +35,7 @@ $scope.SoleConnectorVariable="";
 			
 			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
-			$scope.joinopengameRoom();
+		
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			

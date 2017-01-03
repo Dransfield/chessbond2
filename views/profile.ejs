@@ -21,14 +21,14 @@
 
   <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
    <% if (req.session.passport){ %>
-			<% if (req.session.passport.user){ %>
-	 <div ng-init="getuser('<%- req.session.passport.user %>')"></div>	
+	<% if (req.session.passport.user){ %>
+	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+	 <% } %>
    <% } %>
-           <% } %>
 
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
-    <div class="jumbotron">
+    <div  ng-show="SoleConnectorVariable=='true'" class="jumbotron">
         <h1>Profile</h1>
          <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
@@ -44,7 +44,7 @@
     
        <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
-   <div id="row">
+   <div  ng-show="SoleConnectorVariable=='true'" id="row">
     <div class="col-md-4">
 	 <select class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"

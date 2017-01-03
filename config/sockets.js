@@ -134,14 +134,14 @@ module.exports.sockets = {
 	if(records)
 	{
 	
-	console.log("found:"+JSON.stringify(records));
+	//console.log("found:"+JSON.stringify(records));
 	for (x in records)
 	{
-		console.log("subscription socket id "+records[x].socketid);
+		//console.log("subscription socket id "+records[x].socketid);
 	sails.sockets.broadcast(records[x].room,"left room",{leaver:records[x].subscriber});
 	}
 	  Subscription.destroy({socketid:socket['id']}).exec(function (err, records) {
-	console.log("destroyed:"+JSON.stringify(records));
+	//console.log("destroyed:"+JSON.stringify(records));
 	});
 	}
 	});
