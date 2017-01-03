@@ -89,6 +89,8 @@
       <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <br>
       <div ng-show="SoleConnectorVariable=='true'"  id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
+        <div ng-show="SoleConnectorVariable!='true'"  id ="" ng-class="label label-default" >Someone else is logged on with the same account.</div>
+     
       <div id ="sideofboard" style="padding-left: 25px;" ng-class="sideofboardstyle" >
          <!--  <form class="form-horizontal">
             <div class="form-group">
