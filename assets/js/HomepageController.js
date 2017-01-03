@@ -21,6 +21,7 @@ $scope.SoleConnectorVariable="";
 			{	$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
+			$scope.joinopengameRoom();
 			$scope.SoleConnectorVariable="true";
 			}
 			
@@ -36,6 +37,7 @@ $scope.SoleConnectorVariable="";
 			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
+			$scope.joinopengameRoom();
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
@@ -74,6 +76,7 @@ io.socket.on('connect',function(data){
 			)		
 	}
 	});
+	
 	};
 	io.socket.on('newmygameevent', function (data)
 			{
