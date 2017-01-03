@@ -123,10 +123,10 @@
          <br>
          <span class="label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker"></span>
          <hr>
-                <% if (req.session.passport){ %>
-	<% if (req.session.passport.user){ %>
-         <span class="label label-default">Chat</span>
-         <div >
+     <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+			<span class="label label-default">Chat</span>
+			<div >
             <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
                <table>
                   <tr ng-repeat="chatmsg in chatting track by $index">

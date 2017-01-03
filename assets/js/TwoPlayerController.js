@@ -470,7 +470,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			});
 	}
 	
-$scope.ConnectSockets=function(){
+	$scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
 	document.head = document.head || document.getElementsByTagName('head')[0];
 	
@@ -917,7 +917,7 @@ $scope.changeFavicon=function (src) {
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
-		$scope.resizeBoard=function(apply)
+		$scope.resizeBoard=function(me,apply)
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
@@ -1205,7 +1205,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
- $scope.resizeBoard(true);
+ $scope.resizeBoard(me,true);
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
