@@ -429,6 +429,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		console.log("guest");
 	$scope.User={};
 	$scope.SoleConnectorVariable='true';
+	$scope.User.ChessPieceTheme="D";
+	$scope.User.BoardSize=300;
+	
 	$scope.setBoard (0);
 	}
 	$scope.SoleConnectorFunction=function(id)
