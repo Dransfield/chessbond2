@@ -29,9 +29,7 @@
       <!--SCRIPTS END-->
    </head>
    <body ng-app="HomepageModule" ng-controller="TwoPlayerController" ng-mousemove="changeFavicon('http://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
-      <% if (req.session.passport){%>
-      <div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-      <%}%>
+      
       <%- include partials/navbar.ejs %>
      <!-- <p>Game Id is   <%-req.param('GameID')%></p>-->
       <script> var GameID='<%- req.param('GameID') %>'</script>
@@ -42,6 +40,9 @@
          </input>
          <button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
       </form>
+      <% if (!req.session.passport){ %>
+      <div ng-init="Guest()"></div>
+      <% } %>
         <% if (req.session.passport){ %>
 	<% if (req.session.passport.user){ %>
       <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Show Options</button>
@@ -87,7 +88,7 @@
       <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <br>
-      <div id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
+      <div ng-show="SoleConnectorVariable=='true'"  id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
       <div id ="sideofboard" style="padding-left: 25px;" ng-class="sideofboardstyle" >
          <!--  <form class="form-horizontal">
             <div class="form-group">
@@ -153,8 +154,7 @@
 	<% if (req.session.passport.user){ %>
        	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
 
-         <div ig-init="getuser('<%-req.session.passport.user %>')"></div>
-         <div ng-init="joinRoom('<%-req.session.passport.user %>')"></div>
+        
        <%}%>
        <%}%>
      

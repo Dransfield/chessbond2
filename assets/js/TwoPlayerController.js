@@ -20,10 +20,7 @@ $scope.ChessGameObject={};
 $scope.ChessGameObject2={};
 
 
-io.socket.on('connect',function(data){
-	console.log("DISCONNECT DETECTED!!!!");
-	$scope.Subscribe();
-	});
+
 	
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
@@ -229,7 +226,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
-			$scope.setBoard(MyID);
+			
 			/*
 			if (!$scope.User.BoardSize)
 			{
@@ -364,13 +361,16 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
     
 	// set-up loginForm loading state
 	
-	
-	$scope.Subscribe=function()
+	$scope.ReconnectFunction=function(MyID)
 	{
-			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
+	io.socket.on('connect',function(data){
+	console.log("DISCONNECT DETECTED!!!!");
+	io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			//console.log(JSON.stringify(resData));
 			
 			});
+	});
+			
 		
 	};
 	
@@ -423,6 +423,45 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			});
 			};
+	
+	$scope.Guest=function()
+	{
+	$scope.User={};
+	$scope.SoleConnectorVariable='true';
+	}
+	$scope.SoleConnectorFunction=function(id)
+	{
+		$http.get('/subscription?subscriber='+id, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.SoleConnectorVariable="false";
+			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
+			console.log(JSON.stringify(sailsResponse));
+			if(sailsResponse.data.length==0)
+			{	
+				joinRoom(id)
+			$scope.ReconnectFunction(id);
+			$scope.getuser(id);
+			$scope.SoleConnectorVariable="true";
+			}
+			
+			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
+			
+			}
+			
+			
+			)
+			.catch(function onError(sailsResponse) {
+			$scope.SoleConnectorVariable="true";
+			
+			$scope.joinmyuserIDRoom(id);
+			$scope.ReconnectFunction(id);
+			$scope.getuser(id);
+			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
+			
+			
+			});
+	}
 	
 $scope.ConnectSockets=function(){
 	console.log("Connect Sockets");
@@ -845,11 +884,11 @@ $scope.changeFavicon=function (src) {
 		$scope.Subscribe();
 			
 			$scope.ConnectSockets();
-		$http.get('/user?id='+usr)
-						.then(function (res) {
-							$scope.User = res.data;
+	//	$http.get('/user?id='+usr)
+		//				.then(function (res) {
+		//					$scope.User = res.data;
 							
-						});
+		//				});
 	
 		};
 		
@@ -868,7 +907,7 @@ $scope.changeFavicon=function (src) {
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
-		$scope.resizeBoard=function(me,apply)
+		$scope.resizeBoard=function(apply)
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
@@ -1156,7 +1195,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
- $scope.resizeBoard(me,true);
+ $scope.resizeBoard(true);
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
