@@ -143,8 +143,10 @@
  function deleteAllSubs()
  {
 	Subscription.destroy({}).exec(function callBack(err){
+    if(err)
+	{
     console.log(err)
-   //results.destroy();
+	}
     }); 
 	 
 	}

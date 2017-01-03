@@ -128,10 +128,7 @@ module.exports.sockets = {
   console.log("socket id is "+socket['id']);
  
   
-  if(session.passport)
-  {
-	  if(session.passport.user)
-	  {
+ 
    Subscription.find({socketid:socket['id']}).exec(function (err, records) {
 	
 	if(records)
@@ -149,9 +146,7 @@ module.exports.sockets = {
 	}
 	});
    
-   }
-   }
-	
+ 	
      // By default: do nothing.
      return cb();
    }
