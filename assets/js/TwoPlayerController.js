@@ -220,7 +220,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	};
 	
 
-	$scope.getuser=function(MyID)
+	$scope.getuserAndSetBoard=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
 			})
@@ -446,7 +446,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			{	
 			$scope.joinRoom(id)
 			$scope.ReconnectFunction(id);
-			$scope.getuser(id);
+			$scope.getuserAndSetBoard(id);
 			$scope.SoleConnectorVariable="true";
 			
 			console.log("setboard");
@@ -463,7 +463,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			$scope.joinRoom(id);
 			$scope.ReconnectFunction(id);
-			$scope.getuser(id);
+			$scope.getuserAndSetBoard(id);
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
