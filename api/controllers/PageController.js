@@ -535,7 +535,7 @@ transporter.sendMail(mailOptions, function(error, info){
 		(function (err, records) {
 			var people;
 			for (x in records)
-		 {people=people+"|"+x.name;}
+		 {people=people+"|"+records[x].name;}
 		 
 		 return res.json({
 		dwellers:people,
