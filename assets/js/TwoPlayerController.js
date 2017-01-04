@@ -901,7 +901,7 @@ $scope.changeFavicon=function (src) {
 			var peopleinroom=peoplearr.join(",");
 			var txtmsg = { content:"Users in the room "+peopleinroom};
 				$scope.$apply($scope.chatting.push(txtmsg));
-				
+			});
 			$scope.ConnectSockets();
 	//	$http.get('/user?id='+usr)
 		//				.then(function (res) {
