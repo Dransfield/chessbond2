@@ -226,7 +226,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
-			$scope.setBoard(MyID);
+			$http.get('/chessgame?id='+GameID)
+						.then(function (res) {
+							
+							$scope.ChessGameObject=res.data;
+							$scope.setBoard(MyID);
+							$scope.joinRoom(MyID);
+							});
 			/*
 			if (!$scope.User.BoardSize)
 			{
@@ -446,7 +452,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			console.log(JSON.stringify(sailsResponse));
 			if(sailsResponse.data.length==0)
 			{	
-			$scope.joinRoom(id)
+			
 			$scope.ConnectSockets();
 			$scope.ReconnectFunction(id);
 			$scope.getuserAndSetBoard(id);
@@ -464,7 +470,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
 			
-			$scope.joinRoom(id);
+			
 			$scope.ConnectSockets();
 			$scope.ReconnectFunction(id);
 			$scope.getuserAndSetBoard(id);
@@ -1009,11 +1015,7 @@ $scope.changeFavicon=function (src) {
 		};
 		$scope.resetBoard=function(me)
 		{
-						$http.get('/chessgame?id='+GameID)
-						.then(function (res) {
-							
-							$scope.ChessGameObject=res.data;
-							
+						
 							//$scope.LoadSubscribers();
 							
 							ShowPlayersAvatars();
@@ -1279,7 +1281,7 @@ updatePlayersLabel(game);
 		
 		
 		
-		});
+		
 		};
 	$scope.setBoard=function (me)
 		{
