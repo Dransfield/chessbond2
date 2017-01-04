@@ -373,7 +373,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 		
 	};
-	
+	/*
 	$scope.LoadSubscribers=function(){
 		var roomname=GameID;
 	
@@ -423,7 +423,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			});
 			};
-	
+	*/
 	$scope.Guest=function()
 	{
 		console.log("guest");
@@ -895,8 +895,13 @@ $scope.changeFavicon=function (src) {
 			for (x in peoplearr)
 			{
 			console.log(peoplearr[x]);
+			
 			}
-			});
+			
+			var peopleinroom=peoplearr.join(",");
+			var txtmsg = { content:"Users in the room "+peopleinroom};
+				$scope.$apply($scope.chatting.push(txtmsg));
+				
 			$scope.ConnectSockets();
 	//	$http.get('/user?id='+usr)
 		//				.then(function (res) {
@@ -997,7 +1002,7 @@ $scope.changeFavicon=function (src) {
 							
 							$scope.ChessGameObject=res.data;
 							
-							$scope.LoadSubscribers();
+							//$scope.LoadSubscribers();
 							
 							ShowPlayersAvatars();
 							
