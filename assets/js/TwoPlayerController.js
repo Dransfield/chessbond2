@@ -539,6 +539,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			{
 			$scope.Player2Online=""
 			}
+			var txtmsg = { content:resData.name+" left the room"};
+		
+			$scope.$apply($scope.chatting.push(txtmsg));
 			//$scope.$apply($scope.Players.splice(i, 1));
 			//}
 			});
