@@ -904,6 +904,7 @@ $scope.changeFavicon=function (src) {
 			}
 			if (index2!=-1)
 			{
+				console.log("index2 "+index2+" "+resData.dwellers);
 			$scope.Player2Online=" Online";	
 			}
 			
