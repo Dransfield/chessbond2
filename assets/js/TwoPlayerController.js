@@ -971,7 +971,7 @@ $scope.changeFavicon=function (src) {
 		$scope.reorientBoard=function(me,apply)
 		{
 			
-			
+			 $scope.resizeBoard(me,true);
 			
 		};
 		
