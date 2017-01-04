@@ -898,6 +898,8 @@ $scope.changeFavicon=function (src) {
 			
 			var index1 = resData.dwellers.indexOf($scope.Player1Namer);
 			var index2 = resData.dwellers.indexOf($scope.Player2Name);
+			console.log("$scope.Player2Name"+$scope.Player2Name);
+			console.log("resData.dwellers.indexOf($scope.Player2Name);"+resData.dwellers.indexOf($scope.Player2Name));
 			if (index1!=-1)
 			{
 			$scope.Player1Online=" Online";	
