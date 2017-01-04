@@ -56,10 +56,17 @@ $scope.BlackInterval=0;
     ];
     $scope.boardcontainerstyle="col-sm-7 col-md-6";
      $scope.boardsizes = [
+     /*
       {id: '1', name: 'Small',value:200},
       {id: '2', name: 'Medium',value:300},
       {id: '3', name: 'Large',value:400},
 	  {id: '4', name: 'Big',value:600}
+    */
+      {id: '1', name: 'Small',value:100},
+      {id: '2', name: 'Medium',value:200},
+      {id: '3', name: 'Large',value:300},
+	  {id: '4', name: 'Big',value:400}
+    
     ];
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
     $scope.BellSound= new Audio('/alert.mp3');
@@ -220,7 +227,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	};
 	
 
-	$scope.getuserAndSetBoard=function(MyID)
+	$scope.getuserAndSetBoardAndJoinRoom=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
 			})
@@ -455,7 +462,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			$scope.ConnectSockets();
 			$scope.ReconnectFunction(id);
-			$scope.getuserAndSetBoard(id);
+			$scope.getuserAndSetBoardAndJoinRoom(id);
 			$scope.SoleConnectorVariable="true";
 			
 			console.log("setboard");
@@ -473,7 +480,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 			$scope.ConnectSockets();
 			$scope.ReconnectFunction(id);
-			$scope.getuserAndSetBoard(id);
+			$scope.getuserAndSetBoardAndJoinRoom(id);
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
@@ -1007,7 +1014,19 @@ $scope.changeFavicon=function (src) {
 			$scope.sideofboardstyle="col-sm-7 col-md-8";
 			}
 		}
-	
+			if ($scope.User.BoardSize==100)
+		{
+			if (apply==true)
+			{
+			$scope.$apply($scope.boardcontainerstyle="col-sm-4 col-md-3");
+			$scope.$apply($scope.sideofboardstyle="col-sm-8 col-md-9");
+			}
+			else
+			{
+			$scope.boardcontainerstyle="col-sm-4 col-md-3";
+			$scope.sideofboardstyle="col-sm-8 col-md-9";
+			}
+		}
 		board1.resize();	
 		
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
