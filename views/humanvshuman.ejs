@@ -95,8 +95,7 @@
       <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <br>
-        <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Right'"  id ="rightboardcontainer" ng-class="boardcontainerstyle" ></div>
-     
+        
       <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Left'"  id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
         <div ng-show="SoleConnectorVariable!='true'"  id ="" ng-class="'label label-default'" >Someone else is logged on with the same account.</div>
      
@@ -160,6 +159,8 @@
          </div>
          <hr>
        </div>
+       <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Right'"  id ="rightboardcontainer" ng-class="boardcontainerstyle" ></div>
+     
        <div style="{clear:left}" class="col-sm-12 col-md-12">
      <% if (req.session.passport){ %>
 	<% if (req.session.passport.user){ %>
