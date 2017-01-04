@@ -891,15 +891,9 @@ $scope.changeFavicon=function (src) {
 		
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
-			var peoplearr=resData.dwellers.split("|");
-			for (x in peoplearr)
-			{
-			console.log(peoplearr[x]);
 			
-			}
 			
-			var peopleinroom=peoplearr.join(",");
-			var txtmsg = { content:"Users in the room "+peopleinroom};
+			var txtmsg = { content:"Users in the room "+resData.dwellers};
 				$scope.$apply($scope.chatting.push(txtmsg));
 			});
 			$scope.ConnectSockets();
