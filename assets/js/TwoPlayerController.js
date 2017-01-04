@@ -1057,6 +1057,16 @@ $scope.changeFavicon=function (src) {
 		}
 		board1.resize();	
 		board2.resize();
+		
+		if ($scope.BoardOrientation=='Right')
+		{
+		$scope.boardcontainerstyle+=" rightstyle";	
+		}
+		else
+		{
+		$scope.boardcontainerstyle+=" leftstyle";	
+		}
+		
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
 		};
