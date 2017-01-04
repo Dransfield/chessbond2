@@ -893,7 +893,7 @@ $scope.changeFavicon=function (src) {
 			console.log(JSON.stringify(resData));
 			
 			
-			var txtmsg = { content:"Users in the room "+resData.dwellers};
+			var txtmsg = { content:"<b>Users in the room: "+resData.dwellers+"<b>"};
 				$scope.$apply($scope.chatting.push(txtmsg));
 			});
 			$scope.ConnectSockets();
