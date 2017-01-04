@@ -240,7 +240,8 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			MyID:MyID,
 			MyName:MyName,
 			GameType:GamType,
-			TimeLimit:timelimit
+			Player1TimeLimit:timelimit*60,
+			Player2TimeLimit:timelimit*60
 			})
 			.then(function onSuccess(sailsResponse){
 			

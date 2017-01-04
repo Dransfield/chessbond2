@@ -412,6 +412,10 @@ deleteopengame:function(req,res){
 		
 		var myint=setInterval(function(){
 		sails.sockets.broadcast(req.param('GameID'), 'secondelapsed',{msg:req.param('ColorToMove')});
+		if(cg.Player1Color==req.param('ColorToMove'))
+		{cg.Player1TimeLimit-=1;}
+		else
+		{cg.Player2TimeLimit-=1;}
 		
 		},1000);
 		TimerObject={Game:req.param('GameID'),Timer:myint};

@@ -128,7 +128,7 @@ $scope.StartWhiteClock=function()
 	};
 $scope.StartBlackClock=function()
 	{
-		//$scope.BlackTime=(($scope.ChessGameObject.TimeLimit*60)*1000);
+		
 	$scope.BlackInterval=setInterval(function (){
 		
 		if ($scope.BlackTime>0)
