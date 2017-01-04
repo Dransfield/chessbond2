@@ -235,7 +235,9 @@ deleteopengame:function(req,res){
 		
 		MyName=req.param('MyName');
 		GameTypeID=req.param('GameType');
-		num=req.param("TimeLimit");
+		num1=req.param("Player1TimeLimit");
+		num2=req.param("Player2TimeLimit");
+		
 		Openchessgame.findOne(GameID, function foundUser(err, game) {
 	
 		// If session refers to a user who no longer exists, still allow logout.
@@ -250,7 +252,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
-			Chessgame.create({TimeLimit:num,GameType:GameTypeID,Move:1,Player1Color:PlayerColor,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
+			Chessgame.create({Player1TimeLimit:num1,Player2TimeLimit:num2,GameType:GameTypeID,Move:1,Player1Color:PlayerColor,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
 			
 			function (err, records) {
 				if(err){
