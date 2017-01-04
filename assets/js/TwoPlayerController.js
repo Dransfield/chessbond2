@@ -364,11 +364,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.ReconnectFunction=function(MyID)
 	{
 	io.socket.on('disconnect',function(data){
-	var txtmsg = { content:"<br>server is down"};
+	var txtmsg = { content:"<br>disconnect from server"};
 				$scope.$apply($scope.chatting.push(txtmsg));
 	});
 	io.socket.on('connect',function(data){
-	var txtmsg = { content:"<br>server is back up"};
+	var txtmsg = { content:"<br>reconnected to server"};
 				$scope.$apply($scope.chatting.push(txtmsg));
 	$scope.joinRoom(MyID);
 	});
