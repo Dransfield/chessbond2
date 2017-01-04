@@ -53,8 +53,8 @@ $scope.WhiteInterval=0;
 $scope.BlackInterval=0;
 
   $scope.boardorientations = [
-        {id: '1', name: 'Left','Left'},
-	  {id: '2', name: 'Right','Right'}
+        {id: '1', name: 'Left',value:'Left'},
+	  {id: '2', name: 'Right',value:'Right'}
           ];
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
