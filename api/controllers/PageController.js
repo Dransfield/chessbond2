@@ -526,13 +526,22 @@ transporter.sendMail(mailOptions, function(error, info){
 			}
 			else
 			{
+			
 			sails.sockets.broadcast(roomName,"joined room",{joiner:req.session.passport.user});
 	
 			}
+			
+			Subscription.find{room:roomName}).exec
+		(function (err, records) {
+			var people;
+			for (x in records)
+		 {people=people+"|"+x.name;}
+		 
 		 return res.json({
-		
-      message: 'Subscribed to a room called '+roomName+'!'
+		dwellers:people,
+      message: 'joined the room'
     });
+	});
 			});
    }}}
   });
