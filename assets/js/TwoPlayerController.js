@@ -510,32 +510,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				
 			});
 	
-	io.socket.on('joined room',function(data)
-			{
-			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
-		var foundplayer=false;
-					for(var i = $scope.Players.length - 1; i >= 0; i--) {
-			
-			if($scope.Players[i].name==resData.name) {
-			foundplayer=true;
-			}
-			}
-			
-			if (foundplayer==false)
-			{
-			$scope.$apply($scope.Players.push({name:resData.name}));
-			if (resData.name==$scope.Player1Namer)
-			{
-			$scope.Player1Online=" Online";	
-			}
-			if (resData.name==$scope.Player2Name)
-			{
-			$scope.Player2Online=" Online";	
-			}
-			}
-    	});
-				
-			});
+	
 	
 	io.socket.on('timeoutevent',function(data){
 	console.log(game.turn()+" timed out!");
@@ -896,6 +871,16 @@ $scope.changeFavicon=function (src) {
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			
+			var index1 = resData.dwellers.indexOf($scope.Player1Namer);
+			var index2 = resData.dwellers.indexOf($scope.Player2Name);
+			if (index1!=-1)
+			{
+			$scope.Player1Online=" Online";	
+			}
+			if (index2!=-1)
+			{
+			$scope.Player2Online=" Online";	
+			}
 			
 			var txtmsg = { content:"<b>Users in the room: "+resData.dwellers+"<b>"};
 				$scope.$apply($scope.chatting.push(txtmsg));

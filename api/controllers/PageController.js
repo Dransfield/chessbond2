@@ -549,7 +549,7 @@ transporter.sendMail(mailOptions, function(error, info){
 		}
 			 return res.json({
 		dwellers:names,
-      message: 'joined the room'
+      message: 'joined room'
     });
 	
 	 });
