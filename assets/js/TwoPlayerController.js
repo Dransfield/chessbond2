@@ -515,9 +515,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	console.log("left room"+JSON.stringify(data));
 			io.socket.get("/user?id="+data.leaver,{},function (resData,jwres){
 				console.log("found leaver"+resData.name);
-					for(var i = $scope.Players.length - 1; i >= 0; i--) {
-			console.log("player in list"+$scope.Players[i].name);
-			if($scope.Players[i].name==resData.name) {
+					//for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			//console.log("player in list"+$scope.Players[i].name);
+			//if($scope.Players[i].name==resData.name) {
 			if (resData.name==$scope.Player1Namer)
 			{
 			$scope.Player1Online=""
@@ -526,8 +526,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			{
 			$scope.Player2Online=""
 			}
-			$scope.$apply($scope.Players.splice(i, 1));
-			}
+			//$scope.$apply($scope.Players.splice(i, 1));
+			//}
 			}
 			
 			
@@ -898,8 +898,8 @@ $scope.changeFavicon=function (src) {
 			
 			var index1 = resData.dwellers.indexOf($scope.Player1Namer);
 			var index2 = resData.dwellers.indexOf($scope.Player2Name);
-			console.log("$scope.Player2Name"+$scope.Player2Name);
-			console.log("resData.dwellers.indexOf($scope.Player2Name);"+resData.dwellers.indexOf($scope.Player2Name));
+			//console.log("$scope.Player2Name"+$scope.Player2Name);
+			//console.log("resData.dwellers.indexOf($scope.Player2Name);"+resData.dwellers.indexOf($scope.Player2Name));
 			if (index1!=-1)
 			{
 			$scope.Player1Online=" Online";	
