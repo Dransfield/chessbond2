@@ -528,10 +528,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			}
 			//$scope.$apply($scope.Players.splice(i, 1));
 			//}
-			}
+			});
 			
 			
-    	});
+    	
 				
 			});
 	
