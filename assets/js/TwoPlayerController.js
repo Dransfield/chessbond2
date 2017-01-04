@@ -1060,11 +1060,11 @@ $scope.changeFavicon=function (src) {
 		
 		if ($scope.BoardOrientation=='Right')
 		{
-		//$scope.boardcontainerstyle+=" rightstyle";	
+		$scope.sideofboardstyle+=" rightstyle";	
 		}
 		else
 		{
-		$scope.boardcontainerstyle+=" leftstyle";	
+		$scope.sideofboardstyle+=" leftstyle";	
 		}
 		
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
