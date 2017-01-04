@@ -518,7 +518,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			//}
 			//}
 			
-			
+			var txtmsg = { content:resData.name+" joined the room"};
+		
+			$scope.$apply($scope.chatting.push(txtmsg));
     	});
 				
 			});
