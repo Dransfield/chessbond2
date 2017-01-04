@@ -891,7 +891,7 @@ $scope.changeFavicon=function (src) {
 		
 			io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
-			var peoplearr=resData.data.dwellers.split("|");
+			var peoplearr=resData.dwellers.split("|");
 			for (x in peoplearr)
 			{
 			console.log(peoplearr[x]);
