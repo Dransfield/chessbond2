@@ -531,7 +531,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 			}
 			
-			Subscription.find{room:roomName}).exec
+			Subscription.find({room:roomName}).exec
 		(function (err, records) {
 			var people;
 			for (x in records)
