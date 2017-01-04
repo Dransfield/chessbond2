@@ -485,6 +485,31 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				
 			});
 	
+	io.socket.on('joined room',function(data)
+			{
+	console.log("joined room"+JSON.stringify(data));
+			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
+				console.log("found joiner"+resData.name);
+				//	for(var i = $scope.Players.length - 1; i >= 0; i--) {
+			//console.log("player in list"+$scope.Players[i].name);
+		//	if($scope.Players[i].name==resData.name) {
+			if (resData.name==$scope.Player1Namer)
+			{
+			$scope.Player1Online=" Online"
+			}
+			if (resData.name==$scope.Player2Name)
+			{
+			$scope.Player2Online=" Online"
+			}
+			//$scope.$apply($scope.Players.splice(i, 1));
+			//}
+			//}
+			
+			
+    	});
+				
+			});
+	
 	io.socket.on('left room',function(data)
 			{
 	console.log("left room"+JSON.stringify(data));
