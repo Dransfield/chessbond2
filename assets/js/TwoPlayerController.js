@@ -53,7 +53,8 @@ $scope.WhiteInterval=0;
 $scope.BlackInterval=0;
 
   $scope.boardorientations = [
-      'Left','Right'
+        {id: '1', name: 'Left','Left'},
+	  {id: '2', name: 'Right','Right'}
           ];
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
@@ -967,7 +968,7 @@ $scope.changeFavicon=function (src) {
 			}
 		};
 		
-		$scope.orientBoard=function(me,apply)
+		$scope.reorientBoard=function(me,apply)
 		{
 			
 			
