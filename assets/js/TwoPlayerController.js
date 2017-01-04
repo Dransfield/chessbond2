@@ -364,11 +364,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	$scope.ReconnectFunction=function(MyID)
 	{
 	io.socket.on('connect',function(data){
-	console.log("DISCONNECT DETECTED!!!!");
-	io.socket.get("/subscribeToRoom",{roomName:GameID},function (resData,jwres){
-			//console.log(JSON.stringify(resData));
-			
-			});
+	joinRoom(MyID);
 	});
 			
 		
@@ -445,6 +441,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			if(sailsResponse.data.length==0)
 			{	
 			$scope.joinRoom(id)
+			$scope.ConnectSockets();
 			$scope.ReconnectFunction(id);
 			$scope.getuserAndSetBoard(id);
 			$scope.SoleConnectorVariable="true";
@@ -462,6 +459,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.SoleConnectorVariable="true";
 			
 			$scope.joinRoom(id);
+			$scope.ConnectSockets();
 			$scope.ReconnectFunction(id);
 			$scope.getuserAndSetBoard(id);
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
@@ -896,7 +894,7 @@ $scope.changeFavicon=function (src) {
 			var txtmsg = { content:"<b>Users in the room: "+resData.dwellers+"<b>"};
 				$scope.$apply($scope.chatting.push(txtmsg));
 			});
-			$scope.ConnectSockets();
+			
 	//	$http.get('/user?id='+usr)
 		//				.then(function (res) {
 		//					$scope.User = res.data;
