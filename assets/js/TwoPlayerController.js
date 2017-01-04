@@ -1,5 +1,6 @@
 angular.module('HomepageModule').controller('TwoPlayerController', ['$scope', '$http', 'toastr','$sce','$compile', function($scope, $http, toastr,$sce,$compile){
 var board1 ;
+var board2;
 var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
@@ -51,6 +52,9 @@ $scope.capturedBlackpieces=[];
 $scope.WhiteInterval=0;
 $scope.BlackInterval=0;
 
+  $scope.boardorientations = [
+      'Left','Right'
+          ];
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
@@ -956,6 +960,14 @@ $scope.changeFavicon=function (src) {
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
 		};
+		
+		$scope.orientBoard=function(me,apply)
+		{
+			
+			
+			
+		};
+		
 		$scope.resizeBoard=function(me,apply)
 		{
 			console.log("board1 "+board1);
@@ -1250,6 +1262,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
+ board2=ChessBoard('rightboardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
  console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
  $scope.resizeBoard(me,false);
@@ -1258,6 +1271,7 @@ updatePlayersLabel(game);
 		if ($scope.ChessGameObject.Player1Color=='White')
 		{
 		board1.flip();
+		board2.flip();
 		$scope.PlayerOnBottom='Black';
 		console.log("black is on bottom ");
 		}
@@ -1268,16 +1282,19 @@ updatePlayersLabel(game);
 		if ($scope.ChessGameObject.Player1Color=='Black')
 		{
 		board1.flip();
+		board2.flip();
 		$scope.PlayerOnBottom='Black';
 		console.log("black is on bottom ");
 		}
 	}
 
 	board1.start();
-	
+	board2.start();
 		if ($scope.ChessGameObject.fen)
 		{
 		board1.position($scope.ChessGameObject.fen);
+		board2.position($scope.ChessGameObject.fen);
+		
 		console.log("pgn "+$scope.ChessGameObject.pgn)
 		$scope.Moves=$scope.ChessGameObject.pgn.split(".");
 		console.log($scope.Moves);

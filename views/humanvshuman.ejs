@@ -73,6 +73,13 @@
                   <option ng-repeat="option in boardsizes" value="{{option.value}}">{{option.name}}</option>
                </select>
             </td>
+               <td>
+               <span class="label label-default">Board Orientation</span>
+               <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardOrientation"   ng-change="PrefSelectChanged('BoardOrientation','<%-req.session.passport.user%>', reorientBoard)"
+                  >
+                  <option ng-repeat="option in boardorientations" value="{{option.value}}">{{option.name}}</option>
+               </select>
+            </td>
          </tr>
       </table>
       <%}%>
@@ -88,6 +95,8 @@
       <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
       <br>
+        <div ng-show="SoleConnectorVariable=='true'"  id ="rightboardcontainer" ng-class="boardcontainerstyle" ></div>
+     
       <div ng-show="SoleConnectorVariable=='true'"  id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
         <div ng-show="SoleConnectorVariable!='true'"  id ="" ng-class="'label label-default'" >Someone else is logged on with the same account.</div>
      
