@@ -534,7 +534,7 @@ transporter.sendMail(mailOptions, function(error, info){
 			Subscription.find({room:roomName}).exec
 		(function (err, records) {
 			var people;
-			console.log(JSON.stringify(records);
+			console.log(JSON.stringify(records));
 			for (x in records)
 		 {people=people+"|"+records[x].name;}
 		 
