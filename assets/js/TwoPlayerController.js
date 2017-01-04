@@ -646,6 +646,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
+		board2.move(modified);
 		var square=   boardEl.find('.square-' + move.to);
 		var position =square .position();
 		$( "img[id='highlight']" ).detach();
@@ -671,7 +672,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			board1.position(game.fen());
 		}
-		
+		if (game.fen()!=board2.fen())
+		{
+			board2.position(game.fen());
+		}
 		if (game.in_checkmate())
 		{
 			if($scope.User)
@@ -689,6 +693,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			//console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
+		board2.position($scope.ChessGameObject.fen);
+		
 		$scope.PlayMove();
 		//game.load(gameRecordnow.fen);
 		//console.log("after update "+game.ascii());
@@ -979,8 +985,12 @@ $scope.changeFavicon=function (src) {
 			{
 			if (apply==true)
 			{
+		
+		
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
+			
+			
 			}
 			else
 			{
@@ -1045,7 +1055,7 @@ $scope.changeFavicon=function (src) {
 			}
 		}
 		board1.resize();	
-		
+		board2.resize();
 			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
 			
 		};
