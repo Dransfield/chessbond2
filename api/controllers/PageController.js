@@ -539,8 +539,10 @@ transporter.sendMail(mailOptions, function(error, info){
 			for (x in records)
 		 {people.push(records[x].id);}
 		 var names="";
+		 console.log("people array"+JSON.stringify(people));
 		 User.find({id:people}).exec
 		(function (err, userrecords) {
+			console.log("userrecords"+JSON.stringify(userrecords));
 		for (iter in userrecords)
 		{
 		names=names+userrecords[iter].name; 
