@@ -533,15 +533,24 @@ transporter.sendMail(mailOptions, function(error, info){
 			
 			Subscription.find({room:roomName}).exec
 		(function (err, records) {
-			var people;
+			var people=[];
 			console.log(JSON.stringify(records));
+			
 			for (x in records)
-		 {people=people+"|"+records[x].name;}
-		 
-		 return res.json({
-		dwellers:people,
+		 {people.push(records[x].id);}
+		 var names="";
+		 User.find({id:people}).exec
+		(function (err, userrecords) {
+		for (iter in userrecords)
+		{
+		names=names+userrecords[iter].name; 
+		}
+			 return res.json({
+		dwellers:names,
       message: 'joined the room'
     });
+	
+	 });
 	});
 			});
    }}}
