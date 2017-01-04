@@ -906,7 +906,7 @@ $scope.changeFavicon=function (src) {
 			}
 			if (index2!=-1)
 			{
-				console.log("index2 "+index2+" "+resData.dwellers);
+			
 			console.log("player2 name"+$scope.Player2Name);
 			$scope.Player2Online=" Online";	
 			}
