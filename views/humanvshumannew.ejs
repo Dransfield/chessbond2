@@ -36,7 +36,13 @@
       <% if (!req.session.passport){ %>
       <div ng-init="Guest()"></div>
       <% } %>
- 
+     <% if (req.session.passport){ %>
+	<% if (req.session.passport.user){ %>
+       	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+
+        
+       <%}%>
+       <%}%>
  <div class="row">
   <div class="col-md-12">
 	<div class="row">
