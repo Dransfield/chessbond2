@@ -882,13 +882,13 @@ $scope.changeFavicon=function (src) {
 			{
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
-			
+			$scope.BottomPlayerName=res.data.name;
 			}
 			else
 			{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
-		
+			$scope.TopPlayerName=res.data.name;
 			}
 			
 			});
@@ -906,11 +906,13 @@ $scope.changeFavicon=function (src) {
 			{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
+			$scope.TopPlayerName=res.data.name;
 			}
 			else
 			{
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
+			$scope.BottomPlayerName=res.data.name;
 			}
 			
 			});

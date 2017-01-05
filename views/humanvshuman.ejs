@@ -184,10 +184,12 @@
          <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{piece}}.png">
          </span>
          <hr>
-         <div style="position: relative; left: 0; top: 0;"> 
+         <div style="position: relative;clear:left; left: 0; top: 0;"> 
             <img style="position:relative;height:100px;" src='/images/eye.png'>
             <img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
          </div>
+          <span class="label label-success" >{{BottomPlayerName}}</span>
+        
          <img ng-src="{{BottomPlayerFlag}}">
          <div id="engineStatus">...</div>
 		</div>
