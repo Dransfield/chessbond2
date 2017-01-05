@@ -53,7 +53,7 @@
 	console.log("winner "+winner);
 	console.log("loser "+loser);
 	
-			User.find({
+  User.find({
   id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
 	console.log("winners and losers:"+JSON.stringify(winnersandlosers));
@@ -129,7 +129,7 @@
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
 	
 	 
-});
+	});
 	});
 	
 	
@@ -401,7 +401,7 @@ deleteopengame:function(req,res){
 		var OldMoveNumber=cg.Move;
 		console.log("old move outside of timer"+OldMoveNumber);
 		
-		
+		/*
 		for (x in TimerList)
 		{
 		
@@ -422,7 +422,7 @@ deleteopengame:function(req,res){
 		},1000);
 		TimerObject={Game:req.param('GameID'),Timer:myint};
 		TimerList.push(TimerObject);
-		
+		*/
 	/*
 	setTimeout(		function(){
 		
