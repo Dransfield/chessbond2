@@ -1,6 +1,6 @@
 angular.module('HomepageModule').controller('TwoPlayerController', ['$scope', '$http', 'toastr','$sce','$compile', function($scope, $http, toastr,$sce,$compile){
 var board1 ;
-var board2;
+
 var game;
 $scope.Player1Namer="";
 $scope.Player2Name="";
@@ -652,7 +652,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
-		board2.move(modified);
+		
 		var square=   boardEl.find('.square-' + move.to);
 		var position =square .position();
 		$( "img[id='highlight']" ).detach();
@@ -678,10 +678,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			board1.position(game.fen());
 		}
-		if (game.fen()!=board2.fen())
-		{
-			board2.position(game.fen());
-		}
+		
 		if (game.in_checkmate())
 		{
 			if($scope.User)
@@ -699,7 +696,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			//console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
-		board2.position($scope.ChessGameObject.fen);
+		
 		
 		$scope.PlayMove();
 		//game.load(gameRecordnow.fen);
@@ -1087,7 +1084,7 @@ $scope.changeFavicon=function (src) {
 			}
 		}
 		board1.resize();	
-		board2.resize();
+		
 		
 		if ($scope.BoardOrientation=='Right')
 		{
@@ -1314,8 +1311,7 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 //console.log(JSON.stringify($scope.MyPieceTheme[0]['name']));
 
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
- board2=ChessBoard('rightboardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
- console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
+console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
  
 updatePlayersLabel(game);
@@ -1323,7 +1319,7 @@ updatePlayersLabel(game);
 		if ($scope.ChessGameObject.Player1Color=='White')
 		{
 		board1.flip();
-		board2.flip();
+		
 		$scope.PlayerOnBottom='Black';
 		console.log("black is on bottom ");
 		}
@@ -1334,18 +1330,18 @@ updatePlayersLabel(game);
 		if ($scope.ChessGameObject.Player1Color=='Black')
 		{
 		board1.flip();
-		board2.flip();
+	
 		$scope.PlayerOnBottom='Black';
 		console.log("black is on bottom ");
 		}
 	}
 
 	board1.start();
-	board2.start();
+	
 		if ($scope.ChessGameObject.fen)
 		{
 		board1.position($scope.ChessGameObject.fen);
-		board2.position($scope.ChessGameObject.fen);
+		
 		
 		console.log("pgn "+$scope.ChessGameObject.pgn)
 		$scope.Moves=$scope.ChessGameObject.pgn.split(".");
