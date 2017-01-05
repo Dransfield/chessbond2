@@ -46,7 +46,12 @@
  <div class="row">
   <div class="col-md-12">
 	<div class="row">
+		<div id="boardcontainercontainer" class="col-md-6">
 		<div id="boardcontainer" class="col-md-6">
+		</div>
+	     <img style="position:relative;height:100px;" src='/images/eye2.png'>
+         <img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{TopPlayerPic}}">
+    
 		</div>
 		<div id="sideboard" class="col-md-6">
 		</div>
