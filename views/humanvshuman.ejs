@@ -121,12 +121,15 @@
 				
 				</div>
 				
-				<span id="eyecontainer">
+				<span style="position:relative;left-padding:0%" id="eyecontainer">
 				<img style="position:relative;" src='/images/eye.png'>
 				<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
 				</span>
 				<span id="namecontainer">
 				<span class="label label-success" >{{BottomPlayerName}}</span>
+				</span>
+				<span id="ELOcontainer" >
+				({{BottomPlayerELO}})
 				</span>
 				<span id="flagcontainer">
 				<img ng-src="{{BottomPlayerFlag}}">
