@@ -205,12 +205,12 @@ $scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-60;
 
 
 $scope.pic2height=30;
-$scope.pic2coordy=48;
-$scope.pic2coordx=57;
+$scope.pic2coordy=50;
+$scope.pic2coordx=50;
 
 $scope.smallimage2=function()
 {
-$scope.pic2height=30; $scope.pic2coordx=57; $scope.pic2coordy=48;	
+$scope.pic2height=30; $scope.pic2coordx=50; $scope.pic2coordy=50;	
 }
 $scope.bigimage2=function()
 {
