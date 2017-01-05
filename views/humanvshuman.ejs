@@ -98,12 +98,9 @@
         <div ng-init="getchatmessages()"></div>
       <div>
       <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Left'"  id ="boardcontainer" ng-class="boardcontainerstyle" >
-      
-        
-       
-      
+           
       </div>
-          <div style="position: relative; left: 0; top: 0;"> 
+          <div style="clear:left;position: relative; left: 0; top: 0;"> 
             <img style="position:relative;height:100px;" src='/images/eye.png'>
             <img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
          
@@ -112,7 +109,7 @@
          <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
          <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
          </div>
-         </div>
+     </div>
         <div ng-show="SoleConnectorVariable!='true'"  id ="" ng-class="'label label-default'" >Someone else is logged on with the same account.</div>
      
       <div id ="sideofboard" ng-class="sideofboardstyle" >
