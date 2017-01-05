@@ -41,6 +41,7 @@ module.exports.routes = {
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
+	'GET /humanvshumannew/:GameID':{view:'humanvshumannew'},
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
 	'PUT /SendMail':'ForgotBackController.SendMail',
