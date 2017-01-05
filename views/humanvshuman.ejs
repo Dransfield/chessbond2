@@ -90,29 +90,29 @@
 			<div  id="boardcontainercontainer" class="col-md-6">
 			
 						
-				<div id="eyecontainer" class="col-md-3" >
+				<span id="eyecontainer" >
 				<img style="position:relative;" src='/images/eye2.png'>
 				<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>
          
-				</div>
-				<div id="namecontainer" class="col-md-3">
+				</span>
+				<span id="namecontainer" >
 				<span class="label label-success" >{{TopPlayerName}}</span>
-				</div>
+				</span>
 				
-				<div id="ELOcontainer" class="col-md-1">
+				<span id="ELOcontainer" >
 				({{TopPlayerELO}})
-				</div>
+				</span>
 				
-				<div id="flagcontainer"  class="col-md-2">
+				<span id="flagcontainer"  >
 				<img ng-src="{{TopPlayerFlag}}">
-				</div>
-				<div id="pingcontainer" class="col-md-1">
+				</span>
+				<span id="pingcontainer" >
 				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
-				</div>
-				<div id="timercontainer" class="col-md-2">
+				</span>
+				<span id="timercontainer">
 				<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
 				<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
-				</div>
+				</span>
 				
 				<div class="row">
 				
