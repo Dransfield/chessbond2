@@ -984,7 +984,7 @@ $scope.changeFavicon=function (src) {
 			//$("#infocontainer").detach();
 			//$("#boardcontainercontainer").detach();
 			
-			
+			$( "div[id='infcontainer']" ).detach();
 			
 			 $scope.resizeBoard(me,true);
 			
