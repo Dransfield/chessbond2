@@ -981,8 +981,8 @@ $scope.changeFavicon=function (src) {
 		
 		$scope.reorientBoard=function(me,apply)
 		{
-			$("#infocontainer").detach();
-			$("#boardcontainercontainer").detach();
+			//$("#infocontainer").detach();
+			//$("#boardcontainercontainer").detach();
 			
 			
 			
