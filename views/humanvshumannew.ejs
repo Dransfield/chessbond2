@@ -85,52 +85,52 @@
       <%}%>
       <%}%>
 	
-	<div style="border-style: solid; padding-left: 0px;padding-right: 0px;" id="overallcontainer" class="col-md-12">
+	<div id="overallcontainer" class="col-md-12">
 			
-			<div style="border-style: solid;padding-left: 0px;padding-right: 0px;" id="boardcontainercontainer" class="col-md-6">
+			<div  id="boardcontainercontainer" class="col-md-6">
 			
 						
-				<div id="eyecontainer" style="border-style: solid;padding-left: 0px;padding-right: 0px;" class="col-md-3">
+				<div id="eyecontainer"  class="col-md-3">
 				<img style="position:relative;" src='/images/eye2.png'>
 				<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>
          
 				</div>
-				<div id="namecontainer" style="border-style: solid;padding-left: 0px;" class="col-md-3">
+				<div id="namecontainer"  class="col-md-3">
 				<span class="label label-success" >{{TopPlayerName}}</span>
 				</div>
-				<div id="flagcontainer" style="border-style: solid;padding-left: 0px;" class="col-md-2">
+				<div id="flagcontainer"  class="col-md-2">
 				<img ng-src="{{TopPlayerFlag}}">
 				</div>
-				<div id="pingcontainer" style="border-style: solid;padding-left: 0px;"class="col-md-2">
+				<div id="pingcontainer" class="col-md-2">
 				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
 				</div>
-				<div id="timercontainer" style="border-style: solid;padding-left: 0px;" class="col-md-2">
+				<div id="timercontainer" class="col-md-2">
 				<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
 				<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
 				</div>
 				
 				<div class="row">
 				
-	    		 <div ng-show="SoleConnectorVariable=='true'" style="padding-left: 0px;" id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
+	    		 <div ng-show="SoleConnectorVariable=='true'"  id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
      
 				
 				</div>
 				
-				<div id="eyecontainer" style="padding-left: 0px;"class="col-md-3">
+				<div id="eyecontainer" class="col-md-3">
 				<img style="position:relative;" src='/images/eye.png'>
 				<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
          
 				</div>
-				<div id="namecontainer" style="padding-left: 0px;" class="col-md-3">
+				<div id="namecontainer"  class="col-md-3">
 				<span class="label label-success" >{{BottomPlayerName}}</span>
 				</div>
-				<div id="flagcontainer" style="padding-left: 0px;" class="col-md-2">
+				<div id="flagcontainer"  class="col-md-2">
 				<img ng-src="{{BottomPlayerFlag}}">
 				</div>
-				<div id="pingcontainer" style="padding-left: 0px;" class="col-md-2">
+				<div id="pingcontainer"  class="col-md-2">
 				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
 				</div>
-				<div id="timercontainer" class="col-md-2" style="padding-left: 0px;">
+				<div id="timercontainer" class="col-md-2">
 				<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
 				<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
 				</div>
