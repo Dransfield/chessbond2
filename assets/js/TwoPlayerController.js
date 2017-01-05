@@ -31,7 +31,7 @@ $scope.ChessGameObject2={};
 $scope.PlayerOnBottom='White';
 var squareClass = 'square-55d63';
   var squareToHighlight;
-  boardEl = $('#board');
+  boardEl = $('#boardcontainer');
   
 $scope.TopMinutes=0;
 $scope.TopSeconds=0;
@@ -695,7 +695,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		}
 		else
 		{
-			//console.log("move is null updating game and board with");
+			console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
 		
 		
