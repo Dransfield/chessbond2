@@ -101,6 +101,26 @@
 		 <div  class="col-md-12" ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>
          <div class="col-md-12 label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker"></div>
         
+            <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+			<div class=" col-md-12 label label-default">Chat</div>
+			<div id="chatdiv" class="col-md-12" style="overflow-y: scroll;max-height:40vh;">
+               <table>
+                  <tr ng-repeat="chatmsg in chatting track by $index">
+                     <!-- <td >{{chatmsg.content}}</td>-->
+                     <td ng-bind-html="chatmsg.content"></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="col-md-12">
+            <form ng-submit="chatMessage('<%- req.session.passport.user %>')">
+               <input type="text" autocomplete="off" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
+               <button type="submit" >chat</button>
+            </form>
+			</div>
+         <%}%>
+       <%}%>
+        
         </div>
 			
 
