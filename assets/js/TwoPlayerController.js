@@ -1017,12 +1017,12 @@ $scope.changeFavicon=function (src) {
 			
 			if (apply==true)
 			{
-			$scope.$apply($scope.boardcontainerstyle="col-sm-6 col-md-6");
+			$scope.$apply($scope.boardcontainerstyle="col-sm-12 col-md-12");
 			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");
 			}
 			else
 			{
-			$scope.boardcontainerstyle="col-sm-7 col-md-6";
+			$scope.boardcontainerstyle="col-sm-12 col-md-12";
 			$scope.sideofboardstyle="col-sm-5 col-md-6";
 			}
 		}
@@ -1030,12 +1030,12 @@ $scope.changeFavicon=function (src) {
 		{
 			if(apply==true)
 			{
-			$scope.$apply($scope.boardcontainerstyle="col-sm-5 col-md-5");
+			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-9");
 			$scope.$apply($scope.sideofboardstyle="col-sm-6 col-md-7");
 			}
 			else
 			{
-			$scope.boardcontainerstyle="col-sm-6 col-md-5";
+			$scope.boardcontainerstyle="col-sm-9 col-md-9";
 			$scope.sideofboardstyle="col-sm-6 col-md-7";
 			}
 		
@@ -1044,12 +1044,12 @@ $scope.changeFavicon=function (src) {
 		{
 			if (apply==true)
 			{
-			$scope.$apply($scope.boardcontainerstyle="col-sm-4 col-md-4");
+			$scope.$apply($scope.boardcontainerstyle="col-sm-7 col-md-7");
 			$scope.$apply($scope.sideofboardstyle="col-sm-7 col-md-8");
 			}
 			else
 			{
-			$scope.boardcontainerstyle="col-sm-5 col-md-4";
+			$scope.boardcontainerstyle="col-sm-7 col-md-7";
 			$scope.sideofboardstyle="col-sm-7 col-md-8";
 			}
 		}
@@ -1057,12 +1057,12 @@ $scope.changeFavicon=function (src) {
 		{
 			if (apply==true)
 			{
-			$scope.$apply($scope.boardcontainerstyle="col-sm-3 col-md-3");
+			$scope.$apply($scope.boardcontainerstyle="col-sm-5 col-md-5");
 			$scope.$apply($scope.sideofboardstyle="col-sm-8 col-md-9");
 			}
 			else
 			{
-			$scope.boardcontainerstyle="col-sm-4 col-md-3";
+			$scope.boardcontainerstyle="col-sm-5 col-md-5";
 			$scope.sideofboardstyle="col-sm-8 col-md-9";
 			}
 		}
