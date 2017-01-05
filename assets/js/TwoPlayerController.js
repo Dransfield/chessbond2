@@ -677,6 +677,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		if (game.fen()!=board1.fen())
 		{
 			board1.position(game.fen());
+			console.log("changed board position to match fen");
 		}
 		
 		if (game.in_checkmate())
