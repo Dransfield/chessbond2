@@ -33,17 +33,17 @@
       <%- include partials/navbar.ejs %>
      <!-- <p>Game Id is   <%-req.param('GameID')%></p>-->
       <script> var GameID='<%- req.param('GameID') %>'</script>
-      <p id="fenshower">
-      </p>
-      <form ng-hide="HideInject" ng-submit="injectfen()">
-         <input ng-model="fenform.fen" type="text" id="feninject">
-         </input>
-         <button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
-      </form>
       <% if (!req.session.passport){ %>
       <div ng-init="Guest()"></div>
       <% } %>
-        <% if (req.session.passport){ %>
+     <% if (req.session.passport){ %>
+	<% if (req.session.passport.user){ %>
+       	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+
+        
+       <%}%>
+       <%}%>
+     <% if (req.session.passport){ %>
 	<% if (req.session.passport.user){ %>
       <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Show Options</button>
       <table ng-hide="ShowOptions">
@@ -84,71 +84,70 @@
       </table>
       <%}%>
       <%}%>
-      <hr>
-      <div style="position: relative; left: 0; top: 0;"> 
-         <img style="position:relative;height:100px;" src='/images/eye2.png'>
-         <img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{TopPlayerPic}}">
-      </div>
-      <img id="opponentflag" ng-src="{{TopPlayerFlag}}">
-      <div ng-init="DoPingInterval()">Ping {{PingDisplay}}</div>
-      
-      <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
-      <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
-      <br>
-        <div ng-init="getchatmessages()"></div>
-      <span>
-      <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Left'"  id ="boardcontainer" ng-class="boardcontainerstyle" >
-           
-      </div>
-          <div style="position: relative; left: 0; top: 0;"> 
-            <img style="position:relative;height:100px;" src='/images/eye.png'>
-            <img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+	
+	<div id="overallcontainer" class="col-md-12">
+			
+			<div  id="boardcontainercontainer" class="col-md-6">
+			
+						
+				<div id="eyecontainer"  class="col-md-3">
+				<img style="position:relative;" src='/images/eye2.png'>
+				<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>
          
-           <span class="label label-success" >{{BottomPlayerName}}</span>
-         <img ng-src="{{BottomPlayerFlag}}">
-         <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
-         <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
-         </div>
-     </span>
-        <div ng-show="SoleConnectorVariable!='true'"  id ="" ng-class="'label label-default'" >Someone else is logged on with the same account.</div>
+				</div>
+				<div id="namecontainer"  class="col-md-3">
+				<span class="label label-success" >{{TopPlayerName}}</span>
+				</div>
+				<div id="flagcontainer"  class="col-md-2">
+				<img ng-src="{{TopPlayerFlag}}">
+				</div>
+				<div id="pingcontainer" class="col-md-2">
+				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
+				</div>
+				<div id="timercontainer" class="col-md-2">
+				<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
+				<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
+				</div>
+				
+				<div class="row">
+				
+	    		 <div ng-show="SoleConnectorVariable=='true'"  id ="boardcontainer" ng-class="boardcontainerstyle" ></div>
      
-      <div id ="sideofboard" ng-class="sideofboardstyle" >
-         <!--  <form class="form-horizontal">
-            <div class="form-group">
-              <label for="color" class="control-label col-xs-4 col-sm-6 col-md-4">Promote to</label>
-              <div class="col-xs-4 col-sm-6 col-md-4">
-                <select id=promote>
-                  <option value=q selected>Queen</option>
-                  <option value=r>Rook</option>
-                  <option value=b>Bishop</option>
-                  <option value=n>Knight</option>
-                </select>
-              </div>
-            </div>
-            </form>-->
-         <span class="label label-default" ng-hide="(ChessGameObject.Result)">Result:*,in progress</span>
-         <span class="label label-default" ng-show="(ChessGameObject.Result)">Result:</span>
-         <div  ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>
-         <br>
-         <span class="label label-default">Players</span>
-         <br>
-         <span style="color:blue;">{{Player1Online}}</span>
-         <span class="text-info" ng-model="Player1Namer"><span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
-         <span ng-show="ChessGameObject.Player1Color=='White' ">WHITE</span>	
-         <span ng-show="ChessGameObject.Player1Color!='White' ">BLACK</span>	
-         <br>
-         <span style="color:blue;">{{Player2Online}}</span>
-         <span class="text-info" ng-model="Player2Name"><span class="label label-success">{{Player2Name}}</span></span>
-         <span ng-show="ChessGameObject.Player1Color=='White' ">BLACK</span>	
-         <span ng-show="ChessGameObject.Player1Color!='White' ">WHITE</span>	
-         <br>
-         <span class="label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker"></span>
-         <hr>
-     <% if (req.session.passport){ %>
+				
+				</div>
+				
+				<div id="eyecontainer" class="col-md-3">
+				<img style="position:relative;" src='/images/eye.png'>
+				<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+         
+				</div>
+				<div id="namecontainer"  class="col-md-3">
+				<span class="label label-success" >{{BottomPlayerName}}</span>
+				</div>
+				<div id="flagcontainer"  class="col-md-2">
+				<img ng-src="{{BottomPlayerFlag}}">
+				</div>
+				<div id="pingcontainer"  class="col-md-2">
+				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
+				</div>
+				<div id="timercontainer" class="col-md-2" >
+				<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+				<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+				</div>
+				
+				
+			</div>
+			
+			<div id="infocontainer" style="padding-left: 4px;" class="col-md-6">
+		<div class="label label-default col-md-12" ng-hide="(ChessGameObject.Result)">Result:*,in progress</div>
+         <div class="label label-default col-md-12" ng-show="(ChessGameObject.Result)">Result:</div>
+		 <div  class="col-md-12" ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>
+         <div class="col-md-12 label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker"></div>
+        
+            <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
-			<span class="label label-default">Chat</span>
-			<div >
-            <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
+			<div class="col-md-12 label label-default">Chat</div>
+			<div class="col-md-12" id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
                <table>
                   <tr ng-repeat="chatmsg in chatting track by $index">
                      <!-- <td >{{chatmsg.content}}</td>-->
@@ -156,6 +155,7 @@
                   </tr>
                </table>
             </div>
+            <div class="col-md-12">
             <form ng-submit="chatMessage('<%- req.session.passport.user %>')">
                <input type="text" autocomplete="off" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
                <button type="submit" >chat</button>
@@ -163,42 +163,18 @@
 			</div>
          <%}%>
        <%}%>
-         <hr>
-         <div id="movelist" class="list-group">
+        
+        <div id="movelist" class="col-md-12 list-group">
             <div  ng-repeat="mov in Moves track by $index">
                <span ng-show="!$last">{{mov}}</span>	
                <b style="background-color:cornflowerblue" id="lastpgn" ng-show="$last">{{mov}}</b>	
             </div>
          </div>
-         <hr>
-       </div>
-       <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Right'"  id ="rightboardcontainer" ng-class="boardcontainerstyle" ></div>
-     
-       <div style="{clear:left}" class="col-sm-12 col-md-12">
-     <% if (req.session.passport){ %>
-	<% if (req.session.passport.user){ %>
-       	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
-
         
-       <%}%>
-       <%}%>
-     
-         
-         <hr>
-         <span ng-repeat="piece in capturedWhitepieces track by $index">
-         <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{piece}}.png">
-         </span>
-         <hr ng-show="ChessGameObject.OverallScore">
-         <h1>{{ChessGameObject.OverallScore}}</h1>
-         <hr>
-         <span ng-repeat="piece in capturedBlackpieces track by $index">
-         <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{piece}}.png">
-         </span>
-         <hr>
-       
-        
-        
-         <div id="engineStatus">...</div>
+        </div>
 		
+	
+	</div>
+ 
    </body>
 </html>
