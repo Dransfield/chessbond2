@@ -56,6 +56,7 @@
 				<img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{TopPlayerPic}}">
 				<span class="label label-success" >{{BottomPlayerName}}</span>
 				<img ng-src="{{BottomPlayerFlag}}">
+				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
 				<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
 				<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
         
