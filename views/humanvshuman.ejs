@@ -121,24 +121,24 @@
 				
 				</div>
 				
-				<div id="eyecontainer" class="col-md-3">
+				<span id="eyecontainer">
 				<img style="position:relative;" src='/images/eye.png'>
 				<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
-         
-				</div>
-				<div id="namecontainer"  class="col-md-3">
+				<img style="display:block;margin-left:auto;margin-top:auto;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+				</span>
+				<span id="namecontainer">
 				<span class="label label-success" >{{BottomPlayerName}}</span>
-				</div>
-				<div id="flagcontainer"  class="col-md-2">
+				</span>
+				<span id="flagcontainer">
 				<img ng-src="{{BottomPlayerFlag}}">
-				</div>
-				<div id="pingcontainer"  class="col-md-2">
+				</span>
+				<span id="pingcontainer">
 				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
-				</div>
-				<div id="timercontainer" class="col-md-2" >
+				</span>
+				<span id="timercontainer" >
 				<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
 				<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
-				</div>
+				</span>
 				
 				
 			</div>
