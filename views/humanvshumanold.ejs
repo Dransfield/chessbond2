@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Chessbond</title>
+      <!-- Viewport mobile tag for sensible mobile support -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/angular-toastr.css">
+      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/angular.1.3.js"></script>
+      <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+      <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+      <script src="/js/dependencies/chess.min.js"></script>
+      <script src="/js/dependencies/stockfish.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/bootstrap.min.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/enginegame.js"></script>
+      <script src="/js/HomepageModule.js"></script>
+      <script src="/js/HomepageController.js"></script>
+      <script src="/js/RegisterController.js"></script>
+      <script src="/js/SinglePlayerController.js"></script>
+      <script src="/js/TwoPlayerController.js"></script>
+      <!--SCRIPTS END-->
+   </head>
+   <body ng-app="HomepageModule" ng-controller="TwoPlayerController" ng-mousemove="changeFavicon('http://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
+      
+      <%- include partials/navbar.ejs %>
+     <!-- <p>Game Id is   <%-req.param('GameID')%></p>-->
+      <script> var GameID='<%- req.param('GameID') %>'</script>
+      <p id="fenshower">
+      </p>
+      <form ng-hide="HideInject" ng-submit="injectfen()">
+         <input ng-model="fenform.fen" type="text" id="feninject">
+         </input>
+         <button type="submit" id="injectbutton" class="btn btn-success">Inject</button>
+      </form>
+      <% if (!req.session.passport){ %>
+      <div ng-init="Guest()"></div>
+      <% } %>
+        <% if (req.session.passport){ %>
+	<% if (req.session.passport.user){ %>
+      <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Show Options</button>
+      <table ng-hide="ShowOptions">
+         <tr>
+            <td>
+               <span class="label label-default">Chesspiece Theme</span>
+               <select class="form-control"
+                  ng-model="User.ChessPieceTheme"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.passport.user%>',resetBoard)"
+                  >
+                  <option ng-repeat="theme in piecethemes" value="{{theme}}">
+                     {{theme}}
+                  </option>
+               </select>
+            </td>
+            <td>
+               <button ng-click="PrefToggleButtonClicked('SoundEnabled','<%-req.session.passport.user%>','Sound Enabled','Sound Disabled')" class="btn btn-success">{{User.SoundEnabled}}</button>
+            </td>
+            <td>
+               <span class="label label-default">Board Size</span>
+               <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardSize"   ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resizeBoard)"
+                  >
+                  <option ng-repeat="option in boardsizes" value="{{option.value}}">{{option.name}}</option>
+               </select>
+            </td>
+               <td>
+               <span class="label label-default">Board Orientation</span>
+               <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardOrientation"   ng-change="PrefSelectChanged('BoardOrientation','<%-req.session.passport.user%>', reorientBoard)"
+                  >
+                  <option ng-repeat="option in boardorientations" value="{{option.value}}">{{option.name}}</option>
+               </select>
+            </td>
+         </tr>
+      </table>
+      <%}%>
+      <%}%>
+      <hr>
+      <div style="position: relative; left: 0; top: 0;"> 
+         <img style="position:relative;height:100px;" src='/images/eye2.png'>
+         <img id="opponentpic" style="position:absolute;left:{{pic1coordx}}px;top:{{pic1coordy}}px;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' ng-src="{{TopPlayerPic}}">
+      </div>
+      <img id="opponentflag" ng-src="{{TopPlayerFlag}}">
+      <div ng-init="DoPingInterval()">Ping {{PingDisplay}}</div>
+      
+      <span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
+      <span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
+      <br>
+        <div ng-init="getchatmessages()"></div>
+      <span>
+      <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Left'"  id ="boardcontainer" ng-class="boardcontainerstyle" >
+           
+      </div>
+          <div style="position: relative; left: 0; top: 0;"> 
+            <img style="position:relative;height:100px;" src='/images/eye.png'>
+            <img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+         
+           <span class="label label-success" >{{BottomPlayerName}}</span>
+         <img ng-src="{{BottomPlayerFlag}}">
+         <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+         <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+         </div>
+     </span>
+        <div ng-show="SoleConnectorVariable!='true'"  id ="" ng-class="'label label-default'" >Someone else is logged on with the same account.</div>
+     
+      <div id ="sideofboard" ng-class="sideofboardstyle" >
+         <!--  <form class="form-horizontal">
+            <div class="form-group">
+              <label for="color" class="control-label col-xs-4 col-sm-6 col-md-4">Promote to</label>
+              <div class="col-xs-4 col-sm-6 col-md-4">
+                <select id=promote>
+                  <option value=q selected>Queen</option>
+                  <option value=r>Rook</option>
+                  <option value=b>Bishop</option>
+                  <option value=n>Knight</option>
+                </select>
+              </div>
+            </div>
+            </form>-->
+         <span class="label label-default" ng-hide="(ChessGameObject.Result)">Result:*,in progress</span>
+         <span class="label label-default" ng-show="(ChessGameObject.Result)">Result:</span>
+         <div  ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>
+         <br>
+         <span class="label label-default">Players</span>
+         <br>
+         <span style="color:blue;">{{Player1Online}}</span>
+         <span class="text-info" ng-model="Player1Namer"><span class="label label-success" ng-right-click menu-items="menuItems">{{Player1Namer}}</span></span>
+         <span ng-show="ChessGameObject.Player1Color=='White' ">WHITE</span>	
+         <span ng-show="ChessGameObject.Player1Color!='White' ">BLACK</span>	
+         <br>
+         <span style="color:blue;">{{Player2Online}}</span>
+         <span class="text-info" ng-model="Player2Name"><span class="label label-success">{{Player2Name}}</span></span>
+         <span ng-show="ChessGameObject.Player1Color=='White' ">BLACK</span>	
+         <span ng-show="ChessGameObject.Player1Color!='White' ">WHITE</span>	
+         <br>
+         <span class="label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker"></span>
+         <hr>
+     <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+			<span class="label label-default">Chat</span>
+			<div >
+            <div id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
+               <table>
+                  <tr ng-repeat="chatmsg in chatting track by $index">
+                     <!-- <td >{{chatmsg.content}}</td>-->
+                     <td ng-bind-html="chatmsg.content"></td>
+                  </tr>
+               </table>
+            </div>
+            <form ng-submit="chatMessage('<%- req.session.passport.user %>')">
+               <input type="text" autocomplete="off" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
+               <button type="submit" >chat</button>
+            </form>
+			</div>
+         <%}%>
+       <%}%>
+         <hr>
+         <div id="movelist" class="list-group">
+            <div  ng-repeat="mov in Moves track by $index">
+               <span ng-show="!$last">{{mov}}</span>	
+               <b style="background-color:cornflowerblue" id="lastpgn" ng-show="$last">{{mov}}</b>	
+            </div>
+         </div>
+         <hr>
+       </div>
+       <div ng-show="SoleConnectorVariable=='true' && User.BoardOrientation=='Right'"  id ="rightboardcontainer" ng-class="boardcontainerstyle" ></div>
+     
+       <div style="{clear:left}" class="col-sm-12 col-md-12">
+     <% if (req.session.passport){ %>
+	<% if (req.session.passport.user){ %>
+       	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+
+        
+       <%}%>
+       <%}%>
+     
+         
+         <hr>
+         <span ng-repeat="piece in capturedWhitepieces track by $index">
+         <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{piece}}.png">
+         </span>
+         <hr ng-show="ChessGameObject.OverallScore">
+         <h1>{{ChessGameObject.OverallScore}}</h1>
+         <hr>
+         <span ng-repeat="piece in capturedBlackpieces track by $index">
+         <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{piece}}.png">
+         </span>
+         <hr>
+       
+        
+        
+         <div id="engineStatus">...</div>
+		
+   </body>
+</html>
