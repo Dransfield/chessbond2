@@ -983,8 +983,24 @@ $scope.changeFavicon=function (src) {
 		{
 			//$("#infocontainer").detach();
 			//$("#boardcontainercontainer").detach();
+			var info=$( "div[id='infocontainer']" );
+			var boar=$( "div[id='boardcontainercontainer']" );
+			info.detach();
+			boar.detach();
 			
-			$( "div[id='infocontainer']" ).detach();
+			if($scope.User.BoardOrientation=='Right')
+			{
+			$( "div[id='overallcontainer']" ).append(info);
+			$( "div[id='overallcontainer']" ).append(boar);
+			
+			}
+			else
+			{
+			$( "div[id='overallcontainer']" ).append(boar);
+			$( "div[id='overallcontainer']" ).append(info);
+			
+			}
+			
 			
 			 $scope.resizeBoard(me,true);
 			
