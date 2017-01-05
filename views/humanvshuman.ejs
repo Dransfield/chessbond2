@@ -171,8 +171,14 @@
        <%}%>
      
          <div ng-init="getchatmessages()"></div>
-         <div ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</div>
-         <div ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</div>
+           <span style="position: relative;clear:left; left: 0; top: 0;"> 
+            <img style="position:relative;height:100px;" src='/images/eye.png'>
+            <img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+         </span>
+           <span class="label label-success" >{{BottomPlayerName}}</span>
+         <img ng-src="{{BottomPlayerFlag}}">
+         <span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
+         <span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
          <hr>
          <span ng-repeat="piece in capturedWhitepieces track by $index">
          <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{piece}}.png">
@@ -184,13 +190,9 @@
          <img height = '50px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{piece}}.png">
          </span>
          <hr>
-         <div style="position: relative;clear:left; left: 0; top: 0;"> 
-            <img style="position:relative;height:100px;" src='/images/eye.png'>
-            <img style="position:absolute;left:{{pic2coordx}}px;top:{{pic2coordy}}px;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
-         </div>
-          <span class="label label-success" >{{BottomPlayerName}}</span>
+       
         
-         <img ng-src="{{BottomPlayerFlag}}">
+        
          <div id="engineStatus">...</div>
 		</div>
    </body>

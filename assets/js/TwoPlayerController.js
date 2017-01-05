@@ -9,6 +9,9 @@ $scope.Players=[];
 $scope.BottomPlayerPic="";
 $scope.TopPlayerName="";
 $scope.BottomPlayerName="";
+$scope.TopPlayerELO="";
+$scope.BottomPlayerELO="";
+
 $scope.TopPlayerPic="";
 $scope.Player1Online="";
 $scope.Player2Online="";
@@ -885,12 +888,14 @@ $scope.changeFavicon=function (src) {
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
 			$scope.BottomPlayerName=res.data.name;
+			$scope.BottomPlayerELO=res.data.ELO;
 			}
 			else
 			{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
 			$scope.TopPlayerName=res.data.name;
+			$scope.TopPlayerELO=res.data.ELO;
 			}
 			
 			});
@@ -909,12 +914,14 @@ $scope.changeFavicon=function (src) {
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
 			$scope.TopPlayerName=res.data.name;
+			$scope.TopPlayerELO=res.data.ELO;
 			}
 			else
 			{
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
 			$scope.BottomPlayerName=res.data.name;
+			$scope.BottomPlayerELO=res.data.ELO;
 			}
 			
 			});
