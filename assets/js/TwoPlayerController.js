@@ -389,6 +389,17 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('disconnect',function(data){
 	var txtmsg = { content:"<br>disconnect from server"};
 				$scope.$apply($scope.chatting.push(txtmsg));
+				if (MyID==$scope.ChessGameObject.Player1)
+				{
+				io.socket.get("/updateGameTime",{game:GameID,player:MyID,newTime:$scope.ChessGameObject.Player1TimeLimit},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+				}
+				if (MyID==$scope.ChessGameObject.Player2)
+				{
+				io.socket.get("/updateGameTime",{game:GameID,player:MyID,newTime:$scope.ChessGameObject.Player2TimeLimit},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+				}
+				
 	});
 	io.socket.on('connect',function(data){
 	var txtmsg = { content:"<br>reconnected to server"};
