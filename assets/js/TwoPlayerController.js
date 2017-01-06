@@ -398,7 +398,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 				{
 				io.socket.get("/updateGameTime",{game:GameID,player:MyID,newTime:$scope.ChessGameObject.Player2TimeLimit},function (resData,jwres){
 			console.log(JSON.stringify(resData));
-				}
+				});
+			}
 				
 	});
 	io.socket.on('connect',function(data){
