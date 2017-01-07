@@ -287,6 +287,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 							for (var i = 0; i < 8; i++) {
 								for (var j = 0; j < 8; j++) {
 							var square=   boardEl.find('.square-' +i+'-'+j);
+							console.log(JSON.stringify(square));
 							square.css({
 								
 								color: '#000000'
