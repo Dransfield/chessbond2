@@ -283,7 +283,15 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.User=sailsResponse.data;
 			$http.get('/chessgame?id='+GameID)
 						.then(function (res) {
-							document.getElementById(boardcontainer).style.white-1e1d7.background-color =#000000;
+							
+							for (var i = 0; i < 8; i++) {
+								for (var j = 0; j < 8; j++) {
+							var square=   boardEl.find('.square-' +i+'-'+j);
+							square.css({
+								background-color:#000000,
+								color: #000000
+							  });
+							  }}
 							$scope.ChessGameObject=res.data;
 							$scope.setBoard(MyID);
 							$scope.joinRoom(MyID);
