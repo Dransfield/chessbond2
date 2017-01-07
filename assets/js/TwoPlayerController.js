@@ -1369,7 +1369,7 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
 
 var list= $('.white-1e1d7')
-list.detach();
+console.log(list.attr('class');
 list.removeClass('white-1e1d7');
 list.addClass('whitewhite');
 							   
