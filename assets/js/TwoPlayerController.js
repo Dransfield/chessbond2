@@ -66,8 +66,9 @@ $scope.BlackInterval=0;
       'A','B','C','D','E','F','G','H'
     ];
      $scope.boardthemes = [
-      'symbol','uscf','dilena','wikipedia','leipzig','metro'
+      'symbol','uscf','dilena','wikipedia','leipzig','metro','original'
     ];
+    $scope.previousboardtheme='original';
     $scope.boardcontainerstyle="col-sm-7 col-md-6";
      $scope.boardsizes = [
      /*

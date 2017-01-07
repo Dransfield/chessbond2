@@ -202,7 +202,7 @@ var MINIMUM_JQUERY_VERSION = '1.7.0',
 // and simplify selectors
 var CSS = {
   alpha: 'alpha-d2270',
-  black: 'black-3c85d',
+  black: 'blackoriginal',
   board: 'board-b72b1',
   chessboard: 'chessboard-63f37',
   clearfix: 'clearfix-7da63',
@@ -216,7 +216,7 @@ var CSS = {
   sparePiecesBottom: 'spare-pieces-bottom-ae20f',
   sparePiecesTop: 'spare-pieces-top-4028b',
   square: 'square-55d63',
-  white: 'white-1e1d7'
+  white: 'whiteoriginal'
 };
 
 //------------------------------------------------------------------------------
