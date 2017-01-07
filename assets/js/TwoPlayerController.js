@@ -1441,6 +1441,7 @@ updatePlayersLabel(game);
 			list= $('.black-3c85d');
 			//list.removeClass('black-3c85d');
 			list.addClass('black'+User.BoardTheme);
+			console.log("User.BoardTheme "+User.BoardTheme);
 		};
 	
    
