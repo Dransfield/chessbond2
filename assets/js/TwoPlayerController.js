@@ -1442,13 +1442,13 @@ updatePlayersLabel(game);
 			{
 			list= $('.white'+$scope.boardthemes[x])
 			list.removeClass('white'+$scope.boardthemes[x]);
-			list.addClass('white'+User.BoardTheme);
+			list.addClass('white'+$scope.User.BoardTheme);
 			}
 			
 			list= $('.blackoriginal');
 			list.removeClass('blackoriginal');
-			list.addClass('black'+User.BoardTheme);
-			console.log("User.BoardTheme "+User.BoardTheme);
+			list.addClass('black'+$scope.User.BoardTheme);
+			console.log("User.BoardTheme "+$scope.User.BoardTheme);
 		};
 	
    
