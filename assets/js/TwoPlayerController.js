@@ -16,6 +16,7 @@ $scope.TopPlayerPic="";
 $scope.Player1Online="";
 $scope.Player2Online="";
 $scope.ShowOptions=true;
+
 $scope.to_trusted = function(someHTML) {
     
     return $sce.trustAsHtml(somecHTML);
@@ -65,7 +66,7 @@ $scope.BlackInterval=0;
       'A','B','C','D','E','F','G','H'
     ];
      $scope.boardthemes = [
-      'Symbol','Uscf','Dilena','Wikipedia','leipzig','metro'
+      'symbol','uscf','dilena','wikipedia','leipzig','metro'
     ];
     $scope.boardcontainerstyle="col-sm-7 col-md-6";
      $scope.boardsizes = [
