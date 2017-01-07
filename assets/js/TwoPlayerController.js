@@ -283,7 +283,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.User=sailsResponse.data;
 			$http.get('/chessgame?id='+GameID)
 						.then(function (res) {
-							
+							document.getElementById(boardcontainer).style.white-1e1d7.background-color =#000000;
 							$scope.ChessGameObject=res.data;
 							$scope.setBoard(MyID);
 							$scope.joinRoom(MyID);
@@ -444,8 +444,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('connect',function(data){
 	var txtmsg = { content:"<br>reconnected to server"};
 				$scope.$apply($scope.chatting.push(txtmsg));
-	$scope.joinRoom(MyID);
-	});
+				$scope.joinRoom(MyID);
+			});
 			
 		
 	};
