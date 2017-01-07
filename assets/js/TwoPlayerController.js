@@ -1368,7 +1368,9 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
 
-							  $('.white-1e1d7').addClass('whitewhite');
+var list= $('.white-1e1d7')
+list.removeClass('white-1e1d7');
+list.addClass('whitewhite');
 							   
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
