@@ -1370,7 +1370,7 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  for (var i = 0; i < 8; i++) {
 								for (var j = 0; j < 8; j++) {
 							var square=   boardEl.find('.square-' +i+'-'+j);
-							console.log(JSON.stringify(CSS.white)));
+							console.log(JSON.stringify(CSS.white));
 							square.removeClass(CSS.white);
 							  }}
 							  
