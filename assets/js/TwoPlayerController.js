@@ -1371,7 +1371,7 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 								for (var j = 0; j < 8; j++) {
 							var square=   boardEl.find('.square-' +i+'-'+j);
 							console.log($('.square-' +i+'-'+j).removeClass('white-1e1d7'));
-							console.log(square.css());
+							
 							  }}
 							  
 							    boardEl.find('.' + CSS.square)
