@@ -1371,6 +1371,7 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 var list= $('.white-1e1d7')
 console.log(list.attr('class'));
 list.removeClass('white-1e1d7');
+console.log(list.attr('class'));
 list.addClass('whitewhite');
 							   
 updatePlayersLabel(game);
