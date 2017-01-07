@@ -284,18 +284,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$http.get('/chessgame?id='+GameID)
 						.then(function (res) {
 							
-							for (var i = 0; i < 8; i++) {
-								for (var j = 0; j < 8; j++) {
-							var square=   boardEl.find('.square-' +i+'-'+j);
-							console.log(JSON.stringify(square));
-							square.css({
-								
-								color: '#000000'
-							  });
-							  }}
-							  
-							    boardEl.find('.' + CSS.square)
-							.removeClass(CSS.white);
+							
 							  
 							$scope.ChessGameObject=res.data;
 							$scope.setBoard(MyID);
@@ -1378,7 +1367,18 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
 console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
- 
+ for (var i = 0; i < 8; i++) {
+								for (var j = 0; j < 8; j++) {
+							var square=   boardEl.find('.square-' +i+'-'+j);
+							console.log(JSON.stringify(square));
+							square.css({
+								
+								color: '#000000'
+							  });
+							  }}
+							  
+							    boardEl.find('.' + CSS.square)
+							.removeClass(CSS.white);
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
