@@ -1370,12 +1370,12 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  for (var i = 0; i < 8; i++) {
 								for (var j = 0; j < 8; j++) {
 							var square=   boardEl.find('.square-' +i+'-'+j);
-							console.log(JSON.stringify(CSS.white));
-							square.removeClass(CSS.white);
+							
+							square.removeClass('white-1e1d7');
 							  }}
 							  
 							    boardEl.find('.' + CSS.square)
-							.removeClass(CSS.white);
+							.removeClass('white-1e1d7');
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
