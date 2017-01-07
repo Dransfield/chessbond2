@@ -64,6 +64,9 @@ $scope.BlackInterval=0;
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
+     $scope.boardthemes = [
+      'Symbol','Uscf','Dilena','Wikipedia','leipzig','metro'
+    ];
     $scope.boardcontainerstyle="col-sm-7 col-md-6";
      $scope.boardsizes = [
      /*
@@ -1434,10 +1437,10 @@ updatePlayersLabel(game);
 			$scope.resetBoard(me);
 			var list= $('.white-1e1d7')
 			list.removeClass('white-1e1d7');
-			list.addClass('whiteleipzig');
+			list.addClass('white'+User.BoardTheme);
 			list= $('.black-3c85d');
 			list.removeClass('black-3c85d');
-			list.addClass('blackleipzig');
+			list.addClass('black'+User.BoardTheme);
 		};
 	
    

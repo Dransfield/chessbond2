@@ -55,6 +55,45 @@
   color: #f0d9b5;
 }
 
+
+.whitesymbol{
+  background-color: #FFFFFF;
+  color: #58AC8A;
+}
+.blacksymbol{
+  background-color: #727FA2;
+  color: #EFEFEF;
+}
+
+.whiteuscf{
+  background-color: #C3C6BE;
+  color: #AAAAAA;
+}
+.blackuscf{
+  background-color: #727FA2;
+  color: #EFEFEF;
+}
+
+.whitedilena{
+  background-color: #FFE5B6;
+  color: #AAAAAA;
+}
+.blackdilena{
+  background-color: #B16228;
+  color: #EFEFEF;
+}
+
+
+
+.whitewikipedia{
+  background-color: #D18B47;
+  color: #AAAAAA;
+}
+.blackwikipedia{
+  background-color: #FFCE9E;
+  color: #EFEFEF;
+}
+
 .whiteleipzig{
   background-color: #FFFFFF;
   color: #AAAAAA;

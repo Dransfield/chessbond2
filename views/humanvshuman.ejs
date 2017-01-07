@@ -63,6 +63,23 @@
                   </option>
                </select>
             </td>
+            
+                 <td>
+               <span class="label label-default">Board Theme</span>
+               <select class="form-control"
+                  ng-model="User.BoardTheme"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BoardTheme','<%-req.session.passport.user%>',resetBoard)"
+                  >
+                  <option ng-repeat="theme in boardthemes" value="{{theme}}">
+                     {{theme}}
+                  </option>
+               </select>
+            </td>
+            
             <td>
                <button ng-click="PrefToggleButtonClicked('SoundEnabled','<%-req.session.passport.user%>','Sound Enabled','Sound Disabled')" class="btn btn-success">{{User.SoundEnabled}}</button>
             </td>
