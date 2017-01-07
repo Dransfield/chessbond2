@@ -1437,18 +1437,19 @@ updatePlayersLabel(game);
 		{
 			
 			$scope.resetBoard(me);
-			var list;
+			var whitelist;
+			var blacklist;
+			
 			for (x in $scope.boardthemes)
 			{
-			list= $('.white'+$scope.boardthemes[x])
-			list.removeClass('white'+$scope.boardthemes[x]);
-			list.addClass('white'+$scope.User.BoardTheme);
+			whitelist= $('.white'+$scope.boardthemes[x])
+			whitelist.removeClass('white'+$scope.boardthemes[x]);
+			blacklist= $('.black'+$scope.boardthemes[x])
+			blacklist.removeClass('white'+$scope.boardthemes[x]);
 			}
-			
-			list= $('.blackoriginal');
-			list.removeClass('blackoriginal');
-			list.addClass('black'+$scope.User.BoardTheme);
-			console.log("User.BoardTheme "+$scope.User.BoardTheme);
+			whitelist.addClass('white'+$scope.User.BoardTheme);
+			blacklist.addClass('black'+$scope.User.BoardTheme);
+				
 		};
 	
    
