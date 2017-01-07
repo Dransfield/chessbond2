@@ -72,7 +72,7 @@
                   multiple="string"
                   required="string"
                   ng-required="string"
-                  ng-change="PrefSelectChanged('BoardTheme','<%-req.session.passport.user%>',resetBoard)"
+                  ng-change="PrefSelectChanged('BoardTheme','<%-req.session.passport.user%>',setBoard)"
                   >
                   <option ng-repeat="theme in boardthemes" value="{{theme}}">
                      {{theme}}

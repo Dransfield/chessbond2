@@ -1437,9 +1437,13 @@ updatePlayersLabel(game);
 		{
 			
 			$scope.resetBoard(me);
-			var list= $('.whiteoriginal')
-			list.removeClass('whiteoriginal');
+			var list;
+			for (x in boardthemes)
+			list= $('.white'+boardthemes[x])
+			list.removeClass('white'+boardthemes[x]);
 			list.addClass('white'+User.BoardTheme);
+			}
+			
 			list= $('.blackoriginal');
 			list.removeClass('blackoriginal');
 			list.addClass('black'+User.BoardTheme);
