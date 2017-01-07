@@ -1370,10 +1370,11 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 
 var list= $('.white-1e1d7')
 console.log(list.attr('class'));
-list.removeClass('white-1e1d7');
-console.log(list.attr('class'));
-list.addClass('whitewhite');
-							   
+//list.removeClass('white-1e1d7');
+//console.log(list.attr('class'));
+//list.addClass('whitewhite');
+//	console.log(list.attr('class'));						   
+list.toggleClass('white-1e1d7');
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
