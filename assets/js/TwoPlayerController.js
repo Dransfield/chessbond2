@@ -1373,9 +1373,8 @@ console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
 							square.removeClass('white-1e1d7');
 							
 							  }}
-							  
-							    boardEl.find('.' + CSS.square)
-							.removeClass('white-1e1d7');
+							  $('.white-1e1d7').detach();
+							   
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		if ($scope.ChessGameObject.Player1Color=='White')
