@@ -356,7 +356,7 @@ deleteopengame:function(req,res){
 */
 	updateGameTime:function(req,res){
 	Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
-		If(cg)
+		if(cg)
 		{
 		if(cg.Player1==req.param('player'))
 		{}
