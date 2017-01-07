@@ -49,17 +49,33 @@
   color: #b58863;
 }
 
-.whitewhite{
-  background-color: #FFFFFF;
-  color: #000000;
-}
-
-
 /* black square */
 .black-3c85d {
   background-color: #b58863;
   color: #f0d9b5;
 }
+
+.whiteleipzig{
+  background-color: #FFFFFF;
+  color: #AAAAAA;
+}
+.blackleipzig{
+  background-color: #E1E1E1;
+  color: #EFEFEF;
+}
+
+
+.whitemetro{
+  background-color: #FFFFFF;
+  color: #AAAAAA;
+}
+.blackmetro{
+  background-color: #EFEFEF;
+  color: #EFEFEF;
+}
+
+
+
 
 /* highlighted square */
 .highlight1-32417, .highlight2-9c5d2 {

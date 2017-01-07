@@ -1433,13 +1433,10 @@ updatePlayersLabel(game);
 			
 			$scope.resetBoard(me);
 			var list= $('.white-1e1d7')
-console.log(list.attr('class'));
-list.toggleClass('white-1e1d7');
-list.removeClass('white-1e1d7');
-console.log(list.attr('class'));
-list.addClass('whitewhite');
-	console.log(list.attr('class'));						   
-
+			list.removeClass('white-1e1d7');
+			list.addClass('whiteleipzig');
+			list.removeClass('black-3c85d');
+			list.addClass('blackleipzig');
 		};
 	
    
