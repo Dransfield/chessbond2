@@ -1435,6 +1435,7 @@ updatePlayersLabel(game);
 			var list= $('.white-1e1d7')
 			list.removeClass('white-1e1d7');
 			list.addClass('whiteleipzig');
+			list= $('.black-3c85d');
 			list.removeClass('black-3c85d');
 			list.addClass('blackleipzig');
 		};
