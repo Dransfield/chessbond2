@@ -1436,10 +1436,10 @@ updatePlayersLabel(game);
 			
 			$scope.resetBoard(me);
 			var list= $('.white-1e1d7')
-			list.removeClass('white-1e1d7');
+			//list.removeClass('white-1e1d7');
 			list.addClass('white'+User.BoardTheme);
 			list= $('.black-3c85d');
-			list.removeClass('black-3c85d');
+			//list.removeClass('black-3c85d');
 			list.addClass('black'+User.BoardTheme);
 		};
 	
