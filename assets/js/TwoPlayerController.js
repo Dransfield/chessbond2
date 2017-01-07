@@ -1367,13 +1367,8 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
  board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
 console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
  game = new Chess();
- for (var i = 0; i < 8; i++) {
-								for (var j = 0; j < 8; j++) {
-							var square=   boardEl.find('.square-' +i+'-'+j);
-							square.removeClass('white-1e1d7');
-							
-							  }}
-							  $('.white-1e1d7').detach();
+
+							  $('.white-1e1d7').removeClass('white-1e1d7');
 							   
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
