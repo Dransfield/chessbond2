@@ -289,7 +289,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 							var square=   boardEl.find('.square-' +i+'-'+j);
 							square.css({
 								
-								color: #000000
+								color: '#000000'
 							  });
 							  }}
 							$scope.ChessGameObject=res.data;
