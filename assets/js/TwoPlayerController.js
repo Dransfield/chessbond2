@@ -1059,7 +1059,7 @@ $scope.changeFavicon=function (src) {
 			}
 			
 			
-			 $scope.resizeBoard(me,true);
+			 $scope.resizeBoard(me,apply);
 			
 		};
 		
