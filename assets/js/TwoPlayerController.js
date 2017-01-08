@@ -1039,7 +1039,7 @@ $scope.changeFavicon=function (src) {
 		
 		{
 			
-			$timeout($apply(
+			
 			var whitelist;
 			var blacklist;
 			
@@ -1050,9 +1050,9 @@ $scope.changeFavicon=function (src) {
 			blacklist= $('.black'+$scope.boardthemes[x])
 			blacklist.removeClass('white'+$scope.boardthemes[x]);
 			}
-			whitelist.addClass('white'+$scope.User.BoardTheme);
+			$timeout(whitelist.addClass('white'+$scope.User.BoardTheme));
 			blacklist.addClass('black'+$scope.User.BoardTheme);
-					));
+					
 			
 		};
 		$scope.reorientBoard=function(me,apply)
