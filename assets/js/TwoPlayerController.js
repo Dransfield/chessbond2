@@ -66,7 +66,8 @@ $scope.BlackInterval=0;
       'A','B','C','D','E','F','G','H'
     ];
      $scope.boardthemes = [
-      'symbol','uscf','dilena','wikipedia','leipzig','metro','original'
+      'symbol','uscf','dilena','wikipedia','leipzig','metro','original',
+      'A1','A2','B1','B2','C1','C2','D1','D2','E1','E2'
     ];
     $scope.previousboardtheme='original';
     $scope.boardcontainerstyle="col-sm-7 col-md-6";
