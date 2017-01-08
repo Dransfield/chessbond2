@@ -1094,16 +1094,19 @@ $scope.changeFavicon=function (src) {
 			if (apply==true)
 			{
 		
-		
+			$timeout(
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-8");
 			$scope.$apply($scope.sideofboardstyle="col-sm-3 col-md-4");
-			
+			);
 			
 			}
 			else
 			{
+			$timeout(
+			
 			$scope.boardcontainerstyle="col-sm-9 col-md-8";
 			$scope.sideofboardstyle="col-sm-3 col-md-4";
+			);
 			}
 			
 			}
@@ -1113,8 +1116,11 @@ $scope.changeFavicon=function (src) {
 			
 			if (apply==true)
 			{
+			$timeout(
+			
 			$scope.$apply($scope.boardcontainerstyle="col-sm-12 col-md-12");
 			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");
+			);
 			}
 			else
 			{
