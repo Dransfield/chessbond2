@@ -1464,7 +1464,7 @@ updatePlayersLabel(game);
 			$scope.resetBoard(me);
 			var whitelist;
 			var blacklist;
-			$timeout($apply(
+			
 			for (x in $scope.boardthemes)
 			{
 			whitelist= $('.white'+$scope.boardthemes[x])
@@ -1474,7 +1474,7 @@ updatePlayersLabel(game);
 			}
 			whitelist.addClass('white'+$scope.User.BoardTheme);
 			blacklist.addClass('black'+$scope.User.BoardTheme);
-				));
+			
 		};
 	
    
