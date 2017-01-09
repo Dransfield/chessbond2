@@ -1057,7 +1057,7 @@ $scope.changeFavicon=function (src) {
 			{actualBlacklist=whitelist;}
 			blacklist.removeClass('white'+$scope.boardthemes[x]);
 			}
-			actualWhitelist.addClass('white'+$scope.User.BoardTheme)});
+			actualWhitelist.addClass('white'+$scope.User.BoardTheme);
 			actualBlacklist.addClass('black'+$scope.User.BoardTheme);
 					
 			
