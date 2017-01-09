@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('TwoPlayerController', ['$scope', '$http', 'toastr','$sce','$compile', function($scope, $http, toastr,$sce,$compile){
+angular.module('HomepageModule').controller('TwoPlayerController', ['$scope', '$http', 'toastr','$sce','$compile','$timeout', function($scope, $http, toastr,$sce,$compile,$timeout){
 var board1 ;
 
 var game;
@@ -1050,7 +1050,7 @@ $scope.changeFavicon=function (src) {
 			blacklist= $('.black'+$scope.boardthemes[x])
 			blacklist.removeClass('white'+$scope.boardthemes[x]);
 			}
-			$scope.$timeout(whitelist.addClass('white'+$scope.User.BoardTheme));
+			$timeout(whitelist.addClass('white'+$scope.User.BoardTheme));
 			blacklist.addClass('black'+$scope.User.BoardTheme);
 					
 			
@@ -1078,7 +1078,7 @@ $scope.changeFavicon=function (src) {
 			}
 			
 			
-			 $scope.$timeout($scope.resizeBoard(me,apply));
+			 $timeout($scope.resizeBoard(me,apply));
 			
 		};
 		
