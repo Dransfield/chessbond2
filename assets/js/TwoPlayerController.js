@@ -1456,7 +1456,7 @@ updatePlayersLabel(game);
 		
 		
 		
-		$scope.reorientBoard(me,false);
+		$scope.reorientBoard(me,true);
 		};
 	$scope.setBoard=function (me)
 		{
