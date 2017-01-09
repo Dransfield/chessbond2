@@ -1117,8 +1117,8 @@ $scope.changeFavicon=function (src) {
 			if (apply==true)
 			{
 					
-			$scope.$apply($scope.boardcontainerstyle="col-sm-12 col-md-12");
-			$scope.$apply($scope.sideofboardstyle="col-sm-5 col-md-6");
+			$scope.$apply($scope.boardcontainerstyle="col-md-12");
+			$scope.$apply($scope.sideofboardstyle="col-md-6");
 			
 			}
 			else
