@@ -1048,13 +1048,17 @@ $scope.changeFavicon=function (src) {
 			for (x in $scope.boardthemes)
 			{
 			whitelist= $('.white'+$scope.boardthemes[x])
-			console.log(whitelist.size());
+			if (whitelist.size()>0)
+			{actualWhitelist=whitelist;}
+			
 			whitelist.removeClass('white'+$scope.boardthemes[x]);
 			blacklist= $('.black'+$scope.boardthemes[x])
+			if (blacklist.size()>0)
+			{actualBlacklist=whitelist;}
 			blacklist.removeClass('white'+$scope.boardthemes[x]);
 			}
-			$timeout(function(){whitelist.addClass('white'+$scope.User.BoardTheme)});
-			blacklist.addClass('black'+$scope.User.BoardTheme);
+			actualWhitelist.addClass('white'+$scope.User.BoardTheme)});
+			actualBlacklist.addClass('black'+$scope.User.BoardTheme);
 					
 			
 		};
