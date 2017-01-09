@@ -1078,7 +1078,7 @@ $scope.changeFavicon=function (src) {
 			}
 			
 			
-			 $timeout($scope.resizeBoard(me,apply));
+			 $timeout(function(){$scope.resizeBoard(me,apply)},2000);
 			
 		};
 		
