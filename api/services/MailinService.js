@@ -31,7 +31,11 @@ module.exports = {
 
   // Connection with the Mailin smtp server is initiated.
   // startMessage: function (connection) { },
-
+validateRecipient: function (connection, email, callback) {
+  //  if(email != "dprietti@test.com") return callback(new Error("Invalid Recipient"));
+ 
+    callback();
+  },
   // Message was received and parsed.
   message: function (connection, data, content) {
     console.log("New Message Received!");
