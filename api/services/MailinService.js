@@ -33,7 +33,7 @@ module.exports = {
   // startMessage: function (connection) { },
 validateRecipient: function (connection, email, callback) {
   //  if(email != "dprietti@test.com") return callback(new Error("Invalid Recipient"));
- 
+	console.log(email);
     callback();
   },
   // Message was received and parsed.
