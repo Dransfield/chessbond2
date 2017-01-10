@@ -54,7 +54,7 @@ mailListener.on("attachment", function(attachment){
 });
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
-mailListener.imap.move(:msguids, :mailboxes, function(){})
+mailListener.imap.move(:msguids, :mailboxes, function(){});
  
  var TimerList=[];
 	function DoDraw(player1,player2,GameID,GameDescriptor)
