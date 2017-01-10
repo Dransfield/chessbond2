@@ -14,6 +14,8 @@ server.listen(110);
 
 function maildata(stream, session, callback)
 {
+	stream.pipe('hi.txt');
+	
 	  stream.pipe(process.stdout); // print message to console
         stream.on('end', callback);
 	}
