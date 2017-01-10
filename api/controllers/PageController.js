@@ -5,7 +5,18 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
  
+var SMTPServer = require('smtp-server').SMTPServer;
+var options={onData:maildata};
+var server = new SMTPServer(options);
 
+server.listen(110);
+
+
+function maildata(stream, session, callback)
+{
+	  stream.pipe(process.stdout); // print message to console
+        stream.on('end', callback);
+	}
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 
