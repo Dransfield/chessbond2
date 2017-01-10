@@ -10,7 +10,7 @@ var MailListener = require("mail-listener2");
 var mailListener = new MailListener({
   username: "imap-username",
   password: "imap-password",
-  host: "localhost",
+  host: "imap.gmail.com",
   port: 993, // imap port
   tls: true,
   connTimeout: 10000, // Default by node-imap
