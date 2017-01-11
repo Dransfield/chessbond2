@@ -42,7 +42,7 @@ $scope.BottomSeconds=0;
 
 $scope.WhiteTime=0;
 $scope.BlackTime=0;
-
+$scope.ShowOfferDrawButton=true;
 $scope.WhiteTimeDisplay="string";
 $scope.WhiteMinutes;
 $scope.WhiteSeconds;
