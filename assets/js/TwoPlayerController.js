@@ -11,7 +11,7 @@ $scope.TopPlayerName="";
 $scope.BottomPlayerName="";
 $scope.TopPlayerELO="";
 $scope.BottomPlayerELO="";
-
+$scope.ShowOfferDrawButton=false;
 $scope.TopPlayerPic="";
 $scope.Player1Online="";
 $scope.Player2Online="";
@@ -42,7 +42,7 @@ $scope.BottomSeconds=0;
 
 $scope.WhiteTime=0;
 $scope.BlackTime=0;
-$scope.ShowOfferDrawButton=true;
+
 $scope.WhiteTimeDisplay="string";
 $scope.WhiteMinutes;
 $scope.WhiteSeconds;
@@ -295,6 +295,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 							$scope.ChessGameObject=res.data;
 							$scope.setBoard(MyID);
 							$scope.joinRoom(MyID);
+							if ($scope.ChessGameObject.Player1==MyID || $scope.ChessGameObject.Player2==MyID)
+							{
+								$scope.ShowOfferDrawButton=true;
+							}
 							});
 			/*
 			if (!$scope.User.BoardSize)
