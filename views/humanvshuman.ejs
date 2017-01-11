@@ -164,7 +164,9 @@
 			</div>
 			
 			<div id="infocontainer" style="padding-left: 4px;" class="col-md-6">
-		<div class="label label-default col-md-12" ng-hide="(ChessGameObject.Result)">Result:*,in progress</div>
+		  <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Offer a Draw</button>
+      
+		 <div class="label label-default col-md-12" ng-hide="(ChessGameObject.Result)">Result:*,in progress</div>
          <div class="label label-default col-md-12" ng-show="(ChessGameObject.Result)">Result:</div>
 		 <div  class="col-md-12" ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result"></div>
          <div class="col-md-12 label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker"></div>
