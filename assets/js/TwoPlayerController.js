@@ -297,7 +297,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 							$scope.joinRoom(MyID);
 							if ($scope.ChessGameObject.Player1==MyID || $scope.ChessGameObject.Player2==MyID)
 							{
+								if(!$scope.ChessGameObject.Result)
+								{
 								$scope.ShowOfferDrawButton=true;
+								}
 							}
 							});
 			/*
@@ -673,6 +676,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			   console.log("object2 "+JSON.stringify($scope.ChessGameObject2));
 			  $scope.ChessGameObject= $scope.ChessGameObject2;
 		  }
+		  if ($scope.ChessGameObject.Result)
+			{
+			$scope.ShowOfferDrawButton=false;	
+			}
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
@@ -1253,6 +1260,7 @@ $scope.changeFavicon=function (src) {
 					  if (move === null || game.in_draw() || $scope.ChessGameObject.Result){
 						  if (game.game_over())
 							{
+								
 						  toastr.warning("The game is over");
 						 }
 						  if (game.in_check())
@@ -1280,7 +1288,7 @@ $scope.changeFavicon=function (src) {
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							
+							$scope.ShowOfferDrawButton=false;
 								if($scope.User)
 								{		
 								if($scope.User.SoundEnabled=='Sound Enabled')
