@@ -89,6 +89,17 @@ $scope.BlackInterval=0;
 $scope.MoveSound=new Audio('/move.mp3');
 $scope.CheckMateSound=new Audio("/checkmate.mp3");
 
+$scope.OfferDraw=function()
+{
+		$http.put('/OfferDraw', {
+			})
+			.then(function onSuccess(sailsResponse){
+		
+		
+		});
+
+};
+
 
 $scope.StartRightClock=function()
 {
@@ -102,7 +113,7 @@ $scope.StartRightClock=function()
 	$scope.StartWhiteClock();	
 	}
 	
-}
+};
 
 $scope.StartWhiteClock=function()
 	{
