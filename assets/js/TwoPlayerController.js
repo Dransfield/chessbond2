@@ -658,7 +658,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			{
 			$scope.PlayBell();
 			}
-			$scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
+			$scope.changeFavicon('https://www.chessbond.com/favicon2.ico');
 			console.log('recieved chat message'+document.visibilityState);
 			}
 			console.log(document.visibilityState);
@@ -673,7 +673,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
 		if (document.visibilityState=='hidden')
-				{  $scope.changeFavicon('http://www.chessbond.com/favicon2.ico');
+				{  $scope.changeFavicon('https://www.chessbond.com/favicon2.ico');
 					}
 			
 
