@@ -64,13 +64,13 @@ passportInit    : require('passport').initialize(),
 	console.log(req.session.baseUrl);
 	console.log(req.baseUrl);
 	console.log(req.wantsJSON);
-	console.log(req.baseUrl.indexOf('http://www'));
-    if (req.baseUrl.indexOf('http://www') == 0)  {
+	console.log(req.baseUrl.indexOf('https://www'));
+    if (req.baseUrl.indexOf('https://www') == 0)  {
         console.log("Already http://www; don't do anything special.??");
         next();
     } else {
         console.log('REDIRECTING http://www.' + req.headers.host);
-        res.redirect('http://www.' + req.headers.host + req.url);
+        res.redirect('https://www.' + req.headers.host + req.url);
         return next();
     }
 
@@ -133,7 +133,7 @@ passportInit    : require('passport').initialize(),
          if (str.startsWith('www')==false)
          
          {
-		 res.redirect('http://www.chessbond.com');
+		 res.redirect('https://www.chessbond.com');
 		 }
 		 else
 			{
