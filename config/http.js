@@ -133,6 +133,7 @@ passportInit    : require('passport').initialize(),
          if (str.startsWith('www')==false)
          
          {
+			 console.log("redirect to https");
 		 res.redirect('https://www.chessbond.com');
 		 }
 		 else
