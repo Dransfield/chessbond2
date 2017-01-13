@@ -957,7 +957,8 @@ $scope.changeFavicon=function (src) {
 			{
 				//console.log(JSON.stringify(res.data));
 				
-				var picurl=(res.data.picture);
+				var picurl=(res.data.picture.replace("http:","https:"));
+				
 				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
 				//console.log("flagurl "+flagurl);
@@ -982,8 +983,8 @@ $scope.changeFavicon=function (src) {
 			$http.get('/user?id='+$scope.ChessGameObject.Player2).then(function
 			(res)
 			{
-				var picurl=(res.data.picture);
-		
+				
+		var picurl=(res.data.picture.replace("http:","https:"));
 				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
 				
