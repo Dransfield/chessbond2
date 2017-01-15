@@ -326,7 +326,7 @@ deleteopengame:function(req,res){
 		sails.log.verbose('about to update user level.');
        if (!user.DifficultyLevelBeaten)
        {
-		   req.session.user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
+		   'req.session.user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
 		   	user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
 		user.save(function(err, savedUser){});
 		}
@@ -335,12 +335,13 @@ deleteopengame:function(req,res){
 		if (user.DifficultyLevelBeaten<req.param('DifficultyLevelBeaten'))
 		{
 		user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
-		req.session.user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
-		   console.log("cookie level"+user.DifficultyLevelBeaten);
+		//req.session.user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
+		   //console.log("cookie level"+user.DifficultyLevelBeaten);
 		 
 		user.save(function(err, savedUser){
+			if (err){
 		sails.log.verbose('saving user error.');
-       
+       }
       });
       // Either send a 200 OK or redirect to the home page
 		return res.ok();
