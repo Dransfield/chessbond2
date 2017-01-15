@@ -326,7 +326,7 @@ deleteopengame:function(req,res){
 		sails.log.verbose('about to update user level.');
        if (!user.DifficultyLevelBeaten)
        {
-		   'req.session.user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
+		  //req.session.user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
 		   	user.DifficultyLevelBeaten=req.param('DifficultyLevelBeaten');
 		user.save(function(err, savedUser){});
 		}
