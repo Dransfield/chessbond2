@@ -137,9 +137,11 @@ module.exports.sockets = {
 	{
 	
 	console.log(records[x].subscriber+" disconnected");
+	
+	
 	Chessgame.find({or : [
-    { Player1: records[x].subscriber },
-    { Player2: records[x].subscriber }
+     Player1: records[x].subscriber ,
+     Player2: records[x].subscriber 
 	]}).exec(function(muhgames){
 		console.log(JSON.stringify(muhgames));
 
