@@ -379,7 +379,7 @@ deleteopengame:function(req,res){
 	{
 		
 		
-			Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
+		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		
 		var GameState=req.param('GameState');
 		var GameDescriptor=req.param('GameDescriptor');
