@@ -133,10 +133,25 @@ module.exports.sockets = {
 	
 	if(records)
 	{
-	
-	//console.log("found:"+JSON.stringify(records));
 	for (x in records)
 	{
+	
+	console.log(records[x].subscriber+" disconnected");
+	Chessgame.find({or : [
+    { Player1: records[x].subscriber },
+    { Player2: records[x].subscriber }
+	]}).exec(function(muhgames){
+	if (muhgames)
+	{
+	for (y in muhgames)
+	{
+	console.log("disconnector "+records[x].subscriber+" involved in "+muhgames[y])
+	}	
+	}
+	});
+	
+	//console.log("found:"+JSON.stringify(records));
+	
 		//console.log("subscription socket id "+records[x].socketid);
 	sails.sockets.broadcast(records[x].room,"left room",{leaver:records[x].subscriber});
 	}
