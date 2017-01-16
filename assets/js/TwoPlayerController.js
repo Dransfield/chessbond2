@@ -953,15 +953,47 @@ $scope.changeFavicon=function (src) {
 				var bythousand=player1time;
 				$scope.BottomSeconds=parseInt(bythousand % 60);
 				$scope.BottomMinutes=parseInt((bythousand)/60);
+				bythousand=player2time;
+				$scope.TopSeconds=parseInt(bythousand % 60);
+				$scope.TopMinutes=parseInt((bythousand)/60);
 				}
 				else
 				{
 				var bythousand=player2time;
 				$scope.BottomSeconds=parseInt(bythousand % 60);
 				$scope.BottomMinutes=parseInt((bythousand)/60);
+				bythousand=player1time;
+				$scope.TopSeconds=parseInt(bythousand % 60);
+				$scope.TopMinutes=parseInt((bythousand)/60);
+				
 				}
 				
 			}
+			else
+			{
+				if ($scope.ChessGameObject.Player1Color=='White')
+				{
+				var bythousand=player1time;
+				$scope.TopSeconds=parseInt(bythousand % 60);
+				$scope.TopMinutes=parseInt((bythousand)/60);
+				bythousand=player2time;
+				$scope.BottomSeconds=parseInt(bythousand % 60);
+				$scope.BottomMinutes=parseInt((bythousand)/60);
+				
+				}
+				else
+				{
+				var bythousand=player2time;
+				$scope.TopSeconds=parseInt(bythousand % 60);
+				$scope.TopMinutes=parseInt((bythousand)/60);
+				bythousand=player2time;
+				$scope.BottomSeconds=parseInt(bythousand % 60);
+				$scope.BottomMinutes=parseInt((bythousand)/60);
+				
+				}
+				
+			}
+			
 			
 			
 		}

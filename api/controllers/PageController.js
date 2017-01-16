@@ -437,7 +437,7 @@ deleteopengame:function(req,res){
 		{
 		cg.Player1TimeLeft-=diff;
 		}
-		
+		cg.TimeOfLastMove=Date.now();
 		cg.save();
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	
