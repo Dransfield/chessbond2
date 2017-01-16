@@ -720,7 +720,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			$scope.Showcapturedpiece(move.captured,move.color,false);
 			
 	
-			
+			/*
 			if (game.turn()=='b')
 			{
 			clearInterval($scope.WhiteInterval);
@@ -733,7 +733,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			clearInterval($scope.BlackInterval);
 			$scope.StartWhiteClock();
 			}
-			
+			*/
 			
 		console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
