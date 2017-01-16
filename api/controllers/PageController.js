@@ -431,11 +431,11 @@ deleteopengame:function(req,res){
 			{clrtomove='Black';}
 		if (clrtomove==cg.Player1Color)
 		{
-		cg.Player2TimeToMove-=diff;
+		cg.Player2TimeLeft-=diff;
 		}
 		else
 		{
-		cg.Player1TimeToMove-=diff;
+		cg.Player1TimeLeft-=diff;
 		}
 		
 		cg.save();
