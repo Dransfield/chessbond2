@@ -420,7 +420,15 @@ deleteopengame:function(req,res){
 		
 		var OldMoveNumber=cg.Move;
 		console.log("old move outside of timer"+OldMoveNumber);
-		
+		if (cg.TimeOfLastMove)
+		{
+		console.log("Time diff "+(Date.now()-cg.TimeOfLastMove);
+		}
+		else
+		{
+		cg.TimeOfLastMove=Date.now();
+		cg.save();
+		}
 		/*
 		for (x in TimerList)
 		{
