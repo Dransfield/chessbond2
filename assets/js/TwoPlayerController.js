@@ -1409,6 +1409,7 @@ function updateStatus(game,move)
 $scope.ChessGameObject.fen=game.fen();
 $scope.ChessGameObject.lastmove=move.from+move.to;
 
+/*
 if (game.turn()=='b')
 {
 	//console.log("$scope.WhiteInterval "+$scope.WhiteInterval);
@@ -1424,7 +1425,7 @@ if (game.turn()=='b')
 		
 		
 	}
-
+*/
 updateTurnTakerLabel(game);
 updatePlayersLabel(game);
 //game.load(gameRecord.fen);
