@@ -423,6 +423,7 @@ deleteopengame:function(req,res){
 		{
 		console.log("Time diff "+(Date.now()-cg.TimeOfLastMove));
 		var diff=(Date.now()-cg.TimeOfLastMove);
+		diff=diff/1000;
 		var clrtomove;
 			if (req.param('ColorToMove')=='w')
 			{clrtomove='White';}

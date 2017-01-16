@@ -950,13 +950,13 @@ $scope.changeFavicon=function (src) {
 			{
 				if ($scope.ChessGameObject.Player1Color=='White')
 				{
-				var bythousand=player1time/1000;
+				var bythousand=player1time;
 				$scope.BottomSeconds=parseInt(bythousand % 60);
 				$scope.BottomMinutes=parseInt((bythousand)/60);
 				}
 				else
 				{
-				var bythousand=player2time/1000;
+				var bythousand=player2time;
 				$scope.BottomSeconds=parseInt(bythousand % 60);
 				$scope.BottomMinutes=parseInt((bythousand)/60);
 				}
@@ -1498,7 +1498,7 @@ updatePlayersLabel(game);
 		alert('couldnt load game');
 		}
 		$scope.ShowCapturedPieces();
-		$scope.StartRightClock();
+		//$scope.StartRightClock();
 		console.log("last move"+$scope.ChessGameObject.lastmove);
 		
 		var square=   boardEl.find('.square-' + $scope.ChessGameObject.lastmove.substr(2, 5));
