@@ -139,7 +139,11 @@ module.exports.sockets = {
 	console.log(records[x].subscriber+" disconnected");
 	
 	
-	Chessgame.find({Player1: records[x].subscriber}).exec(function(err,muhgames){
+	Chessgame.find({or : [
+    { Player1: records[x].subscriber },
+    { Player2: records[x].subscriber }
+  ]
+}).exec(function(err,muhgames){
 		console.log(JSON.stringify(muhgames));
 
 	if (muhgames)
@@ -153,20 +157,6 @@ module.exports.sockets = {
 	}
 	});
 	
-	
-	Chessgame.find({Player2: records[x].subscriber}).exec(function(err,muhgames){
-		console.log(JSON.stringify(muhgames));
-
-	if (muhgames)
-	{
-		console.log("muhgames");
-	console.log(JSON.stringify(muhgames));
-	for (y in muhgames)
-	{
-	console.log("disconnector "+records[x].subscriber+" involved in "+muhgames[y].id)
-	}	
-	}
-	});
 	
 	
 	//console.log("found:"+JSON.stringify(records));
