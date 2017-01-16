@@ -139,7 +139,7 @@ module.exports.sockets = {
 	console.log(records[x].subscriber+" disconnected");
 	
 	
-	Chessgame.find({Player1: records[x].subscriber}).exec(function(muhgames){
+	Chessgame.find({Player1: records[x].subscriber}).exec(function(err,muhgames){
 		console.log(JSON.stringify(muhgames));
 
 	if (muhgames)
@@ -154,7 +154,7 @@ module.exports.sockets = {
 	});
 	
 	
-	Chessgame.find({Player2: records[x].subscriber}).exec(function(muhgames){
+	Chessgame.find({Player2: records[x].subscriber}).exec(function(err,muhgames){
 		console.log(JSON.stringify(muhgames));
 
 	if (muhgames)
