@@ -365,7 +365,10 @@ deleteopengame:function(req,res){
 		if(cg)
 		{
 		if(cg.Player1==req.param('player'))
-		{}
+		{console.log("player1 sent game time");}
+		else
+		{console.log("player2 sent game time");}
+		
 	}
 			});
 	
