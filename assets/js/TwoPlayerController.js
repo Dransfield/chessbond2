@@ -697,9 +697,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		//alert('couldnt load game');
 	//	}
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
+	
+	UpdateClocks($scope.ChessGameObject.Player1TimeLeft,$scope.ChessGameObject.Player2TimeLeft)
+	
 	var modified=($scope.ChessGameObject.lastmove.substr(0, 2) + "-" + $scope.ChessGameObject.lastmove.substr(2));
 	console.log("with -"+modified);
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
+		
 		 var move =game.move({ from: $scope.ChessGameObject.lastmove.substr(0, 2), to: $scope.ChessGameObject.lastmove.substr(2, 5) });
 		if (move!=null){
 			
@@ -939,6 +943,28 @@ $scope.changeFavicon=function (src) {
 {
 	return country.replace(/ /gi, "_");
 }
+		
+		function UpdateClocks(player1time,player2time)
+		{
+			if ($scope.PlayerOnBottom=='White')
+			{
+				if ($scope.ChessGameObject.Player1Color=='White')
+				{
+				var bythousand=player1time/1000;
+				$scope.BottomSeconds=parseInt(bythousand % 60);
+				$scope.BottomMinutes=parseInt((bythousand)/60);
+				}
+				else
+				{
+				var bythousand=player2time/1000;
+				$scope.BottomSeconds=parseInt(bythousand % 60);
+				$scope.BottomMinutes=parseInt((bythousand)/60);
+				}
+				
+			}
+			
+			
+		}
 		
 		function ShowPlayersAvatars()
 		{
