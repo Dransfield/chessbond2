@@ -141,11 +141,15 @@ module.exports.sockets = {
     { Player1: records[x].subscriber },
     { Player2: records[x].subscriber }
 	]}).exec(function(muhgames){
+		console.log(JSON.stringify(muhgames));
+
 	if (muhgames)
 	{
+		console.log("muhgames");
+	console.log(JSON.stringify(muhgames));
 	for (y in muhgames)
 	{
-	console.log("disconnector "+records[x].subscriber+" involved in "+muhgames[y])
+	console.log("disconnector "+records[x].subscriber+" involved in "+muhgames[y].id)
 	}	
 	}
 	});
