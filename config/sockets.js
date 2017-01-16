@@ -135,7 +135,8 @@ module.exports.sockets = {
 	{
 	for (x in records)
 	{
-	
+	if (records[x])
+	{
 	console.log(records[x].subscriber+" disconnected");
 	
 	
@@ -144,7 +145,7 @@ module.exports.sockets = {
     { Player2: records[x].subscriber }
   ]
 }).exec(function(err,muhgames){
-		console.log(JSON.stringify(muhgames));
+		//console.log(JSON.stringify(muhgames));
 
 	if (muhgames)
 	{
@@ -167,7 +168,7 @@ module.exports.sockets = {
 	  Subscription.destroy({socketid:socket['id']}).exec(function (err, records) {
 	//console.log("destroyed:"+JSON.stringify(records));
 	});
-	}
+	}}
 	});
    
  	
