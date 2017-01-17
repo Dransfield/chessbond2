@@ -46,9 +46,9 @@ $scope.WhiteTime=0;
 $scope.BlackTime=0;
 
 $scope.WhiteTimeDisplay="string";
-$scope.WhiteMinutes;
-$scope.WhiteSeconds;
-$scope.WhiteMilliSeconds;
+$scope.WhiteMinutes="string";
+$scope.WhiteSeconds="string";
+$scope.WhiteMilliSeconds="string";
 
 $scope.BlackTimeDisplay="string";
 $scope.BlackMinutes="string";
@@ -957,25 +957,37 @@ $scope.changeFavicon=function (src) {
 		
 		function UpdateClocks(player1time,player2time)
 		{
+			var intp1minute=parseInt(player1time/60);
+			var p1minute=intp1minute.toString();
+			var intp2minute=parseInt(player2time/60);
+			var p2minute=intp2minute.toString();
+			var intp1second=parseInt(player1time % 60);
+			var p1second=intp1second.toString();
+			var intp2second=parseInt(player2time % 60);
+			var p2second=intp2second.toString();
+			
+			if (intp2second<10)
+			{p2second="0"+p2second;}
+			if (intp1second<10)
+			{p1second="0"+p1second;}
+			
+			
 			if ($scope.PlayerOnBottom=='White')
 			{
 				if ($scope.ChessGameObject.Player1Color=='White')
 				{
-				var bythousand=player1time;
-				$scope.BottomSeconds=parseInt(bythousand % 60);
-				$scope.BottomMinutes=parseInt((bythousand)/60);
-				bythousand=player2time;
-				$scope.TopSeconds=parseInt(bythousand % 60);
-				$scope.TopMinutes=parseInt((bythousand)/60);
+				
+				$scope.BottomSeconds=p1second;
+				$scope.BottomMinutes=p1minute;
+				$scope.TopSeconds=p2second;
+				$scope.TopMinutes=p2minute;
 				}
 				else
 				{
-				var bythousand=player2time;
-				$scope.BottomSeconds=parseInt(bythousand % 60);
-				$scope.BottomMinutes=parseInt((bythousand)/60);
-				bythousand=player1time;
-				$scope.TopSeconds=parseInt(bythousand % 60);
-				$scope.TopMinutes=parseInt((bythousand)/60);
+				$scope.BottomSeconds=p2second;
+				$scope.BottomMinutes=p2minute;
+				$scope.TopSeconds=p1second;
+				$scope.TopMinutes=p2minute;
 				
 				}
 				
@@ -984,22 +996,18 @@ $scope.changeFavicon=function (src) {
 			{
 				if ($scope.ChessGameObject.Player1Color=='White')
 				{
-				var bythousand=player1time;
-				$scope.TopSeconds=parseInt(bythousand % 60);
-				$scope.TopMinutes=parseInt((bythousand)/60);
-				bythousand=player2time;
-				$scope.BottomSeconds=parseInt(bythousand % 60);
-				$scope.BottomMinutes=parseInt((bythousand)/60);
+				$scope.TopSeconds=p1second;
+				$scope.TopMinutes=p1minute;
+				$scope.BottomSeconds=p2second;
+				$scope.BottomMinutes=p2minute;
 				
 				}
 				else
 				{
-				var bythousand=player2time;
-				$scope.TopSeconds=parseInt(bythousand % 60);
-				$scope.TopMinutes=parseInt((bythousand)/60);
-				bythousand=player2time;
-				$scope.BottomSeconds=parseInt(bythousand % 60);
-				$scope.BottomMinutes=parseInt((bythousand)/60);
+				$scope.TopSeconds=p2second;
+				$scope.TopMinutes=p2minute;
+				$scope.BottomSeconds=p1second;
+				$scope.BottomMinutes=p1minute;
 				
 				}
 				
