@@ -1,4 +1,4 @@
-var files = [
+/*var files = [
   "COMODORSADomainValidationSecureServerCA.crt",
   
   "COMODORSAAddTrustCA.crt",
@@ -9,6 +9,7 @@ for (file in files)
 {
 car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl/'+files[file] )));
 }
+*/
 var files=[
 require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSADomainValidationSecureServerCA.crt')),
 require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSAAddTrustCA.crt.crt')),
