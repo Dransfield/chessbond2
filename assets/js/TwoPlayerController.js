@@ -149,28 +149,28 @@ $scope.StartWhiteClock=function()
 			$scope.WhiteTime=0;
 		}
 		var bythousand=$scope.WhiteTime/1000;
-		$scope.WhiteSeconds=(bythousand % 60).toString();
-		$scope.WhiteMinutes=(bythousand/60).toString();
-		$scope.WhiteMilliseconds=($scope.WhiteTime % 1000).toString();
-		if (parseInt($scope.WhiteSeconds<10))
+		$scope.WhiteSeconds=(parseInt((bythousand % 60))).toString();
+		$scope.WhiteMinutes=(parseInt((bythousand/60))).toString();
+		var intmilli=parseInt($scope.WhiteTime % 1000);
+		var milli=intmilli.toString();
+		if ($scope.WhiteSeconds<10)
 		{$scope.WhiteSeconds="0"+$scope.WhiteSeconds;}
-		if (parseInt($scope.WhiteMilliSeconds)<100 && parseInt($scope.WhiteMilliSeconds)>10)
-		{$scope.WhiteMilliSeconds="0"+$scope.WhiteMilliSeconds;}
-		if (parseInt($scope.WhiteMilliSeconds)<10 )
-		{$scope.WhiteMilliSeconds="00"+$scope.WhiteMilliSeconds;}
-		
+		if (intmilli<100 && intmilli>10)
+		{milli="0"+milli;}
+		if (intmilli<10 )
+		{milli="00"+milli;}
 		if($scope.PlayerOnBottom=='White')
 		{
 		
 		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
-		$scope.$apply($scope.BottomMilliseconds=$scope.WhiteMilliseconds);
+		$scope.$apply($scope.BottomMilliseconds=milli);
 		}
 		else
 		{
 		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
-		$scope.$apply($scope.TopMilliseconds=$scope.WhiteMilliseconds);	
+		$scope.$apply($scope.TopMilliseconds=milli);	
 		}
 		},121);	
 		
