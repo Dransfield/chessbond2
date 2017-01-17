@@ -207,14 +207,14 @@ $scope.StartBlackClock=function()
 		var bythousand=$scope.BlackTime/1000;
 		$scope.BlackSeconds=(parseInt((bythousand % 60))).toString();
 		$scope.BlackMinutes=(parseInt((bythousand/60))).toString();
-		$scope.BlackMilliseconds=(parseInt(($scope.BlackTime % 1000)));
-		$scope.BlackMilliseconds=$scope.BlackMilliseconds.toString();
-		if (parseInt($scope.BlackSeconds<10))
+		var intmilli=parseInt($scope.BlackTime % 1000);
+		var milli=intmilli.toString();
+		if (scope.BlackSeconds<10)
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
-		if (parseInt($scope.BlackMilliSeconds)<100 && parseInt($scope.BlackMilliSeconds)>10)
-		{$scope.BlackMilliSeconds="0"+$scope.BlackMilliSeconds;}
-		if (parseInt($scope.BlackMilliSeconds)<10 )
-		{$scope.BlackMilliSeconds="00"+$scope.BlackMilliSeconds;}
+		if (intmilli<100 && intmilli>10)
+		{milli="0"+milli;}
+		if (intmilli<10 )
+		{milli="00"+milli;}
 		
 
 		if($scope.PlayerOnBottom=='Black')
@@ -222,7 +222,7 @@ $scope.StartBlackClock=function()
 		
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
-		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMilliseconds);
+		$scope.$apply($scope.BottomMilliseconds=milli);
 		}
 		else
 		{
@@ -230,7 +230,7 @@ $scope.StartBlackClock=function()
 			
 		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
-		$scope.$apply($scope.TopMilliseconds=$scope.BlackMilliseconds);	
+		$scope.$apply($scope.TopMilliseconds=$scope.milli);	
 		
 		}
 		},121);	
