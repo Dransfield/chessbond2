@@ -122,7 +122,7 @@ $scope.StartRightClock=function()
 $scope.StartWhiteClock=function()
 	{
 		
-	
+	console.log("$scope.ChessGameObject.Player1Colour "+$scope.ChessGameObject.Player1Colour);
 		if ($scope.ChessGameObject.Player1Colour=='White')
 		{
 		$scope.WhiteTime=$scope.ChessGameObject.Player1TimeLeft*1000;
