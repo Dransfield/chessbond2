@@ -12,7 +12,7 @@ car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl/'+f
 */
 var files=[
 require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSADomainValidationSecureServerCA.crt')),
-require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSAAddTrustCA.crt.crt')),
+require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSAAddTrustCA.crt')),
 require('fs').readFileSync(require('path').resolve(__dirname,'ssl/AddTrustExternalCARoot.crt'))
 ]
 module.exports = {
