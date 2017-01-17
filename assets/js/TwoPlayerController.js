@@ -106,10 +106,14 @@ $scope.StartRightClock=function()
 	
 	if(game.turn()=='b')
 	{
+	clearInterval($scope.BlackInterval);
+	clearInterval($scope.WhiteInterval);
 	$scope.StartBlackClock();	
 	}
 	if(game.turn()=='w')
 	{
+	clearInterval($scope.BlackInterval);
+	clearInterval($scope.WhiteInterval);
 	$scope.StartWhiteClock();	
 	}
 	
@@ -117,34 +121,29 @@ $scope.StartRightClock=function()
 
 $scope.StartWhiteClock=function()
 	{
+		
+	
 		if ($scope.ChessGameObject.Player1Colour=='White')
 		{
-		$scope.WhiteTime=$scope.ChessGameObject.Player1TimeLimit;
+		$scope.WhiteTime=$scope.ChessGameObject.Player1TimeLeft*1000;
 		}
 		else
 		{
-		$scope.WhiteTime=$scope.ChessGameObject.Player2TimeLimit;
+		$scope.WhiteTime=$scope.ChessGameObject.Player2TimeLeft*1000;
 		}
+	
+	$scope.WhiteInterval=setInterval(function (){
 		
-		//$scope.WhiteTime=(($scope.ChessGameObject.TimeLimit*60)*1000);
-		$scope.WhiteInterval=	setInterval(function (){
+		
 		if ($scope.WhiteTime>0)
 		{
 		$scope.WhiteTime-=121;
 		
-		if ($scope.ChessGameObject.Player1Colour=='White')
-		{
-		$scope.ChessGameObject.Player1TimeLimit-=121;
-		}
-		else
-		{
-		$scope.ChessGameObject.Player2TimeLimit-=121;
-		}
-		
+				
 		}
 		if ($scope.WhiteTime<0)
 		{
-		$scope.WhiteTime=0;
+			$scope.WhiteTime=0;
 		}
 		var bythousand=$scope.WhiteTime/1000;
 		$scope.WhiteSeconds=parseInt(bythousand % 60);
@@ -154,21 +153,20 @@ $scope.StartWhiteClock=function()
 		{$scope.WhiteSeconds="0"+$scope.WhiteSeconds;}
 		if($scope.PlayerOnBottom=='White')
 		{
-		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);	
+		
+		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
 		$scope.$apply($scope.BottomMilliseconds=$scope.WhiteMilliseconds);
 		}
 		else
 		{
+	
+			
 		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
 		$scope.$apply($scope.TopMilliseconds=$scope.WhiteMilliseconds);	
 		
 		}
-		
-		
-		
-		
 		},121);	
 		
 	};
