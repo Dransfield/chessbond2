@@ -137,7 +137,7 @@ module.exports.sockets = {
 	{
 	if (records[x])
 	{
-	console.log(records[x].subscriber+" disconnected");
+	//console.log(records[x].subscriber+" disconnected");
 	
 	
 	Chessgame.find({or : [
@@ -149,11 +149,11 @@ module.exports.sockets = {
 
 	if (muhgames)
 	{
-		console.log("muhgames");
-	console.log(JSON.stringify(muhgames));
+	//	console.log("muhgames");
+	//console.log(JSON.stringify(muhgames));
 	for (y in muhgames)
 	{
-	console.log("disconnector "+records[x].subscriber+" involved in "+muhgames[y].id)
+	//console.log("disconnector "+records[x].subscriber+" involved in "+muhgames[y].id)
 	}	
 	}
 	});
