@@ -174,31 +174,20 @@ $scope.StartWhiteClock=function()
 	};
 $scope.StartBlackClock=function()
 	{
+	
 		if ($scope.ChessGameObject.Player1Colour=='Black')
-		{
-		$scope.BlackTime=$scope.ChessGameObject.Player1TimeLimit;
-		}
+		{$scope.BlackTime=$scope.Player1TimeLeft*1000;}
 		else
-		{
-		$scope.BlackTime=$scope.ChessGameObject.Player2TimeLimit;
-		}
-		
+		{$scope.BlackTime=$scope.Player2TimeLeft*1000;}
+	
 	$scope.BlackInterval=setInterval(function (){
 		
-		if ($scope.BlackTime>0)
+		
+		if (theTime>0)
 		{
 		$scope.BlackTime-=121;
 		
-		
-		if ($scope.ChessGameObject.Player1Colour=='Black')
-		{
-		$scope.ChessGameObject.Player1TimeLimit-=121;
-		}
-		else
-		{
-		$scope.ChessGameObject.Player2TimeLimit-=121;
-		}
-		
+				
 		}
 		if ($scope.BlackTime<0)
 		{
@@ -699,7 +688,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
 	
 	UpdateClocks($scope.ChessGameObject.Player1TimeLeft,$scope.ChessGameObject.Player2TimeLeft)
-	
+	$scope.StartRightClock();
 	var modified=($scope.ChessGameObject.lastmove.substr(0, 2) + "-" + $scope.ChessGameObject.lastmove.substr(2));
 	console.log("with -"+modified);
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
