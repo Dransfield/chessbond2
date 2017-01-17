@@ -138,8 +138,6 @@ $scope.StartWhiteClock=function()
 		if ($scope.WhiteTime>0)
 		{
 		$scope.WhiteTime-=121;
-		
-				
 		}
 		if ($scope.WhiteTime<0)
 		{
@@ -153,19 +151,15 @@ $scope.StartWhiteClock=function()
 		{$scope.WhiteSeconds="0"+$scope.WhiteSeconds;}
 		if($scope.PlayerOnBottom=='White')
 		{
-		
 		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
 		$scope.$apply($scope.BottomMilliseconds=$scope.WhiteMilliseconds);
 		}
 		else
 		{
-	
-			
 		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
 		$scope.$apply($scope.TopMilliseconds=$scope.WhiteMilliseconds);	
-		
 		}
 		},121);	
 		
@@ -203,7 +197,7 @@ $scope.StartBlackClock=function()
 		$scope.BlackSeconds=parseInt(bythousand % 60);
 		$scope.BlackMinutes=parseInt((bythousand)/60);
 		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
-		console.log($scope.BlackSeconds);
+		
 		if ($scope.BlackSeconds<10)
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
 		if($scope.PlayerOnBottom=='Black')
