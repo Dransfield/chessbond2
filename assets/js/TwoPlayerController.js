@@ -205,9 +205,9 @@ $scope.StartBlackClock=function()
 			$scope.BlackTime=0;
 		}
 		var bythousand=$scope.BlackTime/1000;
-		$scope.BlackSeconds=(bythousand % 60).toString();
-		$scope.BlackMinutes=(bythousand/60).toString();
-		$scope.BlackMilliseconds=($scope.BlackTime % 1000).toString();
+		$scope.BlackSeconds=parseInt((bythousand % 60)).toString();
+		$scope.BlackMinutes=parseInt((bythousand/60)).toString();
+		$scope.BlackMilliseconds=parseInt(($scope.BlackTime % 1000)).toString();
 		if (parseInt($scope.BlackSeconds<10))
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
 		if (parseInt($scope.BlackMilliSeconds)<100 && parseInt($scope.BlackMilliSeconds)>10)
