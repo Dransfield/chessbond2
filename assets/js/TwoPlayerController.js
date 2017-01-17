@@ -215,12 +215,7 @@ $scope.StartBlackClock=function()
 		if (parseInt($scope.BlackMilliSeconds)<10 )
 		{$scope.BlackMilliSeconds="00"+$scope.BlackMilliSeconds;}
 		
-		if ($scope.BlackSeconds<10)
-		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
-		if ($scope.BlackMilliSeconds<100 && $scope.BlackMilliSeconds>10)
-		{$scope.BlackMilliSeconds="0"+$scope.BlackMilliSeconds;}
-		if ($scope.BlackMilliSeconds<10 )
-		{$scope.BlackMilliSeconds="00"+$scope.BlackMilliSeconds;}
+
 		if($scope.PlayerOnBottom=='Black')
 		{
 		
