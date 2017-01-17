@@ -183,7 +183,7 @@ $scope.StartBlackClock=function()
 	$scope.BlackInterval=setInterval(function (){
 		
 		
-		if (theTime>0)
+		if ($scope.BlackTime>0)
 		{
 		$scope.BlackTime-=121;
 		
