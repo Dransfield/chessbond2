@@ -589,15 +589,15 @@ transporter.sendMail(mailOptions, function(error, info){
 			Subscription.find({room:roomName}).exec
 		(function (err, records) {
 			var people=[];
-			console.log(JSON.stringify(records));
+			//console.log(JSON.stringify(records));
 			
 			for (x in records)
 		 {people.push(records[x].subscriber);}
 		 var names="";
-		 console.log("people array"+JSON.stringify(people));
+		// console.log("people array"+JSON.stringify(people));
 		 User.find({id:people}).exec
 		(function (err, userrecords) {
-			console.log("userrecords"+JSON.stringify(userrecords));
+			//console.log("userrecords"+JSON.stringify(userrecords));
 		for (iter in userrecords)
 		{
 		names=names+userrecords[iter].name+","; 
