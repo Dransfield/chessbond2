@@ -5,7 +5,7 @@ files = [
   "COMODORSAAddTrustCA.crt",
   "AddTrustExternalCARoot.crt"
 ]
-var car;
+
 for file in files
 {
 car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl'+file )
