@@ -131,7 +131,7 @@ $scope.StartWhiteClock=function()
 		{
 		$scope.WhiteTime=$scope.ChessGameObject.Player2TimeLeft*1000;
 		}
-	
+	console.log("start white clock $scope.PlayerOnBottom "+$scope.PlayerOnBottom);
 	$scope.WhiteInterval=setInterval(function (){
 		
 		
@@ -179,7 +179,7 @@ $scope.StartBlackClock=function()
 			
 			$scope.BlackTime=$scope.ChessGameObject.Player2TimeLeft*1000;
 			}
-	
+	console.log("start black clock $scope.PlayerOnBottom "+$scope.PlayerOnBottom);
 	$scope.BlackInterval=setInterval(function (){
 		
 		
