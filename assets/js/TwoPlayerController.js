@@ -46,14 +46,14 @@ $scope.WhiteTime=0;
 $scope.BlackTime=0;
 
 $scope.WhiteTimeDisplay="string";
-$scope.WhiteMinutes="0";
-$scope.WhiteSeconds="0";
-$scope.WhiteMilliSeconds="0";
+$scope.WhiteMinutes;
+$scope.WhiteSeconds;
+$scope.WhiteMilliSeconds;
 
 $scope.BlackTimeDisplay="string";
-$scope.BlackMinutes="0";
-$scope.BlackSeconds="0";
-$scope.BlackMilliSeconds="0";
+$scope.BlackMinutes;
+$scope.BlackSeconds;
+$scope.BlackMilliSeconds;
 
 $PingStartTime=0;
 
@@ -149,18 +149,19 @@ $scope.StartWhiteClock=function()
 			$scope.WhiteTime=0;
 		}
 		var bythousand=$scope.WhiteTime/1000;
-		$scope.WhiteSeconds=parseInt(bythousand % 60);
-		$scope.WhiteMinutes=parseInt((bythousand)/60);
-		$scope.WhiteMilliseconds=parseInt($scope.WhiteTime % 1000);
-		if ($scope.WhiteSeconds<10)
+		$scope.WhiteSeconds=(bythousand % 60).toString();
+		$scope.WhiteMinutes=(bythousand/60).toString();
+		$scope.WhiteMilliseconds=($scope.WhiteTime % 1000).toString();
+		if (parseInt($scope.WhiteSeconds<10))
 		{$scope.WhiteSeconds="0"+$scope.WhiteSeconds;}
-		if ($scope.WhiteMilliSeconds<100 && $scope.WhiteMilliSeconds>10)
+		if (parseInt($scope.WhiteMilliSeconds)<100 && parseInt($scope.WhiteMilliSeconds)>10)
 		{$scope.WhiteMilliSeconds="0"+$scope.WhiteMilliSeconds;}
-		if ($scope.WhiteMilliSeconds<10 )
+		if (parseInt($scope.WhiteMilliSeconds)<10 )
 		{$scope.WhiteMilliSeconds="00"+$scope.WhiteMilliSeconds;}
 		
 		if($scope.PlayerOnBottom=='White')
 		{
+		
 		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
 		$scope.$apply($scope.BottomMilliseconds=$scope.WhiteMilliseconds);
@@ -204,9 +205,15 @@ $scope.StartBlackClock=function()
 			$scope.BlackTime=0;
 		}
 		var bythousand=$scope.BlackTime/1000;
-		$scope.BlackSeconds=parseInt(bythousand % 60);
-		$scope.BlackMinutes=parseInt((bythousand)/60);
-		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
+		$scope.BlackSeconds=(bythousand % 60).toString();
+		$scope.BlackMinutes=(bythousand/60).toString();
+		$scope.BlackMilliseconds=($scope.BlackTime % 1000).toString();
+		if (parseInt($scope.BlackSeconds<10))
+		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
+		if (parseInt($scope.BlackMilliSeconds)<100 && parseInt($scope.BlackMilliSeconds)>10)
+		{$scope.BlackMilliSeconds="0"+$scope.BlackMilliSeconds;}
+		if (parseInt($scope.BlackMilliSeconds)<10 )
+		{$scope.BlackMilliSeconds="00"+$scope.BlackMilliSeconds;}
 		
 		if ($scope.BlackSeconds<10)
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
