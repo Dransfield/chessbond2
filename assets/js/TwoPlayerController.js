@@ -161,16 +161,19 @@ $scope.StartWhiteClock=function()
 		{milli="00"+milli;}
 		if($scope.PlayerOnBottom=='White')
 		{
-		
-		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);
-		$scope.$apply($scope.BottomSeconds=$scope.WhiteSeconds);	
-		$scope.$apply($scope.BottomMilliseconds=milli);
+		$scope.$apply(function (){
+		$scope.BottomMinutes=$scope.WhiteMinutes;
+		$scope.BottomSeconds=$scope.WhiteSeconds;	
+		$scope.BottomMilliseconds=milli;
+		});
 		}
 		else
 		{
-		$scope.$apply($scope.TopMinutes=$scope.WhiteMinutes);	
-		$scope.$apply($scope.TopSeconds=$scope.WhiteSeconds);	
-		$scope.$apply($scope.TopMilliseconds=milli);	
+		$scope.$apply(function (){
+		$scope.TopMinutes=$scope.WhiteMinutes;	
+		$scope.TopSeconds=$scope.WhiteSeconds;	
+		$scope.TopMilliseconds=milli;	
+		});
 		}
 		},121);	
 		
@@ -220,17 +223,20 @@ $scope.StartBlackClock=function()
 		if($scope.PlayerOnBottom=='Black')
 		{
 		
-		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);
-		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
-		$scope.$apply($scope.BottomMilliseconds=milli);
+		$scope.$apply(function (){
+		$scope.BottomMinutes=$scope.BlackMinutes;
+		$scope.BottomSeconds=$scope.BlackSeconds;	
+		$scope.BottomMilliseconds=milli;
+		});
 		}
 		else
 		{
 	
-			
-		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
-		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
-		$scope.$apply($scope.TopMilliseconds=milli);	
+		$scope.$apply(function (){
+		$scope.TopMinutes=$scope.BlackMinutes;	
+		$scope.TopSeconds=$scope.BlackSeconds;	
+		$scope.TopMilliseconds=milli;
+		});	
 		
 		}
 		},121);	
