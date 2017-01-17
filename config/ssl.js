@@ -7,7 +7,7 @@ var files = [
 var car;
 for (file in files)
 {
-car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl'+file ));
+car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl'+file ))
 }
 
 module.exports = {
