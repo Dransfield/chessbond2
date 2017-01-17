@@ -174,16 +174,19 @@ $scope.StartWhiteClock=function()
 	};
 $scope.StartBlackClock=function()
 	{
-	console.log("start black clock");
+		
+	
 		if ($scope.ChessGameObject.Player1Colour=='Black')
 		{
-		console.log("player1 is black");
-		$scope.BlackTime=$scope.Player1TimeLeft*1000;}
+		
+		$scope.BlackTime=$scope.ChessGameObject.Player1TimeLeft*1000;
+		}
 		else
 		{
-		console.log("player2 is black");
+		
 			
-			$scope.BlackTime=$scope.Player2TimeLeft*1000;}
+			$scope.BlackTime=$scope.ChessGameObject.Player2TimeLeft*1000;
+			}
 	
 	$scope.BlackInterval=setInterval(function (){
 		
@@ -207,16 +210,14 @@ $scope.StartBlackClock=function()
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
 		if($scope.PlayerOnBottom=='Black')
 		{
-		console.log("player on bottom is black");
-		console.log("$scope.BottomSeconds "+$scope.BottomSeconds);
+		
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
 		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMilliseconds);
 		}
 		else
 		{
-		console.log("player on bottom is white");
-		console.log("$scope.TopSeconds "+$scope.TopSeconds);
+	
 			
 		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
