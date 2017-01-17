@@ -7,6 +7,7 @@ $scope.Player2Name="";
 $scope.chatting=new Array();
 $scope.Players=[];
 $scope.BottomPlayerPic="";
+$scope.currentFavicon="";
 $scope.TopPlayerName="";
 $scope.BottomPlayerName="";
 $scope.TopPlayerELO="";
@@ -813,6 +814,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 };
 
 $scope.changeFavicon=function (src) {
+	if ($scope.currentFavicon!=src)
+	{
  var link = document.createElement('link'),
     oldLink = document.getElementById('dynamic-favicon');
  link.id = 'dynamic-favicon';
@@ -822,6 +825,8 @@ $scope.changeFavicon=function (src) {
   document.head.removeChild(oldLink);
  }
  document.head.appendChild(link);
+$scope.currentFavicon=src;
+}
 };
 	
 	
