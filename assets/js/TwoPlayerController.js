@@ -34,21 +34,27 @@ var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#boardcontainer');
   
-$scope.TopMinutes=0;
-$scope.TopSeconds=0;
+$scope.TopMinutes="0";
+$scope.TopSeconds="0";
+$scope.TopMilliSeconds="0";
 
-$scope.BottomMinutes=0;
-$scope.BottomSeconds=0;
+$scope.BottomMinutes="0";
+$scope.BottomSeconds="0";
+$scope.BottomMilliSeconds="0";
 
 $scope.WhiteTime=0;
 $scope.BlackTime=0;
 
 $scope.WhiteTimeDisplay="string";
-$scope.WhiteMinutes;
-$scope.WhiteSeconds;
+$scope.WhiteMinutes="0";
+$scope.WhiteSeconds="0";
+$scope.WhiteMilliSeconds="0";
+
 $scope.BlackTimeDisplay="string";
-$scope.BlackMinutes;
-$scope.BlackSeconds;
+$scope.BlackMinutes="0";
+$scope.BlackSeconds="0";
+$scope.BlackMilliSeconds="0";
+
 $PingStartTime=0;
 
 $scope.capturedWhitepieces=[];
@@ -148,6 +154,11 @@ $scope.StartWhiteClock=function()
 		$scope.WhiteMilliseconds=parseInt($scope.WhiteTime % 1000);
 		if ($scope.WhiteSeconds<10)
 		{$scope.WhiteSeconds="0"+$scope.WhiteSeconds;}
+		if ($scope.WhiteMilliSeconds<100 && $scope.WhiteMilliSeconds>10)
+		{$scope.WhiteMilliSeconds="0"+$scope.WhiteMilliSeconds;}
+		if ($scope.WhiteMilliSeconds<10 )
+		{$scope.WhiteMilliSeconds="00"+$scope.WhiteMilliSeconds;}
+		
 		if($scope.PlayerOnBottom=='White')
 		{
 		$scope.$apply($scope.BottomMinutes=$scope.WhiteMinutes);
@@ -199,6 +210,10 @@ $scope.StartBlackClock=function()
 		
 		if ($scope.BlackSeconds<10)
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
+		if ($scope.BlackMilliSeconds<100 && $scope.BlackMilliSeconds>10)
+		{$scope.BlackMilliSeconds="0"+$scope.BlackMilliSeconds;}
+		if ($scope.BlackMilliSeconds<10 )
+		{$scope.BlackMilliSeconds="00"+$scope.BlackMilliSeconds;}
 		if($scope.PlayerOnBottom=='Black')
 		{
 		
