@@ -174,11 +174,16 @@ $scope.StartWhiteClock=function()
 	};
 $scope.StartBlackClock=function()
 	{
-	
+	console.log("start black clock");
 		if ($scope.ChessGameObject.Player1Colour=='Black')
-		{$scope.BlackTime=$scope.Player1TimeLeft*1000;}
+		{
+		console.log("player1 is black");
+		$scope.BlackTime=$scope.Player1TimeLeft*1000;}
 		else
-		{$scope.BlackTime=$scope.Player2TimeLeft*1000;}
+		{
+		console.log("player2 is black");
+			
+			$scope.BlackTime=$scope.Player2TimeLeft*1000;}
 	
 	$scope.BlackInterval=setInterval(function (){
 		
@@ -197,16 +202,22 @@ $scope.StartBlackClock=function()
 		$scope.BlackSeconds=parseInt(bythousand % 60);
 		$scope.BlackMinutes=parseInt((bythousand)/60);
 		$scope.BlackMilliseconds=parseInt($scope.BlackTime % 1000);
+		console.log($scope.BlackSeconds);
 		if ($scope.BlackSeconds<10)
 		{$scope.BlackSeconds="0"+$scope.BlackSeconds;}
 		if($scope.PlayerOnBottom=='Black')
 		{
+		console.log("player on bottom is black");
+		console.log("$scope.BottomSeconds "+$scope.BottomSeconds);
 		$scope.$apply($scope.BottomMinutes=$scope.BlackMinutes);
 		$scope.$apply($scope.BottomSeconds=$scope.BlackSeconds);	
 		$scope.$apply($scope.BottomMilliseconds=$scope.BlackMilliseconds);
 		}
 		else
 		{
+		console.log("player on bottom is white");
+		console.log("$scope.TopSeconds "+$scope.TopSeconds);
+			
 		$scope.$apply($scope.TopMinutes=$scope.BlackMinutes);	
 		$scope.$apply($scope.TopSeconds=$scope.BlackSeconds);	
 		$scope.$apply($scope.TopMilliseconds=$scope.BlackMilliseconds);	
