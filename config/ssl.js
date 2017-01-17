@@ -6,7 +6,7 @@ files = [
   "AddTrustExternalCARoot.crt"
 ]
 
-for file in files
+for (file in files)
 {
 car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl'+file )
 }
