@@ -5,7 +5,11 @@ files = [
   "COMODORSAAddTrustCA.crt",
   "AddTrustExternalCARoot.crt"
 ]
-ca = (fs.readFileSync "/path/to/#{file}" for file in files)
+var car;
+for file in files
+{
+car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl'+file )
+}
 ssl: {
   //   ca: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/bundle.crt')),
       ca: ca,
