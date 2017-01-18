@@ -151,7 +151,7 @@ $scope.StartWhiteClock=function()
 			if(!$scope.ChessGameObject.Result)
 			{
 				io.socket.put('/gametimedout',{
-				gameid:$scope.ChessGameObject.id
+				gameid:$scope.ChessGameObject.id,
 				timedoutcolor:'White'
 					  }  
 				  
