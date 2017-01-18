@@ -128,10 +128,10 @@
 				<span id="pingcontainer" >
 				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
 				</span>
-				<span id="timercontainer">
+					<div id="timercontainer">
 				<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
 				<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
-				</span>
+				</div>
 				
 				<div class="row">
 				
@@ -139,7 +139,7 @@
      
 				
 				</div>
-				
+			
 				<span style="position:relative;left-padding:0%" id="eyecontainer">
 				<img style="position:relative;" src='/images/eye.png'>
 				<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
@@ -156,12 +156,13 @@
 				<span id="pingcontainer">
 				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
 				</span>
-				<span id="timercontainer" >
+			</div>
+				<div id="timercontainer" >
 				<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
 				<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}</span>
-				</span>
+				</div>
 				
-			</div>
+			
 			
 			<div id="infocontainer" style="padding-left: 4px;" class="col-md-6">
 		  <button class="btn btn-success" ng-show="ShowOfferDrawButton" ng-click="OfferDraw()">Offer a Draw</button>

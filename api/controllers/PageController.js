@@ -61,7 +61,7 @@
   User.find({
   id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
-	console.log("winners and losers:"+JSON.stringify(winnersandlosers));
+	//console.log("winners and losers:"+JSON.stringify(winnersandlosers));
 	
 	var winnerRecord;
 	var loserRecord;
@@ -376,7 +376,7 @@ deleteopengame:function(req,res){
 
     chessgamemove:function(req,res){
 	var td=0;
-	console.log("req.param('GameOver')"+req.param('GameOver'));
+	//console.log("req.param('GameOver')"+req.param('GameOver'));
 	
 	if (req.param('GameOver')=='true')
 	{
@@ -412,7 +412,7 @@ deleteopengame:function(req,res){
 	else
 	{
 	
-		console.log("ColorToMove "+req.param('ColorToMove'));
+		//console.log("ColorToMove "+req.param('ColorToMove'));
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		//td=cg.TimeLimit;
 		//console.log("delay is "+td);
@@ -493,9 +493,9 @@ deleteopengame:function(req,res){
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		if (cgame)
 		{
-		console.log("chess game turn duration"+cgame.TimeLimit);
-		console.log("chess game move in timer"+cgame.Move);
-		console.log("chess game move outside of timer "+OldMoveNumber);
+		//console.log("chess game turn duration"+cgame.TimeLimit);
+		//console.log("chess game move in timer"+cgame.Move);
+		//console.log("chess game move outside of timer "+OldMoveNumber);
 		if (!cgame.Result)
 		{
 		if (cgame.Move==OldMoveNumber)
