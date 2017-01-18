@@ -417,7 +417,7 @@ deleteopengame:function(req,res){
 		//td=cg.TimeLimit;
 		//console.log("delay is "+td);
 		
-		//var OldMoveNumber=cg.Move;
+		var OldMoveNumber=cg.Move;
 		//console.log("old move outside of timer"+OldMoveNumber);
 		if (cg.TimeOfLastMove)
 		{
