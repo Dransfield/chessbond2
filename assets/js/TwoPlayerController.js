@@ -148,6 +148,18 @@ $scope.StartWhiteClock=function()
 		if ($scope.WhiteTime<0)
 		{
 			$scope.WhiteTime=0;
+			if(!$scope.ChessGameObject.Result)
+			{
+				io.socket.put('/gametimedout',{
+				gameid:$scope.ChessGameObject.id
+				timedoutcolor:'White'
+					  }  
+				  
+		,function(resData,jwres)
+			{
+			}
+			);
+			}
 		}
 		var bythousand=$scope.WhiteTime/1000;
 		$scope.WhiteSeconds=(parseInt((bythousand % 60))).toString();
@@ -207,6 +219,18 @@ $scope.StartBlackClock=function()
 		if ($scope.BlackTime<0)
 		{
 			$scope.BlackTime=0;
+			if(!$scope.ChessGameObject.Result)
+			{
+				io.socket.put('/gametimedout',{
+				gameid:$scope.ChessGameObject.id
+				timedoutcolor:'Black'
+					  }  
+				  
+		,function(resData,jwres)
+			{
+			}
+			);
+			}
 		}
 		var bythousand=$scope.BlackTime/1000;
 		$scope.BlackSeconds=(parseInt((bythousand % 60))).toString();
@@ -1363,7 +1387,7 @@ $scope.currentFavicon=src;
 					  // illegal move
 					  
 					  if (move === null || game.in_draw() || $scope.ChessGameObject.Result){
-						  if (game.game_over())
+						  if ($scope.ChessGameObject.Result)
 							{
 								
 						  toastr.warning("The game is over");

@@ -414,14 +414,14 @@ deleteopengame:function(req,res){
 	
 		console.log("ColorToMove "+req.param('ColorToMove'));
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
-		td=cg.TimeLimit;
-		console.log("delay is "+td);
+		//td=cg.TimeLimit;
+		//console.log("delay is "+td);
 		
 		//var OldMoveNumber=cg.Move;
 		//console.log("old move outside of timer"+OldMoveNumber);
 		if (cg.TimeOfLastMove)
 		{
-		console.log("Time diff "+(Date.now()-cg.TimeOfLastMove));
+	//	console.log("Time diff "+(Date.now()-cg.TimeOfLastMove));
 		var diff=(Date.now()-cg.TimeOfLastMove);
 		diff=diff/1000;
 		var clrtomove;
@@ -450,6 +450,7 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	
 		}
+		
 		/*
 		for (x in TimerList)
 		{
@@ -471,8 +472,22 @@ deleteopengame:function(req,res){
 		},1000);
 		TimerObject={Game:req.param('GameID'),Timer:myint};
 		TimerList.push(TimerObject);
-		*/
-	/*
+		*/	
+		var timeleft;
+		var clrtomove;
+			if (req.param('ColorToMove')=='w')
+			{clrtomove='White';}
+			else
+			{clrtomove='Black';}
+		if (clrtomove==cg.Player1Color)
+		{
+		timeleft=cg.Player1TimeLeft*1000;
+		}
+		else
+		{
+		timeleft=cg.Player2TimeLeft*1000;
+		}
+	
 	setTimeout(		function(){
 		
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
@@ -481,6 +496,8 @@ deleteopengame:function(req,res){
 		console.log("chess game turn duration"+cgame.TimeLimit);
 		console.log("chess game move in timer"+cgame.Move);
 		console.log("chess game move outside of timer "+OldMoveNumber);
+		if (!cgame.Result)
+		{
 		if (cgame.Move==OldMoveNumber)
 		{
 			var clrtomove;
@@ -500,14 +517,14 @@ deleteopengame:function(req,res){
 		DoGameResult(cgame.Player1,cgame.Player2,cgame.id,'true');
 		}
 		}
-		
+		}
 		}
 		
 		});
 	}
 		//,td*60);
-	,(td*60)*1000);
-	*/
+	,timeleft);
+	
 	});
 	
 	return res.ok();
