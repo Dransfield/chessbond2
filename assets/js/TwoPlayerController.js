@@ -738,9 +738,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		//alert('couldnt load game');
 	//	}
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
-	
+	if(!$scope.ChessGameObject.Result)
+	{
 	UpdateClocks($scope.ChessGameObject.Player1TimeLeft,$scope.ChessGameObject.Player2TimeLeft)
-	
+	}
 	var modified=($scope.ChessGameObject.lastmove.substr(0, 2) + "-" + $scope.ChessGameObject.lastmove.substr(2));
 	console.log("with -"+modified);
 	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
