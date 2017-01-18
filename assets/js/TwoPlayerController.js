@@ -825,9 +825,29 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		{
 			console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
+		if(!$scope.ChessGameObject.Result)
+		{
 		
-		
+		if($scope.User)
+		{		
+		if($scope.User.SoundEnabled=='Sound Enabled')
+		{
 		$scope.PlayMove();
+		}
+		}
+		
+		
+		}
+		else
+		{
+		if($scope.User)
+		{		
+		if($scope.User.SoundEnabled=='Sound Enabled')
+		{
+		$scope.PlayCheckMate();
+		}
+		}
+		}
 		//game.load(gameRecordnow.fen);
 		//console.log("after update "+game.ascii());
 		}
