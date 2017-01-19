@@ -189,6 +189,19 @@ deleteopengame:function(req,res){
 	);
 	
 	}	,
+	
+	OfferDraw:function(req,res){
+		
+	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid')});
+	User.findOne({
+      id: req.param('userid')
+	},function foundUser(err,user){
+		if (!err){
+	
+	sails.sockets.broadcast(req.param('gameid'),'message', {req.param('gameid'),content: user.name' has offered a draw' });
+	});
+	},
+	
 	newopengame:function(req,res){
 	console.log("all params of new open game"+req.allParams());
 	Openchessgame.create(

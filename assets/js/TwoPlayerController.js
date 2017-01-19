@@ -99,6 +99,8 @@ $scope.CheckMateSound=new Audio("/checkmate.mp3");
 $scope.OfferDraw=function()
 {
 		$http.put('/OfferDraw', {
+			gameid:$scope.ChessGameObject.id,
+			userid:$scope.User.id
 			})
 			.then(function onSuccess(sailsResponse){
 		
