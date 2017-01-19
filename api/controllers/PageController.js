@@ -203,7 +203,7 @@ deleteopengame:function(req,res){
 	
 	OfferDraw:function(req,res){
 		
-	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid'),offerer:req.param('userid')});
+	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid'),offerer:req.param('userid'),offeredto:req.param('OfferedTo')});
 	
 	Chessgame.findOne({
 		id:req.param('gameid')

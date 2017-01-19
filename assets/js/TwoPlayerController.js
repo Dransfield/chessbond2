@@ -122,7 +122,7 @@ $scope.OfferDraw=function()
 	{
 		opponent=$scope.ChessGameObject.Player1;
 	}
-	
+	console.log("$scope.User.id "+$scope.User.id+" opponent "+opponent); 
 		$http.put('/OfferDraw', {
 			gameid:$scope.ChessGameObject.id,
 			userid:$scope.User.id,
@@ -531,7 +531,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('DrawOffered',function(data){
 		if ($scope.User)
 		{
-			if($scope.User.id==data.offerer)
+			if($scope.User.id==data.OfferedTo)
 			{$scope.ShowAcceptDrawButton=true;}
 		}
 	});
