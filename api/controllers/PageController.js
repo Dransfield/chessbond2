@@ -192,7 +192,7 @@ deleteopengame:function(req,res){
 	
 	OfferDraw:function(req,res){
 		
-	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid')});
+	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid'),offerer:req.param('userid')});
 	User.findOne({
       id: req.param('userid')
 	},function foundUser(err,user){

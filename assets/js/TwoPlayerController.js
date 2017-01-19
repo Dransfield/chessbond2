@@ -91,10 +91,13 @@ $scope.BlackInterval=0;
 	  {id: '4', name: 'Big',value:400}
     
     ];
+    
+    $scope.ShowAcceptDrawButton=false;
+    
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
     $scope.BellSound= new Audio('/alert.mp3');
-$scope.MoveSound=new Audio('/move.mp3');
-$scope.CheckMateSound=new Audio("/checkmate.mp3");
+	$scope.MoveSound=new Audio('/move.mp3');
+	$scope.CheckMateSound=new Audio("/checkmate.mp3");
 
 $scope.OfferDraw=function()
 {
@@ -493,6 +496,14 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	
 	$scope.ReconnectFunction=function(MyID)
 	{
+	io.socket.on('DrawOffered',function(data){
+		if ($scope.User)
+		{
+			if($scope.User.id==data.offerer)
+			{$scope.ShowAcceptDrawButton=true;}
+		}
+	});
+		
 	io.socket.on('disconnect',function(data){
 	var txtmsg = { content:"<br>disconnect from server"};
 				$scope.$apply($scope.chatting.push(txtmsg));
