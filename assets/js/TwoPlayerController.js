@@ -532,6 +532,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 		if ($scope.User)
 		{
 		console.log(" $scope.User.id "+$scope.User.id+"  data.OfferedTo "+data.OfferedTo);
+			console.log(JSON.stringify(data));
 			if($scope.User.id==data.OfferedTo)
 			{$scope.ShowAcceptDrawButton=true;}
 		}
