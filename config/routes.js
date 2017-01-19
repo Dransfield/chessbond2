@@ -49,7 +49,7 @@ module.exports.routes = {
 	'GET /forgot/password/:code':{view:'newpassword'},
 	
 	'PUT /OfferDraw':'PageController.OfferDraw',
- 	
+ 	'PUT /AcceptDraw':'PageController.AcceptDraw',
 	'GET /subscribeToRoom':'PageController.subscribeToRoom',
 	'PUT /newopengame':'PageController.newopengame',
 	'PUT /deleteopengame':'PageController.deleteopengame',

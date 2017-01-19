@@ -98,12 +98,35 @@ $scope.BlackInterval=0;
     $scope.BellSound= new Audio('/alert.mp3');
 	$scope.MoveSound=new Audio('/move.mp3');
 	$scope.CheckMateSound=new Audio("/checkmate.mp3");
-
+$scope.AcceptDraw=function()
+{
+	
+	$http.put('/AcceptDraw', {
+		gameid:$scope.ChessGameObject.id,
+			
+			})
+			.then(function onSuccess(sailsResponse){
+		
+		
+		});
+	
+	};
 $scope.OfferDraw=function()
 {
+	var opponent;
+	if ($scope.User.id==$scope.ChessgameObject.Player1)
+	{
+		opponent=$scope.ChessgameObject.Player2;
+	}
+	else
+	{
+		opponent=$scope.ChessgameObject.Player1;
+	}
+	
 		$http.put('/OfferDraw', {
 			gameid:$scope.ChessGameObject.id,
-			userid:$scope.User.id
+			userid:$scope.User.id,
+			OfferedTo:opponent
 			})
 			.then(function onSuccess(sailsResponse){
 		
@@ -357,6 +380,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 								if(!$scope.ChessGameObject.Result)
 								{
 								$scope.ShowOfferDrawButton=true;
+								}
+								
+								if($scope.ChessGameObject.DrawOfferedTo)
+								{
+								if (MyID==$scope.ChessGameObject.DrawOfferedTo)
+								$scope.ShowAcceptDrawButton=true;
+								}
 								}
 							}
 							});

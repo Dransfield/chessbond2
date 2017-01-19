@@ -190,9 +190,30 @@ deleteopengame:function(req,res){
 	
 	}	,
 	
+	AcceptDraw:function(req,res){
+		Chessgame.findOne({
+		id:req.param('gameid')
+		},function foundGame(err,gm){
+	if(!err)
+		{
+			DoDraw(gm.Player1,gm.Player2,gm.id,"agreement");
+		});
+	},
+	
 	OfferDraw:function(req,res){
 		
 	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid'),offerer:req.param('userid')});
+	
+	Chessgame.findOne({
+		id:req.param('gameid')
+	},function foundGame(err,gm){
+		if(!err)
+		{
+		gm.DrawOfferedTo=req.param('OfferedTo');
+		gm.save();
+		}
+	});
+	
 	User.findOne({
       id: req.param('userid')
 	},function foundUser(err,user){
@@ -201,6 +222,7 @@ deleteopengame:function(req,res){
 	sails.sockets.broadcast(req.param('gameid'),'message', {room:req.param('gameid'),content: '<p class=\'redtext\'>'+user.name+' has offered a draw<p>' });
 	}
 	});
+	
 	},
 	
 	newopengame:function(req,res){
