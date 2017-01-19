@@ -198,7 +198,7 @@ deleteopengame:function(req,res){
 	},function foundUser(err,user){
 		if (!err){
 	
-	sails.sockets.broadcast(req.param('gameid'),'message', {req.param('gameid'),content: user.name' has offered a draw' });
+	sails.sockets.broadcast(req.param('gameid'),'message', {room:req.param('gameid'),content: user.name+' has offered a draw' });
 	});
 	},
 	
