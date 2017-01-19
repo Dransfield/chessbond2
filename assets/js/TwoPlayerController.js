@@ -531,6 +531,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('DrawOffered',function(data){
 		if ($scope.User)
 		{
+		console.log(" $scope.User.id "+$scope.User.id+"  data.OfferedTo "+data.OfferedTo);
 			if($scope.User.id==data.OfferedTo)
 			{$scope.ShowAcceptDrawButton=true;}
 		}
