@@ -197,6 +197,7 @@ deleteopengame:function(req,res){
 	if(!err)
 		{
 			DoDraw(gm.Player1,gm.Player2,gm.id,"agreement");
+		}
 		});
 	},
 	
