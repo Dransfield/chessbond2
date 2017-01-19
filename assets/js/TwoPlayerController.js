@@ -114,13 +114,13 @@ $scope.AcceptDraw=function()
 $scope.OfferDraw=function()
 {
 	var opponent;
-	if ($scope.User.id==$scope.ChessgameObject.Player1)
+	if ($scope.User.id==$scope.ChessGameObject.Player1)
 	{
-		opponent=$scope.ChessgameObject.Player2;
+		opponent=$scope.ChessGameObject.Player2;
 	}
 	else
 	{
-		opponent=$scope.ChessgameObject.Player1;
+		opponent=$scope.ChessGameObject.Player1;
 	}
 	
 		$http.put('/OfferDraw', {
