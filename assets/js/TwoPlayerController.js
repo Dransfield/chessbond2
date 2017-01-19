@@ -385,10 +385,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 								if($scope.ChessGameObject.DrawOfferedTo)
 								{
 								if (MyID==$scope.ChessGameObject.DrawOfferedTo)
+								{
 								$scope.ShowAcceptDrawButton=true;
 								}
 								}
 							}
+							
+							});
 							});
 			/*
 			if (!$scope.User.BoardSize)
@@ -405,8 +408,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 			if ($scope.User.BoardSize==0)
 			{$scope.User.BoardSize=400;}
       		*/
-      		}
-			)	
+      		
 		
 	};
 	$scope.DoPingInterval=function()
