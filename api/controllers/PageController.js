@@ -36,7 +36,7 @@
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	var Res1="New ELO ratings of "+player1.name+": "+player1.ELO+" ("+(player1.ELO-player1startELO)+")";
-	var Res2="New ELO ratings of "+loserRecord.name+": "+loserRecord.ELO+" ("+(loserRecord.ELO-loserstartELO)+")";
+	var Res2="New ELO ratings of "+player2.name+": "+player2.ELO+" ("+(player2.ELO-player2startELO)+")";
 	
 	var resultstring="";
 	resultstring="<span>"+player1.name+" drew by "+GameDescriptor+" against "+player2.name+"</span><br>Result:"+GameDescriptor+"<br>";
