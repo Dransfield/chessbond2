@@ -242,6 +242,7 @@ deleteopengame:function(req,res){
 		{
 			if (!gm.Result)
 			{
+				console.log("gm.Result "+gm.Result);
 			DoDraw(gm.Player1,gm.Player2,gm.id,"agreement");
 		}
 		}
