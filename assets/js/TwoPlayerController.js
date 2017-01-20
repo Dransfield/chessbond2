@@ -136,7 +136,11 @@ $scope.OfferDraw=function()
 
 };
 
-
+$scope.Withdraw=function()
+{
+	
+$scope.ShowWithdrawButton=false;	
+}
 $scope.StartRightClock=function()
 {
 	
@@ -382,6 +386,23 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 								{
 								$scope.ShowOfferDrawButton=true;
 								}
+								
+								if(!$scope.ChessGameObject.Player1Moved)
+								{
+								if($scope.ChessGameObject.Player1==$scope.User.id)
+									{
+										$scope.ShowWithdrawButton=true;
+									}
+								}
+								if(!$scope.ChessGameObject.Player2Moved)
+								{
+								if($scope.ChessGameObject.Player2==$scope.User.id)
+									{
+										$scope.ShowWithdrawButton=true;
+									}
+								}
+										
+								
 								
 								if($scope.ChessGameObject.DrawOfferedTo)
 								{
@@ -1479,8 +1500,20 @@ $scope.currentFavicon=src;
 						   return 'snapback';
 						   }
 							$scope.ChessGameObject.Move+=1;
-						$scope.ChangeOverallScore(move.captured,move.color);
-						  $scope.Showcapturedpiece(move.captured,move.color,true);
+							$scope.ChangeOverallScore(move.captured,move.color);
+							$scope.Showcapturedpiece(move.captured,move.color,true);
+							
+							
+							
+						if ($scope.ChessGameObject.Player1==me)
+							{
+								$scope.ChessGameObject.Player1Moved='true';
+							}
+						if ($scope.ChessGameObject.Player2==me)
+							{
+								$scope.ChessGameObject.Player2Moved='true';
+							}
+						
 						
 							  if (game.in_draw())
 								{
@@ -1572,7 +1605,10 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 	TurnTakerSentence:$scope.ChessGameObject.TurnTakerSentence,
 	  capturedWhitepieces:$scope.ChessGameObject.capturedWhitepieces,
       capturedBlackpieces:$scope.ChessGameObject.capturedBlackpieces,
-      OverallScore:$scope.ChessGameObject.OverallScore
+      OverallScore:$scope.ChessGameObject.OverallScore,
+      Player1Moved:$scope.ChessGameObject.Player1Moved,
+      Player2Moved:$scope.ChessGameObject.Player2Moved
+      
       }  
     ,function(resData,jwres)
 	{
