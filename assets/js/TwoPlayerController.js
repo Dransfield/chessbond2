@@ -100,7 +100,8 @@ $scope.BlackInterval=0;
 	$scope.CheckMateSound=new Audio("/checkmate.mp3");
 $scope.AcceptDraw=function()
 {
-	
+	if (!$scope.ChessGameObject.Result)
+	{
 	$http.put('/AcceptDraw', {
 		gameid:$scope.ChessGameObject.id,
 			
@@ -109,7 +110,7 @@ $scope.AcceptDraw=function()
 		
 		
 		});
-	
+	}
 	};
 $scope.OfferDraw=function()
 {
@@ -531,7 +532,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=0;
 	io.socket.on('DrawOffered',function(data){
 		if ($scope.User)
 		{
-		console.log(" $scope.User.id "+$scope.User.id+"  data.OfferedTo "+data.OfferedTo);
+		console.log(" $scope.User.id "+$scope.User.id+"  data.offeredto "+data.offeredto);
 			console.log(JSON.stringify(data));
 			if($scope.User.id==data.offeredto)
 			{$scope.ShowAcceptDrawButton=true;}

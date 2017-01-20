@@ -240,7 +240,10 @@ deleteopengame:function(req,res){
 		},function foundGame(err,gm){
 	if(!err)
 		{
+			if (!gm.Result)
+			{
 			DoDraw(gm.Player1,gm.Player2,gm.id,"agreement");
+		}
 		}
 		});
 	},
