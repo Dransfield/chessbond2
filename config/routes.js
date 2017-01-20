@@ -47,7 +47,7 @@ module.exports.routes = {
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
 	'GET /forgot/password/:code':{view:'newpassword'},
-	
+	'PUT /Withdraw':'PageController.Withdraw',
 	'PUT /OfferDraw':'PageController.OfferDraw',
  	'PUT /AcceptDraw':'PageController.AcceptDraw',
 	'GET /subscribeToRoom':'PageController.subscribeToRoom',

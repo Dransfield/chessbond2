@@ -140,6 +140,17 @@ $scope.Withdraw=function()
 {
 	
 $scope.ShowWithdrawButton=false;	
+if (!$scope.ChessGameObject.Result)
+	{
+	$http.put('/Withdraw', {
+		gameid:$scope.ChessGameObject.id,
+			
+			})
+			.then(function onSuccess(sailsResponse){
+		
+		
+		});
+	}
 }
 $scope.StartRightClock=function()
 {

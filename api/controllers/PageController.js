@@ -233,7 +233,21 @@ deleteopengame:function(req,res){
 	);
 	
 	}	,
+	Withdraw:function(req,res){
+		Chessgame.findOne({
+		id:req.param('gameid')
+		},function foundGame(err,gm){
+	if(!err)
+		{
+			if (!gm.Result)
+			{
+				console.log("gm.Result "+gm.Result);
+			DoWithdraw(gm.Player1,gm.Player2,gm.id,"withdraw");
+		}
+		}
+		});
 	
+	},
 	AcceptDraw:function(req,res){
 		Chessgame.findOne({
 		id:req.param('gameid')
