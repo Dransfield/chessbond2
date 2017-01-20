@@ -1508,10 +1508,12 @@ $scope.currentFavicon=src;
 						if ($scope.ChessGameObject.Player1==me)
 							{
 								$scope.ChessGameObject.Player1Moved='true';
+								$scope.ShowWithdrawButton=false;
 							}
 						if ($scope.ChessGameObject.Player2==me)
 							{
 								$scope.ChessGameObject.Player2Moved='true';
+								$scope.ShowWithdrawButton=false;
 							}
 						
 						
