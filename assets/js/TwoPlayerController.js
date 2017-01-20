@@ -144,7 +144,7 @@ if (!$scope.ChessGameObject.Result)
 	{
 	$http.put('/Withdraw', {
 		gameid:$scope.ChessGameObject.id,
-			
+			withdrawer:$scope.User.name
 			})
 			.then(function onSuccess(sailsResponse){
 		

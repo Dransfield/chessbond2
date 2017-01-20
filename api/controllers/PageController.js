@@ -13,6 +13,20 @@
 
  
  var TimerList=[];
+ function DoWithdraw(withdrawer,GameID)
+ {
+	 var resultstring=withdrawer+" withdrew from the game";
+	 Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:'Withdrawal'}).exec(function afterwards(err, updated){
+		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+
+	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
+	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	
+	 
+	});
+	});
+	}
+ 
 	function DoDraw(player1,player2,GameID,GameDescriptor)
 	{
 		var elo = require('elo-rank')(15);
@@ -242,7 +256,7 @@ deleteopengame:function(req,res){
 			if (!gm.Result)
 			{
 				console.log("gm.Result "+gm.Result);
-			DoWithdraw(gm.Player1,gm.Player2,gm.id,"withdraw");
+			DoWithdraw(req.param('withdrawer'),gm.id);
 		}
 		}
 		});
