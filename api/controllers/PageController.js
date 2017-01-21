@@ -273,6 +273,9 @@ deleteopengame:function(req,res){
 			if (!gm.Result)
 			{
 				console.log("gm.Result "+gm.Result);
+				console.log("gm.player1 "+gm.Player1);
+				console.log("gm.player2 "+gm.Player2);
+			
 			DoDraw(gm.Player1,gm.Player2,gm.id,"agreement");
 		}
 		}
