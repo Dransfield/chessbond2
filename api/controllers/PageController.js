@@ -29,6 +29,8 @@
  
 	function DoDraw(player1,player2,GameID,GameDescriptor)
 	{
+		console.log("player1 "+player1);
+		console.log("player2 "+player2);
 		var elo = require('elo-rank')(15);
 		User.find({
   id : [player1,player2]
