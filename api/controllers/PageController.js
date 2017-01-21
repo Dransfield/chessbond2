@@ -35,6 +35,10 @@
 		User.find({
   id : [player1,player2]
 	}).exec(function (err, players){
+		
+		console.log("players[0].id "+players[0].id);
+		console.log("players[1].id "+players[1].id);
+		
 	var player1Record;
 	var player2Record;
 	if (player1==players[0].id)
