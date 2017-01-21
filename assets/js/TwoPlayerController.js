@@ -100,7 +100,7 @@ $scope.BlackInterval=0;
 	$scope.CheckMateSound=new Audio("/checkmate.mp3");
 $scope.AcceptDraw=function()
 {
-	console.log("$scope.ChessGameObject.id "+$scope.ChessGameObject.id);
+	//console.log("$scope.ChessGameObject.id "+$scope.ChessGameObject.id);
 	if (!$scope.ChessGameObject.Result)
 	{
 	$http.put('/AcceptDraw', {

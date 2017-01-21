@@ -29,22 +29,22 @@
  
 	function DoDraw(player1,player2,GameID,GameDescriptor)
 	{
-		console.log("player1 "+player1);
-		console.log("player2 "+player2);
+		//console.log("player1 "+player1);
+		//console.log("player2 "+player2);
 		var elo = require('elo-rank')(15);
 		User.find({
   id : [player1,player2]
 	}).exec(function (err, players){
 		
-		console.log("players[0].id "+players[0].id);
-		console.log("players[1].id "+players[1].id);
+		//console.log("players[0].id "+players[0].id);
+		//console.log("players[1].id "+players[1].id);
 		
 	var player1Record;
 	var player2Record;
 	if (player1==players[0].id)
 		{
 		player1Record=players[0];
-		player1Record=players[1];
+		player2Record=players[1];
 		}
 		else
 		{
