@@ -577,7 +577,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		
 		io.socket.on('ping',function(data){
 		console.log(data.player+" has ping of "+data.ping);
-		}
+		
 		});
 	io.socket.on('DrawOffered',function(data){
 		if ($scope.User)
