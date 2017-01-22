@@ -655,8 +655,8 @@ deleteopengame:function(req,res){
 	},
 	ReturnPing:function(req,res){
 	//sails.sockets.broadcast(records.room,'message', {room:records.room,content: records.content });
-	console.log(req.param('gameid');
-	console.log(req.param('playerid');
+	console.log(req.param('gameid'));
+	console.log(req.param('playerid'));
 	
 	return res.ok();
 	
