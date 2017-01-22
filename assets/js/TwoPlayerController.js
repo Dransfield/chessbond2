@@ -1675,6 +1675,7 @@ UpdateClocks($scope.ChessGameObject.Player1TimeLeft,$scope.ChessGameObject.Playe
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
 		console.log("im player2");
+		console.log("$scope.ChessGameObject.Player1Color "+$scope.ChessGameObject.Player1Color);
 		if ($scope.ChessGameObject.Player1Color=='White')
 		{
 		console.log("player1 is white");
