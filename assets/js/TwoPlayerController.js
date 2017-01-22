@@ -466,9 +466,19 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 				//console.log(resData);
 				//console.log(jwres);
 				//console.log("Ping:"+(Date.now()-$PingStartTime));
-				$scope.PingDisplay=(Date.now()-$PingStartTime);
+				var Ping=(Date.now()-$PingStartTime);
+				io.socket.put('/BroadcastPing',{
+				gameid:GameID,
+				playerid:MyID,
+				ping:Ping
+					  }  
+					  	,function(resData,jwres)
+				{
+				}
+				);
+				//$//scope.PingDisplay=(Date.now()-$PingStartTime);
 				//console.log(Date.now());
-				return (Date.now()-$PingStartTime)
+				//return (Date.now()-$PingStartTime)
 				}
 			);
 			
@@ -564,6 +574,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 	
 	$scope.ReconnectFunction=function(MyID)
 	{
+		
+		io.socket.on('ping',function(data){
+		console.log(data.player+" has ping of "+data.ping);
+		}
+		});
 	io.socket.on('DrawOffered',function(data){
 		if ($scope.User)
 		{

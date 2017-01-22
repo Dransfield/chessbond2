@@ -654,12 +654,17 @@ deleteopengame:function(req,res){
 	}
 	},
 	ReturnPing:function(req,res){
-	//sails.sockets.broadcast(records.room,'message', {room:records.room,content: records.content });
-	console.log("game id "+req.param('gameid'));
-	console.log("player id "+req.param('playerid'));
+	//sails.sockets.broadcast(req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid') });
+	//console.log("game id "+req.param('gameid'));
+	//console.log("player id "+req.param('playerid'));
 	
-	return res.ok();
+	 return res.ok();
+		
+	},
+	BroadcastPing:function(req,res){
 	
+		sails.sockets.broadcast(req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid'),ping:req.param('ping')});
+	 return res.ok();
 	},
 	SendMail:function(req,res){
 		var nodemailer = require('nodemailer');
