@@ -1235,21 +1235,44 @@ $scope.currentFavicon=src;
 			}
 				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
-				
-			
+				var Player1OnBottom=false;
 			if ($scope.PlayerOnBottom=='White')
 			{
-			$scope.TopPlayerPic=picurl;
-			$scope.TopPlayerFlag=flagurl;	
-			$scope.TopPlayerName=res.data.name;
-			$scope.TopPlayerELO=res.data.ELO;
+				if ($scope.Player1Color=='White')
+				{
+					Player1OnBottom=true;
+				}
+				else
+				{
+					Player1OnBottom=false;
+				}
+				
 			}
 			else
+			{
+				
+				if ($scope.Player1Color=='White')
+				{
+					Player1OnBottom=false;
+				}
+				else
+				{
+					Player1OnBottom=true;
+				}
+								
+			}
+			
+			if(Player1OnBottom==false)
 			{
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
 			$scope.BottomPlayerName=res.data.name;
 			$scope.BottomPlayerELO=res.data.ELO;
+			}else{
+			$scope.TopPlayerPic=picurl;
+			$scope.TopPlayerFlag=flagurl;	
+			$scope.TopPlayerName=res.data.name;
+			$scope.TopPlayerELO=res.data.ELO;
 			}
 			
 			});
