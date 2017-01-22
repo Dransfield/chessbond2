@@ -457,7 +457,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 	{
 	$PingStartTime=Date.now()
 		io.socket.put('/pingtest',{
-				
+				gameid:GameID,
+				playerid:MyID
 					  }  
 				  
 		,function(resData,jwres)
