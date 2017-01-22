@@ -346,12 +346,13 @@ $scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-60;
 
 
 $scope.pic2height=30;
+$scope.pic2coordx=35;
 $scope.pic2coordy=35;
-$scope.pic2coordx=30;
+
 
 $scope.smallimage2=function()
 {
-$scope.pic2height=30; $scope.pic2coordx=30; $scope.pic2coordy=35;	
+$scope.pic2height=30; $scope.pic2coordx=35; $scope.pic2coordy=35;	
 }
 $scope.bigimage2=function()
 {
