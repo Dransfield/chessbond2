@@ -1184,15 +1184,40 @@ $scope.currentFavicon=src;
 				
 				//console.log("flagurl "+flagurl);
 				//console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
+			var Player1OnBottom=false;
 			if ($scope.PlayerOnBottom=='White')
+			{
+				if ($scope.Player1Color=='White')
+				{
+					Player1OnBottom=true;
+				}
+				else
+				{
+					Player1OnBottom=false;
+				}
+				
+			}
+			else
+			{
+				
+				if ($scope.Player1Color=='White')
+				{
+					Player1OnBottom=false;
+				}
+				else
+				{
+					Player1OnBottom=true;
+				}
+								
+			}
+			
+			if(Player1OnBottom==true)
 			{
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
 			$scope.BottomPlayerName=res.data.name;
 			$scope.BottomPlayerELO=res.data.ELO;
-			}
-			else
-			{
+			}else{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
 			$scope.TopPlayerName=res.data.name;
@@ -1678,22 +1703,20 @@ updatePlayersLabel(game);
 		console.log("$scope.ChessGameObject.Player1Color "+$scope.ChessGameObject.Player1Color);
 		if ($scope.ChessGameObject.Player1Color=='White')
 		{
-		console.log("player1 is white");
 		board1.flip();
 		
 		$scope.PlayerOnBottom='Black';
-		console.log("black is on bottom ");
 		}
 	
-	
 	}
+		
 	if ($scope.ChessGameObject.Player1==me){
 		if ($scope.ChessGameObject.Player1Color=='Black')
 		{
 		board1.flip();
 	
 		$scope.PlayerOnBottom='Black';
-		console.log("black is on bottom ");
+		
 		}
 	}
 
