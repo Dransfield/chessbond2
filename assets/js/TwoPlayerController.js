@@ -1432,7 +1432,7 @@ $scope.currentFavicon=src;
 		$scope.sideofboardstyle+=" leftstyle";	
 		}
 		
-			console.log("$scope.User.BoardSize[0] "+$scope.User.BoardSize[0]);
+			
 			
 		};
 		$scope.resetBoard=function(me)
@@ -1674,8 +1674,10 @@ UpdateClocks($scope.ChessGameObject.Player1TimeLeft,$scope.ChessGameObject.Playe
 
 updatePlayersLabel(game);
 	if ($scope.ChessGameObject.Player2==me){
+		console.log("im player2");
 		if ($scope.ChessGameObject.Player1Color=='White')
 		{
+		console.log("player1 is white");
 		board1.flip();
 		
 		$scope.PlayerOnBottom='Black';
