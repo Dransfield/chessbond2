@@ -446,14 +446,14 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
       		
 		
 	};
-	$scope.DoPingInterval=function()
+	$scope.DoPingInterval=function(MyID)
 	{
 		
 	setInterval(function (){
-		$scope.DoPing();
+		$scope.DoPing(MyID);
 	},20000);
 	}
-	$scope.DoPing=function()
+	$scope.DoPing=function(MyID)
 	{
 	$PingStartTime=Date.now()
 		io.socket.put('/pingtest',{

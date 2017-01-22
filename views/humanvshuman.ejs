@@ -126,7 +126,7 @@
 				<img ng-src="{{TopPlayerFlag}}">
 				</span>
 				<span id="pingcontainer" >
-				<span ng-init="DoPingInterval()">Ping {{PingDisplay}}</span>
+				<span ng-init="DoPingInterval('<%- req.session.passport.user %>')">Ping {{PingDisplay}}</span>
 				</span>
 					<div id="timercontainer">
 				<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}</span>
