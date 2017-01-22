@@ -341,7 +341,7 @@ $scope.pic1height=30; $scope.pic1coordx=30; $scope.pic1coordy=35;
 }
 $scope.bigimage1=function()
 {
-$scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-60;
+$scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-260;
 }
 
 
