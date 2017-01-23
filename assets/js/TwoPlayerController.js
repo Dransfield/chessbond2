@@ -1120,7 +1120,7 @@ $scope.currentFavicon=src;
 		
 		var txtmsg = {content:dat.data[m]['content']};
 		
-			
+			console.log(txtmsg);
 	$scope.chatting.push(txtmsg);
 	}
 	//});
