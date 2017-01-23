@@ -395,6 +395,8 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 							$scope.joinRoom(MyID);
 							if ($scope.ChessGameObject.Player1==MyID || $scope.ChessGameObject.Player2==MyID)
 							{
+								
+								$scope.DoPingInterval(MyID);
 								if(!$scope.ChessGameObject.Result)
 								{
 								$scope.ShowOfferDrawButton=true;
@@ -577,7 +579,61 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		
 		io.socket.on('ping',function(data){
 		console.log(data.player+" has ping of "+data.ping);
+		if ($scope.ChessGameObject.Player1==data.player)
+		{
+			
+			if ($scope.PlayerOnBottom=='White')
+			{
+				if ($scope.ChessGameObject.Player1Color=='White')
+				{
+				$scope.BottomPingDisplay=data.ping;
+				}
+				else
+				{
+				$scope.TopPingDisplay=data.ping;
+				}
+			}
+			else
+			{
+				if ($scope.ChessGameObject.Player1Color=='White')
+				{
+				$scope.TopPingDisplay=data.ping;
+				}
+				else
+				{
+				$scope.BottomPingDisplay=data.ping;
+				}
+			}
+		}
 		
+		
+		if ($scope.ChessGameObject.Player2==data.player)
+		{
+			if ($scope.PlayerOnBottom=='White')
+			{
+				if ($scope.ChessGameObject.Player1Color=='White')
+				{
+				$scope.TopPingDisplay=data.ping;
+				}
+				else
+				{
+				$scope.BottomPingDisplay=data.ping;
+				}
+			}
+			else
+			{
+				if ($scope.ChessGameObject.Player1Color=='White')
+				{
+				$scope.BottomPingDisplay=data.ping;
+				}
+				else
+				{
+				$scope.TopPingDisplay=data.ping;
+				}
+			}
+		}
+		
+				
 		});
 	io.socket.on('DrawOffered',function(data){
 		if ($scope.User)
