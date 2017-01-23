@@ -393,6 +393,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 							$scope.ChessGameObject=res.data;
 							$scope.setBoard(MyID);
 							$scope.joinRoom(MyID);
+							$scope.getchatmessages();
 							if ($scope.ChessGameObject.Player1==MyID || $scope.ChessGameObject.Player2==MyID)
 							{
 								
