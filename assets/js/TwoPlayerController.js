@@ -1113,7 +1113,7 @@ $scope.currentFavicon=src;
       room: GameID
     })
     .then(function onSuccess (dat){
-		console.log(JSON.stringify(dat));
+		
       // Refresh the page now that we've been logged in.
       //$scope.$apply(function() {
      // console.log("joined games reply"+JSON.stringify(dat.data));
