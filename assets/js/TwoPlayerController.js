@@ -1256,7 +1256,7 @@ $scope.currentFavicon=src;
 				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
 				//console.log("flagurl "+flagurl);
-				//console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
+				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
 			var Player1OnBottom=false;
 			if ($scope.PlayerOnBottom=='White')
 			{
@@ -1273,7 +1273,7 @@ $scope.currentFavicon=src;
 			else
 			{
 				
-				if ($scope.Player1Color=='White')
+				if ($scope.ChessGameObject.Player1Color=='White')
 				{
 					Player1OnBottom=false;
 				}
@@ -1311,7 +1311,7 @@ $scope.currentFavicon=src;
 				var Player1OnBottom=false;
 			if ($scope.PlayerOnBottom=='White')
 			{
-				if ($scope.Player1Color=='White')
+				if ($scope.ChessGameObject.Player1Color=='White')
 				{
 					Player1OnBottom=true;
 				}
@@ -1324,7 +1324,7 @@ $scope.currentFavicon=src;
 			else
 			{
 				
-				if ($scope.Player1Color=='White')
+				if ($scope.ChessGameObject.Player1Color=='White')
 				{
 					Player1OnBottom=false;
 				}
@@ -1794,6 +1794,7 @@ UpdateClocks($scope.ChessGameObject.Player1TimeLeft,$scope.ChessGameObject.Playe
 	
 
 updatePlayersLabel(game);
+$scope.PlayerOnBottom='White';
 	if ($scope.ChessGameObject.Player2==me){
 		console.log("im player2");
 		console.log("$scope.ChessGameObject.Player1Color "+$scope.ChessGameObject.Player1Color);
