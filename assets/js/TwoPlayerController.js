@@ -1260,7 +1260,7 @@ $scope.currentFavicon=src;
 			var Player1OnBottom=false;
 			if ($scope.PlayerOnBottom=='White')
 			{
-				if ($scope.Player1Color=='White')
+				if ($scope.ChessGameObject.Player1Color=='White')
 				{
 					Player1OnBottom=true;
 				}
