@@ -98,6 +98,9 @@ $scope.BlackInterval=0;
     $scope.BellSound= new Audio('/alert.mp3');
 	$scope.MoveSound=new Audio('/move.mp3');
 	$scope.CheckMateSound=new Audio("/checkmate.mp3");
+	$scope.DrawSound=new Audio("/draw.mp3");
+	$scope.WithdrawSound=new Audio("/withdraw.mp3");
+	
 $scope.AcceptDraw=function()
 {
 	//console.log("$scope.ChessGameObject.id "+$scope.ChessGameObject.id);
@@ -377,8 +380,14 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
     {
 	$scope.CheckMateSound.play();
 	};
-	
-
+	$scope.PlayWithdraw=function()
+	{
+	$scope.WithdrawSound.play();
+	};
+	$scope.PlayDraw=function()
+	{
+	$scope.DrawSound.play();
+	};
 	$scope.getuserAndSetBoardAndJoinRoom=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
@@ -886,7 +895,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		  if ($scope.ChessGameObject.Result)
 			{
 			$scope.ShowOfferDrawButton=false;	
+			if($scope.ChessGameObject.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
+			{$scope.PlayDraw();}
 			}
+			if($scope.ChessGameObject.Result.indexOf("withdrew from the game")>-1)
+			{$scope.PlayWithdraw();}
+			}
+			
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
