@@ -100,7 +100,31 @@ $scope.BlackInterval=0;
 	$scope.CheckMateSound=new Audio("/checkmate.mp3");
 	$scope.DrawSound=new Audio("/draw.mp3");
 	$scope.WithdrawSound=new Audio("/withdraw.mp3");
+	$scope.EnableSound=function()
+{
+	$scope.BellSound= new Audio('/alert.mp3');
+	$scope.MoveSound=new Audio('/move.mp3');
+	$scope.CheckMateSound=new Audio("/checkmate.mp3");
+	$scope.DrawSound=new Audio("/draw.mp3");
+	$scope.WithdrawSound=new Audio("/withdraw.mp3");
+	    $scope.BellSound.volume=0;
+	$scope.MoveSound.volume=0;
+	$scope.CheckMateSound.volume=0;
+	$scope.DrawSound.volume=0;
+	$scope.WithdrawSound.volume=0;
+	$scope.BellSound.play();
+	$scope.MoveSound.play();
+	$scope.CheckMateSound.play();
+	$scope.DrawSound.play();
+	$scope.WithdrawSound.play();
 	
+	$scope.BellSound.volume=1;
+	$scope.MoveSound.volume=1;
+	$scope.CheckMateSound.volume=1;
+	$scope.DrawSound.volume=1;
+	$scope.WithdrawSound.volume=1;
+	
+};
 $scope.AcceptDraw=function()
 {
 	//console.log("$scope.ChessGameObject.id "+$scope.ChessGameObject.id);

@@ -45,6 +45,8 @@
        <%}%>
      <% if (req.session.passport){ %>
 	<% if (req.session.passport.user){ %>
+      <button class="btn btn-success" ng-click="EnableSound()">Enable Sound</button>
+     
       <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Show Options</button>
       <table ng-hide="ShowOptions">
          <tr>
