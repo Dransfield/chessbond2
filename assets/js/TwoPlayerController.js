@@ -95,11 +95,12 @@ $scope.BlackInterval=0;
     $scope.ShowAcceptDrawButton=false;
     
     $scope.piecevalues={P:1,N:3,B:3,R:5,Q:9};
-    $scope.BellSound= new Audio('/alert.mp3');
-	$scope.MoveSound=new Audio('/move.mp3');
-	$scope.CheckMateSound=new Audio("/checkmate.mp3");
-	$scope.DrawSound=new Audio("/draw.mp3");
-	$scope.WithdrawSound=new Audio("/withdraw.mp3");
+ //   $scope.BellSound= new Audio('/alert.mp3');
+//	$scope.MoveSound=new Audio('/move.mp3');
+//	$scope.CheckMateSound=new Audio("/checkmate.mp3");
+//	$scope.DrawSound=new Audio("/draw.mp3");
+//	$scope.WithdrawSound=new Audio("/withdraw.mp3");
+	$scope.SoundEnabled=false;
 	$scope.EnableSound=function()
 {
 	$scope.BellSound= new Audio('/alert.mp3');
@@ -120,7 +121,7 @@ $scope.BlackInterval=0;
 	$scope.BellSound.pause();
 	$scope.MoveSound.pause();
 	$scope.CheckMateSound.pause();
-	$scope.DrawSound.pause();
+	//$scope.DrawSound.pause();
 	$scope.WithdrawSound.pause();
 	$scope.BellSound.volume=.1;
 	$scope.MoveSound.volume=.1;
