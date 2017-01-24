@@ -112,11 +112,11 @@ $scope.BlackInterval=0;
 	$scope.CheckMateSound.volume=0;
 	$scope.DrawSound.volume=0;
 	$scope.WithdrawSound.volume=0;
-	$scope.BellSound.play();
-	$scope.MoveSound.play();
-	$scope.CheckMateSound.play();
-	$scope.DrawSound.play();
-	$scope.WithdrawSound.play();
+	//$scope.BellSound.play();
+	//$scope.MoveSound.play();
+	//$scope.CheckMateSound.play();
+	//$scope.DrawSound.play();
+	//$scope.WithdrawSound.play();
 	
 	$scope.BellSound.volume=1;
 	$scope.MoveSound.volume=1;
