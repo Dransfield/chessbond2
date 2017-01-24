@@ -30,6 +30,29 @@
    </head>
    <body ng-app="HomepageModule" ng-controller="TwoPlayerController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
       
+      <!-- Trigger the modal with a button -->
+
+<!-- Modal -->
+<div id="SoundModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Chessbond/h4>
+      </div>
+      <div class="modal-body">
+        <p>Ready to begin?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click="EnableSound()" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+      
       <%- include partials/navbar.ejs %>
      <!-- <p>Game Id is   <%-req.param('GameID')%></p>-->
       <script> var GameID='<%- req.param('GameID') %>'</script>

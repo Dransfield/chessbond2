@@ -101,6 +101,7 @@ $scope.BlackInterval=0;
 //	$scope.DrawSound=new Audio("/draw.mp3");
 //	$scope.WithdrawSound=new Audio("/withdraw.mp3");
 	$scope.SoundEnabled=false;
+	$("#SoundModal").modal()
 	$scope.EnableSound=function()
 {
 	console.log("Sound Enabled");
