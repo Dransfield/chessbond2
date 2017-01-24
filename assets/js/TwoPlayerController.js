@@ -103,6 +103,7 @@ $scope.BlackInterval=0;
 	$scope.SoundEnabled=false;
 	$scope.EnableSound=function()
 {
+	console.log("Sound Enabled");
 	$scope.BellSound= new Audio('/alert.mp3');
 	$scope.MoveSound=new Audio('/move.mp3');
 	$scope.CheckMateSound=new Audio("/checkmate.mp3");
