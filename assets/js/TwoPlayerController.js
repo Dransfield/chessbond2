@@ -174,6 +174,12 @@ $scope.StartRightClock=function()
 	
 };
 
+$scope.StopClocks=function()
+	{
+	clearInterval($scope.BlackInterval);
+	clearInterval($scope.WhiteInterval);
+	};
+
 $scope.StartWhiteClock=function()
 	{
 		
@@ -897,11 +903,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			$scope.ShowOfferDrawButton=false;	
 			if($scope.ChessGameObject.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{$scope.PlayDraw();}
-			}
+			
 			if($scope.ChessGameObject.Result.indexOf("withdrew from the game")>-1)
 			{$scope.PlayWithdraw();}
-			}
+			$scope.StopClocks();
 			
+			}
+		
 		//board1.position(gameRecordnow .fen);
 		//.if(game.load(gameRecordnow .fen)==false)
 		//{
