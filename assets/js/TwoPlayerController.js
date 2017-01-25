@@ -476,7 +476,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								$scope.ShowAcceptDrawButton=true;
 								for (x = 0; x < 13; x++)  
 								{
-								$setTimeout(function(){$scope.PlayDraw();},x*500);
+								setTimeout(function(){$scope.PlayDraw();},x*500);
 								}	
 									$setTimeout(function()
 									{$scope.ShowAcceptDrawButton=false;			
@@ -965,7 +965,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 				for (x = 0; x < 13; x++)  
 								
 				{
-					$setTimeout(function(){$scope.PlayWithdraw();},x*500);
+					setTimeout(function(){$scope.PlayWithdraw();},x*500);
 				}				
 				}
 			$scope.StopClocks();
