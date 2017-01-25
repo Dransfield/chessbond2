@@ -127,7 +127,7 @@ $scope.BlackInterval=0;
 	$scope.WithdrawSound.pause();
 	$scope.BellSound.volume=.1;
 	$scope.MoveSound.volume=.1;
-	$scope.CheckMateSound.volume=.1;
+	//$scope.CheckMateSound.volume=.1;
 	$scope.DrawSound.volume=.1;
 	$scope.WithdrawSound.volume=.1;
 	
@@ -447,20 +447,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								if(!$scope.ChessGameObject.Result)
 								{
 								$scope.ShowOfferDrawButton=true;
-								setTimeout(function(){$scope.PlayDraw();},0);
 								
-								setTimeout(function(){$scope.PlayDraw();},500);
-								$timeout(function(){$scope.PlayDraw();},1000);
-								$timeout(function(){$scope.PlayDraw();},1500);
-								$timeout(function(){$scope.PlayDraw();},2000);
-								$timeout(function(){$scope.PlayDraw();},2500);
-								$timeout(function(){$scope.PlayDraw();},3000);
-								$timeout(function(){$scope.PlayDraw();},3500);
-								$timeout(function(){$scope.PlayDraw();},4000);
-								$timeout(function(){$scope.PlayDraw();},4500);
-								$timeout(function(){$scope.PlayDraw();},5000);
-								$timeout(function(){$scope.PlayDraw();},5500);
-								$timeout(function(){$scope.PlayDraw();},6000);
 
 								}
 								
@@ -486,6 +473,20 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								if (MyID==$scope.ChessGameObject.DrawOfferedTo)
 								{
 								$scope.ShowAcceptDrawButton=true;
+								setTimeout(function(){$scope.PlayDraw();},0);
+								
+								setTimeout(function(){$scope.PlayDraw();},500);
+								$timeout(function(){$scope.PlayDraw();},1000);
+								$timeout(function(){$scope.PlayDraw();},1500);
+								$timeout(function(){$scope.PlayDraw();},2000);
+								$timeout(function(){$scope.PlayDraw();},2500);
+								$timeout(function(){$scope.PlayDraw();},3000);
+								$timeout(function(){$scope.PlayDraw();},3500);
+								$timeout(function(){$scope.PlayDraw();},4000);
+								$timeout(function(){$scope.PlayDraw();},4500);
+								$timeout(function(){$scope.PlayDraw();},5000);
+								$timeout(function(){$scope.PlayDraw();},5500);
+								$timeout(function(){$scope.PlayDraw();},6000);
 								}
 								}
 							}
@@ -703,7 +704,23 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		console.log(" $scope.User.id "+$scope.User.id+"  data.offeredto "+data.offeredto);
 			console.log(JSON.stringify(data));
 			if($scope.User.id==data.offeredto)
-			{$scope.ShowAcceptDrawButton=true;}
+			{$scope.ShowAcceptDrawButton=true;
+				
+				setTimeout(function(){$scope.PlayDraw();},0);
+								
+								setTimeout(function(){$scope.PlayDraw();},500);
+								$timeout(function(){$scope.PlayDraw();},1000);
+								$timeout(function(){$scope.PlayDraw();},1500);
+								$timeout(function(){$scope.PlayDraw();},2000);
+								$timeout(function(){$scope.PlayDraw();},2500);
+								$timeout(function(){$scope.PlayDraw();},3000);
+								$timeout(function(){$scope.PlayDraw();},3500);
+								$timeout(function(){$scope.PlayDraw();},4000);
+								$timeout(function(){$scope.PlayDraw();},4500);
+								$timeout(function(){$scope.PlayDraw();},5000);
+								$timeout(function(){$scope.PlayDraw();},5500);
+								$timeout(function(){$scope.PlayDraw();},6000);
+				}
 		}
 	});
 		
