@@ -473,21 +473,10 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								if (MyID==$scope.ChessGameObject.DrawOfferedTo)
 								{
 								$scope.ShowAcceptDrawButton=true;
-								setTimeout(function(){$scope.PlayDraw();},0);
-								
-								setTimeout(function(){$scope.PlayDraw();},500);
-								$timeout(function(){$scope.PlayDraw();},1000);
-								$timeout(function(){$scope.PlayDraw();},1500);
-								$timeout(function(){$scope.PlayDraw();},2000);
-								$timeout(function(){$scope.PlayDraw();},2500);
-								$timeout(function(){$scope.PlayDraw();},3000);
-								$timeout(function(){$scope.PlayDraw();},3500);
-								$timeout(function(){$scope.PlayDraw();},4000);
-								$timeout(function(){$scope.PlayDraw();},4500);
-								$timeout(function(){$scope.PlayDraw();},5000);
-								$timeout(function(){$scope.PlayDraw();},5500);
-								$timeout(function(){$scope.PlayDraw();},6000);
-								}
+								for (x=0 to 12)
+								{
+								$setTimeout(function(){$scope.PlayDraw();},x*500);
+								}				
 								}
 							}
 							
@@ -968,7 +957,12 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			{$scope.PlayDraw();}
 			
 			if($scope.ChessGameObject.Result.indexOf("withdrew from the game")>-1)
-			{$scope.PlayWithdraw();}
+			{$scope.PlayWithdraw();
+				for (x=0 to 12)
+				{
+					$setTimeout(function(){$scope.PlayWithdraw();},x*500);
+				}				
+				}
 			$scope.StopClocks();
 			
 			}
