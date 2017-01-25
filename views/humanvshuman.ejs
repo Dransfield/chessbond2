@@ -108,6 +108,21 @@
             <td>
                <button ng-click="PrefToggleButtonClicked('SoundEnabled','<%-req.session.passport.user%>','Sound Enabled','Sound Disabled')" class="btn btn-success">{{User.SoundEnabled}}</button>
             </td>
+             <td>
+               <span class="label label-default">Volume Level</span>
+               <select class="form-control"
+                  ng-model="User.SoundVolume"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('SoundVolume','<%-req.session.passport.user%>',setVolume)"
+                  >
+                  <option ng-repeat="vol in soundvolumes" value="{{vol}}">
+                     {{vol}}
+                  </option>
+               </select>
+            </td>
             <td>
                <span class="label label-default">Board Size</span>
                <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardSize"   ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resizeBoard)"

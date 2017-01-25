@@ -72,6 +72,7 @@ $scope.BlackInterval=0;
   $scope.piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
+    $scope.soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
      $scope.boardthemes = [
       'symbol','uscf','dilena','wikipedia','leipzig','metro','original',
       'A1','A2','B1','B2','C1','C2','D1','D2','E1','E2'
@@ -1487,6 +1488,17 @@ $scope.currentFavicon=src;
 			$scope.capturedBlackpieces=$scope.ChessGameObject.capturedBlackpieces.split(",");
 			console.log("Captured blacks:"+$scope.ChessGameObject.capturedBlackpieces);
 			}
+		};
+		$scope.setVolume=function(me,apply)
+		{
+	var vol=parseInt($scope.User.SoundVolume);
+	vol=vol/10;
+	console.log("vol "+vol);
+	$scope.BellSound.volume=vol;
+	$scope.MoveSound.volume=vol;
+	$scope.CheckMateSound.volume=vol;
+	$scope.DrawSound.volume=vol;
+	$scope.WithdrawSound.volume=vol;
 		};
 		$scope.colorBoard=function(me,apply)
 		
