@@ -447,6 +447,20 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								if(!$scope.ChessGameObject.Result)
 								{
 								$scope.ShowOfferDrawButton=true;
+								$timeout(function(){$scope.PlayDraw();},0);
+								$timeout(function(){$scope.PlayDraw();},500);
+								$timeout(function(){$scope.PlayDraw();},1000);
+								$timeout(function(){$scope.PlayDraw();},1500);
+								$timeout(function(){$scope.PlayDraw();},2000);
+								$timeout(function(){$scope.PlayDraw();},2500);
+								$timeout(function(){$scope.PlayDraw();},3000);
+								$timeout(function(){$scope.PlayDraw();},3500);
+								$timeout(function(){$scope.PlayDraw();},4000);
+								$timeout(function(){$scope.PlayDraw();},4500);
+								$timeout(function(){$scope.PlayDraw();},5000);
+								$timeout(function(){$scope.PlayDraw();},5500);
+								$timeout(function(){$scope.PlayDraw();},6000);
+
 								}
 								
 								if(!$scope.ChessGameObject.Player1Moved)
