@@ -473,7 +473,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								if (MyID==$scope.ChessGameObject.DrawOfferedTo)
 								{
 								$scope.ShowAcceptDrawButton=true;
-								for (x = 0; x < 13; x++) { 
+								for (x = 0; x < 13; x++)  
 								{
 								$setTimeout(function(){$scope.PlayDraw();},x*500);
 								}	
@@ -961,7 +961,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			
 			if($scope.ChessGameObject.Result.indexOf("withdrew from the game")>-1)
 			{$scope.PlayWithdraw();
-				for (x = 0; x < 13; x++) { 
+				for (x = 0; x < 13; x++)  
 								
 				{
 					$setTimeout(function(){$scope.PlayWithdraw();},x*500);
