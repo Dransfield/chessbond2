@@ -99,8 +99,8 @@ passportInit    : require('passport').initialize(),
 		return next();
     	}
 		if (!err){
-			var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO",'DifficultyLevelBeaten','BoardSize','BoardOrientation'];
-	var InitField=['A',"United Kingdom","Sound Enabled",1200,0,300,"Right"];
+			var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO",'DifficultyLevelBeaten','BoardSize','BoardOrientation','SoundVolume'];
+	var InitField=['A',"United Kingdom","Sound Enabled",1200,0,300,"Right",5];
 	
 			//console.log("user "+JSON.stringify(user));
 	for(x in fields)
