@@ -98,7 +98,7 @@ $scope.BlackInterval=0;
  //   $scope.BellSound= new Audio('/alert.mp3');
 //	$scope.MoveSound=new Audio('/move.mp3');
 //	$scope.CheckMateSound=new Audio("/checkmate.mp3");
-//	$scope.DrawSound=new Audio("/draw.mp3");
+	$scope.DrawSound=new Audio("/draw.mp3");
 //	$scope.WithdrawSound=new Audio("/withdraw.mp3");
 	$scope.SoundEnabled=false;
 	$("#SoundModal").modal()
@@ -447,8 +447,9 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 								if(!$scope.ChessGameObject.Result)
 								{
 								$scope.ShowOfferDrawButton=true;
-								$timeout(function(){$scope.PlayDraw();},0);
-								$timeout(function(){$scope.PlayDraw();},500);
+								setTimeout(function(){$scope.PlayDraw();},0);
+								
+								setTimeout(function(){$scope.PlayDraw();},500);
 								$timeout(function(){$scope.PlayDraw();},1000);
 								$timeout(function(){$scope.PlayDraw();},1500);
 								$timeout(function(){$scope.PlayDraw();},2000);
