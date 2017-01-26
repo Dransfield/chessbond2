@@ -64,7 +64,9 @@ $scope.getuser=function(MyID)
 	
 	$scope.countryTofilename=function(country)
 {
+	if (country){
 	return country.replace(/ /gi, "_");
+	}
 }
 $scope.countries=[
 	{name:'Afghanistan'},
