@@ -438,7 +438,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 							
 							  
 							$scope.ChessGameObject=res.data;
-							$scope.setBoard(MyID);
+							$scope.resetBoard(MyID);
 							$scope.joinRoom(MyID);
 							$scope.getchatmessages();
 							if ($scope.ChessGameObject.Player1==MyID || $scope.ChessGameObject.Player2==MyID)
@@ -802,7 +802,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 	$scope.User.ChessPieceTheme="D";
 	$scope.User.BoardSize=300;
 	
-	$scope.setBoard (0);
+	$scope.resetBoard (0);
 	}
 	$scope.SoleConnectorFunction=function(id)
 	{
@@ -1958,13 +1958,7 @@ $scope.PlayerOnBottom='White';
 		$scope.colorBoard(me,true);
 		
 		};
-	$scope.setBoard=function (me)
-		{
-			
-			$scope.resetBoard(me);
-		
-			
-		};
+	
 	
    
 
