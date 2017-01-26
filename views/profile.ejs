@@ -46,7 +46,7 @@
 		</div>
     <div class="col-md-4">
 
-	 <select class="form-control" name="mySelect" id="mySelect"
+	 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"
       ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
       >
