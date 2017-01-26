@@ -11,6 +11,10 @@ $scope.GetInfo=function(id)
     { Player2: id }
   ]
 }).exec(function(games){
+console.log("games "+games);
+for (x in games)
+{console.log("games[x] "+games[x]);
+}
 $scope.MyGames=games;
 });
 }
