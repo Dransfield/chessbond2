@@ -46,6 +46,9 @@
 			<% if (req.session.passport.user){ %>
    <div  ng-show="SoleConnectorVariable=='true'" id="row">
     <div class="col-md-4">
+		</div>
+    <div class="col-md-4">
+
 	 <select class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"
       ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
@@ -55,9 +58,7 @@
 					
 				</select>
 	</div>
-    <div class="col-md-4">
-	 <div class="col-md-4">
-	 <div>
+		
 		 <div class="col-md-4">
 	 
 	<img src="/images/flags/{{countryTofilename(User.Country)}}.png">
