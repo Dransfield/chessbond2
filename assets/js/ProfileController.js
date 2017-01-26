@@ -1,7 +1,19 @@
 angular.module('HomepageModule').controller('ProfileController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.User;
 $scope.SoleConnectorVariable="";
-	
+$scope.MyGames=[];
+
+$scope.GetInfo=function(id)
+{
+	Chessgame.find({
+  or : [
+    { Player1: id },
+    { Player2: id }
+  ]
+}).exec(function(games){
+$scope.MyGames=games.data;
+});
+}
 	$scope.SoleConnectorFunction=function(id)
 	{
 		$http.get('/subscription?subscriber='+id, {
