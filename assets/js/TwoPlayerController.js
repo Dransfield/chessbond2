@@ -1655,7 +1655,7 @@ $scope.currentFavicon=src;
 		}
 		
 			
-			
+		$scope.colorBoard(me,true);
 		};
 		$scope.resetBoard=function(me)
 		{
@@ -1955,7 +1955,7 @@ $scope.PlayerOnBottom='White';
 		
 		$scope.reorientBoard(me,true);
 		 $scope.resizeBoard(me,true);
-		$scope.colorBoard(me,true);
+		
 		
 		};
 	
