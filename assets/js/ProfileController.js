@@ -16,6 +16,7 @@ $scope.MyGames=games;
 }
 	$scope.SoleConnectorFunction=function(id)
 	{
+		
 		$http.get('/subscription?subscriber='+id, {
 			})
 			.then(function onSuccess(sailsResponse){
@@ -27,6 +28,7 @@ $scope.MyGames=games;
 			//	$scope.joinmyuserIDRoom(id);
 			//$scope.ReconnectFunction(id);
 			$scope.getuser(id);
+			$scope.GetInfo(id);
 			//$scope.joinopengameRoom();
 			$scope.SoleConnectorVariable="true";
 			}
@@ -43,6 +45,7 @@ $scope.MyGames=games;
 			//$scope.joinmyuserIDRoom(id);
 			//$scope.ReconnectFunction(id);
 			$scope.getuser(id);
+			$scope.GetInfo(id);
 			//$scope.joinopengameRoom();
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
