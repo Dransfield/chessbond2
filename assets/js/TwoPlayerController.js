@@ -1953,7 +1953,7 @@ $scope.PlayerOnBottom='White';
 		
 		
 		
-		
+		$scope.colorBoard(me,true);
 		$scope.reorientBoard(me,true);
 		};
 	$scope.setBoard=function (me)
