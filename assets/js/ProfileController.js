@@ -11,7 +11,7 @@ $scope.GetInfo=function(id)
     { Player2: id }
   ]
 }).exec(function(games){
-$scope.MyGames=games.data;
+$scope.MyGames=games;
 });
 }
 	$scope.SoleConnectorFunction=function(id)
