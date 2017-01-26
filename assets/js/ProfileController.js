@@ -5,9 +5,9 @@ $scope.MyGames=[];
 
 $scope.GetInfo=function(id)
 {
-	io.socket.get('/chessgame?or:[{ Player1: id }, { Player2: id } ]',
+	io.socket.get('/chessgame?or:[{Player1:'+id+'},{Player2:'+id+'}]',
 	 function (games) {
-console.log("games "+games);
+console.log("games "+JSON.stringify(games));
 for (x in games)
 {console.log("games[x] "+games[x]);
 }
