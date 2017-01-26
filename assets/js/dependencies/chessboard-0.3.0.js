@@ -597,8 +597,8 @@ function buildBoard(orientation) {
     for (var j = 0; j < 8; j++) {
       var square = alpha[j] + row;
 
-      html += '<div class="' + CSS.square + ' ' + CSS[squareColor] + ' ' +
-        'square-' + square + '" ' +
+      html += '<div class="' + CSS.square + ' ' + CSS[squareColor] + ' '+squareColor+'square '+
+        'square-' + square + '" ' 
         'style="width: ' + SQUARE_SIZE + 'px; height: ' + SQUARE_SIZE + 'px" ' +
         'id="' + SQUARE_ELS_IDS[square] + '" ' +
         'data-square="' + square + '">';

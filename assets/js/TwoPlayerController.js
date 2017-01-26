@@ -1504,8 +1504,9 @@ $scope.currentFavicon=src;
 	$scope.DrawSound.volume=vol;
 	$scope.WithdrawSound.volume=vol;
 		};
-		$scope.colorBoard=function(me,apply)
 		
+		
+		$scope.colorBoard=function(me,apply)
 		{
 			
 			
@@ -1514,17 +1515,14 @@ $scope.currentFavicon=src;
 			var actualWhitelist;
 			var actualBlacklist;
 			
+			actualWhitelist=$('.whitesquare');
+			
+			actualBlacklist=$('.blacksquare');
+			
 			for (x in $scope.boardthemes)
 			{
-			whitelist= $('.white'+$scope.boardthemes[x])
-			if (whitelist.size()>0)
-			{actualWhitelist=whitelist;}
-			
-			whitelist.removeClass('white'+$scope.boardthemes[x]);
-			blacklist= $('.black'+$scope.boardthemes[x])
-			if (blacklist.size()>0)
-			{actualBlacklist=blacklist;}
-			blacklist.removeClass('white'+$scope.boardthemes[x]);
+			actualWhitelist.removeClass('white'+$scope.boardthemes[x]);
+			actualBlacklist.removeClass('black'+$scope.boardthemes[x]);
 			}
 			actualWhitelist.addClass('white'+$scope.User.BoardTheme);
 			actualBlacklist.addClass('black'+$scope.User.BoardTheme);
