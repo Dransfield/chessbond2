@@ -1524,15 +1524,10 @@ $scope.currentFavicon=src;
 			actualWhitelist.removeClass('white'+$scope.boardthemes[x]);
 			actualBlacklist.removeClass('black'+$scope.boardthemes[x]);
 			}
-			if (apply==true){
-				$scope.$apply(function(){
+		
 			actualWhitelist.addClass('white'+$scope.User.BoardTheme);
-			actualBlacklist.addClass('black'+$scope.User.BoardTheme);
-				});
-			}else
-		{	actualWhitelist.addClass('white'+$scope.User.BoardTheme);
-			actualBlacklist.addClass('black'+$scope.User.BoardTheme);
-		}
+		actualBlacklist.addClass('black'+$scope.User.BoardTheme);
+		
 			
 		};
 		$scope.reorientBoard=function(me,apply)
