@@ -59,6 +59,35 @@
 	 <div>
 	<img src="/images/flags/{{countryTofilename(User.Country)}}.png">
 	</div>
+	 <h2 class="sub-header">Recent Games</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player1</th>
+                  <th>Player2</th>
+                  
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				  
+            <tr ng-repeat="game in joinedgames track by $index">
+			<td>{{game.Player1Name}}</td>
+			<td>{{game.Player2Name}}</td>
+			
+			<td>
+				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
+				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
+			</td>
+			
+			</tr>
+            </tbody>
+            </table>
+          </div>
+          
 	  <% } %>
            <% } %>
 	</div>
