@@ -1951,10 +1951,11 @@ $scope.PlayerOnBottom='White';
 		
 		
 		
-		
+		$scope.$apply(function(){
 		$scope.reorientBoard(me,true);
 		 $scope.resizeBoard(me,true);
 		$scope.colorBoard(me,true);
+		});
 		};
 	$scope.setBoard=function (me)
 		{
