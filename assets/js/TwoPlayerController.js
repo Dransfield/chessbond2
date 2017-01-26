@@ -1962,18 +1962,7 @@ $scope.PlayerOnBottom='White';
 		{
 			
 			$scope.resetBoard(me);
-			var whitelist;
-			var blacklist;
-			
-			for (x in $scope.boardthemes)
-			{
-			whitelist= $('.white'+$scope.boardthemes[x])
-			whitelist.removeClass('white'+$scope.boardthemes[x]);
-			blacklist= $('.black'+$scope.boardthemes[x])
-			blacklist.removeClass('white'+$scope.boardthemes[x]);
-			}
-			whitelist.addClass('white'+$scope.User.BoardTheme);
-			blacklist.addClass('black'+$scope.User.BoardTheme);
+		
 			
 		};
 	
