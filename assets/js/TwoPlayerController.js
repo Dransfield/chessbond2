@@ -1555,7 +1555,7 @@ $scope.currentFavicon=src;
 			
 			
 			 $timeout(function(){$scope.resizeBoard(me,apply)},2000);
-			
+			$timeout(function(){$scope.colorBoard(me,apply)},2000);
 		};
 		
 		$scope.resizeBoard=function(me,apply)
@@ -1953,7 +1953,7 @@ $scope.PlayerOnBottom='White';
 		
 		
 		
-		$scope.colorBoard(me,true);
+		
 		$scope.reorientBoard(me,true);
 		};
 	$scope.setBoard=function (me)
