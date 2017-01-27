@@ -88,17 +88,21 @@
 		
 			<thead>
                 <tr>
-	              <th>Player1</th>
-                  <th>Player2</th>
-                  
+	              <th>White</th>
+                  <th>Black</th>
+                  <th>Result</th>
+                  <th>Time</th>
+                  <th>Move</th>
+                  <th>Date</th>
+                  <th>Action</th>
 				<!--HEADERS OF TABLE-->
                 </tr>
            </thead>
            <tbody>
 				  
-            <tr ng-repeat="game in MyGames track by $index">
-			<td><a href="/profile/{{game.Player1}}" target="_blank">{{game.Player1Name}}</a></td>
-			<td><a href="/profile/{{game.Player2}}" target="_blank">{{game.Player2Name}}</a></td>
+            <tr ng-repeat="game in GameInfo track by $index">
+			<td><a href="/profile/{{game.WhitePlayerID}}" target="_blank">{{game.WhitePlayerName}}</a></td>
+			<td><a href="/profile/{{game.BlackPlayerID}}" target="_blank">{{game.BlackPlayerName}}</a></td>
 			
 			<!--<td>
 				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
