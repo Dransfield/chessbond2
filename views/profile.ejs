@@ -26,7 +26,7 @@
          <% if (req.param('userID')) { %>
 	
 	<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
- <div ng-init="$scope.GetInfo("<%-req.param('userID')%>")"></div>
+ <div ng-init="GetInfo('<%-req.param('userID')%>')"></div>
            <% } %>
 
    <%- include partials/navbar.ejs %>
