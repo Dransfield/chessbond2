@@ -62,7 +62,8 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			$http.put("/SendMail",{address:$scope.vm.address})
 			.then(function onSuccess (resData, jwr){
 			
-					
+					if (resData.status==404)
+					{	toastr.warning("Email Not found");	}
 					if (resData.status==200)
 					{	toastr.success("Email Sent!");	}
 				
