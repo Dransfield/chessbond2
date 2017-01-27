@@ -5,13 +5,19 @@ $scope.MyGames=[];
 
 $scope.GetInfo=function(id)
 {
-	io.socket.get('/chessgame?where={[{ Player1: '+id+' },{ Player2: '+id+' }]}',
+	io.socket.get('/chessgame?Player1='+id,
 	 function (games) {
-console.log("games "+JSON.stringify(games));
-for (x in games)
-{console.log("games[x] "+games[x]);
-}
+//console.log("games "+JSON.stringify(games));
+//for (x in games)
+//{console.log("games[x] "+games[x]);
+//}
 $scope.MyGames=games;
+io.socket.get('/chessgame?Player2='+id,
+	 function (moregames) {
+$scope.MyGames.push(moregames);
+
+});
+
 });
 }
 	$scope.SoleConnectorFunction=function(id)
