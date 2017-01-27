@@ -52,6 +52,16 @@ $scope.MyGames=games;
 			
 			});
 	}
+	$scope.getLookedatUser(id)
+	{
+		$http.get('/user?id='+id, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.LookedatUser=sailsResponse.data;
+			}
+			)	
+		
+	};
 $scope.getuser=function(MyID)
 	{
 		

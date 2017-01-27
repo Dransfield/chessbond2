@@ -32,7 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
-	'/profile': {view:'profile'},
+	'/profile/:userID': {view:'profile'},
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	

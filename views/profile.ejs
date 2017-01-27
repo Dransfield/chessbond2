@@ -17,35 +17,30 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="ProfileController" ng-cloak>
-   <% if (req.session.passport){ %>
-	<% if (req.session.passport.user){ %>
-	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
-	 <% } %>
-   <% } %>
-
+	<div ng-init="getLookedatUser("+req.param('userID')+")"></div>
+ <div ng-init="$scope.GetInfo("+req.param('userID')+")"></div>
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
     <div  ng-show="SoleConnectorVariable=='true'" class="jumbotron">
         <h1>Profile</h1>
-         <% if (req.session.passport){ %>
-			<% if (req.session.passport.user){ %>
-          <h2>Highest Difficulty Level Beaten:{{User.DifficultyLevelBeaten}}</h2>
-            <h2>ELO rating score:{{User.ELO}}</h2>
+         <% if req.param('userID') { %>
+			
+          <h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
+            <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
          
-           <% } %>
            <% } %>
             <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 	
 	 </div>
     </div>
     
-       <% if (req.session.passport){ %>
-			<% if (req.session.passport.user){ %>
-   <div  ng-show="SoleConnectorVariable=='true'" id="row">
+   <div  id="row">
     <div class="col-md-4">
 		</div>
     <div class="col-md-4">
-
+	    <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+   
 	 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"
       ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
@@ -54,13 +49,19 @@
 		  {{c.name}}</option>
 					
 				</select>
+	  <% } %>
+           <% } %>
+	
 	</div>
 		
 		 <div class="col-md-4">
-	 
-	<img src="/images/flags/{{countryTofilename(User.Country)}}.png">
+	 <% if req.param('userID') { %>
+	<img src="/images/flags/{{countryTofilename(LookedatUser.Country)}}.png">
+	<% } %>
+	
 	</div>
 	
+	 <% if (req.param('userID')) { %>
 	
 	<div class="col-md-4">
 	 </div>
@@ -94,9 +95,8 @@
             </table>
           </div>
           </div>
-          
-	  <% } %>
-           <% } %>
+    <% } %>
+	      
 	
 
 
