@@ -48,8 +48,11 @@
     <div class="col-md-4">
 		</div>
     <div class="col-md-4">
+	<% if (req.param('userID')) { %>){ %>
+    	
 	    <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
+   		<% if (req.session.passport.user==req.param('userID')){ %>
    
 	 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"
@@ -60,15 +63,17 @@
 					
 				</select>
 	  <% } %>
-           <% } %>
+	  <% } %>
+      <% } %>
+	  <% } %>
 	
 	</div>
 		
 		 <div class="col-md-4">
-	 <% if (req.param('userID')) { %>
+	 <% if (req.param('userID')) { %>){ %>
+    
 	<img src="/images/flags/{{countryTofilename(LookedatUser.Country)}}.png">
 	<% } %>
-	
 	</div>
 	
 	 <% if (req.param('userID')) { %>
