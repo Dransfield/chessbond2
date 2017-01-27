@@ -105,7 +105,7 @@
 				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
 			</td>
 			<td>
-				Date:<%-Date.parse({{game.createdAt}})%>
+				Date:{{getdate(game.createdAt)}}
 			<tr>
 			</tr>
             </tbody>

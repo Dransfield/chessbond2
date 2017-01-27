@@ -2,7 +2,10 @@ angular.module('HomepageModule').controller('ProfileController', ['$scope', '$ht
 $scope.User;
 $scope.SoleConnectorVariable="";
 $scope.MyGames=[];
-
+$scope.getdate=function(datestr)
+{
+	return Date.parse(datestr);
+	};
 $scope.GetInfo=function(id)
 {
 	io.socket.get('/chessgame?Player1='+id,
