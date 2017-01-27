@@ -21,7 +21,7 @@ io.socket.get('/chessgame?Player2='+id,
 {		 
 $scope.MyGames.push(moregames[x]);
 
-$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
+$scope.$apply(function(){$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)})});
 
 }
 });
