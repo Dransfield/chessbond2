@@ -69,8 +69,8 @@ angular.module('HomepageModule').controller('ForgotController', ['$scope', '$htt
 			},function(response) {
           if (response.status==404)
 					{	toastr.warning("Email Not found");	}
-      });
-			
+     
+		}
 			);
 			
 			};
