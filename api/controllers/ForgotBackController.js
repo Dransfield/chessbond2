@@ -30,6 +30,8 @@ module.exports = {
       email: req.param('address')
 	},function foundUser(err,user){
 		if (!err){
+			if(!user)
+			{return res.notFound();}
 		var nodemailer = require('nodemailer');
 		// create reusable transporter object using the default SMTP transport
 		var transporter = nodemailer.createTransport('smtps://slenkar@gmail.com:Fuckthisshit@smtp.gmail.com');
