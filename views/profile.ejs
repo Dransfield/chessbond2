@@ -23,7 +23,7 @@
     <div class=" col-md-8 col-md-offset-2">
     <div  ng-show="SoleConnectorVariable=='true'" class="jumbotron">
         <h1>Profile</h1>
-         <% if req.param('userID') { %>
+         <% if (req.param('userID')) { %>
 			
           <h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
             <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
@@ -55,7 +55,7 @@
 	</div>
 		
 		 <div class="col-md-4">
-	 <% if req.param('userID') { %>
+	 <% if (req.param('userID')) { %>
 	<img src="/images/flags/{{countryTofilename(LookedatUser.Country)}}.png">
 	<% } %>
 	
