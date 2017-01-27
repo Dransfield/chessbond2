@@ -17,8 +17,18 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="ProfileController" ng-cloak>
+	    <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
+           <% } %>
+           <% } %>
+
+         <% if (req.param('userID')) { %>
+	
 	<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
  <div ng-init="$scope.GetInfo("<%-req.param('userID')%>")"></div>
+           <% } %>
+
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
     <div  ng-show="SoleConnectorVariable=='true'" class="jumbotron">
