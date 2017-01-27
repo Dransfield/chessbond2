@@ -97,15 +97,16 @@
            <tbody>
 				  
             <tr ng-repeat="game in MyGames track by $index">
-			<td>{{game.Player1Name}}</td>
-			<td>{{game.Player2Name}}</td>
+			<td><a href="/profile/{{game.Player1}}">{{game.Player1Name}}</a></td>
+			<td><a href="/profile/{{game.Player2}}">{{game.Player2Name}}</a></td>
 			
-			<td>
+			<!--<td>
 				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
 				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
 			</td>
 			<td>
 				Date:{{getdate(game.createdAt)}}
+			-->
 			<tr>
 			</tr>
             </tbody>
