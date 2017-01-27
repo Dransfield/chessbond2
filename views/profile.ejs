@@ -17,7 +17,7 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="ProfileController" ng-cloak>
-	<div ng-init="getLookedatUser(<%-req.param('userID')%>)"></div>
+	<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
  <div ng-init="$scope.GetInfo("<%-req.param('userID')%>")"></div>
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
