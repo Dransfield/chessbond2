@@ -14,8 +14,10 @@ $scope.GetInfo=function(id)
 $scope.MyGames=games;
 io.socket.get('/chessgame?Player2='+id,
 	 function (moregames) {
-$scope.MyGames.push(moregames);
-
+		 for (x in moregames)
+{		 
+$scope.MyGames.push(moregames[x]);
+}
 });
 
 });
