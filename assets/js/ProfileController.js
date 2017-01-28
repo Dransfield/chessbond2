@@ -24,17 +24,30 @@ $scope.MyGames.push(moregames[x]);
 
 $scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
 
+	io.socket.get('/user?id='+$scope.MyGames[x].Player1,
+	 function (user1) {
+		io.socket.get('/user?id='+$scope.MyGames[x].Player2,
+	 function (user2) {
+		 	 
 $scope.$apply(function(){
 for (x in $scope.MyGames)
 {
 
 if ($scope.MyGames[x].Player1Color=='White')
-{$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name});}
+{
+$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user1.picture});
+}
 else
-{$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name});}
+{
+
+$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name});
+}
 
 	
 }});
+
+});
+});
 
 }
 });
