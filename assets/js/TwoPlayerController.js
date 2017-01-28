@@ -1664,7 +1664,7 @@ $scope.currentFavicon=src;
 		
 			$timeout(function(){
 				board1.resize();
-				$scope.colorBoard(me,true);},3000);
+				$scope.colorBoard(me,true);},4000);
 		
 		};
 		$scope.resetBoard=function(me)
