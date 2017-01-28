@@ -1960,8 +1960,12 @@ $scope.PlayerOnBottom='White';
 		
 		
 		
-		$timeout(function(){$scope.reorientBoard(me,true);
-	 $scope.resizeBoard(me,true);},3000);
+		$timeout(function(){
+		$scope.$apply(function(){
+		$scope.reorientBoard(me,true);
+	 $scope.resizeBoard(me,true);
+		});
+	 },3000);
 			
 		
 		
