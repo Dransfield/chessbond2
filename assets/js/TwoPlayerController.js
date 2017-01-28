@@ -1959,10 +1959,10 @@ $scope.PlayerOnBottom='White';
 		}
 		
 		
-		$scope.$apply(function(){
+		
 		$scope.reorientBoard(me,true);
 	 $scope.resizeBoard(me,true);
-		});
+		
 		
 		setTimeout(function(){
 			board1.resize();	
