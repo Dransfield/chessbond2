@@ -34,7 +34,8 @@ for (x in $scope.MyGames)
 {
 var datenum=Date.parse($scope.MyGames[x].createdAt);
 var dateobj=new Date(datenum);
-var datestring=dateobj.getDate()+dateobj.getMonth()
+var MonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var datestring=dateobj.getDate()+","+MonthNames[dateobj.getMonth()];
 if ($scope.MyGames[x].Player1Color=='White')
 {
 $scope.GameInfo.push({date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user2.picture,WhiteELO:user1.ELO,BlackELO:user2.ELO});
