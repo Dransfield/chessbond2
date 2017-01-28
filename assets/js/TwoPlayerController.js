@@ -1663,7 +1663,7 @@ $scope.currentFavicon=src;
 		}
 		
 			setTimeout(function(){board1.resize();
-				$scope.colorBoard(me,true);},3000);
+				$scope.colorBoard(me,true);},2200);
 		
 		};
 		$scope.resetBoard=function(me)
