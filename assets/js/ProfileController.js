@@ -35,12 +35,12 @@ for (x in $scope.MyGames)
 
 if ($scope.MyGames[x].Player1Color=='White')
 {
-$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user1.picture});
+$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user2.picture});
 }
 else
 {
 
-$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name});
+$scope.GameInfo.push({WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name,WhiteAvatar:user2.picture,BlackAvatar:user1.picture});
 }
 
 	
