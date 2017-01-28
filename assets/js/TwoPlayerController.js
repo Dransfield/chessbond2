@@ -1662,8 +1662,9 @@ $scope.currentFavicon=src;
 		$scope.sideofboardstyle+=" leftstyle";	
 		}
 		
-			
-		$scope.colorBoard(me,true);
+			setTimeout(function(){board1.resize();
+				$scope.colorBoard(me,true);},5000);
+		
 		};
 		$scope.resetBoard=function(me)
 		{
@@ -1966,7 +1967,7 @@ $scope.PlayerOnBottom='White';
 		
 		
 			
-			setTimeout(function(){board1.resize();},10000);
+			
 		
 		
 		};
