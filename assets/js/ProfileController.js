@@ -15,6 +15,7 @@ $scope.GetInfo=function(id)
 //for (x in games)
 //{console.log("games[x] "+games[x]);
 //}
+ console.log(games.length);
 	for (x in games)
 	{		 
 	$scope.MyGames.push(games[x]);
