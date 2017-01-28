@@ -136,7 +136,7 @@ io.socket.on('connect',function(data){
 	io.socket.on('newopengameevent', function (data)
 			{
 			console.log('newopengameevent'+data);
-			data.phrase=phrasefordate(data.Created);
+			data.phrase=phrasefordate(data.createdAt);
 			$scope.$apply(function(){
 			$scope.opg.push(data);
 			});
