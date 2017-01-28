@@ -188,6 +188,8 @@ io.socket.on('joined room',function(data)
 		newnum=newnum/1000;
 		if (newnum<60)
 		{
+		if (newnum<0)
+		{newnum=0;}
 		phrase=parseInt(newnum)+" seconds ago";
 		}
 		else
