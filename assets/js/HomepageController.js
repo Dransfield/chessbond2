@@ -46,7 +46,7 @@ $scope.SoleConnectorVariable="";
 	
 	$scope.createopengame=function(type,id,name)
 	{
-	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name,Created:Date.now() },
+	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
 
       // Refresh the page now that we've been logged in.
@@ -81,7 +81,7 @@ io.socket.on('connect',function(data){
 	io.socket.on('newmygameevent', function (data)
 			{
 			console.log('recieved new game event '+data);
-			data.phrase=phrasefordate(data.Created);
+			data.phrase=phrasefordate(data.createdAt);
 			$scope.$apply(function(){
 			$scope.joinedgames.push(data);
 			});
@@ -179,10 +179,10 @@ io.socket.on('joined room',function(data)
 		
 		function phrasefordate(dat)
 			{
-			
+			var nu=Date.parse(dat);
 		var n = Date.now();
 		
-		var newnum=n-dat;
+		var newnum=n-nu;
 		newnum=newnum/1000;
 		if (newnum<60)
 		{
@@ -340,7 +340,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			$scope.opg=[];
 			for(x in dat.data)
 			{
-			dat.data[x].phrase=phrasefordate(dat.data[x].Created);
+			dat.data[x].phrase=phrasefordate(dat.data[x].createdAt);
 			$scope.opg.push(dat.data[x]); // => {id:9, name: 'Timmy Mendez'}
 			}
 			
@@ -350,7 +350,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			$scope.joinedgames=[];
 			for(x in dat.data)
 			{
-			dat.data[x].phrase=phrasefordate(dat.data[x].Created);
+			dat.data[x].phrase=phrasefordate(dat.data[x].createdAt);
 			$scope.joinedgames.push(dat.data[x]); // => {id:9, name: 'Timmy Mendez'}
 			}
 			
