@@ -81,6 +81,7 @@ io.socket.on('connect',function(data){
 	io.socket.on('newmygameevent', function (data)
 			{
 			console.log('recieved new game event '+data);
+			
 			data.phrase=phrasefordate(data.createdAt);
 			$scope.$apply(function(){
 			$scope.joinedgames.push(data);
@@ -180,6 +181,7 @@ io.socket.on('joined room',function(data)
 		function phrasefordate(dat)
 			{
 			var nu=Date.parse(dat);
+			console.log("nu "+nu);
 		var n = Date.now();
 		
 		var newnum=n-nu;
