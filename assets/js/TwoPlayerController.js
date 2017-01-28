@@ -1662,9 +1662,9 @@ $scope.currentFavicon=src;
 		$scope.sideofboardstyle+=" leftstyle";	
 		}
 		
-			$scope.$$postDigest(function(){
+			$timeout(function(){
 				board1.resize();
-				$scope.colorBoard(me,true);});
+				$scope.colorBoard(me,true);},3000);
 		
 		};
 		$scope.resetBoard=function(me)
