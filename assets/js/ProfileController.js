@@ -15,10 +15,14 @@ $scope.GetInfo=function(id)
 //for (x in games)
 //{console.log("games[x] "+games[x]);
 //}
-$scope.MyGames=games;
+	for (x in games)
+	{		 
+	$scope.MyGames.push(games[x]);
+	}
+
 io.socket.get('/chessgame?Player2='+id,
 	 function (moregames) {
-		 for (x in moregames)
+for (x in moregames)
 {		 
 $scope.MyGames.push(moregames[x]);
 }
