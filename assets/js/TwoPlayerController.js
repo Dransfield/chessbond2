@@ -1964,9 +1964,8 @@ $scope.PlayerOnBottom='White';
 	 $scope.resizeBoard(me,true);
 		
 		
-		$scope.$$postDigest(function() {
+		
 			board1.resize();	
-		 });
 			
 		
 		
