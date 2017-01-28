@@ -40,7 +40,7 @@ for (x in $scope.MyGames)
 var datenum=Date.parse($scope.MyGames[x].createdAt);
 var dateobj=new Date(datenum);
 var MonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
-var datestring=dateobj.getDate()+","+MonthNames[dateobj.getMonth()];
+var datestring=dateobj.getDate()+","+MonthNames[dateobj.getMonth()]+" "+dateobj.getYear();
 if ($scope.MyGames[x].Player1Color=='White')
 {
 
