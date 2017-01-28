@@ -105,7 +105,7 @@ $scope.BlackInterval=0;
 	$("#SoundModal").modal()
 	$scope.EnableSound=function()
 {
-		 $scope.resizeBoard(me,true);
+		
 	console.log("Sound Enabled");
 	$scope.BellSound= new Audio('/alert.mp3');
 	$scope.MoveSound=new Audio('/move.mp3');
@@ -1562,12 +1562,13 @@ $scope.currentFavicon=src;
 		{
 			console.log("board1 "+board1);
 			console.log("$scope.User.BoardSize "+$scope.User.BoardSize);
-			if (apply==true){
-			$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
-			}
+			//if (apply==true){
+			//$scope.$apply($scope.User.BoardSize=$scope.User.BoardSize);
+			//}
 			if ($scope.User.BoardSize==600)
 			{
-			if (apply==true)
+			/*
+			  if (apply==true)
 			{
 		
 			
@@ -1578,19 +1579,19 @@ $scope.currentFavicon=src;
 			}
 			else
 			{
-			
+			*/
 			
 			$scope.boardcontainerstyle="col-sm-9 col-md-8";
 			$scope.sideofboardstyle="col-sm-3 col-md-4";
 			
-			}
+			//}
 			
 			}
 			
 		if ($scope.User.BoardSize==400)
 			{
 			
-			if (apply==true)
+			/*if (apply==true)
 			{
 					
 			$scope.$apply($scope.boardcontainerstyle="col-md-12");
@@ -1599,12 +1600,14 @@ $scope.currentFavicon=src;
 			}
 			else
 			{
+			*/
 			$scope.boardcontainerstyle="col-sm-12 col-md-12";
 			$scope.sideofboardstyle="col-sm-5 col-md-6";
-			}
+			//}
 		}
 		if ($scope.User.BoardSize==300)
 		{
+			/*
 			if(apply==true)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-9 col-md-9");
@@ -1612,26 +1615,29 @@ $scope.currentFavicon=src;
 			}
 			else
 			{
+			*/
 			$scope.boardcontainerstyle="col-sm-9 col-md-9";
 			$scope.sideofboardstyle="col-sm-6 col-md-7";
-			}
+			//}
 		
 		}
 		if ($scope.User.BoardSize==200)
 		{
-			if (apply==true)
+			/*if (apply==true)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-7 col-md-7");
 			$scope.$apply($scope.sideofboardstyle="col-sm-7 col-md-8");
 			}
 			else
 			{
+			*/
 			$scope.boardcontainerstyle="col-sm-7 col-md-7";
 			$scope.sideofboardstyle="col-sm-7 col-md-8";
-			}
+			//}
 		}
 			if ($scope.User.BoardSize==100)
 		{
+			/*
 			if (apply==true)
 			{
 			$scope.$apply($scope.boardcontainerstyle="col-sm-5 col-md-5");
@@ -1639,9 +1645,10 @@ $scope.currentFavicon=src;
 			}
 			else
 			{
+			*/
 			$scope.boardcontainerstyle="col-sm-5 col-md-5";
 			$scope.sideofboardstyle="col-sm-8 col-md-9";
-			}
+			//}
 		}
 		board1.resize();	
 		
@@ -1953,9 +1960,10 @@ $scope.PlayerOnBottom='White';
 		
 		
 		
-		
+		$scope.$apply(function(){
 		$scope.reorientBoard(me,true);
-	
+	 $scope.resizeBoard(me,true);
+			});
 		
 		
 		};
