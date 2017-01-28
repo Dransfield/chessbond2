@@ -103,7 +103,9 @@
             <tr ng-repeat="game in GameInfo track by $index">
 			<td><img src="{{game.WhiteAvatar}}"></img><a href="/profile/{{game.WhitePlayerID}}" target="_blank">{{game.WhitePlayerName}}</a>({{game.WhiteELO}})</td>
 			<td><img src="{{game.BlackAvatar}}"><a href="/profile/{{game.BlackPlayerID}}" target="_blank">{{game.BlackPlayerName}}</a>({{game.BlackELO}})</td>
-			
+			<td>result</td>
+			<td>time</td>
+			<td>{{game.moves}}</td>
 			<!--<td>
 				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
 				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
@@ -120,6 +122,7 @@
     <% } %>
 	      
 	
+
 
 
 
