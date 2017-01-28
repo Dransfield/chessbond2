@@ -15,7 +15,7 @@ $scope.GetInfo=function(id)
 //for (x in games)
 //{console.log("games[x] "+games[x]);
 //}
- console.log(games.length);
+ 
 	for (x in games)
 	{		 
 	$scope.MyGames.push(games[x]);
@@ -23,12 +23,11 @@ $scope.GetInfo=function(id)
 
 io.socket.get('/chessgame?Player2='+id,
 	 function (moregames) {
-		 console.log(moregames.length);
-for (x in moregames)
-{		 
-$scope.MyGames.push(moregames[x]);
-}
-$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
+	for (x in moregames)
+	{		 
+	$scope.MyGames.push(moregames[x]);
+	}
+	$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
 
 	io.socket.get('/user?id='+$scope.MyGames[x].Player1,
 	 function (user1) {
