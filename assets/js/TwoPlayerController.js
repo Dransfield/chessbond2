@@ -1650,7 +1650,7 @@ $scope.currentFavicon=src;
 			$scope.sideofboardstyle="col-sm-8 col-md-9";
 			//}
 		}
-		board1.resize();	
+		
 		
 		
 		if ($scope.BoardOrientation=='Right')
@@ -1959,13 +1959,14 @@ $scope.PlayerOnBottom='White';
 		}
 		
 		
-		
-		$timeout(function(){
 		$scope.$apply(function(){
 		$scope.reorientBoard(me,true);
 	 $scope.resizeBoard(me,true);
 		});
-	 },3000);
+		
+		$timeout(function(){
+			board1.resize();	
+		 },2000);
 			
 		
 		
