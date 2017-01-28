@@ -105,7 +105,7 @@ $scope.BlackInterval=0;
 	$("#SoundModal").modal()
 	$scope.EnableSound=function()
 {
-		 $scope.resizeBoard(me,false);
+		 $scope.resizeBoard(me,true);
 	console.log("Sound Enabled");
 	$scope.BellSound= new Audio('/alert.mp3');
 	$scope.MoveSound=new Audio('/move.mp3');
