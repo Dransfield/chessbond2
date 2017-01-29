@@ -33,6 +33,7 @@
     <div class=" col-md-8 col-md-offset-2">
     <div   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
+        {{LookedatUser.image}}
          <% if (req.param('userID')) { %>
 			
           <h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
