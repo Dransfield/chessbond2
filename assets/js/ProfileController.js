@@ -29,6 +29,8 @@ io.socket.get('/chessgame?Player2='+id,
 	}
 	$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
 
+$scope.MyGames=$scope.MyGames.slice(0,24);
+
 	io.socket.get('/user?id='+$scope.MyGames[x].Player1,
 	 function (user1) {
 		io.socket.get('/user?id='+$scope.MyGames[x].Player2,
