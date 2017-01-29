@@ -1247,7 +1247,7 @@ $scope.currentFavicon=src;
 		
 		$scope.chatMessage=function(usrName)
 		{
-			$http.post("/chatmsg",{content:"<td><b>"+$scope.User.name+"</b>:"+$scope.chatInput+"</td>",roomName:GameID})
+			$http.post("/chatmsg",{content:"<td><b><a href='/profile/"+$scope.User.id+"' target="_blank>"+$scope.User.name+"</a></b>:"+$scope.chatInput+"</td>",roomName:GameID})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
