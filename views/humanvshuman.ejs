@@ -32,26 +32,8 @@
       
       <!-- Trigger the modal with a button -->
 
-<!-- Modal -->
-<div id="SoundModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+      <%- include partials/popup.ejs %>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Chessbond</h4>
-      </div>
-      <div class="modal-body">
-        <p>Ready to begin? (this enables sound)</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" ng-click="EnableSound()" class="btn btn-default" data-dismiss="modal">Yes</button>
-      </div>
-    </div>
-
-  </div>
-</div>
       
       <%- include partials/navbar.ejs %>
      <!-- <p>Game Id is   <%-req.param('GameID')%></p>-->
@@ -66,81 +48,8 @@
         
        <%}%>
        <%}%>
-     <% if (req.session.passport){ %>
-	<% if (req.session.passport.user){ %>
-     <!-- <button class="btn btn-success" ng-click="EnableSound()">Enable Sound</button>-->
-     
-      <button class="btn btn-success" ng-click="ShowOptions=!ShowOptions">Show Options</button>
-      <table ng-hide="ShowOptions">
-         <tr>
-            <td>
-               <span class="label label-default">Chesspiece Theme</span>
-               <select class="form-control"
-                  ng-model="User.ChessPieceTheme"
-                  name="string"
-                  multiple="string"
-                  required="string"
-                  ng-required="string"
-                  ng-change="PrefSelectChanged('ChessPieceTheme','<%-req.session.passport.user%>',resetBoard)"
-                  >
-                  <option ng-repeat="theme in piecethemes" value="{{theme}}">
-                     {{theme}}
-                  </option>
-               </select>
-            </td>
-            
-                 <td>
-               <span class="label label-default">Board Theme</span>
-               <select class="form-control"
-                  ng-model="User.BoardTheme"
-                  name="string"
-                  multiple="string"
-                  required="string"
-                  ng-required="string"
-                  ng-change="PrefSelectChanged('BoardTheme','<%-req.session.passport.user%>',colorBoard)"
-                  >
-                  <option ng-repeat="theme in boardthemes" value="{{theme}}">
-                     {{theme}}
-                  </option>
-               </select>
-            </td>
-            
-            <td>
-               <button ng-click="PrefToggleButtonClicked('SoundEnabled','<%-req.session.passport.user%>','Sound Enabled','Sound Disabled')" class="btn btn-success">{{User.SoundEnabled}}</button>
-            </td>
-             <td>
-               <span class="label label-default">Volume Level</span>
-               <select class="form-control"
-                  ng-model="User.SoundVolume"
-                  name="string"
-                  multiple="string"
-                  required="string"
-                  ng-required="string"
-                  ng-change="PrefSelectChanged('SoundVolume','<%-req.session.passport.user%>',setVolume)"
-                  >
-                  <option ng-repeat="vol in soundvolumes" value="{{vol}}">
-                     {{vol}}
-                  </option>
-               </select>
-            </td>
-            <td>
-               <span class="label label-default">Board Size</span>
-               <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardSize"   ng-change="PrefSelectChanged('BoardSize','<%-req.session.passport.user%>', resizeBoard)"
-                  >
-                  <option ng-repeat="option in boardsizes" value="{{option.value}}">{{option.name}}</option>
-               </select>
-            </td>
-               <td>
-               <span class="label label-default">Board Orientation</span>
-               <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="User.BoardOrientation"   ng-change="PrefSelectChanged('BoardOrientation','<%-req.session.passport.user%>', reorientBoard)"
-                  >
-                  <option ng-repeat="option in boardorientations" value="{{option.value}}">{{option.name}}</option>
-               </select>
-            </td>
-         </tr>
-      </table>
-      <%}%>
-      <%}%>
+    <%- include partials/options.ejs %>
+
 	<%- include partials/board.ejs %>
   
    </body>
