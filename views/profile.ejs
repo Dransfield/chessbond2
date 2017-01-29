@@ -103,7 +103,7 @@
             <tr ng-repeat="game in GameInfo track by $index">
 			<td><img src="{{game.WhiteAvatar}}"></img><a href="/profile/{{game.WhitePlayerID}}" target="_blank">{{game.WhitePlayerName}}</a>({{game.WhiteELO}})</td>
 			<td><img src="{{game.BlackAvatar}}"><a href="/profile/{{game.BlackPlayerID}}" target="_blank">{{game.BlackPlayerName}}</a>({{game.BlackELO}})</td>
-			<td>result</td>
+			<td>{{game.res}}</td>
 			<td>{{game.timelimit}}|0</td>
 			<td>{{game.moves}}</td>
 			<td>{{game.date}}</td>
