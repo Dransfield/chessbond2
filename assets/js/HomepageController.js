@@ -158,7 +158,7 @@ io.socket.on('joined room',function(data)
 			
 			if (foundplayer==false)
 			{
-			$scope.$apply($scope.Players.push({name:resData.name}));
+			$scope.$apply($scope.Players.push({name:resData.name,id:resData.id}));
 			}
     	});
 				
