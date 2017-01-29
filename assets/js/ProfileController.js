@@ -41,6 +41,37 @@ var datenum=Date.parse($scope.MyGames[x].createdAt);
 var dateobj=new Date(datenum);
 var MonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
 var datestring=dateobj.getDate()+","+MonthNames[dateobj.getMonth()]+" "+dateobj.getFullYear();
+
+var resultstring="";
+var drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
+var wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by <span");
+
+if (drawpos>-1)
+{resultstring="1-1 (Draw)";}
+
+if (resultstring=="")
+{
+if 	($scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name)<wonpos)
+{
+
+if ($scope.MyGames[x].Player1==id)
+{resultstring="1-0 (Won)";}
+else
+{resultstring="1-0 (Lost)";}
+
+}
+else
+{
+if ($scope.MyGames[x].Player2==id)
+{resultstring="0-1 (Won)";}
+else
+{resultstring="0-1 (Lost)";}
+}
+
+
+
+}
+
 if ($scope.MyGames[x].Player1Color=='White')
 {
 
