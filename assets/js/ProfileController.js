@@ -72,7 +72,12 @@ else
 if ($scope.MyGames[x].Player2==id)
 {resultstring="0-1 (Won)";}
 else
-{resultstring="0-1 (Lost)";}
+
+{
+	console.log("player1 name "+$scope.MyGames[x].Player1Name+" player2name "+$scope.MyGames[x].Player2Name);
+	console.log("wonpos "+wonpos);
+	console.log("$scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name) "+$scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name));
+	resultstring="0-1 (Lost)";}
 }
 }
 
