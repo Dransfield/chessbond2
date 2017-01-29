@@ -1381,12 +1381,14 @@ $scope.currentFavicon=src;
 			$scope.BottomPlayerPic=picurl;
 			$scope.BottomPlayerFlag=flagurl;	
 			$scope.BottomPlayerName=res.data.name;
+			$scope.BottomPlayerid=res.data.id;
 			$scope.BottomPlayerELO=res.data.ELO;
 			}else{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
 			$scope.TopPlayerName=res.data.name;
 			$scope.TopPlayerELO=res.data.ELO;
+			$scope.TopPlayerid=res.data.id;
 			}
 			
 			});
@@ -1433,11 +1435,13 @@ $scope.currentFavicon=src;
 			$scope.BottomPlayerFlag=flagurl;	
 			$scope.BottomPlayerName=res.data.name;
 			$scope.BottomPlayerELO=res.data.ELO;
+			$scope.BottomPlayerid=res.data.id;
 			}else{
 			$scope.TopPlayerPic=picurl;
 			$scope.TopPlayerFlag=flagurl;	
 			$scope.TopPlayerName=res.data.name;
 			$scope.TopPlayerELO=res.data.ELO;
+			$scope.TopPlayerid=res.data.id;
 			}
 			
 			});
