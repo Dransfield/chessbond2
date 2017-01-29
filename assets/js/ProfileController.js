@@ -55,7 +55,7 @@ var wonpos;
 if(resultstring=="")
 {
 drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
-wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by <span");
+wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by<span");
 if (drawpos>-1)
 {resultstring="1-1 (Draw)";}
 if (resultstring=="")
