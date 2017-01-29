@@ -30,6 +30,16 @@
    </head>
      <body ng-app="HomepageModule" ng-controller="TwoPlayerController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
  <script> var GameID='<%- req.param('SessionID') %>'</script>
+    <% if (!req.session.passport){ %>
+      <div ng-init="Guest()"></div>
+      <% } %>
+		<% if (req.session.passport){ %>
+		<% if (req.session.passport.user){ %>
+       	<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+
+        
+       <%}%>
+       <%}%>
  <%- include partials/popup.ejs %>
 <%- include partials/navbar.ejs %>
 <%- include partials/board.ejs %>
