@@ -22,6 +22,7 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 	{
 		if(req.session)
 		{
+		console.log("req.session:");
 		var keys = Object.keys(req.session);
 		for (x in keys)
 		{console.log(JSON.stringify(keys[x]));}
@@ -29,6 +30,7 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		
 		if(req.session.passport)
 		{
+		console.log("req.session.passport");
 		var keys = Object.keys(req.session.passport);
 		for (x in keys)
 		{console.log(JSON.stringify(keys[x]));}
@@ -36,6 +38,8 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		
 		if(req.session.cookie)
 		{
+		console.log("req.session.cookie");
+	
 		var keys = Object.keys(req.session.cookie);
 		for (x in keys)
 		{console.log(JSON.stringify(keys[x]));}
