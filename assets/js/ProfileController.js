@@ -48,13 +48,14 @@ $scope.GameInfo=[];
 										var resultstring="";
 
 											if (!$scope.MyGames[x].Result)
-											{resultstring="No Result";
+											{
+												resultstring="No Result";
 											}
 
 											var drawpos;
 											var wonpos;
-												if(resultstring==="")
-												{
+										if(resultstring==="")
+										{
 												drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
 												wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by<span");
 													
@@ -114,8 +115,8 @@ $scope.GameInfo=[];
 					}
 				});
 			});
-		});
-	};
+		};
+	
 	$scope.SoleConnectorFunction=function(id)
 	{
 		
