@@ -20,7 +20,10 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 	},
 	googlecallback:function(req,res)
 	{
-		console.log("REQ"+JSON.stringify(req));
+		var keys = Object.keys(myObject);
+		for (x in keys)
+		{console.log(JSON.stringify(keys[x]);}
+		//console.log("REQ"+JSON.stringify(req));
 		//console.log("RES"+JSON.stringify(res));
 		 passport.authenticate('google',{
             successRedirect : '/profile',
