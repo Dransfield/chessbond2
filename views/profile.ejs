@@ -41,7 +41,7 @@
     <div   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
        <img src="{{LookedatUser.picture}}"></img>
-         <% if (req.param('userID')) { %>
+         <% if (req.param('userID') || req.session.passport) { %>
 			
           <h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
             <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
