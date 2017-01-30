@@ -432,7 +432,7 @@ $scope.countries=[
 		$scope.PrefSelectChanged=function(pref,me,func)
 	{
 		$scope.ChangePreference(pref,me,$scope.User[pref]);
-		$scope.$apply($scope.LookedAtUser[pref]=$scope.User[pref]);
+		$scope.$apply($scope.LookedatUser[pref]=$scope.User[pref]);
 		console.log("changed "+pref+" to "+JSON.stringify($scope.User[pref]));
 		if(func){
 		func(me);}
