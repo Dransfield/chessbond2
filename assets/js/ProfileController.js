@@ -98,11 +98,11 @@ $scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope
 }
 
 	
+
+});
+
+});
 }
-});
-
-});
-
 });
 
 
