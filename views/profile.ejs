@@ -27,7 +27,14 @@
 	
 	<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
  <div ng-init="GetInfo('<%-req.param('userID')%>')"></div>
-           <% } %>
+           <% }else{ %>
+				    <% if (req.session.passport){ %>
+						<% if (req.session.passport.user){ %>
+						<div ng-init="getLookedatUser('<%-req.session.passport.user %>')"></div>
+						<div ng-init="GetInfo('<%-req.session.passport.user %>')"></div>
+					<% } %>
+				<% } %>
+			<% } %>
 
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
@@ -53,7 +60,7 @@
     	
 	    <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
-   		<% if (req.session.passport.user==req.param('userID')){ %>
+   		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
    
 	 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
       ng-model="User.Country"

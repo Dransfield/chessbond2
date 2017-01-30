@@ -33,6 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
 	'/profile/:userID': {view:'profile'},
+	'/profile': {view:'profile'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
 	'GET /session/:SessionID':{view:'session'},
 	'/playvsai':{view:'humanvsai'},
