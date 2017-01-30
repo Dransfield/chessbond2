@@ -83,8 +83,18 @@
 	<img src="/images/flags/{{countryTofilename(LookedatUser.Country)}}.png">
 	<% } %>
 	</div>
+	<%var dograph=false;
+	 <% if (req.param('userID')) { %>
+	<% dograph=true;%>
+	<%}%>
+	<% if (req.session.passport) { %>
+	<% if (req.session.passport.user) { %>
 	
-	 <% if (req.param('userID') || req.session.passport) { %>
+	<% dograph=true;%>
+	<%}%>
+	<%}%>
+	<% if (dograph==true){%>
+		
 	
 	<div class="col-md-4">
 	 </div>
