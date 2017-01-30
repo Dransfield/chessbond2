@@ -26,7 +26,7 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		//console.log("REQ"+JSON.stringify(req));
 		//console.log("RES"+JSON.stringify(res));
 		 passport.authenticate('google',{
-            successRedirect : '/profile',
+            successRedirect : '/profile/'+req.session.passport,
             failureRedirect : '/',
             failureFlash: true
         })(req, res);;
@@ -39,7 +39,7 @@ passport.authenticate('twitter')(req, res);
 	{
 		
 		 passport.authenticate('twitter',{
-            successRedirect : '/profile',
+            successRedirect : '/profile/'+req.session.passport,
             failureRedirect : '/',
             failureFlash: true
         })(req, res);;
@@ -51,7 +51,7 @@ passport.authenticate('facebook',{ scope : [ 'email'] })(req, res);
 	{
 		
 		 passport.authenticate('facebook',{
-            successRedirect : '/profile',
+            successRedirect : '/profile/'+req.session.passport,
             failureRedirect : '/',
             failureFlash: true
         })(req, res);;
