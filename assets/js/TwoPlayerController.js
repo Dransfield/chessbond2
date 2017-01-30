@@ -149,6 +149,11 @@ $scope.AcceptDraw=function()
 		});
 	}
 	};
+	$scope.NewGame=function()
+	
+	{
+		
+		};
 $scope.OfferDraw=function()
 {
 	var opponent;
