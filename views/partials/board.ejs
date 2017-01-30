@@ -2,7 +2,7 @@
 	<div  id="boardcontainercontainer" class="col-md-6">
 		<span style="position:relative;left-padding:0%" id="eyecontainer">
 			<img style="position:relative;" src='/images/eye2.png'>
-			<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>
+			<!--<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>-->
 		</span>
 				
 		<span style="position:relative;left-padding:0%" id="namecontainer" >
@@ -38,12 +38,14 @@
 			
 		<span style="position:relative;left-padding:0%" id="eyecontainer">
 			<img style="position:relative;" src='/images/eye.png'>
-			<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+			<!-- <img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>-->
 		</span>
 		
-		<span id="namecontainer">
+		<span style="position:relative;left-padding:0%" id="namecontainer">
 			<span class="label label-success" ><a href="/profile/{{BottomPlayerid}}" target="_blank">{{BottomPlayerName}}</a>
 			</span>
+			<img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+		
 		</span>
 
 		<span id="ELOcontainer" >
