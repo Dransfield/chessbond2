@@ -3,119 +3,116 @@ $scope.User;
 $scope.SoleConnectorVariable="";
 $scope.MyGames=[];
 $scope.GameInfo=[];
-$scope.getdate=function(datestr)
-{
+	$scope.getdate=function(datestr)
+	{
 	return Date.parse(datestr);
 	};
-$scope.GetInfo=function(id)
-{
-	io.socket.get('/chessgame?Player1='+id,
-	 function (games) {
-	console.log("games1");
-//console.log("games "+JSON.stringify(games));
-//for (x in games)
-//{console.log("games[x] "+games[x]);
-//}
+	$scope.GetInfo=function(id)
+	{
+		io.socket.get('/chessgame?Player1='+id,
+			function (games) {
+			console.log("games1");
+			//console.log("games "+JSON.stringify(games));
+			//for (x in games)
+			//{console.log("games[x] "+games[x]);
+			//}
  
-	for (x in games)
-	{		 
-	$scope.MyGames.push(games[x]);
+				for (x in games)
+				{		 
+				$scope.MyGames.push(games[x]);
+				}
+
+				io.socket.get('/chessgame?Player2='+id,
+				function (moregames) {
+					console.log("games2");
+					for (x in moregames)
+					{		 
+					$scope.MyGames.push(moregames[x]);
+					}
+				$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
+				$scope.MyGames=$scope.MyGames.slice(0,24);
+				console.log("HELLO");
+					
+					for (x in $scope.MyGames)
+					{
+					console.log('/user?id='+$scope.MyGames[x].Player1);
+						io.socket.get('/user?id='+$scope.MyGames[x].Player1,
+							function (user1) {
+								io.socket.get('/user?id='+$scope.MyGames[x].Player2,
+									function (user2) {
+									var datenum=Date.parse($scope.MyGames[x].createdAt);
+									var dateobj=new Date(datenum);
+									var MonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
+									var datestring=dateobj.getDate()+","+MonthNames[dateobj.getMonth()]+" "+dateobj.getFullYear();
+									var resultstring="";
+
+										if (!$scope.MyGames[x].Result)
+										{resultstring="No Result";
+										}
+
+									var drawpos;
+									var wonpos;
+										if(resultstring=="")
+										{
+										drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
+										wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by<span");
+											
+											if (drawpos>-1)
+											{resultstring="1-1 (Draw)";}
+											
+											if (resultstring=="")
+											{
+												if 	($scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name)<wonpos)
+												{
+													if ($scope.MyGames[x].Player1==id)
+													{
+													resultstring="1-0 (Won)";
+													}
+													else
+													{
+													resultstring="1-0 (Lost)";
+													}
+												}
+												else
+												{
+												
+												if ($scope.MyGames[x].Player2==id)
+												{
+												resultstring="0-1 (Won)";
+												}
+												else
+												{
+												console.log("player1 name "+$scope.MyGames[x].Player1Name+" player2name "+$scope.MyGames[x].Player2Name);
+												console.log("wonpos "+wonpos);
+												console.log("$scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name) "+$scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name));
+												resultstring="0-1 (Lost)";}
+												}
+											}
+										}
+
+										$scope.$apply(function(){
+											if ($scope.MyGames[x].Player1Color=='White')
+											{
+											console.log("white"+$scope.MyGames[x].id);
+											$scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user2.picture,WhiteELO:user1.ELO,BlackELO:user2.ELO});
+
+											}
+											else
+											{
+											console.log("black"+$scope.MyGames[x].id);
+											$scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name,WhiteAvatar:user2.picture,BlackAvatar:user1.picture,WhiteELO:user2.ELO,BlackELO:user1.ELO});
+
+											}
+										});
+									}
+								);
+							}
+						);
+					}
+				);
+			}
+		);
 	}
-
-io.socket.get('/chessgame?Player2='+id,
-	 function (moregames) {
-	console.log("games2");
-	for (x in moregames)
-	{		 
-	$scope.MyGames.push(moregames[x]);
-	}
-	$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
-
-$scope.MyGames=$scope.MyGames.slice(0,24);
-
-	console.log("HELLO");
-for (x in $scope.MyGames)
-{
-	console.log('/user?id='+$scope.MyGames[x].Player1);
-	io.socket.get('/user?id='+$scope.MyGames[x].Player1,
-	 function (user1) {
-		io.socket.get('/user?id='+$scope.MyGames[x].Player2,
-	 function (user2) {
-		 	 
-
-var datenum=Date.parse($scope.MyGames[x].createdAt);
-var dateobj=new Date(datenum);
-var MonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
-var datestring=dateobj.getDate()+","+MonthNames[dateobj.getMonth()]+" "+dateobj.getFullYear();
-
-var resultstring="";
-
-if (!$scope.MyGames[x].Result)
-{resultstring="No Result";}
-
-var drawpos;
-var wonpos;
-
-if(resultstring=="")
-{
-drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
-wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by<span");
-if (drawpos>-1)
-{resultstring="1-1 (Draw)";}
-if (resultstring=="")
-{
-if 	($scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name)<wonpos)
-{
-if ($scope.MyGames[x].Player1==id)
-{resultstring="1-0 (Won)";}
-else
-{resultstring="1-0 (Lost)";}
-}
-else
-{
-if ($scope.MyGames[x].Player2==id)
-{resultstring="0-1 (Won)";}
-else
-
-{
-	console.log("player1 name "+$scope.MyGames[x].Player1Name+" player2name "+$scope.MyGames[x].Player2Name);
-	console.log("wonpos "+wonpos);
-	console.log("$scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name) "+$scope.MyGames[x].Result.indexOf($scope.MyGames[x].Player1Name));
-	resultstring="0-1 (Lost)";}
-}
-}
-
-
-}
-
-$scope.$apply(function(){
-if ($scope.MyGames[x].Player1Color=='White')
-{
-console.log("white"+$scope.MyGames[x].id);
-$scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user2.picture,WhiteELO:user1.ELO,BlackELO:user2.ELO});
-
-}
-else
-{
-console.log("black"+$scope.MyGames[x].id);
-$scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name,WhiteAvatar:user2.picture,BlackAvatar:user1.picture,WhiteELO:user2.ELO,BlackELO:user1.ELO});
-
-}
-}
-	
-
-});
-
-});
-
-});
-
-
-
-});
-
-});
-}
 	$scope.SoleConnectorFunction=function(id)
 	{
 		
