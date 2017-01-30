@@ -34,9 +34,9 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		{console.log(JSON.stringify(keys[x]));}
 		}
 		
-		if(req.session.passport.cookie)
+		if(req.session.session.cookie)
 		{
-		var keys = Object.keys(req.session.passport.cookie);
+		var keys = Object.keys(req.session.cookie);
 		for (x in keys)
 		{console.log(JSON.stringify(keys[x]));}
 		}
