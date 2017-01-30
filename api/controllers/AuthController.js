@@ -20,9 +20,9 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 	},
 	googlecallback:function(req,res)
 	{
-		if(req.session)
+	/*	if(req.session)
 		{
-	/*	console.log("req.session:");
+		console.log("req.session:");
 		var keys = Object.keys(req.session);
 		for (x in keys)
 		{console.log(JSON.stringify(keys[x]));}
