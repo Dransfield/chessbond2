@@ -379,12 +379,12 @@ $scope.StartBlackClock=function()
     
 
 $scope.pic1height=30;
-$scope.pic1coordy=100;
+$scope.pic1coordy=130;
 $scope.pic1coordx=30;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=30; $scope.pic1coordx=30; $scope.pic1coordy=100;	
+$scope.pic1height=30; $scope.pic1coordx=30; $scope.pic1coordy=130;	
 }
 $scope.bigimage1=function()
 {
