@@ -56,7 +56,7 @@ $scope.GameInfo=[];
 											var wonpos;
 										if(resultstring==="")
 										{
-												drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
+											drawpos=$scope.MyGames[x].Result.indexOf("</span> Drew by <span");
 												wonpos=$scope.MyGames[x].Result.indexOf("</span> Won by<span");
 													
 													if (drawpos>-1)
@@ -182,7 +182,8 @@ $scope.getuser=function(MyID)
 	$scope.countryTofilename=function(country)
 {
 	if (country){
-	return country.replace(/ /gi, "_");
+	//return country.replace(/ /gi, "_");
+	return country.replace(/ /gi, "-");
 	}
 }
 $scope.countries=[
