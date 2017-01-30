@@ -33,10 +33,17 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		for (x in keys)
 		{console.log(JSON.stringify(keys[x]));}
 		}
+		
+		if(req.session.passport.cookie)
+		{
+		var keys = Object.keys(req.session.passport.cookie);
+		for (x in keys)
+		{console.log(JSON.stringify(keys[x]));}
+		}
 		//console.log("REQ"+JSON.stringify(req));
 		//console.log("RES"+JSON.stringify(res));
 		 passport.authenticate('google',{
-            successRedirect : '/profile/'+req.session.passport.user,
+            successRedirect : '/profile/'+req.session.passport,
             failureRedirect : '/',
             failureFlash: true
         })(req, res);;
