@@ -76,7 +76,7 @@
 	</div>
 		
 		 <div class="col-md-4">
-	 <% if (req.param('userID')) { %>
+	 <% if (req.param('userID') || req.session.passport) { %>
     
 	<img src="/images/flags/{{countryTofilename(LookedatUser.Country)}}.png">
 	<% } %>
