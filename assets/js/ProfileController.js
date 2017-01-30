@@ -32,7 +32,7 @@ io.socket.get('/chessgame?Player2='+id,
 	$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt)});
 
 $scope.MyGames=$scope.MyGames.slice(0,24);
-$scope.$apply(function(){
+
 	console.log("HELLO");
 for (x in $scope.MyGames)
 {
@@ -88,6 +88,7 @@ else
 
 }
 
+$scope.$apply(function(){
 if ($scope.MyGames[x].Player1Color=='White')
 {
 console.log("white"+$scope.MyGames[x].id);
@@ -100,13 +101,13 @@ console.log("black"+$scope.MyGames[x].id);
 $scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name,WhiteAvatar:user2.picture,BlackAvatar:user1.picture,WhiteELO:user2.ELO,BlackELO:user1.ELO});
 
 }
-
+}
 	
 
 });
 
 });
-}
+
 });
 
 
