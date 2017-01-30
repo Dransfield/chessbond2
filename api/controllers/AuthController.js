@@ -22,7 +22,7 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 	{
 		var keys = Object.keys(myObject);
 		for (x in keys)
-		{console.log(JSON.stringify(keys[x]);}
+		{console.log(JSON.stringify(keys[x]));}
 		//console.log("REQ"+JSON.stringify(req));
 		//console.log("RES"+JSON.stringify(res));
 		 passport.authenticate('google',{
