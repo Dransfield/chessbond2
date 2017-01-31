@@ -311,6 +311,22 @@ deleteopengame:function(req,res){
 	
 	},
 	
+	newsession:function(req,res){
+	console.log("all params of new session"+req.allParams());
+	session.create(
+	req.allParams()
+	).exec(function (err, newgam){
+  if (err) { return res.serverError(err); }
+
+  
+  sails.sockets.broadcast('sessionroom','newsessionevent', newgam);
+  return res.ok();
+});
+	
+	
+	
+	},
+	
 	newopengame:function(req,res){
 	console.log("all params of new open game"+req.allParams());
 	Openchessgame.create(

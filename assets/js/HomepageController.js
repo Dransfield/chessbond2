@@ -1,5 +1,6 @@
 angular.module('HomepageModule').controller('HomepageController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.opg=new Array();
+$scope.sessions=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
@@ -55,11 +56,24 @@ $scope.SoleConnectorVariable="";
     });
 	};
 	
+	$scope.createsession=function(type,id,name)
+	{
+	io.socket.put('/newsession', { GameType:type,TimeLimit:$scope.GameForm.timelimit,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
+    function (resData, jwr) {
+
+      // Refresh the page now that we've been logged in.
+      //window.location.reload(true); 
+		toastr.success('Created New Game');
+    });
+	};
+	
+	
 	$scope.ReconnectFunction=function(MyID)
 	{
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
 	$scope.joinopengameRoom();
+	$scope.joinsessionRoom();
 	if($scope.User)
 	{
 	$scope.joinmyuserIDRoom($scope.User.id);
@@ -132,6 +146,16 @@ io.socket.on('connect',function(data){
 			}
 			);
 			});
+			
+			io.socket.on('newsessionevent', function (data)
+			{
+			console.log('newsessionevent'+data);
+			data.phrase=phrasefordate(data.createdAt);
+			$scope.$apply(function(){
+			$scope.sessions.push(data);
+			});
+			console.log(data);
+			}
 			
 	io.socket.on('newopengameevent', function (data)
 			{
@@ -296,7 +320,26 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 		
 		};
 
-
+$scope.joinsessionRoom=function()
+{
+	
+	var roomname='sessionroom';
+	io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+			
+			
+	$http.get('/session?limit=3000').then( function (dat) {
+			$scope.opg=[];
+			for(x in dat.data)
+			{
+			dat.data[x].phrase=phrasefordate(dat.data[x].createdAt);
+			$scope.sessions.push(dat.data[x]); // => {id:9, name: 'Timmy Mendez'}
+			}
+			
+			
+			});
+	};
 	$scope.joinopengameRoom=function ()
 		{
 			

@@ -85,9 +85,11 @@
 		</div>
 		
 		<div ng-show="ShowNewGameOptions">
-		<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
-	<h2>Choose a Time Limit:</h2>
-	<select ng-model="GameForm.timelimit" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
+		<!--<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >-->
+		<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >
+		
+			<h2>Choose a Time Limit:</h2>
+			<select ng-model="GameForm.timelimit" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
 	  <option>1</option>
 	  <option>2</option>
 	  <option>3</option>
@@ -237,7 +239,41 @@
             </table>
           </div>
 
+				 <h2 class="sub-header">Open Games</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                  <th>Date</th>
+                  <th>Join</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
 				
+            <tr ng-repeat="sess in sessions track by $index">
+			<td><a href="/profile/{{sess.Player1}}" target="_blank">{{sess.Player1Name}}</a></td>
+			<td>{{opengame.phrase}}</td>
+			
+			<% if (req.session.passport) { %>
+    		
+			<td>		
+				<button ng-click="joingame(sess.id,sess.Player1,sess.Player1Name,sess.Player1Color,'<%- req.session.passport.user%>',User.name,sess.GameType,sess.TimeLimit)">Join Game</button>
+				
+				<button ng-click="deleteopengame(sess.id)">Delete Game</button>
+				
+			</td>
+			
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+
 				
 				 <h2 class="sub-header">Open Games</h2>
           <div class="table-responsive">
