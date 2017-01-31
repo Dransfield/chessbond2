@@ -9,7 +9,7 @@ $scope.GameForm={};
 $scope.GameForm.timelimit=5;
 $scope.GameForm.color='White';
 $scope.SoleConnectorVariable="";
-	document.getElementById("body").style.backgroundColor="#4D129F";
+	//document.getElementById("body").style.backgroundColor="#4D129F";
 	$scope.SoleConnectorFunction=function(id)
 	{
 		$http.get('/subscription?subscriber='+id, {
