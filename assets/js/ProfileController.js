@@ -238,7 +238,7 @@ $scope.countries=[
 	{name:'Cuba'},
 	{name:'Cyprus'},
 	{name:'Czech Republic'},
-	{name:"Cote d'ivoire"},
+	{name:"Cote d'Ivoire"},
 	{name:'Democratic Republic of the Congo'},
 	{name:'Denmark'},
 	{name:'Djibouti'},
