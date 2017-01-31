@@ -155,7 +155,7 @@ io.socket.on('connect',function(data){
 			$scope.sessions.push(data);
 			});
 			console.log(data);
-			}
+			});
 			
 	io.socket.on('newopengameevent', function (data)
 			{
@@ -165,9 +165,9 @@ io.socket.on('connect',function(data){
 			$scope.opg.push(data);
 			});
 			console.log(data);
-			}
+			});
 			
-		);
+		
 		
 io.socket.on('joined room',function(data)
 			{
