@@ -23,18 +23,18 @@
            <% } %>
            <% } %>
 
-         <% if (req.param('userID')) { %>
+				<% if (req.param('userID')) { %>
 	
-	<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
- <div ng-init="GetInfo('<%-req.param('userID')%>')"></div>
-           <% }else{ %>
+				<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
+				<div ng-init="GetInfo('<%-req.param('userID')%>')"></div>
+				<% }else{ %>
 				    <% if (req.session.passport){ %>
 						<% if (req.session.passport.user){ %>
 						<div ng-init="getLookedatUser('<%-req.session.passport.user %>')"></div>
 						<div ng-init="GetInfo('<%-req.session.passport.user %>')"></div>
+						<% } %>
 					<% } %>
 				<% } %>
-			<% } %>
 
    <%- include partials/navbar.ejs %>
     <div class=" col-md-8 col-md-offset-2">
@@ -68,14 +68,13 @@
 					  <option ng-repeat="c in countries track by $index" value="{{c.name}}">
 						  {{c.name}}</option>
 					 </select>
-				
+				<% } %>
 			<% } %>
 		<% } %>
-	  <% } %>
 	
 	</div>
 		
-		 <div class="col-md-4">
+		 <div class="col-md-4" color="#333333">
 	 <% if (req.param('userID') || req.session.passport) { %>
     
 	<img src="/images/flatflags/{{countryTofilename(LookedatUser.Country)}}.png">
