@@ -238,7 +238,7 @@ $scope.countries=[
 	{name:'Cuba'},
 	{name:'Cyprus'},
 	{name:'Czech Republic'},
-	{name:"Cote d'Ivoire"},
+	
 	{name:'Democratic Republic of the Congo'},
 	{name:'Denmark'},
 	{name:'Djibouti'},
@@ -253,7 +253,7 @@ $scope.countries=[
 	{name:'Estonia'},
 	{name:'Ethiopia'},
 	{name:'Falkland Islands'},
-	{name:'Faroes'},
+	{name:'Faroe Islands'},
 	{name:'Fiji'},
 	{name:'Finland'},
 	{name:'France'},
@@ -284,6 +284,7 @@ $scope.countries=[
 	{name:'Ireland'},
 	{name:'Israel'},
 	{name:'Italy'},
+	{name:"Ivory Coast"},
 	{name:'Jamaica'},
 	{name:'Japan'},
 	{name:'Jordan'},
@@ -318,6 +319,9 @@ $scope.countries=[
 	{name:'Moldova'},
 	{name:'Monaco'},
 	{name:'Mongolia'},
+	
+	{name:'Montenegro'},
+	
 	{name:'Montserrat'},
 	{name:'Morocco'},
 	{name:'Mozambique'},
