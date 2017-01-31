@@ -9,7 +9,7 @@ $scope.GameForm={};
 $scope.GameForm.timelimit=5;
 $scope.GameForm.color='White';
 $scope.SoleConnectorVariable="";
-	console.log(JSON.stringify(document.getElementById("body").style));
+	document.getElementById("body").style.backgroundColor="#4D129F";
 	$scope.SoleConnectorFunction=function(id)
 	{
 		$http.get('/subscription?subscriber='+id, {
@@ -205,7 +205,7 @@ io.socket.on('joined room',function(data)
 		function phrasefordate(dat)
 			{
 			var nu=Date.parse(dat);
-			console.log("nu "+nu);
+			//console.log("nu "+nu);
 		var n = Date.now();
 		
 		var newnum=n-nu;
