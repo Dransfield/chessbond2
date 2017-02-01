@@ -14,9 +14,8 @@
 		</span>
 			({{TopPlayerELO}})
 				
-				<span id="flagcontainer">
-			<img style="color:#AAAAAA;background-color: #AAAAAA;padding: 25px;display:flex; margin-left: auto;margin-right: auto;" ng-src="{{TopPlayerFlag}}">
-		</span>
+				
+		<%- include partials/flag1.ejs %>
 		Ping {{TopPingDisplay}}
 		</div>
 		
@@ -48,9 +47,7 @@
 			({{BottomPlayerELO}})
 		
 		
-		<span id="flagcontainer" style="padding: 25px; color:#AAAAAA;background-color: #AAAAAA;">
-			<img style="  display: inline;margin-left: auto;margin-right: auto;" ng-src="{{BottomPlayerFlag}}">
-		</span>
+		<%- include partials/flag2.ejs %>
 		
 		Ping {{BottomPingDisplay}}
 		

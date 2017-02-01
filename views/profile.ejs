@@ -76,7 +76,7 @@
 		
 		 <div class="col-md-4" style="padding: 25px;color:#AAAAAA;background-color: #AAAAAA;">
 	 <% if (req.param('userID') || req.session.passport) { %>
-    
+    <%- include partials/flag1.ejs %>
 	<img style="display:flex; margin-left: auto;margin-right: auto;" src="/images/flatflags/{{countryTofilename(LookedatUser.Country)}}.png">
 	<% } %>
 	</div>
