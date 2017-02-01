@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-default navbar-inverse"  ng-controller="HomepageController" ng-cloak>
-	<div class="container-fluid" style="display: flex; align-items:center;"  >
+	<div class="container-fluid"   >
 		<div class="navbar-header" >
 			<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
 			   <!-- This controls the number of lines in the image when the nav collapse -->
@@ -16,7 +16,7 @@
 				  
 		</div>
               
-     		 <ul class="navbar-nav">
+     		 <ul class="navbar-nav" style="padding:3px;">
 			<li  class="nav-item">
 			<%- include options.ejs %>
 			</li>
