@@ -173,7 +173,9 @@ $scope.getuser=function(MyID)
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
-			$scope.TopPlayerFlag=$scope.User['Country'];
+			$scope.TopPlayerFlag="/images/flags/"+$scope.countryTofilename($scope.User['Country'])+".png";
+				
+			
 			}
 			)	
 		
