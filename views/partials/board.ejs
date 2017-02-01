@@ -32,10 +32,12 @@
 		</div>
 				
 		<div class="row">
-			 <div ng-click="EnableSound()" ng-show="SoleConnectorVariable=='true'"  id ="boardcontainer" ng-class="boardcontainerstyle" >
+			 <div id ="boardcontainer" ng-show="SoleConnectorVariable=='true'"  ng-class="boardcontainerstyle" >
 			 </div>
      	</div>
-			
+		
+		<div style="display:flex;">
+		
 		<span style="position:relative;left-padding:0%" id="eyecontainer">
 			<img style="position:relative;" src='/images/eye.png'>
 			<!-- <img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>-->
@@ -56,11 +58,10 @@
 			<img style="  display: inline;margin-left: auto;margin-right: auto;" ng-src="{{BottomPlayerFlag}}">
 		</span>
 		
-		<span id="pingcontainer">
-			<span >Ping {{BottomPingDisplay}}
-			</span>
-		</span>
+		Ping {{BottomPingDisplay}}
 		
+		
+		</div>
 		<div id="timercontainer" >
 			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
 			</span>
