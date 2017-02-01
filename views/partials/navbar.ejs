@@ -12,11 +12,16 @@
 			<!-- This is the brand on the left-hand side. -->
 			<a class="navbar-brand" href="/#"> Chessbond</a>
 			
-				  <%- include options.ejs %>
+				  
 				  
 		</div>
               
         <div id="navbar" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+			 <ul class="navbar-nav">
+			<li class="nav-item">
+			<%- include options.ejs %>
+			</li>
+			</ul>
 			<ul class="nav navbar-right">
 			
 				<% if (!req.session.passport) { %>
