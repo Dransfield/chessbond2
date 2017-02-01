@@ -1355,7 +1355,7 @@ $scope.currentFavicon=src;
 		picurl=(res.data.picture.replace("http:","https:"));
 			}
 				
-				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
+				var flagurl="/images/flatflags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
 				//console.log("flagurl "+flagurl);
 				console.log("$scope.PlayerOnBottom"+$scope.PlayerOnBottom);
@@ -1410,7 +1410,7 @@ $scope.currentFavicon=src;
 				if (res.data.picture){
 		picurl=(res.data.picture.replace("http:","https:"));
 			}
-				var flagurl="/images/flags/"+$scope.countryTofilename(res.data.Country)+".png";
+				var flagurl="/images/flatflags/"+$scope.countryTofilename(res.data.Country)+".png";
 				
 				var Player1OnBottom=false;
 			if ($scope.PlayerOnBottom=='White')
