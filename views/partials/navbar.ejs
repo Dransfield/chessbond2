@@ -22,7 +22,9 @@
 						
 				
 				  <% } else {%>
+					<li>
 				  <%- include options.ejs %>
+				  </li>
 				  <ul class="nav navbar-nav navbar-right">
 				  <li class="dropdown">
 					<a ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ User.name}}<span class="caret"></span></a>
