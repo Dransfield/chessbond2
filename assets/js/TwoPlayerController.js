@@ -378,7 +378,7 @@ $scope.StartBlackClock=function()
 	}
     
 
-$scope.pic1height=30;
+$scope.pic1height=40;
 $scope.pic1coordy=130;
 $scope.pic1coordx=30;
 
@@ -395,7 +395,7 @@ $scope.pic1height=200; $scope.pic1coordx=0;	$scope.pic1coordy=-860;
 //$scope.pic2height=30;
 //$scope.pic2coordx=38;
 //$scope.pic2coordy=35;
-$scope.pic2height=30;
+$scope.pic2height=40;
 $scope.pic2coordx=38;
 $scope.pic2coordy=130;
 
