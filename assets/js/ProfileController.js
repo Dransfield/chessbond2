@@ -441,7 +441,7 @@ $scope.countries=[
 	{
 		$scope.ChangePreference(pref,me,$scope.User[pref]);
 		$scope.$apply($scope.LookedatUser[pref]=$scope.User[pref]);
-		$scope.$apply($scope.TopPlayerFlag=$scope.User[pref]);
+		$scope.$apply($scope.TopPlayerFlag=$scope.countryTofilename($scope.User['Country']));
 		
 		console.log("changed "+pref+" to "+JSON.stringify($scope.User[pref]));
 		if(func){
