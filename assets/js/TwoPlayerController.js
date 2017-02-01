@@ -384,7 +384,7 @@ $scope.pic1coordx=30;
 
 $scope.smallimage1=function()
 {
-$scope.pic1height=30; $scope.pic1coordx=30; $scope.pic1coordy=130;	
+$scope.pic1height=40; $scope.pic1coordx=30; $scope.pic1coordy=130;	
 }
 $scope.bigimage1=function()
 {
@@ -403,7 +403,7 @@ $scope.pic2coordy=130;
 $scope.smallimage2=function()
 {
 //$scope.pic2height=30; $scope.pic2coordx=38; $scope.pic2coordy=35;	
-$scope.pic2height=30; $scope.pic2coordx=38; $scope.pic2coordy=130;	
+$scope.pic2height=40; $scope.pic2coordx=38; $scope.pic2coordy=130;	
 
 }
 $scope.bigimage2=function()
