@@ -464,7 +464,10 @@ $scope.joinsessionRoom=function()
 	}
 $scope.countryTofilename=function(country)
 {
-	return country.replace(/ /gi, "_");
+	if (country){
+	//return country.replace(/ /gi, "_");
+	return country.replace(/ /gi, "-");
+	}
 }
 $scope.countries=[
 	{name:'Afghanistan'},
@@ -492,7 +495,7 @@ $scope.countries=[
 	{name:'Bermuda'},
 	{name:'Bhutan'},
 	{name:'Bolivia'},
-	{name:'Bosnia'},
+	{name:'Bosnia and Herzegovina'},
 	{name:'Botswana'},
 	{name:'Brazil'},
 	{name:'British Virgin Islands'},
@@ -518,12 +521,13 @@ $scope.countries=[
 	{name:'Cuba'},
 	{name:'Cyprus'},
 	{name:'Czech Republic'},
-	{name:"Côte d'Ivoire"},
+	
 	{name:'Democratic Republic of the Congo'},
 	{name:'Denmark'},
 	{name:'Djibouti'},
 	{name:'Dominica'},
 	{name:'Dominican Republic'},
+	{name:'East Timor'},
 	{name:'Ecuador'},
 	{name:'Egypt'},
 	{name:'El Salvador'},
@@ -563,6 +567,7 @@ $scope.countries=[
 	{name:'Ireland'},
 	{name:'Israel'},
 	{name:'Italy'},
+	{name:"Ivory Coast"},
 	{name:'Jamaica'},
 	{name:'Japan'},
 	{name:'Jordan'},
@@ -580,7 +585,7 @@ $scope.countries=[
 	{name:'Liechtenstein'},
 	{name:'Lithuania'},
 	{name:'Luxembourg'},
-	{name:'Macao'},
+	{name:'Macau'},
 	{name:'Macedonia'},
 	{name:'Madagascar'},
 	{name:'Malawi'},
@@ -597,6 +602,9 @@ $scope.countries=[
 	{name:'Moldova'},
 	{name:'Monaco'},
 	{name:'Mongolia'},
+	
+	{name:'Montenegro'},
+	
 	{name:'Montserrat'},
 	{name:'Morocco'},
 	{name:'Mozambique'},
@@ -629,7 +637,7 @@ $scope.countries=[
 	{name:'Qatar'},
 	{name:'Republic of the Congo'},
 	{name:'Romania'},
-	{name:'Russian Federation'},
+	{name:'Russia'},
 	{name:'Rwanda'},
 	{name:'Saint Kitts and Nevis'},
 	{name:'Saint Lucia'},
@@ -637,10 +645,10 @@ $scope.countries=[
 	{name:'Saint Vincent and the Grenadines'},
 	{name:'Samoa'},
 	{name:'San Marino'},
-	{name:'Sao Tomé and Príncipe'},
+	{name:'Sao Tome and Principe'},
 	{name:'Saudi Arabia'},
 	{name:'Senegal'},
-	{name:'Serbia and Montenegro'},
+	{name:'Serbia'},
 	{name:'Seychelles'},
 	{name:'Sierra Leone'},
 	{name:'Singapore'},
@@ -649,9 +657,9 @@ $scope.countries=[
 	{name:'Solomon Islands'},
 	{name:'Somalia'},
 	{name:'South Africa'},
-	{name:'South Georgia'},
+	
 	{name:'South Korea'},
-	{name:'Soviet Union'},
+
 	{name:'Spain'},
 	{name:'Sri Lanka'},
 	{name:'Sudan'},
@@ -665,7 +673,7 @@ $scope.countries=[
 	{name:'Tanzania'},
 	{name:'Thailand'},
 	{name:'Tibet'},
-	{name:'Timor-Leste'},
+	
 	{name:'Togo'},
 	{name:'Tonga'},
 	{name:'Trinidad and Tobago'},
@@ -674,11 +682,11 @@ $scope.countries=[
 	{name:'Turkmenistan'},
 	{name:'Turks and Caicos Islands'},
 	{name:'Tuvalu'},
-	{name:'UAE'},
+	{name:'United Arab Emirates'},
 	{name:'Uganda'},
 	{name:'Ukraine'},
 	{name:'United Kingdom'},
-	{name:'United States of America'},
+	{name:'United States'},
 	{name:'Uruguay'},
 	{name:'US Virgin Islands'},
 	{name:'Uzbekistan'},
@@ -686,11 +694,13 @@ $scope.countries=[
 	{name:'Vatican City'},
 	{name:'Venezuela'},
 	{name:'Vietnam'},
-	{name:'Wallis and Futuna'},
+	{name:'Wallis And Futuna'},
 	{name:'Yemen'},
 	{name:'Zambia'},
 	{name:'Zimbabwe'}
 ]
+
+
 
 
 		$scope.ChangePreference=function(prefid,me,newpref)
