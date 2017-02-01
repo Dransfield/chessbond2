@@ -1,7 +1,10 @@
 <div id="overallcontainer" class="col-md-12">
 	<div  id="boardcontainercontainer" class="col-md-6">
 	<div style="display:flex; justify-content:space-around;align-items: center;">
-		
+		<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
+			</span>
+			<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
+			</span>
 			<img style="position:relative;" src='/images/eye2.png' height="30px">
 			<!--<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>-->
 				
@@ -18,25 +21,25 @@
 		<%- include flag1.ejs %>
 		Ping {{TopPingDisplay}}
 		</div>
-		
+		<!--
 		<div id="timercontainer" style="padding-top:3px;padding-left:3px">
 			<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
 			</span>
 			<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
 			</span>
-		</div>
+		</div>-->
 		<div class="row" style="padding:3px;">
 			 <div id ="boardcontainer" ng-show="SoleConnectorVariable=='true'"   ng-class="boardcontainerstyle" >
 			 </div>
      	</div>
-		<div id="timercontainer" style="padding-bottom:3px;padding-left:3px">
+	<!--	<div id="timercontainer" style="padding-bottom:3px;padding-left:3px">
 			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
 			</span>
 			
 			<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
 			</span>
 			
-		</div>
+		</div>-->
 		<div style="display:flex;align-content:center;justify-content:space-around;align-items: center;">
 			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
 			</span>
