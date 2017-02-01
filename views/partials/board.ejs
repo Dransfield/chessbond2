@@ -56,8 +56,9 @@
 		
 		<%- include flag2.ejs %>
 		
+		<span style="position:relative;left-padding:0%" >
 		Ping {{BottomPingDisplay}}
-		
+		</span>
 		
 		</div>
 		
@@ -73,7 +74,7 @@
 				
 			
 			
-	<div id="infocontainer" style="padding: 24px;" class="col-md-6">
+	<div id="infocontainer" style="padding: 5px;" class="col-md-6">
 		<button class="btn btn-success" ng-show="ShowOfferDrawButton && (!ChessGameObject.Result)" ng-click="OfferDraw()">Offer a Draw
 		</button>
 		<button class="btn btn-success" ng-show="ShowAcceptDrawButton && (!ChessGameObject.Result)" ng-click="AcceptDraw()">Accept Draw
