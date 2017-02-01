@@ -16,7 +16,7 @@ $scope.ShowOfferDrawButton=false;
 $scope.TopPlayerPic="";
 $scope.Player1Online="";
 $scope.Player2Online="";
-$scope.ShowOptions=true;
+$scope.ShowOptions=false;
 
 $scope.to_trusted = function(someHTML) {
     
