@@ -37,7 +37,7 @@ var squareClass = 'square-55d63';
   
 $scope.TopMinutes="0";
 $scope.TopSeconds="0";
-$scope.TopMilliSeconds="0";
+$scope.TopMilliSeconds="000";
 
 $scope.BottomMinutes="0";
 $scope.BottomSeconds="0";
@@ -1295,6 +1295,7 @@ $scope.currentFavicon=src;
 				
 				$scope.BottomSeconds=p1second;
 				$scope.BottomMinutes=p1minute;
+				$scope.BottomMilliSeconds=0;
 				$scope.TopSeconds=p2second;
 				$scope.TopMinutes=p2minute;
 				}
@@ -1302,6 +1303,7 @@ $scope.currentFavicon=src;
 				{
 				$scope.BottomSeconds=p2second;
 				$scope.BottomMinutes=p2minute;
+				$scope.BottomMilliSeconds=0;
 				$scope.TopSeconds=p1second;
 				$scope.TopMinutes=p2minute;
 				
@@ -1316,7 +1318,7 @@ $scope.currentFavicon=src;
 				$scope.TopMinutes=p1minute;
 				$scope.BottomSeconds=p2second;
 				$scope.BottomMinutes=p2minute;
-				
+				$scope.BottomMilliSeconds=0;
 				}
 				else
 				{
@@ -1324,7 +1326,7 @@ $scope.currentFavicon=src;
 				$scope.TopMinutes=p2minute;
 				$scope.BottomSeconds=p1second;
 				$scope.BottomMinutes=p1minute;
-				
+				$scope.BottomMilliSeconds=0;
 				}
 				
 			}
