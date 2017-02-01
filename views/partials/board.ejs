@@ -29,7 +29,14 @@
 			 <div id ="boardcontainer" ng-show="SoleConnectorVariable=='true'"  ng-class="boardcontainerstyle" >
 			 </div>
      	</div>
-		
+		<div id="timercontainer" >
+			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
+			</span>
+			
+			<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
+			</span>
+			
+		</div>
 		<div style="display:flex;justify-content:space-around;align-items: center;">
 		
 		
@@ -53,14 +60,7 @@
 		
 		
 		</div>
-		<div id="timercontainer" >
-			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
-			</span>
-			
-			<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
-			</span>
-			
-		</div>
+		
 		
 		<img ng-repeat="wpiece in capturedWhitepieces" height = '30px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{wpiece}}.png" ></p>
         <br>
