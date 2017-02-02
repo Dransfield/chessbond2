@@ -21,6 +21,17 @@ $scope.WallPosts=[];
 		};
 	$scope.GetInfo=function(id)
 	{
+		
+			io.socket.on('WallPost', function (data)
+			{
+			console.log('newopengameevent'+data);
+			data.phrase=phrasefordate(data.createdAt);
+			$scope.$apply(function(){
+			$scope.WallPosts.push(data);
+			});
+			console.log(data);
+			});
+		
 		io.socket.get('/wallpost?reciever='+id,
 			function (msgs) {
 				console.log(JSON.stringify(msgs));

@@ -9,7 +9,7 @@ module.exports = {
 	wallpost:function(req,res){
 			
 	Wallpost.create({senderpic:req.param('senderpic'),room:req.param('roomName'),content:req.param('content'),sender:req.param('sender'),sendername:req.param('sendername'),reciever:req.param('reciever')}).exec(function (err, records) {
-	sails.sockets.broadcast(records.room,'WallPost', {room:records.room,content: records.content });
+	sails.sockets.broadcast(records.room,'WallPost', {senderpic:req.param('senderpic'),room:req.param('roomName'),content:req.param('content'),sender:req.param('sender'),sendername:req.param('sendername'),reciever:req.param('reciever')});
 	
 	 return res.ok();
 });
