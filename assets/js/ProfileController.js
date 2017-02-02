@@ -7,8 +7,24 @@ $scope.GameInfo=[];
 	{
 	return Date.parse(datestr);
 	};
+	$scope.SendWallPost=function(usrid)
+		{
+			$http.post("/wallpost",{content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			.then(function onSuccess (){
+			$scope.chatInput = null;
+			}
+			);
+			
+			
+			
+		};
 	$scope.GetInfo=function(id)
 	{
+		io.socket.get('/wallpost?reciever='+id,
+			function (msgs) {
+				$scope.WallPosts.push(msgs);
+			});
+			
 		io.socket.get('/chessgame?Player1='+id,
 			function (games) {
 			console.log("games1");

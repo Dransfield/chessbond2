@@ -61,6 +61,7 @@ module.exports.routes = {
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
 	//'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
+	'POST /wallpost':'WallpostController.wallpost',
 	'PUT /chessgamemove':'PageController.chessgamemove',
 	'PUT /BroadcastPing':'PageController.BroadcastPing',
 	'PUT /pingtest':'PageController.ReturnPing',

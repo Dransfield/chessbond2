@@ -133,8 +133,16 @@
           </div>
     <% } %>
 	      
-	
-
+	<table>
+   <tr ng-repeat="wllpsts in WallPosts track by $index">
+	<td>{{wllpsts.SenderName}}:<a href="/profile/{{wllpsts.Sender}}" target="_blank">{{wllpsts.Content}}</a></td>
+	</table>
+	<div class="col-md-12">
+	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
+	<input type="text" autocomplete="off" class="form-control" placeholder="post to wall" name="name" ng-model="WallPostInput"  required>
+	<button type="submit" >Post to Wall</button>
+	</form>
+	</div>
 
 
 
