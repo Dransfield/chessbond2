@@ -135,7 +135,7 @@
 	      
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
-	<td>{{wllpsts.SenderName}}:<a href="/profile/{{wllpsts.Sender}}" target="_blank">{{wllpsts.Content}}</a></td>
+	<td>{{wllpsts.sendername}}:<a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.content}}</a></td>
 	</table>
 	<div class="col-md-12">
 	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
