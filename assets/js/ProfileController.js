@@ -10,7 +10,7 @@ $scope.WallPosts=[];
 	};
 	$scope.SendWallPost=function(usrid)
 		{
-			$http.post("/wallpost",{content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			$http.post("/newwallpost",{content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
