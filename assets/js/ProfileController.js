@@ -24,7 +24,7 @@ $scope.WallPosts=[];
 		io.socket.get('/wallpost?reciever='+id,
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
-				$scope.WallPosts.push(msgs);
+				$scope.$apply($scope.WallPosts.push(msgs));
 			});
 			
 		io.socket.get('/chessgame?Player1='+id,
