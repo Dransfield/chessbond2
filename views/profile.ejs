@@ -135,7 +135,7 @@
 	<div class="col-md-12">
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
-	<td>{{wllpsts.sendername}}:<a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.content}}</a></td>
+	<td><img src="{{wllpsts.senderpic}}">{{wllpsts.sendername}}:<a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.content}}</a></td>
 	</table>
 	</div>
 	<div class="col-md-12">
