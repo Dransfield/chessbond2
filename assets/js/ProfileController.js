@@ -31,7 +31,9 @@ $scope.WallPosts=[];
 			});
 			console.log(data);
 			});
-		
+			io.socket.get("/subscribeToRoom",{roomName:id},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+		});
 		io.socket.get('/wallpost?reciever='+id,
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
