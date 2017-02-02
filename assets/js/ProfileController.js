@@ -25,7 +25,7 @@ $scope.WallPosts=[];
 			io.socket.on('WallPost', function (data)
 			{
 			console.log('newopengameevent'+data);
-			data.phrase=phrasefordate(data.createdAt);
+			
 			$scope.$apply(function(){
 			$scope.WallPosts.push(data);
 			});
