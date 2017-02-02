@@ -3,6 +3,7 @@ $scope.User;
 $scope.SoleConnectorVariable="";
 $scope.MyGames=[];
 $scope.GameInfo=[];
+$scope.WallPosts=[];
 	$scope.getdate=function(datestr)
 	{
 	return Date.parse(datestr);
