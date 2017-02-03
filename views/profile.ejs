@@ -136,6 +136,7 @@
     <%- include partials/flag1.ejs %>
 	<% } %>
 	</div>
+	
 	<%var dograph=false;%>
 	 <% if (req.param('userID')) { %>
 	<% dograph=true;%>
@@ -150,8 +151,7 @@
 	<% if (dograph==true){%>
 		
 	
-	<div class="col-md-4">
-	 </div>
+	
 	<div id="row" class="col-md-12">
 	 <h2 class="sub-header">Recent Games</h2>
           <div id="row"  class="table-responsive">
@@ -187,7 +187,7 @@
             </tbody>
             </table>
           </div>
-          </div>
+          
     <% } %>
 	<div class="col-md-12">
 	<table>
