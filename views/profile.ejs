@@ -150,7 +150,8 @@
 	
 	
 	 <div style="display:flex"> 
-	 <h2 class="sub-header">Recent Games
+		 <div>
+	 <h2 class="sub-header">Recent Games</h2>
           <div   class="table-responsive">
             <table class="table table-striped">
               
@@ -184,9 +185,9 @@
             </tbody>
             </table>
           </div>
-          </h2>
+          
     <% } %>
-	
+	<div>
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
 	<td><img src="{{wllpsts.senderpic}}"><a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a>{{wllpsts.content}}</td>
@@ -200,7 +201,7 @@
 	</form>
 	<% } %>
 	<% } %>
-
+</div>
 </div>
     <!--SCRIPTS-->
 
