@@ -36,8 +36,8 @@
 					<% } %>
 				<% } %>
 
-  
-    <div class=" col-md-6 ">
+   <%- include partials/navbar.ejs %>
+    <div class="col-md-6 ">
     <div   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
        <img src="{{LookedatUser.picture}}"></img>
@@ -110,7 +110,7 @@
 	</table>
     </div>
   <div class="row"> 
-    <div class="col-md-4">
+    <div class="col">
 		<% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
 				
@@ -129,7 +129,7 @@
 	
 	</div>
 		
-		 <div class="col-md-4" >
+		 <div class="col" >
 	 <% if (req.param('userID') || req.session.passport) { %>
     <%- include partials/flag1.ejs %>
 	<% } %>
