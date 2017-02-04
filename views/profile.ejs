@@ -109,6 +109,7 @@
 			</tbody>
 	</table>
     </div>
+  <div class="container"> 
   <div class="row"> 
     <div class="col">
 		<% if (req.session.passport){ %>
@@ -129,10 +130,11 @@
 	
 	</div>
 		
-		 <div class="col" >
+		<div class="col" >
 	 <% if (req.param('userID') || req.session.passport) { %>
     <%- include partials/flag1.ejs %>
 	<% } %>
+	</div>
 	</div>
 	</div>
 	<%var dograph=false;%>
