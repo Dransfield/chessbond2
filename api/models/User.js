@@ -15,7 +15,14 @@ ELO:{type:'int',defaultsTo:1200},
 DifficultyLevelBeaten:{type:'int',defaultsTo:0},
 BoardSize:{type:'int',defaultsTo:300},
   SoundVolume:{type:'int',defaultsTo:5},
-   
+   ProfileViews:{type:'int',defaultsTo:0},
+   Numberoftimesloggedin:{type:'int',defaultsTo:0},
+   Gender:{type:'string',defaultsTo:""},
+   Dateofbirth:{type:'string',defaultsTo:""},
+   CurrentCity:{type:'string',defaultsTo:""},
+   FideTitle:{type:'string',defaultsTo:""},
+   ValidFideID:{type:'string',defaultsTo:""},
+   FideRatings:{type:'string',defaultsTo:""},
   beforeCreate: function(user, cb) {
     user.password = md5(user.password);
     cb();
