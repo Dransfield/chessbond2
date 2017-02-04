@@ -39,7 +39,7 @@
    <%- include partials/navbar.ejs %>
  <div style="display:flex"> 
    
-    <div   class="jumbotron">
+    <span   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
        <img src="{{LookedatUser.picture}}"></img>
          <% if (req.param('userID') || req.session.passport) { %>
@@ -50,7 +50,8 @@
            <% } %>
             <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 	
-	 </div>
+	 </span>
+	 <span>
     <table class="table table-striped">
               
 			<thead>
@@ -142,6 +143,7 @@
 				</tr>
 			</tbody>
 	</table>
+  </span>
   </div>
   <div style="display:flex"> 
 		<% if (req.session.passport){ %>
