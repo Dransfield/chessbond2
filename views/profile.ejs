@@ -238,7 +238,14 @@
 	<% } %>
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
-	<td ><img src="{{wllpsts.senderpic}}">{{wllpsts.content}}<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a>{{wllpsts.Age}}<hr></td>
+	<td >
+		<div style="display:flex">
+		<span><img src="{{wllpsts.senderpic}}"></span>
+		<span>{{wllpsts.content}}
+		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a>{{wllpsts.Age}}<hr>
+		</span>
+		</div>
+		</td>
 	
 	</table>
 		<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetOlderWallPosts(LookedatUser.id)"><</div>
