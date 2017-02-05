@@ -242,12 +242,11 @@
 		<div style="display:flex">
 		<span><img src="{{wllpsts.senderpic}}"></span>
 		<span>{{wllpsts.content}}
-		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a>{{wllpsts.Age}}
+		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
 		</div>
 		<hr>
-		</td>
-	
+	</td>
 	</table>
 		<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetOlderWallPosts(LookedatUser.id)"><</div>
 <div class="btn btn-lg btn-success" ng-click="GetMoreWallPosts(LookedatUser.id)">></div>
