@@ -23,6 +23,7 @@ $scope.wallpostskip=0;
 		$scope.GetMoreWallPosts=function(id)
 		{
 		$scope.wallpostskip+=1;
+		console.log("$scope.wallpostskip "+$scope.wallpostskip);
 			$scope.GetWallPosts(id);
 		};
 	$scope.GetWallPosts=function(id)
@@ -81,7 +82,7 @@ $scope.wallpostskip=0;
 							
 						for (var x in $scope.MyGames)
 						{
-						console.log('/user?id='+$scope.MyGames[x].Player1);
+						//console.log('/user?id='+$scope.MyGames[x].Player1);
 							io.socket.get('/user?id='+$scope.MyGames[x].Player1,
 								function (user1) {
 									io.socket.get('/user?id='+$scope.MyGames[x].Player2,
@@ -141,13 +142,13 @@ $scope.wallpostskip=0;
 											function(){
 												if ($scope.MyGames[x].Player1Color=='White')
 												{
-												console.log("white"+$scope.MyGames[x].id);
+												//console.log("white"+$scope.MyGames[x].id);
 												$scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player1,BlackPlayerID:$scope.MyGames[x].Player2,WhitePlayerName:$scope.MyGames[x].Player1Name,BlackPlayerName:$scope.MyGames[x].Player2Name,WhiteAvatar:user1.picture,BlackAvatar:user2.picture,WhiteELO:user1.ELO,BlackELO:user2.ELO});
 
 												}
 												else
 												{
-												console.log("black"+$scope.MyGames[x].id);
+												//console.log("black"+$scope.MyGames[x].id);
 												$scope.GameInfo.push({id:$scope.MyGames[x].id,res:resultstring,timelimit:($scope.MyGames[x].Player1TimeLimit/60),date:datestring,moves:$scope.MyGames[x].Move,WhitePlayerID:$scope.MyGames[x].Player2,BlackPlayerID:$scope.MyGames[x].Player1,WhitePlayerName:$scope.MyGames[x].Player2Name,BlackPlayerName:$scope.MyGames[x].Player1Name,WhiteAvatar:user2.picture,BlackAvatar:user1.picture,WhiteELO:user2.ELO,BlackELO:user1.ELO});
 
 												}
