@@ -143,7 +143,7 @@ $scope.chessgameskip=0;
 						$scope.MyGames.push(moregames[x]);
 						}
 
-						$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt);});
+						$scope.MyGames.sort(function(a, b){return Date.parse(b.createdAt)-Date.parse(a.createdAt);});
 						$scope.MyGames=$scope.MyGames.slice($scope.chessgameskip,$scope.chessgameskip+9);
 						console.log("HELLO");
 							
