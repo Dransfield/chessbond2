@@ -119,7 +119,7 @@ $scope.wallpostskip=0;
 		
 		
 	
-	
+	$scope.MyGames=[];
 		io.socket.get('/chessgame?Player1='+id+'&limit=10&skip='+$scope.chessgameskip+'&sort=createdAt DESC',
 			function (games) {
 			console.log("games1");
