@@ -135,7 +135,7 @@ $scope.chessgameskip=0;
 				$scope.MyGames.push(games[x]);
 				}
 
-				io.socket.get('/chessgame?Player2='+id+'&sort=createdAt DESC',
+				io.socket.get('/chessgame?Player2='+id+'&sort=createdAt ASC',
 					function (moregames) {
 						console.log("games2");
 						for (var x in moregames)
