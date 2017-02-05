@@ -26,12 +26,28 @@ $scope.wallpostskip=0;
 		console.log("$scope.wallpostskip "+$scope.wallpostskip);
 			$scope.GetWallPosts(id);
 		};
+		
+		$scope.GetMoreChessGames=function(id)
+		{
+		$scope.wallpostskip+=10;
+			$scope.GetChessGames(id);
+		};
+		
+		$scope.GetOlderChessGames=function(id)
+		{
+				$scope.chessgameskip-=10;
+			$scope.GetChessGames(id);
+			
+		};
+		
 		$scope.GetOlderWallPosts=function(id)
 		{
 		$scope.wallpostskip-=10;
 		console.log("$scope.wallpostskip "+$scope.wallpostskip);
 			$scope.GetWallPosts(id);
 		};
+		
+		
 		$scope.CalcAge=function(time)
 		{
 			var time=Date.parse(time);
@@ -98,24 +114,13 @@ $scope.wallpostskip=0;
 			});
 			});
 	};
-	$scope.GetInfo=function(id)
+	$scope.GetChessGames=function(id)
 	{
-		$scope.GetWallPosts(id);
-			io.socket.on('WallPost', function (data)
-			{
-			console.log('newopengameevent'+data);
-			
-			$scope.$apply(function(){
-			$scope.WallPosts.push(data);
-			});
-			console.log(data);
-			});
-			io.socket.get("/subscribeToRoom",{roomName:id},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-		});
+		
+		
 	
-			
-		io.socket.get('/chessgame?Player1='+id,
+	
+		io.socket.get('/chessgame?Player1='+id+'&limit=10&skip='+$scope.chessgameskip+'&sort=createdAt DESC',
 			function (games) {
 			console.log("games1");
 			//console.log("games "+JSON.stringify(games));
@@ -221,6 +226,27 @@ $scope.wallpostskip=0;
 					}
 				});
 			});
+			
+	};
+	$scope.GetInfo=function(id)
+	{
+		$scope.GetWallPosts(id);
+			$scope.GetChessGames(id);
+			io.socket.on('WallPost', function (data)
+			{
+			console.log('newopengameevent'+data);
+			
+			$scope.$apply(function(){
+			$scope.WallPosts.push(data);
+			
+			});
+			console.log(data);
+			});
+			io.socket.get("/subscribeToRoom",{roomName:id},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+		});
+	
+			
 		};
 	
 	$scope.SoleConnectorFunction=function(id)
