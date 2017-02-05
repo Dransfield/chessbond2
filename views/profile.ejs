@@ -234,7 +234,7 @@
 	<button type="submit" >Post to Wall</button>
 	</form>
 	<div class="btn btn-lg btn-success">Older Messages</div>
-	<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" onclick="GetMoreWallPosts(LookedatUser.id)">Newer Messages</div>
+	<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetMoreWallPosts(LookedatUser.id)">Newer Messages</div>
 	
 	<% } %>
 	<% } %>
