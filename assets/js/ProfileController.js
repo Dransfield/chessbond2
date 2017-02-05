@@ -32,6 +32,12 @@ $scope.wallpostskip=0;
 		console.log("$scope.wallpostskip "+$scope.wallpostskip);
 			$scope.GetWallPosts(id);
 		};
+		$scope.CalcAge=function(time)
+		{
+			var time=Date.parse(time);
+			return Date.now()-time;
+			
+		};
 	$scope.GetWallPosts=function(id)
 	{	
 		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip,
@@ -42,6 +48,7 @@ $scope.wallpostskip=0;
 				for (var x in msgs)
 				{		
 				$scope.WallPosts.push(msgs[x]);
+				msgs[x].Age=$scope.CalcAge(msgs[x].createdAt);
 				}
 			});
 			});
