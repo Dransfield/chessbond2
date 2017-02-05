@@ -5,6 +5,7 @@ $scope.MyGames=[];
 $scope.GameInfo=[];
 $scope.WallPosts=[];
 $scope.wallpostskip=0;
+$scope.chessgameskip=0;
 	$scope.getdate=function(datestr)
 	{
 	return Date.parse(datestr);
@@ -29,7 +30,7 @@ $scope.wallpostskip=0;
 		
 		$scope.GetMoreChessGames=function(id)
 		{
-		$scope.wallpostskip+=10;
+		$scope.chessgameskip+=10;
 			$scope.GetChessGames(id);
 		};
 		
