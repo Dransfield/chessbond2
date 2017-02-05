@@ -4,6 +4,7 @@ $scope.SoleConnectorVariable="";
 $scope.MyGames=[];
 $scope.GameInfo=[];
 $scope.WallPosts=[];
+$scope.wallpostskip=0;
 	$scope.getdate=function(datestr)
 	{
 	return Date.parse(datestr);
@@ -19,9 +20,26 @@ $scope.WallPosts=[];
 			
 			
 		};
+		$scope.GetMoreWallPosts(id)
+		{
+		$scope.wallpostskip+=1;
+			$scope.GetWallPosts(id);
+		};
+	$scope.GetWallPosts=function(id)
+	{	
+		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip,
+			function (msgs) {
+				console.log(JSON.stringify(msgs));
+				$scope.WallPosts=[];
+				for (var x in msgs)
+				{		
+				$scope.WallPosts.push(msgs[x]);
+				}
+			});
+	};
 	$scope.GetInfo=function(id)
 	{
-		
+		$scope.GetWallPosts(id);
 			io.socket.on('WallPost', function (data)
 			{
 			console.log('newopengameevent'+data);
@@ -34,14 +52,7 @@ $scope.WallPosts=[];
 			io.socket.get("/subscribeToRoom",{roomName:id},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 		});
-		io.socket.get('/wallpost?reciever='+id,
-			function (msgs) {
-				console.log(JSON.stringify(msgs));
-				for (var x in msgs)
-				{		
-				$scope.WallPosts.push(msgs[x]);
-				}
-			});
+	
 			
 		io.socket.get('/chessgame?Player1='+id,
 			function (games) {
