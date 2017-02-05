@@ -122,7 +122,7 @@ $scope.chessgameskip=0;
 	
 	$scope.MyGames=[];
 	$scope.GameInfo=[];
-		io.socket.get('/chessgame?Player1='+id+'&limit=10&skip='+$scope.chessgameskip+'&sort=createdAt DESC',
+		io.socket.get('/chessgame?Player1='+id+'&sort=createdAt DESC',
 			function (games) {
 			console.log("games1");
 			//console.log("games "+JSON.stringify(games));
@@ -135,7 +135,7 @@ $scope.chessgameskip=0;
 				$scope.MyGames.push(games[x]);
 				}
 
-				io.socket.get('/chessgame?Player2='+id,
+				io.socket.get('/chessgame?Player2='+id+'&sort=createdAt DESC',
 					function (moregames) {
 						console.log("games2");
 						for (var x in moregames)
@@ -144,7 +144,7 @@ $scope.chessgameskip=0;
 						}
 
 						$scope.MyGames.sort(function(a, b){return Date.parse(a.createdAt)-Date.parse(b.createdAt);});
-						$scope.MyGames=$scope.MyGames.slice(0,24);
+						$scope.MyGames=$scope.MyGames.slice($scope.chessgameskip,$scope.chessgameskip+9);
 						console.log("HELLO");
 							
 						for (var x in $scope.MyGames)
