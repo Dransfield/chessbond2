@@ -85,7 +85,7 @@ $scope.wallpostskip=0;
 		
 	$scope.GetWallPosts=function(id)
 	{	
-		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'?sort=createdAt%20DESC',
+		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'?sort=DESC',
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
 				$scope.$apply(function(){
