@@ -93,7 +93,7 @@ $scope.wallpostskip=0;
 				for (var x in msgs)
 				{		
 				$scope.WallPosts.push(msgs[x]);
-				msgs[x].Age=$scope.phrasefordate=function(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
 			});
 			});
