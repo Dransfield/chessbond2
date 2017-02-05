@@ -38,6 +38,51 @@ $scope.wallpostskip=0;
 			return Date.now()-time;
 			
 		};
+		
+		
+		$scope.phrasefordate=function(dat)
+			{
+			var nu=Date.parse(dat);
+			//console.log("nu "+nu);
+		var n = Date.now();
+		
+		var newnum=n-nu;
+		newnum=newnum/1000;
+		if (newnum<60)
+		{
+		if (newnum<0)
+		{newnum=0;}
+		phrase=parseInt(newnum)+" seconds ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" minutes ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" hours ago";
+		}
+		else
+		{
+		newnum=newnum/24;
+		
+		phrase=parseInt(newnum)+" days ago";
+		
+		}
+		
+		}
+		
+		}
+		return phrase;
+	};
+	
+		
 	$scope.GetWallPosts=function(id)
 	{	
 		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip,
@@ -48,7 +93,7 @@ $scope.wallpostskip=0;
 				for (var x in msgs)
 				{		
 				$scope.WallPosts.push(msgs[x]);
-				msgs[x].Age=$scope.CalcAge(msgs[x].createdAt);
+				msgs[x].Age=$scope.phrasefordate=function(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
 			});
 			});
