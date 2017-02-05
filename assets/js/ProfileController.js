@@ -26,16 +26,24 @@ $scope.wallpostskip=0;
 		console.log("$scope.wallpostskip "+$scope.wallpostskip);
 			$scope.GetWallPosts(id);
 		};
+		$scope.GetOlderWallPosts=function(id)
+		{
+		$scope.wallpostskip-=10;
+		console.log("$scope.wallpostskip "+$scope.wallpostskip);
+			$scope.GetWallPosts(id);
+		};
 	$scope.GetWallPosts=function(id)
 	{	
 		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip,
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
+				$scope.$apply(function(){
 				$scope.WallPosts=[];
 				for (var x in msgs)
 				{		
 				$scope.WallPosts.push(msgs[x]);
 				}
+			});
 			});
 	};
 	$scope.GetInfo=function(id)
