@@ -122,7 +122,7 @@ $scope.chessgameskip=0;
 	
 	$scope.MyGames=[];
 	$scope.GameInfo=[];
-		io.socket.get('/chessgame?Player1='+id+'&sort=createdAt DESC',
+		io.socket.get('/chessgame?Player1='+id+'&sort=createdAt ASC',
 			function (games) {
 			console.log("games1");
 			//console.log("games "+JSON.stringify(games));
