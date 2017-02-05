@@ -22,7 +22,7 @@ $scope.wallpostskip=0;
 		};
 		$scope.GetMoreWallPosts=function(id)
 		{
-		$scope.wallpostskip+=1;
+		$scope.wallpostskip+=10;
 		console.log("$scope.wallpostskip "+$scope.wallpostskip);
 			$scope.GetWallPosts(id);
 		};
