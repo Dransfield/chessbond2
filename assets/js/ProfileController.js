@@ -20,7 +20,7 @@ $scope.wallpostskip=0;
 			
 			
 		};
-		$scope.GetMoreWallPosts(id)
+		$scope.GetMoreWallPosts=function(id)
 		{
 		$scope.wallpostskip+=1;
 			$scope.GetWallPosts(id);
