@@ -325,8 +325,8 @@ passport.use(new GoogleStrategy({
 				console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
-					console.log("profile._json.location "+profile._json.location);
-					console.log(GetCountry(profile._json.location));
+					console.log("twitter profile._json.location "+profile._json.location);
+					console.log("twitter getcountry "+GetCountry(profile._json.location));
 					if(profile._json)
 					{
 					if(profile._json.location)
@@ -340,6 +340,38 @@ passport.use(new GoogleStrategy({
                     // if there is no user found with that facebook id, create them
                     //var newUser            = new User();
                     //console.log(profile);
+                    var countr="none";
+                    var gotcountry=false;
+                    if(profile._json)
+					{
+					if(profile._json.hometown)
+					{
+					console.log(profile._json.hometown.name);
+					var tempcountry=GetCountry(profile._json.hometown);
+					if(tempcountry!='')
+					{
+					countr=tempcountry;
+					gotcountry=true;
+					}
+					}
+					}
+                    
+                    if (gotcountry==false)
+                    {
+					if(profile._json)
+					{
+					if(profile._json.location)
+					{
+					
+					var tempcountry=GetCountry(profile._json.location);
+					if(tempcountry!='')
+					{
+					countr=tempcountry;
+					gotcountry=true;
+					}	
+					}
+                    }
+                    }
                     
 					User.create({
                     // set all of the facebook information in our user model
@@ -347,7 +379,7 @@ passport.use(new GoogleStrategy({
                     twittertoken : token, // we will save the token that facebook provides to the user                    
                     name:profile._json.screen_name,
                     picture:profile._json.profile_image_url,
-                    Country:GetCountry(profile.location)
+                    Country:countr
                     }).exec( // look at the passport user profile to see how names are returned
                     
                     //facebookemail:  profile.emails[0].value}).exec( // facebook can return multiple emails so we'll take the first
@@ -385,6 +417,39 @@ passport.use(new FacebookStrategy({
         // asynchronous
         process.nextTick(function() {
  console.log(profile);
+		    var countr="none";
+                    var gotcountry=false;
+                    if(profile._json)
+					{
+					if(profile._json.hometown)
+					{
+					console.log(profile._json.hometown.name);
+					var tempcountry=GetCountry(profile._json.hometown.name);
+					if(tempcountry!='')
+					{
+					countr=tempcountry;
+					gotcountry=true;
+					}
+					}
+					}
+                    
+                    if (gotcountry==false)
+                    {
+					if(profile._json)
+					{
+					if(profile._json.location)
+					{
+					
+					var tempcountry=GetCountry(profile._json.location.name);
+					if(tempcountry!='')
+					{
+					countr=tempcountry;
+					gotcountry=true;
+					}	
+					}
+                    }
+                    }
+ 
             // find the user in the database based on their facebook id
             User.findOne({ 'facebookid' : profile.id }, function(err, user) {
 
@@ -395,6 +460,11 @@ passport.use(new FacebookStrategy({
 
                 // if the user is found, then log them in
                 if (user) {
+					if(gotcountry==true)
+					{
+					user.Country=countr;
+					user.save();
+					}
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
@@ -408,7 +478,8 @@ passport.use(new FacebookStrategy({
                     facebookname  : profile.name.givenName + ' ' + profile.name.familyName,
                     email:profile._json.email,
                     name:profile.displayName,
-                    picture:profile._json.picture.data.url
+                    picture:profile._json.picture.data.url,
+                    Country:countr
                     }).exec( // look at the passport user profile to see how names are returned
                     
                     //facebookemail:  profile.emails[0].value}).exec( // facebook can return multiple emails so we'll take the first
