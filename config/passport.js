@@ -71,14 +71,14 @@ passport.use(new GoogleStrategy({
                 // ie an error connecting to the database
                 if (err)
                     return done(err);
-
+				console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
                     //var newUser            = new User();
-                    console.log(profile);
+                    //console.log(profile);
                     
 					User.create({
                     // set all of the facebook information in our user model
@@ -114,7 +114,7 @@ passport.use(new FacebookStrategy({
 		clientID: '204758053307163',
 		clientSecret:'efc1758be36f4bfc488ea18f5680cb60',
 		 callbackURL: 'http://www.chessbond.com/auth/facebook_oauth2/',
-		 profileFields: ['id', 'displayName', 'photos','email','gender','hometown','locale','location']
+		 profileFields: ['id', 'displayName', 'photos','email','gender','hometown','locale','location','birthday']
     },
 
     // facebook will send back the token and profile
