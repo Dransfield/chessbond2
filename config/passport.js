@@ -253,19 +253,19 @@ var countries=[
 	{name:'Zambia'},
 	{name:'Zimbabwe'}
 ];
-
+console.log("loc "+loc);
+if(loc){
 for (x in countries)
 {
 if(loc===countries[x].name)
 {return countries[x].name}	
 }
-
 for (x in countries)
 {
 if(loc.indexOf(countries[x].name)>-1)
 {return countries[x].name}	
 }
-
+}
 
 };
 
@@ -323,6 +323,7 @@ passport.use(new GoogleStrategy({
 				console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
+					console.log("profile.location "+profile.location);
 					console.log(GetCountry(profile.location));
                     return done(null, user); // user found, return that user
                 } else {
