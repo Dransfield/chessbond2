@@ -262,7 +262,7 @@ if(loc===countries[x].name)
 
 for (x in countries)
 {
-if(loc.indexof(countries[x].name)>-1)
+if(loc.indexOf(countries[x].name)>-1)
 {return countries[x].name}	
 }
 
