@@ -122,7 +122,7 @@ passport.use(new FacebookStrategy({
 
         // asynchronous
         process.nextTick(function() {
-
+ console.log(profile);
             // find the user in the database based on their facebook id
             User.findOne({ 'facebookid' : profile.id }, function(err, user) {
 
@@ -137,7 +137,7 @@ passport.use(new FacebookStrategy({
                 } else {
                     // if there is no user found with that facebook id, create them
                     //var newUser            = new User();
-                    console.log(profile);
+                   
                     
 					User.create({
                     // set all of the facebook information in our user model
