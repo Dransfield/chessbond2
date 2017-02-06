@@ -240,6 +240,8 @@ var countries=[
 	{name:'Uganda'},
 	{name:'Ukraine'},
 	{name:'United Kingdom'},
+	{name:'USA'},
+	{name:'England'},
 	{name:'United States'},
 	{name:'Uruguay'},
 	{name:'US Virgin Islands'},
