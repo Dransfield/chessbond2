@@ -67,7 +67,7 @@ passport.authenticate('twitter')(req, res);
         })(req, res);;
 	},
 	loginfacebook:function(req,res){
-passport.authenticate('facebook',{ scope : [ 'email','user_hometown'] })(req, res);
+passport.authenticate('facebook',{ scope : [ 'email','gender','user_hometown','user_location'] })(req, res);
 	},
 	facebookcallback:function(req,res)
 	{
