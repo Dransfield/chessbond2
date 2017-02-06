@@ -323,8 +323,8 @@ passport.use(new GoogleStrategy({
 				console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
-					console.log("profile.location "+profile.location);
-					console.log(GetCountry(profile.location));
+					console.log("profile._json.location "+profile._json.location);
+					console.log(GetCountry(profile._json.location));
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
