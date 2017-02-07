@@ -256,13 +256,7 @@
 		<button type="submit" ng-click="SendWallPostReply('<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
 		</div>
 		Replies:
-		<div style="display:flex">
-		<span><img src="{{wllpsts.Replies[0].senderpic}}"></span>
-		<span>{{wllpsts.Replies[0].content}}
-		<br>by <a href="/profile/{{wllpsts.Replies[0].sender}}" target="_blank">{{wllpsts.Replies[0].sendername}}</a> {{wllpsts.Replies[0].Age}}
-		</span>
-		</div>
-		
+				
 		<br>
 		<div ng-repeat="rply in wllpsts.Replies track by $index">
 		{{rply.content}}
