@@ -244,9 +244,7 @@
    <tr ng-repeat="wllpsts in WallPosts track by $index">
 	HWELLO
 	<td >
-		<h1>
-		{{wllpsts.Replies[0].id}}
-	</h1>
+		
 		<div style="display:flex">
 		<span><img src="{{wllpsts.senderpic}}"></span>
 		<span>{{wllpsts.content}}
@@ -258,6 +256,12 @@
 		<button type="submit" ng-click="SendWallPostReply('<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
 		</div>
 		
+		<div style="display:flex">
+		<span><img src="{{wllpsts.Replies[0].senderpic}}"></span>
+		<span>{{wllpsts.Replies[0].content}}
+		<br>by <a href="/profile/{{wllpsts.Replies[0].sender}}" target="_blank">{{wllpsts.Replies[0].sendername}}</a> {{wllpsts.Replies[0].Age}}
+		</span>
+		</div>
 		
 		
 		
