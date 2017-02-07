@@ -252,7 +252,7 @@
 		</span>
 		<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
-		<span class="btn btn-default btn-small" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</span>
+		<span class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</span>
 		<div ng-show="ShowReply[$index]">
 	
 
@@ -267,8 +267,11 @@
 		Replies:
 		
 		<div ng-repeat="rply in wllpsts.Replies track by $index">
-			
+			<div style="display:flex">
+				<div></div>
+				<div>
 		{{rply.content}}
+		</div>
 		<br>by <a href="/profile/{{rply.sender}}" target="_blank">{{rply.sendername}}</a> {{rply.Age}}
 		
 		</div>
