@@ -113,7 +113,7 @@ $scope.chessgameskip=0;
 						
 				$scope.WallPosts.push(msgs[x]);
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
-		
+				console.log("did anyone reply to "+msgs[x].id);
 				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
 				msgs[x].Replies=[];
