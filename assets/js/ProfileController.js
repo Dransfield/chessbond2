@@ -138,7 +138,7 @@ $scope.chessgameskip=0;
 	{
 			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
-			$scope.chatInput = null;
+
 			});
 	};
 	$scope.GetChessGames=function(id)
@@ -265,8 +265,18 @@ $scope.chessgameskip=0;
 			console.log('newopengameevent'+data);
 			
 			$scope.$apply(function(){
+				if(data.replyto!='none')
+				{
+				for (x in $scope.WallPosts)
+				{
+				if($scope.WallPosts[x].id==data.replyto)
+					{$scope.WallPosts[x].Replies.push(data);}
+				}
+			}
+			else
+			{
 			$scope.WallPosts.push(data);
-			
+			}
 			});
 			console.log(data);
 			});
