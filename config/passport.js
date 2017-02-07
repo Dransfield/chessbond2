@@ -255,18 +255,139 @@ var countries=[
 	{name:'Zambia'},
 	{name:'Zimbabwe'}
 ];
+
+
+var states=[
+{name:'Alabama'},
+{name:'Alaska'},
+{name:'Arizona'},
+{name:'Arkansas'}, 
+{name:'California'}, 
+{name:'Colorado'}, 
+{name:'Connecticut'}, 
+{name:'Delaware'}, 
+{name:'Florida'}, 
+{name:'Georgia'}, 
+{name:'Hawaii'}, 
+{name:'Idaho'}, 
+{name:'Illinois Indiana'}, 
+{name:'Iowa'}, 
+{name:'Kansas'}, 
+{name:'Kentucky'}, 
+{name:'Louisiana'}, 
+{name:'Maine'}, 
+{name:'Maryland'}, 
+{name:'Massachusetts'}, 
+{name:'Michigan'}, 
+{name:'Minnesota'}, 
+{name:'Mississippi'}, 
+{name:'Missouri'}, 
+{name:'Montana Nebraska'}, 
+{name:'Nevada'}, 
+{name:'New Hampshire'}, 
+{name:'New Jersey'}, 
+{name:'New Mexico'}, 
+{name:'New York'}, 
+{name:'North Carolina'}, 
+{name:'North Dakota'}, 
+{name:'Ohio'}, 
+{name:'Oklahoma'}, 
+{name:'Oregon'}, 
+{name:'Pennsylvania Rhode Island'}, 
+{name:'South Carolina'}, 
+{name:'South Dakota'}, 
+{name:'Tennessee'}, 
+{name:'Texas'}, 
+{name:'Utah'}, 
+{name:'Vermont'}, 
+{name:'Virginia'}, 
+{name:'Washington'}, 
+{name:'West Virginia'}, 
+{name:'Wisconsin'}, 
+{name:'Wyoming'}
+];
+
+var statecodes=[
+{name:'AL'},
+{name:'AK'},
+{name:'AZ'},
+{name:'AR'},
+{name:'CA'},
+{name:'CO'},
+{name:'CT'},
+{name:'DE'},
+{name:'FL'},
+{name:'GA'},
+{name:'HI'},
+{name:'ID'},
+{name:'IL'},
+{name:'IN'},
+{name:'IA'},
+{name:'KS'},
+{name:'KY'},
+{name:'LA'},
+{name:'ME'},
+{name:'MD'},
+{name:'MA'},
+{name:'MI'},
+{name:'MN'},
+{name:'MS'},
+{name:'MO'},
+{name:'MT'},
+{name:'NE'},
+{name:'NV'},
+{name:'NH'},
+{name:'NJ'},
+{name:'NM'},
+{name:'NY'},
+{name:'NC'},
+{name:'ND'},
+{name:'OH'},
+{name:'OK'},
+{name:'OR'},
+{name:'PA'},
+{name:'RI'},
+{name:'RC'},
+{name:'SD'},
+{name:'TN'},
+{name:'TX'},
+{name:'UT'},
+{name:'VT'},
+{name:'VA'},
+{name:'WA'},
+{name:'WV'},
+{name:'WI'},
+{name:'WY'}
+]
+
 console.log("loc "+loc);
 if(loc){
 for (x in countries)
 {
 if(loc===countries[x].name)
-{return countries[x].name}	
+{return countries[x].name;}	
 }
 for (x in countries)
 {
 if(loc.indexOf(countries[x].name)>-1)
-{return countries[x].name}	
+{return countries[x].name;}	
+
 }
+
+for (x in states)
+{
+if(loc.indexOf(states[x].name)>-1)
+{return "United States";}	
+
+}
+
+for (x in statecodes)
+{
+if(loc.indexOf(statecodes[x].name)>-1)
+{return "United States";}	
+
+}
+
 }
 
 };
