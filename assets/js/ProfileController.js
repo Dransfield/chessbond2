@@ -113,21 +113,20 @@ $scope.chessgameskip=0;
 				$scope.WallPosts.push(msgs[x]);
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 		
-				io.socket.get('/wallpost?ReplyTo='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
-			function (rply) {
-				for (var y in rply)
-				{
-				msgs[x].Replies[y]=rply[y];
-				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
-				}
-				});
+				
 				
 				
 				}
 			});
 			});
 	};
-	
+	$scope.SendWallPostReply=function(user,text,replyingto)
+	{
+			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			.then(function onSuccess (){
+			$scope.chatInput = null;
+			});
+	};
 	$scope.GetChessGames=function(id)
 	{
 		
