@@ -252,7 +252,7 @@
 		</span>
 		<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
-		<span class="label label-default" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</span>
+		<span class="btn btn-default btn-small" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</span>
 		<div ng-show="ShowReply[$index]">
 	
 
