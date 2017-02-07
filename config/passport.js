@@ -398,6 +398,7 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://www.chessbond.com/auth/google_oauth2/"
   },
   function(accessToken, refreshToken, profile, done) {
+	  console.log(profile);
     User.findOne({ googleId: profile.id }, function (err, user) {
        // if there is an error, stop everything and return that
                 // ie an error connecting to the database
