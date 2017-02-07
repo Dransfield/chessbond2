@@ -116,6 +116,7 @@ $scope.chessgameskip=0;
 				console.log("did anyone reply to "+msgs[x].id);
 				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
+				console.log("reply"+rply);
 				msgs[x].Replies=[];
 				for (var y in rply)
 				{
