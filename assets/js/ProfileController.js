@@ -13,7 +13,7 @@ $scope.chessgameskip=0;
 	$scope.SendWallPost=function(usrid)
 		{
 			var none='none';
-			$http.post("/newwallpost",{ReplyTo:none,senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			$http.post("/newwallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
@@ -114,7 +114,7 @@ $scope.chessgameskip=0;
 				$scope.WallPosts.push(msgs[x]);
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 		
-				io.socket.get('/wallpost?ReplyTo='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
+				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
 				for (var y in rply)
 				{
