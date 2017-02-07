@@ -255,7 +255,7 @@
 		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
 		<button type="submit" ng-click="SendWallPostReply('<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
 		</div>
-		
+		Replies:
 		<div style="display:flex">
 		<span><img src="{{wllpsts.Replies[0].senderpic}}"></span>
 		<span>{{wllpsts.Replies[0].content}}
@@ -263,8 +263,9 @@
 		</span>
 		</div>
 		
-		
-		
+		<div ng-repeat="rply in wllpsts.Replies track by $index">
+		{{rply.content}}
+		</div>
 		
 		
 	<hr>
