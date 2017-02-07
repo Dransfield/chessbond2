@@ -49,7 +49,7 @@
          
            <% } %>
             <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-	
+	<button type="button" class="btn btn-info">Statistics</button>
 	 </span>
 	 <span>
     <table class="table table-striped">
@@ -230,13 +230,12 @@
 	<span>
 		<h2>Who am I?</h2>
 		<h2>My Wall</h2>
-				<% if (req.session.passport) { %>
+	<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
 	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
 	<input type="text" autocomplete="off" class="form-control" placeholder="post to wall" name="name" ng-model="WallPostInput"  required>
 	<button type="submit" >Post to Wall</button>
 	</form>
-	
 	<% } %>
 	<% } %>
 	<table>
