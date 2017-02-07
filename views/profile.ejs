@@ -242,7 +242,7 @@
 	<% } %>
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
-	HWELLO
+	
 	<td >
 		
 		<div style="display:flex">
@@ -261,10 +261,12 @@
 		</div>
 		<% } %>
 	<% } %>
+	</div>
 		Replies:
 				
 		<br>
 		<div ng-repeat="rply in wllpsts.Replies track by $index">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>
 		{{rply.content}}
 		<br>by <a href="/profile/{{rply.sender}}" target="_blank">{{rply.sendername}}</a> {{rply.Age}}
 		
