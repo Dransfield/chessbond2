@@ -127,13 +127,7 @@ $scope.chessgameskip=0;
 			});
 			});
 	};
-	$scope.SendWallPostReply=function(user,text,replyingto)
-	{
-			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
-			.then(function onSuccess (){
-			$scope.chatInput = null;
-			});
-	};
+	
 	$scope.GetChessGames=function(id)
 	{
 		
