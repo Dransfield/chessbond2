@@ -248,6 +248,15 @@
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
 		
+		<tr ng-repeat="wllpsts2 in wllpsts.Replies track by $index">
+		<td >
+			<span><img src="{{wllpsts2.senderpic}}"></span>
+		<span>{{wllpsts2.content}}
+		<br>by <a href="/profile/{{wllpsts2.sender}}" target="_blank">{{wllpsts2.sendername}}</a> {{wllpsts2.Age}}
+		</span>
+		</td>
+		</tr>
+		
 		</div>
 		<div ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]"><u>Reply</u></div>
 		<div ng-show="ShowReply[$index]">
