@@ -12,7 +12,7 @@ $scope.chessgameskip=0;
 	};
 	$scope.SendWallPost=function(usrid)
 		{
-			$http.post("/newwallpost",{senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			$http.post("/newwallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			}
@@ -102,18 +102,37 @@ $scope.chessgameskip=0;
 		
 	$scope.GetWallPosts=function(id)
 	{	
-		io.socket.get('/wallpost?reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
+		io.socket.get('/wallpost?ReplyTo=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
 				$scope.$apply(function(){
 				$scope.WallPosts=[];
 				for (var x in msgs)
-				{		
+				{
+						
 				$scope.WallPosts.push(msgs[x]);
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+		
+				io.socket.get('/wallpost?ReplyTo='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
+			function (rply) {
+				for (var y in rply)
+				{
+				msgs[x].Replies[y]=rply[y];
+				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				}
+				});
+				
+				
 				}
 			});
 			});
+	};
+	$scope.SendWallPostReply(user,text,replyingto)
+	{
+			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			.then(function onSuccess (){
+			$scope.chatInput = null;
+			}
 	};
 	$scope.GetChessGames=function(id)
 	{
