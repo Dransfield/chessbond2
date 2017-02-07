@@ -103,7 +103,7 @@ $scope.chessgameskip=0;
 		
 	$scope.GetWallPosts=function(id)
 	{	
-		io.socket.get('/wallpost?ReplyTo=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
+		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
 				$scope.$apply(function(){
