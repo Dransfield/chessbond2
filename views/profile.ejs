@@ -250,8 +250,8 @@
 		</div>
 		<div ng-show="!ShowReply$index" ng-click="ShowReply$index=!ShowReply$index"><u>Reply</u></div>
 		<div ng-show="ShowReply$index">
-		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput"  required>
-		<button type="submit" class="btn btn-warning btn-sm">Reply</button>
+		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput$index"  required>
+		<button type="submit" ng-click="SendWallPost('<%- req.session.passport.user %>')" class="btn btn-warning btn-sm">Reply</button>
 		</div>
 	<hr>
 		
