@@ -123,6 +123,7 @@ $scope.chessgameskip=0;
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
+				console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
 				});
