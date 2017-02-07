@@ -541,8 +541,7 @@ passport.use(new FacebookStrategy({
 		    var countr="none";
                     var gotcountry=false;
           
-                    if (gotcountry==false)
-                    {
+                   
 					if(profile._json)
 					{
 					if(profile._json.location)
@@ -556,8 +555,10 @@ passport.use(new FacebookStrategy({
 					}	
 					}
                     }
-                    }
+                    
 					
+					 if (gotcountry==false)
+                    {
 					if(profile._json)
 					{
 					if(profile._json.hometown)
@@ -571,7 +572,7 @@ passport.use(new FacebookStrategy({
 					}
 					}
 					}
-                    
+                    }
 					
             // find the user in the database based on their facebook id
             User.findOne({ 'facebookid' : profile.id }, function(err, user) {
