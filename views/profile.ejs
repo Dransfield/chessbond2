@@ -242,30 +242,35 @@
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
 	<td >
+		
 		<div style="display:flex">
 		<span><img src="{{wllpsts.senderpic}}"></span>
 		<span>{{wllpsts.content}}
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
+		<div ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]"><u>Reply</u></div>
+		<div ng-show="ShowReply[$index]">
+		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
+		<button type="submit" ng-click="SendWallPostReply('<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
+		</div>
 		
-		<tr ng-repeat="wllpsts2 in wllpsts.Replies track by $index">
+		
+		
+		
+		
+		
+	<hr>
+		
+	</td>
+	<tr ng-repeat="wllpsts2 in wllpsts.Replies track by $index">
 		<td >
+			console.log({{wllpsts2.id}});
 			<span><img src="{{wllpsts2.senderpic}}"></span>
 		<span>{{wllpsts2.content}}
 		<br>by <a href="/profile/{{wllpsts2.sender}}" target="_blank">{{wllpsts2.sendername}}</a> {{wllpsts2.Age}}
 		</span>
 		</td>
 		</tr>
-		
-		</div>
-		<div ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]"><u>Reply</u></div>
-		<div ng-show="ShowReply[$index]">
-		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
-		<button type="submit" ng-click="SendWallPostReply('<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
-		</div>
-	<hr>
-		
-	</td>
 	</table>
 		<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetOlderWallPosts(LookedatUser.id)"><</div>
 <div class="btn btn-lg btn-success" ng-click="GetMoreWallPosts(LookedatUser.id)">></div>
