@@ -266,12 +266,12 @@
 	<hr>
 		
 	</td>
-	<tr ng-repeat="wllpsts2 in wllpsts.Replies track by $index">
+	<tr ng-repeat="rply in wllpsts.Replies track by $index">
 		<td >
-			console.log({{wllpsts2.id}});
-			<span><img src="{{wllpsts2.senderpic}}"></span>
-		<span>{{wllpsts2.content}}
-		<br>by <a href="/profile/{{wllpsts2.sender}}" target="_blank">{{wllpsts2.sendername}}</a> {{wllpsts2.Age}}
+			{{rply.id}};
+			<span><img src="{{rply.senderpic}}"></span>
+		<span>{{rply.content}}
+		<br>by <a href="/profile/{{rply.sender}}" target="_blank">{{rply.sendername}}</a> {{rply.Age}}
 		</span>
 		</td>
 	</tr>
