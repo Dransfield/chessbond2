@@ -236,11 +236,15 @@
 	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
 	<input type="text" autocomplete="off" class="form-control" placeholder="post to wall" name="name" ng-model="WallPostInput"  required>
 	<button type="submit" >Post to Wall</button>
+	
 	</form>
 	<% } %>
 	<% } %>
 	<table>
    <tr ng-repeat="wllpsts in WallPosts track by $index">
+	<h1>
+		{{wllpsts.Replies[0].id}}
+	</h1>
 	<td >
 		
 		<div style="display:flex">
@@ -270,7 +274,7 @@
 		<br>by <a href="/profile/{{wllpsts2.sender}}" target="_blank">{{wllpsts2.sendername}}</a> {{wllpsts2.Age}}
 		</span>
 		</td>
-		</tr>
+	</tr>
 	</table>
 		<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetOlderWallPosts(LookedatUser.id)"><</div>
 <div class="btn btn-lg btn-success" ng-click="GetMoreWallPosts(LookedatUser.id)">></div>
