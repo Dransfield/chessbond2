@@ -116,12 +116,15 @@ $scope.chessgameskip=0;
 				console.log("did anyone reply to "+msgs[x].id);
 				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
+				
+				$scope.$apply(function(){
 				console.log("reply"+JSON.stringify(rply));
 				$scope.WallPosts[x].Replies=[];
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				}
 				}
 				});
 				
