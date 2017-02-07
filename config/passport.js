@@ -540,20 +540,7 @@ passport.use(new FacebookStrategy({
  console.log(profile);
 		    var countr="none";
                     var gotcountry=false;
-                    if(profile._json)
-					{
-					if(profile._json.hometown)
-					{
-					console.log(profile._json.hometown.name);
-					var tempcountry=GetCountry(profile._json.hometown.name);
-					if(tempcountry!='')
-					{
-					countr=tempcountry;
-					gotcountry=true;
-					}
-					}
-					}
-                    
+          
                     if (gotcountry==false)
                     {
 					if(profile._json)
@@ -570,7 +557,22 @@ passport.use(new FacebookStrategy({
 					}
                     }
                     }
- 
+					
+					if(profile._json)
+					{
+					if(profile._json.hometown)
+					{
+					console.log(profile._json.hometown.name);
+					var tempcountry=GetCountry(profile._json.hometown.name);
+					if(tempcountry!='')
+					{
+					countr=tempcountry;
+					gotcountry=true;
+					}
+					}
+					}
+                    
+					
             // find the user in the database based on their facebook id
             User.findOne({ 'facebookid' : profile.id }, function(err, user) {
 
