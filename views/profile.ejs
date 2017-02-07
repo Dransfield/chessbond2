@@ -248,8 +248,12 @@
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
 		</div>
-		<button type="button" class="btn btn-warning btn-sm">Reply</button>
-		<hr>
+		<form ng-submit="SendWallPostReply(wllpsts.id,'<%- req.session.passport.user %>')">
+		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostInput"  required>
+		<button type="submit" class="btn btn-warning btn-sm">Reply</button>
+		
+		</form>
+	<hr>
 		
 	</td>
 	</table>
