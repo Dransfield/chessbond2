@@ -125,7 +125,7 @@ $scope.chessgameskip=0;
 				$scope.WallPosts[x].Replies[y]=rply[y];
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
-				}
+				});
 				});
 				
 				
