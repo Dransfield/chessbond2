@@ -289,7 +289,6 @@ $scope.chessgameskip=0;
 			$scope.SoleConnectorVariable="true";
 			}
 			
-			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			}
 			
