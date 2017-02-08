@@ -117,10 +117,10 @@ $scope.chessgameskip=0;
 				$scope.WallPosts=[];
 				for (x in msgs)
 				{
-				
+				console.log("x is now1 "+x);
 				io.socket.get('/block?blocked='+msgs[x].sender,
 			function (blk) {
-				
+				console.log("x is now2 "+x);
 				if(!blk[0]){
 				console.log("not blocked "+msgs[x].content); 
 				$scope.WallPosts[x]=msgs[x];
