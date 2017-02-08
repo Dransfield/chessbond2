@@ -118,8 +118,10 @@ $scope.BlockedUsers=[];
 	$scope.GetBlockedUsers=function(MyID)
 	
 	{
+		console.log("GetBlockedUsers");
 	io.socket.get('/block?blocker='+MyID,
 			function (blk) {
+		console.log(JSON.stringify(blk));
 		for (x in blk)
 		{
 			console.log("blk.blocked "+blk.blocked);
