@@ -124,9 +124,9 @@ $scope.BlockedUsers=[];
 		console.log(JSON.stringify(blk));
 		for (x in blk)
 		{
-			console.log("blk.blocked "+blk.blocked);
+			console.log("blk.blocked "+blk[x].blocked);
 		$scope.$apply(function(){
-		$scope.BlockedUsers[blk.blocked]=true;	
+		$scope.BlockedUsers[blk[x].blocked]=true;	
 		});
 		}
 		
