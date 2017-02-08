@@ -101,11 +101,11 @@ $scope.BlockedUsers=[];
 		return phrase;
 	};
 	
-	$scope.BlockUser=function(MyID,Sender)
+	$scope.BlockUser=function(MyID,sender)
 		{
-		$scope.$apply(function(){$scope.BlockedUsers[sender]=true;});
+		$scope.BlockedUsers[sender]=true;
 			
-			io.socket.post('/block',{blocker:MyID,blocked:Sender},
+			io.socket.post('/block',{blocker:MyID,blocked:sender},
 			function (resData, jwRes) {
 				});
 		};
@@ -113,7 +113,8 @@ $scope.BlockedUsers=[];
 	$scope.UnBlockUser=function(MyID,sender)
 	{
 		
-		$scope.$apply(function(){$scope.BlockedUsers[sender]=false;});
+		$scope.BlockedUsers[sender]=false;
+			
 		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
 	function  (data){
 		console.log("Get"+JSON.stringify(data));
