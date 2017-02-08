@@ -115,7 +115,7 @@ $scope.chessgameskip=0;
 				//console.log(JSON.stringify(msgs));
 				
 				$scope.WallPosts=[];
-				for (var x in msgs)
+				for (x in msgs)
 				{
 				
 				io.socket.get('/block?blocked='+msgs[x].sender,
@@ -142,7 +142,7 @@ $scope.chessgameskip=0;
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
-				console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
+				//console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
 				});
