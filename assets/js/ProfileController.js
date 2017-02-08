@@ -145,7 +145,7 @@ $scope.chessgameskip=0;
 				}
 				});
 				});
-				}
+				});
 				}
 				}
 			});
