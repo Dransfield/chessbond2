@@ -255,8 +255,8 @@
 		<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
 		<span class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</span>
-		<button type="submit" ng-show="!BlockedUsers(wllpsts.sender)" ng-click="BlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-warning btn-sm">Block User</button>
-		<button type="submit" ng-show="BlockedUsers(wllpsts.sender)" ng-click="UnBlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-warning btn-sm">UnBlock User</button>
+		<button type="submit" ng-show="!BlockedUsers[wllpsts.sender]" ng-click="BlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-warning btn-sm">Block User</button>
+		<button type="submit" ng-show="BlockedUsers[wllpsts.sender]" ng-click="UnBlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-warning btn-sm">UnBlock User</button>
 		
 		<div ng-show="ShowReply[$index]">
 	
