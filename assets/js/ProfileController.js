@@ -116,10 +116,9 @@ $scope.BlockedUsers=[];
 			for(x in data){
 	io.socket.put('/block/destroy',{id:data[x].id},
 		function  (data){
-			console.log("destroy"+JSON.stringify(data));
 			
-		$scope.GetWallPosts(MyID);
-	$scope.GetBlockedUsers(MyID);
+			
+		$scope.BlockedUsers[sender]=false;
 		});
 		}
 		});
@@ -143,19 +142,21 @@ $scope.BlockedUsers=[];
 	
 	{
 		
-	io.socket.get('/block?blocked='+messagearray[iter].sender+'&blocker='+id,
-			function (blk) {
-				if(!blk[0]){
-				console.log("not blocked "+messagearray[iter].content); 
-				$scope.WallPosts[iter]=messagearray[iter];
-				}
-				else
-				{
-				console.log("blocked "+messagearray[iter].content);
-				$scope.WallPosts[iter]=messagearray[iter]; 
-				$scope.WallPosts[iter].content='User blocked';
+	
+	};
+		
+	$scope.GetWallPosts=function(id)
+	{	
+		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
+			function (msgs) {
+				//console.log(JSON.stringify(msgs));
 				
-				}
+				$scope.WallPosts=[];
+				for (x in msgs)
+				{
+				
+				
+				$scope.WallPosts[iter]=messagearray[iter];
 				messagearray[iter].Age=$scope.phrasefordate(messagearray[iter].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				console.log("did anyone reply to "+messagearray[iter].id);
 				io.socket.get('/wallpost?replyto='+messagearray[iter].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
@@ -173,19 +174,6 @@ $scope.BlockedUsers=[];
 				});
 				});
 				});	
-	};
-		
-	$scope.GetWallPosts=function(id)
-	{	
-		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
-			function (msgs) {
-				//console.log(JSON.stringify(msgs));
-				
-				$scope.WallPosts=[];
-				for (x in msgs)
-				{
-				
-				$scope.isitblocked(msgs,x,id);
 				}
 				
 			

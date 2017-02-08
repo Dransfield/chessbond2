@@ -251,7 +251,7 @@
 		
 		<div style="display:flex">
 		<span><img src="{{wllpsts.senderpic}}"></span>
-		<span>{{wllpsts.content}}
+		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
 		<% if (req.session.passport) { %>
