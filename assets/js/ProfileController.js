@@ -110,7 +110,7 @@ $scope.BlockedUsers=[];
 	
 	$scope.UnBlockUser=function(MyID,sender)
 	{
-		io.socket.get('/block',{blocked:sender,blocker:MyID}
+		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
 	function  (data,jwres){
 		console.log("Get"+JSON.stringify(data));
 			console.log("Get"+JSON.stringify(jwres));
