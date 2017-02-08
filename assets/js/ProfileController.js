@@ -111,15 +111,15 @@ $scope.BlockedUsers=[];
 	$scope.UnBlockUser=function(MyID,sender)
 	{
 		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
-	function  (data,jwres){
+	function  (data){
 		console.log("Get"+JSON.stringify(data));
-			console.log("Get"+JSON.stringify(jwres));
+			for(x in data){
 	io.socket.put('/block/destroy',{id:data[x].id},
-		function  (data,jwres){
+		function  (data){
 			console.log("destroy"+JSON.stringify(data));
-			console.log(JSON.stringify(jwres));
 			
 		$scope.GetWallPosts(MyID);
+	}
 		});
 		});
 	};
