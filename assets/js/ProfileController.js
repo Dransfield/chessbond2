@@ -112,13 +112,13 @@ $scope.chessgameskip=0;
 	{	
 		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
 			function (msgs) {
-				console.log(JSON.stringify(msgs));
+				//console.log(JSON.stringify(msgs));
 				
 				$scope.WallPosts=[];
 				for (var x in msgs)
 				{
 				
-				io.socket.get('/block?blocked='+msgs[x].id,
+				io.socket.get('/block?blocked='+msgs[x].sender,
 			function (blk) {
 				if(!blk){
 				console.log("not blocked "+msgs[x].content); 
