@@ -103,15 +103,17 @@ $scope.BlockedUsers=[];
 	
 	$scope.BlockUser=function(MyID,Sender)
 		{
+		$scope.$apply(function(){$scope.BlockedUsers[sender]=true;});
 			
 			io.socket.post('/block',{blocker:MyID,blocked:Sender},
 			function (resData, jwRes) {
-		$scope.BlockedUsers[sender]=true;
 				});
 		};
 		
 	$scope.UnBlockUser=function(MyID,sender)
 	{
+		
+		$scope.$apply(function(){$scope.BlockedUsers[sender]=false;});
 		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
 	function  (data){
 		console.log("Get"+JSON.stringify(data));
@@ -120,7 +122,7 @@ $scope.BlockedUsers=[];
 		function  (data){
 			
 			
-		$scope.BlockedUsers[sender]=false;
+		
 		});
 		}
 		});
