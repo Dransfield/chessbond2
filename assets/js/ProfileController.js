@@ -107,11 +107,27 @@ $scope.chessgameskip=0;
 		return phrase;
 	};
 	
+	$scope.UnBlockUser=function(MyID,sender)
+	{
+	io.socket.get('/block/destroy/blocked='+sender+'&blocker='+MyID,
+		function (blk) {
+		$scope.GetWallPosts(MyID);
+		});
+	};
+	$scope.UserBlocked=function(MyID,sender)
+	
+	{
+	io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
+			function (blk) {
+			if(blk[0]){
+			return true;
+		}});
+	};
 	$scope.isitblocked=function(messagearray,iter,id)
 	
 	{
 		
-	io.socket.get('/block?blocked='+messagearray[iter].sender,
+	io.socket.get('/block?blocked='+messagearray[iter].sender+'&blocker='+id,
 			function (blk) {
 				if(!blk[0]){
 				console.log("not blocked "+messagearray[iter].content); 
