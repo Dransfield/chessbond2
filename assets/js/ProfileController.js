@@ -114,14 +114,17 @@ $scope.chessgameskip=0;
 		$scope.GetWallPosts(MyID);
 		});
 	};
-	$scope.UserBlocked=function(MyID,sender)
+	$scope.GetBlockedUsers=function(MyID)
 	
 	{
-	io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
+	io.socket.get('/block?blocker='+MyID,
 			function (blk) {
-			if(blk[0]){
-			return true;
-		}});
+		for (x in blk)
+		{
+		$scope.BlockedUsers[blk.blocked]=true;	
+		}
+		
+		});
 	};
 	$scope.isitblocked=function(messagearray,iter,id)
 	
