@@ -119,8 +119,9 @@ $scope.BlockedUsers=[];
 			console.log("destroy"+JSON.stringify(data));
 			
 		$scope.GetWallPosts(MyID);
-	}
+	
 		});
+		}
 		});
 	};
 	$scope.GetBlockedUsers=function(MyID)
