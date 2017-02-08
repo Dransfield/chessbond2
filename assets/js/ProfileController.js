@@ -58,14 +58,7 @@ $scope.BlockedUsers=[];
 			
 		};
 		
-		$scope.BlockUser=function(MyID,Sender)
-		{
-			
-			io.socket.post('/block',{blocker:MyID,blocked:Sender},
-			function (resData, jwRes) {
-				$scope.GetWallPosts(MyID);
-				});
-		};
+		
 		$scope.phrasefordate=function(dat)
 			{
 			var nu=Date.parse(dat);
@@ -108,6 +101,15 @@ $scope.BlockedUsers=[];
 		return phrase;
 	};
 	
+	$scope.BlockUser=function(MyID,Sender)
+		{
+			
+			io.socket.post('/block',{blocker:MyID,blocked:Sender},
+			function (resData, jwRes) {
+		$scope.BlockedUsers[sender]=true;
+				});
+		};
+		
 	$scope.UnBlockUser=function(MyID,sender)
 	{
 		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
@@ -128,22 +130,18 @@ $scope.BlockedUsers=[];
 	{
 	io.socket.get('/block?blocker='+MyID,
 			function (blk) {
+		$scope.$apply(function(){
 		for (x in blk)
 		{
 			
-		$scope.$apply(function(){
+		
 		$scope.BlockedUsers[blk[x].blocked]=true;	
-		});
+		
 		}
-		
+		});
 		});
 	};
-	$scope.isitblocked=function(messagearray,iter,id)
-	
-	{
-		
-	
-	};
+
 		
 	$scope.GetWallPosts=function(id)
 	{	
