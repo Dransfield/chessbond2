@@ -119,8 +119,9 @@ $scope.chessgameskip=0;
 				}
 				else
 				{
-				console.log("blocked "+messagearray[iter].content); 
-				$scope.WallPosts[iter]={content:'User blocked'};
+				console.log("blocked "+messagearray[iter].content);
+				$scope.WallPosts[iter]=messagearray[iter]; 
+				$scope.WallPosts[iter].content='User blocked';
 				
 				}
 				messagearray[iter].Age=$scope.phrasefordate(messagearray[iter].createdAt);//$scope.CalcAge(msgs[x].createdAt);
