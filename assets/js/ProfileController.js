@@ -107,6 +107,40 @@ $scope.chessgameskip=0;
 		return phrase;
 	};
 	
+	$scope.isitblocked=function(messagearray,iter,id)
+	
+	{
+		
+	io.socket.get('/block?blocked='+messagearray[iter].sender,
+			function (blk) {
+				if(!blk[0]){
+				console.log("not blocked "+messagearray[iter].content); 
+				$scope.WallPosts[iter]=messagearray[iter];
+				}
+				else
+				{
+				console.log("blocked "+messagearray[iter].content); 
+				$scope.WallPosts[iter]={content:'User blocked'};
+				
+				}
+				messagearray[iter].Age=$scope.phrasefordate(messagearray[iter].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				console.log("did anyone reply to "+messagearray[iter].id);
+				io.socket.get('/wallpost?replyto='+messagearray[iter].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
+			function (rply) {
+				
+				$scope.$apply(function(){
+				//console.log("reply"+JSON.stringify(rply));
+				$scope.WallPosts[iter].Replies=[];
+				for (var y in rply)
+				{
+				$scope.WallPosts[iter].Replies[y]=rply[y];
+				//console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
+				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				}
+				});
+				});
+				});	
+	};
 		
 	$scope.GetWallPosts=function(id)
 	{	
@@ -117,37 +151,8 @@ $scope.chessgameskip=0;
 				$scope.WallPosts=[];
 				for (x in msgs)
 				{
-				console.log("x is now1 "+x);
-				io.socket.get('/block?blocked='+msgs[x].sender,
-			function (blk) {
-				console.log("x is now2 "+x);
-				if(!blk[0]){
-				console.log("not blocked "+msgs[x].content); 
-				$scope.WallPosts[x]=msgs[x];
-				}
-				else
-				{
-				console.log("blocked "+msgs[x].content); 
-				$scope.WallPosts[x]={content:'User blocked'};
 				
-				}
-				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
-				console.log("did anyone reply to "+msgs[x].id);
-				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
-			function (rply) {
-				
-				$scope.$apply(function(){
-				//console.log("reply"+JSON.stringify(rply));
-				$scope.WallPosts[x].Replies=[];
-				for (var y in rply)
-				{
-				$scope.WallPosts[x].Replies[y]=rply[y];
-				//console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
-				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
-				}
-				});
-				});
-				});
+				$scope.isitblocked(msgs,x,id);
 				}
 				
 			
