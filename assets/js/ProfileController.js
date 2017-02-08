@@ -62,7 +62,7 @@ $scope.chessgameskip=0;
 			
 			io.socket.post('/block',{blocker:MyID,blocked:Sender},
 			function (resData, jwRes) {
-				
+				$scope.GetWallPosts(MyID);
 				});
 		};
 		$scope.phrasefordate=function(dat)
