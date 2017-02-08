@@ -35,7 +35,6 @@
 						<% if (req.session.passport.user){ %>
 						<div ng-init="getLookedatUser('<%-req.session.passport.user %>')"></div>
 						<div ng-init="GetInfo('<%-req.session.passport.user %>')"></div>
-						<div ng-init="GetBlockedUsers('<%-req.session.passport.user %>')"></div>
 						
 						<% } %>
 					<% } %>
