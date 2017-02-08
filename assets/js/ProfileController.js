@@ -120,8 +120,8 @@ $scope.chessgameskip=0;
 				
 				io.socket.get('/block?blocked='+msgs[x].sender,
 			function (blk) {
-				console.log(JSON.stringify(blk));
-				if(!blk){
+				
+				if(!blk[0]){
 				console.log("not blocked "+msgs[x].content); 
 				$scope.WallPosts[x]=msgs[x];
 				}
@@ -137,7 +137,7 @@ $scope.chessgameskip=0;
 			function (rply) {
 				
 				$scope.$apply(function(){
-				console.log("reply"+JSON.stringify(rply));
+				//console.log("reply"+JSON.stringify(rply));
 				$scope.WallPosts[x].Replies=[];
 				for (var y in rply)
 				{
