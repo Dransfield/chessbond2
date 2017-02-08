@@ -57,7 +57,14 @@ $scope.chessgameskip=0;
 			
 		};
 		
-		
+		$scope.BlockUser(MyID,Sender)
+		{
+			
+			io.socket.post('/block',{blocker:MyID,blocked:Sender}
+			function (resData, jwRes) {
+				
+				});
+		};
 		$scope.phrasefordate=function(dat)
 			{
 			var nu=Date.parse(dat);
@@ -110,8 +117,18 @@ $scope.chessgameskip=0;
 				$scope.WallPosts=[];
 				for (var x in msgs)
 				{
-						
+				
+				io.socket.get('/block?blocked='+msgs[x].id,
+			function (blk) {
+				if(!blk){
+				
 				$scope.WallPosts[x]=msgs[x];
+				}
+				else
+				{
+				$scope.WallPosts[x]={content:'User blocked'};
+				
+				}
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				console.log("did anyone reply to "+msgs[x].id);
 				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
@@ -128,8 +145,8 @@ $scope.chessgameskip=0;
 				}
 				});
 				});
-				
-				
+				}
+				}
 				}
 			});
 			});
