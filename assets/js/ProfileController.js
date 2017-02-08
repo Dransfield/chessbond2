@@ -6,6 +6,7 @@ $scope.GameInfo=[];
 $scope.WallPosts=[];
 $scope.wallpostskip=0;
 $scope.chessgameskip=0;
+$scope.BlockedUsers=[];
 	$scope.getdate=function(datestr)
 	{
 	return Date.parse(datestr);
@@ -121,7 +122,10 @@ $scope.chessgameskip=0;
 			function (blk) {
 		for (x in blk)
 		{
+			console.log("blk.blocked "+blk.blocked);
+		$scope.$apply(function(){
 		$scope.BlockedUsers[blk.blocked]=true;	
+		});
 		}
 		
 		});
