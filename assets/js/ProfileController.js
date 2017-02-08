@@ -60,7 +60,7 @@ $scope.chessgameskip=0;
 		$scope.BlockUser=function(MyID,Sender)
 		{
 			
-			io.socket.post('/block',{blocker:MyID,blocked:Sender}
+			io.socket.post('/block',{blocker:MyID,blocked:Sender},
 			function (resData, jwRes) {
 				
 				});
