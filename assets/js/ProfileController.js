@@ -113,7 +113,7 @@ $scope.chessgameskip=0;
 		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
 			function (msgs) {
 				console.log(JSON.stringify(msgs));
-				$scope.$apply(function(){
+				
 				$scope.WallPosts=[];
 				for (var x in msgs)
 				{
@@ -147,8 +147,8 @@ $scope.chessgameskip=0;
 				});
 				});
 				}
-				}
-			});
+				
+			
 			});
 	};
 	$scope.SendWallPostReply=function(user,text,replyingto)
