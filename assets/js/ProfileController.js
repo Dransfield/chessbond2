@@ -21,7 +21,7 @@ $scope.BlockedUsers=[];
 			{
 			if ($scope.WallPosts[x].id==wllpstid)
 			{
-			$scope.WallPosts.splice(x,1);	
+			$scope.WallPosts.splice(x-1,1);	
 			}
 			}
 		});
