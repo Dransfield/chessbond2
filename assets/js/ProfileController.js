@@ -35,6 +35,9 @@ $scope.BlockedUsers=[];
 	$scope.SendWallPost=function(usrid)
 		{
 			var none='none';
+			console.log("user "+$scope.User);
+			console.log("lookedatuser "+$scope.LookedatUser);
+			
 			$http.post("/newwallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
