@@ -434,6 +434,7 @@ $scope.BlockedUsers=[];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
+			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
 		
