@@ -330,7 +330,7 @@ $scope.BlockedUsers=[];
 			$scope.GetChessGames(id);
 			io.socket.on('WallPost', function (data)
 			{
-			console.log('newopengameevent'+data);
+			console.log('newopengameevent'+JSON.stringify(data));
 			
 			$scope.$apply(function(){
 				if(data.replyto!='none')
