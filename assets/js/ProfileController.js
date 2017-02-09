@@ -8,11 +8,11 @@ $scope.wallpostskip=0;
 $scope.chessgameskip=0;
 $scope.BlockedUsers=[];
 
-app.run( function ($rootScope, $location, cellService) {        
+ 
     $("#mainContainer").show();
 
    
-});
+
 
 	$scope.getdate=function(datestr)
 	{
