@@ -177,7 +177,7 @@ $scope.BlockedUsers=[];
 				for (x in msgs)
 				{
 				
-				if(msgs[x].unread=='true')
+				if(msgs[x].unread=='true' && id==$scope.WallPosts[x].reciever)
 				{
 				io.socket.put("/wallpost/"+msgs[x].id+"?unread='false'",{
 				
@@ -199,7 +199,7 @@ $scope.BlockedUsers=[];
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
-				if($scope.WallPosts[x].Replies[y].unread=='true')
+				if($scope.WallPosts[x].Replies[y].unread=='true' && id==$scope.WallPosts[x].Replies[y].reciever)
 				{
 				io.socket.put("/wallpost/"+$scope.WallPosts[x].Replies[y].id+"?unread='false'",{
 				
