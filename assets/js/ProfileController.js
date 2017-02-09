@@ -14,9 +14,10 @@ $scope.BlockedUsers=[];
    
 	$scope.DeleteWallPost=function(wllpstid)
 	{
-	
+	console.log("deleting "+wllpstid);
 	io.socket.put('/wallpost/destroy',{id:wllpstid},
 		function  (data){
+			console.log("deleted "+JSON.stringify(data));
 			for (x in $scope.WallPosts)
 			{
 			if ($scope.WallPosts[x].id==wllpstid)
@@ -342,7 +343,7 @@ $scope.BlockedUsers=[];
 			}
 			else
 			{
-			$scope.WallPosts.push(data[0]);
+			$scope.WallPosts.push(data);
 			}
 			});
 			console.log(data);
