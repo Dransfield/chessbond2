@@ -12,7 +12,20 @@ $scope.BlockedUsers=[];
     $("#mainContainer").show();
 
    
-
+	$scope.DeleteWallPost=function(wllpstid)
+	{
+	
+	io.socket.put('/wallpost/destroy',{id:wllpstid},
+		function  (data){
+			for (x in $scope.WallPosts)
+			{
+			if ($scope.WallPosts[x].id==wllpstid)
+			{
+			$scope.WallPosts.splice(x,1);	
+			}
+			}
+		});
+	};
 
 	$scope.getdate=function(datestr)
 	{
