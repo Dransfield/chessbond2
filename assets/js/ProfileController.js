@@ -194,14 +194,13 @@ $scope.BlockedUsers=[];
 			
 			});
 	};
-	$scope.doreplies(msgs,id,x)
+	$scope.doreplies(arr,id,x)
 	{
 		
-	io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
+	io.socket.get('/wallpost?replyto='+arr.id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
 				
 				$scope.$apply(function(){
-				console.log("x"+x);
 				$scope.WallPosts[x].Replies=[];
 				for (var y in rply)
 				{
