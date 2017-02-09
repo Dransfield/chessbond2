@@ -179,7 +179,7 @@ $scope.BlockedUsers=[];
 				$scope.WallPosts=[];
 				for (x in msgs)
 				{
-				
+				$scope.WallPosts[x]=msgs[x];
 				if(msgs[x].unread=='true' && id==$scope.WallPosts[x].reciever)
 				{
 				io.socket.put("/wallpost/"+msgs[x].id+"?unread='false'",{
@@ -190,7 +190,7 @@ $scope.BlockedUsers=[];
 					}
 					);
 				}
-				$scope.WallPosts[x]=msgs[x];
+				
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				console.log("did anyone reply to "+msgs[x].id);
 				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
