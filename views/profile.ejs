@@ -16,7 +16,7 @@
 
   </head>
 
-  <body ng-app="HomepageModule" ng-controller="ProfileController" >
+  <body ng-app="HomepageModule" ng-controller="ProfileController" ng-cloak>
 	    <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
 			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
