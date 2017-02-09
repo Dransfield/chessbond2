@@ -342,7 +342,7 @@ $scope.BlockedUsers=[];
 			}
 			else
 			{
-			$scope.WallPosts.push(data);
+			$scope.WallPosts.push(data[0]);
 			}
 			});
 			console.log(data);
