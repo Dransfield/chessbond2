@@ -177,7 +177,16 @@ $scope.BlockedUsers=[];
 				for (x in msgs)
 				{
 				
+				if(msgs[x].unread=='true')
+				{
+				io.socket.put("/wallpost/"+msgs[x].id+"?unread='false'",{
 				
+					  }  
+					,function(resData,jwres)
+			        {
+					}
+					);
+				}
 				$scope.WallPosts[x]=msgs[x];
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				console.log("did anyone reply to "+msgs[x].id);
@@ -190,6 +199,16 @@ $scope.BlockedUsers=[];
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
+				if($scope.WallPosts[x].Replies[y].unread=='true')
+				{
+				io.socket.put("/wallpost/"+$scope.WallPosts[x].Replies[y].id+"?unread='false'",{
+				
+					  }  
+					,function(resData,jwres)
+			        {
+					}
+					);
+				}
 				//console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
@@ -331,7 +350,20 @@ $scope.BlockedUsers=[];
 			io.socket.on('WallPost', function (data)
 			{
 			console.log('newopengameevent'+JSON.stringify(data));
-			
+			if(id==data.reciever)
+			{
+				data.unread='false';
+				io.socket.put("/wallpost/"+data.id+"?unread='false'",{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+			}
 			$scope.$apply(function(){
 				if(data.replyto!='none')
 				{
