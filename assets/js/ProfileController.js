@@ -203,7 +203,7 @@ $scope.BlockedUsers=[];
 			function (rply) {
 				
 				$scope.$apply(function(){
-				//console.log("reply"+JSON.stringify(rply));
+				console.log("x"+x);
 				$scope.WallPosts[x].Replies=[];
 				for (var y in rply)
 				{
