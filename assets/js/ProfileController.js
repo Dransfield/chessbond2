@@ -206,17 +206,6 @@ $scope.BlockedUsers=[];
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
-				if($scope.WallPosts[x].Replies[y].unread=='true' && id==$scope.WallPosts[x].Replies[y].reciever)
-				{
-				io.socket.put("/wallpost/"+$scope.WallPosts[x].Replies[y].id+"?unread='false'",{
-				
-					  }  
-					,function(resData,jwres)
-			        {
-					}
-					);
-				}
-				//console.log("found reply"+$scope.WallPosts[x].Replies[y].id)
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
 				
