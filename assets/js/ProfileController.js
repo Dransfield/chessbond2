@@ -32,6 +32,7 @@ $scope.BlockedUsers=[];
 	{
 	return Date.parse(datestr);
 	};
+	
 	$scope.SendWallPost=function(usrid)
 		{
 			var none='none';
@@ -41,6 +42,11 @@ $scope.BlockedUsers=[];
 			$http.post("/newwallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
+			
+			io.socket.post('/newnotification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+			function (resData, jwRes) {
+				});
+			
 			}
 			);
 			
@@ -228,7 +234,12 @@ $scope.BlockedUsers=[];
 	{
 			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
-
+				io.socket.post('/newnotification',{reciever:replyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+			function (resData, jwRes) {
+				});
+				io.socket.post('/newnotification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+			function (resData, jwRes) {
+				});
 			});
 	};
 	$scope.GetChessGames=function(id)
@@ -346,14 +357,14 @@ $scope.BlockedUsers=[];
 			});
 			
 	};
-	$scope.GetInfo=function(id)
+	$scope.GetInfo=function(MyId,OwnerID)
 	{
-		$scope.GetWallPosts(id);
-			$scope.GetChessGames(id);
+			$scope.GetWallPosts(MyId);
+			$scope.GetChessGames(MyId);
 			io.socket.on('WallPost', function (data)
 			{
 			console.log('newopengameevent'+JSON.stringify(data));
-			if(id==data.reciever)
+			/*if(MyId==data.reciever)
 			{
 				data.unread='false';
 				io.socket.put("/wallpost/"+data.id+"?unread='false'",{
@@ -366,7 +377,7 @@ $scope.BlockedUsers=[];
 				console.log(jwres);
 				}
 			);
-			}
+			}*/
 			$scope.$apply(function(){
 				if(data.replyto!='none')
 				{

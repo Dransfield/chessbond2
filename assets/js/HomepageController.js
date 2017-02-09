@@ -4,12 +4,22 @@ $scope.sessions=new Array();
 $scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
-
+$scope.Notifications=[];
 $scope.GameForm={};
 $scope.GameForm.timelimit=5;
 $scope.GameForm.color='White';
 $scope.SoleConnectorVariable="";
 	//document.getElementById("body").style.backgroundColor="#4D129F";
+	
+	
+	$scope.GetNotifications=function(usrid)
+	{
+		io.socket.get('/notification?reciever='+usrid,
+	function  (data){
+	$scope.Notifications=data;
+	});
+	};
+	
 	$scope.SoleConnectorFunction=function(id)
 	{
 		$http.get('/subscription?subscriber='+id, {
