@@ -199,7 +199,19 @@ $scope.BlockedUsers=[];
 				
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				console.log("did anyone reply to "+msgs[x].id);
-				io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
+				 $scope.doreplies(msgs,id,x);
+				
+				});
+				
+				}
+				
+			
+			});
+	};
+	$scope.doreplies(msgs,id,x)
+	{
+		
+	io.socket.get('/wallpost?replyto='+msgs[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
 				
 				$scope.$apply(function(){
@@ -222,13 +234,7 @@ $scope.BlockedUsers=[];
 				rply[y].Age=$scope.phrasefordate(rply[y].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				}
 				
-				});
-				});
-				
-				}
-				
-			
-			});
+				});	
 	};
 	$scope.SendWallPostReply=function(user,text,replyingto)
 	{
