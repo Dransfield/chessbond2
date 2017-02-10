@@ -360,6 +360,8 @@ $scope.BlockedUsers=[];
 			}
 			else
 			{
+					console.log("recieved not a reply");
+				
 			$scope.WallPosts.push(data);
 			}
 			});
