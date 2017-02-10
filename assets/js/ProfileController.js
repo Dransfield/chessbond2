@@ -216,10 +216,10 @@ $scope.BlockedUsers=[];
 	{
 			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
-				io.socket.post('/newnotification',{reciever:replyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+				io.socket.post('/notification',{reciever:replyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
 			function (resData, jwRes) {
 				});
-				io.socket.post('/newnotification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+				io.socket.post('/notification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
 			function (resData, jwRes) {
 				});
 			});
@@ -345,7 +345,7 @@ $scope.BlockedUsers=[];
 			$scope.GetChessGames(OwnerID);
 			io.socket.on('WallPost', function (data)
 			{
-			console.log('newopengameevent'+JSON.stringify(data));
+			
 			/*if(MyId==data.reciever)
 			{
 				data.unread='false';
