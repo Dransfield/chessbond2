@@ -194,7 +194,7 @@ $scope.BlockedUsers=[];
 			
 			});
 	};
-	$scope.doreplies(id,x)
+	$scope.doreplies=function(id,x)
 	{
 		
 	io.socket.get('/wallpost?replyto='+$scope.WallPosts[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
