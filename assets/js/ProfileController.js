@@ -362,7 +362,7 @@ $scope.BlockedUsers=[];
 			{
 					console.log("recieved not a reply");
 				
-			$scope.WallPosts.push(data);
+			$scope.WallPosts.unshift(data);
 			}
 			});
 			console.log(data);
