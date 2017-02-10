@@ -27,7 +27,7 @@ $scope.SoleConnectorVariable="";
 	for (x in data)
 	{
 		console.log("destroy "+data[x].id);
-		io.socket.put('/wallpost/destroy',{id:data[x].id},
+		io.socket.put('/notification/destroy',{id:data[x].id},
 	
 		function  (data2){
 			console.log("data2 "+JSON.stringify(data2));
