@@ -43,7 +43,7 @@ $scope.BlockedUsers=[];
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			
-			io.socket.post('/newnotification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+			io.socket.post('/notification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
 			function (resData, jwRes) {
 				});
 			
