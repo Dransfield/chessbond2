@@ -339,8 +339,9 @@ $scope.BlockedUsers=[];
 			});
 			
 	};
-	$scope.GetInfo=function(MyId,OwnerID)
+	$scope.GetInfo=function(MyId,OwnerID,num)
 	{
+		console.log("funcnum "+num);
 			$scope.GetWallPosts(OwnerID);
 			$scope.GetChessGames(OwnerID);
 			io.socket.on('WallPost', function (data)
