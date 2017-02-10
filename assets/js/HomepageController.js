@@ -19,6 +19,17 @@ $scope.SoleConnectorVariable="";
 	$scope.Notifications=data;
 	});
 	};
+	$scope.DestroyNotifications=function(adr)
+	{
+		io.socket.get('/notification?adr='+adr,
+	function  (data){
+	
+		io.socket.put('/wallpost/destroy',{id:data.id},
+		function  (data2){
+	});
+	});
+	
+	};
 	
 	$scope.SoleConnectorFunction=function(id)
 	{
