@@ -341,8 +341,8 @@ $scope.BlockedUsers=[];
 	};
 	$scope.GetInfo=function(MyId,OwnerID)
 	{
-			$scope.GetWallPosts(MyId);
-			$scope.GetChessGames(MyId);
+			$scope.GetWallPosts(OwnerID);
+			$scope.GetChessGames(OwnerID);
 			io.socket.on('WallPost', function (data)
 			{
 			console.log('newopengameevent'+JSON.stringify(data));
