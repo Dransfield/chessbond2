@@ -187,6 +187,7 @@ $scope.BlockedUsers=[];
 				for (x in msgs)
 				{
 				$scope.WallPosts[x]=msgs[x];
+				$scope.WallPosts[x].Replies=[];
 				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
 				 $scope.doreplies(id,x);
 						
@@ -202,7 +203,7 @@ $scope.BlockedUsers=[];
 			function (rply) {
 				console.log("x "+x);
 				$scope.$apply(function(){
-				$scope.WallPosts[x].Replies=[];
+				
 				for (var y in rply)
 				{
 				$scope.WallPosts[x].Replies[y]=rply[y];
