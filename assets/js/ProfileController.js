@@ -371,9 +371,11 @@ $scope.BlockedUsers=[];
 			});
 			console.log(data);
 			});
-			io.socket.get("/subscribeToRoom",{roomName:OwnerID},function (resData,jwres){
+		
+		io.socket.get("/subscribeToRoom",{roomName:'profile/'+OwnerID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 		});
+		
 	
 			
 		};

@@ -129,7 +129,7 @@ io.socket.on('connect',function(data){
 			});
 			console.log(data);
 			});
-			
+		
 		/*	setInterval(function (MyID)
 			{
 				
@@ -450,7 +450,16 @@ $scope.joinsessionRoom=function()
 		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
+			io.socket.on('newnotificationevent', function (data)
+			{
+			console.log('recieved notification event '+data);
 			
+			
+			$scope.$apply(function(){
+			$scope.Notifications.push(data);
+			});
+			console.log(data);
+			});
 		
 			
 	};
