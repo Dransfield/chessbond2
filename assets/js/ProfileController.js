@@ -347,23 +347,11 @@ $scope.BlockedUsers=[];
 			io.socket.on('WallPost', function (data)
 			{
 			
-			/*if(MyId==data.reciever)
-			{
-				data.unread='false';
-				io.socket.put("/wallpost/"+data.id+"?unread='false'",{
-				
-					  }  
-				  
-				,function(resData,jwres)
-			{
-				console.log(resData);
-				console.log(jwres);
-				}
-			);
-			}*/
+			
 			$scope.$apply(function(){
 				if(data.replyto!='none')
 				{
+					console.log("recieved reply");
 				for (x in $scope.WallPosts)
 				{
 				if($scope.WallPosts[x].id==data.replyto)
