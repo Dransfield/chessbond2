@@ -356,7 +356,10 @@ $scope.BlockedUsers=[];
 				for (x in $scope.WallPosts)
 				{
 				if($scope.WallPosts[x].id==data.replyto)
-					{$scope.WallPosts[x].Replies.push(data);}
+					{
+						if(!$scope.WallPosts[x].Replies)
+						{$scope.WallPosts[x].Replies=[];}
+						$scope.WallPosts[x].Replies.push(data);}
 				}
 			}
 			else
