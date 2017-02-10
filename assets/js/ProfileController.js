@@ -215,7 +215,7 @@ $scope.BlockedUsers=[];
 	};
 	$scope.SendWallPostReply=function(user,text,replyingto)
 	{
-			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 				io.socket.post('/notification',{reciever:replyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
 			function (resData, jwRes) {
