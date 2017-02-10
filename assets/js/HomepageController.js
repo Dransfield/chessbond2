@@ -23,10 +23,13 @@ $scope.SoleConnectorVariable="";
 	{
 		io.socket.get('/notification?adr='+adr,
 	function  (data){
+	for (x in data)
+	{
+		io.socket.put('/wallpost/destroy',{id:data[x].id},
 	
-		io.socket.put('/wallpost/destroy',{id:data.id},
 		function  (data2){
 	});
+	}
 	});
 	
 	};
