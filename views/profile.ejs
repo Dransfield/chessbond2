@@ -29,15 +29,20 @@
 	
 				<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
 				    <% if (req.session.passport){ %>
+						
 						<% if (req.session.passport.user){ %>
+						
 							<div ng-init="GetInfo('<%-req.session.passport.user %>','<%-req.param('userID')%>',1)"></div>
+						
 						<% }else{ %>
 								<div ng-init="GetInfo(0,'<%-req.param('userID')%>',2)"></div>
+						<% } %>
+					
 						
 						<% }else{ %>
 								<div ng-init="GetInfo(0,'<%-req.param('userID')%>',3)"></div>
 						<% } %>
-				
+					
 				<% }else{ %>
 				    <% if (req.session.passport){ %>
 						<% if (req.session.passport.user){ %>
