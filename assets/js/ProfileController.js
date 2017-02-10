@@ -213,12 +213,12 @@ $scope.BlockedUsers=[];
 				});	
 				});	
 	};
-	$scope.SendWallPostReply=function(user,text,replyingto)
+	$scope.SendWallPostReply=function(personreplyingto,user,text,replyingto)
 	{
 			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
-				console.log("notify "+replyingto);
-				io.socket.post('/notification',{reciever:replyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
+				
+				io.socket.post('/notification',{reciever:personreplyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
 			function (resData, jwRes) {
 				});
 				io.socket.post('/notification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},

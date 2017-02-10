@@ -278,7 +278,7 @@
 	
 
 		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
-		<button type="submit" ng-click="SendWallPostReply('<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
+		<button type="submit" ng-click="SendWallPostReply(wllpsts.sender,'<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
 		</div>
 		<% } %>
 	<% } %>
