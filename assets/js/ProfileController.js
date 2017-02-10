@@ -183,6 +183,7 @@ $scope.BlockedUsers=[];
 				//console.log(JSON.stringify(msgs));
 				
 				$scope.WallPosts=[];
+				console.log("msgs.length "+msgs.length);
 				for (x in msgs)
 				{
 				$scope.WallPosts[x]=msgs[x];
@@ -199,7 +200,7 @@ $scope.BlockedUsers=[];
 		
 	io.socket.get('/wallpost?replyto='+$scope.WallPosts[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
-				
+				console.log("x "+x);
 				$scope.$apply(function(){
 				$scope.WallPosts[x].Replies=[];
 				for (var y in rply)
