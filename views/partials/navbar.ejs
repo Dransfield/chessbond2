@@ -46,7 +46,7 @@
 						<li><a href="/profile/<%- req.session.passport.user%>" >View Profile</a></li>
 						<li><a href="/MyLogout">Logout</a></li>
 						<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
-						  {{n.msg}}</li>
+						  <a href="{{n.adr}}">{{n.msg}}</a></li>
 						
 					</ul>
 				  </li>
