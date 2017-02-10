@@ -21,13 +21,16 @@ $scope.SoleConnectorVariable="";
 	};
 	$scope.DestroyNotifications=function(adr)
 	{
+		console.log("destroy adr"+adr);
 		io.socket.get('/notification?adr='+adr,
 	function  (data){
 	for (x in data)
 	{
+		console.log("destroy "+data[x].id);
 		io.socket.put('/wallpost/destroy',{id:data[x].id},
 	
 		function  (data2){
+			
 	});
 	}
 	});
