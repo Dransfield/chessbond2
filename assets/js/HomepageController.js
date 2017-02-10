@@ -450,6 +450,9 @@ $scope.joinsessionRoom=function()
 		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
+			io.socket.get("/subscribeToRoom",{roomName:'profile/'+MyID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
 			io.socket.on('newnotificationevent', function (data)
 			{
 			console.log('recieved notification event '+data);
