@@ -186,18 +186,18 @@ $scope.BlockedUsers=[];
 				for (x in msgs)
 				{
 				$scope.WallPosts[x]=msgs[x];
-							msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
-				 $scope.doreplies(msgs[x],id,x);
+				msgs[x].Age=$scope.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				 $scope.doreplies(id,x);
 						
 				}
 				
 			
 			});
 	};
-	$scope.doreplies(arr,id,x)
+	$scope.doreplies(id,x)
 	{
 		
-	io.socket.get('/wallpost?replyto='+arr.id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
+	io.socket.get('/wallpost?replyto='+$scope.WallPosts[x].id+'&reciever='+id+'&limit=10&sort=createdAt DESC',
 			function (rply) {
 				
 				$scope.$apply(function(){
