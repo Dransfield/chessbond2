@@ -59,6 +59,9 @@
     <span   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
        <img src="{{LookedatUser.picture}}"></img>
+       <div ng-init="CollectDetailsForPicture(LookedatUser.id,LookedatUser.picture)">
+       {{ProfilePics[LookedatUser.id]}}
+       </div>
          <% if (req.param('userID') || req.session.passport) { %>
 			
           <h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>

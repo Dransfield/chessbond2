@@ -7,9 +7,52 @@ $scope.WallPosts=[];
 $scope.wallpostskip=0;
 $scope.chessgameskip=0;
 $scope.BlockedUsers=[];
+$scope.ProfilePicAccounts=[];
+$scope.ProfilePics=[];
+$scope.PersonOnline=[];
 
- 
     $("#mainContainer").show();
+	$scope.CollectProfilePics(){
+	setTimeout(function(){
+		for (x in $scope.ProfilePicAccounts)
+		{
+			
+			$scope.getpic(x,$scope.ProfilePicAccounts[x]);
+	},3000);
+	
+	};
+		$scope.CollectDetailsForPicture=function(id,pic)
+	{
+		var dontrecord=false;
+		for (x in $scope.ProfilePicAccounts)
+		{
+		if(	$scope.ProfilePicAccounts[x]==id)
+		{dontrecord=true;}
+		}
+		if(dontrecord==false)
+		{
+		$scope.ProfilePicAccounts.push(id);
+		$scope.ProfilePics.push(pic);
+		}
+	};
+		$scope.getpic=function(x,id)
+	{
+		
+	io.socket.get('/subscription?subscriber='+id,
+			function (rply) {
+				if(rply)
+				{
+				$scope.$apply(function(){
+				$scope.PersonOnline=[];
+				for (var y in rply)
+				{
+				$scope.PersonOnline[rply[y].id]=true;
+				}
+				
+				});
+				}	
+				});	
+	};
 
    
 	$scope.DeleteWallPost=function(wllpstid)
@@ -32,6 +75,8 @@ $scope.BlockedUsers=[];
 	{
 	return Date.parse(datestr);
 	};
+	
+
 	
 	$scope.SendWallPost=function(usrid)
 		{
