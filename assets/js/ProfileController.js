@@ -22,7 +22,7 @@ $scope.PersonOnline=[];
 		}
 	},3000);
 	
-	}};
+	};
 		$scope.CollectDetailsForPicture=function(id,pic)
 	{
 		var dontrecord=false;
