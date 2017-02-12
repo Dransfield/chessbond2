@@ -20,7 +20,7 @@ $scope.PersonOnline=[];
 			$scope.getpic(x,$scope.ProfilePicAccounts[x]);
 	},3000);
 	
-	};
+	}};
 		$scope.CollectDetailsForPicture=function(id,pic)
 	{
 		var dontrecord=false;
