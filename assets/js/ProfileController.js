@@ -18,7 +18,8 @@ $scope.PersonOnline=[];
 		for (x in $scope.ProfilePicAccounts)
 		{
 			
-			$scope.getpic(x,$scope.ProfilePicAccounts[x]);
+		$scope.getpic(x,$scope.ProfilePicAccounts[x]);
+		}
 	},3000);
 	
 	}};
