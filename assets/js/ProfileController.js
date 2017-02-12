@@ -12,7 +12,7 @@ $scope.ProfilePics=[];
 $scope.PersonOnline=[];
 
     $("#mainContainer").show();
-	$scope.CollectProfilePics()=function()
+	$scope.CollectProfilePics=function()
 	{
 	setTimeout(function(){
 		for (x in $scope.ProfilePicAccounts)
