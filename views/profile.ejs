@@ -275,7 +275,7 @@
 		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
 		<div><button type="submit" ng-show="User.id==LookedatUser.id" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
 		<div><button type="submit" ng-show="!BlockedUsers[wllpsts.sender]" ng-click="BlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">Block User</button></div>
-		<button type="submit" ng-show="BlockedUsers[wllpsts.sender]" ng-click="UnBlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">UnBlock User</button>
+		<div><button type="submit" ng-show="BlockedUsers[wllpsts.sender]" ng-click="UnBlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">UnBlock User</button></div>
 		
 		
 		<div ng-show="ShowReply[$index]">
