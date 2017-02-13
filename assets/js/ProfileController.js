@@ -33,7 +33,7 @@ $scope.PresenceArray=[];
 			function (rply) {
 				if(rply)
 				{
-				if(reply.length>0)
+				if(rply.length>0)
 				{
 					$scope.PresenceArray.push({id:Myid,online:true});
 				}
