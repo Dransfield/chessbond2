@@ -17,7 +17,7 @@ $scope.PersonOnline=[];
 	setTimeout(function(){
 		for (x in $scope.ProfilePicAccounts)
 		{
-			
+			console.log("$scope.ProfilePicAccounts[x] "+$scope.ProfilePicAccounts[x]);
 		$scope.getpic(x,$scope.ProfilePicAccounts[x]);
 		}
 	},3000);
@@ -48,6 +48,7 @@ $scope.PersonOnline=[];
 				$scope.PersonOnline=[];
 				for (var y in rply)
 				{
+				console.log(rply[y].id+" is online");
 				$scope.PersonOnline[rply[y].id]=true;
 				}
 				
