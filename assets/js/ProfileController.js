@@ -26,6 +26,9 @@ $scope.PersonOnline=[];
 	};
 		$scope.CollectDetailsForPicture=function(id,pic)
 	{
+		
+		setTimeout(function(){
+			
 		var dontrecord=false;
 		for (x in $scope.ProfilePicAccounts)
 		{
@@ -42,6 +45,8 @@ $scope.PersonOnline=[];
 		console.log("$scope.ProfilePicAccounts.length "+$scope.ProfilePicAccounts.length);
 		$scope.ProfilePics.push(pic);
 		}
+		
+	},1400);
 	};
 		$scope.getpic=function(x,id)
 	{
