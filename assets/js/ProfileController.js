@@ -27,7 +27,7 @@ $scope.PresenceArray=[];
 				if(rply.length>0)
 				{
 					console.log("got reply>0"+Myid);
-					$scope.$apply(function(){$scope.PersonOnline[Myid]=true;});
+					$scope.$apply(function(){$scope.PersonOnline[Myid]={online:true};});
 				}
 				else
 				{
