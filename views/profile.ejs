@@ -60,10 +60,10 @@
         <h1><b>{{LookedatUser.name}}</b></h1>
        <img ng-show="PersonOnlinefunc(LookedatUser.id)" src="{{LookedatUser.picture}}"></img>
       <% if (req.param('userID')) { %>
-      <img ng-show="PersonOnline['<%-req.param('userID')%>'].online" ng-init="CheckPersonOnline('<%-req.param('userID')%>')" src="{{LookedatUser.picture}}">
+      <img ng-show="PersonOnline['<%-req.param('userID')%>'].online" ng-init="CheckPersonOnline('<%-req.param('userID')%>')" src="{{LookedatUser.picture}}"></img>
 		  
       <% }else{ %>
-		  <img ng-show="PersonOnline['<%-req.session.passport.user %>'].online" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="{{LookedatUser.picture}}">
+		  <img ng-show="PersonOnline['<%-req.session.passport.user %>'].online" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="{{LookedatUser.picture}}"></img>
 		  <% } %>
      
        </div>
