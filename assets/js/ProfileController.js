@@ -29,7 +29,7 @@ $scope.PersonOnline=[];
 		console.log("get deets "+id);
 		io.socket.get('/user?id='+id,
 		function (user1) {
-			console.log(JSON.stringify(user1);
+			console.log(JSON.stringify(user1));
 		var dontrecord=false;
 		for (x in $scope.ProfilePicAccounts)
 		{
