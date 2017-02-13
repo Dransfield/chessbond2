@@ -11,7 +11,46 @@ $scope.ProfilePicAccounts=[];
 $scope.ProfilePics=[];
 $scope.PersonOnline=[];
 
+$scope.PresenceArray=[];
+
     $("#mainContainer").show();
+    
+    $scope.PersonOnline=function(Myid)
+    {
+	for (x in $scope.PresenceArray)
+	{
+	if($scope.PresenceArray[x].id==Myid){
+	if($scope.PresenceArray[x].online==true){
+	return true;
+	}
+	else{
+	return false;
+	}
+	}	
+	}
+	
+	io.socket.get('/subscription?subscriber='+Myid,
+			function (rply) {
+				if(rply)
+				{
+				if(reply.length>0)
+				{
+					$scope.PresenceArray.push({id:Myid,online:true});
+				}
+				else
+				{
+					$scope.PresenceArray.push({id:Myid,online:false});
+				}
+				
+			}
+		});
+	
+		
+	};	
+		
+	
+    
+    
 	$scope.CollectProfilePics=function()
 	{
 	setTimeout(function(){
