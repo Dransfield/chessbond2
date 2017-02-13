@@ -271,7 +271,7 @@
 	<td >
 		
 		<div style="display:flex">
-		<span ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)"><img src="{{wllpsts.senderpic}}"></span>
+		<span style="position:relative;" ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)"><img style="position:absolute;" src="{{wllpsts.senderpic}}"><img style="position:absolute;" src="images/greencirclesml.png"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
