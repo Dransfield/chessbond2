@@ -19,6 +19,7 @@ $scope.PresenceArray=[];
     {
 	if(!$scope.PersonOnline[Myid])
 	{
+		$scope.PersonOnline[Myid]={online:false};
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
 				if(rply)
