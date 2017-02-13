@@ -59,7 +59,7 @@
     <span   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
        <img src="{{LookedatUser.picture}}"></img>
-       <div ng-init="CollectDetailsForPicture('<%-req.param('userID')%>',LookedatUser.picture)">
+       <div ng-init="CollectDetailsForPicture('<%-req.param('userID')%>')">
        {{ProfilePics[LookedatUser.id]}}
        </div>
          <% if (req.param('userID') || req.session.passport) { %>
