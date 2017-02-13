@@ -17,7 +17,8 @@ $scope.PresenceArray=[];
     
     $scope.CheckPersonOnline=function(Myid)
     {
-
+	if(!$scope.PersonOnline[Myid])
+	{
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
 				if(rply)
@@ -36,7 +37,7 @@ $scope.PresenceArray=[];
 			}
 		});
 	
-		
+	}	
 	};	
 		
 	
