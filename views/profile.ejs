@@ -63,13 +63,16 @@
 
        <div >
 	  <img ng-show="PersonOnline['<%-req.param('userID')%>']" ng-init="CheckPersonOnline('<%-req.param('userID')%>')" style="position:absolute;z-index: 2;" src="images/greencirclesml.png"></img>
-	   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
+	   	 <img style="position:absolute;z-index: 2;"  ng-show="!PersonOnline['<%-req.param('userID') %>']" ng-init="CheckPersonOnline('<%-req.param('userID') %>')" src="images/greycirclesml.png"></img>
 
+	   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
+	
       </div>
       <% }else{ %>
 		  <div style="position: relative; left: 0; top: 0;">
 				  <img style="position:absolute;z-index: 2;"  ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
-
+			  <img style="position:absolute;z-index: 2;"  ng-show="!PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greycirclesml.png"></img>
+			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
 		  <% } %>
@@ -280,7 +283,11 @@
 	<td >
 		
 		<div style="display:flex">
-		<span style="position:relative;" ><img style="position:absolute;z-index:2;" src="images/greencirclesml.png"ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" ><img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
+		<span style="position:relative;" >
+		<img style="position:absolute;z-index:2;" src="images/greycirclesml.png" ng-show="!PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
+		
+		<img style="position:absolute;z-index:2;" src="images/greencirclesml.png" ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
+		<img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
@@ -315,7 +322,11 @@
 				</td>
 				<td>
 			<div style="display:flex">
-		<span><img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;" src="images/greencirclesml.png"><img src="{{rply.senderpic}}"></span>
+		<span>
+		<img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;" src="images/greencirclesml.png">
+		<img ng-show="!PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;" src="images/greycirclesml.png">
+		
+		<img src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
 		<br>by <a href="/profile/{{rply.sender}}" target="_blank">{{rply.sendername}}</a> {{rply.Age}}
 		</span>
