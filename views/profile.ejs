@@ -65,7 +65,7 @@
 		  <div style="position: relative; left: 0; top: 0;" ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')">
 		  <% } %>
 		  <img style="position:absolute;" src="images/greencirclesml.png"></img>
-       <img style="position:relative;" src="{{LookedatUser.picture}}"></img>
+       <img style="position:relative;top:30px;" src="{{LookedatUser.picture}}"></img>
        
        </div>
          <% if (req.param('userID') || req.session.passport) { %>
