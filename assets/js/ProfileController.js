@@ -24,30 +24,29 @@ $scope.PersonOnline=[];
 	},3000);
 	
 	};
-		$scope.CollectDetailsForPicture=function(id,pic)
+		$scope.CollectDetailsForPicture=function(id)
 	{
-		console.log("$scope.CollectDetailsForPicture=function(id,pic) "+id+" "+pic);
-	
-		setTimeout(function(){
+		io.socket.get('/user?id='+id,
+		function (user1) {
 			
 		var dontrecord=false;
 		for (x in $scope.ProfilePicAccounts)
 		{
 		
-		if(	$scope.ProfilePicAccounts[x]==id)
+		if(	$scope.ProfilePicAccounts[x]==user1.id)
 		{dontrecord=true;}
 		
 		}
 		
 		if(dontrecord==false)
 		{
-		$scope.ProfilePicAccounts.push(id);
-		console.log("pushed id "+id);
+		$scope.ProfilePicAccounts.push(user1.id);
+		console.log("pushed id "+user1.id);
 		console.log("$scope.ProfilePicAccounts.length "+$scope.ProfilePicAccounts.length);
-		$scope.ProfilePics.push(pic);
+		$scope.ProfilePics.push(user1.picture);
 		}
 		
-	},1400);
+		});
 	};
 		$scope.getpic=function(x,id)
 	{
