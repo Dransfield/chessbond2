@@ -33,12 +33,15 @@ $scope.PresenceArray=[];
 			function (rply) {
 				if(rply)
 				{
+					console.log("got reply");
 				if(rply.length>0)
 				{
+					console.log("got reply>0");
 					$scope.PresenceArray.push({id:Myid,online:true});
 				}
 				else
 				{
+					console.log("got reply=0");
 					$scope.PresenceArray.push({id:Myid,online:false});
 				}
 				
