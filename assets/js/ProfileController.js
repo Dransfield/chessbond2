@@ -17,8 +17,10 @@ $scope.PresenceArray=[];
     
     $scope.PersonOnline=function(Myid)
     {
+		console.log("is "+Myid+" online?");
 	for (x in $scope.PresenceArray)
 	{
+		console.log("$scope.PresenceArray x"+x+" "+JSON.stringify($scope.PresenceArray[x]));
 	if($scope.PresenceArray[x].id==Myid){
 	if($scope.PresenceArray[x].online==true){
 	return true;
