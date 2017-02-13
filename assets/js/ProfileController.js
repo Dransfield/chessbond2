@@ -17,6 +17,7 @@ $scope.PersonOnline=[];
 	setTimeout(function(){
 		for (x in $scope.ProfilePicAccounts)
 		{
+			console.log("x "+x);
 			console.log("$scope.ProfilePicAccounts[x] "+$scope.ProfilePicAccounts[x]);
 		$scope.getpic(x,$scope.ProfilePicAccounts[x]);
 		}
