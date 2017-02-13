@@ -26,7 +26,8 @@ $scope.PersonOnline=[];
 	};
 		$scope.CollectDetailsForPicture=function(id,pic)
 	{
-		
+		console.log("$scope.CollectDetailsForPicture=function(id,pic) "+id+" "+pic);
+	
 		setTimeout(function(){
 			
 		var dontrecord=false;
