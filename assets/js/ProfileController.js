@@ -15,22 +15,9 @@ $scope.PresenceArray=[];
 
     $("#mainContainer").show();
     
-    $scope.PersonOnlinefunc=function(Myid)
+    $scope.CheckPersonOnline=function(Myid)
     {
-		console.log("is "+Myid+" online?");
-	for (x in $scope.PresenceArray)
-	{
-		console.log("$scope.PresenceArray x"+x+" "+JSON.stringify($scope.PresenceArray[x]));
-	if($scope.PresenceArray[x].id==Myid){
-	if($scope.PresenceArray[x].online==true){
-	return true;
-	}
-	else{
-	return false;
-	}
-	}	
-	}
-	
+
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
 				if(rply)
@@ -39,12 +26,11 @@ $scope.PresenceArray=[];
 				if(rply.length>0)
 				{
 					console.log("got reply>0");
-					$scope.PresenceArray.push({id:Myid,online:true});
+					$scope.PersonOnline[id]=true;
 				}
 				else
 				{
-					console.log("got reply=0");
-					$scope.PresenceArray.push({id:Myid,online:false});
+				
 				}
 				
 			}

@@ -270,7 +270,7 @@
 	<td >
 		<div ng-init="CollectDetailsForPicture(wllpsts.sender)"></div>
 		<div style="display:flex">
-		<span ng-show="PersonOnlinefunc(wllpsts.sender)"><img src="{{wllpsts.senderpic}}"></span>
+		<span ng-show="PersonOnline[wllpsts.sender]" ng-init="CheckPersonOnline(wllpsts.sender)"><img src="{{wllpsts.senderpic}}"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
