@@ -15,7 +15,7 @@ $scope.PresenceArray=[];
 
     $("#mainContainer").show();
     
-    $scope.PersonOnline=function(Myid)
+    $scope.PersonOnlinefunc=function(Myid)
     {
 		console.log("is "+Myid+" online?");
 	for (x in $scope.PresenceArray)
