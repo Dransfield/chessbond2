@@ -307,7 +307,7 @@
 				</td>
 				<td>
 			<div style="display:flex">
-		<span><img style="position:absolute;z-index:2;" src="images/greencirclesml.png"><img ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" src="{{rply.senderpic}}"></span>
+		<span><img style="position:absolute;z-index:2;" src="images/greencirclesml.png"><img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
 		<br>by <a href="/profile/{{rply.sender}}" target="_blank">{{rply.sendername}}</a> {{rply.Age}}
 		</span>
