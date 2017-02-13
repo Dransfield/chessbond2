@@ -58,13 +58,13 @@
    
     <span   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
-       <img ng-show="PersonOnlinefunc(LookedatUser.id)" src="{{LookedatUser.picture}}"></img>
+      
       <% if (req.param('userID')) { %>
-       <div ng-init="CollectDetailsForPicture('<%-req.param('userID')%>')">
+       <div ng-show="PersonOnline['<%-req.param('userID')%>']" ng-init="CheckPersonOnline('<%-req.param('userID')%>')">
       <% }else{ %>
-		  <div ng-init="CollectDetailsForPicture('<%-req.session.passport.user %>')">
+		  <div ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')">
 		  <% } %>
-       {{ProfilePics[LookedatUser.id]}}
+       <img  src="{{LookedatUser.picture}}"></img>
        </div>
          <% if (req.param('userID') || req.session.passport) { %>
 			

@@ -7,11 +7,11 @@ $scope.WallPosts=[];
 $scope.wallpostskip=0;
 $scope.chessgameskip=0;
 $scope.BlockedUsers=[];
-$scope.ProfilePicAccounts=[];
-$scope.ProfilePics=[];
+
+
 $scope.PersonOnline=[];
 
-$scope.PresenceArray=[];
+
 
     $("#mainContainer").show();
     
