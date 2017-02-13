@@ -17,6 +17,7 @@ $scope.PersonOnline=[];
     
     $scope.CheckPersonOnline=function(Myid)
     {
+		setTimeout(function(){
 		console.log("is "+Myid+" online?");
 	if(!$scope.PersonOnline[Myid])
 	{
@@ -43,6 +44,7 @@ $scope.PersonOnline=[];
 		});
 	
 	}	
+},3000);
 	};	
 		
 	
