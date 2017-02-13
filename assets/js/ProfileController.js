@@ -29,12 +29,17 @@ $scope.PersonOnline=[];
 		var dontrecord=false;
 		for (x in $scope.ProfilePicAccounts)
 		{
+		
 		if(	$scope.ProfilePicAccounts[x]==id)
 		{dontrecord=true;}
+		
 		}
+		
 		if(dontrecord==false)
 		{
 		$scope.ProfilePicAccounts.push(id);
+		console.log("pushed id "+id);
+		console.log("$scope.ProfilePicAccounts.length "+$scope.ProfilePicAccounts.length);
 		$scope.ProfilePics.push(pic);
 		}
 	};
