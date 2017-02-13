@@ -34,6 +34,7 @@ $scope.PersonOnline=[];
 				}
 				else
 				{
+					console.log(JSON.stringify(rply));
 						console.log(Myid+" is not online");
 
 				}
