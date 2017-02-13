@@ -42,62 +42,9 @@ $scope.PresenceArray=[];
 	
     
     
-	$scope.CollectProfilePics=function()
-	{
-	setTimeout(function(){
-		for (x in $scope.ProfilePicAccounts)
-		{
-			console.log("x "+x);
-			console.log("$scope.ProfilePicAccounts[x] "+$scope.ProfilePicAccounts[x]);
-		$scope.getpic(x,$scope.ProfilePicAccounts[x]);
-		}
-	},3000);
 	
-	};
-		$scope.CollectDetailsForPicture=function(id)
-	{
-		console.log("get deets "+id);
-		io.socket.get('/user?id='+id,
-		function (user1) {
-			console.log(JSON.stringify(user1));
-		var dontrecord=false;
-		for (x in $scope.ProfilePicAccounts)
-		{
-		
-		if(	$scope.ProfilePicAccounts[x]==user1.id)
-		{dontrecord=true;}
-		
-		}
-		
-		if(dontrecord==false)
-		{
-		$scope.ProfilePicAccounts.push(user1.id);
-		console.log("pushed id "+user1.id);
-		console.log("$scope.ProfilePicAccounts.length "+$scope.ProfilePicAccounts.length);
-		$scope.ProfilePics.push(user1.picture);
-		}
-		
-		});
-	};
-		$scope.getpic=function(x,id)
-	{
-		
-	io.socket.get('/subscription?subscriber='+id,
-			function (rply) {
-				if(rply)
-				{
-				$scope.$apply(function(){
-				$scope.PersonOnline=[];
-				for (var y in rply)
-				{
-				console.log(rply[y].id+" is online");
-				$scope.PersonOnline[rply[y].id]=true;
-				}
-				
-				});
-				}	
-				});	
-	};
+	
+	
 
    
 	$scope.DeleteWallPost=function(wllpstid)
