@@ -17,6 +17,7 @@ $scope.PersonOnline=[];
     
     $scope.CheckPersonOnline=function(Myid)
     {
+		console.log("is "+Myid+" online?");
 	if(!$scope.PersonOnline[Myid])
 	{
 		$scope.PersonOnline[Myid]={online:false};
