@@ -58,7 +58,7 @@
    
     <span   class="jumbotron">
         <h1><b>{{LookedatUser.name}}</b></h1>
-       <img ng-show="PersonOnline[LookedatUser.id]" src="{{LookedatUser.picture}}"></img>
+       <img ng-show="PersonOnline[{{LookedatUser.id}}]" src="{{LookedatUser.picture}}"></img>
       <% if (req.param('userID')) { %>
        <div ng-init="CollectDetailsForPicture('<%-req.param('userID')%>')">
       <% }else{ %>
