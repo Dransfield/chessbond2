@@ -268,7 +268,7 @@
    <tr ng-repeat="wllpsts in WallPosts track by $index">
 	
 	<td >
-		<div ng-init="CollectDetailsForPicture({{wllpsts.sender}})"></div>
+		<div ng-init="CollectDetailsForPicture(wllpsts.sender)"></div>
 		<div style="display:flex">
 		<span ng-show="PersonOnline[{{wllpsts.sender}}]"><img src="{{wllpsts.senderpic}}"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
