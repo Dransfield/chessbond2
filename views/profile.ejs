@@ -62,14 +62,15 @@
       <% if (req.param('userID')) { %>
 
        <div >
+	  <img ng-show="PersonOnline['<%-req.param('userID')%>']" ng-init="CheckPersonOnline('<%-req.param('userID')%>')" style="position:absolute;z-index: 2;" src="images/greencirclesml.png"></img>
 	   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
-		  <img ng-show="PersonOnline['<%-req.param('userID')%>']" ng-init="CheckPersonOnline('<%-req.param('userID')%>')" style="position:absolute;z-index: 2;" src="images/greencirclesml.png"></img>
 
       </div>
       <% }else{ %>
 		  <div style="position: relative; left: 0; top: 0;">
+				  <img style="position:absolute;z-index: 2;"  ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
+
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
-		  <img style="position:absolute;z-index: 2;"  ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
     	</div>
 		  <% } %>
 		
