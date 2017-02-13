@@ -20,6 +20,7 @@ $scope.PersonOnline=[];
 		console.log("is "+Myid+" online?");
 	if(!$scope.PersonOnline[Myid])
 	{
+		console.log(Myid+" making false");
 		$scope.PersonOnline[Myid]={online:false};
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
@@ -33,7 +34,8 @@ $scope.PersonOnline=[];
 				}
 				else
 				{
-				
+						console.log(Myid+" is not online");
+
 				}
 				
 			}
