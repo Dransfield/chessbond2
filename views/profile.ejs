@@ -322,10 +322,10 @@
 				</td>
 				<td>
 			<div style="display:flex">
-		<span>
+		<span style="position: relative; left: 0; top: 0;">
 			
-		<img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;top: -4px;" src="images/greencirclesml.png">
-		<img ng-show="!PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;top: -4px;" src="images/greycirclesml.png">
+		<img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="images/greencirclesml.png">
+		<img ng-show="!PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="images/greycirclesml.png">
 		
 		<img src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
