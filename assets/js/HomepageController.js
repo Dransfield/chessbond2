@@ -49,7 +49,7 @@ $scope.SoleConnectorVariable="";
 			{	$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
-			$scope.joinopengameRoom();
+			$scope.joinopengameRoom(id);
 			$scope.SoleConnectorVariable="true";
 			}
 			
@@ -65,7 +65,7 @@ $scope.SoleConnectorVariable="";
 			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
-			$scope.joinopengameRoom();
+			$scope.joinopengameRoom(id);
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
@@ -99,7 +99,7 @@ $scope.SoleConnectorVariable="";
 	{
 io.socket.on('connect',function(data){
 	console.log("DISCONNECT DETECTED!!!!");
-	$scope.joinopengameRoom();
+	$scope.joinopengameRoom(MyID);
 	$scope.joinsessionRoom();
 	if($scope.User)
 	{
@@ -367,7 +367,7 @@ $scope.joinsessionRoom=function()
 			
 			});
 	};
-	$scope.joinopengameRoom=function ()
+	$scope.joinopengameRoom=function (id)
 		{
 			
 		var roomname='openchessgameroom';
