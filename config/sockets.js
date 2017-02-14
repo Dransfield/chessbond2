@@ -128,6 +128,7 @@ module.exports.sockets = {
  // console.log("socket id is "+socket['id']);
  
   
+	session.socketid=socket['id'];
  
    Subscription.find({socketid:socket['id']}).exec(function (err, records) {
 	

@@ -34,8 +34,9 @@
     </head>
     
     <body id="body" ng-app="HomepageModule" ng-controller="HomepageController" ngcloak>
+
+<%- JSON.stringify(req.session.socketid) %>
 <!--
-<%- JSON.stringify(req.authInfo) %>
  <%-JSON.stringify(req.session) %>
  <%-JSON.stringify(req.session.passport) %>
  -->
