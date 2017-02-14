@@ -286,7 +286,7 @@
 		<span style="position:relative;" >
 		<img style="position:absolute;z-index:2;" src="images/greycirclesml.png" ng-show="!PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
 		
-		<img style="position:absolute;z-index:2;" src="images/greencirclesml.png" ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
+		<img style="position:absolute;z-index:2;vertical-align: bottom;" src="images/greencirclesml.png" ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
 		<img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
