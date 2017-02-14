@@ -1,7 +1,7 @@
 angular.module('HomepageModule').controller('HomepageController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.opg=new Array();
 $scope.sessions=new Array();
-$scope.joinedgames=new Array();
+$scope.MyGames=new Array();
 $scope.Players=new Array();
 $scope.User;
 $scope.Notifications=[];
@@ -420,6 +420,8 @@ $scope.joinsessionRoom=function()
 			
 			
 			});
+			
+			/*
 			$http.get('/chessgame?limit=3000').then( function (dat) {
 			$scope.joinedgames=[];
 			for(x in dat.data)
@@ -430,6 +432,33 @@ $scope.joinsessionRoom=function()
 			
 			
 			});
+			*/
+			
+		io.socket.get('/chessgame?Player1='+id+'&sort=createdAt ASC',
+			function (games) {
+				$scope.MyGames=[];
+			//console.log("games1");
+			//console.log("games "+JSON.stringify(games));
+			//for (x in games)
+			//{console.log("games[x] "+games[x]);
+			//}
+ 
+				for (var x in games)
+				{		 
+				$scope.MyGames.push(games[x]);
+				}
+
+				io.socket.get('/chessgame?Player2='+id+'&sort=createdAt ASC',
+					function (moregames) {
+						//console.log("games2");
+						for (var x in moregames)
+						{		 
+						$scope.MyGames.push(moregames[x]);
+						}
+
+						$scope.MyGames.sort(function(a, b){return Date.parse(b.createdAt)-Date.parse(a.createdAt);});
+					});
+					});
 		};
 	$scope.getuser=function(MyID)
 	{
