@@ -39,6 +39,7 @@ $scope.SoleConnectorVariable="";
 	
 	$scope.SoleConnectorFunction=function(id)
 	{
+		console.log("sole connector func");
 		$http.get('/subscription?subscriber='+id, {
 			})
 			.then(function onSuccess(sailsResponse){
@@ -46,7 +47,10 @@ $scope.SoleConnectorVariable="";
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			console.log(JSON.stringify(sailsResponse));
 			if(sailsResponse.data.length==0)
-			{	$scope.joinmyuserIDRoom(id);
+			
+			{
+				console.log("hello1");
+					$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
 			$scope.joinopengameRoom(id);
@@ -61,6 +65,7 @@ $scope.SoleConnectorVariable="";
 			)
 			.catch(function onError(sailsResponse) {
 			$scope.SoleConnectorVariable="true";
+				console.log("hello2");
 			
 			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
