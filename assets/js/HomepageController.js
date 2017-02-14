@@ -1,7 +1,7 @@
 angular.module('HomepageModule').controller('HomepageController', ['$scope', '$http','$window' ,'toastr', function($scope, $http,$window,toastr){
 $scope.opg=new Array();
 $scope.sessions=new Array();
-$scope.MyGames=new Array();
+$scope.joinedgames=new Array();
 $scope.Players=new Array();
 $scope.User;
 $scope.Notifications=[];
@@ -103,6 +103,7 @@ io.socket.on('connect',function(data){
 	$scope.joinsessionRoom();
 	if($scope.User)
 	{
+		console.log("naughty");
 	$scope.joinmyuserIDRoom($scope.User.id);
 	}
 	else
@@ -112,7 +113,7 @@ io.socket.on('connect',function(data){
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			$scope.joinmyuserIDRoom($scope.User.id);
-	
+			console.log("naughty2");
 			}
 			)		
 	}
@@ -436,7 +437,7 @@ $scope.joinsessionRoom=function()
 			
 		io.socket.get('/chessgame?Player1='+id+'&sort=createdAt ASC',
 			function (games) {
-				$scope.MyGames=[];
+				$scope.joinedgames=[];
 			//console.log("games1");
 			//console.log("games "+JSON.stringify(games));
 			//for (x in games)
@@ -445,7 +446,7 @@ $scope.joinsessionRoom=function()
  
 				for (var x in games)
 				{		 
-				$scope.MyGames.push(games[x]);
+				$scope.joinedgames.push(games[x]);
 				}
 
 				io.socket.get('/chessgame?Player2='+id+'&sort=createdAt ASC',
@@ -453,10 +454,10 @@ $scope.joinsessionRoom=function()
 						//console.log("games2");
 						for (var x in moregames)
 						{		 
-						$scope.MyGames.push(moregames[x]);
+						$scope.joinedgames.push(moregames[x]);
 						}
 
-						$scope.MyGames.sort(function(a, b){return Date.parse(b.createdAt)-Date.parse(a.createdAt);});
+						$scope.joinedgames.sort(function(a, b){return Date.parse(b.createdAt)-Date.parse(a.createdAt);});
 					});
 					});
 		};
