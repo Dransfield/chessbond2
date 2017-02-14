@@ -70,8 +70,8 @@
       </div>
       <% }else{ %>
 		  <div style="position: relative; left: 0; top: 0;">
-				  <img style="position:absolute;z-index: 2;"  ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
-			  <img style="position:absolute;z-index: 2;"  ng-show="!PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greycirclesml.png"></img>
+				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
+			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greycirclesml.png"></img>
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
@@ -284,7 +284,7 @@
 		
 		<div style="display:flex">
 		<span style="position:relative;" >
-		<img style="position:absolute;z-index:2;" src="images/greycirclesml.png" ng-show="!PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
+		<img style="position:absolute;z-index:2;bottom: -4px;" src="images/greycirclesml.png" ng-show="!PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
 		
 		<img style="position:absolute;z-index:2;bottom: -4px;" src="images/greencirclesml.png" ng-show="PersonOnline[wllpsts.sender].online" ng-init="CheckPersonOnline(wllpsts.sender)" >
 		<img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
@@ -323,8 +323,8 @@
 				<td>
 			<div style="display:flex">
 		<span>
-		<img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;" src="images/greencirclesml.png">
-		<img ng-show="!PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;" src="images/greycirclesml.png">
+		<img ng-show="PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;bottom: -4px;" src="images/greencirclesml.png">
+		<img ng-show="!PersonOnline[rply.sender].online" ng-init="CheckPersonOnline(rply.sender)"  style="position:absolute;z-index:2;bottom: -4px;" src="images/greycirclesml.png">
 		
 		<img src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
