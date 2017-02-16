@@ -230,7 +230,7 @@ module.exports = {
 		
 	
 	user.Numberoftimesloggedin+=1;
-	user.Lastlogin=Date.now();
+	user.Lastlogin=Date.parse(Date.now());
 	user.save();
 	return res.redirect('/profile');
 	
