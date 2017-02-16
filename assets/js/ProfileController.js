@@ -142,8 +142,12 @@ $scope.PersonOnline=[];
 		$scope.phraseforloggedindate=function(dat)
 		{
 			var nu=Date.parse(dat);
+			console.log(nu);
+			console.log(console.log(nu));
+			
 			var n = Date.now();
 			var newnum=n-nu;
+			console.log('newnum '+newnum);
 			if (newnum<(24*(60*(60*(1000)))))
 			{
 				
