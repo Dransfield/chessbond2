@@ -172,12 +172,14 @@ $scope.PersonOnline=[];
 		else
 		{
 		newnum=newnum/60;
+		console.log("newnum after another 60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" hours ago";
 		}
 		else
 		{
+			console.log("newnum after  24 "+newnum);
 		newnum=newnum/24;
 		
 		phrase=parseInt(newnum)+" days ago";
@@ -544,7 +546,7 @@ $scope.PersonOnline=[];
 
 			newdate = year + "/" + month + "/" + day;
 			$scope.LookedatUser.Registeredmemberon=newdate;
-			$scope.LookedatUser.LastloginPrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
+			$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
