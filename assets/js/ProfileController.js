@@ -540,7 +540,7 @@ $scope.PersonOnline=[];
 
 			newdate = year + "/" + month + "/" + day;
 			$scope.LookedatUser.Registeredmemberon=newdate;
-			$scope.LookedatUser.LastloginPrase=phraseforloggedindate($scope.LookedatUser.Lastlogin);
+			$scope.LookedatUser.LastloginPrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
