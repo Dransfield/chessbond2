@@ -14,7 +14,14 @@ $scope.PersonOnline=[];
 
 
     $("#mainContainer").show();
-    
+    $scope.IncreaseViews=function(Myid)
+    {
+		io.socket.put('/LookedAtProfile',{userID:Myid},
+		function  (data){
+		
+		});
+		
+	};
     $scope.CheckPersonOnline=function(Myid)
     {
 		setTimeout(function(){

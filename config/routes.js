@@ -32,6 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
+	
 	'/profile/:userID': {view:'profile'},
 	'/profile': {view:'profile'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
@@ -62,6 +63,7 @@ module.exports.routes = {
 	//'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
 	'POST /newwallpost':'WallpostController.wallpost',
+	'PUT /LookedAtProfile':'PageController.LookedAtProfile',
 	'PUT /chessgamemove':'PageController.chessgamemove',
 	'PUT /BroadcastPing':'PageController.BroadcastPing',
 	'PUT /pingtest':'PageController.ReturnPing',

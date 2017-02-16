@@ -26,7 +26,7 @@
            <% } %>
 	<div ng-init="CollectProfilePics()"></div>
 				<% if (req.param('userID')) { %>
-	
+				<div ng-init="IncreaseViews('<%-req.param('userID')%>')"></div>
 				<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
 				    <% if (req.session.passport){ %>
 						
@@ -47,6 +47,7 @@
 				    <% if (req.session.passport){ %>
 						<% if (req.session.passport.user){ %>
 						<div ng-init="getLookedatUser('<%-req.session.passport.user %>')"></div>
+						<div ng-init="IncreaseViews('<%-req.session.passport.user %>')"></div>
 						<div ng-init="GetInfo('<%-req.session.passport.user %>','<%-req.session.passport.user %>',4)"></div>
 						
 						<% } %>

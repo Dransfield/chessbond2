@@ -221,7 +221,22 @@
 	}
 
 module.exports = {
+	LookedAtProfile:function(req,res){
+	   if (req.param('userID'))
+	   {console.log(req.param('userID'));
+	    User.findOne({
+      id: req.param('userID')
+	},function foundUser(err,user){
+		if (!err){
+		
 	
+	user.ProfileViews+=1;
+	user.save();
+	
+	
+	}
+	});
+   },
 	JustLoggedIn:function(req,res){
 	    User.findOne({
       id: req.session.passport.user
