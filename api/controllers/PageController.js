@@ -253,7 +253,7 @@ var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
 
 newdate = year + "/" + month + "/" + day;
-	user.Lastlogin=newdate;
+	user.Lastlogin=new Date();
 	user.save();
 	return res.redirect('/profile');
 	

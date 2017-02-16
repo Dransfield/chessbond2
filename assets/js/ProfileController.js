@@ -139,7 +139,10 @@ $scope.PersonOnline=[];
 			return Date.now()-time;
 			
 		};
-		
+		$scope.phraseforloggedindate=function(dat)
+		{
+			var nu=Date.parse(dat);
+		};
 		
 		$scope.phrasefordate=function(dat)
 			{
@@ -477,6 +480,7 @@ $scope.PersonOnline=[];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
+			phraseforloggedindate(dat.data[x].createdAt);
 			var dateObj=new Date($scope.LookedatUser.createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
@@ -484,6 +488,7 @@ $scope.PersonOnline=[];
 
 			newdate = year + "/" + month + "/" + day;
 			$scope.LookedatUser.Registeredmemberon=newdate;
+			$scope.LookedatUser.Lastlogin=phraseforloggedindate($scope.LookedatUser.Lastlogin);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
