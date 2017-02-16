@@ -236,6 +236,7 @@ module.exports = {
 	
 	}
 	});
+}
    },
 	JustLoggedIn:function(req,res){
 	    User.findOne({
