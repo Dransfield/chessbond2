@@ -229,7 +229,7 @@ module.exports = {
 	},function foundUser(err,user){
 		if (!err){
 		
-	
+	console.log(user.ProfileViews);
 	user.ProfileViews+=1;
 	user.save();
 	
