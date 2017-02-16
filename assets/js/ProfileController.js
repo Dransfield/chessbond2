@@ -148,10 +148,13 @@ $scope.PersonOnline=[];
 			var n = Date.now();
 			var newnum=n-nu;
 			console.log('newnum '+newnum);
-			if (newnum<(24*(60*(60*(1000)))))
+			var millisecondsinaday=(24*(60*(60*(1000))));
+			console.log("millisecondsinaday "+millisecondsinaday);
+			if (newnum<millisecondsinaday)
 			{
 				
 				newnum=newnum/1000;
+				console.log("newnum after 1000 "+newnum);
 		if (newnum<60)
 		{
 		if (newnum<0)
@@ -161,6 +164,7 @@ $scope.PersonOnline=[];
 		else
 		{
 		newnum=newnum/60;
+		console.log("newnum after  60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" minutes ago";
