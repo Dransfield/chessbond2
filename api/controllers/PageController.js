@@ -231,7 +231,12 @@ module.exports = {
 	
 	user.Numberoftimesloggedin+=1;
 	var dat=Date.now();
-	user.Lastlogin=dat.getYear()+dat.getMonth()+dat.getDay();
+	var month = dateObj.getUTCMonth() + 1; //months from 1-12
+var day = dateObj.getUTCDate();
+var year = dateObj.getUTCFullYear();
+
+newdate = year + "/" + month + "/" + day;
+	user.Lastlogin=newdate;
 	user.save();
 	return res.redirect('/profile');
 	
