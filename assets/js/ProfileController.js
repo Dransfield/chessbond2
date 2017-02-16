@@ -477,6 +477,13 @@ $scope.PersonOnline=[];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
+			var dateObj=new Date($scope.LookedatUser.createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+
+			newdate = year + "/" + month + "/" + day;
+			$scope.LookedatUser.Registeredmemberon=newdate;
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
