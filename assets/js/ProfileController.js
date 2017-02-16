@@ -197,7 +197,7 @@ $scope.PersonOnline=[];
 			var day = nu.getUTCDate();
 			var year = nu.getUTCFullYear();
 
-			newdate = year + "/" + month + "/" + day;
+			newdate = day+ "/"+month+"/"+year ;
 			return newdate;
 			}
 		};
@@ -544,7 +544,7 @@ $scope.PersonOnline=[];
 			var day = dateObj.getUTCDate();
 			var year = dateObj.getUTCFullYear();
 
-			newdate = year + "/" + month + "/" + day;
+			newdate = day+ "/"+month+"/"+year ;
 			$scope.LookedatUser.Registeredmemberon=newdate;
 			$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
 			console.log("looked at user is "+$scope.LookedatUser.name);
