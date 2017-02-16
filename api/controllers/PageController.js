@@ -230,7 +230,8 @@ module.exports = {
 		
 	
 	user.Numberoftimesloggedin+=1;
-	user.Lastlogin=Date.parse(Date.now());
+	var dat=Date.now();
+	user.Lastlogin=dat.getYear()+dat.getMonth()+dat.getDay();
 	user.save();
 	return res.redirect('/profile');
 	
