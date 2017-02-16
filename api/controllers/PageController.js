@@ -230,7 +230,7 @@ module.exports = {
 		
 	
 	user.Numberoftimesloggedin+=1;
-	var dateObj=Date.now();
+	var dateObj=new Date();
 	var month = dateObj.getUTCMonth() + 1; //months from 1-12
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
