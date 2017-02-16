@@ -142,6 +142,54 @@ $scope.PersonOnline=[];
 		$scope.phraseforloggedindate=function(dat)
 		{
 			var nu=Date.parse(dat);
+			var n = Date.now();
+			var newnum=n-nu;
+			if (newnum<(24*(60*(60*(1000)))))
+			{
+				
+				newnum=newnum/1000;
+		if (newnum<60)
+		{
+		if (newnum<0)
+		{newnum=0;}
+		phrase=parseInt(newnum)+" seconds ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" minutes ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" hours ago";
+		}
+		else
+		{
+		newnum=newnum/24;
+		
+		phrase=parseInt(newnum)+" days ago";
+		
+		}
+		
+		}
+		
+		}
+		return phrase;
+			}
+			else
+			{
+			var month = nu.getUTCMonth() + 1; //months from 1-12
+			var day = nu.getUTCDate();
+			var year = nu.getUTCFullYear();
+
+			newdate = year + "/" + month + "/" + day;
+			return newdate;
+			}
 		};
 		
 		$scope.phrasefordate=function(dat)
@@ -480,7 +528,7 @@ $scope.PersonOnline=[];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
-			phraseforloggedindate(dat.data[x].createdAt);
+			//phraseforloggedindate(dat.data[x].createdAt);
 			var dateObj=new Date($scope.LookedatUser.createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
@@ -488,7 +536,7 @@ $scope.PersonOnline=[];
 
 			newdate = year + "/" + month + "/" + day;
 			$scope.LookedatUser.Registeredmemberon=newdate;
-			$scope.LookedatUser.Lastlogin=phraseforloggedindate($scope.LookedatUser.Lastlogin);
+			$scope.LookedatUser.LastloginPrase=phraseforloggedindate($scope.LookedatUser.Lastlogin);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
