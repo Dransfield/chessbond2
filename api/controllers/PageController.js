@@ -222,7 +222,21 @@
 
 module.exports = {
 	
-
+	JustLoggedIn:function(req,res){
+	    User.findOne({
+      id: req.session.passport.user
+	},function foundUser(err,user){
+		if (!err){
+		
+	
+	user.Numberoftimesloggedin+=1;
+	user.save();
+	return res.redirect('/profile');
+	
+	}
+	});
+   },
+	
 	deletegame:function(req,res){
 	Chessgame.destroy({id:req.param('gameid')}).exec
 	(function(err){

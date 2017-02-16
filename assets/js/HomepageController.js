@@ -38,24 +38,25 @@ $scope.SoleConnectorVariable="";
 	};
 	
 	$scope.SoleConnectorFunction=function(id)
-	{
+	{/*
 		console.log("sole connector func");
 		$http.get('/subscription?subscriber='+id, {
 			})
 			.then(function onSuccess(sailsResponse){
-			$scope.SoleConnectorVariable="false";
+			$scope.SoleConnectorVariable="true";
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			console.log(JSON.stringify(sailsResponse));
 			if(sailsResponse.data.length==0)
 			
-			{
+		{
+		 */	
 				console.log("hello1");
 					$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
 			$scope.joinopengameRoom(id);
 			$scope.SoleConnectorVariable="true";
-			}
+			/*}
 			
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
@@ -74,7 +75,7 @@ $scope.SoleConnectorVariable="";
 			console.log("$scope.SoleConnectorVariable "+$scope.SoleConnectorVariable);
 			
 			
-			});
+			});*/
 	}
 	
 	$scope.createopengame=function(type,id,name)
@@ -335,7 +336,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			else
 			{
 			toastr.success(resData.data.message);
-				$window.location.href = '/';
+				$window.location.href = '/justloggedin';
 			}
 			}
 			);

@@ -43,7 +43,7 @@ module.exports.routes = {
 	
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	
-	
+	'justloggedin':'PageController.JustLoggedIn',
 	'GET /updateGameTime':'PageController.updateGameTime',
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
