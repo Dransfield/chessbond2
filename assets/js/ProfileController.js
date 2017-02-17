@@ -865,7 +865,7 @@ $scope.countries=[
 		if(func){
 		func(me);}
 	}
-	$scope.setgender=function(MyID)
+	$scope.setGender=function(MyID)
 	{
 		console.log(User.Gender);
 	if (User.Gender=='Male')
