@@ -6,7 +6,7 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
+     
     <!--STYLES-->
     
     <!--STYLES END-->
@@ -150,13 +150,22 @@
 					Date of birth:
 					</td>
 					<td>
-						  <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+               <select class="form-control"
+                  ng-model="User.SoundVolume"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>',setBirthyear)"
+                  >
+                  <option ng-repeat="year in recentyears" value="{{year}}">
+                     {{year}}
+                  </option>
+               </select>
                 </div>
-					{{LookedatUser.Dateofbirth}}
+                <%}%>
+					{{LookedatUser.BirthYear}}
 					</td>
 				</tr>
 				<tr>
