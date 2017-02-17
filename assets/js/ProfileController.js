@@ -8,6 +8,8 @@ $scope.wallpostskip=0;
 $scope.chessgameskip=0;
 $scope.BlockedUsers=[];
 
+$scope.genders=['Male','Female'];
+
 $scope.birthyears=[];
 for (yeariter=1900;yeariter<2017;yeariter++)
 {$scope.birthyears.push(yeariter);
