@@ -8,7 +8,10 @@ $scope.wallpostskip=0;
 $scope.chessgameskip=0;
 $scope.BlockedUsers=[];
 
-
+$scope.recentyears=[];
+for (yeariter=1900;yeariter<2017;yeariter++)
+{$scope.recentyears.push(yeariter);
+}
 $scope.PersonOnline=[];
 
 
