@@ -25,9 +25,7 @@ $scope.birthmonths=['January',
 'November',
 'December',
 ];
-for (yeariter=1900;yeariter<2017;yeariter++)
-{$scope.birthyears.push(yeariter);
-}
+
 
 $scope.PersonOnline=[];
 
