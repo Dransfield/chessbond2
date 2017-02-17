@@ -386,7 +386,7 @@
 		<img style="position:absolute;z-index:2;bottom: -4px;" src="images/greencirclesml.png" ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
 		<img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
-		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{wllpsts.sendername}}</a> {{wllpsts.Age}}
+		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{Accounts[wllpsts.sender].FideTitle}} {{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
 	<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
