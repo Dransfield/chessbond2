@@ -249,7 +249,7 @@
                   ng-required="string"
                   ng-change="PrefSelectChanged('FideTitle','<%-req.session.passport.user%>',setFideTitle)"
                   >
-                  <option ng-repeat="fidetitle in fidetitle" value="{{fidetitle}}">
+                  <option ng-repeat="fidetitle in fidetitles" value="{{fidetitle}}">
                      {{fidetitle}}
                   </option>
                </select>
