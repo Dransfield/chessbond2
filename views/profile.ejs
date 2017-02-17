@@ -143,7 +143,8 @@
 					</td>
 					<td>
 			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
-       			 <div style="display:flex">
+       			<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">
+       			 <div ng-show ="editbirthday" style="display:flex">
 				  <select class="form-control"
                   ng-model="User.Gender"
                   name="string"
