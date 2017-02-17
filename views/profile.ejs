@@ -152,6 +152,30 @@
 					<td>
 			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
                <div style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.BirthDay"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthDay','<%-req.session.passport.user%>',setBirthday)"
+                  >
+                  <option ng-repeat="day in birthdays" value="{{day}}">
+                     {{day}}
+                  </option>
+               </select>
+				   <select class="form-control"
+                  ng-model="User.BirthMonth"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
+                  >
+                  <option ng-repeat="month in birthmonths" value="{{month}}">
+                     {{month}}
+                  </option>
+               </select>
 				   <select class="form-control"
                   ng-model="User.BirthYear"
                   name="string"
@@ -164,18 +188,7 @@
                      {{year}}
                   </option>
                </select>
-                 <select class="form-control"
-                  ng-model="User.BirthMonth"
-                  name="string"
-                  multiple="string"
-                  required="string"
-                  ng-required="string"
-                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
-                  >
-                  <option ng-repeat="month in birthmonths" value="{{month}}">
-                     {{month}}
-                  </option>
-               </select>
+              
                 </div>
                 <%}%>
 					{{LookedatUser.BirthMonth}}
