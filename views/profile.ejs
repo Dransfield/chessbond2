@@ -70,12 +70,17 @@
 	
       </div>
       <% }else{ %>
+		    <% if (req.session.passport){ %>
+						<% if (req.session.passport.user){ %>
 		  <div style="position: relative; left: 0; top: 0;">
 				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
 			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!PersonOnline['<%-req.session.passport.user %>']" ng-init="CheckPersonOnline('<%-req.session.passport.user %>')" src="images/greycirclesml.png"></img>
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
+    	
+						<% } %>
+					<% } %>
 		  <% } %>
 		
        
