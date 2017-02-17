@@ -223,16 +223,23 @@
 module.exports = {
 	LookedAtProfile:function(req,res){
 	   if (req.param('userID'))
-	   {console.log(req.param('userID'));
+	   {
 	    User.findOne({
       id: req.param('userID')
 	},function foundUser(err,user){
 		if (!err){
-		
-	console.log(user.ProfileViews);
+		if(user){
+	
+	if(!user.ProfileViews)
+	{
+	user.ProfileViews=0;}
 	user.ProfileViews+=1;
 	user.save();
-	
+	}
+	else
+	{
+	console.log("user not found "+	console.log(req.param('userID')));
+	}
 	
 	}
 	});
