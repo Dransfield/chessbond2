@@ -8,10 +8,27 @@ $scope.wallpostskip=0;
 $scope.chessgameskip=0;
 $scope.BlockedUsers=[];
 
-$scope.recentyears=[];
+$scope.birthyears=[];
 for (yeariter=1900;yeariter<2017;yeariter++)
-{$scope.recentyears.push(yeariter);
+{$scope.birthyears.push(yeariter);
 }
+$scope.birthmonths=['January'
+'February',
+'March',
+'April',
+'May',
+'June',
+'July',
+'August',
+'September',
+'October',
+'November',
+'December',
+];
+for (yeariter=1900;yeariter<2017;yeariter++)
+{$scope.birthyears.push(yeariter);
+}
+
 $scope.PersonOnline=[];
 
 

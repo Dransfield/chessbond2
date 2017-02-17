@@ -152,19 +152,32 @@
 					<td>
 			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
                <select class="form-control"
-                  ng-model="User.SoundVolume"
+                  ng-model="User.BirthYear"
                   name="string"
                   multiple="string"
                   required="string"
                   ng-required="string"
                   ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>',setBirthyear)"
                   >
-                  <option ng-repeat="year in recentyears" value="{{year}}">
+                  <option ng-repeat="year in birthyears" value="{{year}}">
                      {{year}}
                   </option>
                </select>
-                </div>
+                 <select class="form-control"
+                  ng-model="User.BirthMonth"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
+                  >
+                  <option ng-repeat="month in birthmonths" value="{{month}}">
+                     {{month}}
+                  </option>
+               </select>
+                
                 <%}%>
+					{{LookedatUser.BirthMonth}}
 					{{LookedatUser.BirthYear}}
 					</td>
 				</tr>
