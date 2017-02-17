@@ -143,8 +143,8 @@
 					</td>
 					<td>
 			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
-       			<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">
-       			 <div ng-show ="editbirthday" style="display:flex">
+       			<button ng-click="editgender=!editgender" class="btn btn-sml">...
+       			 <div ng-show ="editgender" style="display:flex">
 				  <select class="form-control"
                   ng-model="User.Gender"
                   name="string"
@@ -157,6 +157,7 @@
                      {{gender}}
                   </option>
                </select>
+               </button>
                <%}%>
 					{{LookedatUser.Gender}}
 					</td>
@@ -167,7 +168,8 @@
 					</td>
 					<td>
 			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
-               <div style="display:flex">
+               	<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">...
+               <div ng-show="editbirthday" style="display:flex">
 				  <select class="form-control"
                   ng-model="User.BirthDay"
                   name="string"
@@ -206,6 +208,7 @@
                </select>
               
                 </div>
+                </button>
                 <%}%>
                 {{LookedatUser.BirthDay}}
                 /
