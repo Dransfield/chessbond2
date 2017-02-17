@@ -222,6 +222,10 @@
 					Current City:
 					</td>
 					<td>
+						<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+						<button ng-click="editcity=!editcity" class="btn btn-sml">...
+       	
+						 <input  type="text" class="form-control"  ng-model="User.CurrentCity" />
 					{{LookedatUser.CurrentCity}}
 					</td>
 				</tr>
