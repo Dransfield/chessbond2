@@ -238,6 +238,23 @@
 					Fide Title:
 					</td>
 					<td>
+						<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+       			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...
+       			 <div ng-show ="editfidetitle" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.FideTitle"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('FideTitle','<%-req.session.passport.user%>',setFideTitle)"
+                  >
+                  <option ng-repeat="fidetitle in fidetitle" value="{{fidetitle}}">
+                     {{fidetitle}}
+                  </option>
+               </select>
+               </button>
+               <%}%>
 					{{LookedatUser.FideTitle}}
 					</td>
 				</tr>

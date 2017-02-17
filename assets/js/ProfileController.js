@@ -11,6 +11,11 @@ $scope.BlockedUsers=[];
 $scope.editgender=false;
 $scope.genders=['Male','Female'];
 
+$scope.menfidetitles=['GM' , 'IM', 'FM' , 'CM'];
+$scope.womenfidetitles=['WGM' , 'WIM', 'WFM' , 'WCM'];
+$scope.fidetitles=$scope.menfidetitles;
+
+
 $scope.editbirthday=false;
 $scope.birthyears=[];
 for (yeariter=1900;yeariter<new Date().getFullYear()+1;yeariter++)
@@ -859,4 +864,17 @@ $scope.countries=[
 		if(func){
 		func(me);}
 	}
+	$scope.setgender=function(MyID)
+	{
+		console.log(User.Gender);
+	if (User.Gender=='Male')
+	{
+	$scope.fidetitles=$scope.menfidetitles;
+	}	
+	else
+	{	
+	$scope.fidetitles=$scope.womenfidetitles;
+	}
+		
+	};
 }]);
