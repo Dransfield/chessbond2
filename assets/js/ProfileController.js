@@ -67,6 +67,8 @@ $scope.Accounts=[];
 				$scope.Accounts[Myid]=usr;
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
+				$scope.$apply(function()
+				{
 				if(rply)
 				{
 					console.log("got reply");
@@ -82,7 +84,7 @@ $scope.Accounts=[];
 					$scope.Accounts[Myid].online=false;
 				}
 				
-			}
+			}});
 		});
 	}
 	});
