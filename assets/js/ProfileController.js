@@ -590,6 +590,10 @@ $scope.getuser=function(MyID)
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
+			if($scope.User.Gender=='Male')
+			{$scope.fidetitles=$scope.menfidetitles;}
+			else
+			{$scope.fidetitles=$scope.womenfidetitles;}
 			$scope.TopPlayerFlag=$scope.countryTofilename($scope.User['Country']);
 				
 			
