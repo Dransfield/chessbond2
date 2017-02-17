@@ -63,8 +63,8 @@
       <% if (req.param('userID')) { %>
 
        <div >
-	  <img ng-show="Accounts['<%-req.param('userID')%>'].online" ng-init="GetAccount('<%-req.param('userID')%>')" style="position:absolute;z-index: 2;" src="images/greencirclesml.png"></img>
-	   	 <img style="position:absolute;z-index: 2;"  ng-show="!Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="images/greycirclesml.png"></img>
+	  <img ng-show="Accounts['<%-req.param('userID')%>'].online" ng-init="GetAccount('<%-req.param('userID')%>')" style="position:absolute;z-index: 2;" src="/images/greencirclesml.png"></img>
+	   	 <img style="position:absolute;z-index: 2;"  ng-show="!Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="/images/greycirclesml.png"></img>
 
 	   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
 	
@@ -73,8 +73,8 @@
 		    <% if (req.session.passport){ %>
 						<% if (req.session.passport.user){ %>
 		  <div style="position: relative; left: 0; top: 0;">
-				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-req.session.passport.user %>'].online" ng-init="GetAccount('<%-req.session.passport.user %>')" src="images/greencirclesml.png"></img>
-			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-req.session.passport.user %>'].online" ng-init="GetAccount('<%-req.session.passport.user %>')" src="images/greycirclesml.png"></img>
+				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-req.session.passport.user %>'].online" ng-init="GetAccount('<%-req.session.passport.user %>')" src="/images/greencirclesml.png"></img>
+			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-req.session.passport.user %>'].online" ng-init="GetAccount('<%-req.session.passport.user %>')" src="/images/greycirclesml.png"></img>
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
@@ -381,9 +381,9 @@
 		
 		<div style="display:flex">
 		<span style="position:relative;" >
-		<img style="position:absolute;z-index:2;bottom: -4px;" src="images/greycirclesml.png" ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
+		<img style="position:absolute;z-index:2;bottom: -4px;" src="/images/greycirclesml.png" ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
 		
-		<img style="position:absolute;z-index:2;bottom: -4px;" src="images/greencirclesml.png" ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
+		<img style="position:absolute;z-index:2;bottom: -4px;" src="/images/greencirclesml.png" ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
 		<img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank">{{Accounts[wllpsts.sender].FideTitle}} {{wllpsts.sendername}}</a> {{wllpsts.Age}}
@@ -421,8 +421,8 @@
 			<div style="display:flex">
 		<span style="position: relative; left: 0; top: 0;">
 			
-		<img ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="images/greencirclesml.png">
-		<img ng-show="!Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="images/greycirclesml.png">
+		<img ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
+		<img ng-show="!Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
 		
 		<img src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
