@@ -142,6 +142,21 @@
 					Gender:
 					</td>
 					<td>
+			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+       			 <div style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.Gender"
+                  name="string"
+                  multiple="string"
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('Gender','<%-req.session.passport.user%>',setGender)"
+                  >
+                  <option ng-repeat="gender in genders" value="{{gender}}">
+                     {{gender}}
+                  </option>
+               </select>
+               <%}%>
 					{{LookedatUser.Gender}}
 					</td>
 				</tr>
