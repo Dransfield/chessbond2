@@ -13,7 +13,7 @@ $scope.genders=['Male','Female'];
 
 $scope.editbirthday=false;
 $scope.birthyears=[];
-for (yeariter=1900;yeariter<2017;yeariter++)
+for (yeariter=1900;yeariter<new Date().getFullYear();yeariter++)
 {$scope.birthyears.push(yeariter);
 }
 $scope.birthdays=[];
