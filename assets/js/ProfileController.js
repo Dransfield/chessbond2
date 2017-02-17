@@ -851,7 +851,7 @@ $scope.countries=[
 		};
 		$scope.PrefSelectChanged=function(pref,me,func)
 	{
-		$scope.ChangePreference(pref,me,$scope.User[pref][0]);
+		$scope.ChangePreference(pref,me,$scope.User[pref]);
 		$scope.$apply($scope.LookedatUser[pref]=$scope.User[pref]);
 		$scope.$apply($scope.TopPlayerFlag=$scope.countryTofilename($scope.User['Country']));
 		
