@@ -12,6 +12,10 @@ $scope.birthyears=[];
 for (yeariter=1900;yeariter<2017;yeariter++)
 {$scope.birthyears.push(yeariter);
 }
+$scope.birthdays=[];
+for (dayiter=1;dayiter<32;dayiter++)
+{$scope.birthdays.push(dayiter);
+}
 $scope.birthmonths=['January',
 'February',
 'March',
