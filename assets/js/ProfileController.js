@@ -867,8 +867,8 @@ $scope.countries=[
 	}
 	$scope.setGender=function(MyID)
 	{
-		console.log(User.Gender);
-	if (User.Gender=='Male')
+		console.log($scope.User.Gender);
+	if ($scope.User.Gender=='Male')
 	{
 	$scope.fidetitles=$scope.menfidetitles;
 	}	
