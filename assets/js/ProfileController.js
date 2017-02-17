@@ -40,7 +40,7 @@ $scope.birthmonths=['January',
 ];
 
 
-$scope.PersonOnline=[];
+$scope.Accounts=[];
 
 
 
@@ -53,14 +53,18 @@ $scope.PersonOnline=[];
 		});
 		
 	};
-    $scope.CheckPersonOnline=function(Myid)
+    $scope.GetAccount=function(Myid)
     {
 		setTimeout(function(){
-		console.log("is "+Myid+" online?");
-	if(!$scope.PersonOnline[Myid])
+		console.log("is "+Myid+" account gotten?");
+	if(!$scope.Accounts[Myid])
 	{
-		console.log(Myid+" making false");
-		$scope.PersonOnline[Myid]={online:false};
+		console.log(Myid+" not gotten");
+		io.socket.get('/user?id='+Myid,
+		function(usr){
+			if (usr)
+			{
+				$scope.Accounts[Myid]=usr;
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
 				if(rply)
@@ -69,17 +73,19 @@ $scope.PersonOnline=[];
 				if(rply.length>0)
 				{
 					console.log("got reply>0"+Myid);
-					$scope.$apply(function(){$scope.PersonOnline[Myid]={online:true};});
+				$scope.Accounts[Myid].online=true;
 				}
 				else
 				{
 					console.log(JSON.stringify(rply));
 						console.log(Myid+" is not online");
-
+					$scope.Accounts[Myid].online=false;
 				}
 				
 			}
 		});
+	}
+	});
 	
 	}	
 },3000);
