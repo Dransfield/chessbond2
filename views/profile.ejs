@@ -151,7 +151,8 @@
 					</td>
 					<td>
 			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
-               <select class="form-control"
+               <div style="display:flex">
+				   <select class="form-control"
                   ng-model="User.BirthYear"
                   name="string"
                   multiple="string"
@@ -175,7 +176,7 @@
                      {{month}}
                   </option>
                </select>
-                
+                </div>
                 <%}%>
 					{{LookedatUser.BirthMonth}}
 					{{LookedatUser.BirthYear}}
