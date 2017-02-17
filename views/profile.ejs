@@ -225,7 +225,7 @@
 						<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
 						<button ng-click="editcity=!editcity" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editcity" type="text" class="form-control"  ng-submit="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
+						 <input  ng-show="editcity" type="submit"  class="form-control"  ng-submit="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
 						<button ng-show="editcity" class="btn btn-sml">Done
 						</button>
 						
