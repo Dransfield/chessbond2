@@ -40,7 +40,7 @@
 						
            <% } %>
            <% } %>
-	<div ng-init="CollectProfilePics()"></div>
+	
 				
 				<div ng-init="IncreaseViews('<%-lookedatuser %>')"></div>
 				<div ng-init="getLookedatUser('<%- lookedatuser %>')"></div>
@@ -358,11 +358,20 @@
 	<td >
 		
 		<div style="display:flex">
-		<span style="position:relative;" >
-		<img style="position:absolute;z-index:2;bottom: -4px;" src="/images/greycirclesml.png" ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
+			
+			
+			
+		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
+    	</div>
+			
+			
+		<span style="position:relative;left: 0; top: 0;">
+		 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" src="/images/greencirclesml.png"></img>
+		 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" src="/images/greycirclesml.png"></img>
+			   <img style="position:relative;z-index: 1;" src="{{Accounts[wllpsts.sender].picture}}"></img>
+    	
 		
-		<img style="position:absolute;z-index:2;bottom: -4px;" src="/images/greencirclesml.png" ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" >
-		<img style="position:relative;z-index:1;" src="{{wllpsts.senderpic}}"></span>
+
 		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank"><b style="color:red">{{Accounts[wllpsts.sender].FideTitle}}</b> {{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
