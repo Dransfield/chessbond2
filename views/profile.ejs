@@ -357,20 +357,25 @@
 	
 	<td >
 		
-		
-			<div>
+					<div style="display:flex">
+		<span style="position: relative; left: 0; top: 0;">
 			
-		<span style="position:relative;left: 0; top: 0;">
-		 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" src="/images/greencirclesml.png"></img>
-		 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)" src="/images/greycirclesml.png"></img>
-			   <img style="position:relative;z-index: 1;" src="{{Accounts[wllpsts.sender].picture}}"></img>
-    	
+		<img ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
+		<img ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
 		
-
-		</span> 
-		<div ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</div>
+		<img src="{{Accounts[wllpsts.sender].picture}}"></img></span>
+		<span><span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank"><b style="color:red">{{Accounts[wllpsts.sender].FideTitle}}</b> {{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
+		</div>
+		
+		  
+    			
+
+		
+
+		
+		
 	<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
 		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
