@@ -63,9 +63,9 @@
       <% if (req.param('userID')) { %>
 
        <div >
-	  <img ng-show="Accounts['<%-req.param('userID')%>'].online" ng-init="GetAccount('<%-req.param('userID')%>')" style="position:absolute;z-index: 2;" src="/images/greencirclesml.png"></img>
-	   	 <img style="position:absolute;z-index: 2;"  ng-show="!Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="/images/greycirclesml.png"></img>
-
+	 
+	  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="/images/greencirclesml.png"></img>
+			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="/images/greycirclesml.png"></img>
 	   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
 	
       </div>
