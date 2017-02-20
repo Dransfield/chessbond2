@@ -41,10 +41,7 @@ $scope.birthmonths=[{name:'January'},
 {name:'December'},
 ]
 
- $scope.birthdata = {
-    model: null,
-birthmonths
-};
+
 
 
 $scope.Accounts=[];
