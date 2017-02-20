@@ -357,12 +357,7 @@
 	
 	<td >
 		
-		<div style="display:flex">
-			
-			
-			
-		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
-    	</div>
+		
 			
 			
 		<span style="position:relative;left: 0; top: 0;">
@@ -372,7 +367,8 @@
     	
 		
 
-		<span> <span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
+		<span> 
+			<span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank"><b style="color:red">{{Accounts[wllpsts.sender].FideTitle}}</b> {{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
 	<% if (req.session.passport) { %>
