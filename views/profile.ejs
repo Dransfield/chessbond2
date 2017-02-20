@@ -195,8 +195,8 @@
                   ng-required="string"
                   ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
                   >
-                  <option ng-repeat="month in birthmonths" value="{{month}}">
-                     {{month}}
+                  <option ng-repeat="month in birthdata.birthmonths" value="{{month.name}}">
+                     {{month.name}}
                   </option>
                </select>
 				   <select class="form-control"

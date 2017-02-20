@@ -21,23 +21,29 @@ $scope.birthyears=[];
 for (yeariter=1900;yeariter<new Date().getFullYear()+1;yeariter++)
 {$scope.birthyears.push(yeariter);
 }
+
 $scope.birthdays=[];
 for (dayiter=1;dayiter<32;dayiter++)
 {$scope.birthdays.push(dayiter);
 }
-$scope.birthmonths=['January',
-'February',
-'March',
-'April',
-'May',
-'June',
-'July',
-'August',
-'September',
-'October',
-'November',
-'December',
-];
+
+ $scope.birthdata = {
+    model: null,
+
+birthmonths=[{name:'January'},
+{name:'February'},
+{name:'March'},
+{name:'April'},
+{name:'May'},
+{name:'June'},
+{name:'July'},
+{name:'August'},
+{name:'September'},
+{name:'October'},
+{name:'November'},
+{name:'December'},
+]
+};
 
 
 $scope.Accounts=[];
