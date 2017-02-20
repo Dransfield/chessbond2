@@ -190,9 +190,8 @@
 				   <select class="form-control"
                   ng-model="User.BirthMonth"
                   name="string"
-                  multiple="string"
-                  required="string"
-                  ng-required="string"
+                  
+                  
                   ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
                   >
                   <option ng-repeat="month in birthmonths" ng-value="{{month.name}}">
