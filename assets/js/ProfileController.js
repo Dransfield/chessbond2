@@ -27,10 +27,7 @@ for (dayiter=1;dayiter<32;dayiter++)
 {$scope.birthdays.push(dayiter);
 }
 
- $scope.birthdata = {
-    model: null,
-
-birthmonths=[{name:'January'},
+$scope.birthmonths=[{name:'January'},
 {name:'February'},
 {name:'March'},
 {name:'April'},
@@ -43,6 +40,10 @@ birthmonths=[{name:'January'},
 {name:'November'},
 {name:'December'},
 ]
+
+ $scope.birthdata = {
+    model: null,
+birthmonths
 };
 
 
