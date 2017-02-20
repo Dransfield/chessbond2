@@ -497,7 +497,7 @@ $scope.Accounts=[];
 			});
 			
 	};
-	$scope.GetInfo=function(MyId,OwnerID,num)
+	$scope.GetInfo=function(OwnerID)
 	{
 		console.log("funcnum "+num);
 			$scope.GetWallPosts(OwnerID);

@@ -17,6 +17,22 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="ProfileController"  style="display:none" id="mainContainer">
+	  <% var lookedatuser; %>
+	<% if (req.param('userID')){ %>
+			<% lookedatuser=req.param('userID'); %>
+		
+		<% } %>
+		
+	  
+	  <% if (req.session.passport){ %>
+	  <% if (req.session.passport.user){ %>
+	<% if (!req.param('userID')){ %>
+		<% lookedatuser=  req.session.passport.user;%>
+	  <% } %>
+      <% } %>
+	<% } %>
+		
+	
 	    <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
 			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
@@ -25,34 +41,11 @@
            <% } %>
            <% } %>
 	<div ng-init="CollectProfilePics()"></div>
-				<% if (req.param('userID')) { %>
-				<div ng-init="IncreaseViews('<%-req.param('userID')%>')"></div>
-				<div ng-init="getLookedatUser('<%-req.param('userID')%>')"></div>
-				    <% if (req.session.passport){ %>
+				
+				<div ng-init="IncreaseViews('<%-lookedatuser %>')"></div>
+				<div ng-init="getLookedatUser('<%- lookedatuser %>')"></div>
+				 <div ng-init="GetInfo('<%-lookedatuser %>')"></div>
 						
-						<% if (req.session.passport.user){ %>
-						
-							<div ng-init="GetInfo('<%-req.session.passport.user %>','<%-req.param('userID')%>',1)"></div>
-						
-						<% }else{ %>
-								<div ng-init="GetInfo(0,'<%-req.param('userID')%>',2)"></div>
-						<% } %>
-					
-						
-						<% }else{ %>
-								<div ng-init="GetInfo(0,'<%-req.param('userID')%>',3)"></div>
-						<% } %>
-					
-				<% }else{ %>
-				    <% if (req.session.passport){ %>
-						<% if (req.session.passport.user){ %>
-						<div ng-init="getLookedatUser('<%-req.session.passport.user %>')"></div>
-						<div ng-init="IncreaseViews('<%-req.session.passport.user %>')"></div>
-						<div ng-init="GetInfo('<%-req.session.passport.user %>','<%-req.session.passport.user %>',4)"></div>
-						
-						<% } %>
-					<% } %>
-				<% } %>
 
    <%- include partials/navbar.ejs %>
  <div style="display:flex"> 
@@ -60,37 +53,24 @@
     <span   class="jumbotron">
         <h1><b style="color:red">{{LookedatUser.FideTitle}}</b>  {{LookedatUser.name}}</h1>
       
-      <% if (req.param('userID')) { %>
-
-       <div style="position: relative; left: 0; top: 0;">
-	 
-	  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="/images/greencirclesml.png"></img>
-			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-req.param('userID') %>'].online" ng-init="GetAccount('<%-req.param('userID') %>')" src="/images/greycirclesml.png"></img>
-	   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
-	
-      </div>
-      <% }else{ %>
-		    <% if (req.session.passport){ %>
-						<% if (req.session.passport.user){ %>
+     
+     	
 		  <div style="position: relative; left: 0; top: 0;">
-				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-req.session.passport.user %>'].online" ng-init="GetAccount('<%-req.session.passport.user %>')" src="/images/greencirclesml.png"></img>
-			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-req.session.passport.user %>'].online" ng-init="GetAccount('<%-req.session.passport.user %>')" src="/images/greycirclesml.png"></img>
+				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/greencirclesml.png"></img>
+			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%- lookedatuser %>')" src="/images/greycirclesml.png"></img>
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
     	
-						<% } %>
-					<% } %>
-		  <% } %>
+			
 		
        
        
-         <% if (req.param('userID') || req.session.passport) { %>
-			
+       
           <h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
             <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
          
-           <% } %>
+           
             <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 	<br>
 	<button type="button" class="btn btn-info btn-lg">Statistics</button>
@@ -143,7 +123,7 @@
 					</td>
 					<td>
 			<% if (req.session.passport){ %>
-       		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
        			<button ng-click="editgender=!editgender" class="btn btn-sml">...
        			 <div ng-show ="editgender" style="display:flex">
 				  <select class="form-control"
@@ -171,7 +151,7 @@
 					</td>
 					<td>
 			<% if (req.session.passport){ %>
-       		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
                	<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">...
                </button>
                <div ng-show="editbirthday" style="display:flex">
@@ -230,7 +210,7 @@
 					</td>
 					<td>
 				<% if (req.session.passport){ %>
-				<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+				<% if (req.session.passport.user==lookedatuser){ %>
 						<button ng-click="editcity=!editcity" class="btn btn-sml">...
 						</button>
 						 <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
@@ -248,7 +228,7 @@
 					</td>
 					<td>
 			<% if (req.session.passport){ %>
-       		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
        			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...
        			 <div ng-show ="editfidetitle" style="display:flex">
 				  <select class="form-control"
@@ -293,7 +273,7 @@
 		<% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
 				
-					<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
    
 					 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
 					  ng-model="User.Country"
@@ -309,26 +289,13 @@
 
 		
 		
-	 <% if (req.param('userID') || req.session.passport) { %>
+	 
     <%- include partials/flag1.ejs %>
-	<% } %>
+	
 	
 	
 	</div>
-	<%var dograph=false;%>
-	 <% if (req.param('userID')) { %>
-	<% dograph=true;%>
-	<%}%>
-	<% if (req.session.passport) { %>
-	<% if (req.session.passport.user) { %>
-	
-	<% dograph=true;%>
-	<%}%>
-	<%}%>
-	
-	<% if (dograph==true){%>
-		
-	
+
 	
 	 <div style="display:flex"> 
 		 <span>
@@ -372,7 +339,7 @@
 
           </div>
           </span>
-    <% } %>
+  
 	<span>
 		<h2>Who am I?</h2>
 		<h2>My Wall</h2>
