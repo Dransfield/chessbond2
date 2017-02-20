@@ -142,7 +142,8 @@
 					Gender:
 					</td>
 					<td>
-			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
        			<button ng-click="editgender=!editgender" class="btn btn-sml">...
        			 <div ng-show ="editgender" style="display:flex">
 				  <select class="form-control"
@@ -159,6 +160,8 @@
                </select>
                </button>
                <%}%>
+			   <%}%>
+			
 					{{LookedatUser.Gender}}
 					</td>
 				</tr>
@@ -167,8 +170,10 @@
 					Date of birth:
 					</td>
 					<td>
-			<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
                	<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">...
+               </button>
                <div ng-show="editbirthday" style="display:flex">
 				  <select class="form-control"
                   ng-model="User.BirthDay"
@@ -208,8 +213,10 @@
                </select>
               
                 </div>
-                </button>
+                
                 <%}%>
+                <%}%>
+            
                 {{LookedatUser.BirthDay}}
                 /
 					{{LookedatUser.BirthMonth}}
@@ -222,7 +229,8 @@
 					Current City:
 					</td>
 					<td>
-						<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+				<% if (req.session.passport){ %>
+				<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
 						<button ng-click="editcity=!editcity" class="btn btn-sml">...
 						</button>
 						 <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
@@ -230,15 +238,17 @@
 						</button>-->
 						
 				 <%}%>
+				<%}%>
 					{{LookedatUser.CurrentCity}}
 					</td>
 				</tr>
 				<tr>
 					<td>
-					Fide Title:
+					Fide Title:<br>(Self Claimed:)
 					</td>
 					<td>
-						<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==req.param('userID') || !req.param('userID')){ %>
        			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...
        			 <div ng-show ="editfidetitle" style="display:flex">
 				  <select class="form-control"
@@ -254,6 +264,7 @@
                   </option>
                </select>
                </button>
+               <%}%>
                <%}%>
 					{{LookedatUser.FideTitle}}
 					</td>
