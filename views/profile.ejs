@@ -208,7 +208,7 @@
                   ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>',setBirthyear)"
                   >
                   <option ng-repeat="year in birthyears" value="{{year}}">
-                     {{year}}
+                     {{year[0]}}
                   </option>
                </select>
               
