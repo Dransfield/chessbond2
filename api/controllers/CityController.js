@@ -9,7 +9,7 @@ module.exports = {
 	CreateDatabase:function(req,res){
 	
 var LineByLineReader = require('line-by-line'),
-    lr = new LineByLineReader('/home/chessbond/chessbond/assets/readthis.txt');
+    lr = new LineByLineReader('/home/chessbond/chessbond/assets/worldcitiespop.txt');
 
 lr.on('error', function (err) {
 	// 'err' contains error object
