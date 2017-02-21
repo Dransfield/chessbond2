@@ -12,8 +12,17 @@ module.exports = {
 			
 			console.log("about to read files");
 			console.log(files)});
-	
-		var lineReader = require('readline').createInterface({
+	var stream=fs.ReadStream('/home/chessbond/chessbond/assets/readthis.txt', {start: 90, end: 99});
+
+stream.on('readable', function() {
+    var data = stream.read();
+    console.log(data);
+});
+ 
+stream.on('end', function() {
+    console.log("THE END");
+});
+		/*var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('/home/chessbond/chessbond/assets/worldcitiespop.txt')
 });
 
@@ -25,7 +34,7 @@ lineReader.on('line', function (line) {
 	lineReader.resume();
 	 
 	});
-  
+  */
 });
 	}
 };
