@@ -7,13 +7,7 @@
 
 module.exports = {
 	CreateDatabase:function(req,res){
-		//var fs = require('fs');
-		/*fs.readdir("/home/chessbond/chessbond/assets", function(err,files){
-			
-			console.log("about to read files");
-			console.log(files)});
-	}*/
-	//var stream=fs.ReadStream('/home/chessbond/chessbond/assets/readthis.txt', {start: 0, end: 99});
+	
 var LineByLineReader = require('line-by-line'),
     lr = new LineByLineReader('/home/chessbond/chessbond/assets/readthis.txt');
 
@@ -41,7 +35,7 @@ lr.on('end', function () {
 
   
   
-});*/
+
 	
 };
 
