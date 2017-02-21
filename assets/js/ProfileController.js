@@ -50,21 +50,22 @@ $scope.Accounts=[];
 
     $("#mainContainer").show();
     
-    $scope.CreateCityDatabase=function()
+   
+		
+		 $scope.CreateCityDatabase=function()
     {
 		io.socket.get('/createcitydatabase',
 		function(usr){
 		});
 		
 	};
+		
+	
     $scope.IncreaseViews=function(Myid)
     {
 		io.socket.put('/LookedAtProfile',{userID:Myid},
 		function  (data){
-		io.socket.get('/user?id='+Myid,
-		function(usr){
-			if (usr)
-			{
+		
 		});
 		
 	};
