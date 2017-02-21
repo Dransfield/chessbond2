@@ -47,11 +47,10 @@ $scope.birthmonths=[{name:'January'},
 $scope.Accounts=[];
 
 
-/*
     $("#mainContainer").show();
     $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
-});*/
+});
    
 		
 		 $scope.CreateCityDatabase=function()
