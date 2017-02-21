@@ -12,7 +12,7 @@ module.exports = {
 			
 			console.log("about to read files");
 			console.log(files)});
-	var stream=fs.ReadStream('/home/chessbond/chessbond/assets/readthis.txt', {start: 90, end: 99});
+	var stream=fs.ReadStream('/home/chessbond/chessbond/assets/readthis.txt', {start: 0, end: 99});
 
 stream.on('readable', function() {
     var data = stream.read();
