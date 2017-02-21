@@ -7,14 +7,15 @@
 
 module.exports = {
 	CreateDatabase:function(req,res){
-		
+		require('fs').fs.readdir("", function(err,files){console.log(files)});
+	/*
 		var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('/worldcitiespop.txt')
 });
 
 lineReader.on('line', function (line) {
   console.log('Line from file:', line);
-});
+});*/
 	}
 };
 
