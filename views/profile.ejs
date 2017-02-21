@@ -17,6 +17,9 @@
   </head>
 
   <body ng-app="HomepageModule" ng-controller="ProfileController"  style="display:none" id="mainContainer">
+	 
+	 <div class="btn btn-lg btn-success" ng-click="CreateCityDatabase()">CreateCityDatabase</div>
+	 
 	  <% var lookedatuser; %>
 	<% if (req.param('userID')){ %>
 			<% lookedatuser=req.param('userID'); %>
