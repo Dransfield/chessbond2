@@ -35,7 +35,7 @@ lr.on('end', function () {
 
   
   
-
+}
 	
 };
 
