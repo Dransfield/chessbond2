@@ -38,5 +38,6 @@ lr.on('end', function () {
   
 
 	});
+}
 };
 
