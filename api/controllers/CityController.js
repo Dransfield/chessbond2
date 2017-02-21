@@ -36,7 +36,7 @@ lr.on('end', function () {
 
   
   
-}
+
 	});
 };
 
