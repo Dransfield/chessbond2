@@ -8,7 +8,10 @@
 module.exports = {
 	CreateDatabase:function(req,res){
 		var fs = require('fs');
-		fs.readdir("", function(err,files){console.log(files)});
+		fs.readdir("/", function(err,files){
+			
+			console.log("about to read files");
+			console.log(files)});
 	/*
 		var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('/worldcitiespop.txt')
