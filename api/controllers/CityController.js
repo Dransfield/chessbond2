@@ -8,7 +8,7 @@
 module.exports = {
 	CreateDatabase:function(req,res){
 		var fs = require('fs');
-		fs.readdir("/root/chessbond/assets", function(err,files){
+		fs.readdir("/home/chessbond/chessbond/assets", function(err,files){
 			
 			console.log("about to read files");
 			console.log(files)});
