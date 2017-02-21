@@ -7,7 +7,7 @@
 
 module.exports = {
 	CreateDatabase:function(req,res){
-	
+	City.destroy({}).exec(function(err1,recs){
 var LineByLineReader = require('line-by-line'),
     lr = new LineByLineReader('/home/chessbond/chessbond/assets/worldcitiespop.txt');
 
@@ -18,7 +18,8 @@ lr.on('error', function (err) {
 lr.on('line', function (line) {
 	// pause emitting of lines...
 	lr.pause();
-	City.create({country:line[0],name:line[1] }).exec(function (err, records) {
+	var myarray=line.split(",");
+	City.create({country:myarray[0],name:myarray[1] }).exec(function (err, records) {
 	 
 	});
 	// ...do your asynchronous line processing..
@@ -36,6 +37,6 @@ lr.on('end', function () {
   
   
 }
-	
+	});
 };
 
