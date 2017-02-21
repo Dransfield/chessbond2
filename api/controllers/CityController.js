@@ -9,7 +9,7 @@ module.exports = {
 	CreateDatabase:function(req,res){
 		
 		var lineReader = require('readline').createInterface({
-  input: require('fs').createReadStream('worldcitiespop.txt')
+  input: require('fs').createReadStream('/worldcitiespop.txt')
 });
 
 lineReader.on('line', function (line) {
