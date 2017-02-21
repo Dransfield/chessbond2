@@ -43,7 +43,7 @@ module.exports.routes = {
 	'GET /registerpage':{view:'register'},
 	
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
-	'/createcitydatabase':'CityController.CreateDatabase',
+	'GET /createcitydatabase':'CityController.CreateDatabase',
 	'/justloggedin':'PageController.JustLoggedIn',
 	'GET /updateGameTime':'PageController.updateGameTime',
 	'/MyLogout':'AuthController.logout',
