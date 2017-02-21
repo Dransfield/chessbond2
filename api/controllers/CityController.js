@@ -12,14 +12,14 @@ module.exports = {
 			
 			console.log("about to read files");
 			console.log(files)});
-	/*
+	
 		var lineReader = require('readline').createInterface({
-  input: require('fs').createReadStream('/worldcitiespop.txt')
+  input: require('fs').createReadStream('/home/chessbond/chessbond/assets/worldcitiespop.txt')
 });
 
 lineReader.on('line', function (line) {
   console.log('Line from file:', line);
-});*/
+});
 	}
 };
 
