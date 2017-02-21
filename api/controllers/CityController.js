@@ -20,9 +20,9 @@ module.exports = {
 lineReader.on('line', function (line) {
   //console.log('Line from file:', line);
   var myarray=line.split(",");
-  
+  lineReader.pause();
   City.create({country:myarray[0],city:myarray[1] }).exec(function (err, records) {
-	
+	lineReader.resume();
 	 
 	});
   
