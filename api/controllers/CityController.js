@@ -27,7 +27,7 @@ lr.on('line', function (line) {
 
 		// ...and continue emitting lines.
 		lr.resume();
-	}, 100);
+	}, 4);
 });
 
 lr.on('end', function () {
@@ -51,7 +51,7 @@ lr.on('line', function (line) {
 
 		// ...and continue emitting lines.
 		lr.resume();
-	}, 10);
+	}, 4);
 });
 
 lr.on('end', function () {
@@ -74,7 +74,7 @@ lr.on('line', function (line) {
 
 		// ...and continue emitting lines.
 		lr.resume();
-	}, 10);
+	}, 4);
 });
 
 lr.on('end', function () {
@@ -97,7 +97,7 @@ lr.on('line', function (line) {
 
 		// ...and continue emitting lines.
 		lr.resume();
-	}, 10);
+	}, 4);
 });
 
 lr.on('end', function () {
