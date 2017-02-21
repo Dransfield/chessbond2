@@ -499,7 +499,7 @@ $scope.Accounts=[];
 	};
 	$scope.GetInfo=function(OwnerID)
 	{
-		console.log("funcnum "+num);
+		
 			$scope.GetWallPosts(OwnerID);
 			$scope.GetChessGames(OwnerID);
 			io.socket.on('WallPost', function (data)
