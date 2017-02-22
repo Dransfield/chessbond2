@@ -43,6 +43,7 @@ module.exports.routes = {
 	'GET /registerpage':{view:'register'},
 	
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
+	'GET /countcities':'CityController.countcities',
 	'GET /createcitydatabase':'CityController.CreateDatabase',
 	'/justloggedin':'PageController.JustLoggedIn',
 	'GET /updateGameTime':'PageController.updateGameTime',

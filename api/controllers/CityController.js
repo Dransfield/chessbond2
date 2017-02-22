@@ -6,6 +6,16 @@
  */
 
 module.exports = {
+	countcities:function(req,res){
+		
+		City.count({}).exec(function countCB(error, found) {
+  console.log('There are ' + found + ' users called "Flynn"');
+return res.json({num:found});
+  // There are 1 users called 'Flynn'
+  // Don't forget to handle your errors
+});
+		},
+	
 	CreateDatabase:function(req,res){
 	City.destroy({  }).exec(function(err1,recs){
 		

@@ -52,7 +52,14 @@ $scope.Accounts=[];
     $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });*/
-   
+   	 $scope.CountCities=function()
+    {
+		io.socket.get('/countcities',
+		function(usr){
+			console.log(usr);
+		});
+		
+	};
 		
 		 $scope.CreateCityDatabase=function()
     {
