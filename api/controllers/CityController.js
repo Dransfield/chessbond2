@@ -7,7 +7,7 @@
 
 module.exports = {
 	CreateDatabase:function(req,res){
-	City.destroy({}).exec(function(err1,recs){
+	City.destroy({ where: {}, limit: 2000}).exec(function(err1,recs){
 		/*
 var LineByLineReader = require('line-by-line'),
     lr = new LineByLineReader('/home/chessbond/chessbond/assets/worldcitiespop.txt');
