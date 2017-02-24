@@ -20,10 +20,10 @@ $scope.FoundCities=[];
 
 $scope.GetCities=function(){
 	io.socket.get("/city",{where({'city':{startsWith:'W'}})},
-	function  (data){
-		console.log(data);
+	,function (resData,jwres){
+		console.log(resData);
 		console.log($scope.TypedCity);
-		$scope.FoundCities=data;
+		$scope.FoundCities=resData;
 		
 		});
 	}
