@@ -23,6 +23,10 @@ $scope.GetCities=function(){
 	function (resData,jwres){
 		console.log(resData);
 		console.log($scope.TypedCity);
+		for (x in resData)
+		{
+		resData[x].city[0]=resData[x].city[0].toUpper();	
+		}
 		$scope.$apply(function(){
 			$scope.FoundCities=resData;
 		});
