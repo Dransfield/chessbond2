@@ -19,7 +19,7 @@ $scope.TypedCity="";
 $scope.FoundCities=[];
 
 $scope.GetCities=function(){
-	io.socket.get("/city?{ city: { 'startsWith': 'bir' }}",
+	io.socket.get("/city?where={ 'city': { 'startsWith': 'bir' }}",
 	function  (data){
 		console.log(data);
 		console.log($scope.TypedCity);
