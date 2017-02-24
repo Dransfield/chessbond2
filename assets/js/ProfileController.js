@@ -22,6 +22,7 @@ $scope.GetCities=function(){
 	io.socket.get("/city?where={city:{contains:"+$scope.TypedCity+"}}",
 	function  (data){
 		console.log(data);
+		$scope.FoundCities=data;
 		});
 	}
 
