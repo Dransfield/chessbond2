@@ -18,6 +18,10 @@ $scope.fidetitles=$scope.menfidetitles;
 $scope.TypedCity="";
 $scope.FoundCities=[];
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 $scope.GetCities=function(){
 	io.socket.get("/city",{where:{'city':{'startsWith':$scope.TypedCity}}},
 	function (resData,jwres){
@@ -26,15 +30,12 @@ $scope.GetCities=function(){
 		for (x in resData)
 		{
 		
-		resData[x].city[0]=resData[x].city[0].toUpperCase();	
+		resData[x].city=capitalizeFirstLetter(resData[x].city);	
 		}
 		$scope.$apply(function(){
 			$scope.FoundCities=resData;
-			for (x in $scope.FoundCities)
-		{
+	
 		
-		$scope.FoundCities[x].city[0]=$scope.FoundCities[x].city[0].toUpperCase();	
-		}
 		});
 		});
 	};
