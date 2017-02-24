@@ -22,8 +22,8 @@
   <body ng-app="HomepageModule"  ng-controller="ProfileController"   id="mainContainer">
 	 
 	
-	  <div class="btn btn-lg btn-success" ng-click="CountCities()">CountCities</div>
-	 
+	  <!--<div class="btn btn-lg btn-success" ng-click="CountCities()">CountCities</div>
+	 -->
 	  <% var lookedatuser; %>
 	<% if (req.param('userID')){ %>
 			<% lookedatuser=req.param('userID'); %>
@@ -39,8 +39,8 @@
       <% } %>
 	<% } %>
 		
-		<div ng-show="<%- lookedatuser%>==587e609de5de465c1e899c48" class="btn btn-lg btn-success" ng-click="CreateCityDatabase()">CreateCityDatabase</div>
-	 
+		<!--<div ng-show="<%- lookedatuser%>==587e609de5de465c1e899c48" class="btn btn-lg btn-success" ng-click="CreateCityDatabase()">CreateCityDatabase</div>
+	 -->
 	
 	    <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
@@ -222,8 +222,10 @@
 				<% if (req.session.passport.user==lookedatuser){ %>
 						<button ng-click="editcity=!editcity" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
-						<!--<button ng-show="editcity" class="btn btn-sml" ng-click=" PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)">Done
+						 <input  ng-show="editcity" type="text"  class="form-control"  ng-change="GetCities()" ng-model="TypedCity" />
+						
+						<!-- <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
+						<button ng-show="editcity" class="btn btn-sml" ng-click=" PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)">Done
 						</button>-->
 						
 				 <%}%>

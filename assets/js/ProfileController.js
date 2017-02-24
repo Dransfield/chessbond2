@@ -15,6 +15,15 @@ $scope.menfidetitles=['GM' , 'IM', 'FM' , 'CM'];
 $scope.womenfidetitles=['WGM' , 'WIM', 'WFM' , 'WCM'];
 $scope.fidetitles=$scope.menfidetitles;
 
+$scope.TypedCity="";
+$scope.FoundCities=[];
+
+$scope.GetCities(){
+	io.socket.get("/city",{"city":{"contains":$scope.TypedCity}},
+	function  (data){
+		console.log(data);
+		});
+	}
 
 $scope.editbirthday=false;
 $scope.birthyears=[];
