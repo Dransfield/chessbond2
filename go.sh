@@ -1,3 +1,3 @@
 git stash
 sudo git pull
-sudo sails lift --port 443
+sudo node_modules/sails/bin/sails.js lift --port 443
