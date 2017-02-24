@@ -491,16 +491,7 @@ $scope.joinsessionRoom=function()
 			console.log(JSON.stringify(resData));
 			});
 			
-			io.socket.on('notification', function (data)
-			{
-			console.log('recieved notification event '+data);
-			
-			
-			$scope.$apply(function(){
-			$scope.Notifications.push(data);
-			});
-			console.log(data);
-			});
+		
 		
 			
 	};
