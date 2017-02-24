@@ -25,7 +25,7 @@ $scope.GetCities=function(){
 		console.log($scope.TypedCity);
 		for (x in resData)
 		{
-		resData[x].city[0]=resData[x].city[0].toUpper();	
+		resData[x].city[0]=resData[x].city[0].toUpperCase();	
 		}
 		$scope.$apply(function(){
 			$scope.FoundCities=resData;
