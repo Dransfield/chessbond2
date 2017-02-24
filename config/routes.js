@@ -62,6 +62,7 @@ module.exports.routes = {
 	'PUT /deleteopengame':'PageController.deleteopengame',
 	'PUT /deletegame':'PageController.deletegame',
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
+	'POST /newnotification':'NotificationController.newnotification',
 	//'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
 	'POST /newwallpost':'WallpostController.wallpost',
