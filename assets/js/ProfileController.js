@@ -23,8 +23,9 @@ $scope.GetCities=function(){
 	function (resData,jwres){
 		console.log(resData);
 		console.log($scope.TypedCity);
-		$scope.FoundCities=resData;
-		
+		$scope.$apply(function(){
+			$scope.FoundCities=resData;
+		});
 		});
 	};
 
