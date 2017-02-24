@@ -168,7 +168,7 @@ $scope.Accounts=[];
 			console.log("user "+$scope.User);
 			console.log("lookedatuser "+$scope.LookedatUser);
 			
-			$http.post("/wallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			$http.post("/newwallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			
@@ -407,7 +407,7 @@ $scope.Accounts=[];
 	};
 	$scope.SendWallPostReply=function(personreplyingto,user,text,replyingto)
 	{
-			$http.post("/wallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
+			$http.post("/newwallpost",{ReplyTo:replyingto,senderpic:$scope.User.picture,content:text,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
 			.then(function onSuccess (){
 				
 				io.socket.post('/newnotification',{reciever:personreplyingto,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
