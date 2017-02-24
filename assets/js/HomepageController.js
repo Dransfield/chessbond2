@@ -18,6 +18,10 @@ $scope.SoleConnectorVariable="";
 	function  (data){
 	$scope.Notifications=data;
 	});
+	
+	io.socket.on('notification',function(data){
+	$scope.$apply(function(){$scope.Notifications.push(data);});
+	});
 	};
 	$scope.DestroyNotifications=function(adr)
 	{
