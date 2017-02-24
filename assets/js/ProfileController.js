@@ -929,4 +929,11 @@ $scope.countries=[
 	}
 		
 	};
+	
+	$scope.setCity=function(MyID)
+	{
+		
+		
+	};
+
 }]);
