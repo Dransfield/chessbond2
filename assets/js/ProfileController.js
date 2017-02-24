@@ -18,7 +18,7 @@ $scope.fidetitles=$scope.menfidetitles;
 $scope.TypedCity="";
 $scope.FoundCities=[];
 
-$scope.GetCities(){
+$scope.GetCities=function(){
 	io.socket.get("/city?where={city:{contains:"+$scope.TypedCity+"}}",
 	function  (data){
 		console.log(data);
