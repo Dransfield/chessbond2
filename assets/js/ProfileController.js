@@ -20,13 +20,13 @@ $scope.FoundCities=[];
 
 $scope.GetCities=function(){
 	io.socket.get("/city?where={'city':{'startsWith':'fred'}}",
-	,function (resData,jwres){
+	function (resData,jwres){
 		console.log(resData);
 		console.log($scope.TypedCity);
 		$scope.FoundCities=resData;
 		
 		});
-	}
+	};
 
 $scope.editbirthday=false;
 $scope.birthyears=[];
