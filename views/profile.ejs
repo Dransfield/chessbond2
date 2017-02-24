@@ -223,16 +223,16 @@
 						<button ng-click="editcity=!editcity" class="btn btn-sml">...
 						</button>
 						 <input  ng-show="editcity" type="text"  class="form-control"  ng-change="GetCities()" ng-model="TypedCity" />
-						  <select class="form-control"
+						  <select ng-show="editcity" class="form-control"
                   ng-model="User.CurrentCity"
                   name="string"
-                  
+                  size="30"
                   required="string"
                   ng-required="string"
                   ng-change="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCity)"
                   >
 						<option ng-repeat="cit in FoundCities" value="{{cit.city}}">
-                     {{cit.city}}
+                     {{cit.city}} {{cit.country}}
                   </option>
 					</select>
 						<!-- <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
