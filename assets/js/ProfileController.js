@@ -21,16 +21,20 @@ $scope.FoundCities=[];
 $scope.GetCities=function(){
 	io.socket.get("/city",{where:{'city':{'startsWith':$scope.TypedCity}}},
 	function (resData,jwres){
-		console.log(resData);
-		console.log($scope.TypedCity);
+		//console.log(resData);
+		//console.log($scope.TypedCity);
 		for (x in resData)
 		{
-			console.log(resData[x].city[0]);
-			console.log(resData[x].city[0].toUpperCase());
+		
 		resData[x].city[0]=resData[x].city[0].toUpperCase();	
 		}
 		$scope.$apply(function(){
 			$scope.FoundCities=resData;
+			for (x in $scope.FoundCities)
+		{
+		
+		$scope.FoundCities[x].city[0]=$scope.FoundCities[x].city[0].toUpperCase();	
+		}
 		});
 		});
 	};
