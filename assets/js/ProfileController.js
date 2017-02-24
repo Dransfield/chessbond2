@@ -932,7 +932,7 @@ $scope.countries=[
 	
 	$scope.setCity=function(MyID)
 	{
-		
+		$scope.editcity=false;
 		
 	};
 
