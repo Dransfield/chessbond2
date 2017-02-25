@@ -55,7 +55,7 @@ $scope.SoleConnectorVariable="";
 		{
 		 */	
 				console.log("hello1");
-					$scope.joinmyuserIDRoom(id);
+					//$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
 			$scope.joinopengameRoom(id);
@@ -114,7 +114,7 @@ io.socket.on('connect',function(data){
 	if($scope.User)
 	{
 		console.log("naughty");
-	$scope.joinmyuserIDRoom($scope.User.id);
+	//$scope.joinmyuserIDRoom($scope.User.id);
 	}
 	else
 	{
@@ -122,7 +122,7 @@ io.socket.on('connect',function(data){
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
-			$scope.joinmyuserIDRoom($scope.User.id);
+			//$scope.joinmyuserIDRoom($scope.User.id);
 			console.log("naughty2");
 			}
 			)		
