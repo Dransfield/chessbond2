@@ -361,7 +361,7 @@ $scope.Accounts=[];
 	$scope.GetBlockedUsers=function(MyID)
 	
 	{
-	io.socket.get('/block?blocker='+MyID,
+	$http.get('/block?blocker='+MyID,
 			function (blk) {
 		$scope.$apply(function(){
 		for (x in blk)
