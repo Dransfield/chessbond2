@@ -770,7 +770,7 @@ transporter.sendMail(mailOptions, function(error, info){
 
 		
   var roomName = req.param('roomName');
- 
+ console.log("joining room "+roomName);
   sails.sockets.join(req, roomName, function(err) {
     if (err) {
       return res.serverError(err);
