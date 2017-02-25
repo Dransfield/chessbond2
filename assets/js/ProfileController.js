@@ -621,7 +621,8 @@ $scope.Accounts=[];
 	$scope.getLookedatUser=function(id)
 	{
 		
-		io.socket.get('/user/'+id)
+		$http.get('/user?id='+id, {
+			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
 			//phraseforloggedindate(dat.data[x].createdAt);
