@@ -42,18 +42,7 @@
 		<!--<div ng-show="<%- lookedatuser%>==587e609de5de465c1e899c48" class="btn btn-lg btn-success" ng-click="CreateCityDatabase()">CreateCityDatabase</div>
 	 -->
 	
-	    <% if (req.session.passport){ %>
-			<% if (req.session.passport.user){ %>
-			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-			<div ng-init="GetBlockedUsers('<%-req.session.passport.user %>')"></div>
-						
-           <% } %>
-           <% } %>
-	
-				
-				<div ng-init="IncreaseViews('<%-lookedatuser %>')"></div>
-				<div ng-init="getLookedatUser('<%- lookedatuser %>')"></div>
-				 <div ng-init="GetInfo('<%-lookedatuser %>')"></div>
+	 
 						
 
   
