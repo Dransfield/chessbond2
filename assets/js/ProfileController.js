@@ -98,9 +98,9 @@ $scope.Accounts=[];
 		console.log(Myid+" not gotten");
 	
 		$http.get('/user/'+Myid,
-		function(usr,jwres){
+		function(usr){
 			
-			/*
+			
 			  if (usr)
 			{
 	
@@ -130,7 +130,7 @@ $scope.Accounts=[];
 		});
 	
 	}
-	*/
+	
 	});
 	
 	}	
