@@ -77,8 +77,10 @@ module.exports.routes = {
   	'/loginfacebook': 'AuthController.loginfacebook',
 	'/auth/facebook_oauth2':'AuthController.facebookcallback',
 	'POST /register':'AuthController.register',
-	'PUT /login':'AuthController.login'
-  
+	'PUT /login':'AuthController.login',
+  '/upload-file':{
+    view: 'uploadfile'  // view 'uploadfile' in views directory will loaded automatically
+  },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

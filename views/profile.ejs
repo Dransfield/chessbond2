@@ -70,9 +70,19 @@
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
+    	<% if(lookedatuser==req.session.passport.user){%>
     	<div ng-show="!LookedatUser.picture">
-			<button ng-click=""type="submit" class="btn btn-lg btn-success">Upload Picture</button>
+			<button ng-click="showuploadform=!showuploadform" type="submit" class="btn btn-lg btn-success">Upload Picture</button>
+    	<form ng-show="showuploadform" id="uploadForm"
+      enctype="multipart/form-data"
+      action="/file/upload"
+      method="post">
+    	<input type="file" name="uploadFile" />
+    	<input type="submit" value="submit"/>
+</form>
+    	
     	</div>
+    	<% } %>
 			
 		
        
