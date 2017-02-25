@@ -361,7 +361,7 @@ $scope.Accounts=[];
 	$scope.GetBlockedUsers=function(MyID)
 	
 	{
-	$http.get('/block?blocker='+MyID,
+	io.socket.get('/block?blocker='+MyID,
 			function (blk) {
 		$scope.$apply(function(){
 		for (x in blk)
@@ -621,7 +621,7 @@ $scope.Accounts=[];
 	$scope.getLookedatUser=function(id)
 	{
 		
-		$http.get('/user?id='+id, {
+		io.socket.get('/user?id='+id, {
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
