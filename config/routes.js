@@ -78,7 +78,7 @@ module.exports.routes = {
 	'/auth/facebook_oauth2':'AuthController.facebookcallback',
 	'POST /register':'AuthController.register',
 	'PUT /login':'AuthController.login',
-  'post /api/burrito':'FileController.torta'
+  
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
