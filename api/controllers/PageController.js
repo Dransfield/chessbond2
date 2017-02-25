@@ -768,7 +768,7 @@ transporter.sendMail(mailOptions, function(error, info){
 		return res.badRequest();}
  
 
-		
+		/*
   var roomName = req.param('roomName');
  console.log("joining room "+roomName);
   sails.sockets.join(req, roomName, function(err) {
@@ -815,14 +815,14 @@ transporter.sendMail(mailOptions, function(error, info){
 		dwellers:names,
       message: 'joined room'
     });
-	*/
+	
 	 });
 	});
 			});
    }}}
   });
   
-   
+   */
   
 }
 	
