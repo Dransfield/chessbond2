@@ -44,8 +44,6 @@
      
      	
 		  <div ng-show="LookedatUser.picture" style="position: relative; left: 0; top: 0;">
-				  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/greencirclesml.png"></img>
-			  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%- lookedatuser %>')" src="/images/greycirclesml.png"></img>
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
