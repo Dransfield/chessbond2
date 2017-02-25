@@ -76,22 +76,7 @@ $scope.Accounts=[];
     $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });*/
-   	 $scope.CountCities=function()
-    {
-		io.socket.get('/countcities',
-		function(usr){
-			console.log(usr);
-		});
-		
-	};
-		
-		 $scope.CreateCityDatabase=function()
-    {
-		io.socket.get('/createcitydatabase',
-		function(usr){
-		});
-		
-	};
+  
 		
 	
     $scope.IncreaseViews=function(Myid)
@@ -105,7 +90,7 @@ $scope.Accounts=[];
     $scope.GetAccount=function(Myid)
     {
 			
-		setTimeout(function(){
+		
 		console.log("is "+Myid+" account gotten?");
 	
 	if(!$scope.Accounts[Myid])
@@ -150,7 +135,7 @@ $scope.Accounts=[];
 	
 	}	
 	 
-},3000);
+
 	
 	};	
 		
