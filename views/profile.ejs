@@ -35,6 +35,8 @@
 	  <% } %>
       <% } %>
 	<% } %>
+	
+	<%- include partials/navbar.ejs %>
 	   <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
 			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
@@ -42,6 +44,13 @@
 						
            <% } %>
            <% } %>
+	
+	
+				
+				<div ng-init="IncreaseViews('<%-lookedatuser %>')"></div>
+				<div ng-init="getLookedatUser('<%- lookedatuser %>')"></div>
+				 <div ng-init="GetInfo('<%-lookedatuser %>')"></div>
+	
 	
 	 <div style="display:flex"> 
    
@@ -272,6 +281,166 @@
   </span>
   </div>
 <%- include partials/flag1.ejs %>
+
+
+	 
+  <div style="display:flex"> 
+		<% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+				
+					<% if (req.session.passport.user==lookedatuser){ %>
+   
+					 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
+					  ng-model="User.Country"
+					  ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
+					  >
+					  <option ng-repeat="c in countries track by $index" value="{{c.name}}">
+						  {{c.name}}</option>
+					 </select>
+				<% } %>
+			<% } %>
+		<% } %>
+	
+	</div>
+	 <div style="display:flex"> 
+		 <span>
+	 <h2 class="sub-header">Recent Games</h2>
+          <div   class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>White</th>
+                  <th>Black</th>
+                  <th>Result</th>
+                  <th>Time</th>
+                  <th>Moves</th>
+                  <th>Date</th>
+                  <th>Action</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				  
+            <tr ng-repeat="game in GameInfo track by $index">
+				<span ng-init="GetAccount(game.WhitePlayerID)">
+			<span ng-init="GetAccount(game.BlackPlayerID)">
+			<td><img src="{{game.WhiteAvatar}}"></img><a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})</td>
+			<td><img src="{{game.BlackAvatar}}"><a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})</td>
+			<td>{{game.res}}</td>
+			<td>{{game.timelimit}}|0</td>
+			<td>{{game.moves}}</td>
+			<td>{{game.date}}</td>
+			<td><a href="/humanvshuman/{{game.id}}" target="_blank">Link</a></td>
+			
+			
+			<tr>
+			</tr>
+            </tbody>
+            </table>
+            	<div class="btn btn-lg btn-success" ng-show="chessgameskip>0" ng-click="GetOlderChessGames(LookedatUser.id)"><</div>
+				<div class="btn btn-lg btn-success" ng-click="GetMoreChessGames(LookedatUser.id)">></div>
+
+          </div>
+          </span>
+  
+	<span>
+		<h2>Who am I?</h2>
+		<h2>My Wall</h2>
+	<% if (req.session.passport) { %>
+	<% if (req.session.passport.user) { %>
+	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
+	<input type="text" autocomplete="off" class="form-control" placeholder="post to wall" name="name" ng-model="WallPostInput"  required>
+	<button class="btn btn-default btn-sm" type="submit" >Post to Wall</button>
+	
+	</form>
+	<% } %>
+	<% } %>
+	<table>
+   <tr ng-repeat="wllpsts in WallPosts track by $index">
+	
+	<td >
+		
+					<div style="display:flex">
+		<span style="position: relative; left: 0; top: 0;">
+			
+		<img ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
+		<img ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
+		
+		<img src="{{Accounts[wllpsts.sender].picture}}"></img></span>
+		<span><span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
+		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank"><b style="color:red">{{Accounts[wllpsts.sender].FideTitle}}</b> {{wllpsts.sendername}}</a> {{wllpsts.Age}}
+		</span>
+		</div>
+		
+		  
+    			
+
+		
+
+		
+		
+	<% if (req.session.passport) { %>
+	<% if (req.session.passport.user) { %>
+		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
+		<div><button type="submit" ng-show="User.id==LookedatUser.id" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
+		<div><button type="submit" ng-show="!BlockedUsers[wllpsts.sender]" ng-click="BlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">Block User</button></div>
+		<div><button type="submit" ng-show="BlockedUsers[wllpsts.sender]" ng-click="UnBlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">UnBlock User</button></div>
+		
+		
+		<div ng-show="ShowReply[$index]">
+	
+
+		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
+		<button type="submit" ng-click="SendWallPostReply(wllpsts.sender,'<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
+		</div>
+		<% } %>
+	<% } %>
+	</div>
+	
+	
+		
+		<table>
+			<tr>
+				<td ng-show="wllpsts.Replies[0]">
+					Replies:
+				</td>
+			</tr>
+		<tr ng-repeat="rply in wllpsts.Replies track by $index">
+			<td>
+				</td>
+				<td>
+			<div style="display:flex">
+		<span style="position: relative; left: 0; top: 0;">
+			
+		<img ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
+		<img ng-show="!Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
+		
+		<img src="{{rply.senderpic}}"></span>
+		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
+		<br>by <a href="/profile/{{rply.sender}}" target="_blank"><b style="color:red">{{Accounts[rply.sender].FideTitle}}</b> {{rply.sendername}}</a> {{rply.Age}}
+		</span>
+		</div>
+		</td>
+			</tr>
+		</table>
+	
+	<hr>
+		
+	</td>
+	
+	
+	
+	</tr>
+	</table>
+		<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetOlderWallPosts(LookedatUser.id)"><</div>
+<div class="btn btn-lg btn-success" ng-click="GetMoreWallPosts(LookedatUser.id)">></div>
+
+	
+</span>
+</div>
+			
 
     <!--SCRIPTS-->
   <script src="/js/dependencies/sails.io.js"></script>
