@@ -112,7 +112,7 @@ $scope.Accounts=[];
 	{
 		console.log(Myid+" not gotten");
 	
-		io.socket.get('/user?id='+Myid,
+		io.socket.get('/user/'+Myid,
 		function(usr,jwres){
 			
 			/*
