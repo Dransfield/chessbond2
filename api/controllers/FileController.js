@@ -1,28 +1,50 @@
 /**
- * FileController
+ * TacoController
  *
- * @description :: Server-side logic for managing files
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+ * @description :: Server-side logic for managing Tacoes
+ * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+//Taco Controller aka ANY controller
 module.exports = {
-	upload: function(req, res) {
-    if (req.method === 'GET')
-        return res.json({ 'status': 'GET not allowed' });
-    //	Call to /upload via GET is error
 
-    var uploadFile = req.file('uploadFile');
-    console.log(uploadFile);
+    //POST /burrito
+    //torta action... aka upload file action
+    torta:function(req,res){
 
-    uploadFile.upload(function onUploadComplete(err, files) {
-        //	Files will be uploaded to .tmp/uploads
+        console.log('form body',req.body);
 
-        if (err) return res.serverError(err);
-        //	IF ERROR Return and send 500 error with error
+        //accepts upload and moves it to .tmp/uploads
+        req.file('nacho').upload(function(err,files){
 
-        console.log(files);
-        res.json({ status: 200, file: files });
-    });
-}
+            //if there was an error
+            //stop here and tell the frontend
+            if(err) return res.send(400,{result:false,error:err});
+
+            //if the file didn't upload for some reason
+            //stop here and tell the frontend
+            if(!files) return res.send(400,{result:false,error:'Unable to upload file'});
+            
+
+            console.log('file data',err,files);
+            // files is an array of the files that were uploaded
+            // files[0].fd = file path to first uploaded file
+            // see console for more info
+
+
+
+            //move file to cloudinary or something
+            console.log('uploaded file path',files[0].fd)
+
+
+
+            //send response
+
+            //result:true -- file upload successful
+            //files:files -- send uploaded file data to the front end
+            res.send({result:true,files:files});
+
+            
+        });
+    }
 };
-
