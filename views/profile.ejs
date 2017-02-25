@@ -21,7 +21,20 @@
 
   <body ng-app="HomepageModule"  ng-controller="ProfileController" style="display:none"  id="mainContainer">
 
-
+	 <% var lookedatuser; %>
+	<% if (req.param('userID')){ %>
+			<% lookedatuser=req.param('userID'); %>
+		
+		<% } %>
+		
+	  
+	  <% if (req.session.passport){ %>
+	  <% if (req.session.passport.user){ %>
+	<% if (!req.param('userID')){ %>
+		<% lookedatuser=  req.session.passport.user;%>
+	  <% } %>
+      <% } %>
+	<% } %>
 <%- include partials/flag1.ejs %>
 
     <!--SCRIPTS-->
