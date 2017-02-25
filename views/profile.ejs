@@ -20,7 +20,7 @@
   </head>
 
   <body ng-app="HomepageModule"  ng-controller="ProfileController" style="display:none"  id="mainContainer">
-	 
+	 <%- req.session.passport.user %>
 	 <% var lookedatuser; %>
 	<% if (req.param('userID')){ %>
 			<% lookedatuser=req.param('userID'); %>
