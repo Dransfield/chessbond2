@@ -38,8 +38,8 @@
 					
 				  <ul class="nav navbar-nav navbar-right">
 				 <li>
-				 <span ng-init="joinmyuserIDRoom('<%- req.session.passport.user%>')"></span>
-				 
+				 <!--<span ng-init="joinmyuserIDRoom('<%- req.session.passport.user%>')"></span>
+				 -->
 				 <span class="badge" ng-show="Notifications.length>0" ng-init="GetNotifications('<%- req.session.passport.user%>')">{{Notifications.length}}</span>
 				 </li>
 				  <li class="dropdown">
