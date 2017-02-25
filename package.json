@@ -34,7 +34,7 @@
     "rc": "1.0.1",
     "sails": "~0.12.8",
     "sails-disk": "~0.10.9",
-    "sails-hook-mailin": "^1.0.2",
+    "sails-hook-mailin": "*",
     "sails-mongo": "*"
   },
   "scripts": {
