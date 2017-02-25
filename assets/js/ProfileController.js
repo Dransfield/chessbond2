@@ -107,11 +107,11 @@ $scope.Accounts=[];
 			
 		setTimeout(function(){
 		console.log("is "+Myid+" account gotten?");
-	/*
+	
 	if(!$scope.Accounts[Myid])
 	{
 		console.log(Myid+" not gotten");
-	
+	/*
 		io.socket.get('/user?id='+Myid,
 		function(usr){
 			if (usr)
@@ -145,9 +145,9 @@ $scope.Accounts=[];
 	}
 	
 	});
-	
+	*/
 	}	
-	 */
+	 
 },3000);
 	
 	};	
