@@ -764,11 +764,12 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 	
 	subscribeToRoom: function(req, res) {
-		if (!req.isSocket) {
+	/*
+	 	if (!req.isSocket) {
 		return res.badRequest();}
  
 
-		/*
+		
   var roomName = req.param('roomName');
  console.log("joining room "+roomName);
   sails.sockets.join(req, roomName, function(err) {
@@ -781,7 +782,7 @@ transporter.sendMail(mailOptions, function(error, info){
     {
 	if (req.session.passport.user)
     {	
-	/*	
+	
 	Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 			if (err)
