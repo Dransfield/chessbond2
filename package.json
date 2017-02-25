@@ -34,8 +34,7 @@
     "rc": "1.0.1",
     "sails": "~0.12.8",
     "sails-disk": "~0.10.9",
-    "sails-hook-mailin": "*",
-    "sails-mongo": "*"
+        "sails-mongo": "*"
   },
   "scripts": {
     "debug": "node debug app.js",
