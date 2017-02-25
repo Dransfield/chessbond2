@@ -109,7 +109,7 @@ $scope.Accounts=[];
 	if(!$scope.Accounts[Myid])
 	{
 		console.log(Myid+" not gotten");
-		/*
+		
 		io.socket.get('/user?id='+Myid,
 		function(usr){
 			if (usr)
@@ -141,7 +141,7 @@ $scope.Accounts=[];
 	}
 	
 	});
-	*/
+	
 	}	
 },3000);
 	};	
