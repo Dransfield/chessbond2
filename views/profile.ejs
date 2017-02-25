@@ -53,7 +53,217 @@
             <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
          
             <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-	
+	<br>
+	<button type="button" class="btn btn-info btn-lg">Statistics</button>
+	 </span>
+	 <span>
+    <table class="table table-striped">
+              
+			<thead>
+                <tr>
+	              <th></th>
+                  <th></th>
+                  </tr>
+              </thead>
+           <tbody>
+				<tr>
+					<td>
+					Profile Views:
+					</td>
+					<td>
+					{{LookedatUser.ProfileViews}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Registered member on:
+					</td>
+					<td>
+						{{LookedatUser.Registeredmemberon}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Last login:
+					</td>
+					<td>
+					{{LookedatUser.LastloginPhrase}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Number of times logged in:
+					</td>
+					<td>
+					{{LookedatUser.Numberoftimesloggedin}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Gender:
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
+       			<button ng-click="editgender=!editgender" class="btn btn-sml">...
+       			 <div ng-show ="editgender" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.Gender"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('Gender','<%-req.session.passport.user%>',setGender)"
+                  >
+                  <option ng-repeat="gender in genders" value="{{gender}}">
+                     {{gender}}
+                  </option>
+               </select>
+               </button>
+               <%}%>
+			   <%}%>
+			
+					{{LookedatUser.Gender}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Date of birth:
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
+               	<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">...
+               </button>
+               <div ng-show="editbirthday" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.BirthDay"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthDay','<%-req.session.passport.user%>',setBirthday)"
+                  >
+                  <option ng-repeat="day in birthdays" value="{{day}}">
+                     {{day}}
+                  </option>
+               </select>
+				   <select class="form-control"
+                  ng-model="User.BirthMonth"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
+                  >
+                  <option ng-repeat="month in birthmonths" ng-value="{{month.name}}">
+                     {{month.name}}
+                  </option>
+               </select>
+				   <select class="form-control"
+                  ng-model="User.BirthYear"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>',setBirthyear)"
+                  >
+                  <option ng-repeat="year in birthyears" value="{{year}}">
+                     {{year}}
+                  </option>
+               </select>
+              
+                </div>
+                
+                <%}%>
+                <%}%>
+            
+                {{LookedatUser.BirthDay}}
+                /
+					{{LookedatUser.BirthMonth}}
+				/
+					{{LookedatUser.BirthYear}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Current City:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+				<% if (req.session.passport.user==lookedatuser){ %>
+						<button ng-click="editcity=!editcity" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editcity" type="text"  class="form-control"  ng-change="GetCities()" ng-model="TypedCity" />
+						  <select ng-show="editcity" class="form-control"
+                  ng-model="User.CurrentCity"
+                  name="string"
+                  size="2"
+                  required="string"
+                  ng-selected="FoundCities[0]"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCity)"
+                  >
+						<option ng-repeat="cit in FoundCities" value="{{cit.city}}">
+                     {{cit.city}} {{cit.country}}
+                  </option>
+					</select>
+						<!-- <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
+						<button ng-show="editcity" class="btn btn-sml" ng-click=" PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)">Done
+						</button>-->
+						
+				 <%}%>
+				<%}%>
+					{{LookedatUser.CurrentCity}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Fide Title:<br>(Self Claimed:)
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
+       			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...
+       			 <div ng-show ="editfidetitle" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.FideTitle"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('FideTitle','<%-req.session.passport.user%>',setFideTitle)"
+                  >
+                  <option ng-repeat="fidetitle in fidetitles" value="{{fidetitle}}">
+                     {{fidetitle}}
+                  </option>
+               </select>
+               </button>
+               <%}%>
+               <%}%>
+					{{LookedatUser.FideTitle}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Valid Fide ID:
+					</td>
+					<td>
+					{{LookedatUser.FideID}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Fide Ratings:
+					</td>
+					<td>
+					{{LookedatUser.FideRatings}}
+					</td>
+				</tr>
+			</tbody>
+	</table>
+  </span>
+  </div>
 <%- include partials/flag1.ejs %>
 
     <!--SCRIPTS-->
