@@ -22,25 +22,7 @@
   <body ng-app="HomepageModule"  ng-controller="ProfileController" style="display:none"  id="mainContainer">
 	 
 	
-	  <!--<div class="btn btn-lg btn-success" ng-click="CountCities()">CountCities</div>
-	 -->
-	  <% var lookedatuser; %>
-	<% if (req.param('userID')){ %>
-			<% lookedatuser=req.param('userID'); %>
-		
-		<% } %>
-		
-	  
-	  <% if (req.session.passport){ %>
-	  <% if (req.session.passport.user){ %>
-	<% if (!req.param('userID')){ %>
-		<% lookedatuser=  req.session.passport.user;%>
-	  <% } %>
-      <% } %>
-	<% } %>
-		
-		<!--<div ng-show="<%- lookedatuser%>==587e609de5de465c1e899c48" class="btn btn-lg btn-success" ng-click="CreateCityDatabase()">CreateCityDatabase</div>
-	 -->
+	
 	
 	 
 						
@@ -59,20 +41,7 @@
 			
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
-    	<!-- <% if(lookedatuser==req.session.passport.user){%>
-    	<div ng-show="!LookedatUser.picture">
-			<button ng-click="showuploadform=!showuploadform" type="submit" class="btn btn-lg btn-success">Upload Picture</button>
-    	   <form ng-submit="uploadFile()" class="form">
-                <input type="text" placeholder="title" ng-model="titleText" class="form-control" required>
-                <br><br>
-                <file-field ng-model="uploadThis" class="btn" ng-class="{'btn-success':uploadThis}" preview="uploadPreview">Select file</file-field>
-                <br><br>
-                <input type="submit">
-            </form>
     	
-    	</div>
-    	<% } %>
-			-->
 		
        
        
