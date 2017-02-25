@@ -45,8 +45,14 @@
      	
 		  <div ng-show="LookedatUser.picture" style="position: relative; left: 0; top: 0;">
 			<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/greencirclesml.png"></img>
+		   <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%- lookedatuser %>')" src="/images/greycirclesml.png"></img>
 		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
     	</div>
+	
+	<h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
+            <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
+         
+            <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 	
 <%- include partials/flag1.ejs %>
 
