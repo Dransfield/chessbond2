@@ -781,7 +781,7 @@ transporter.sendMail(mailOptions, function(error, info){
     {
 	if (req.session.passport.user)
     {	
-		
+	/*	
 	Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
 			if (err)
@@ -815,7 +815,7 @@ transporter.sendMail(mailOptions, function(error, info){
 		dwellers:names,
       message: 'joined room'
     });
-	
+	*/
 	 });
 	});
 			});
