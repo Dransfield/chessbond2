@@ -104,9 +104,10 @@ $scope.Accounts=[];
 	};
     $scope.GetAccount=function(Myid)
     {
-			/*
+			
 		setTimeout(function(){
 		console.log("is "+Myid+" account gotten?");
+	/*
 	if(!$scope.Accounts[Myid])
 	{
 		console.log(Myid+" not gotten");
@@ -146,8 +147,9 @@ $scope.Accounts=[];
 	});
 	
 	}	
+	 */
 },3000);
-	*/
+	
 	};	
 		
 	
