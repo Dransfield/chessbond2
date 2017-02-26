@@ -269,7 +269,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 						<button ng-click="editfideid=!editfideid" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="ChangePreference('FideID','<%-req.session.passport.user%>',User.FideID)" ng-model="User.FideID" />
+						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="ChangePreference('FideID','<%-req.session.passport.user%>',LookedatUser.FideID)" ng-model="LookedatUser.FideID" />
 					
 					<%}%>
 				<%}%>
