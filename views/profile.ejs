@@ -285,7 +285,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 					<button ng-click="editfideratings=!editfideratings" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editfideratings" type="number"  class="form-control"  ng-change="PrefSelectChanged('FideRatings','<%-req.session.passport.user%>',null)"  ng-model="LookedatUser.FideRatings" />
+						 <input  ng-show="editfideratings" type="number"  class="form-control"  ng-change="PrefSelectChanged('FideRatings','<%-req.session.passport.user%>',null)"  ng-model="User.FideRatings" />
 				
 					<%}%>
 				<%}%>
