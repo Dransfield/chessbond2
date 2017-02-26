@@ -265,7 +265,15 @@
 					Valid Fide ID:
 					</td>
 					<td>
-					{{LookedatUser.FideID}}
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+						<button ng-click="editfideid=!editfideid" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="" ng-model="LookedatUser.FideID" />
+					
+					<%}%>
+				<%}%>
+			    	{{LookedatUser.FideID}}
 					</td>
 				</tr>
 				<tr>
