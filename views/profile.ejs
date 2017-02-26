@@ -269,7 +269,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 						<button ng-click="editfideid=!editfideid" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="" ng-model="LookedatUser.FideID" />
+						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="PrefSelectChanged('FideID','<%-req.session.passport.user%>',null)"" ng-model="LookedatUser.FideID" />
 					
 					<%}%>
 				<%}%>
@@ -281,6 +281,15 @@
 					Fide Ratings:
 					</td>
 					<td>
+						<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editfideratings=!editfideratings" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editfideratings" type="number"  class="form-control"  ng-change="PrefSelectChanged('FideRatings','<%-req.session.passport.user%>',null)"
+					  ng-model="LookedatUser.FideRatings" />
+				
+					<%}%>
+				<%}%>
 					{{LookedatUser.FideRatings}}
 					</td>
 				</tr>
