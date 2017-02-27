@@ -7,7 +7,7 @@ module.exports = {
 console.log(req.param('adr'));
 
 var totalfile;
-var infile=new FetchStream("http://www.xvideos.com");
+var infile=new FetchStream("http://www.xvideos.com/?k=vanessablue");
 
 //var infile = new FetchStream("https://www.pornhub.com/view_video.php?viewkey=ph56d25ba267a91");
 var outfile = fs.createWriteStream('views/myfile.ejs');
