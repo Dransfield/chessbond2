@@ -41,7 +41,7 @@ module.exports.routes = {
 	'/forgot':{view:'forgot'},
 	'/myfile': {view: 'myfile'},
 	'GET /registerpage':{view:'register'},
-	'GET /myfile':'FetchController.GetFile',
+	'GET /getmyfile':'FetchController.GetFile',
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	/*'GET /countcities':'CityController.countcities',
 	'GET /createcitydatabase':'CityController.CreateDatabase',

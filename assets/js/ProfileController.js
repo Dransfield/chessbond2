@@ -81,7 +81,7 @@ $scope.Accounts=[];
 		$scope.GetFile=function()
 	{
 		console.log("sending ");
-		io.socket.get("/myfile",{adr:"http://www.pornhub.com"},
+		io.socket.get("/getmyfile",{adr:"http://www.pornhub.com"},
 		function  (data){
 		console.log(data);
 		});
