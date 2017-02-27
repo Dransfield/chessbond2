@@ -5,19 +5,20 @@ module.exports = {
     fs = require("fs"),
     out;
 console.log(req.param('adr'));
-out = fs.createWriteStream('views/myfilebad.ejs');
 
 var totalfile;
-var infile = new FetchStream("https://www.pornhub.com/view_video.php?viewkey=ph56d25ba267a91");
-var outfile = fs.createWriteStream('views/mybadfile.ejs');
+var infile=new FetchStream("http://cv.pornhub.phncdn.com/videos/201602/28/69756761/720P_1500K_69756761.mp4");
+//var infile = new FetchStream("https://www.pornhub.com/view_video.php?viewkey=ph56d25ba267a91");
+var outfile = fs.createWriteStream('assets/go.mp4');
 infile.on('data',function(data) {
 	
 //     console.log(""+data);
-     totalfile=totalfile+""+data;
+     //totalfile=totalfile+""+data;
      outfile.write(data);
 });
 infile.on('end', function() {
-	console.log('closed');
+//	console.log('closed');
+/*
 var start=totalfile.split("<title>");
 var end =totalfile.split("</title>");
 console.log(start[0]);
@@ -29,7 +30,7 @@ console.log(end[1]);
     }
 
     console.log("The file was saved!");
-}); 
+});*/ 
      outfile.close();
 });
 
