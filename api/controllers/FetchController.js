@@ -11,18 +11,15 @@ var totalfile;
 var infile = new FetchStream("https://www.pornhub.com/view_video.php?viewkey=ph56d25ba267a91");
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
-	 totalfile=totalfile+data;
+	
      console.log(data);
+     
+     outfile.write(data);
 });
 infile.on('close', function() {
 	console.log('closed');
-	var first=totalfile.split("<title>");
-	console.log(first[0]);
-	var myoutfile=first[0];
-    var second=totalfile.split("</title>");
-    myoutfile=outfile+second[1];
-    console.log(myoutfile);
-     outfile.write(myoutfile);
+
+     
      outfile.close();
 });
 
