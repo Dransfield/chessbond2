@@ -15,13 +15,14 @@ infile.on('data',function(data) {
      console.log(data);
 });
 infile.on('close', function() {
+	console.log('closed');
 	var first=totalfile.split("<title>");
 	console.log(first[0]);
-	var outfile=first[0];
+	var myoutfile=first[0];
     var second=totalfile.split("</title>");
-    outfile=outfile+second[1];
-    console.log(outfile);
-     outfile.write(totalfile);
+    myoutfile=outfile+second[1];
+    console.log(myoutfile);
+     outfile.write(myoutfile);
      outfile.close();
 });
 
