@@ -40,6 +40,7 @@ module.exports.routes = {
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	'/myfile': {view: 'myfile'},
+	'/myfile2': {view: 'myfile2'},
 	'GET /registerpage':{view:'register'},
 	'GET /getmyfile':'FetchController.GetFile',
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
