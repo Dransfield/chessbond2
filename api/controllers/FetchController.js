@@ -5,7 +5,7 @@ module.exports = {
     fs = require("fs"),
     out;
 
-out = fs.createWriteStream('file.html');
+out = fs.createWriteStream('assets/file.html');
 new FetchStream(req.param('adr')).pipe(out);
 	}
 };
