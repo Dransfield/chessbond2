@@ -764,7 +764,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	
 	
 	subscribeToRoom: function(req, res) {
-	/*
+	
 	 	if (!req.isSocket) {
 		return res.badRequest();}
  
@@ -823,7 +823,7 @@ transporter.sendMail(mailOptions, function(error, info){
    }}}
   });
   
-   */
+   
   
 }
 	
