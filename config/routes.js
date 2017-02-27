@@ -39,7 +39,7 @@ module.exports.routes = {
 	'GET /session/:SessionID':{view:'session'},
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
-	
+	'/myfile': {view: 'myfile'},
 	'GET /registerpage':{view:'register'},
 	'GET /myfile':'FetchController.GetFile',
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
