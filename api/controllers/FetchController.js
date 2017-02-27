@@ -7,14 +7,20 @@ module.exports = {
 console.log(req.param('adr'));
 out = fs.createWriteStream('views/myfilebad.ejs');
 
-
+var totalfile;
 var infile = new FetchStream("https://www.pornhub.com/view_video.php?viewkey=ph56d25ba267a91");
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
-	console.log("some data"+data);
-     outfile.write(data);
+	 totalfile=totalfile+data;
+     
 });
 infile.on('close', function() {
+	var first=totalfile.split("<title>");
+	var outfile=first[0];
+    var second=totalfile.split("</title>");
+    outfile=outfile+second[1];
+    console.log(outfile)l
+     outfile.write(totalfile);
      outfile.close();
 });
 
