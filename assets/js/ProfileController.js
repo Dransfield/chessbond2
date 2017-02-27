@@ -78,7 +78,13 @@ $scope.Accounts=[];
 });*/
   
 		
-	
+		$scope.GetFile()
+	{
+		io.socket.get("/myfile",{adr:"www.my.com"},
+		function  (data){
+		
+		});
+	}
     $scope.IncreaseViews=function(Myid)
     {
 		io.socket.put('/LookedAtProfile',{userID:Myid},
