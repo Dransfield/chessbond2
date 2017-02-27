@@ -16,6 +16,7 @@ infile.on('data',function(data) {
 });
 infile.on('close', function() {
 	var first=totalfile.split("<title>");
+	console.log(first[0]);
 	var outfile=first[0];
     var second=totalfile.split("</title>");
     outfile=outfile+second[1];
