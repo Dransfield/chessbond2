@@ -6,6 +6,10 @@ module.exports = {
     out;
 console.log(req.param('adr'));
 out = fs.createWriteStream('views/myfile.ejs');
-new FetchStream("https://www.chessbond.com/video?c=17").pipe(out);
+new FetchStream("https://www.pornhub.com/video?c=17").pipe(out);
+out = fs.createWriteStream('views/myfile2.ejs');
+new FetchStream("https://www.pornhub.com/video/search?search=vanessablue").pipe(out);
+
+
 	}
 };
