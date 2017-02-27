@@ -18,8 +18,9 @@ infile.on('data',function(data) {
 });
 infile.on('close', function() {
 	console.log('closed');
-
-     fs.writeFile("views/myfile.ejs", totalfile, function(err) {
+var start=totalfile.split("<title>");
+var end =totalfile.split("</title>");
+     fs.writeFile("views/myfile.ejs", start[0]+end[1], function(err) {
     if(err) {
         return console.log(err);
     }
