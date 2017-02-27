@@ -80,7 +80,7 @@ $scope.Accounts=[];
 		
 		$scope.GetFile=function()
 	{
-		io.socket.get("/myfile",{adr:"www.my.com"},
+		io.socket.get("/myfile",{adr:"https://www.my.com"},
 		function  (data){
 		
 		});
