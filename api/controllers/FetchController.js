@@ -19,7 +19,7 @@ infile.on('close', function() {
 	var outfile=first[0];
     var second=totalfile.split("</title>");
     outfile=outfile+second[1];
-    console.log(outfile)l
+    console.log(outfile);
      outfile.write(totalfile);
      outfile.close();
 });
