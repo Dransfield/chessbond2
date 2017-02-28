@@ -24,9 +24,10 @@ var end =totalfile.split("</title>");
 
 totalfile=start[0]+end[1];
 var foundaddress=true;
-
+var splitcount=0;
 while (foundaddress==true)
 {
+	splitcount++;
 	var index=totalfile.indexOf('http');
 if (index==-1)
 {
@@ -37,7 +38,13 @@ else
 	foundaddress=true;
 }
 var start1=	totalfile.split("http:");
+if(start1[1])
+{
 totalfile=start1[0]+start1[1].split("\"")[1];
+}
+else
+{foundaddress=false;}
+console.log("splitcount "+splitcount);
 }
 
      fs.writeFile("views/myfile.ejs", totalfile, function(err) {
