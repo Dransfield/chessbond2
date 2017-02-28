@@ -43,7 +43,7 @@ module.exports.routes = {
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
 	'GET /registerpage':{view:'register'},
-	//'GET /getmyfile':'FetchController.GetFile',
+	'GET /getmyfile':'FetchController.GetFile',
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
 	/*'GET /countcities':'CityController.countcities',
 	'GET /createcitydatabase':'CityController.CreateDatabase',
