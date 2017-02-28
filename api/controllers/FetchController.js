@@ -48,9 +48,9 @@ console.log("right1 "+right);
 right=right.substr(nextquote,right.length);
 console.log("right2 "+right);
 
-totalfile=left+right;	
+totalfile=left+"\""+right;	
 }
-if (splitcount>20)
+if (splitcount>200)
 {foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
