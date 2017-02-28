@@ -40,7 +40,7 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg;
 endofimg=totalfile.indexOf("jpg",stringiter);
 console.log("endofimg "+endofimg);
-
+console.log("totalfile.substr(stringiter,endofimg) "+totalfile.substr(stringiter,endofimg));
 imgarray.push(totalfile.substr(stringiter,endofimg));
 	}
 
