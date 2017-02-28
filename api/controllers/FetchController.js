@@ -35,7 +35,7 @@ var nextimg=totalfile.indexOf("<img>",stringiter);
 if (nextimg>-1)
 {stringiter=nextimg;
 endofimg=totalfile.indexOf("</img>",stringiter);
-imgarray.push(totalfile.substr(stringiter,endofimg);
+imgarray.push(totalfile.substr(stringiter,endofimg));
 	}
 
 
