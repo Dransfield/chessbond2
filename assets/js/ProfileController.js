@@ -94,7 +94,7 @@ $scope.Accounts=[];
 			toastr.success('Picture uploaded');
 			})   
             .catch(function onError(sailsResponse) {
-			console.log("error "+sailsResponse);
+			console.log("error "+JSON.stringify(sailsResponse));
 		});
 	};
     $scope.IncreaseViews=function(Myid)
