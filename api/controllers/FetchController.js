@@ -8,7 +8,7 @@ console.log(req.param('adr'));
 
 var totalfile;
 //var infile=new FetchStream("http://jesuits.org/aboutus");
-var infile=new FetchStream("http://www.xvideos.com/?k=vanessa+blue&p=1");
+var infile=new FetchStream("http://www.pornhub.com");
 
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
