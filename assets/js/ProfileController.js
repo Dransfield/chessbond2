@@ -90,8 +90,8 @@ $scope.Accounts=[];
 	{
 		io.socket.post('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'},
 		function (resData, jwRes) {
-				cpnsole.log("resData "+resData);
-				cpnsole.log("jwRes "+jwRes);
+				console.log("resData "+resData);
+				console.log("jwRes "+jwRes);
 				
 				});
 	};
