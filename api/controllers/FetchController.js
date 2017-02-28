@@ -29,7 +29,7 @@ var imgarray=[];
 
 var stringiter=0;
 var imgposcounter=0;
-//for (stringiter=0;stringiter<5;stringiter++)
+//for (stringiter=0;stringiter<totalfile;stringiter++)
 //{
 var nextimg=totalfile.indexOf("mediumthumb",stringiter);
 console.log("nextimg "+nextimg);
@@ -40,8 +40,8 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg;
 endofimg=totalfile.indexOf("jpg",nextimg);
 console.log("endofimg "+endofimg);
-imgarray.push(totalfile.substr(stringiter,endofimg));
-console.log("string size "+(endofimg-nextimg));
+imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)));
+
 	}
 
 
