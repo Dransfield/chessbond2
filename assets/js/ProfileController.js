@@ -245,6 +245,7 @@ $scope.Accounts=[];
 		};
 		$scope.phraseforloggedindate=function(dat)
 		{
+			console.log("nu "+nu);
 			var nu=Date.parse(dat);
 			console.log(nu);
 			console.log(console.log(nu));
