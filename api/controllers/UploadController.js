@@ -2,7 +2,7 @@ module.exports = {
 
 		
 	
-	uploadAvatar: function (req, res) {
+	Upload: function (req, res) {
 
   req.file('avatar').upload({
     // don't allow the total upload size to exceed ~10MB
