@@ -38,9 +38,8 @@ if (nextimg>-1)
 {
 console.log("nextimg "+nextimg);
 stringiter=nextimg;
-endofimg=totalfile.indexOf("jpg",stringiter);
+endofimg=totalfile.indexOf("\"",stringiter+13);
 console.log("endofimg "+endofimg);
-console.log("totalfile.substr(stringiter,endofimg) "+totalfile.substr(stringiter,endofimg));
 imgarray.push(totalfile.substr(stringiter,endofimg));
 	}
 
