@@ -48,6 +48,7 @@ module.exports.routes = {
 	/*'GET /countcities':'CityController.countcities',
 	'GET /createcitydatabase':'CityController.CreateDatabase',
 	*/
+	'POST /uploadavatar':'UploadController.Upload',
 	'/justloggedin':'PageController.JustLoggedIn',
 	'GET /updateGameTime':'PageController.updateGameTime',
 	'/MyLogout':'AuthController.logout',

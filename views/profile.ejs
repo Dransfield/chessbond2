@@ -61,7 +61,20 @@
         <h1><b style="color:red">{{LookedatUser.FideTitle}}</b>  {{LookedatUser.name}}</h1>
       
      
-     	
+     	 <% if(lookedatuser==req.session.passport.user){%>
+    	<div ng-show="!LookedatUser.picture">
+			<button ng-click="showuploadform=!showuploadform" type="submit" class="btn btn-lg btn-success">Upload Picture</button>
+    	   <form ng-submit="uploadFile()" class="form">
+                <input type="text" placeholder="title" ng-model="titleText" class="form-control" required>
+                <br><br>
+                <file-field ng-model="uploadThis" class="btn" ng-class="{'btn-success':uploadThis}" preview="uploadPreview">Select file</file-field>
+                <br><br>
+                <input type="submit">
+            </form>
+    	
+    	</div>
+    	<% } %>
+			-->
 		  <div ng-show="LookedatUser.picture" style="position: relative; left: 0; top: 0;">
 			<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/greencirclesml.png"></img>
 		   <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%- lookedatuser %>')" src="/images/greycirclesml.png"></img>

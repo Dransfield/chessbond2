@@ -86,6 +86,13 @@ $scope.Accounts=[];
 		console.log(data);
 		});
 	};
+	$scope.uploadFile=function()
+	{
+		io.socket.put('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'},
+		function  (data){
+		
+		});
+	};
     $scope.IncreaseViews=function(Myid)
     {
 		io.socket.put('/LookedAtProfile',{userID:Myid},
