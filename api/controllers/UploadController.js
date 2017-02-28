@@ -33,7 +33,7 @@ module.exports = {
     })
     .exec(function (err){
       if (err) return res.negotiate(err);
-      return res.ok();
+      return res.redirect('/profile/'+req.session.passport.user);
     });
   });
   
