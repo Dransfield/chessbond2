@@ -24,7 +24,7 @@ module.exports = {
       avatarFd: uploadedFiles[0].fd
     }) .exec(function (err,ava){
       if (err) return res.negotiate(err);
-      return res.ok();
+      
     // Save the "fd" and the url where the avatar for a user can be accessed
     User.update(req.session.passport.user, {
 
