@@ -88,12 +88,14 @@ $scope.Accounts=[];
 	};
 	$scope.uploadFile=function()
 	{
-		io.socket.post('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'},
-		function (resData, jwRes) {
-				console.log("resData "+resData);
-				console.log("jwRes "+jwRes);
-				
-				});
+		$http.post('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'})
+	.then(function onSuccess (){
+			//Refresh the page now that we've been logged in.
+			toastr.success('Picture uploaded');
+			})   
+            .catch(function onError(sailsResponse) {
+			console.log("error "+sailsResponse);
+		});
 	};
     $scope.IncreaseViews=function(Myid)
     {
