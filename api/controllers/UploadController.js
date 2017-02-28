@@ -1,6 +1,6 @@
 module.exports = {
 
-		Upload:function(req,res){
+		
 	
 	//var blobAdapter = require('skipper-gridfs')({uri: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb.avatar_uploads' });
 	Upload: function (req, res) {
