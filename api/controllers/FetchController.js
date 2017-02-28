@@ -24,6 +24,23 @@ var start=totalfile.split("<title>");
 var end =totalfile.split("</title>");
 
 totalfile=start[0]+end[1];
+
+var imgarray=[];
+
+var stringiter;
+var imgposcounter=0;
+for (stringiter=0;stringiter<totalfile.length;stringiter++)
+{
+var nextimg=totalfile.indexOf("<img>",stringiter);
+if (nextimg>-1)
+{stringiter=nextimg;
+endofimg=totalfile.indexOf("</img>",stringiter);
+imgarray.push(totalfile.substr(stringiter,endofimg);
+	}
+
+
+}
+
 var foundaddress=true;
 var splitcount=0;
 while (foundaddress==true)
@@ -51,7 +68,8 @@ right=right.substr(nextquote,right.length);
 
 totalfile=left+"\""+right;	
 }
-
+if (splitcount>2000)
+{foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
 
@@ -82,7 +100,7 @@ right=right.substr(nextquote,right.length);
 
 totalfile=left+"\""+right;	
 }
-if (splitcount>200)
+if (splitcount>2000)
 {foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
