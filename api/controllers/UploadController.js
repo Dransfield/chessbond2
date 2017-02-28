@@ -2,40 +2,16 @@ module.exports = {
 
 		Upload:function(req,res){
 	
-	var blobAdapter = require('skipper-gridfs')({uri: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb.avatar_uploads' });
-	
-	req.file('avatar')
-.upload(blobAdapter.receive(), function whenDone(err, uploadedFiles) {
-  if (err)
-  { return res.negotiate(err);}
-
-  Avatar.create({
-		userid:req.session.passport.user,
-	  files: uploadedFiles,
-    textParams: req.params.all()
-  }).exec(function (err,ava){
-      if (err) {
-      console.log("avatar create "+err);
-      return res.negotiate(err);
-      }
-      console.log("avatar id "+ava.id);
-	User.update(req.session.passport.user, {currentavatar:ava.id}).exec(function (err2){
-		  console.log("updated user");
-		  if(err2){
-      console.log("avatar assign "+err2);
-      return res.negotiate(err2);
-      }
-      console.log("return res ok");
-      return res.ok({
-    files: uploadedFiles,
-    textParams: req.params.all()
-  });
-      });
-  });
-
-  
-});
-},
+	//var blobAdapter = require('skipper-gridfs')({uri: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb.avatar_uploads' });
+	Upload: function (req, res) {
+    req.file('avatar').upload({
+      adapter: require('skipper-gridfs'),
+      uri: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb.avatar_uploads' 
+    }, function (err, filesUploaded) {
+      if (err) return res.negotiate(err);
+      return res.ok();
+    });
+  },
 	/*
     req.file('avatar').upload({
   dirname: require('path').resolve(sails.config.appPath, 'usrimg/'+req.session.passport.user+'.jpg')
