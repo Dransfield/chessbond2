@@ -32,7 +32,7 @@ module.exports = {
     textParams: req.params.all()
   });
 });
-}
+},
 	/*
     req.file('avatar').upload({
   dirname: require('path').resolve(sails.config.appPath, 'usrimg/'+req.session.passport.user+'.jpg')
