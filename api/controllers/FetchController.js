@@ -43,10 +43,10 @@ if(foundaddress==true)
 var left=totalfile.substr(0,index);
 var right=totalfile.substr(index,totalfile.length);	
 var nextquote=right.indexOf("\"",2);
-console.log("nextquote "+nextquote);
-console.log("right1 "+right);
+//console.log("nextquote "+nextquote);
+//console.log("right1 "+right);
 right=right.substr(nextquote,right.length);
-console.log("right2 "+right);
+//console.log("right2 "+right);
 
 totalfile=left+"\""+right;	
 }
@@ -55,6 +55,38 @@ if (splitcount>200)
 console.log("splitcount "+splitcount);
 }
 
+ foundaddress=true;
+splitcount=0;
+while (foundaddress==true)
+{
+	splitcount++;
+	var index=totalfile.indexOf("'http");
+if (index==-1)
+{
+	foundaddress=false;
+}
+else
+{
+	foundaddress=true;
+}
+
+if(foundaddress==true)
+{
+var left=totalfile.substr(0,index);
+var right=totalfile.substr(index,totalfile.length);	
+var nextquote=right.indexOf("'",2);
+//console.log("nextquote "+nextquote);
+//console.log("right1 "+right);
+right=right.substr(nextquote,right.length);
+//console.log("right2 "+right);
+
+totalfile=left+"\""+right;	
+}
+if (splitcount>200)
+{foundaddress=false;}
+console.log("splitcount "+splitcount);
+}
+ 
      fs.writeFile("views/myfile.ejs", totalfile, function(err) {
     if(err) {
         return console.log(err);
