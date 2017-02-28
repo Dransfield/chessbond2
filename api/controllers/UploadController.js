@@ -17,21 +17,29 @@ module.exports = {
       return res.badRequest('No file was uploaded');
     }
 
+	Avatar.create({
+	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 
+      // Grab the first file and use it's `fd` (file descriptor)
+      avatarFd: uploadedFiles[0].fd
+    }) .exec(function (err,ava){
+      if (err) return res.negotiate(err);
+      return res.ok();
     // Save the "fd" and the url where the avatar for a user can be accessed
     User.update(req.session.passport.user, {
 
       // Generate a unique URL where the avatar can be downloaded.
-      avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
-
-      // Grab the first file and use it's `fd` (file descriptor)
-      avatarFd: uploadedFiles[0].fd
+      avatarid:ava.id
     })
     .exec(function (err){
       if (err) return res.negotiate(err);
       return res.ok();
     });
   });
+  
+    
+  
+ 
 },
 
 
@@ -46,7 +54,7 @@ avatar: function (req, res){
     id: 'string'
   });
 
-  User.findOne(req.param('id')).exec(function (err, user){
+  Avatar.findOne(req.param('id')).exec(function (err, user){
     if (err) return res.negotiate(err);
     if (!user) return res.notFound();
 
