@@ -2,19 +2,24 @@ module.exports = {
 
 		Upload:function(req,res){
 		  req.file('avatar').upload({
+    console.log("user "+req.session.passport.user);
+    console.log(req.param('avatar'));
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
   },function whenDone(err, uploadedFiles) {
     if (err) {
+		console.log(err);
       return res.negotiate(err);
     }
 
     // If no files were uploaded, respond with an error.
     if (uploadedFiles.length === 0){
+		
+      console.log('No file was uploaded');
       return res.badRequest('No file was uploaded');
     }
 
-
+	
     // Save the "fd" and the url where the avatar for a user can be accessed
     User.update(req.session.passport.user, {
 
@@ -25,7 +30,9 @@ module.exports = {
       avatarFd: uploadedFiles[0].fd
     })
     .exec(function (err){
-      if (err) return res.negotiate(err);
+      if (err) 
+      console.log("user update error "+err);
+      return res.negotiate(err);
       return res.ok();
     });
   });
@@ -42,7 +49,7 @@ avatar: function (req, res){
   req.validate({
     id: 'string'
   });
-
+	console.log("avatar function user "+req.param('id'));
   User.findOne(req.param('id')).exec(function (err, user){
     if (err) return res.negotiate(err);
     if (!user) return res.notFound();
