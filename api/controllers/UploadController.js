@@ -52,12 +52,15 @@ avatar: function (req, res){
   });
 	console.log("avatar function user "+req.param('id'));
   User.findOne(req.param('id')).exec(function (err, user){
+	  if(err) console.log(err);
     if (err) return res.negotiate(err);
+    if (!user) console.log("user not found");
     if (!user) return res.notFound();
 
     // User has no avatar image uploaded.
     // (should have never have hit this endpoint and used the default image)
     if (!user.avatarFd) {
+		console.log("image not found");
       return res.notFound();
     }
 
