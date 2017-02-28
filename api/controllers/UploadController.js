@@ -40,12 +40,18 @@ module.exports = {
       // Grab the first file and use it's `fd` (file descriptor)
       avatarFd: uploadedFiles[0].fd
     })
-    .exec(function (err){
+    .exec(function (err,ava){
       if (err) {
       console.log("avatar create "+err);
       return res.negotiate(err);
       }
+      User.Update({currentavatar:ava.id}).exec(function (err2){
+		  if(err2){
+      console.log("avatar assign "+err2);
+      return res.negotiate(err2);
+      }
       return res.ok();
+    });
     });
   });
 }
@@ -55,36 +61,36 @@ module.exports = {
  * Download avatar of the user with the specified id
  *
  * (GET /user/avatar/:id)
-
+*/
 avatar: function (req, res){
 
   req.validate({
     id: 'string'
   });
 	console.log("avatar function user "+req.param('id'));
-  User.findOne(req.param('id')).exec(function (err, user){
+  Avatar.findOne(req.param('id')).exec(function (err, ava){
 	  if(err) console.log(err);
     if (err) return res.negotiate(err);
-    if (!user) console.log("user not found");
-    if (!user) return res.notFound();
+    if (!ava) console.log("avatar not found");
+    if (!ava) return res.notFound();
 
     // User has no avatar image uploaded.
     // (should have never have hit this endpoint and used the default image)
-    if (!user.avatarFd) {
+    if (!ava.avatarFd) {
 		console.log("image not found");
       return res.notFound();
     }
 
     var SkipperDisk = require('skipper-disk');
-    var fileAdapter = SkipperDisk(/* optional opts );
+    var fileAdapter = SkipperDisk(/* optional opts */);
 
  
-    fileAdapter.read(user.avatarFd)
+    fileAdapter.read(ava.avatarFd)
     .on('error', function (err){
       return res.serverError(err);
     })
     .pipe(res);
   });
 }
- */
+
 };
