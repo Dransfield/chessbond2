@@ -68,7 +68,7 @@ right=right.substr(nextquote,right.length);
 
 totalfile=left+"\""+right;	
 }
-if (splitcount>2000)
+if (splitcount>4000)
 {foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
@@ -100,7 +100,7 @@ right=right.substr(nextquote,right.length);
 
 totalfile=left+"\""+right;	
 }
-if (splitcount>2000)
+if (splitcount>4000)
 {foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
