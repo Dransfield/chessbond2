@@ -29,32 +29,33 @@ module.exports = {
       return res.badRequest('No file was uploaded');
     }
 
-	
+	Avatar.Create({
+		userid:req.session.passport.user,
     // Save the "fd" and the url where the avatar for a user can be accessed
-    User.update(req.session.passport.user, {
+    //User.update(req.session.passport.user, {
 
       // Generate a unique URL where the avatar can be downloaded.
-      avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
+     // avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 
       // Grab the first file and use it's `fd` (file descriptor)
       avatarFd: uploadedFiles[0].fd
     })
     .exec(function (err){
       if (err) {
-      console.log("user update error "+err);
+      console.log("avatar create "+err);
       return res.negotiate(err);
       }
       return res.ok();
     });
   });
-},
+}
 
 
 /**
  * Download avatar of the user with the specified id
  *
  * (GET /user/avatar/:id)
- */
+
 avatar: function (req, res){
 
   req.validate({
@@ -75,12 +76,9 @@ avatar: function (req, res){
     }
 
     var SkipperDisk = require('skipper-disk');
-    var fileAdapter = SkipperDisk(/* optional opts */);
+    var fileAdapter = SkipperDisk(/* optional opts );
 
-    // set the filename to the same file as the user uploaded
-    //res.set("Content-disposition", "attachment; filename='" + file.name + "'");
-
-    // Stream the file down
+ 
     fileAdapter.read(user.avatarFd)
     .on('error', function (err){
       return res.serverError(err);
@@ -88,5 +86,5 @@ avatar: function (req, res){
     .pipe(res);
   });
 }
-
+ */
 };
