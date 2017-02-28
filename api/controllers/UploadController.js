@@ -29,7 +29,7 @@ module.exports = {
       return res.badRequest('No file was uploaded');
     }
 
-	Avatar.Create({
+	Avatar.create({
 		userid:req.session.passport.user,
     // Save the "fd" and the url where the avatar for a user can be accessed
     //User.update(req.session.passport.user, {
