@@ -32,6 +32,7 @@ var imgposcounter=0;
 for (stringiter=0;stringiter<totalfile.length;stringiter++)
 {
 var nextimg=totalfile.indexOf("<img>",stringiter);
+console.log("nextimg "+nextimg);
 if (nextimg>-1)
 {stringiter=nextimg;
 endofimg=totalfile.indexOf("</img>",stringiter);
