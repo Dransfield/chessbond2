@@ -28,7 +28,7 @@ var splitcount=0;
 while (foundaddress==true)
 {
 	splitcount++;
-	var index=totalfile.indexOf('http');
+	var index=totalfile.indexOf('\"http');
 if (index==-1)
 {
 	foundaddress=false;
@@ -37,13 +37,16 @@ else
 {
 	foundaddress=true;
 }
-var start1=	totalfile.split("http:");
-if(start1[1])
+
+if(foundaddress==true)
 {
-totalfile=start1[0]+start1.slice(1,start.length);
+var left=totalfile.substr(0,index);
+var right=totalfile.substr(index,totalfile.length);	
+var nextquote=right.indexOf("\"");
+right=right.substr(nextquote,right.length);
+totalfile=left+right;	
 }
-else
-{foundaddress=false;}
+
 console.log("splitcount "+splitcount);
 }
 
