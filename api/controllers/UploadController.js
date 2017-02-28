@@ -121,7 +121,7 @@ module.exports = {
  *
  * (GET /user/avatar/:id)
 */
-avatar2:function(req,res){
+secondavatar:function(req,res){
 	blobAdapter.read(req.param('filename'), callback);
 },
 avatar: function (req, res){
