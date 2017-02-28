@@ -40,7 +40,7 @@ else
 
 if(foundaddress==true)
 {
-var left=totalfile.substr(0,index);
+var left=totalfile.substr(0,index+4);
 var right=totalfile.substr(index,totalfile.length);	
 var nextquote=right.indexOf("\"");
 right=right.substr(nextquote,right.length);
