@@ -38,7 +38,7 @@ if (nextimg>-1)
 {
 console.log("nextimg "+nextimg);
 stringiter=nextimg;
-endofimg=totalfile.indexOf("\"",stringiter+13);
+endofimg=totalfile.indexOf("jpg",nextimg);
 console.log("endofimg "+endofimg);
 imgarray.push(totalfile.substr(stringiter,endofimg));
 	}
@@ -78,7 +78,7 @@ totalfile=left+"\""+right;
 }
 if (splitcount>4000)
 {foundaddress=false;}
-console.log("splitcount "+splitcount);
+//console.log("splitcount "+splitcount);
 }
 
  foundaddress=true;
@@ -110,7 +110,7 @@ totalfile=left+"\""+right;
 }
 if (splitcount>4000)
 {foundaddress=false;}
-console.log("splitcount "+splitcount);
+//console.log("splitcount "+splitcount);
 }
  
      fs.writeFile("views/myfile.ejs", totalfile, function(err) {
