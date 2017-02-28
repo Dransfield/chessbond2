@@ -45,7 +45,7 @@ module.exports = {
       console.log("avatar create "+err);
       return res.negotiate(err);
       }
-      User.Update({currentavatar:ava.id}).exec(function (err2){
+      User.update({currentavatar:ava.id}).exec(function (err2){
 		  if(err2){
       console.log("avatar assign "+err2);
       return res.negotiate(err2);
