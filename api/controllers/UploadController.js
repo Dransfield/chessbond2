@@ -2,7 +2,15 @@ module.exports = {
 
 		Upload:function(req,res){
 	
-    
+    req.file('avatar').upload({
+  dirname: require('path').resolve(sails.config.appPath, 'usrimg/'req.session.passport.user)
+},function (err, uploadedFiles) {
+  if (err) return res.negotiate(err);
+
+  return res.json({
+    message: uploadedFiles.length + ' file(s) uploaded successfully!'
+  });
+});
     
 		  req.file('avatar').upload({
    
