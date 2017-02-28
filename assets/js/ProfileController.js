@@ -297,7 +297,7 @@ $scope.Accounts=[];
 			}
 			else
 			{
-				var nu=Date.parse(dat);
+				var nu=new Date(dat);
 			var month = nu.getUTCMonth() + 1; //months from 1-12
 			var day = nu.getUTCDate();
 			var year = nu.getUTCFullYear();
