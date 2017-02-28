@@ -1,9 +1,7 @@
 module.exports = {
 
 		Upload:function(req,res){
-			 console.log("user "+req.session.passport.user);
-    console.log(req.param('avatar'));
-    console.log("req.file1 "+JSON.stringify(req.file));
+	
     
     
 		  req.file('avatar').upload({
