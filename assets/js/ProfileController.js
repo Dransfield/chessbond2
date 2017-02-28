@@ -88,10 +88,12 @@ $scope.Accounts=[];
 	};
 	$scope.uploadFile=function()
 	{
-		io.socket.put('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'},
-		function  (data){
-		console.log(data);
-		});
+		io.socket.post('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'},
+		function (resData, jwRes) {
+				cpnsole.log("resData "+resData);
+				cpnsole.log("jwRes "+jwRes);
+				
+				});
 	};
     $scope.IncreaseViews=function(Myid)
     {
