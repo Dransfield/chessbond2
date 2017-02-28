@@ -34,9 +34,10 @@ module.exports = {
       avatarFd: uploadedFiles[0].fd
     })
     .exec(function (err){
-      if (err) 
+      if (err) {
       console.log("user update error "+err);
       return res.negotiate(err);
+      }
       return res.ok();
     });
   });
