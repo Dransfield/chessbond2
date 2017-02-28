@@ -88,7 +88,7 @@ $scope.Accounts=[];
 	};
 	$scope.uploadFile=function()
 	{
-		$http.post('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'})
+		$http.post('/uploadavatar',{avatar:'/root/Downloads/scroll/city2.jpg'})
 	.then(function onSuccess (){
 			//Refresh the page now that we've been logged in.
 			toastr.success('Picture uploaded');
