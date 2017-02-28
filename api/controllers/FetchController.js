@@ -35,16 +35,20 @@ var nextimg=totalfile.indexOf("mediumthumb",stringiter);
 console.log("nextimg "+nextimg);
 
 if (nextimg>-1)
-{stringiter=nextimg;
+{
+console.log("nextimg "+nextimg);
+stringiter=nextimg;
 endofimg=totalfile.indexOf("jpg",stringiter);
+console.log("endofimg "+endofimg);
+
 imgarray.push(totalfile.substr(stringiter,endofimg));
 	}
 
 
 //}
 
-for (xx in imgarray)
-{console.log("imgarray "+imgarray[xx]);}
+//for (xx in imgarray)
+//{console.log("imgarray "+imgarray[xx]);}
 
 var foundaddress=true;
 var splitcount=0;
