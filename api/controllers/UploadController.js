@@ -5,7 +5,7 @@ module.exports = {
 	var blobAdapter = require('skipper-gridfs')({uri: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb.avatar_uploads' });
 	
 	req.file('avatar')
-.upload(blobAdapter().receive(), function whenDone(err, uploadedFiles) {
+.upload(blobAdapter.receive(), function whenDone(err, uploadedFiles) {
   if (err)
   { return res.negotiate(err);}
 
