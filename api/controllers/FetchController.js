@@ -40,7 +40,7 @@ else
 var start1=	totalfile.split("http:");
 if(start1[1])
 {
-totalfile=start1[0]+start1[1].split("\"")[1];
+totalfile=start1[0]+start1[1..].split("\"")[1];
 }
 else
 {foundaddress=false;}
