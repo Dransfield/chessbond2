@@ -63,6 +63,9 @@
      
      	 <% if(lookedatuser==req.session.passport.user){%>
     	<div ng-show="!LookedatUser.picture">
+		<img src="/user/avatar/{{LookedatUser.currentavatar}}">
+		</div>
+    	<div ng-show="!LookedatUser.picture">
 			<button ng-click="showuploadform=!showuploadform" type="submit" class="btn btn-lg btn-success">Upload Picture</button>
     	   <form ng-submit="uploadFile()" class="form">
                 <input type="text" placeholder="title" ng-model="titleText" class="form-control" required>
