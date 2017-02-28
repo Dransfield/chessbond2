@@ -3,16 +3,42 @@ module.exports = {
 		Upload:function(req,res){
 	
     req.file('avatar').upload({
-  dirname: require('path').resolve(sails.config.appPath, 'usrimg/'+req.session.passport.user)
+  dirname: require('path').resolve(sails.config.appPath, 'usrimg/'+req.session.passport.user+'.jpg')
 },function (err, uploadedFiles) {
   if (err) return res.negotiate(err);
+	
+	Avatar.create({
+		userid:req.session.passport.user,
+    // Save the "fd" and the url where the avatar for a user can be accessed
+    //User.update(req.session.passport.user, {
 
+      // Generate a unique URL where the avatar can be downloaded.
+     // avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
+
+      // Grab the first file and use it's `fd` (file descriptor)
+      avatarFd: uploadedFiles[0].fd
+    })
+    .exec(function (err,ava){
+      if (err) {
+      console.log("avatar create "+err);
+      return res.negotiate(err);
+      }
+      console.log("avatar id "+ava.id);
+	User.update(req.session.passport.user, {currentavatar:ava.id}).exec(function (err2){
+		  if(err2){
+      console.log("avatar assign "+err2);
+      return res.negotiate(err2);
+      }
+      });
+      
+	
+	});
   return res.json({
     message: uploadedFiles.length + ' file(s) uploaded successfully!'
   });
 });
     
-		  req.file('avatar').upload({
+		 /* req.file('avatar').upload({
    
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
@@ -54,7 +80,7 @@ module.exports = {
       return res.ok();
     });
     });
-  });
+  });*/
 },
 
 
