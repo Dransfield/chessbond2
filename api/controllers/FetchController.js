@@ -37,10 +37,10 @@ console.log("nextimg "+nextimg);
 if (nextimg>-1)
 {
 console.log("nextimg "+nextimg);
-stringiter=nextimg;
+stringiter=nextimg+12;
 endofimg=totalfile.indexOf("jpg",nextimg);
 console.log("endofimg "+endofimg);
-imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)));
+imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)+4));
 
 	}
 
