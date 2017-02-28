@@ -51,8 +51,7 @@ right=right.substr(nextquote,right.length);
 
 totalfile=left+"\""+right;	
 }
-if (splitcount>200)
-{foundaddress=false;}
+
 console.log("splitcount "+splitcount);
 }
 
