@@ -1,9 +1,10 @@
 module.exports = {
 
 		Upload:function(req,res){
-		  req.file('avatar').upload({
-    console.log("user "+req.session.passport.user);
+			 console.log("user "+req.session.passport.user);
     console.log(req.param('avatar'));
+		  req.file('avatar').upload({
+   
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
   },function whenDone(err, uploadedFiles) {
