@@ -20,10 +20,12 @@ module.exports = {
       }
       console.log("avatar id "+ava.id);
 	User.update(req.session.passport.user, {currentavatar:ava.id}).exec(function (err2){
+		  console.log("updated user");
 		  if(err2){
       console.log("avatar assign "+err2);
       return res.negotiate(err2);
       }
+      console.log("return res ok");
       return res.ok({
     files: uploadedFiles,
     textParams: req.params.all()
