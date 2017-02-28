@@ -68,7 +68,7 @@ avatar: function (req, res){
     id: 'string'
   });
 	console.log("avatar function user "+req.param('id'));
-  Avatar.findOne(req.param('id')).exec(function (err, ava){
+  avatar.findOne(req.param('id')).exec(function (err, ava){
 	  if(err) console.log(err);
     if (err) return res.negotiate(err);
     if (!ava) console.log("avatar not found");
