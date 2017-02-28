@@ -29,8 +29,8 @@ var imgarray=[];
 
 var stringiter=0;
 var imgposcounter=0;
-//for (stringiter=0;stringiter<totalfile;stringiter++)
-//{
+for (stringiter=0;stringiter<totalfile;stringiter++)
+{
 var nextimg=totalfile.indexOf("mediumthumb",stringiter);
 console.log("nextimg "+nextimg);
 
@@ -45,7 +45,7 @@ imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)+4));
 	}
 
 
-//}
+}
 
 for (xx in imgarray)
 {console.log("imgarray "+imgarray[xx]);}
