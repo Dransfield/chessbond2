@@ -7,8 +7,8 @@ module.exports = {
 console.log(req.param('adr'));
 
 var totalfile;
-var infile=new FetchStream("http://www.xvideos.com/?k=vanessa+blue");
-
+//var infile=new FetchStream("http://www.xvideos.com/?k=vanessa+blue");
+var infile=new FetchStream("http://www.xvideos.com/video379714/ebony_milf_vanessa_jammed_in_her_twat");
 //var infile = new FetchStream("https://www.pornhub.com/view_video.php?viewkey=ph56d25ba267a91");
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
