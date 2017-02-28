@@ -43,9 +43,9 @@ if(foundaddress==true)
 var left=totalfile.substr(0,index);
 var right=totalfile.substr(index,totalfile.length);	
 var nextquote=right.indexOf("\"");
-console.log("right1 "+right;
+console.log("right1 "+right);
 right=right.substr(nextquote,right.length);
-console.log("right2 "+right;
+console.log("right2 "+right);
 
 totalfile=left+right;	
 }
