@@ -41,6 +41,7 @@ stringiter=nextimg;
 endofimg=totalfile.indexOf("jpg",nextimg);
 console.log("endofimg "+endofimg);
 imgarray.push(totalfile.substr(stringiter,endofimg));
+console.log("string size "+(endofimg-nextimg));
 	}
 
 
