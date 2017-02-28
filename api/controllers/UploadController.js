@@ -24,13 +24,14 @@ module.exports = {
       console.log("avatar assign "+err2);
       return res.negotiate(err2);
       }
-      });
-  });
-
-  return res.ok({
+      return res.ok({
     files: uploadedFiles,
     textParams: req.params.all()
   });
+      });
+  });
+
+  
 });
 },
 	/*
