@@ -3,7 +3,7 @@ module.exports = {
 		Upload:function(req,res){
 			 console.log("user "+req.session.passport.user);
     console.log(req.param('avatar'));
-		  req.file(req.param('avatar')).upload({
+		  req.file('avatar').upload({
    
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
