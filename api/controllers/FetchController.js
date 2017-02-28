@@ -42,7 +42,7 @@ if(foundaddress==true)
 {
 var left=totalfile.substr(0,index);
 var right=totalfile.substr(index,totalfile.length);	
-var nextquote=right.indexOf("\"");
+var nextquote=right.indexOf("\"",2);
 console.log("nextquote "+nextquote);
 console.log("right1 "+right);
 right=right.substr(nextquote,right.length);
@@ -50,7 +50,7 @@ console.log("right2 "+right);
 
 totalfile=left+right;	
 }
-if (splitcount>2)
+if (splitcount>20)
 {foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
