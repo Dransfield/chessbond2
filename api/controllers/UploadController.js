@@ -4,7 +4,7 @@ module.exports = {
 			 console.log("user "+req.session.passport.user);
     console.log(req.param('avatar'));
     console.log("req.file1 "+JSON.stringify(req.file));
-    console.log("req.file2 "+req.file('avatar'));
+    console.log("req.file2 "+JSON.stringify(req.file('avatar')));
     
 		  req.file('avatar').upload({
    
