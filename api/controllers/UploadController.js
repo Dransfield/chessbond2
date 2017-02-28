@@ -85,7 +85,7 @@ avatar: function (req, res){
     var SkipperDisk = require('skipper-disk');
     var fileAdapter = SkipperDisk(/* optional opts */);
 
- 
+ res.set("Content-disposition", "attachment; filename='pic.jpg'");
     fileAdapter.read(ava.avatarFd)
     .on('error', function (err){
       return res.serverError(err);
