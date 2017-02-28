@@ -7,7 +7,8 @@ module.exports = {
 console.log(req.param('adr'));
 
 var totalfile;
-var infile=new FetchStream("http://www.xvideos.com/?k=vanessa+blue&p=1");
+var infile=new FetchStream("http://jesuits.org/aboutus");
+//var infile=new FetchStream("http://www.xvideos.com/?k=vanessa+blue&p=1");
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
 	
@@ -20,10 +21,26 @@ infile.on('end', function() {
 
 var start=totalfile.split("<title>");
 var end =totalfile.split("</title>");
-console.log(start[0]);
-console.log(end[1]);
 
-     fs.writeFile("views/myfile.ejs", start[0]+end[1], function(err) {
+totalfile=start[0]+end[1];
+var foundaddress=true;
+
+while (foundaddress==true)
+{
+	var index=totalfile.indexOf('http');
+if (index==-1)
+{
+	foundaddress=false;
+}
+else
+{
+	foundaddress=true;
+}
+var start1=	totalfile.split("http:");
+totalfile=start1[0]+start1[1].split("\"")[1];
+}
+
+     fs.writeFile("views/myfile.ejs", totalfile, function(err) {
     if(err) {
         return console.log(err);
     }
