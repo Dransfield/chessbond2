@@ -46,8 +46,8 @@ imgarray.push(totalfile.substr(stringiter,endofimg));
 
 //}
 
-//for (xx in imgarray)
-//{console.log("imgarray "+imgarray[xx]);}
+for (xx in imgarray)
+{console.log("imgarray "+imgarray[xx]);}
 
 var foundaddress=true;
 var splitcount=0;
