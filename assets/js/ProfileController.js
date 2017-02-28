@@ -90,7 +90,7 @@ $scope.Accounts=[];
 	{
 		io.socket.put('/uploadavatar',{avatar:'/root/Downloads/scroll/city1.jpg'},
 		function  (data){
-		
+		console.log(data);
 		});
 	};
     $scope.IncreaseViews=function(Myid)
