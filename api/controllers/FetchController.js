@@ -40,13 +40,14 @@ else
 
 if(foundaddress==true)
 {
-var left=totalfile.substr(0,index+4);
+var left=totalfile.substr(0,index);
 var right=totalfile.substr(index,totalfile.length);	
 var nextquote=right.indexOf("\"");
 right=right.substr(nextquote,right.length);
 totalfile=left+right;	
 }
-
+if (splitcount>199)
+{foundaddress=false;}
 console.log("splitcount "+splitcount);
 }
 
