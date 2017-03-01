@@ -52,8 +52,22 @@ imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)+4));
 }
 
 for (xx in imgarray)
-{console.log("imgarray "+imgarray[xx]);}
+{console.log("imgarray "+imgarray[xx]);
+	var infile=new FetchStream(imgarray[xx]);
 
+var outfile = fs.createWriteStream('/mypics/'+xx+'jpg');
+totalfile=totalfile+"<img src='/mypics/"+xx+"jpg'>";
+infile.on('data',function(data) {
+	
+//     console.log(""+data);
+     
+     outfile.write(data);
+});
+infile.on('end', function() {
+//	console.log('closed');
+	outfile.close();
+	}
+}
 var foundaddress=true;
 var splitcount=0;
 while (foundaddress==true)
