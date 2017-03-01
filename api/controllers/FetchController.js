@@ -92,7 +92,7 @@ console.log(req.param('adr'));
 
 var totalfile;
 //var infile=new FetchStream("http://jesuits.org/aboutus");
-var infile=new FetchStream("http://www.pornhub.com");
+var infile=new FetchStream("http://www.pornhub.com/video/search?search=ebony+deepthroat");
 
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
@@ -136,7 +136,15 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 }
 
 
+	gitimage(imgarray[0],0);
 
+	gitimage(imgarray[1],1);
+
+	gitimage(imgarray[2],2);
+
+	gitimage(imgarray[3],3);
+
+	gitimage(imgarray[4],4);
 
 for (xx in imgarray)
 {
