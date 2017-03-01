@@ -192,6 +192,7 @@ var youtubedl = require('youtube-dl');
 	gitimage(imgarray[44],44,youtubedl);
 */
 var alt=1;
+var count;
 for (xx in imgarray)
 {
 console.log(imgarray[xx]);
@@ -201,12 +202,15 @@ if(alt==1)
 {
 	gitimage(imgarray[xx],xx,youtubedl);
 alt=0;
+count++;
+console.log("count "+count);
 }
 else
 {
 alt=1;	
 }
 }
+
 
 
 var foundaddress=true;
