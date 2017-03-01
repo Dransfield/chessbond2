@@ -191,14 +191,21 @@ var youtubedl = require('youtube-dl');
 
 	gitimage(imgarray[44],44,youtubedl);
 */
+var alt=1;
 for (xx in imgarray)
 {
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
 totalfile=totalfile+imgarray[xx];
-
+if(alt==1)
+{
 	gitimage(imgarray[xx],xx,youtubedl);
-
+alt=0;
+}
+else
+{
+alt=1;	
+}
 }
 
 
