@@ -43,6 +43,10 @@ console.log("endofimg "+endofimg);
 imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)+4));
 
 	}
+	else
+	{
+	stringiter=totalfile.length+400;	
+	}
 
 
 }
