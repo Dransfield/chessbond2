@@ -5,7 +5,7 @@ var url = 'http://www.pornhub.com'+img;
 // Optional arguments passed to youtube-dl. 
 var options = [];
 youtubedl.getInfo(url, options, function(err, info) {
-  if (err) throw err;
+  if (err) return;
  
   console.log('id:', info.id);
   console.log('title:', info.title);
