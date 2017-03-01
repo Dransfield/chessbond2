@@ -116,7 +116,7 @@ var stringiter=0;
 var imgposcounter=0;
 for (stringiter=0;stringiter<totalfile.length;stringiter++)
 {
-var nextimg=totalfile.indexOf("/view_video",stringiter);
+var nextimg=totalfile.indexOf("/video",stringiter);
 console.log("nextimg "+nextimg);
 
 if (nextimg>-1)
