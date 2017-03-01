@@ -71,7 +71,7 @@ infilearray[xx].on('data',function(data) {
 infilearray[xx].on('end', function() {
 //	console.log('closed');
 	outfilearray[xx].close();
-	}
+	});
 }
 var foundaddress=true;
 var splitcount=0;
