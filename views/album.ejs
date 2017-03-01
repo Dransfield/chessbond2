@@ -43,10 +43,11 @@
 	</div>
 	
 	<h1>{{Album.name}}</h1>
+	<% if(req.session.passport.user=={{Album.user}} %>
 		<button ng-click="editalbumtitle=!editalbumtitle" class="btn btn-sml">Edit Album Title..
 						</button>
 		 <input  ng-show="editalbumtitle" type="text"  class="form-control"  ng-change="ChangeAlbum('name','<%-req.param('albumID')%>',Album.name)" ng-model="Album.name" />
-
+	<%}%>
 	<div  style="display:flex" ng-repeat="pic in mypics track by $index">
 	<span>
 	<img style="width:400px" ng-src="/user/avatar/{{pic.id}}">
