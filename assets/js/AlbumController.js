@@ -37,7 +37,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		$scope.$apply(function(){
 			for(var i = $scope.mypics.length - 1; i >= 0; i--) {
 				
-			if($scope.mypics[i].id === data.gameid) {
+			if($scope.mypics[i].id === data.id) {
 			$scope.mypics.splice(i, 1);
 			}
 			}
