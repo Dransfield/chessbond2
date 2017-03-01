@@ -69,8 +69,9 @@ totalfile=totalfile+"<img src='/"+xx+".jpg'>";
 infilearray[xx].on('data',function(data) {
 	
   console.log("xx"+xx);
-     
+     if(xx<47){
      outfilearray[xx].write(data);
+	}
 });
 infilearray[xx].on('end', function() {
 //	console.log('closed');
