@@ -35,7 +35,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		io.socket.put('/deleteavatar',{picid:id,adr:picadr},	function  (data){
 		console.log(JSON.stringify(data));
 		$scope.$apply(function(){
-			for(var i = $scope.mypics - 1; i >= 0; i--) {
+			for(var i = $scope.mypics.length - 1; i >= 0; i--) {
 				
 			if($scope.mypics[i].id === data.gameid) {
 			$scope.mypics.splice(i, 1);
