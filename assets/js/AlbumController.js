@@ -48,6 +48,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	}
 	$scope.getpics=function(albid)
 	{
+		console.log("looking for album "+albid);
 	io.socket.get('/avatar?albumid='+albid,
 	function  (data){
 		console.log(JSON.stringify(data));
