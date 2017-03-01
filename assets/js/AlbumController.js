@@ -15,7 +15,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	
 	$scope.SetAvatar=function(MyID,picid)
 	{
-		io.socket.put('/User/'+MyId,{
+		io.socket.put('/User/'+MyID,{
       avatarid:picid
       }  
     ,function(resData,jwres)
