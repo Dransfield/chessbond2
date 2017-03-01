@@ -55,6 +55,7 @@ module.exports.routes = {
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
 	'PUT /SendMail':'ForgotBackController.SendMail',
+	'PUT /deleteavatar':'AvatarController.deletepic',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
 	'GET /forgot/password/:code':{view:'newpassword'},
 	'PUT /Withdraw':'PageController.Withdraw',

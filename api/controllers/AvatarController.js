@@ -6,6 +6,11 @@
  */
 
 module.exports = {
-	
+	deletepic:function(req,res)
+	{
+	fs=require('fs');
+		fs.unlinkSync(req.param('adr'));
+		return res.ok();
+	}
 };
 

@@ -29,14 +29,13 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		});
 	}
 	
-	$scope.DeleteAvatar=function(me,picid)
+	$scope.DeleteAvatar=function(me,picadr)
 	{
-		fs=require('fs');
-		io.socket.get('/avatar?id='+picid,
-	function  (data){
+		
+		io.socket.put('/deleteavatar?adr='+picadr,	function  (data){
 		console.log(JSON.stringify(data));
 		
-	fs.unlinkSync(data.avatarFd);	
+		
 	});
 	}
 	$scope.getpics=function(id)
