@@ -26,5 +26,6 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	{
 		toastr.success(JSON.stringify(resData));
 	}
+	}
 	
 }]);
