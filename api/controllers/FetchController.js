@@ -1,6 +1,6 @@
-function gitimage(img,num){
+function gitimage(img,num,youtubedl){
 	
-	var youtubedl = require('youtube-dl');
+	
 var url = 'http://www.pornhub.com'+img;
 // Optional arguments passed to youtube-dl. 
 var options = [];
@@ -137,49 +137,49 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 
 
 	
+var youtubedl = require('youtube-dl');
+	gitimage(imgarray[4],4,youtubedl);
 
-	gitimage(imgarray[4],4);
+	gitimage(imgarray[6],6,youtubedl);
 
-	gitimage(imgarray[6],6);
+	gitimage(imgarray[8],8,youtubedl);
 
-	gitimage(imgarray[8],8);
-
-	gitimage(imgarray[10],10);
+	gitimage(imgarray[10],10,youtubedl);
 
 
-	gitimage(imgarray[12],12);
+	gitimage(imgarray[12],12,youtubedl);
 
-	gitimage(imgarray[14],14);
+	gitimage(imgarray[14],14,youtubedl);
 
-	gitimage(imgarray[16],16);
+	gitimage(imgarray[16],16,youtubedl);
 
-	gitimage(imgarray[18],18);
+	gitimage(imgarray[18],18,youtubedl);
 
-	gitimage(imgarray[20],20);
+	gitimage(imgarray[20],20,youtubedl);
 
-	gitimage(imgarray[22],22);
+	gitimage(imgarray[22],22,youtubedl);
 
-	gitimage(imgarray[24],24);
+	gitimage(imgarray[24],24,youtubedl);
 
-	gitimage(imgarray[26],26);
+	gitimage(imgarray[26],26,youtubedl);
 
-	gitimage(imgarray[28],28);
+	gitimage(imgarray[28],28,youtubedl);
 
-	gitimage(imgarray[30],30);
+	gitimage(imgarray[30],30,youtubedl);
 
-	gitimage(imgarray[32],32);
+	gitimage(imgarray[32],32,youtubedl);
 
-	gitimage(imgarray[34],34);
+	gitimage(imgarray[34],34,youtubedl);
 
-	gitimage(imgarray[36],36);
+	gitimage(imgarray[36],36,youtubedl);
 
-	gitimage(imgarray[38],38);
+	gitimage(imgarray[38],38,youtubedl);
 
-	gitimage(imgarray[40],40);
+	gitimage(imgarray[40],40,youtubedl);
 
-	gitimage(imgarray[42],42);
+	gitimage(imgarray[42],42,youtubedl);
 
-	gitimage(imgarray[44],44);
+	gitimage(imgarray[44],44,youtubedl);
 
 for (xx in imgarray)
 {
