@@ -5,7 +5,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	
 	$scope.getpics=function(id)
 	{
-	io.socket.get('/avatar?id='+id,
+	io.socket.get('/avatar?user='+id,
 	function  (data){
 		console.log(JSON.stringify(data));
 	$scope.mypics=data;
