@@ -57,7 +57,7 @@ var infilearray=[];
 
 for (xx in imgarray)
 {
-	if (imgarray[xx])
+	if (xx<47)
 	{
 	console.log("imgarray "+imgarray[xx]);
 	infilearray[xx]=new FetchStream(imgarray[xx]);
