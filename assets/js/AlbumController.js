@@ -17,16 +17,16 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	function  (data){
 		console.log(JSON.stringify(data));
 		
-		for (x in $scope.mypics)
+		for (x in data)
 		{
-				var nu=new Date($scope.mypics[x].createdAt);
+				var nu=new Date(data.createdAt);
 			var month = nu.getUTCMonth() + 1; //months from 1-12
 			var day = nu.getUTCDate();
 			var year = nu.getUTCFullYear();
 
 			newdate = day+ "/"+month+"/"+year ;
-				$scope.mypics[x].phrase=newdate;
-		console.log("$scope.mypics[x].phrase "+$scope.mypics[x].phrase);
+				data.phrase=newdate;
+		console.log("$scope.mypics[x].phrase "+data.phrase);
 		}
 		
 	$scope.$apply(function(){$scope.mypics=data;});
