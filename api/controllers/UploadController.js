@@ -23,7 +23,7 @@ module.exports = {
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 		user:req.session.passport.user,
       // Grab the first file and use it's `fd` (file descriptor)
-      album:createdOrFoundRecords.id,
+      albumid:createdOrFoundRecords.id,
       avatarFd: uploadedFiles[0].fd
     }) .exec(function (err,ava){
       if (err) return res.negotiate(err);
