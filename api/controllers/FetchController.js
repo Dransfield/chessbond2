@@ -1,12 +1,13 @@
 function gitimage(img,num,youtubedl){
 	
 	
-var url = 'http://www.pornhub.com'+img;
+var url = 'http://www.xvideos.com'+img;
 // Optional arguments passed to youtube-dl. 
 var options = [];
 youtubedl.getInfo(url, options, function(err, info) {
   if (err) return;
- 
+if (img.indexOf('.jpg')!=-1)
+{ return} 
   console.log('id:', info.id);
   console.log('title:', info.title);
   console.log('url:', info.url);
