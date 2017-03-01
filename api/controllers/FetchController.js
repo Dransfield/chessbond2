@@ -1,5 +1,5 @@
 function gitimage(img){
-	
+	img="http://img-egc.xvideos.com/videos/thumbslll/c3/49/d8/c349d85d56f6015179efcc775e24be7f/c349d85d56f6015179efcc775e24be7f.17.jpg";
 	var FetchStream = require("fetch").FetchStream,
     fs = require("fs"),out;
 	var outfilearray=[];
