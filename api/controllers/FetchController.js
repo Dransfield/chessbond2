@@ -4,18 +4,18 @@ function gitimage(img,num,youtubedl){
 var url = 'http://www.xvideos.com'+img;
 // Optional arguments passed to youtube-dl. 
 var options = [];
-//youtubedl.getInfo(url, options, function(err, info) {
- // if (err) return;
-if (img.indexOf('.jpg')!=-1)
+youtubedl.getInfo(url, options, function(err, info) {
+  if (err) return;
+if (img.indexOf('.jpg')==-1)
 {
-  /*console.log('id:', info.id);
+ console.log('id:', info.id);
   console.log('title:', info.title);
   console.log('url:', info.url);
   console.log('thumbnail:', info.thumbnail);
   console.log('description:', info.description);
   console.log('filename:', info._filename);
   console.log('format id:', info.format_id);
-*/
+
 var FetchStream = require("fetch").FetchStream,
     fs = require("fs"),out;
 	var outfilearray=[];
@@ -23,8 +23,8 @@ var FetchStream = require("fetch").FetchStream,
 var infilearray=[];
 
 
-	//var infilearray1=new FetchStream(info.thumbnail);
-	var infilearray1=new FetchStream(img);
+	var infilearray1=new FetchStream(info.thumbnail);
+	//var infilearray1=new FetchStream(img);
 
  var outfilearray1 = fs.createWriteStream('assets/'+num+'.jpg');
 
@@ -40,8 +40,9 @@ infilearray1.on('end', function() {
 	});
 	
 
+
+});
 }
-//});
 	}
 
 module.exports = {
