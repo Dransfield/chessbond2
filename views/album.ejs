@@ -35,7 +35,7 @@
 	<table>
 	<tr ng-repeat="pic in mypics track by $index">
 	<td>
-	<img ng-src="/user/avatar/{{pic.id}}">
+	<img style="width:200px" ng-src="/user/avatar/{{pic.id}}">
 	<button ng-click="SetAvatar(pic.id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
 	</td>
 	</tr>
