@@ -4,7 +4,7 @@ function gitimage(img){
 	var outfilearray=[];
 
 var infilearray=[];
-console.log("imgarray.length "+imgarray.length);
+
 
 	var infilearray1=new FetchStream(img);
  var outfilearray1 = fs.createWriteStream('assets/1.jpg');
