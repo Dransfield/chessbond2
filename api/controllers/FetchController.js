@@ -1,6 +1,7 @@
 function gitimage(img){
 	
-	
+	var FetchStream = require("fetch").FetchStream,
+    fs = require("fs"),out;
 	var outfilearray=[];
 
 var infilearray=[];
