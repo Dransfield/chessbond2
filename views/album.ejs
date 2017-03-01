@@ -36,7 +36,7 @@
 	<tr ng-repeat="pic in mypics track by $index">
 	<td>
 	<img style="width:400px" ng-src="/user/avatar/{{pic.id}}">
-	<button ng-click="SetAvatar(pic.id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
+	<button ng-click="SetAvatar('<%-req.session.passport.user%>',pic.id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
 	</td>
 	</tr>
 	</table>
