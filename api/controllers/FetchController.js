@@ -94,9 +94,9 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 
 }
 
-gitimage(1,imgarray[1]);
+gitimage(imgarray[1],1);
 
-gitimage(2,imgarray[2]);
+gitimage(imgarray[2],2);
 
 for (xx in imgarray)
 {
