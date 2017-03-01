@@ -83,7 +83,7 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg+12;
 endofimg=totalfile.indexOf("\"",nextimg);
 console.log("endofimg "+endofimg);
-imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg));
+imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 
 	}
 	else
