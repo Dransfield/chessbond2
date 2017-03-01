@@ -26,6 +26,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 
 			newdate = day+ "/"+month+"/"+year ;
 				$scope.mypics[x].phrase=newdate;
+		console.log("$scope.mypics[x].phrase "+$scope.mypics[x].phrase);
 		}
 		
 	$scope.$apply(function(){$scope.mypics=data;});
