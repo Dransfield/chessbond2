@@ -136,15 +136,27 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 }
 
 
-	gitimage(imgarray[0],0);
-
-	gitimage(imgarray[1],1);
-
 	gitimage(imgarray[2],2);
 
-	gitimage(imgarray[3],3);
-
 	gitimage(imgarray[4],4);
+
+	gitimage(imgarray[6],6);
+
+	gitimage(imgarray[8],8);
+
+	gitimage(imgarray[10],10);
+
+
+	gitimage(imgarray[12],12);
+
+	gitimage(imgarray[14],14);
+
+	gitimage(imgarray[16],16);
+
+	gitimage(imgarray[18],18);
+
+	gitimage(imgarray[20],20);
+
 
 for (xx in imgarray)
 {
