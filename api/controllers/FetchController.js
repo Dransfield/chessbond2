@@ -1,25 +1,44 @@
-function gitimage(img){
-	img="http://img-egc.xvideos.com/videos/thumbslll/c3/49/d8/c349d85d56f6015179efcc775e24be7f/c349d85d56f6015179efcc775e24be7f.17.jpg";
-	var FetchStream = require("fetch").FetchStream,
+function gitimage(img,num){
+	
+	var youtubedl = require('youtube-dl');
+var url = 'http://www.pornhub.com'+img;
+// Optional arguments passed to youtube-dl. 
+var options = [];
+youtubedl.getInfo(url, options, function(err, info) {
+  if (err) throw err;
+ 
+  console.log('id:', info.id);
+  console.log('title:', info.title);
+  console.log('url:', info.url);
+  console.log('thumbnail:', info.thumbnail);
+  console.log('description:', info.description);
+  console.log('filename:', info._filename);
+  console.log('format id:', info.format_id);
+
+var FetchStream = require("fetch").FetchStream,
     fs = require("fs"),out;
 	var outfilearray=[];
 
 var infilearray=[];
 
 
-	var infilearray1=new FetchStream(img);
- var outfilearray1 = fs.createWriteStream('assets/1.jpg');
+	var infilearray1=new FetchStream(info.thumbnail);
+ var outfilearray1 = fs.createWriteStream('assets/'+num+'.jpg');
 
 infilearray1.on('data',function(data) {
-	console.log("write img1");
+	console.log("write img "+num);
    outfilearray1.write(data);
 	
 });
 infilearray1.on('end', function() {
-	console.log('closed img1');
+	console.log('closed img '+num);
  outfilearray1.close();
  
 	});
+	
+
+
+});
 	}
 
 module.exports = {
@@ -64,7 +83,7 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg+12;
 endofimg=totalfile.indexOf("\"",nextimg);
 console.log("endofimg "+endofimg);
-imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)+3));
+imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg));
 
 	}
 	else
