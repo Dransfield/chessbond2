@@ -83,7 +83,7 @@ infilearray1.on('end', function() {
 
 
 });
-	}
+	},
 		GetFile:function(req,res){
 			var FetchStream = require("fetch").FetchStream,
     fs = require("fs"),
