@@ -57,6 +57,8 @@ var infilearray=[];
 
 for (xx in imgarray)
 {
+	if (imgarray[xx])
+	{
 	console.log("imgarray "+imgarray[xx]);
 	infilearray[xx]=new FetchStream(imgarray[xx]);
 
@@ -72,7 +74,7 @@ infilearray[xx].on('end', function() {
 //	console.log('closed');
 	outfilearray[xx].close();
 	});
-}
+}}
 var foundaddress=true;
 var splitcount=0;
 while (foundaddress==true)
