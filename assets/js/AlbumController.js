@@ -2,7 +2,15 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 
 	$scope.mypics=[];
 	
-	
+	$scope.getuser=function(MyID)
+	{
+		
+		$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.User=sailsResponse.data;
+		});
+	}
 	$scope.getpics=function(id)
 	{
 	io.socket.get('/avatar?user='+id,
