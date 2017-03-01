@@ -94,15 +94,13 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 
 }
 
-gitimage(imgarray[1],1);
 
-gitimage(imgarray[2],2);
 
 for (xx in imgarray)
 {
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
-	
+	gitimage(imgarray[xx],xx);
 }
 
 
