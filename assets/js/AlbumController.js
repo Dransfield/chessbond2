@@ -19,15 +19,15 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		
 		for (x in data)
 		{
-				var nu=Date.parse(data.createdAt);
+				var nu=Date.parse(data[x].createdAt);
 			console.log(nu);
 			var month = nu.getUTCMonth() + 1; //months from 1-12
 			var day = nu.getUTCDate();
 			var year = nu.getUTCFullYear();
 
 			newdate = day+ "/"+month+"/"+year ;
-				data.phrase=newdate;
-		console.log("$scope.mypics[x].phrase "+data.phrase);
+				data[x].phrase=newdate;
+		console.log("$scope.mypics[x].phrase "+data[x].phrase);
 		}
 		
 	$scope.$apply(function(){$scope.mypics=data;});
