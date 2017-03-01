@@ -29,7 +29,7 @@ var imgarray=[];
 
 var stringiter=0;
 var imgposcounter=0;
-for (stringiter=0;stringiter<totalfile;stringiter++)
+for (stringiter=0;stringiter<totalfile.length;stringiter++)
 {
 var nextimg=totalfile.indexOf("mediumthumb",stringiter);
 console.log("nextimg "+nextimg);
