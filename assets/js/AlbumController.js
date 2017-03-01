@@ -27,8 +27,16 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 		});
+	};
+		$scope.getalbum=function(MyID)
+	{
+		
+		$http.get('/album?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.Album=sailsResponse.data;
+		});
 	}
-	
 	$scope.DeleteAvatar=function(id,picadr)
 	{
 		console.log('delete '+picadr);
