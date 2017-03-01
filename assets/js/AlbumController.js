@@ -48,7 +48,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	}
 	$scope.getpics=function(albid)
 	{
-	io.socket.get('/avatar?ablumid='+albid,
+	io.socket.get('/avatar?albumid='+albid,
 	function  (data){
 		console.log(JSON.stringify(data));
 		
