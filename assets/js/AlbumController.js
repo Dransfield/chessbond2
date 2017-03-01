@@ -8,7 +8,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	io.socket.get('/avatar?user='+id,
 	function  (data){
 		console.log(JSON.stringify(data));
-	$scope.mypics=data;
+	$scope.$apply(function(){$scope.mypics=data;});
 	});
 	}
 	
