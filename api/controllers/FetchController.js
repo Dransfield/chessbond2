@@ -66,7 +66,7 @@ for (xx in imgarray)
 totalfile=totalfile+"<img src='/"+xx+".jpg'>";
 infilearray[xx].on('data',function(data) {
 	
-//     console.log(""+data);
+  console.log("xx"+xx);
      
      outfilearray[xx].write(data);
 });
