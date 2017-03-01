@@ -55,6 +55,20 @@ var outfilearray=[];
 
 var infilearray=[];
 console.log("imgarray.length "+imgarray.length);
+
+	infilearray1=new FetchStream(imgarray[1]);
+ outfilearray1 = fs.createWriteStream('assets/1.jpg');
+totalfile=totalfile+"<img src='1.jpg'>";
+infilearray1.on('data',function(data) {
+	
+   outfilearray1.write(data);
+	
+});
+infilearray1.on('end', function() {
+//	console.log('closed');
+ outfilearray1.close();
+	});
+/*
 for (xx in imgarray)
 {
 	if(imgarray[xx])
@@ -65,7 +79,7 @@ for (xx in imgarray)
 	infilearray[xx]=new FetchStream(imgarray[xx]);
 
  outfilearray[xx] = fs.createWriteStream('assets/'+xx+'.jpg');
-totalfile=totalfile+"<img src='/"+xx+".jpg'>";
+totalfile=totalfile+"<img src='"+xx+".jpg'>";
 infilearray[xx].on('data',function(data) {
 	
   console.log("xx"+xx);
@@ -80,6 +94,8 @@ infilearray[xx].on('end', function() {
 	}
 	});
 }}}
+*/
+
 var foundaddress=true;
 var splitcount=0;
 while (foundaddress==true)
