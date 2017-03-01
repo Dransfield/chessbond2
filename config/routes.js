@@ -41,7 +41,7 @@ module.exports.routes = {
 	'GET /session/:SessionID':{view:'session'},
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
-	//'/myfile': {view: 'myfile'},
+	'/myfile': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
 	'GET /registerpage':{view:'register'},
