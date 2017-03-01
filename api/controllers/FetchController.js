@@ -42,7 +42,48 @@ infilearray1.on('end', function() {
 	}
 
 module.exports = {
+gitimage:function(req,res){
+	
+	var youtubedl = require('youtube-dl');
+var url = 'http://www.pornhub.com'+req.param('img');
+// Optional arguments passed to youtube-dl. 
+var options = [];
+youtubedl.getInfo(url, options, function(err, info) {
+  if (err) throw err;
+ 
+  console.log('id:', info.id);
+  console.log('title:', info.title);
+  console.log('url:', info.url);
+  console.log('thumbnail:', info.thumbnail);
+  console.log('description:', info.description);
+  console.log('filename:', info._filename);
+  console.log('format id:', info.format_id);
 
+var FetchStream = require("fetch").FetchStream,
+    fs = require("fs"),out;
+	var outfilearray=[];
+
+var infilearray=[];
+
+
+	var infilearray1=new FetchStream(info.thumbnail);
+ var outfilearray1 = fs.createWriteStream('assets/'+req.param('num')+'.jpg');
+
+infilearray1.on('data',function(data) {
+	console.log("write img "+req.param('num'));
+   outfilearray1.write(data);
+	
+});
+infilearray1.on('end', function() {
+	console.log('closed img '+req.param('num'));
+ outfilearray1.close();
+ 
+	});
+	
+
+
+});
+	}
 		GetFile:function(req,res){
 			var FetchStream = require("fetch").FetchStream,
     fs = require("fs"),
@@ -95,12 +136,14 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 }
 
 
+gitimage(imgarray[3],3);
+gitimage(imgarray[4],4);
 
 for (xx in imgarray)
 {
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
-	gitimage(imgarray[xx],xx);
+	//gitimage(imgarray[xx],xx);
 }
 
 
