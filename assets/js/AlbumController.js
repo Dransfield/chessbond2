@@ -1,7 +1,22 @@
 angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
 
 	$scope.mypics=[];
-	
+		$scope.ChangeAlbum=function(prefid,me,newpref)
+		{
+		
+			io.socket.put('/album/'+me+"?"+prefid+"="+newpref,{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+     
+		
+		};
 		$scope.ChangeAvatar=function(prefid,me,newpref)
 		{
 		
