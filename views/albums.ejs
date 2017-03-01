@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+      <title>Chessbond</title>
+      <!-- Viewport mobile tag for sensible mobile support -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/angular-toastr.css">
+      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/angular.1.3.js"></script>
+      <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+      <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+      <script src="/js/dependencies/chess.min.js"></script>
+      <script src="/js/dependencies/stockfish.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/bootstrap.min.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/enginegame.js"></script>
+      <script src="/js/HomepageModule.js"></script>
+      <script src="/js/HomepageController.js"></script>
+      <script src="/js/RegisterController.js"></script>
+      <script src="/js/SinglePlayerController.js"></script>
+      <script src="/js/TwoPlayerController.js"></script>
+      <!--SCRIPTS END-->
+   </head>
+     <body ng-app="HomepageModule" ng-controller="AlbumsController" ng-cloak>
+   <%- include partials/navbar.ejs %>
+   <h3>Create an Album</h3>
+   
+   <div ng-init="getalbums('<%-req.param('userID')%>')">
+	</div>
+   
+	 <div ng-init="getuser('<%-req.session.passport.user%>')">
+	</div>
+	
+	
+	
+	<div  style="display:flex" ng-repeat="album in myalbums track by $index">
+	<span>
+	<a href="/album/{{album.name}}"><h1> {{album.name}}</h1></a>
+	</span>
+	<span>
+	Created at {{album.phrase}}<br>
+		
+
+	</span>
+	
+	</div>
+	
+	</body>
+</html>
