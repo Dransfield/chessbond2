@@ -54,9 +54,11 @@
 	</span>
 	<span>
 	Created at {{pic.phrase}}<br>
+	<span ng-show="User.id==Album.user">
 		<button ng-click="editfideid=!editfideid" class="btn btn-sml">.Edit Description..
 						</button>
 		 <input  ng-show="editfideid" type="text"  class="form-control"  ng-change="ChangeAvatar('description',pic.id,pic.description)" ng-model="pic.description" />
+	</span>
 	<br>
 	<span style="border-style:inset">
 	{{pic.description}}
