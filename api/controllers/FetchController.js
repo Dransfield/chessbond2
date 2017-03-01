@@ -130,9 +130,10 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg+12;
 endofimg=totalfile.indexOf("\"",nextimg);
 console.log("endofimg "+endofimg);
-if (endofimg.indexOf(".jpg")==-1)
+var subby=totalfile.substr(nextimg,(endofimg-nextimg));
+if (subby.indexOf(".jpg")==-1)
 {
-imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
+imgarray.push(subby);
 }
 	}
 	else
