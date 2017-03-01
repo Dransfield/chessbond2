@@ -17,8 +17,8 @@ module.exports = {
       return res.badRequest('No file was uploaded');
     }
 
-	Album.findOrCreate({name:'Profile Images'}, {user:req.session.passport.user}).exec(function createFindCB(error, createdOrFoundRecords){
-	if (err) return res.negotiate(err);
+	Album.findOrCreate({name:"Profile Images",user:req.session.passport.user}, {name:"Profile Images",user:req.session.passport.user}).exec(function createFindCB(error, createdOrFoundRecords){
+	if (error) return res.negotiate(error);
 	Avatar.create({
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 		user:req.session.passport.user,
