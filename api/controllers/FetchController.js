@@ -23,7 +23,7 @@ var FetchStream = require("fetch").FetchStream,
 
 var infilearray=[];
 
-
+if(info.thumbnail){
 	var infilearray1=new FetchStream(info.thumbnail);
 	//var infilearray1=new FetchStream(img);
 
@@ -40,7 +40,7 @@ infilearray1.on('end', function() {
  
 	});
 	
-
+}
 
 });
 }
