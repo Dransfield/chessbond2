@@ -16,7 +16,7 @@ module.exports = {
   console.log(err);
 		}});
 		
-		return res.ok();
+		return res.json({id:req.param('picid')});
 	}
 };
 
