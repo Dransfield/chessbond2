@@ -82,7 +82,7 @@ for (xx in imgarray)
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
 	
 }
-*/
+
 
 var foundaddress=true;
 var splitcount=0;
