@@ -55,6 +55,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 			newdate = day+ "/"+month+"/"+year ;
 				data[x].phrase=newdate;
 		console.log("$scope.mypics[x].phrase "+data[x].phrase);
+		console.log("data[x].avatarFd "+data[x].avatarFd);
 		}
 		
 	$scope.$apply(function(){$scope.mypics=data;});
