@@ -130,8 +130,10 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg+12;
 endofimg=totalfile.indexOf("\"",nextimg);
 console.log("endofimg "+endofimg);
+if (endofimg.indexOf(".jpg")==-1)
+{
 imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
-
+}
 	}
 	else
 	{
@@ -193,9 +195,9 @@ for (xx in imgarray)
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
 totalfile=totalfile+imgarray[xx];
-setTimeout(function(){
+
 	gitimage(imgarray[xx],xx,youtubedl);
-},xx*1000);
+
 }
 
 
