@@ -17,10 +17,13 @@ module.exports = {
       return res.badRequest('No file was uploaded');
     }
 
+	Album.findOrCreate({name:'Profile Images'}, {user:req.session.passport.user}).exec(function createFindCB(error, createdOrFoundRecords){
+	if (err) return res.negotiate(err);
 	Avatar.create({
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 		user:req.session.passport.user,
       // Grab the first file and use it's `fd` (file descriptor)
+      album:createdOrFoundRecords.id,
       avatarFd: uploadedFiles[0].fd
     }) .exec(function (err,ava){
       if (err) return res.negotiate(err);
@@ -33,10 +36,14 @@ module.exports = {
     })
     .exec(function (err){
       if (err) return res.negotiate(err);
-      return res.redirect('/album');
+      return res.redirect('/album/'+createdOrFoundRecords.id);
      // /'+req.session.passport.user);
     });
   });
+
+	});
+
+	
   
 });
     
