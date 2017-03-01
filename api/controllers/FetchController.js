@@ -5,7 +5,7 @@ var url = 'http://www.xvideos.com'+img;
 // Optional arguments passed to youtube-dl. 
 var options = [];
 //youtubedl.getInfo(url, options, function(err, info) {
-  if (err) return;
+ // if (err) return;
 if (img.indexOf('.jpg')!=-1)
 {
   /*console.log('id:', info.id);
@@ -140,8 +140,9 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 }
 
 
-	/*
-var youtubedl = require('youtube-dl');
+	
+//var youtubedl = require('youtube-dl');
+	
 	gitimage(imgarray[4],4,youtubedl);
 
 	gitimage(imgarray[6],6,youtubedl);
@@ -154,7 +155,7 @@ var youtubedl = require('youtube-dl');
 	gitimage(imgarray[12],12,youtubedl);
 
 	gitimage(imgarray[14],14,youtubedl);
-
+/*
 	gitimage(imgarray[16],16,youtubedl);
 
 	gitimage(imgarray[18],18,youtubedl);
