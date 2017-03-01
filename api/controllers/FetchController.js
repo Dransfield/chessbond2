@@ -196,10 +196,9 @@ for (xx in imgarray)
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
 totalfile=totalfile+imgarray[xx];
-if (xx<10)
-{
+
 	gitimage(imgarray[xx],xx,youtubedl);
-}
+
 }
 
 
