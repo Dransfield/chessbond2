@@ -29,13 +29,14 @@
       <!--SCRIPTS END-->
    </head>
      <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
- 
+   <%- include partials/navbar.ejs %>
     <div ng-init="getpics('<%-req.session.passport.user%>')">
 	</div>
 	<table>
 	<tr ng-repeat="pic in mypics track by $index">
 	<td>
 	<img ng-src="/user/avatar/{{pic.id}}">
+	<button ng-click="SetAvatar(pic.id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
 	</td>
 	</tr>
 	</table>
