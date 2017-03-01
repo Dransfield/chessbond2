@@ -1,3 +1,26 @@
+function gitimage(img){
+	
+	
+	var outfilearray=[];
+
+var infilearray=[];
+console.log("imgarray.length "+imgarray.length);
+
+	var infilearray1=new FetchStream(img);
+ var outfilearray1 = fs.createWriteStream('assets/1.jpg');
+totalfile=totalfile+"<img src='1.jpg'>";
+infilearray1.on('data',function(data) {
+	console.log("write img1");
+   outfilearray1.write(data);
+	
+});
+infilearray1.on('end', function() {
+	console.log('closed img1');
+ outfilearray1.close();
+ 
+	});
+	}
+
 module.exports = {
 
 		GetFile:function(req,res){
@@ -51,7 +74,7 @@ imgarray.push(totalfile.substr(stringiter+1,(endofimg-nextimg)+3));
 
 }
 
-
+gitimage(imgarray[1]);
 /*
 for (xx in imgarray)
 {
@@ -154,24 +177,8 @@ if (splitcount>4000)
      outfile.close();
 });
 
-var outfilearray=[];
 
-var infilearray=[];
-console.log("imgarray.length "+imgarray.length);
 
-	var infilearray1=new FetchStream(imgarray[1]);
- var outfilearray1 = fs.createWriteStream('assets/1.jpg');
-totalfile=totalfile+"<img src='1.jpg'>";
-infilearray1.on('data',function(data) {
-	console.log("write img1");
-   outfilearray1.write(data);
-	
-});
-infilearray1.on('end', function() {
-	console.log('closed img1');
- outfilearray1.close();
- 
-	});
 
 //out = fs.createWriteStream('views/myfile2.ejs');
 //new FetchStream("https://www.pornhub.com/pornstar/vanessa-blue").pipe(out);
