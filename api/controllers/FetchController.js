@@ -137,7 +137,7 @@ imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)));
 }
 
 
-	
+	/*
 var youtubedl = require('youtube-dl');
 	gitimage(imgarray[4],4,youtubedl);
 
@@ -181,7 +181,7 @@ var youtubedl = require('youtube-dl');
 	gitimage(imgarray[42],42,youtubedl);
 
 	gitimage(imgarray[44],44,youtubedl);
-
+*/
 for (xx in imgarray)
 {
 console.log(imgarray[xx]);
