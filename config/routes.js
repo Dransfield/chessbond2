@@ -33,6 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
 	'GET /album/:albumID': {view: 'album'},
+	'GET /albums/:userID': {view: 'albums'},
 	'GET /user/avatar/:id':'UploadController.avatar',
 	'/profile/:userID': {view:'profile'},
 	'/profile': {view:'profile'},
