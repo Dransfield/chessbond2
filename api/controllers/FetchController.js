@@ -64,7 +64,7 @@ console.log("nextimg "+nextimg);
 stringiter=nextimg+12;
 endofimg=totalfile.indexOf("\"",nextimg);
 console.log("endofimg "+endofimg);
-imgarray.push(totalfile.substr(stringiter+1,(endofimg-nextimg)+3));
+imgarray.push(totalfile.substr(nextimg,(endofimg-nextimg)+3));
 
 	}
 	else
