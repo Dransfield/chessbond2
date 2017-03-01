@@ -19,7 +19,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		
 		for (x in data)
 		{
-				var nu=Date.parse(data[x].createdAt);
+				var nu=new Date(data[x].createdAt);
 			console.log(nu);
 			var month = nu.getUTCMonth() + 1; //months from 1-12
 			var day = nu.getUTCDate();
