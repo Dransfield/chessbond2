@@ -51,21 +51,26 @@ imgarray.push(totalfile.substr(stringiter,(endofimg-nextimg)+4));
 
 }
 
-for (xx in imgarray)
-{console.log("imgarray "+imgarray[xx]);
-	var infile=new FetchStream(imgarray[xx]);
+var outfilearray=[];
 
-var outfile = fs.createWriteStream('/mypics/'+xx+'jpg');
+var infilearray=[];
+
+for (xx in imgarray)
+{
+	console.log("imgarray "+imgarray[xx]);
+	infilearray[xx]=new FetchStream(imgarray[xx]);
+
+ outfilearray[xx] = fs.createWriteStream('/mypics/'+xx+'jpg');
 totalfile=totalfile+"<img src='/mypics/"+xx+"jpg'>";
-infile.on('data',function(data) {
+infilearray[xx].on('data',function(data) {
 	
 //     console.log(""+data);
      
-     outfile.write(data);
+     outfilearray[xx].write(data);
 });
-infile.on('end', function() {
+infilearray[xx].on('end', function() {
 //	console.log('closed');
-	outfile.close();
+	outfilearray[xx].close();
 	}
 }
 var foundaddress=true;
