@@ -32,7 +32,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	$scope.DeleteAvatar=function(me,picadr)
 	{
 		
-		io.socket.put('/deleteavatar?adr='+picadr,	function  (data){
+		io.socket.put('/deleteavatar',{adr:picadr},	function  (data){
 		console.log(JSON.stringify(data));
 		
 		
