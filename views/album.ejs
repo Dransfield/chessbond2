@@ -30,6 +30,11 @@
    </head>
      <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
    <%- include partials/navbar.ejs %>
+   <form action="/uploadavatar" enctype="multipart/form-data" method="post">
+    <input type="file" name="avatar" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>'
+   
     <div ng-init="getpics('<%-req.session.passport.user%>')">
 	</div>
 	 <div ng-init="getuser('<%-req.session.passport.user%>')">
