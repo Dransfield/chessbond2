@@ -49,8 +49,10 @@
 		<button ng-click="editfideid=!editfideid" class="btn btn-sml">.Edit Description..
 						</button>
 		 <input  ng-show="editfideid" type="text"  class="form-control"  ng-change="ChangeAvatar('description',pic.id,pic.description)" ng-model="pic.description" />
-					
+	<br>
+	<span style="border:4px">
 	{{pic.description}}
+	</span>
 	<br>
 	<button ng-click="SetAvatar('<%-req.session.passport.user%>',pic.id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
 	</span>
