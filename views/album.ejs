@@ -32,9 +32,12 @@
  
     <div ng-init="getpics('<%-req.session.passport.user%>')">
 	</div>
+	<table>
 	<tr ng-repeat="pic in mypics track by $index">
+	<td>
 	<img ng-src="/user/avatar/{{pic.id}}">
+	</td>
 	</tr>
-	
+	</table>
    </body>
 </html>
