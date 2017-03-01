@@ -171,6 +171,7 @@ for (xx in imgarray)
 {
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
+totalfile=totalfile+imgarray[xx];
 	//gitimage(imgarray[xx],xx);
 }
 
