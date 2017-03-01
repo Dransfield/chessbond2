@@ -25,7 +25,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
     ,function(resData,jwres)
 	{
 		toastr.success(JSON.stringify(resData));
-	}
+	});
 	}
 	
 }]);
