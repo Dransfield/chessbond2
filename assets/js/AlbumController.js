@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 
 	$scope.mypics=[];
 	
-		$scope.ChangePreference=function(prefid,me,newpref)
+		$scope.ChangeAvatar=function(prefid,me,newpref)
 		{
 		
 			io.socket.put('/avatar/'+me+"?"+prefid+"="+newpref,{
