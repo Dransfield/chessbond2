@@ -2,6 +2,23 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 
 	$scope.mypics=[];
 	
+		$scope.ChangePreference=function(prefid,me,newpref)
+		{
+		
+			io.socket.put('/avatar/'+me+"?"+prefid+"="+newpref,{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				console.log(resData);
+				console.log(jwres);
+				}
+			);
+     
+		
+		};
+		
 	$scope.getuser=function(MyID)
 	{
 		
