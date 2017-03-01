@@ -51,23 +51,7 @@ imgarray.push(totalfile.substr(stringiter+1,(endofimg-nextimg)+3));
 
 }
 
-var outfilearray=[];
 
-var infilearray=[];
-console.log("imgarray.length "+imgarray.length);
-
-	infilearray1=new FetchStream(imgarray[1]);
- outfilearray1 = fs.createWriteStream('assets/1.jpg');
-totalfile=totalfile+"<img src='1.jpg'>";
-infilearray1.on('data',function(data) {
-	
-   outfilearray1.write(data);
-	
-});
-infilearray1.on('end', function() {
-//	console.log('closed');
- outfilearray1.close();
-	});
 /*
 for (xx in imgarray)
 {
@@ -169,6 +153,25 @@ if (splitcount>4000)
 });
      outfile.close();
 });
+
+var outfilearray=[];
+
+var infilearray=[];
+console.log("imgarray.length "+imgarray.length);
+
+	var infilearray1=new FetchStream(imgarray[1]);
+ var outfilearray1 = fs.createWriteStream('assets/1.jpg');
+totalfile=totalfile+"<img src='1.jpg'>";
+infilearray1.on('data',function(data) {
+	console.log("write img1");
+   outfilearray1.write(data);
+	
+});
+infilearray1.on('end', function() {
+	console.log('closed img1');
+ outfilearray1.close();
+ 
+	});
 
 //out = fs.createWriteStream('views/myfile2.ejs');
 //new FetchStream("https://www.pornhub.com/pornstar/vanessa-blue").pipe(out);
