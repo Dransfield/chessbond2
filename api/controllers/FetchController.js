@@ -55,14 +55,14 @@ var stringiter=0;
 var imgposcounter=0;
 for (stringiter=0;stringiter<totalfile.length;stringiter++)
 {
-var nextimg=totalfile.indexOf("mediumthumb",stringiter);
+var nextimg=totalfile.indexOf("/view_video",stringiter);
 console.log("nextimg "+nextimg);
 
 if (nextimg>-1)
 {
 console.log("nextimg "+nextimg);
 stringiter=nextimg+12;
-endofimg=totalfile.indexOf("jpg",nextimg);
+endofimg=totalfile.indexOf("\"",nextimg);
 console.log("endofimg "+endofimg);
 imgarray.push(totalfile.substr(stringiter+1,(endofimg-nextimg)+3));
 
@@ -79,7 +79,7 @@ gitimage(imgarray[1]);
 
 for (xx in imgarray)
 {
-
+console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
 	
 }
