@@ -16,6 +16,18 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	io.socket.get('/avatar?user='+id,
 	function  (data){
 		console.log(JSON.stringify(data));
+		
+		for (x in $scope.mypics)
+		{
+				var nu=new Date($scope.mypics[x].createdAt);
+			var month = nu.getUTCMonth() + 1; //months from 1-12
+			var day = nu.getUTCDate();
+			var year = nu.getUTCFullYear();
+
+			newdate = day+ "/"+month+"/"+year ;
+				$scope.mypics[x].phrase=newdate;
+		}
+		
 	$scope.$apply(function(){$scope.mypics=data;});
 	});
 	}
