@@ -10,6 +10,12 @@ module.exports = {
 	{
 	fs=require('fs');
 		fs.unlinkSync(req.param('adr'));
+		Avatar.destroy({id:req.param('picid')}).exec
+	(function(err){
+		if (err) {
+  console.log(err);
+		}});
+		
 		return res.ok();
 	}
 };

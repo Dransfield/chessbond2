@@ -29,10 +29,10 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		});
 	}
 	
-	$scope.DeleteAvatar=function(me,picadr)
+	$scope.DeleteAvatar=function(id,picadr)
 	{
 		console.log('delete '+picadr);
-		io.socket.put('/deleteavatar',{adr:picadr},	function  (data){
+		io.socket.put('/deleteavatar',{picid:id,adr:picadr},	function  (data){
 		console.log(JSON.stringify(data));
 		
 		
