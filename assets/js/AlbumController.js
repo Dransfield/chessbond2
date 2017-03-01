@@ -7,6 +7,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	{
 	io.socket.get('/avatar?id='+id,
 	function  (data){
+		console.log(JSON.stringify(data));
 	$scope.mypics=data;
 	});
 	}
