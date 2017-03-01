@@ -19,7 +19,7 @@ module.exports = {
 
 	Avatar.create({
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
-
+		user:req.session.passport.user,
       // Grab the first file and use it's `fd` (file descriptor)
       avatarFd: uploadedFiles[0].fd
     }) .exec(function (err,ava){
@@ -33,7 +33,8 @@ module.exports = {
     })
     .exec(function (err){
       if (err) return res.negotiate(err);
-      return res.redirect('/profile/'+req.session.passport.user);
+      return res.redirect('/album');
+     // /'+req.session.passport.user);
     });
   });
   
