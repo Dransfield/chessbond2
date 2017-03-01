@@ -5,8 +5,10 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	
 	$scope.getpics=function(id)
 	{
-	
-	io.socket.get("/Avatar",{user:id},function(pics){$scope.mypics=pics;});
+	io.socket.get('/avatar?id='+id,
+	function  (data){
+	$scope.mypics=data;
+	});
 	}
 	
 	
