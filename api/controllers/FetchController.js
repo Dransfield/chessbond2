@@ -54,9 +54,11 @@ imgarray.push(totalfile.substr(stringiter+1,(endofimg-nextimg)+3));
 var outfilearray=[];
 
 var infilearray=[];
-
+console.log("imgarray.length "+imgarray.length);
 for (xx in imgarray)
 {
+	if(imgarray[xx])
+	{
 	if (xx<47)
 	{
 	console.log("imgarray "+imgarray[xx]);
@@ -74,7 +76,7 @@ infilearray[xx].on('end', function() {
 //	console.log('closed');
 	outfilearray[xx].close();
 	});
-}}
+}}}
 var foundaddress=true;
 var splitcount=0;
 while (foundaddress==true)
