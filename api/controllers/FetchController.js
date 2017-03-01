@@ -150,7 +150,7 @@ for (xx in imgarray)
 {
 console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
-	gitimage(imgarray[xx],xx);
+	//gitimage(imgarray[xx],xx);
 }
 
 
