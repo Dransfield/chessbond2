@@ -28,6 +28,17 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 			$scope.User=sailsResponse.data;
 		});
 	}
+	
+	$scope.DeleteAvatar=function(me,picid)
+	{
+		fs=require('fs');
+		io.socket.get('/avatar?id='+picid,
+	function  (data){
+		console.log(JSON.stringify(data));
+		
+	fs.unlinkSync(data.avatarFd);	
+	});
+	}
 	$scope.getpics=function(id)
 	{
 	io.socket.get('/avatar?user='+id,
