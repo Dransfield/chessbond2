@@ -75,7 +75,9 @@ infilearray[xx].on('data',function(data) {
 });
 infilearray[xx].on('end', function() {
 //	console.log('closed');
+ if(xx<47){
 	outfilearray[xx].close();
+	}
 	});
 }}}
 var foundaddress=true;
