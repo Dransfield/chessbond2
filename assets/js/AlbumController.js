@@ -13,7 +13,18 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	}
 	
 	
-	
-	
+	$scope.SetAvatar=function(MyID,picid)
+	{
+		io.socket.put('/User/'+MyId,{
+      avatarid:picid
+      }  
+    ,function(resData,jwres)
+	{
+      toastr.success('Changed Profile Image');
+      }  
+    ,function(resData,jwres)
+	{
+		toastr.success(JSON.stringify(resData));
+	}
 	
 }]);
