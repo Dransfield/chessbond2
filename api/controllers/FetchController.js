@@ -8,7 +8,7 @@ console.log("imgarray.length "+imgarray.length);
 
 	var infilearray1=new FetchStream(img);
  var outfilearray1 = fs.createWriteStream('assets/1.jpg');
-totalfile=totalfile+"<img src='1.jpg'>";
+
 infilearray1.on('data',function(data) {
 	console.log("write img1");
    outfilearray1.write(data);
@@ -75,32 +75,13 @@ imgarray.push(totalfile.substr(stringiter+1,(endofimg-nextimg)+3));
 }
 
 gitimage(imgarray[1]);
-/*
+
 for (xx in imgarray)
 {
-	if(imgarray[xx])
-	{
-	if (xx<46)
-	{
-	console.log("imgarray "+imgarray[xx]);
-	infilearray[xx]=new FetchStream(imgarray[xx]);
 
- outfilearray[xx] = fs.createWriteStream('assets/'+xx+'.jpg');
 totalfile=totalfile+"<img src='"+xx+".jpg'>";
-infilearray[xx].on('data',function(data) {
 	
-  console.log("xx"+xx);
-     if(xx<47){
-     outfilearray[xx].write(data);
-	}
-});
-infilearray[xx].on('end', function() {
-//	console.log('closed');
- if(xx<47){
-	outfilearray[xx].close();
-	}
-	});
-}}}
+}
 */
 
 var foundaddress=true;
