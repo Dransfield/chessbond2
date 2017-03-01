@@ -30,7 +30,7 @@
    </head>
      <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
    <%- include partials/navbar.ejs %>
-   <p>Upload more photos</p>
+   <h3>Upload more photos</h3>
    <form action="/uploadavatar" enctype="multipart/form-data" method="post">
     <input type="file" name="avatar" multiple="multiple"><br>
     <input type="submit" value="Upload">
