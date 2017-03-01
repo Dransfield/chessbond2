@@ -192,15 +192,16 @@ var youtubedl = require('youtube-dl');
 	gitimage(imgarray[44],44,youtubedl);
 */
 var alt=1;
-var count;
+var count=0;
 for (xx in imgarray)
 {
-console.log(imgarray[xx]);
-totalfile=totalfile+"<img src='"+xx+".jpg'>";
-totalfile=totalfile+imgarray[xx];
+
 if(alt==1)
 {
-	gitimage(imgarray[xx],xx,youtubedl);
+	console.log(imgarray[xx]);
+totalfile=totalfile+"<img src='"+count+".jpg'>";
+totalfile=totalfile+imgarray[xx];
+	gitimage(imgarray[xx],count,youtubedl);
 alt=0;
 count++;
 console.log("count "+count);
