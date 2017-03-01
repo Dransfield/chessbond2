@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
+angular.module('HomepageModule').controller('AlbumsController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
 
 	$scope.myalbums=[];
 		/*
