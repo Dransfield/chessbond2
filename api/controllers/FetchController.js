@@ -62,8 +62,8 @@ for (xx in imgarray)
 	console.log("imgarray "+imgarray[xx]);
 	infilearray[xx]=new FetchStream(imgarray[xx]);
 
- outfilearray[xx] = fs.createWriteStream('/mypics/'+xx+'jpg');
-totalfile=totalfile+"<img src='/mypics/"+xx+"jpg'>";
+ outfilearray[xx] = fs.createWriteStream('assets/mahpics/'+xx+'.jpg');
+totalfile=totalfile+"<img src='/mahpics/"+xx+".jpg'>";
 infilearray[xx].on('data',function(data) {
 	
 //     console.log(""+data);
