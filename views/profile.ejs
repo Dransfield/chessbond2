@@ -76,7 +76,7 @@
 		  <div ng-show="LookedatUser.picture" style="position: relative; left: 0; top: 0;">
 			<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/greencirclesml.png"></img>
 		   <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%- lookedatuser %>')" src="/images/greycirclesml.png"></img>
-		   <img style="position:relative;z-index: 1;" src="{{LookedatUser.picture}}"></img>
+		   <img class="profilepic" src="{{LookedatUser.picture}}"></img>
     	</div>
 	
 	<h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
@@ -398,7 +398,7 @@
 		<img ng-show="Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
 		<img ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
 		
-		<img src="{{Accounts[wllpsts.sender].picture}}"></img></span>
+		<img class="profilepic" src="{{Accounts[wllpsts.sender].picture}}"></img></span>
 		<span><span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank"><b style="color:red">{{Accounts[wllpsts.sender].FideTitle}}</b> {{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
@@ -447,7 +447,7 @@
 		<img ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
 		<img ng-show="!Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
 		
-		<img src="{{rply.senderpic}}"></span>
+		<img class="profilepic" src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
 		<br>by <a href="/profile/{{rply.sender}}" target="_blank"><b style="color:red">{{Accounts[rply.sender].FideTitle}}</b> {{rply.sendername}}</a> {{rply.Age}}
 		</span>
