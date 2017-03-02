@@ -579,10 +579,10 @@ $scope.Accounts=[];
 			$scope.GetWallPosts(OwnerID);
 			$scope.GetChessGames(OwnerID);
 			
-			io.socket.on('NotIdleNotification',function (data)
+			io.socket.on('IdleNotification',function (data)
 			{
 				
-			$scope.Accounts[data.id].idle=true;
+			$scope.Accounts[data.id].idle=data.idlestatus;
 			}
 			
 			io.socket.on('WallPost', function (data)

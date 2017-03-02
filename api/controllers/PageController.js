@@ -762,7 +762,10 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 	},
 	
+	AnnounceIdle:function(req,res){
+	sails.sockets.broadcast('IdleNotificationRoom','IdleNotification', {user:req.param('user'),idlestatus:req.param('idlestatus') });
 	
+	},
 	subscribeToRoom: function(req, res) {
 	
 	 	if (!req.isSocket) {
