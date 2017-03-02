@@ -715,6 +715,7 @@ $scope.getuser=function(MyID)
 			setInterval(function()
 			{
 			$scope.IdleTime+=1;
+			console.log("$scope.IdleTime "+$scope.IdleTime);
 		if($scope.IdleTime>1)
 		{
 		$scope.ChangePreference('idle',$scope.User.id,true);
