@@ -977,16 +977,19 @@ $scope.countries=[
 	{name:'Zimbabwe'}
 ]
 
-		$scope.ProfileWasUpdated=function(dat)
+		$scope.ProfileWasUpdated=function(me)
 		{
-			
+			$scope.User['ProfileUpdated']=new Date();
+				$scope.ChangePreference('ProfileUpdated',me,new Date())
 			console.log("$scope.phrasefordate($scope.User['ProfileUpdated']) "+$scope.phrasefordate($scope.User['ProfileUpdated']));
 			console.log("$scope.phraseforloggedindate($scope.User['ProfileUpdated']) "+$scope.phraseforloggedindate($scope.User['ProfileUpdated']));
-						$scope.ChangePreference('ProfileUpdated',me,new Date())
-			$scope.User['ProfileUpdated']=new Date();
+					
+			
 			$scope.User.ProfileUpdatedPhrase=$scope.phrasefordate($scope.User['ProfileUpdated']);
 		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
 		}
+		
+		
 		$scope.ChangePreference=function(prefid,me,newpref,func)
 		{
 		console.log("change preference "+prefid+" "+me+" "+newpref);
@@ -999,7 +1002,7 @@ $scope.countries=[
 				console.log(resData);
 				console.log(jwres);
 				if (func)
-				{func();}
+				{func(me);}
 				
 				}
 			);
