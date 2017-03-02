@@ -975,12 +975,12 @@ $scope.countries=[
 	{name:'Zimbabwe'}
 ]
 
-		$scope.ProfileWasUpdated=function(me)
+		$scope.ProfileWasUpdated=function(dat)
 		{
 			
 			$scope.ChangePreference('ProfileUpdated',me,Date.now())
 			$scope.User['ProfileUpdated']=Date.now();
-			$scope.User.ProfileUpdatedPhrase=$scope.phraseforloggedindate(	$scope.User['ProfileUpdated']);
+			$scope.User.ProfileUpdatedPhrase=$scope.phrasefordate(dat);
 		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
 		}
 		$scope.ChangePreference=function(prefid,me,newpref,func)
@@ -995,7 +995,7 @@ $scope.countries=[
 				console.log(resData);
 				console.log(jwres);
 				if (func)
-				{func(me);}
+				{func(resData.updatedAt);}
 				
 				}
 			);
