@@ -57,6 +57,8 @@ module.exports.routes = {
 	'GET /updateGameTime':'PageController.updateGameTime',
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
+	'PUT /imidle':'PageController.AnnounceIdle',
+	
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /deleteavatar':'AvatarController.deletepic',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
