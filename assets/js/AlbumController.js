@@ -98,7 +98,7 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	$scope.SetAvatar=function(MyID,picid)
 	{
 		io.socket.put('/User/'+MyID,{
-      avatarid:picid
+      avatarid:picid,
       picture:'https://www.chessbond.com/user/avatar/'+picid
       
       }  
