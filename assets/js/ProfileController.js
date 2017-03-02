@@ -692,7 +692,7 @@ $scope.Accounts=[];
 			newdate = day+ "/"+month+"/"+year ;
 			$scope.LookedatUser.Registeredmemberon=newdate;
 			$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
-			$scope.LookedatUser.ProfileUpdatedPhrase=$scope.phrasefordate($scope.LookedatUser.updatedAt);
+			$scope.LookedatUser.ProfileUpdatedPhrase=$scope.phrasefordate($scope.LookedatUser.ProfileUpdated);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
@@ -980,9 +980,11 @@ $scope.countries=[
 		$scope.ProfileWasUpdated=function(dat)
 		{
 			
-			$scope.ChangePreference('ProfileUpdated',me,Date.now())
+			console.log("$scope.phrasefordate($scope.User['ProfileUpdated']) "+$scope.phrasefordate($scope.User['ProfileUpdated']));
+			console.log("$scope.phraseforloggedindate($scope.User['ProfileUpdated']) "+$scope.phraseforloggedindate($scope.User['ProfileUpdated']));
+						$scope.ChangePreference('ProfileUpdated',me,Date.now())
 			$scope.User['ProfileUpdated']=Date.now();
-			$scope.User.ProfileUpdatedPhrase=$scope.phrasefordate(dat);
+			$scope.User.ProfileUpdatedPhrase=$scope.phrasefordate($scope.User['ProfileUpdated']);
 		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
 		}
 		$scope.ChangePreference=function(prefid,me,newpref,func)
@@ -997,7 +999,7 @@ $scope.countries=[
 				console.log(resData);
 				console.log(jwres);
 				if (func)
-				{func(resData.updatedAt);}
+				{func();}
 				
 				}
 			);
