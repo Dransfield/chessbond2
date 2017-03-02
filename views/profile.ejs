@@ -177,7 +177,7 @@
                   
                   required="string"
                   ng-required="string"
-                  ng-change="PrefSelectChanged('BirthDay','<%-req.session.passport.user%>',setBirthday)"
+                  ng-change="PrefSelectChanged('BirthDay','<%-req.session.passport.user%>',ProfileWasUpdated)"
                   >
                   <option ng-repeat="day in birthdays" value="{{day}}">
                      {{day}}
@@ -189,7 +189,7 @@
                   
                   required="string"
                   ng-required="string"
-                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',setBirthmonth)"
+                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',ProfileWasUpdated)"
                   >
                   <option ng-repeat="month in birthmonths" ng-value="{{month.name}}">
                      {{month.name}}
@@ -201,7 +201,7 @@
                   
                   required="string"
                   ng-required="string"
-                  ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>',setBirthyear)"
+                  ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>,ProfileWasUpdated)"
                   >
                   <option ng-repeat="year in birthyears" value="{{year}}">
                      {{year}}
@@ -237,7 +237,7 @@
                   required="string"
                   ng-selected="FoundCities[0]"
                   ng-required="string"
-                  ng-change="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCity)"
+                  ng-change="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',ProfileWasUpdated)"
                   >
 						<option ng-repeat="cit in FoundCities" value="{{cit.city}}">
                      {{cit.city}} {{cit.country}}
@@ -267,8 +267,7 @@
                   
                   required="string"
                   ng-required="string"
-                  ng-change="PrefSelectChanged('FideTitle','<%-req.session.passport.user%>',setFideTitle)"
-                  >
+                  ng-change="PrefSelectChanged('FideTitle','<%-req.session.passport.user%>',ProfileWasUpdated)" >
                   <option ng-repeat="fidetitle in fidetitles" value="{{fidetitle}}">
                      {{fidetitle}}
                   </option>
@@ -288,7 +287,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 						<button ng-click="editfideid=!editfideid" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="ChangePreference('FideID','<%-req.session.passport.user%>',LookedatUser.FideID)" ng-model="LookedatUser.FideID" />
+						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="ChangePreference('FideID','<%-req.session.passport.user%>',LookedatUser.FideID,ProfileWasUpdated)" ng-model="LookedatUser.FideID" />
 					
 					<%}%>
 				<%}%>
