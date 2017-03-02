@@ -589,8 +589,8 @@ $scope.Accounts=[];
 			{
 				console.log(JSON.stringify(data));
 				$scope.$apply(function(){
-			$scope.Accounts[data.id].idle=data.idlestatus;});
-			console.log($scope.Accounts[data.id].name+" is idle"+data.idlestatus);
+			$scope.Accounts[data.user].idle=data.idlestatus;});
+			console.log($scope.Accounts[data.user].name+" is idle"+data.idlestatus);
 		
 			});
 			
