@@ -581,8 +581,8 @@ $scope.Accounts=[];
 			
 			io.socket.on('IdleNotification',function (data)
 			{
-				
-			$scope.Accounts[data.id].idle=data.idlestatus;
+				$scope.$apply(function(){
+			$scope.Accounts[data.id].idle=data.idlestatus;});
 			});
 			
 			io.socket.on('WallPost', function (data)
