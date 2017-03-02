@@ -584,6 +584,10 @@ $scope.Accounts=[];
 				$scope.$apply(function(){
 			$scope.Accounts[data.id].idle=data.idlestatus;});
 			console.log($scope.Accounts[data.id].name+" is idle");
+			io.socket.put('/imidle',{user:Myid,idlestatus:true},
+		function  (data){
+		
+		});
 			});
 			
 			io.socket.on('WallPost', function (data)
@@ -620,7 +624,15 @@ $scope.Accounts=[];
 	
 			
 		};
-	
+	$scope.JoinIdleNotificationRoom=function(id)
+	{
+		
+		io.socket.get("/subscribeToRoom",{roomName:'IdleNotificationRoom'},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+		});
+		
+		
+	}
 	$scope.SoleConnectorFunction=function(id)
 	{
 		
