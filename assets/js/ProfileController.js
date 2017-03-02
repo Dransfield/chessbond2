@@ -85,6 +85,7 @@ $scope.Accounts=[];
 			$scope.IdleTime=0;
 			if($scope.SetIdle==true)
 			{
+				console.log("sending message");
 				$scope.ChangePreference('idle',$scope.User.id,false);
 				$scope.SetIdle=false;
 						io.socket.put('/imidle',{user:$scope.User.id,idlestatus:false},
