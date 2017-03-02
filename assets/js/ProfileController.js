@@ -81,6 +81,7 @@ $scope.Accounts=[];
   
 		$scope.MouseWasMoved=function()
 		{
+			console.log("mouse was moved");
 			$scope.IdleTime=0;
 			if($scope.SetIdle==true)
 			{
