@@ -987,6 +987,7 @@ $scope.countries=[
 			
 			$scope.User.ProfileUpdatedPhrase=$scope.phrasefordate($scope.User['ProfileUpdated']);
 		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
+		$scope.LookedatUser['ProfileUpdatedPhrase']=$scope.User['ProfileUpdatedPhrase'];
 		}
 		
 		
