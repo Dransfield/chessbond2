@@ -66,7 +66,7 @@ $scope.birthmonths=[{name:'January'},
 ]
 
 $scope.IdleTime=0;
-$scope.SetIdle=false;
+$scope.SetIdle=true;
 
 
 
@@ -587,6 +587,7 @@ $scope.Accounts=[];
 			
 			io.socket.on('IdleNotification',function (data)
 			{
+				console.log(
 				$scope.$apply(function(){
 			$scope.Accounts[data.id].idle=data.idlestatus;});
 			console.log($scope.Accounts[data.id].name+" is idle"+data.idlestatus);
@@ -718,6 +719,7 @@ $scope.getuser=function(MyID)
 		{
 		$scope.ChangePreference('idle',$scope.User.id,true);
 		$scope.SetIdle=true;
+		
 				io.socket.put('/imidle',{user:$scope.User.id,idlestatus:true},
 		function  (data){
 		
