@@ -980,7 +980,7 @@ $scope.countries=[
 			
 			$scope.ChangePreference('ProfileUpdated',me,Date.now())
 			$scope.User['ProfileUpdated']=Date.now();
-			$scope.User.ProfileUpdatedPhrase=$scope.phraseforloggedin(	$scope.User['ProfileUpdated']);
+			$scope.User.ProfileUpdatedPhrase=$scope.phraseforloggedindate(	$scope.User['ProfileUpdated']);
 		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
 		}
 		$scope.ChangePreference=function(prefid,me,newpref,func)
