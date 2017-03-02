@@ -81,13 +81,17 @@ $scope.Accounts=[];
   
 		$scope.MouseWasMoved=function()
 		{
-			console.log("mouse was moved");
+			
 			$scope.IdleTime=0;
 			if($scope.SetIdle==true)
 			{
-				$scope.ChangePreference('idle',$scope.User.id,'no');
+				$scope.ChangePreference('idle',$scope.User.id,false);
 				$scope.SetIdle=false;
-				
+						io.socket.put('/imidle',{user:$scope.User.id,idlestatus:false},
+		function  (data){
+		
+		});
+	
 			}
 		};
 		$scope.GetFile=function()
@@ -584,11 +588,8 @@ $scope.Accounts=[];
 			{
 				$scope.$apply(function(){
 			$scope.Accounts[data.id].idle=data.idlestatus;});
-			console.log($scope.Accounts[data.id].name+" is idle");
-			io.socket.put('/imidle',{user:Myid,idlestatus:true},
-		function  (data){
+			console.log($scope.Accounts[data.id].name+" is idle"+data.idlestatus);
 		
-		});
 			});
 			
 			io.socket.on('WallPost', function (data)
@@ -716,7 +717,11 @@ $scope.getuser=function(MyID)
 		{
 		$scope.ChangePreference('idle',$scope.User.id,true);
 		$scope.SetIdle=true;
+				io.socket.put('/imidle',{user:$scope.User.id,idlestatus:true},
+		function  (data){
 		
+		});
+	
 		}
 		},60000);
 			
