@@ -587,7 +587,7 @@ $scope.Accounts=[];
 			
 			io.socket.on('IdleNotification',function (data)
 			{
-				console.log(
+				
 				$scope.$apply(function(){
 			$scope.Accounts[data.id].idle=data.idlestatus;});
 			console.log($scope.Accounts[data.id].name+" is idle"+data.idlestatus);
