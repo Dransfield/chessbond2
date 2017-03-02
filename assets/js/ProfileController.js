@@ -975,7 +975,7 @@ $scope.countries=[
 	{name:'Zimbabwe'}
 ]
 
-		$scope.ProfileWasUpdated(me)
+		$scope.ProfileWasUpdated=function(me)
 		{
 			
 			$scope.ChangePreference('Profile Updated',me,Date.now())
