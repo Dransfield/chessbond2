@@ -690,6 +690,7 @@ $scope.Accounts=[];
 			newdate = day+ "/"+month+"/"+year ;
 			$scope.LookedatUser.Registeredmemberon=newdate;
 			$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
+			$scope.LookedatUser.ProfileUpdatedPhrase=$scope.phraseforloggedindate($scope.LookedatUser.ProfileUpdated);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
@@ -974,8 +975,15 @@ $scope.countries=[
 	{name:'Zimbabwe'}
 ]
 
-
-		$scope.ChangePreference=function(prefid,me,newpref)
+		$scope.ProfileWasUpdated(me)
+		{
+			
+			$scope.ChangePreference=function('Profile Updated',me,Date.now())
+			$scope.User['ProfileUpdated']=Date.now();
+			$scope.User.ProfileUpdatedPhrase=$scope.phraseforloggedin(	$scope.User['ProfileUpdated']);
+		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
+		}
+		$scope.ChangePreference=function(prefid,me,newpref,func)
 		{
 		console.log("change preference "+prefid+" "+me+" "+newpref);
 			io.socket.put('/user/'+me+"?"+prefid+"="+newpref,{
@@ -986,6 +994,9 @@ $scope.countries=[
 			{
 				console.log(resData);
 				console.log(jwres);
+				if (func)
+				{func(me);}
+				
 				}
 			);
      

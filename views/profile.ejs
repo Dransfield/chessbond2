@@ -304,11 +304,19 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 					<button ng-click="editfideratings=!editfideratings" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editfideratings" type="number"  class="form-control"  ng-change="ChangePreference('FideRatings','<%-req.session.passport.user%>',LookedatUser.FideRatings)" ng-model="LookedatUser.FideRatings" />
+						 <input  ng-show="editfideratings" type="number"  class="form-control"  ng-change="ChangePreference('FideRatings','<%-req.session.passport.user%>',LookedatUser.FideRatings,ProfileWasUpdated())" ng-model="LookedatUser.FideRatings" />
 				
 					<%}%>
 				<%}%>
 					{{LookedatUser.FideRatings}}
+					</td>
+				</tr>
+					<tr>
+					<td>
+					Profile Updated:
+					</td>
+					<td>
+					{{LookedatUser.ProfileUpdated}}
 					</td>
 				</tr>
 			</tbody>
