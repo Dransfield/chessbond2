@@ -690,7 +690,7 @@ $scope.Accounts=[];
 			newdate = day+ "/"+month+"/"+year ;
 			$scope.LookedatUser.Registeredmemberon=newdate;
 			$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
-			$scope.LookedatUser.ProfileUpdatedPhrase=$scope.phraseforloggedindate($scope.LookedatUser.ProfileUpdated);
+			$scope.LookedatUser.ProfileUpdatedPhrase=$scope.phrasefordate($scope.LookedatUser.updatedAt);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
 			)	
