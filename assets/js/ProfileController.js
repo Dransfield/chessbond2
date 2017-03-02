@@ -81,7 +81,8 @@ $scope.Accounts=[];
   
 		$scope.MouseWasMoved=function()
 		{
-			
+			if($scope.User)
+			{
 			$scope.IdleTime=0;
 			if($scope.SetIdle==true)
 			{
@@ -94,6 +95,7 @@ $scope.Accounts=[];
 		});
 	
 			}
+		}
 		};
 		$scope.GetFile=function()
 	{
