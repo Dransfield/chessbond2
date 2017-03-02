@@ -358,7 +358,7 @@
            <tbody>
 				  
             <tr ng-repeat="game in GameInfo track by $index">
-				<span ng-init="GetAccount(game.WhitePlayerID)">
+			<span ng-init="GetAccount(game.WhitePlayerID)">
 			<span ng-init="GetAccount(game.BlackPlayerID)">
 			<td><img class="profilepic" src="{{game.WhiteAvatar}}"></img><a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})</td>
 			<td><img class="profilepic" src="{{game.BlackAvatar}}"><a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})</td>
@@ -399,8 +399,8 @@
 					<div style="display:flex">
 		<span style="position: relative; left: 0; top: 0;">
 			
-		<img ng-show="Accounts[wllpsts.sender].online && !Accounts['<%-lookedatuser %>'].idle" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
-		<img ng-show="Accounts[wllpsts.sender].online && Accounts['<%-lookedatuser %>'].idle" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/orangecirclesml.png">
+		<img ng-show="Accounts[wllpsts.sender].online && !Accounts[wllpsts.sender].idle" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
+		<img ng-show="Accounts[wllpsts.sender].online && Accounts[wllpsts.sender].idle" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/orangecirclesml.png">
 		
 		<img ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
 		
@@ -449,10 +449,10 @@
 				<td>
 			<div style="display:flex">
 		<span style="position: relative; left: 0; top: 0;">
-			
-		<img ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
-		<img ng-show="!Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
-		
+			<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online && Accounts[rply.sender].idle" ng-init="GetAccount(rply.sender)" src="/images/orangecirclesml.png"></img>
+		  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online && !Accounts[rply.sender].idle" ng-init="GetAccount(rply.sender)" src="/images/greencirclesml.png"></img>
+				 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)" src="/images/greycirclesml.png"></img>
+				
 		<img class="profilepic" src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
 		<br>by <a href="/profile/{{rply.sender}}" target="_blank"><b style="color:red">{{Accounts[rply.sender].FideTitle}}</b> {{rply.sendername}}</a> {{rply.Age}}
