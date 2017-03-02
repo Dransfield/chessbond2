@@ -99,6 +99,8 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 	{
 		io.socket.put('/User/'+MyID,{
       avatarid:picid
+      picture:'https://www.chessbond.com/user/avatar/'+picid
+      
       }  
     ,function(resData,jwres)
 	{
