@@ -982,8 +982,8 @@ $scope.countries=[
 			
 			console.log("$scope.phrasefordate($scope.User['ProfileUpdated']) "+$scope.phrasefordate($scope.User['ProfileUpdated']));
 			console.log("$scope.phraseforloggedindate($scope.User['ProfileUpdated']) "+$scope.phraseforloggedindate($scope.User['ProfileUpdated']));
-						$scope.ChangePreference('ProfileUpdated',me,Date.now())
-			$scope.User['ProfileUpdated']=Date.now();
+						$scope.ChangePreference('ProfileUpdated',me,new Date())
+			$scope.User['ProfileUpdated']=new Date();
 			$scope.User.ProfileUpdatedPhrase=$scope.phrasefordate($scope.User['ProfileUpdated']);
 		$scope.LookedatUser['ProfileUpdated']=$scope.User['ProfileUpdated'];
 		}
