@@ -33,7 +33,7 @@ module.exports = {
 
       // Generate a unique URL where the avatar can be downloaded.
       avatarid:ava.id,
-      picture:'https://www.chessbond.com/user/avatar/'ava.id
+      picture:'https://www.chessbond.com/user/avatar/'+ava.id
     })
     .exec(function (err){
       if (err) return res.negotiate(err);
