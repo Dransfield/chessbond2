@@ -35,7 +35,8 @@
 	  <% } %>
       <% } %>
 	<% } %>
-	{{Accounts['<%-lookedatuser %>'].idle}}
+	"Looked at user idle" {{Accounts['<%-lookedatuser %>'].idle}}
+	$scope.SetIdle{{$scope.SetIdle}}
 	<%- include partials/navbar.ejs %>
 	<div ng-init="JoinIdleNotificationRoom('<%-req.session.passport.user %>')"></div>
 			
