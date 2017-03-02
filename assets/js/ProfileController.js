@@ -583,6 +583,7 @@ $scope.Accounts=[];
 			{
 				$scope.$apply(function(){
 			$scope.Accounts[data.id].idle=data.idlestatus;});
+			console.log($scope.Accounts[data.id].name+" is idle");
 			});
 			
 			io.socket.on('WallPost', function (data)
