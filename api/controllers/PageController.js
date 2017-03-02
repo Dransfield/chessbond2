@@ -763,7 +763,7 @@ transporter.sendMail(mailOptions, function(error, info){
 	},
 	
 	AnnounceIdle:function(req,res){
-		console.log(req.param('user')+" is "+req.param('idlestatus'));
+		//console.log(req.param('user')+" is "+req.param('idlestatus'));
 	sails.sockets.broadcast('IdleNotificationRoom','IdleNotification', {user:req.param('user'),idlestatus:req.param('idlestatus') });
 	
 	},
