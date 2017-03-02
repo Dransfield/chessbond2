@@ -713,7 +713,7 @@ $scope.getuser=function(MyID)
 			$scope.IdleTime+=1;
 		if($scope.IdleTime>1)
 		{
-		$scope.ChangePreference('idle',$scope.User.id,'yes');
+		$scope.ChangePreference('idle',$scope.User.id,true);
 		$scope.SetIdle=true;
 		
 		}
@@ -967,7 +967,7 @@ $scope.countries=[
 
 		$scope.ChangePreference=function(prefid,me,newpref)
 		{
-		
+		console.log("change preference "+prefid+" "+me+" "+newpref);
 			io.socket.put('/user/'+me+"?"+prefid+"="+newpref,{
 				
 					  }  
