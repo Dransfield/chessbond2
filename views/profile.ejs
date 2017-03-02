@@ -35,7 +35,7 @@
 	  <% } %>
       <% } %>
 	<% } %>
-	
+	{{Accounts['<%-lookedatuser %>'].idle}}
 	<%- include partials/navbar.ejs %>
 	<div ng-init="JoinIdleNotificationRoom('<%-req.session.passport.user %>')"></div>
 			
