@@ -65,6 +65,8 @@ $scope.birthmonths=[{name:'January'},
 {name:'December'},
 ]
 
+$scope.IdleTime=0;
+$scope.SetIdle=false;
 
 
 
@@ -77,7 +79,16 @@ $scope.Accounts=[];
     $('[data-toggle="tooltip"]').tooltip();   
 });*/
   
-		
+		$scope.MouseWasMoved=function()
+		{
+			$scope.IdleTime=0;
+			if($scope.SetIdle==true)
+			{
+				$scope.ChangePreference('idle',$scope.User.id,'no');
+				$scope.SetIdle=false;
+				
+			}
+		};
 		$scope.GetFile=function()
 	{
 		console.log("sending ");
@@ -134,7 +145,9 @@ $scope.Accounts=[];
 				if(rply.length>0)
 				{
 					console.log("got reply>0"+Myid);
+				
 				$scope.Accounts[Myid].online=true;
+				
 				}
 				else
 				{
@@ -565,6 +578,13 @@ $scope.Accounts=[];
 		
 			$scope.GetWallPosts(OwnerID);
 			$scope.GetChessGames(OwnerID);
+			
+			io.socket.on('NotIdleNotification',function (data)
+			{
+				
+			$scope.Accounts[data.id].idle=true;
+			}
+			
 			io.socket.on('WallPost', function (data)
 			{
 			
@@ -666,11 +686,26 @@ $scope.getuser=function(MyID)
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
 			if($scope.User.Gender=='Male')
-			{$scope.fidetitles=$scope.menfidetitles;}
+			{
+			$scope.fidetitles=$scope.menfidetitles;
+			}
 			else
-			{$scope.fidetitles=$scope.womenfidetitles;}
+			{
+			$scope.fidetitles=$scope.womenfidetitles;
+			}
 			$scope.TopPlayerFlag=$scope.countryTofilename($scope.User['Country']);
 				
+			setInterval(function()
+			{
+			$scope.IdleTime+=1;
+		if($scope.IdleTime>1)
+		{
+		$scope.ChangePreference('idle',$scope.User.id,'yes');
+		$scope.SetIdle=true;
+		
+		}
+		},60000);
+			
 			
 			}
 			)	
