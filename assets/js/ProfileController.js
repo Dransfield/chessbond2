@@ -590,7 +590,7 @@ $scope.Accounts=[];
 				console.log(JSON.stringify(data));
 				$scope.$apply(function(){
 			$scope.Accounts[data.user].idle=data.idlestatus;});
-			console.log($scope.Accounts[data.user].name+" is idle"+data.idlestatus);
+			//console.log($scope.Accounts[data.user].name+" is idle"+data.idlestatus);
 		
 			});
 			
@@ -715,7 +715,7 @@ $scope.getuser=function(MyID)
 			setInterval(function()
 			{
 			$scope.IdleTime+=1;
-			console.log("$scope.IdleTime "+$scope.IdleTime);
+			//console.log("$scope.IdleTime "+$scope.IdleTime);
 		if($scope.IdleTime>1)
 		{
 		$scope.ChangePreference('idle',$scope.User.id,true);
