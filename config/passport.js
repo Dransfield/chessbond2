@@ -418,7 +418,8 @@ passport.use(new GoogleStrategy({
                     googleId: profile.id, // set the users facebook id                   
                     googletoken : refreshToken, // we will save the token that facebook provides to the user                    
                     name:profile.displayName,
-                    picture:profile.photos[0].value
+                    picture:profile.photos[0].value,
+                    socialpicture:profile.photos[0].value
                                         }).exec( // look at the passport user profile to see how names are returned
                     
                     //facebookemail:  profile.emails[0].value}).exec( // facebook can return multiple emails so we'll take the first
@@ -501,6 +502,7 @@ passport.use(new GoogleStrategy({
                     twittertoken : token, // we will save the token that facebook provides to the user                    
                     name:profile._json.screen_name,
                     picture:profile._json.profile_image_url,
+                    socialpicture:profile._json.profile_image_url,
                     Country:countr
                     }).exec( // look at the passport user profile to see how names are returned
                     
@@ -604,6 +606,7 @@ passport.use(new FacebookStrategy({
                     email:profile._json.email,
                     name:profile.displayName,
                     picture:profile._json.picture.data.url,
+                    socialpicture:profile._json.picture.data.url,
                     Country:countr
                     }).exec( // look at the passport user profile to see how names are returned
                     
