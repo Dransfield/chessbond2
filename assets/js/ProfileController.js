@@ -726,7 +726,7 @@ $scope.getuser=function(MyID)
 		});
 	
 		}
-		},60000);
+		},2000);
 			
 			
 			}
