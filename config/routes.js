@@ -32,6 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
+	'GET /stats:userID':{view:'stats'},
 	'GET /album/:albumID': {view: 'album'},
 	'GET /albums/:userID': {view: 'albums'},
 	'GET /user/avatar/:id':'UploadController.avatar',
@@ -39,6 +40,7 @@ module.exports.routes = {
 	'/profile': {view:'profile'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
 	'GET /session/:SessionID':{view:'session'},
+	
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	'/myfile': {view: 'forgot'},

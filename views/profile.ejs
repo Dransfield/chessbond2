@@ -310,12 +310,313 @@
 					{{LookedatUser.FideRatings}}
 					</td>
 				</tr>
-					<tr>
+				<tr>
 					<td>
 					Profile Updated:
 					</td>
 					<td>
 					{{LookedatUser.ProfileUpdatedPhrase}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Speak (languages):
+					</td>
+					<td>
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editlanguages=!editlanguages" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editlanguages" type="text"  class="form-control"  ng-change="ChangePreference('SpokenLanguages','<%-req.session.passport.user%>',LookedatUser.SpokenLanguages,ProfileWasUpdated)" ng-model="LookedatUser.SpokenLanguages" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.SpokenLanguages}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Countries Travelled:
+					</td>
+					<td>
+						<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editCountriesTravelled=!editCountriesTravelled" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editCountriesTravelled" type="text"  class="form-control"  ng-change="ChangePreference('CountriesTravelled','<%-req.session.passport.user%>',LookedatUser.CountriesTravelled,ProfileWasUpdated)" ng-model="LookedatUser.CountriesTravelled" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.CountriesTravelled}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Wishing to Travel:
+					</td>
+					<td>
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editWishingToTravel=!editWishingToTravel" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editWishingToTravel" type="text"  class="form-control"  ng-change="ChangePreference('WishingToTravel','<%-req.session.passport.user%>',LookedatUser.WishingToTravel,ProfileWasUpdated)" ng-model="LookedatUser.WishingToTravel" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.WishingToTravel}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Upcoming Trip:
+					</td>
+					<td>
+					
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editMyUpcomingTrip=!editMyUpcomingTrip" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editMyUpcomingTrip" type="text"  class="form-control"  ng-change="ChangePreference('MyUpcomingTrip','<%-req.session.passport.user%>',LookedatUser.MyUpcomingTrip,ProfileWasUpdated)" ng-model="LookedatUser.MyUpcomingTrip" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.MyUpcomingTrip}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Who am I?:
+					</td>
+					<td>
+						
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editWhoAmI=!editWhoAmI" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editWhoAmI" type="text"  class="form-control"  ng-change="ChangePreference('WhoAmI','<%-req.session.passport.user%>',LookedatUser.WhoAmI,ProfileWasUpdated)" ng-model="LookedatUser.WhoAmI" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.WhoAmI}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					How Do I Start My Day?:
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editHowDoIStartMyDay=!editHowDoIStartMyDay" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editHowDoIStartMyDay" type="text"  class="form-control"  ng-change="ChangePreference('HowDoIStartMyDay','<%-req.session.passport.user%>',LookedatUser.HowDoIStartMyDay,ProfileWasUpdated)" ng-model="LookedatUser.HowDoIStartMyDay" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.HowDoIStartMyDay}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Hobbies/Interests:
+					</td>
+					<td>
+						<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editHobbiesInterests=!editHobbiesInterests" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editHobbiesInterests" type="text"  class="form-control"  ng-change="ChangePreference('HobbiesInterests','<%-req.session.passport.user%>',LookedatUser.HobbiesInterests,ProfileWasUpdated)" ng-model="LookedatUser.HobbiesInterests" />
+				
+					<%}%>
+				<%}%>
+			
+					{{LookedatUser.HobbiesInterests}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Request/Expectation:
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editRequestExpectation=!editRequestExpectation" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editRequestExpectation" type="text"  class="form-control"  ng-change="ChangePreference('RequestExpectation','<%-req.session.passport.user%>',LookedatUser.RequestExpectation,ProfileWasUpdated)" ng-model="LookedatUser.RequestExpectation" />
+				
+					<%}%>
+				<%}%>
+			
+					{{LookedatUser.RequestExpectation}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite Music/Band:
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteMusicBand=!editFavoriteMusicBand" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteMusicBand" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteMusicBand','<%-req.session.passport.user%>',LookedatUser.FavoriteMusicBand,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteMusicBand" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FavoriteMusicBand}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite TV Shows/Concerts:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteTVShows=!editFavoriteTVShows" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteTVShows" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteTVShows','<%-req.session.passport.user%>',LookedatUser.FavoriteTVShows,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteTVShows" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FavoriteTVShows}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite Books/Food:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteBooksFood=!editFavoriteBooksFood" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteBooksFood" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteBooksFood','<%-req.session.passport.user%>',LookedatUser.FavoriteBooksFood,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteBooksFood" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FavoriteBooksFood}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite Quote/Writer:
+					</td>
+					<td>
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteQuoteWriter=!editFavoriteQuoteWriter" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteQuoteWriter" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteBooksFood','<%-req.session.passport.user%>',LookedatUser.FavoriteQuoteWriter,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteQuoteWriter" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.FavoriteQuoteWriter}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Professional Chess Tournaments/Trainings/Participations:
+					</td>
+					<td>
+						
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editProChessTournaments=!editProChessTournaments" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editProChessTournaments" type="text"  class="form-control"  ng-change="ChangePreference('ProChessTournaments','<%-req.session.passport.user%>',LookedatUser.ProChessTournaments,ProfileWasUpdated)" ng-model="LookedatUser.ProChessTournaments" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.ProChessTournaments}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My best performance in live chess tournaments
+					</td>
+					<td>
+						
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editMyBestChessPerformance=!editMyBestChessPerformance" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editProChessTournaments" type="text"  class="form-control"  ng-change="ChangePreference('MyBestChessPerformance','<%-req.session.passport.user%>',LookedatUser.MyBestChessPerformance,ProfileWasUpdated)" ng-model="LookedatUser.MyBestChessPerformance" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.MyBestChessPerformance}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Live Chess Tournaments History:
+					</td>
+					<td>
+					
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editMyLiveChessTournamentsHistory=!editMyLiveChessTournamentsHistory" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editMyLiveChessTournamentsHistory" type="text"  class="form-control"  ng-change="ChangePreference('MyLiveChessTournamentsHistory','<%-req.session.passport.user%>',LookedatUser.MyLiveChessTournamentsHistory,ProfileWasUpdated)" ng-model="LookedatUser.MyLiveChessTournamentsHistory" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.MyLiveChessTournamentsHistory}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My other performing skills/Inspring Sports:
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editSkillsSports=!editSkillsSports" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editSkillsSports" type="text"  class="form-control"  ng-change="ChangePreference('SkillsSports','<%-req.session.passport.user%>',LookedatUser.SkillsSports,ProfileWasUpdated)" ng-model="LookedatUser.SkillsSports" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.SkillsSports}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Victory Speech would be
+					(If I became Chess Champion):
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editVictorySpeech=!editVictorySpeech" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editVictorySpeech" type="text"  class="form-control"  ng-change="ChangePreference('VictorySpeech','<%-req.session.passport.user%>',LookedatUser.VictorySpeech,ProfileWasUpdated)" ng-model="LookedatUser.VictorySpeech" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.VictorySpeech}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Victory Speech would be
+					(If I won the Nobel Prize in any category):
+					</td>
+					<td>
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editNobelSpeech=!editNobelSpeech" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editNobelSpeech" type="text"  class="form-control"  ng-change="ChangePreference('VictorySpeech','<%-req.session.passport.user%>',LookedatUser.NobelSpeech,ProfileWasUpdated)" ng-model="LookedatUser.NobelSpeech" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.NobelSpeech}}
 					</td>
 				</tr>
 			</tbody>
