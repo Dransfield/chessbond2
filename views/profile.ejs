@@ -513,7 +513,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 					<button ng-click="editFavoriteQuoteWriter=!editFavoriteQuoteWriter" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editFavoriteQuoteWriter" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteBooksFood','<%-req.session.passport.user%>',LookedatUser.FavoriteQuoteWriter,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteQuoteWriter" />
+						 <input  ng-show="editFavoriteQuoteWriter" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteQuoteWriter','<%-req.session.passport.user%>',LookedatUser.FavoriteQuoteWriter,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteQuoteWriter" />
 				
 					<%}%>
 				<%}%>
@@ -613,7 +613,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 					<button ng-click="editNobelSpeech=!editNobelSpeech" class="btn btn-sml">...
 					</button>
-					 <input  ng-show="editNobelSpeech" type="text"  class="form-control"  ng-change="ChangePreference('VictorySpeech','<%-req.session.passport.user%>',LookedatUser.NobelSpeech,ProfileWasUpdated)" ng-model="LookedatUser.NobelSpeech" />
+					 <input  ng-show="editNobelSpeech" type="text"  class="form-control"  ng-change="ChangePreference('NobelSpeech','<%-req.session.passport.user%>',LookedatUser.NobelSpeech,ProfileWasUpdated)" ng-model="LookedatUser.NobelSpeech" />
 					<%}%>
 				<%}%>
 					{{LookedatUser.NobelSpeech}}
