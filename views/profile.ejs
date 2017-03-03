@@ -548,7 +548,7 @@
 					<% if (req.session.passport.user==lookedatuser){ %>
 					<button ng-click="editMyBestChessPerformance=!editMyBestChessPerformance" class="btn btn-sml">...
 						</button>
-						 <input  ng-show="editProChessTournaments" type="text"  class="form-control"  ng-change="ChangePreference('MyBestChessPerformance','<%-req.session.passport.user%>',LookedatUser.MyBestChessPerformance,ProfileWasUpdated)" ng-model="LookedatUser.MyBestChessPerformance" />
+						 <input  ng-show="editMyBestChessPerformance" type="text"  class="form-control"  ng-change="ChangePreference('MyBestChessPerformance','<%-req.session.passport.user%>',LookedatUser.MyBestChessPerformance,ProfileWasUpdated)" ng-model="LookedatUser.MyBestChessPerformance" />
 					<%}%>
 				<%}%>
 					{{LookedatUser.MyBestChessPerformance}}
