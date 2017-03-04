@@ -47,6 +47,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
+						<li><a href="/stats/<%- req.session.passport.user%>" >My Stats</a></li>
 						
 						<li><a href="/MyLogout">Logout</a></li>
 						<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
