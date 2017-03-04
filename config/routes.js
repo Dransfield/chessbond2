@@ -32,7 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
-	'GET /stats:userID':{view:'stats'},
+	//'GET /stats:userID':{view:'stats'},
+	'GET /stats':{view:'stats'},
+	
 	'GET /album/:albumID': {view: 'album'},
 	'GET /albums/:userID': {view: 'albums'},
 	'GET /user/avatar/:id':'UploadController.avatar',
