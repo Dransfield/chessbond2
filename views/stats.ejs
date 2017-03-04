@@ -78,8 +78,15 @@
 				<!--HEADERS OF TABLE-->
                 </tr>
            </thead>
+            <tbody>
+				  
+            
            <% for (x in categories){%>
-           <h5><%-categories[x]%></h5>
+           <tr>
+           <td>
+           <h5><%-categories[x].time%>|<%-categories[x].extratime%></h5>
+           </td>
+           </tr>
            <%}%>
            
            </table>
