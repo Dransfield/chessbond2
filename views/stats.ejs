@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+      <title>Chessbond</title>
+      <!-- Viewport mobile tag for sensible mobile support -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/angular-toastr.css">
+      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/angular.1.3.js"></script>
+      <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+      <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+      <script src="/js/dependencies/chess.min.js"></script>
+      <script src="/js/dependencies/stockfish.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/bootstrap.min.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/enginegame.js"></script>
+      <script src="/js/HomepageModule.js"></script>
+      <script src="/js/HomepageController.js"></script>
+      <script src="/js/RegisterController.js"></script>
+      <script src="/js/SinglePlayerController.js"></script>
+      <script src="/js/TwoPlayerController.js"></script>
+      <!--SCRIPTS END-->
+   </head>
+     <body ng-app="HomepageModule" ng-controller="AlbumsController" ng-cloak>
+   <%- include partials/navbar.ejs %>
+   <h3>Statistics</h3>
+   
+   <% categories=[{time:1,extratime:0},
+					{time:2,extratime:0},
+					{time:3,extratime:0},
+					{time:4,extratime:0},
+					{time:5,extratime:0},
+					{time:6,extratime:0},
+					{time:7,extratime:0},
+					{time:8,extratime:0},
+					{time:9,extratime:0},
+					{time:10,extratime:0},
+					{time:15,extratime:0},
+					{time:20,extratime:0},
+					{time:30,extratime:0},
+					{time:60,extratime:0},
+					{time:2,extratime:1},
+					{time:3,extratime:1},
+					{time:5,extratime:2},
+					{time:10,extratime:5},
+					{time:15,extratime:5},
+					{time:20,extratime:10},
+					{time:30,extratime:10},
+					{time:60,extratime:10}];
+					
+	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+	
+	     <div class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Category</th>
+                  <th>Color</th>
+                  <th>Current Ratings</th>
+                  <th>Win%</th>
+                  <th>Loss%</th>
+                  <th>Draws%</th>
+                  <th>Highest ratings scored</th>
+                  <th>Lowest ratings scored</th>
+                  <th>Average Oppositon Ratings</th>
+                  <th>Total Games</th>
+                  <th>Total Moves</th>
+                  <th>Average Move/Game</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <% for (x in categories){%>
+           <h5><%-categories[x]%></h5>
+           <%}%>
+           
+           </table>
+           </div>
+		
+
+	
+	</body>
+</html>
