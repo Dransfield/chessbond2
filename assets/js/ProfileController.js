@@ -353,7 +353,7 @@ $scope.Accounts=[];
 		else
 		{
 		newnum=newnum/60;
-		if (newnum<60)
+		if (newnum<24)
 		{
 		phrase=parseInt(newnum)+" hours ago";
 		}
