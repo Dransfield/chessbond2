@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+      <title>Chessbond</title>
+      <!-- Viewport mobile tag for sensible mobile support -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/angular-toastr.css">
+      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/angular.1.3.js"></script>
+      <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+      <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+      <script src="/js/dependencies/chess.min.js"></script>
+      <script src="/js/dependencies/stockfish.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/bootstrap.min.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/enginegame.js"></script>
+      <script src="/js/HomepageModule.js"></script>
+      <script src="/js/HomepageController.js"></script>
+      <script src="/js/RegisterController.js"></script>
+      <script src="/js/SinglePlayerController.js"></script>
+      <script src="/js/TwoPlayerController.js"></script>
+      <!--SCRIPTS END-->
+   </head>
+     <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
+   <%- include partials/navbar.ejs %>
+   
+    <div ng-init="getuser('<%-req.session.passport.user%>')">
+	</div>
+	
+	<p>
+	About us
+Why is the art of becoming “Penpal” unique and appealing?
+It's not every day you get to sit down and talk with a legend about the life, travel experiences, hobbies, etc! Technology revolves and humans are being offered to make most out of it on the brighter side. What’s more – It's not every day that said Penpals also happen to be an insanely down-to-earth, wise, funny, fierce and endlessly compassionate human being despite many miles away!
+If you consider yourself a creative person to explore the life big with fun, peace, happiness, success, joy of travelling, mingling with friends from diversed cultures, I guarantee that this portal will offer you a chance to do. We talk about so much about the life round the clock as this world never stops for anything. The realities of becoming a Penpal, the two questions every creative MUST ask themselves before they actually become, Why? And How ?
+If you've ever felt insecure about calling yourself “Penpal”, like maybe you don't 'do it right' or worse — that you don’t deserve that title, then this is a must visit website , must share yours with the rest of the world.
+Good beginning is always appreciated. It’s never too late becoming a Penpal and feel the difference in everything you do. At times, It could actually bring tears with touching and inspiring conversations with good penpals and you'll be moved and inspired by what your penpals have to share. Once you have had a suggestions to take this art of writing to friends from far places, You can join to share which insight struck you the deepest and why.
+If you have creative friends, family members or colleagues, you may recommend them this site and their unique perspective could help this start-up online portal finding the courage and strength to keep creating more penpals from time to time across the world. Apart from , You can also play Chess online with Chess players  and Robots , Share the travel experience making more friends visiting this website at the regular intervals.</p>
+	
+	</body>
+</html>
