@@ -28,32 +28,9 @@
       <script src="/js/TwoPlayerController.js"></script>
       <!--SCRIPTS END-->
    </head>
-     <body ng-app="HomepageModule" ng-controller="AlbumsController" ng-cloak>
+     <body ng-app="HomepageModule" ng-controller="StatsController" ng-cloak>
    <%- include partials/navbar.ejs %>
    <h3>Statistics</h3>
-   
-   <% categories=[{time:1,extratime:0},
-					{time:2,extratime:0},
-					{time:3,extratime:0},
-					{time:4,extratime:0},
-					{time:5,extratime:0},
-					{time:6,extratime:0},
-					{time:7,extratime:0},
-					{time:8,extratime:0},
-					{time:9,extratime:0},
-					{time:10,extratime:0},
-					{time:15,extratime:0},
-					{time:20,extratime:0},
-					{time:30,extratime:0},
-					{time:60,extratime:0},
-					{time:2,extratime:1},
-					{time:3,extratime:1},
-					{time:5,extratime:2},
-					{time:10,extratime:5},
-					{time:15,extratime:5},
-					{time:20,extratime:10},
-					{time:30,extratime:10},
-					{time:60,extratime:10}];%>
 					
 	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
 	
@@ -81,13 +58,13 @@
             <tbody>
 				  
             
-           <% for (x in categories){%>
-           <tr>
+           <tr ng-repeat="x in categories">
            <td>
-           <h5><%-categories[x].time%>|<%-categories[x].extratime%></h5>
+           HYE
+           <h5>{{categories[x].time}}|{{categories[x].extratime}}</h5>
            </td>
            </tr>
-           <%}%>
+           
            
            </table>
            </div>
