@@ -37,8 +37,8 @@ module.exports.routes = {
 	'GET /aboutus':{view:'aboutus'},
 	'GET /termsofservice':{view:'termsos'},
 	'GET /privacypolicy':{view:'privacypolicy'},
-	
-	
+	'GET /sitemap':{view:'sitemap'},
+	'GET /contactus':{view:'contactus'},
 	'GET /album/:albumID': {view: 'album'},
 	'GET /albums/:userID': {view: 'albums'},
 	'GET /user/avatar/:id':'UploadController.avatar',
