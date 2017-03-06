@@ -80,7 +80,7 @@ passportInit    : require('passport').initialize(),
 	
 	if (req.session.passport)
 	{
-		//console.log("passport user"+req.session.passport.user);
+		console.log("passport user"+req.session.passport.user);
 		if(!req.session.passport.user)
 		{return next();
     	}
@@ -89,7 +89,7 @@ passportInit    : require('passport').initialize(),
       id: req.session.passport.user
 	},function foundUser(err,user){
 		if (err)
-		{//req.session.passport=null;
+		{console.log(JSON.stringify(err));
 			  return next();
     
 			}
