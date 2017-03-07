@@ -105,7 +105,7 @@ $scope.SoleConnectorVariable="";
 	
 	$scope.createopengame=function(type,id,name)
 	{
-	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
+	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit.time,ExtraTimeLimit:$scope.GameForm.timelimit.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
 
       // Refresh the page now that we've been logged in.
