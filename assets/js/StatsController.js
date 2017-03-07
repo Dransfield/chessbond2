@@ -23,8 +23,16 @@ $scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 					{time:30,extratime:10},
 					{time:60,extratime:10}]
 	
-	
-		
+	$scope.statcategories=[{cat:'rating'},
+							{cat:'winpercent'},
+							{cat:'losepercent'},
+							{cat:'drawpercent'},
+							{cat:'highest'},
+							{cat:'lowest'},
+							{cat:'averageoppositionrating'},
+							{cat:'totalgames'},
+							{cat:'totalmoves'},
+							{cat:'averagemoves'}];
 	$scope.getuser=function(MyID)
 	{
 		
@@ -36,6 +44,7 @@ $scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 			{
 				for(c in $scope.colors)
 				{
+					if($scope.User['rating'+c.col+x.time+x.extratime]
 					console.log($scope.User['rating'+c.col+x.time+x.extratime])
 				}
 			}
