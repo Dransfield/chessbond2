@@ -1,5 +1,5 @@
 angular.module('HomepageModule').controller('StatsController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
-$scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
+
 	$scope.categories=[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},
@@ -35,7 +35,7 @@ $scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 							{cat:'averagemoves'}];
 	$scope.getuser=function(MyID)
 	{
-		
+		$scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 		$http.get('/user?id='+MyID, {
 			})
 			.then(function onSuccess(sailsResponse){
