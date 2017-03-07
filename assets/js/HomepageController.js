@@ -103,10 +103,9 @@ $scope.SoleConnectorVariable="";
 			});*/
 	}
 	
-	$scope.cr
-	createopengame=function(type,id,name)
+	$scope.createopengame=function(type,id,name)
 	{
-		console.log("$scope.GameForm"+JSON.stringify($scope.GameForm));
+		console.log("$scope.GameForm"+JSON.stringify($scope.GameForm.timelimit));
 	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit.time,ExtraTimeLimit:$scope.GameForm.timelimit.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
 
