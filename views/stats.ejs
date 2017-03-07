@@ -67,8 +67,8 @@
            </td>
            <td>   
                <h5>{{User['rating'+c.col+x.time+x.extratime]}}</h5>
-           <div ng-init="console.log(User['rating'+c.col+x.time+x.extratime])"></div>
-           <div ng-init="console.log('rating'+c.col+x.time+x.extratime)"></div>
+           {{User['rating'+c.col+x.time+x.extratime]}}
+           {{'rating'+c.col+x.time+x.extratime}}
            
            </td>
             <td>   
