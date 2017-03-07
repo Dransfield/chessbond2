@@ -6,7 +6,7 @@ $scope.Players=new Array();
 $scope.User;
 $scope.Notifications=[];
 $scope.GameForm={};
-$scope.GameForm.timelimit=5;
+
 $scope.GameForm.color='White';
 $scope.SoleConnectorVariable="";
 	//document.getElementById("body").style.backgroundColor="#4D129F";
@@ -105,7 +105,9 @@ $scope.SoleConnectorVariable="";
 	
 	$scope.createopengame=function(type,id,name)
 	{
-		console.log("$scope.GameForm"+JSON.stringify($scope.GameForm.timelimit.time));
+		console.log("$scope.GameForm1`"+$scope.GameForm.timelimit['time']);
+		console.log("$scope.GameForm2"+$scope.GameForm.timelimit.time);
+		
 	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit.time,ExtraTimeLimit:$scope.GameForm.timelimit.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
 
