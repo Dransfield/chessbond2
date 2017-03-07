@@ -180,7 +180,7 @@ io.socket.on('connect',function(data){
 	*/
 	io.socket.on('deletegameevent', function (data)
 			{
-			console.log(data);
+			console.log("delete game event"+data);
 			$scope.$apply(function(){
 			for(var i = $scope.joinedgames.length - 1; i >= 0; i--) {
 				
@@ -475,9 +475,9 @@ $scope.joinsessionRoom=function()
 			//{console.log("games[x] "+games[x]);
 			//}
  
-				for (var x in games)
+				for (var y in games)
 				{		 
-				$scope.joinedgames.push(games[x]);
+				$scope.joinedgames.push(games[y]);
 				}
 
 				io.socket.get('/chessgame?Player2='+id+'&sort=createdAt ASC',
