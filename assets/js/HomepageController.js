@@ -470,7 +470,7 @@ $scope.joinsessionRoom=function()
 			function (games) {
 				$scope.joinedgames=[];
 			//console.log("games1");
-			//console.log("games "+JSON.stringify(games));
+			console.log("games "+JSON.stringify(games));
 			//for (x in games)
 			//{console.log("games[x] "+games[x]);
 			//}
@@ -487,7 +487,7 @@ $scope.joinsessionRoom=function()
 						{		 
 						$scope.joinedgames.push(moregames[x]);
 						}
-
+						console.log("moregames "+JSON.stringify(moregames));
 						$scope.joinedgames.sort(function(a, b){return Date.parse(b.createdAt)-Date.parse(a.createdAt);});
 					});
 					});
