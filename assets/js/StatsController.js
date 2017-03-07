@@ -32,6 +32,7 @@ $scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
+			$scope.User['Black']="hiiisfa";
 		});
 	};
 

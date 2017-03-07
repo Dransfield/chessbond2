@@ -80,7 +80,7 @@ passportInit    : require('passport').initialize(),
 	
 	if (req.session.passport)
 	{
-		console.log("passport user"+req.session.passport.user);
+		//console.log("passport user"+req.session.passport.user);
 		if(!req.session.passport.user)
 		{return next();
     	}
