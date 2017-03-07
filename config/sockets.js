@@ -128,7 +128,7 @@ module.exports.sockets = {
  // console.log("socket id is "+socket['id']);
  
   
-	/*
+	
  
    Subscription.find({socketid:socket['id']}).exec(function (err, records) {
 	
@@ -172,7 +172,7 @@ module.exports.sockets = {
 	}}
 	});
    
- 	*/
+ 	
      // By default: do nothing.
      return cb();
    }
