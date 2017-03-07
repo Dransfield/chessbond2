@@ -57,12 +57,14 @@
            </thead>
             <tbody ng-repeat="x in categories">
 			<% for (c in colors){%>	  
-           <tr >
+           <tr ng-repeat="c in colors">
           
           <td>   
                <h5>{{x.time}}|{{x.extratime}}</h5>
            </td>
-          
+           <td>   
+               <h5>{{c.col}}</h5>
+           </td>
            </tr>
             <%}%>
           
