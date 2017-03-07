@@ -1,5 +1,5 @@
 angular.module('HomepageModule').controller('StatsController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
-
+$scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 	$scope.categories=[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},
