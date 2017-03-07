@@ -44,8 +44,8 @@ $scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 			{
 				for(c in $scope.colors)
 				{
-					if($scope.User['rating'+c.col+x.time+x.extratime]
-					console.log($scope.User['rating'+c.col+x.time+x.extratime])
+					if(!$scope.User['rating'+c.col+x.time+x.extratime])
+					{console.log($scope.User['rating'+c.col+x.time+x.extratime]);}
 				}
 			}
 		});
