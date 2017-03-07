@@ -40,6 +40,7 @@ angular.module('HomepageModule').controller('StatsController', ['$scope', '$http
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
+			$scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 			for(x in $scope.categories)
 			{
 				for(c in $scope.colors)
