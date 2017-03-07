@@ -66,9 +66,35 @@
                <h5>{{c.col}}</h5>
            </td>
            <td>   
-               <h5>{{User[c.col+x.time]}}</h5>
+               <h5>{{User['rating'+c.col+x.time+x.extratime]}}</h5>
            </td>
-           
+            <td>   
+               <h5>{{User['winpercent'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['losepercent'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['drawpercent'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['highest'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+           <td>   
+               <h5>{{User['lowest'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['averageoppositionrating'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['totalgames'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['totalmoves'+c.col+x.time+x.extratime]}}</h5>
+           </td>
+            <td>   
+               <h5>{{User['averagemoves'+c.col+x.time+x.extratime]}}</h5>
+           </td>
            </tr>
             
            </tbody>
