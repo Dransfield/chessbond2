@@ -31,7 +31,7 @@
      <body ng-app="HomepageModule" ng-controller="StatsController" ng-cloak>
    <%- include partials/navbar.ejs %>
    <h3>Statistics</h3>
-					
+		<% var colors=[{col:'Overall'},{col:'White'},{col:'Black'}];%>
 	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
 	
 	     <div class="table-responsive">
@@ -58,19 +58,14 @@
             <tbody>
 				  
            <tr ng-repeat="x in categories">
+          <% for (c in colors){%>
              <td>
                <h5>{{x.time}}|{{x.extratime}}</h5>
            </td>
-            <tr ng-repeat="c in colors">
-             <td>
-               <h5>{{$parent.time}}|{{x.extratime}}</h5>
-           </td>
-           <td>
-            <h5>{{c.col}}</h5>
-           </td>
+           <%}%>
+           </tr>
            
-           </tr>
-           </tr>
+          
            </tbody>
            </table>
            </div>
