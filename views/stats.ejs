@@ -66,10 +66,9 @@
                <h5>{{c.col}}</h5>
            </td>
            <td ng-repeat="s in statcategories">   
-               <h5>{{User['rating'+c.col+x.time+x.extratime]}}</h5>
                  <h5>{{User[s.cat+c.col+x.time+x.extratime]}}</h5>
-           {{User['rating'+c.col+x.time+x.extratime]}}
-           {{'rating'+c.col+x.time+x.extratime}}
+          
+           {{s.cat+c.col+x.time+x.extratime}}
            
            </td>
            <!--
