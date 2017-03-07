@@ -45,6 +45,7 @@ angular.module('HomepageModule').controller('StatsController', ['$scope', '$http
 			{
 				for(c in $scope.colors)
 				{
+					console.log("casc"+JSON.stringify(c)+c.col);
 					if(!$scope.User['rating'+c.col+x.time+x.extratime])
 					{
 						$scope.User['rating'+c.col+x.time+x.extratime]=1200;
