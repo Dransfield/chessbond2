@@ -55,16 +55,16 @@
 				<!--HEADERS OF TABLE-->
                 </tr>
            </thead>
-            <tbody>
-				  
-           <tr ng-repeat="x in categories">
-          <% for (c in colors){%>
-             <td>
+            <tbody ng-repeat="x in categories">
+			<% for (c in colors){%>	  
+           <tr >
+          
+          <td>   
                <h5>{{x.time}}|{{x.extratime}}</h5>
            </td>
-           <%}%>
+          
            </tr>
-           
+            <%}%>
           
            </tbody>
            </table>
