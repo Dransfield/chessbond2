@@ -93,7 +93,7 @@
 		
 			<h2>Choose a Time Limit:</h2>
 			<select ng-model="GameForm.timelimit" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
-	  <option ng-repeat="c in gamecategories">{{c}}</option>
+	  <option ng-repeat="c in gamecategories">{{c.time+"|"+c.extratime}}</option>
 	</select>
 	<h2>Which Color would you like to be?:</h2>
 	<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
