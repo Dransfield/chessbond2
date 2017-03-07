@@ -373,7 +373,7 @@ deleteopengame:function(req,res){
 	},
 	
 	newopengame:function(req,res){
-	console.log("all params of new open game"+req.allParams());
+	console.log("all params of new open game"+jSON.stringify(req.allParams()));
 	Openchessgame.create(
 	req.allParams()
 	).exec(function (err, newgam){
