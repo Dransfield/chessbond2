@@ -447,8 +447,9 @@ deleteopengame:function(req,res){
 			console.log('Cant create joined game.');
 			//console.log(JSON.stringify(err));
 			}
-			console.log("records");
+			console.log("records"+JSON.stringify(records));
 			//console.log(records);
+			console.log("broadcasting to "+PlayerID);
 			  sails.sockets.broadcast(PlayerID,'newmygameevent', records);
 			  if (PlayerID!=MyID)
 			{
