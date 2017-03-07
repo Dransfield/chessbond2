@@ -35,21 +35,18 @@ angular.module('HomepageModule').controller('StatsController', ['$scope', '$http
 							{cat:'averagemoves'}];
 	$scope.getuser=function(MyID)
 	{
-		$scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 		$http.get('/user?id='+MyID, {
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
-			$scope.colors=[{col:'Overall'},{col:'White'},{col:'Black'}];
 			for(x in $scope.categories)
 			{
 				for(c in $scope.colors)
 				{
-					console.log("casc"+JSON.stringify(c)+c.col);
-					if(!$scope.User['rating'+c.col+x.time+x.extratime])
+					if(!$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime])
 					{
-						$scope.User['rating'+c.col+x.time+x.extratime]=1200;
-						console.log('rating'+c.col+x.time+x.extratime+$scope.User['rating'+c.col+x.time+x.extratime]);}
+						$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime]=1200;
+						console.log('rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime+$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime]);}
 				}
 			}
 		});
