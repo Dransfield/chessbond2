@@ -43,10 +43,10 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			{
 				for(c in $scope.colors)
 				{
-					if(!$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime])
+					if(!$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime])
 					{
-						$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime]=1200;
-						console.log('rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime+$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+$scope.categories[x].extratime]);}
+						$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime]=1200;
+						console.log('rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime+$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime]);}
 				}
 			}
 		});
