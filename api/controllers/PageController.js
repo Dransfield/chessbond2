@@ -186,6 +186,8 @@
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	var WinnereloSentence="";
+	console.log("winnerRecord.ELO "+winnerRecord.ELO);
+	console.log("winnerstartELO "+winnerstartELO);
 	if(winnerRecord.ELO>winnerstartELO)
 	{WinnereloSentence="+"+(winnerRecord.ELO-winnerstartELO);}
 	else
@@ -199,6 +201,8 @@
 	{LosereloSentence="+"+(loserRecord.ELO-loserstartELO);}
 	else
 	{LosereloSentence=(loserRecord.ELO-loserstartELO);}
+	
+	console.log("LosereloSentence "+LosereloSentence);
 	
 	var WinnercateloSentence="";
 	if(winnerRecord[winnergamecategory]>winnerstartcatELO)
