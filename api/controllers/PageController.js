@@ -116,12 +116,20 @@
 	
 	}
 	
-	function DoGameResult(winner,loser,GameID,timeout)
+	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout)
 	{
 	var elo = require('elo-rank')(15);
 	console.log("winner "+winner);
 	console.log("loser "+loser);
+	var winnergamecategory;
+	var losergamecategory;
+
 	
+	winnergamecategory='rating'+winnercolor+gamecat;
+	losergamecategory='rating'+losercolor+gamecat;
+	
+	
+  
   User.find({
   id : [winner, loser]
 	}).exec(function (err, winnersandlosers){
@@ -147,14 +155,24 @@
 	}
 	
 	var winnerstartELO=winnerRecord.ELO;
-	var loserstartELO=loserRecord.ELO;
-	var expectedScoreA = elo.getExpected(winnerRecord.ELO, loserRecord.ELO);
-	var expectedScoreB = elo.getExpected(loserRecord.ELO, winnerRecord.ELO);
+	var winnerstartELO=loserRecord.ELO;
+	var expectedScoreA = elo.getExpected(winnerstartELO, loserstartELO);
+	var expectedScoreB = elo.getExpected(loserstartELO, winnerstartELO);
+	
+	var winnerstartcatELO=winnerRecord[winnergamecategory];
+	var loserstartcatELO=winnerRecord[losergamecategory];
+	var expectedScoreAcat = elo.getExpected(winnerstartcatELO, loserstartcatELO);
+	var expectedScoreBcat = elo.getExpected(loserstartcatELO, winnerstartcatELO);
+	
 	if (winner!=loser)
 	{
 	
-	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerRecord.ELO);
-	loserRecord.ELO = elo.updateRating(expectedScoreB, 0, loserRecord.ELO);
+	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerstartELO);
+	loserRecord.ELO = elo.updateRating(expectedScoreB, 0,winnerstartELO);
+	
+	winnerRecord[winnergamecategory] = elo.updateRating(expectedScoreAcat, 1, winnerstartcatELO);
+	loserRecord[losergamecategory] = elo.updateRating(expectedScoreBcat, 0, loserstartcatELO);
+	
 	
 	loserRecord.save();
 	winnerRecord.save();
@@ -173,6 +191,19 @@
 	else
 	{LosereloSentence=(loserRecord.ELO-loserstartELO);}
 	
+	var WinnercateloSentence="";
+	if(winnerRecord[winnergamecategory]>winnerstartcatELO)
+	{WinnercateloSentence="+"+(winnerRecord[winnergamecategory]-winnerstartcatELO);}
+	else
+	{WinnercateloSentence=(winnerRecord[winnergamecategory]-winnerstartcatELO);}
+	
+	var LosereloSentence="";
+	if(loserRecord[losergamecategory]>loserstartcatELO)
+	{LosercateloSentence="+"+(loserRecord[losergamecategory]-loserstartcatELO);}
+	else
+	{LosercateloSentence=(loserRecord[losergamecategory]-loserstartcatELO);}
+	
+	
 	var resultstring="";
 	
 		if (timeout=='false')
@@ -183,6 +214,10 @@
 	
 	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
 	resultstring+="<br><span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+loserRecord.name+"</span><span>:</span> <span class='redtext'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
+	
+	resultstring+="<span>New</span> <span class='redtext'>"+winnercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord[winnergamecategory]+" ("+WinnercateloSentence+")</span>";
+	resultstring+="<br><span>New</span> <span class='redtext'>"+losercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+loserRecord.name+"</span><span>:</span> <span class='redtext'>"+loserRecord[losergamecategory]+" ("+LosercateloSentence+")</span>";
+	
 	var tts="Status:<span class='redtext'>Game over</span>";
 	
 	
@@ -582,11 +617,11 @@ deleteopengame:function(req,res){
 			{clrtomove='Black';}
 	if (clrtomove==cg.Player1Color)
 		{
-		DoGameResult(cg.Player2,cg.Player1,cg.id,'false');
+		DoGameResult(cg.Player2,cg.Player1,cg.Player2Color,cg.Player1Color,cg.time+"|"+cg.extratime,cg.id,'false');
 		}
 		else
 		{
-		DoGameResult(cg.Player1,cg.Player2,cg.id,'false');
+		DoGameResult(cg.Player1,cg.Player2,cg.Player1Color,cg.Player2Color,cg.time+"|"+cg.extratime,cg.id,'false');
 		}
 	}
 	
@@ -694,11 +729,11 @@ deleteopengame:function(req,res){
 		console.log("cgame.Player1Color "+cgame.Player1Color);
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,cgame.id,'true');
+		DoGameResult(cgame.Player2,cgame.Player1,cgame.Player2Color,cgame.Player1Color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,cgame.id,'true');
+		DoGameResult(cgame.Player1,cgame.Player2,cgame.Player1Color,cgame.Player2Color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
 		}
 		}
 		}
