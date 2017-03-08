@@ -160,7 +160,7 @@
 	var expectedScoreB = elo.getExpected(loserstartELO, winnerstartELO);
 	
 	var winnerstartcatELO=winnerRecord[winnergamecategory];
-	var loserstartcatELO=winnerRecord[losergamecategory];
+	var loserstartcatELO=loserRecord[losergamecategory];
 	
 	if (!winnerRecord[winnergamecategory])
 	{winnerstartcatELO=1200;}
@@ -174,7 +174,7 @@
 	{
 	
 	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerstartELO);
-	loserRecord.ELO = elo.updateRating(expectedScoreB, 0,winnerstartELO);
+	loserRecord.ELO = elo.updateRating(expectedScoreB, 0,loserstartELO);
 	
 	winnerRecord[winnergamecategory] = elo.updateRating(expectedScoreAcat, 1, winnerstartcatELO);
 	loserRecord[losergamecategory] = elo.updateRating(expectedScoreBcat, 0, loserstartcatELO);
