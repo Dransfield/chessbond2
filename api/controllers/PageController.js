@@ -162,9 +162,9 @@
 	var winnerstartcatELO=winnerRecord[winnergamecategory];
 	var loserstartcatELO=winnerRecord[losergamecategory];
 	
-	if (winnerstartcatELO=null)
+	if (!winnerRecord[winnergamecategory])
 	{winnerstartcatELO=1200;}
-	if (loserstartcatELO=null)
+	if (!winnerRecord[losergamecategory])
 	{loserstartcatELO=1200;}
 	
 	var expectedScoreAcat = elo.getExpected(winnerstartcatELO, loserstartcatELO);
