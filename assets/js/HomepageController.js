@@ -105,8 +105,8 @@ $scope.SoleConnectorVariable="";
 	
 	$scope.createopengame=function(type,id,name)
 	{
-		console.log("$scope.GameForm1`"+$scope.GameForm.timelimit['time']);
-		console.log("$scope.GameForm2"+$scope.GameForm.timelimit.time);
+		console.log("$scope.GameForm1`"+$scope.timeobject['time']);
+		console.log("$scope.GameForm2"+$scope.timeobject.time);
 		
 	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.GameForm.timelimit.time,ExtraTimeLimit:$scope.GameForm.timelimit.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
