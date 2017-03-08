@@ -1892,7 +1892,9 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 	{descriptor='insufficient material';}
 	
 	if (game.in_threefold_repetition())
-	{descriptor='in threefold repetition';}
+	{descriptor='in threefold repetition';
+		console.log("THREEFOLD");
+		}
 	
 	if (game.in_stalemate())
 	{descriptor='stalemate';}
