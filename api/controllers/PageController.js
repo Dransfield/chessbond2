@@ -210,7 +210,7 @@
 	else
 	{WinnercateloSentence=(winnerRecord[winnergamecategory]-winnerstartcatELO);}
 	
-	var LosereloSentence="";
+	var LosercateloSentence="";
 	if(loserRecord[losergamecategory]>loserstartcatELO)
 	{LosercateloSentence="+"+(loserRecord[losergamecategory]-loserstartcatELO);}
 	else
