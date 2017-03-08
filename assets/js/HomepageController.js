@@ -321,7 +321,7 @@ $scope.PlayGame=function(GameID,Player2)
     */
 	};
 	
-$scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamType,timelimit){
+$scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamType,GamCategory,timelimit){
 		console.log("joingame player1"+PlayerID+" player2"+MyID+" player1name "+PlayerName+" Player2Name "+MyName);
 		console.log("timelimit*60"+timelimit*60);
 		$http.put('/joingame', {
@@ -332,6 +332,7 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			MyID:MyID,
 			MyName:MyName,
 			GameType:GamType,
+			GameCategory:GamCategory,
 			Player1TimeLimit:timelimit*60,
 			Player2TimeLimit:timelimit*60
 			})
