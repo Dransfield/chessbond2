@@ -161,6 +161,12 @@
 	
 	var winnerstartcatELO=winnerRecord[winnergamecategory];
 	var loserstartcatELO=winnerRecord[losergamecategory];
+	
+	if (winnerstartcatELO=null)
+	{winnerstartcatELO=1200;}
+	if (loserstartcatELO=null)
+	{loserstartcatELO=1200;}
+	
 	var expectedScoreAcat = elo.getExpected(winnerstartcatELO, loserstartcatELO);
 	var expectedScoreBcat = elo.getExpected(loserstartcatELO, winnerstartcatELO);
 	
@@ -215,7 +221,10 @@
 	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
 	resultstring+="<br><span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+loserRecord.name+"</span><span>:</span> <span class='redtext'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
 	
-	resultstring+="<span>New</span> <span class='redtext'>"+winnercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord[winnergamecategory]+" ("+WinnercateloSentence+")</span>";
+	console.log("winnergamecategory "+winnergamecategory);
+	console.log("losergamecategory "+losergamecategory);
+	
+	resultstring+="<br><span>New</span> <span class='redtext'>"+winnercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord[winnergamecategory]+" ("+WinnercateloSentence+")</span>";
 	resultstring+="<br><span>New</span> <span class='redtext'>"+losercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+loserRecord.name+"</span><span>:</span> <span class='redtext'>"+loserRecord[losergamecategory]+" ("+LosercateloSentence+")</span>";
 	
 	var tts="Status:<span class='redtext'>Game over</span>";
