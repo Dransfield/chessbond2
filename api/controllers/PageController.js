@@ -615,13 +615,25 @@ deleteopengame:function(req,res){
 			{clrtomove='White';}
 			else
 			{clrtomove='Black';}
+		
+			var player1color=cf.Player1Color;
+			var player2color;
+			if (player1color=="White")
+			{
+			player2color="Black";	
+			}
+			else
+			{
+			player2color="White";	
+			}
+			
 	if (clrtomove==cg.Player1Color)
 		{
-		DoGameResult(cg.Player2,cg.Player1,cg.Player2Color,cg.Player1Color,cg.time+"|"+cg.extratime,cg.id,'false');
+		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.time+"|"+cg.extratime,cg.id,'false');
 		}
 		else
 		{
-		DoGameResult(cg.Player1,cg.Player2,cg.Player1Color,cg.Player2Color,cg.time+"|"+cg.extratime,cg.id,'false');
+		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.time+"|"+cg.extratime,cg.id,'false');
 		}
 	}
 	
@@ -727,13 +739,26 @@ deleteopengame:function(req,res){
 		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
 		console.log('ColorToMove'+req.param('ColorToMove'));
 		console.log("cgame.Player1Color "+cgame.Player1Color);
+		
+		
+		var player1color=cf.Player1Color;
+			var player2color;
+			if (player1color=="White")
+			{
+			player2color="Black";	
+			}
+			else
+			{
+			player2color="White";	
+			}
+		
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,cgame.Player2Color,cgame.Player1Color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
+		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,cgame.Player1Color,cgame.Player2Color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
+		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
 		}
 		}
 		}
