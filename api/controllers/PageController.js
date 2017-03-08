@@ -192,6 +192,9 @@
 	{WinnereloSentence=(winnerRecord.ELO-winnerstartELO);}
 	
 	var LosereloSentence="";
+	console.log("loserRecord.ELO "+loserRecord.ELO);
+	console.log("loserstartELO "+loserstartELO);
+	
 	if(loserRecord.ELO>loserstartELO)
 	{LosereloSentence="+"+(loserRecord.ELO-loserstartELO);}
 	else
