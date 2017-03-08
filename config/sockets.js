@@ -129,7 +129,8 @@ module.exports.sockets = {
  
   
 	
- 
+ if(socket['id'])
+ {
    Subscription.find({socketid:socket['id']}).exec(function (err, records) {
 	
 	if(records)
@@ -171,7 +172,7 @@ module.exports.sockets = {
 	});
 	}}
 	});
-   
+   }
  	
      // By default: do nothing.
      return cb();
