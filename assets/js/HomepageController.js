@@ -103,12 +103,13 @@ $scope.SoleConnectorVariable="";
 			});*/
 	}
 	
-	$scope.createopengame=function(type,id,name)
+	$scope.createopengame=function(type,id,name,gamecat)
 	{
 		console.log("$scope.GameForm1`"+$scope.timeobject['time']);
 		console.log("$scope.GameForm2"+$scope.timeobject.time);
 		console.log("$scope.GameForm2"+$scope.timeobject.extratime);
-	io.socket.put('/newopengame', { GameType:type,TimeLimit:$scope.timeobject.time,ExtraTimeLimit:$scope.timeobject.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
+		var gamecat=$scope.timeobject.time+"|"+$scope.timeobject.extratime;
+	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:$scope.timeobject.time,ExtraTimeLimit:$scope.timeobject.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
 
       // Refresh the page now that we've been logged in.

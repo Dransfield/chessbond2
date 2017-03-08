@@ -455,7 +455,7 @@ deleteopengame:function(req,res){
 		PlayerColor=req.param('PlayerColor');
 		GameID=req.param('GameID');
 		MyID=req.param('MyID');
-		
+		ThisGameCat=req.param('GameCategory');
 		MyName=req.param('MyName');
 		GameTypeID=req.param('GameType');
 		num1=req.param("Player1TimeLimit");
@@ -475,7 +475,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
-			Chessgame.create({Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:PlayerColor,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
+			Chessgame.create({GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:PlayerColor,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -629,11 +629,11 @@ deleteopengame:function(req,res){
 			
 	if (clrtomove==cg.Player1Color)
 		{
-		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.time+"|"+cg.extratime,cg.id,'false');
+		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,'false');
 		}
 		else
 		{
-		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.time+"|"+cg.extratime,cg.id,'false');
+		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.GameCategory,cg.id,'false');
 		}
 	}
 	
@@ -754,11 +754,11 @@ deleteopengame:function(req,res){
 		
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
+		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true');
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.time+"|"+cgame.extratime,cgame.id,'true');
+		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true');
 		}
 		}
 		}
