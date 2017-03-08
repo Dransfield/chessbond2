@@ -461,6 +461,8 @@ deleteopengame:function(req,res){
 		num1=req.param("Player1TimeLimit");
 		num2=req.param("Player2TimeLimit");
 		
+		console.log("ThisGameCat "+ThisGameCat);
+		
 		Openchessgame.findOne(GameID, function foundUser(err, game) {
 	
 		// If session refers to a user who no longer exists, still allow logout.
