@@ -155,7 +155,7 @@
 	}
 	
 	var winnerstartELO=winnerRecord.ELO;
-	var winnerstartELO=loserRecord.ELO;
+	var loserstartELO=loserRecord.ELO;
 	var expectedScoreA = elo.getExpected(winnerstartELO, loserstartELO);
 	var expectedScoreB = elo.getExpected(loserstartELO, winnerstartELO);
 	
