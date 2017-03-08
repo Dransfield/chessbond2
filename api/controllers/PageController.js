@@ -616,7 +616,7 @@ deleteopengame:function(req,res){
 			else
 			{clrtomove='Black';}
 		
-			var player1color=cf.Player1Color;
+			var player1color=cg.Player1Color;
 			var player2color;
 			if (player1color=="White")
 			{
@@ -741,7 +741,7 @@ deleteopengame:function(req,res){
 		console.log("cgame.Player1Color "+cgame.Player1Color);
 		
 		
-		var player1color=cf.Player1Color;
+		var player1color=cg.Player1Color;
 			var player2color;
 			if (player1color=="White")
 			{
