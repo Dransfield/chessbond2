@@ -39,6 +39,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.User=sailsResponse.data;
+			/*
 			for(x in $scope.categories)
 			{
 				for(c in $scope.colors)
@@ -48,7 +49,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime]=1200;
 						console.log('rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime+$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime]);}
 				}
-			}
+			}*/
 		});
 	};
 
