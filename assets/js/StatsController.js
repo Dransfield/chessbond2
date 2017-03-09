@@ -39,12 +39,19 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
 		function (resData,jwres){
 			//console.log(JSON.stringify(resData));
+			for (cat in $scope.categories)
+			{
+				$scope.highestWin['White'+cat]=0;
+				$scope.highestWin['Black'+cat]=0;
+			}
 			for (x in resData)
 			{
-				console.log("found a game "+resData[x].GameCategory);
+				//console.log("found a game "+resData[x].GameCategory);
 				if(resData[x].Result)
 				{
-					var splitted=resData[x].Result.split(">");
+				if(resData[x].GameCategory==cat)
+				{
+				var splitted=resData[x].Result.split(">");
 				for (y in splitted)
 				{
 				if(splitted[y].indexOf("Won by")>-1)	
@@ -58,6 +65,25 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						{console.log("I won that as player1"+resData[x].GameCategory);
 						console.log("enemy ELO "+resData[x].Player2CategoryELO);
 						console.log("enemy name "+resData[x].Player2Name);
+						
+						var p1color;
+						var p2color;
+						if(resData[x].Player1Color=='White')
+						{p1color='White';
+						p2color='Black';}
+						else
+						{p2color='White';
+						p1color='Black';}
+						
+						
+						
+							if(resData[x].Player2CategoryELO)
+							{
+								if(resData[x].Player2CategoryELO>$scope.LookedatUser['highest'+p1color+resData[x].GameCategory])
+								{
+									$scope.LookedatUser['highest'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO;
+								}
+							}
 						}
 					}
 					if(resData[x].Player2==MyID)
@@ -66,12 +92,32 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						{console.log("I won that as player2"+resData[x].GameCategory);
 						console.log("enemy ELO "+resData[x].Player1CategoryELO);
 						console.log("enemy name "+resData[x].Player1Name);
+						
+						var p1color;
+						var p2color;
+						if(resData[x].Player1Color=='White')
+						{p1color='White';
+						p2color='Black';}
+						else
+						{p2color='White';
+						p1color='Black';}
+						
+						
+						
+							if(resData[x].Player1CategoryELO)
+							{
+								if(resData[x].Player1CategoryELO>$scope.LookedatUser['highest'+p2color+resData[x].GameCategory])
+								{
+									$scope.LookedatUser['highest'+p2color+resData[x].GameCategory]=resData[x].Player1CategoryELO;
+								}
+							}
+						
 						}
 					}
 				}
 				}
 			}
-		}});
+		}}});
 		
 	}
 		
