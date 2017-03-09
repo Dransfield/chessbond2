@@ -1067,7 +1067,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			console.log("changed board position to match fen");
 		}
 		
-		if (game.in_stalemate()
+		if (game.in_stalemate())
 	{
 	toastr.success("Stalemate!");
 		
