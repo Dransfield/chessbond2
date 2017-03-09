@@ -81,12 +81,12 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						
 							if(resData[x].Player2CategoryELO)
 							{
-								if(!$scope.LookedatUser['highest'+p1color+resData[x].GameCategory])
-								{$scope.LookedatUser['highest'+p1color+resData[x].GameCategory]=0;}
-								if(resData[x].Player2CategoryELO>$scope.LookedatUser['highest'+p1color+resData[x].GameCategory])
+								if(!$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory])
+								{$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory]=0;}
+								if(resData[x].Player2CategoryELO>$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory])
 								{
 									
-									$scope.$apply(function(){$scope.LookedatUser['highest'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO});
+									$scope.$apply(function(){$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO});
 								}
 							}
 						}
@@ -112,13 +112,13 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							if(resData[x].Player1CategoryELO)
 							{
 								
-									if(!$scope.LookedatUser['highest'+p2color+resData[x].GameCategory])
-								{$scope.LookedatUser['highest'+p2color+resData[x].GameCategory]=0;}
+									if(!$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory])
+								{$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory]=0;}
 								
 								
-								if(resData[x].Player1CategoryELO>$scope.LookedatUser['highest'+p2color+resData[x].GameCategory])
+								if(resData[x].Player1CategoryELO>$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory])
 								{
-									$scope.$apply(function(){$scope.LookedatUser['highest'+p2color+resData[x].GameCategory]=resData[x].Player1CategoryELO});
+									$scope.$apply(function(){$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory]=resData[x].Player1CategoryELO});
 								}
 							}
 						
