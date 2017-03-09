@@ -582,7 +582,7 @@ deleteopengame:function(req,res){
 		{MyColor='White';}
 		
 		MyCategoryELO=myRecord['rating'+MyColor+ThisGameCat];
-		MyName=myRecord.id;
+		MyName=myRecord.name;
 		GameTypeID=req.param('GameType');
 		num1=req.param("Player1TimeLimit");
 		num2=req.param("Player2TimeLimit");
