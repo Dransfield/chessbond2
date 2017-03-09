@@ -29,7 +29,7 @@
  
 	
 
-function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,timeout)
+function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDescriptor)
 	{
 	var elo = require('elo-rank')(15);
 	console.log("player1 "+player1);
