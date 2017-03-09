@@ -37,7 +37,7 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,timeout
 	var player1gamecategory;
 	var player2gamecategory;
 
-	
+	console.log("got here1");
 	player1gamecategory='rating'+player1color+gamecat;
 	player2gamecategory='rating'+player2color+gamecat;
 	
@@ -47,6 +47,7 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,timeout
   id : [player1,player2]
 	}).exec(function (err, players){
 	//console.log("winners and losers:"+JSON.stringify(winnersandlosers));
+	console.log("got here2");
 	
 	var player1Record;
 	var player2Record;
@@ -92,10 +93,13 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,timeout
 	player1Record[player1gamecategory] = elo.updateRating(expectedScoreAcat, 0.5, player1startcatELO);
 	player2Record[player2gamecategory] = elo.updateRating(expectedScoreBcat, 0.5, player2startcatELO);
 	
-	
+		console.log("got here3");
+
 	player1Record.save();
 	player2Record.save();
 	}
+		console.log("got here4");
+
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	var player1eloSentence="";
@@ -426,7 +430,32 @@ deleteopengame:function(req,res){
 				console.log("gm.player1 "+gm.Player1);
 				console.log("gm.player2 "+gm.Player2);
 			
-			DoDraw(gm.Player1,gm.Player2,gm.id,"agreement");
+			var player1color=cg.Player1Color;
+			var player2color;
+			if (player1color=="White")
+			{
+			player2color="Black";	
+			}
+			else
+			{
+			player2color="White";	
+			}
+			
+			DoDraw(gm.Player1,gm.Player2,player1color,player2color,gm.GameCategory,gm.id,'agreement');
+	
+			var player1color=cg.Player1Color;
+			var player2color;
+			if (player1color=="White")
+			{
+			player2color="Black";	
+			}
+			else
+			{
+			player2color="White";	
+			}
+			
+			DoDraw(gm.Player1,gm.Player2,player1color,player2color,gm.GameCategory,gm.id,'agreement');
+	
 		}
 		}
 		});
@@ -671,20 +700,7 @@ deleteopengame:function(req,res){
 		
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		
-		var GameState=req.param('GameState');
-		var GameDescriptor=req.param('GameDescriptor');
-		if(GameState=='draw')
-		{DoDraw(cg.Player2,cg.Player1,cg.id,GameDescriptor);}
-		
-		if (GameState=='checkmate')
-		{
-			var clrtomove;
-			if (req.param('ColorToMove')=='w')
-			{clrtomove='White';}
-			else
-			{clrtomove='Black';}
-		
-			var player1color=cg.Player1Color;
+		var player1color=cg.Player1Color;
 			var player2color;
 			if (player1color=="White")
 			{
@@ -694,6 +710,29 @@ deleteopengame:function(req,res){
 			{
 			player2color="White";	
 			}
+		
+		var GameState=req.param('GameState');
+		var GameDescriptor=req.param('GameDescriptor');
+		if(GameState=='draw')
+		{
+			
+			
+			
+			
+			DoDraw(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,GameDescriptor);
+		
+			
+			}
+		
+		if (GameState=='checkmate')
+		{
+			var clrtomove;
+			if (req.param('ColorToMove')=='w')
+			{clrtomove='White';}
+			else
+			{clrtomove='Black';}
+		
+		
 			
 	if (clrtomove==cg.Player1Color)
 		{
