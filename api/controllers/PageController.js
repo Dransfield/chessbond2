@@ -562,7 +562,11 @@ deleteopengame:function(req,res){
 		myRecord=players[1];
 		oppoRecord=players[0];
 		}
-		
+		if (player1==player2)
+	{
+		myRecordRecord=players[0];
+		oppoRecord=players[0];
+	}
 		OppoName=oppoRecord.name;
 		OppoID=oppoRecord.id;
 		OppoColor=req.param('PlayerColor');
