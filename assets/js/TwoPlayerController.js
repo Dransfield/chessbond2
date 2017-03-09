@@ -1067,15 +1067,25 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			console.log("changed board position to match fen");
 		}
 		
+		if (game.in_stalemate()
+	{
+	toastr.success("stalemate!");
+		
+	}
+		if (game.insufficient_material()
+	{
+		toastr.success("Insufficient material!");
+		
+		}
 		if (game.in_threefold_repetition())
 		{
 			toastr.success("Game in threefold repetition!");
-			console.log("Game in threefold repetition!");
+			//console.log("Game in threefold repetition!");
 		}
-		else
-		{
-			console.log("Game not in threefold repetition!");
-		}
+		//else
+	//	{
+		//	console.log("Game not in threefold repetition!");
+		//}
 		if (game.in_checkmate())
 		{
 			if($scope.User)
@@ -1933,7 +1943,6 @@ io.socket.put('/Chessgame/'+$scope.ChessGameObject.id,{
 	
 	if (game.in_stalemate())
 	{descriptor='stalemate';}
-	
 	
 	io.socket.put('/chessgamemove',{GameState:state,GameDescriptor:descriptor,GameOver:gameover,GameID:$scope.ChessGameObject.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
