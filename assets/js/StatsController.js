@@ -49,7 +49,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				if(splitted[y].indexOf("Won by")>-1)	
 					{
 						var name=splitted[y-1].split("<")[0];
-					console.log(name);	
+					console.log(name);
+					if(name==$scope.User.name)	
+					{console.log("I won that");
 					}
 				}
 				}
