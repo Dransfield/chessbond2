@@ -1761,7 +1761,7 @@ $scope.currentFavicon=src;
 
 					  // illegal move
 					  
-					  if (move === null || game.in_draw() || $scope.ChessGameObject.Result){
+					  if (move === null || $scope.ChessGameObject.Result){
 						  if ($scope.ChessGameObject.Result)
 							{
 								
