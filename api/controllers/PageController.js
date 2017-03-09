@@ -648,7 +648,7 @@ deleteopengame:function(req,res){
 		// Wipe out the session (log out)
 		
 		
-		sails.log.verbose('joining.'+GameID+' with '+PlayerID);
+		sails.log.verbose('joining.'+GameID+' with '+OppoID);
        
        
       // Either send a 200 OK or redirect to the home page
