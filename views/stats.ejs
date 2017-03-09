@@ -31,9 +31,26 @@
      <body ng-app="HomepageModule" ng-controller="StatsController" ng-cloak>
    <%- include partials/navbar.ejs %>
    <h3>Statistics</h3>
-		<% var colors=[{col:'Overall'},{col:'White'},{col:'Black'}];%>
+		
+		<% var lookedatuser; %>
+	<% if (req.param('userID')){ %>
+			<% lookedatuser=req.param('userID'); %>
+		
+		<% } %>
+		
+	  
+	  <% if (req.session.passport){ %>
+	  <% if (req.session.passport.user){ %>
+	<% if (!req.param('userID')){ %>
+		<% lookedatuser=  req.session.passport.user;%>
+	  <% } %>
 	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
-	<div ng-init="getAllgamesandCalcute('<%-req.session.passport.user%>')"></div>
+	  
+      <% } %>
+	<% } %>
+	
+	<div ng-init="getAllgamesandCalculate('<%-lookedatuser%>')"></div>
+		
 	     <div class="table-responsive">
             <table class="table table-striped">
               
@@ -68,38 +85,7 @@
            <td ng-repeat="s in statcategories">   
                  <h5>{{User[s.cat+c.col+x.time+"|"+x.extratime]}}</h5>
           
-          <!-- {{s.cat+c.col+x.time+x.extratime}}-->
-           
-           </td>
-           <!--
-            <td>   
-               <h5>{{User['winpercent'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['losepercent'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['drawpercent'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['highest'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-           <td>   
-               <h5>{{User['lowest'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['averageoppositionrating'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['totalgames'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['totalmoves'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-            <td>   
-               <h5>{{User['averagemoves'+c.col+x.time+"|"+x.extratime]}}</h5>
-           </td>
-           -->
+			</td>
            </tr>
             
            </tbody>

@@ -34,7 +34,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							{cat:'totalmoves'},
 							{cat:'averagemoves'}];
 	
-	$scope.getAllgamesandCalcute=function(MyID)
+	$scope.getAllgamesandCalculate=function(MyID)
 	{
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}]},
 		function (resData,jwres){
@@ -50,9 +50,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						var name=splitted[y-1].split("<")[0];
 					console.log(name);
-					if(name==$scope.User.name)	
-					{console.log("I won that");
-					}
+					
 					if(resData[x].Player1==MyID)
 					{
 						if(resData[x].Player1Name==name)
