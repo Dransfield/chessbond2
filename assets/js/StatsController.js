@@ -54,7 +54,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					if(resData[x].Player1==MyID)
 					{
 						if(resData[x].Player1Name==name)
-						{console.log("I won that as player1");
+						{console.log("I won that as player1"+resData[x].Category);
 						console.log("enemy ELO "+resData[x].Player2CategoryELO);
 						console.log("enemy name "+resData[x].Player2Name);
 						}
@@ -62,7 +62,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					if(resData[x].Player2==MyID)
 					{
 						if(resData[x].Player2Name==name)
-						{console.log("I won that as player2");
+						{console.log("I won that as player2"+resData[x].Category);
 						console.log("enemy ELO "+resData[x].Player1CategoryELO);
 						console.log("enemy name "+resData[x].Player1Name);
 						}
