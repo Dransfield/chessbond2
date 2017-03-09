@@ -39,11 +39,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
 		function (resData,jwres){
 			//console.log(JSON.stringify(resData));
-			for (cat in $scope.categories)
-			{
-				$scope.highestWin['White'+cat]=0;
-				$scope.highestWin['Black'+cat]=0;
-			}
+		
 			for (x in resData)
 			{
 				//console.log("found a game "+resData[x].GameCategory);
