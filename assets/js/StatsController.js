@@ -115,7 +115,28 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		}}});
 		
 	}
+	
+	$scope.getLookedatUser=function(MyID)
+	{	
 		
+		$http.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			$scope.LookedatUser=sailsResponse.data;
+			/*
+			for(x in $scope.categories)
+			{
+				for(c in $scope.colors)
+				{
+					if(!$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime])
+					{
+						$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime]=1200;
+						console.log('rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime+$scope.User['rating'+$scope.colors[c].col+$scope.categories[x].time+"|"+$scope.categories[x].extratime]);}
+				}
+			}*/
+		});
+	
+	}
 	
 	$scope.getuser=function(MyID)
 	{
