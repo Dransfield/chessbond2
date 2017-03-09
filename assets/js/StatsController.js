@@ -49,24 +49,34 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				if(resData[x].Result)
 				{
 				
-				var splitted=resData[x].Result.split(">");
+				GetBestWin(resData[x]):
+				}
+			}
+		});
+		
+	}
+	
+	$scope.GetBestWin(gData)
+	{
+	var splitted=gData.Result.split(">");
 				for (y in splitted)
 				{
 				if(splitted[y].indexOf("Won by")>-1)	
 					{
 						var name=splitted[y-1].split("<")[0];
-					console.log(name);
+					//console.log(name);
 					
-					if(resData[x].Player1==MyID)
+					if(gData.Player1==MyID)
 					{
-						if(resData[x].Player1Name==name)
-						{console.log("I won that as player1"+resData[x].GameCategory);
-						console.log("enemy ELO "+resData[x].Player2CategoryELO);
-						console.log("enemy name "+resData[x].Player2Name);
+						if(gData.Player1Name==name)
+						{
+							//console.log("I won that as player1"+resData[x].GameCategory);
+						//console.log("enemy ELO "+resData[x].Player2CategoryELO);
+						//console.log("enemy name "+resData[x].Player2Name);
 						
 						var p1color;
 						var p2color;
-						if(resData[x].Player1Color=='White')
+						if(gData.Player1Color=='White')
 						{
 						p1color='White';
 						p2color='Black';
@@ -79,28 +89,29 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						
 						
 						
-							if(resData[x].Player2CategoryELO)
+							if(gData.Player2CategoryELO)
 							{
-								if(!$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory])
-								{$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory]=0;}
-								if(resData[x].Player2CategoryELO>$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory])
+								if(!$scope.LookedatUser['bestwin'+p1color+gData.GameCategory])
+								{$scope.LookedatUser['bestwin'+p1color+gData.GameCategory]=0;}
+								if(gData.Player2CategoryELO>$scope.LookedatUser['bestwin'+p1color+gData.GameCategory])
 								{
 									
-									$scope.$apply(function(){$scope.LookedatUser['bestwin'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO});
+									$scope.$apply(function(){$scope.LookedatUser['bestwin'+p1color+gData.GameCategory]=gData.Player2CategoryELO});
 								}
 							}
 						}
 					}
-					if(resData[x].Player2==MyID)
+					if(gData.Player2==MyID)
 					{
-						if(resData[x].Player2Name==name)
-						{console.log("I won that as player2"+resData[x].GameCategory);
-						console.log("enemy ELO "+resData[x].Player1CategoryELO);
-						console.log("enemy name "+resData[x].Player1Name);
+						if(gData.Player2Name==name)
+						{
+						//console.log("I won that as player2"+resData[x].GameCategory);
+						//console.log("enemy ELO "+resData[x].Player1CategoryELO);
+						//console.log("enemy name "+resData[x].Player1Name);
 						
 						var p1color;
 						var p2color;
-						if(resData[x].Player1Color=='White')
+						if(gData.Player1Color=='White')
 						{p1color='White';
 						p2color='Black';}
 						else
@@ -109,26 +120,23 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						
 						
 						
-							if(resData[x].Player1CategoryELO)
+							if(gData.Player1CategoryELO)
 							{
 								
-									if(!$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory])
-								{$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory]=0;}
+									if(!$scope.LookedatUser['bestwin'+p2color+gData.GameCategory])
+								{$scope.LookedatUser['bestwin'+p2color+gData.GameCategory]=0;}
 								
 								
-								if(resData[x].Player1CategoryELO>$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory])
+								if(gData.Player1CategoryELO>$scope.LookedatUser['bestwin'+p2color+gData.GameCategory])
 								{
-									$scope.$apply(function(){$scope.LookedatUser['bestwin'+p2color+resData[x].GameCategory]=resData[x].Player1CategoryELO});
+									$scope.$apply(function(){$scope.LookedatUser['bestwin'+p2color+gData.GameCategory]=gData.Player1CategoryELO});
 								}
 							}
 						
 						}
 					}
 				}
-				}
-			
-		}}});
-		
+				}	
 	}
 	
 	$scope.getLookedatUser=function(MyID)
