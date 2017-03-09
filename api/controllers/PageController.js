@@ -560,7 +560,7 @@ deleteopengame:function(req,res){
 		else
 		{
 		myRecord=players[1];
-		oppoRecord=players[2];
+		oppoRecord=players[0];
 		}
 		
 		OppoName=oppoRecord.name;
