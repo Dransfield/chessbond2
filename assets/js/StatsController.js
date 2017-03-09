@@ -53,6 +53,18 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					if(name==$scope.User.name)	
 					{console.log("I won that");
 					}
+					if(resData[x].Player1==MyID)
+					{
+						if(resData[x].Player1Name==name)
+						{console.log("I won that as player1");
+						}
+					}
+					if(resData[x].Player2==MyID)
+					{
+						if(resData[x].Player2Name==name)
+						{console.log("I won that as player1");
+						}
+					}
 				}
 				}
 			}
