@@ -1069,7 +1069,7 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		
 		if (game.in_stalemate()
 	{
-	toastr.success("stalemate!");
+	toastr.success("Stalemate!");
 		
 	}
 		if (game.insufficient_material()
