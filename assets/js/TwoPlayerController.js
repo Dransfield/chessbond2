@@ -1096,13 +1096,13 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		
 		if (game.in_threefold_repetition())
 		{
-			toastr.success("Game in threefold repetition2!");
-			console.log("Game in threefold repetition2!");
+			toastr.success("Game in threefold repetition!");
+			//console.log("Game in threefold repetition2!");
 		}
-		else
-		{
-			console.log("Game not in threefold repetition2!");
-		}
+		//else
+	//	{
+		//	console.log("Game not in threefold repetition2!");
+		//}
 		
 		
 		if(!$scope.ChessGameObject.Result)
@@ -1801,7 +1801,7 @@ $scope.currentFavicon=src;
 						console.log("is it over?");
 							  if (game.game_over())
 								{
-							  toastr.success("It's a draw");
+						
 							  console.log("its over");
 							 }
 							 else

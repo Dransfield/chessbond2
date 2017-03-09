@@ -27,18 +27,27 @@
 	});
 	}
  
-	function DoDraw(player1,player2,GameID,GameDescriptor)
+	
+
+function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,timeout)
 	{
-		//console.log("player1 "+player1);
-		//console.log("player2 "+player2);
-		var elo = require('elo-rank')(15);
-		User.find({
+	var elo = require('elo-rank')(15);
+	console.log("player1 "+player1);
+	console.log("player2 "+player2);
+	var player1gamecategory;
+	var player2gamecategory;
+
+	
+	player1gamecategory='rating'+player1color+gamecat;
+	player2gamecategory='rating'+player2color+gamecat;
+	
+	
+  
+  User.find({
   id : [player1,player2]
 	}).exec(function (err, players){
-		
-		//console.log("players[0].id "+players[0].id);
-		//console.log("players[1].id "+players[1].id);
-		
+	//console.log("winners and losers:"+JSON.stringify(winnersandlosers));
+	
 	var player1Record;
 	var player2Record;
 	if (player1==players[0].id)
@@ -50,7 +59,6 @@
 		{
 		player1Record=players[1];
 		player2Record=players[0];
-		
 		}
 	
 	if (player1==player2)
@@ -61,13 +69,29 @@
 	
 	var player1startELO=player1Record.ELO;
 	var player2startELO=player2Record.ELO;
-	var expectedScoreA = elo.getExpected(player1Record.ELO, player2Record.ELO);
-	var expectedScoreB = elo.getExpected(player2Record.ELO, player1Record.ELO);
+	var expectedScoreA = elo.getExpected(player1startELO, player2startELO);
+	var expectedScoreB = elo.getExpected(player2startELO, player1startELO);
+	
+	var player1startcatELO=player1Record[player1gamecategory];
+	var player2startcatELO=player2Record[player2gamecategory];
+	
+	if (!player1Record[player1gamecategory])
+	{player1startcatELO=1200;}
+	if (!player2Record[player2gamecategory])
+	{player2startcatELO=1200;}
+	
+	var expectedScoreAcat = elo.getExpected(player1startcatELO, player2startcatELO);
+	var expectedScoreBcat = elo.getExpected(player2startcatELO, player1startcatELO);
+	
 	if (player1!=player2)
 	{
 	
-	player1Record.ELO = elo.updateRating(expectedScoreA, 0.5, player1Record.ELO);
-	player2Record.ELO = elo.updateRating(expectedScoreB, 0.5, player2Record.ELO);
+	player1Record.ELO = elo.updateRating(expectedScoreA, 0.5, player1startELO);
+	player2Record.ELO = elo.updateRating(expectedScoreB, 0.5,player2startELO);
+	
+	player1Record[player1gamecategory] = elo.updateRating(expectedScoreAcat, 0.5, player1startcatELO);
+	player2Record[player2gamecategory] = elo.updateRating(expectedScoreBcat, 0.5, player2startcatELO);
+	
 	
 	player1Record.save();
 	player2Record.save();
@@ -75,24 +99,48 @@
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
 	var player1eloSentence="";
+	console.log("player1Record.ELO "+player1Record.ELO);
+	console.log("player1startELO "+player1startELO);
 	if(player1Record.ELO>player1startELO)
 	{player1eloSentence="+"+(player1Record.ELO-player1startELO);}
 	else
 	{player1eloSentence=(player1Record.ELO-player1startELO);}
 	
 	var player2eloSentence="";
+	console.log("player2Record.ELO "+player2Record.ELO);
+	console.log("player2startELO "+player2startELO);
+	
 	if(player2Record.ELO>player2startELO)
 	{player2eloSentence="+"+(player2Record.ELO-player2startELO);}
 	else
-	{player2eloSentence=(player2Record.ELO-player2startELO);}
+	{player2eloSentence=(player2rRecord.ELO-player2startELO);}
 	
-	var resultstring="";
+	console.log("LosereloSentence "+player2eloSentence);
+	
+	var player1cateloSentence="";
+	if(player1Record[player1gamecategory]>player1startcatELO)
+	{player1cateloSentence="+"+(player1Record[player1gamecategory]-player1startcatELO);}
+	else
+	{player1cateloSentence=(player1Record[player1gamecategory]-player1startcatELO);}
+	
+	var player2cateloSentence="";
+	if(player2Record[player2gamecategory]>player2startcatELO)
+	{player2cateloSentence="+"+(player2Record[player2gamecategory]-player2startcatELO);}
+	else
+	{player2cateloSentence=(player2Record[player2gamecategory]-player2startcatELO);}
+	
+		var resultstring="";
 	
 	resultstring+="<span class='redtext'>"+player1Record.name+"</span> Drew by <span class='redtext'>"+GameDescriptor+"</span><span> against </span><span class='redtext'>"+player2Record.name+"</span><br><span>Result:</span><span class='redtext'>Draw</span><br>";
 	
 	
 	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+player1Record.name+"</span><span>:</span> <span class='redtext'>"+player1Record.ELO+" ("+player1eloSentence+")</span>";
 	resultstring+="<br><span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+player2Record.name+"</span><span>:</span> <span class='redtext'>"+player2Record.ELO+" ("+player2eloSentence+")</span>";
+	
+	
+	resultstring+="<br><span>New</span> <span class='redtext'>"+player1color+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+player1Record.name+"</span><span>:</span> <span class='redtext'>"+player1Record[player1gamecategory]+" ("+player1cateloSentence+")</span>";
+	resultstring+="<br><span>New</span> <span class='redtext'>"+player2color+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+player2Record.name+"</span><span>:</span> <span class='redtext'>"+player2Record[player2gamecategory]+" ("+player2cateloSentence+")</span>";
+	
 	var tts="Status:<span class='redtext'>Game over</span>";
 	
 	
@@ -113,8 +161,10 @@
 	
 	
 	});
-	
-	}
+
+	};
+
+
 	
 	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout)
 	{
