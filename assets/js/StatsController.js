@@ -43,7 +43,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			{
 				if(resData[x].Result)
 				{
-					var splitted=resData[x].split("<");
+					var splitted=resData[x].Result.split("<");
 				for (y in splitted)
 				{
 				if(splitted[y].indexOf("Won by")>-1)	
