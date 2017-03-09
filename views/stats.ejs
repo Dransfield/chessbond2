@@ -33,7 +33,7 @@
    <h3>Statistics</h3>
 		<% var colors=[{col:'Overall'},{col:'White'},{col:'Black'}];%>
 	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
-	
+	<div ng-init="getAllgamesandCalcute('<%-req.session.passport.user%>')"></div>
 	     <div class="table-responsive">
             <table class="table table-striped">
               
