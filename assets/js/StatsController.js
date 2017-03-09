@@ -45,8 +45,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				//console.log("found a game "+resData[x].GameCategory);
 				if(resData[x].Result)
 				{
-				if(resData[x].GameCategory==cat)
-				{
+				
 				var splitted=resData[x].Result.split(">");
 				for (y in splitted)
 				{
@@ -112,7 +111,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					}
 				}
 				}
-			}
+			
 		}}});
 		
 	}
