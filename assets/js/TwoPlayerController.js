@@ -1776,10 +1776,14 @@ $scope.currentFavicon=src;
 								$scope.ShowWithdrawButton=false;
 							}
 						
-						
+						console.log("is it a draw?");
 							  if (game.in_draw())
 								{
 							  toastr.success("It's a draw");
+							  console.log("its a draw");
+							 }
+							 else
+							 {console.log("no draw");
 							 }
 							  if (game.in_checkmate())
 							{
