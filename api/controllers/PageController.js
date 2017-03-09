@@ -117,7 +117,7 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,timeout
 	if(player2Record.ELO>player2startELO)
 	{player2eloSentence="+"+(player2Record.ELO-player2startELO);}
 	else
-	{player2eloSentence=(player2rRecord.ELO-player2startELO);}
+	{player2eloSentence=(player2Record.ELO-player2startELO);}
 	
 	console.log("LosereloSentence "+player2eloSentence);
 	
