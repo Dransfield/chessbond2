@@ -33,6 +33,17 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							{cat:'totalgames'},
 							{cat:'totalmoves'},
 							{cat:'averagemoves'}];
+	
+	$scope.getAllgamesandCalcute(MyID)
+	{
+		io.socket.get("/chessgame",{where:[{'Player1':MyID},{'Player2':MyID}]},
+		function (resData,jwres){
+			console.log(JSON.stringify(resData));
+		});
+		
+	}
+		
+	
 	$scope.getuser=function(MyID)
 	{
 		$http.get('/user?id='+MyID, {
