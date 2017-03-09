@@ -1066,7 +1066,11 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			board1.position(game.fen());
 			console.log("changed board position to match fen");
 		}
-		
+		if (game.in_threefold_repetition())
+		{
+			toastr.success("Game in threefold repetition!");
+			console.log("Game in threefold repetition!");
+		}
 		if (game.in_checkmate())
 		{
 			if($scope.User)
@@ -1755,7 +1759,8 @@ $scope.currentFavicon=src;
 						  console.log('in check?'+game.in_check());
 						  console.log('in checkmate?'+game.in_checkmate());
 						  console.log('in draw?'+game.in_draw());
-						   
+						  console.log('in threefold?'+game.in_threefold_repetition());
+						    
 						  
 						   return 'snapback';
 						   }
@@ -1776,6 +1781,15 @@ $scope.currentFavicon=src;
 								$scope.ShowWithdrawButton=false;
 							}
 						
+						console.log("is it over?");
+							  if (game.game_over())
+								{
+							  toastr.success("It's a draw");
+							  console.log("its over");
+							 }
+							 else
+							 {console.log("not over");
+							 }
 						console.log("is it a draw?");
 							  if (game.in_draw())
 								{
