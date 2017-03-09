@@ -1066,10 +1066,15 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 			board1.position(game.fen());
 			console.log("changed board position to match fen");
 		}
+		
 		if (game.in_threefold_repetition())
 		{
 			toastr.success("Game in threefold repetition!");
 			console.log("Game in threefold repetition!");
+		}
+		else
+		{
+			console.log("Game not in threefold repetition!");
 		}
 		if (game.in_checkmate())
 		{
@@ -1088,6 +1093,18 @@ $scope.pic2height=200; $scope.pic2coordx=0;	$scope.pic2coordy=-180;
 		{
 			console.log("move is null updating game and board with");
 		board1.position($scope.ChessGameObject.fen);
+		
+		if (game.in_threefold_repetition())
+		{
+			toastr.success("Game in threefold repetition2!");
+			console.log("Game in threefold repetition2!");
+		}
+		else
+		{
+			console.log("Game not in threefold repetition2!");
+		}
+		
+		
 		if(!$scope.ChessGameObject.Result)
 		{
 		
