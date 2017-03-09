@@ -39,6 +39,20 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}]},
 		function (resData,jwres){
 			console.log(JSON.stringify(resData));
+			for (x in resData)
+			{
+				if(resData[x].Result)
+				{
+					var splitted=resData[x].split("<");
+				for (y in splitted)
+				{
+				if(splitted[y].indexOf("Won by")>-1)	
+					{
+					console.log(splitted[y-1]);	
+					}
+				}
+				}
+			}
 		});
 		
 	}
