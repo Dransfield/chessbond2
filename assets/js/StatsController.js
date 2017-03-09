@@ -55,6 +55,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(resData[x].Player1Name==name)
 						{console.log("I won that as player1");
+						console.log("enemy ELO ");
 						}
 					}
 					if(resData[x].Player2==MyID)

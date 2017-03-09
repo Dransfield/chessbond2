@@ -536,22 +536,53 @@ deleteopengame:function(req,res){
 	*/
 	Joingame: function(req,res)  {
 	   var sentresponse=false;
-		User.findOne(req.param('MyID'), function foundUser(err, user) {
+		User.find({
+  id : [req.param('MyID'),req.param('PlayerID')]
+	}).exec(function (err, players){
+		
 		if (err) return res.negotiate(err);
 		
 		// If session refers to a user who no longer exists, still allow logout.
-			if (!user) {
+			if (!players) {
 			console.log('Session refers to a user who no longer exists.');
 			sentresponse=true;
 			return res.notFound();
 			}
-		PlayerName=req.param('PlayerName');
-		PlayerID=req.param('PlayerID');
-		PlayerColor=req.param('PlayerColor');
-		GameID=req.param('GameID');
-		MyID=req.param('MyID');
+		
+		var myRecord;
+		var oppoRecord
+		
+		if (players[0].id==req.param('MyID'))
+		{
+		myRecord=players[0];
+		oppoRecords=players[1];
+		}
+		else
+		{
+		myRecord=players[1];
+		oppoRecords=players[2];
+		}
+		
+		OppoName=oppoRecord.name;
+		OppoID=oppoRecord.id;
+		OppoColor=req.param('PlayerColor');
+		OppoELO=oppoRecord.ELO;
 		ThisGameCat=req.param('GameCategory');
-		MyName=req.param('MyName');
+		
+		OppoCategoryELO=oppoRecord['rating'+OppoColor+ThisGameCat];
+		
+		GameID=req.param('GameID');
+		
+		MyID=myRecord.id;
+		MyELO=myRecord.ELO;
+		var MyColor;
+		if(OppoColor=='White')
+		{MyColor='Black';}
+		else
+		{MyColor='White';}
+		
+		MyCategoryELO=myRecord['rating'+MyColor+ThisGameCat];
+		MyName=myRecord.id;
 		GameTypeID=req.param('GameType');
 		num1=req.param("Player1TimeLimit");
 		num2=req.param("Player2TimeLimit");
@@ -572,7 +603,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
-			Chessgame.create({GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:PlayerColor,Player1:PlayerID,Player2:MyID,Player1Name:PlayerName,Player2Name:MyName}).exec(
+			Chessgame.create({GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:OppoColor,Player1:OppoID,Player2:MyID,Player1Name:OppoName,Player2Name:MyName}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -581,9 +612,9 @@ deleteopengame:function(req,res){
 			}
 			console.log("records"+JSON.stringify(records));
 			//console.log(records);
-			console.log("broadcasting to "+PlayerID);
-			  sails.sockets.broadcast(PlayerID,'newmygameevent', records);
-			  if (PlayerID!=MyID)
+			console.log("broadcasting to "+OppoID);
+			  sails.sockets.broadcast(OppoID,'newmygameevent', records);
+			  if (OppoID!=MyID)
 			{
 			  sails.sockets.broadcast(MyID,'newmygameevent', records);
 			}
@@ -610,10 +641,10 @@ deleteopengame:function(req,res){
 			return res.forbidden();
 			}	
 			}
-			
+			//game.destroy();
 			});
 			
-			//game.destroy();
+			
 		// Wipe out the session (log out)
 		
 		

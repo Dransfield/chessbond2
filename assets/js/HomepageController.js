@@ -327,10 +327,10 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 		$http.put('/joingame', {
 			GameID:GameID,
 			PlayerID:PlayerID,
-			PlayerName:PlayerName,
+			//PlayerName:PlayerName,
 			PlayerColor:playercolor,
 			MyID:MyID,
-			MyName:MyName,
+			//MyName:MyName,
 			GameType:GamType,
 			GameCategory:GamCategory,
 			Player1TimeLimit:timelimit*60,
