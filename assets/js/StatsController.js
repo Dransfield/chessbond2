@@ -36,7 +36,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 	
 	$scope.getAllgamesandCalcute=function(MyID)
 	{
-		io.socket.get("/chessgame",{where:[{'Player1':MyID},{'Player2':MyID}]},
+		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}]},
 		function (resData,jwres){
 			console.log(JSON.stringify(resData));
 		});
