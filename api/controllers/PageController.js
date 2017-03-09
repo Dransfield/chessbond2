@@ -550,17 +550,17 @@ deleteopengame:function(req,res){
 			}
 		
 		var myRecord;
-		var oppoRecord
+		var oppoRecord;
 		
 		if (players[0].id==req.param('MyID'))
 		{
 		myRecord=players[0];
-		oppoRecords=players[1];
+		oppoRecord=players[1];
 		}
 		else
 		{
 		myRecord=players[1];
-		oppoRecords=players[2];
+		oppoRecord=players[2];
 		}
 		
 		OppoName=oppoRecord.name;
@@ -603,7 +603,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 				game.Player2=MyID;
-			Chessgame.create({GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:OppoColor,Player1:OppoID,Player2:MyID,Player1Name:OppoName,Player2Name:MyName}).exec(
+			Chessgame.create({Player1ELO:OppoELO,Player1CategoryELO:OppoCategoryELO,Player2ELO:MyELO,Player2CategoryELO:MyCategoryELO,CategoryELO,GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:OppoColor,Player1:OppoID,Player2:MyID,Player1Name:OppoName,Player2Name:MyName}).exec(
 			
 			function (err, records) {
 				if(err){
