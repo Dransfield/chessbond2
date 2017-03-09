@@ -64,18 +64,24 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						var p1color;
 						var p2color;
 						if(resData[x].Player1Color=='White')
-						{p1color='White';
-						p2color='Black';}
+						{
+						p1color='White';
+						p2color='Black';
+						}
 						else
-						{p2color='White';
-						p1color='Black';}
+						{
+						p2color='White';
+						p1color='Black';
+						}
 						
 						
 						
 							if(resData[x].Player2CategoryELO)
 							{
+								console.log("resData[x].Player2CategoryELO "+resData[x].Player2CategoryELO);
 								if(resData[x].Player2CategoryELO>$scope.LookedatUser['highest'+p1color+resData[x].GameCategory])
 								{
+									console.log("its higher");
 									$scope.LookedatUser['highest'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO;
 								}
 							}
