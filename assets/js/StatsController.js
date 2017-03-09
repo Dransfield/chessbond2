@@ -84,7 +84,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 								if(resData[x].Player2CategoryELO>$scope.LookedatUser['highest'+p1color+resData[x].GameCategory])
 								{
 									console.log("its higher");
-									$scope.LookedatUser['highest'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO;
+									$scope.$apply(function(){$scope.LookedatUser['highest'+p1color+resData[x].GameCategory]=resData[x].Player2CategoryELO});
 								}
 							}
 						}
