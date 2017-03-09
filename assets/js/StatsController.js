@@ -30,6 +30,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							{cat:'highest'},
 							{cat:'lowest'},
 							{cat:'averageoppositionrating'},
+							{cat:'bestwin'},
+							{cat:'lowestloss'},
+							
 							{cat:'totalgames'},
 							{cat:'totalmoves'},
 							{cat:'averagemoves'}];
