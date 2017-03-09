@@ -123,6 +123,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			})
 			.then(function onSuccess(sailsResponse){
 			$scope.LookedatUser=sailsResponse.data;
+			$scope.getAllgamesandCalculate(MyID);
 			/*
 			for(x in $scope.categories)
 			{

@@ -48,9 +48,7 @@
 	  
       <% } %>
 	<% } %>
-	
-	<div ng-init="getAllgamesandCalculate('<%-lookedatuser%>')"></div>
-		
+	<div ng-init="getLookedatUser('<%-req.session.passport.user%>')"></div>
 	     <div class="table-responsive">
             <table class="table table-striped">
               
