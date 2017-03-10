@@ -49,8 +49,8 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				if(resData[x].Result)
 				{
 				
-				GetBestWin(resData[x]);
-				GetLowestLoss(resData[x]);
+				$scope.GetBestWin(resData[x]);
+				$scope.GetLowestLoss(resData[x]);
 				}
 			}
 		});
