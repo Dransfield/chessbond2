@@ -56,7 +56,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		});
 		
 	}
-	$scope.GetLowestLoss(gData)
+	$scope.GetLowestLoss=function(gData)
 	{
 	var splitted=gData.Result.split(">");
 				for (y in splitted)
@@ -132,7 +132,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					
 	}
 	
-	$scope.GetBestWin(gData)
+	$scope.GetBestWin=function(gData)
 	{
 	var splitted=gData.Result.split(">");
 				for (y in splitted)
