@@ -50,7 +50,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				{
 				
 				GetBestWin(resData[x]);
-				GetLowestLoss(resData[x]):
+				GetLowestLoss(resData[x]);
 				}
 			}
 		});
