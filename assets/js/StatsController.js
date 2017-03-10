@@ -63,10 +63,12 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				{
 				if(splitted[y].indexOf("Won by")>-1)	
 				var name=splitted[y-1].split("<")[0];
+				if(name){
 				if(gData.Player1==MyID)
 					{
 						console.log("gData.Player1Name "+gData.Player1Name);
 						console.log("name "+name);
+						
 						if(gData.Player1Name!=name)
 						{
 						console.log("gothere1");
@@ -133,7 +135,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						}
 					}
 				}
-					
+				}
 	}
 	
 	$scope.GetBestWin=function(gData,MyID)
