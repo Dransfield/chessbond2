@@ -50,10 +50,86 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				{
 				
 				GetBestWin(resData[x]):
+				GetLowestLoss(resData[x]):
 				}
 			}
 		});
 		
+	}
+	$scope.GetLowestLoss(gData)
+	{
+	var splitted=gData.Result.split(">");
+				for (y in splitted)
+				{
+				if(splitted[y].indexOf("Won by")>-1)	
+				var name=splitted[y-1].split("<")[0];
+				if(gData.Player1==MyID)
+					{
+						if(gData.Player1Name!=name)
+						{
+								var p1color;
+						var p2color;
+						if(gData.Player1Color=='White')
+						{
+						p1color='White';
+						p2color='Black';
+						}
+						else
+						{
+						p2color='White';
+						p1color='Black';
+						}
+						
+						
+						
+							if(gData.Player2CategoryELO)
+							{
+								if(!$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory])
+								{$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory]=30000;}
+								if(gData.Player2CategoryELO<$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory])
+								{
+									
+									$scope.$apply(function(){$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory]=gData.Player2CategoryELO});
+								}
+							}
+						}
+					}
+					if(gData.Player2==MyID)
+					{
+						if(gData.Player2Name!=name)
+						{
+						//console.log("I won that as player2"+resData[x].GameCategory);
+						//console.log("enemy ELO "+resData[x].Player1CategoryELO);
+						//console.log("enemy name "+resData[x].Player1Name);
+						
+						var p1color;
+						var p2color;
+						if(gData.Player1Color=='White')
+						{p1color='White';
+						p2color='Black';}
+						else
+						{p2color='White';
+						p1color='Black';}
+						
+						
+						
+						if(gData.Player1CategoryELO)
+							{
+								
+									if(!$scope.LookedatUser['lowestloss'+p2color+gData.GameCategory])
+								{$scope.LookedatUser['lowestloss'+p2color+gData.GameCategory]=30000;}
+								
+								
+								if(gData.Player1CategoryELO<$scope.LookedatUser['lowestloss'+p2color+gData.GameCategory])
+								{
+									$scope.$apply(function(){$scope.LookedatUser['lowestloss'+p2color+gData.GameCategory]=gData.Player1CategoryELO});
+								}
+							}
+						
+						}
+					}
+				}
+				}	
 	}
 	
 	$scope.GetBestWin(gData)
