@@ -49,14 +49,14 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				if(resData[x].Result)
 				{
 				
-				$scope.GetBestWin(resData[x]);
-				$scope.GetLowestLoss(resData[x]);
+				$scope.GetBestWin(resData[x],MyID);
+				$scope.GetLowestLoss(resData[x],MyID);
 				}
 			}
 		});
 		
 	}
-	$scope.GetLowestLoss=function(gData)
+	$scope.GetLowestLoss=function(gData,MyID)
 	{
 	var splitted=gData.Result.split(">");
 				for (y in splitted)
@@ -132,7 +132,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					
 	}
 	
-	$scope.GetBestWin=function(gData)
+	$scope.GetBestWin=function(gData,MyID)
 	{
 	var splitted=gData.Result.split(">");
 				for (y in splitted)
