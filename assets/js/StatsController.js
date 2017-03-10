@@ -129,7 +129,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						}
 					}
 				}
-				}	
+					
 	}
 	
 	$scope.GetBestWin(gData)
