@@ -65,9 +65,11 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				var name=splitted[y-1].split("<")[0];
 				if(gData.Player1==MyID)
 					{
+						console.log("gData.Player1Name "+gData.Player1Name);
+						console.log("name "+name);
 						if(gData.Player1Name!=name)
 						{
-								var p1color;
+						var p1color;
 						var p2color;
 						if(gData.Player1Color=='White')
 						{
@@ -88,8 +90,8 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 								{$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory]=30000;}
 								if(gData.Player2CategoryELO<$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory])
 								{
-									
-									$scope.$apply(function(){$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory]=gData.Player2CategoryELO});
+								
+								$scope.$apply(function(){$scope.LookedatUser['lowestloss'+p1color+gData.GameCategory]=gData.Player2CategoryELO});
 								}
 							}
 						}
