@@ -125,12 +125,12 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				if(name){
 				if(gData.Player1==MyID)
 					{
-						console.log("gData.Player1Name "+gData.Player1Name);
-						console.log("name "+name);
+						//console.log("gData.Player1Name "+gData.Player1Name);
+						//console.log("name "+name);
 						
 						if(gData.Player1Name!=name)
 						{
-						console.log("gothere1");
+						//console.log("gothere1");
 						var p1color;
 						var p2color;
 						if(gData.Player1Color=='White')
@@ -162,7 +162,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(gData.Player2Name!=name)
 						{
-						console.log("gothere2");
+						//console.log("gothere2");
 						//console.log("I won that as player2"+resData[x].GameCategory);
 						//console.log("enemy ELO "+resData[x].Player1CategoryELO);
 						//console.log("enemy name "+resData[x].Player1Name);
