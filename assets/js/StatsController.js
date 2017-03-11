@@ -54,10 +54,15 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				$scope.GetLowestLoss(resData[x],MyID,splitted);
 				}
 			}
-						
-			$scope.LookedatUser['winpercent'+p1color+gData.GameCategory]=parseInt(($scope.LookedatUser['WonGames'+p1color+gData.GameCategory]/$scope.LookedatUser['totalgames'+p1color+gData.GameCategory])*100);								
-			$scope.LookedatUser['losepercent'+p1color+gData.GameCategory]=parseInt(($scope.LookedatUser['LostGames'+p1color+gData.GameCategory]/$scope.LookedatUser['totalgames'+p1color+gData.GameCategory])*100);	
-	
+			
+			for (ca in $scope.statcategories)
+			{
+			$scope.LookedatUser['winpercent'+'White'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'White'+$scope.statcategories[ca].cat])*100);								
+			$scope.LookedatUser['losepercent'+'White'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['LostGames'+'White'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'White'+$scope.statcategories[ca].cat])*100);	
+			$scope.LookedatUser['winpercent'+'Black'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['WonGames'+'Black'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'Black'+$scope.statcategories[ca].cat])*100);								
+			$scope.LookedatUser['losepercent'+'Black'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['LostGames'+'Black'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'Black'+$scope.statcategories[ca].cat])*100);	
+			
+			}
 		});
 		
 	}
