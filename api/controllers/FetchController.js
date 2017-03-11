@@ -49,8 +49,11 @@ infilearray1.on('end', function() {
 });
 }
 else
-{ if (num<imgarr.length)
+{console.log("jpg npt found in img path");
+	console.log("num "+num+" arr length "+imgarr.length);
+	 if (num<imgarr.length)
  {
+	 console.log("so doing another gitimage");
   gitimage(imgarr,num+1,youtubedl)
 }}
 	}
