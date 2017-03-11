@@ -58,7 +58,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			for (ca in $scope.categories)
 			{
 				console.log("found cat "+ca+" "+$scope.statcategories[ca].cat);
-				console.log("$scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]"+$scope.LookedatUser['WonGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].time+"|"+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]);
+				console.log("$scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]"+$scope.LookedatUser['WonGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]);
 			$scope.LookedatUser['winpercent'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['WonGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);								
 			$scope.LookedatUser['losepercent'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['LostGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);	
 			$scope.LookedatUser['winpercent'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['WonGames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);								
