@@ -84,31 +84,31 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			
 			for (y in splitted)
 			{
-				if(splitted[y].indexOf("Won by")>-1)	
+				if(splitted[y].indexOf("Won by")>-1)
+				{
 				var name=splitted[y-1].split("<")[0];
-		if(name){
+			if(name){
 			console.log("current splitted "+splitted[y]);
-				if(gData.Player1==MyID)
-					{
-						console.log("im player1"+gData.Player1+" "+MyID);
-						if(gData.Player1Name==name)
+					if(gData.Player1==MyID)
 						{
+							console.log("im player1"+gData.Player1+" "+MyID);
+							if(gData.Player1Name==name)
+							{
 							console.log("adding one to wongames"+p1color+gData.GameCategory);
 						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
+							}
 						}
-					}
 				
 				if(gData.Player2==MyID)
-					{
-						if(gData.Player2Name==name)
 						{
+						if(gData.Player2Name==name)
+							{
 							console.log("adding one to wongames"+p1color+gData.GameCategory);
-						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
-						}						
-								
-								
+							$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
+							}						
+											
+						}
 					}
-						
 				}
 			}
 			
