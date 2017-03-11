@@ -57,6 +57,8 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			
 			for (ca in $scope.statcategories)
 			{
+				console.log("found cat "+ca+" "+$scope.statcategories[ca];
+				console.log("$scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]"+$scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]);
 			$scope.LookedatUser['winpercent'+'White'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'White'+$scope.statcategories[ca].cat])*100);								
 			$scope.LookedatUser['losepercent'+'White'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['LostGames'+'White'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'White'+$scope.statcategories[ca].cat])*100);	
 			$scope.LookedatUser['winpercent'+'Black'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['WonGames'+'Black'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'Black'+$scope.statcategories[ca].cat])*100);								
@@ -117,11 +119,11 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						{
 						if(gData.Player2Name==name)
 							{
-							$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
+							$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p2color+gData.GameCategory]+1;								
 							}						
 							if(gData.Player2Name!=name)
 							{
-							$scope.LookedatUser['LostGames'+p1color+gData.GameCategory]=$scope.LookedatUser['LostGames'+p1color+gData.GameCategory]+1;								
+							$scope.LookedatUser['LostGames'+p1color+gData.GameCategory]=$scope.LookedatUser['LostGames'+p2color+gData.GameCategory]+1;								
 							}
 											
 						}
