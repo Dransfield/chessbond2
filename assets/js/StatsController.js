@@ -54,7 +54,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				$scope.GetLowestLoss(resData[x],MyID,splitted);
 				}
 			}
-			
+			$scope.$apply(function(){
 			for (ca in $scope.categories)
 			{
 				console.log("found cat "+ca+" "+$scope.categories[ca].time);
@@ -67,7 +67,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			$scope.LookedatUser['winpercent'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['WonGames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);								
 			$scope.LookedatUser['losepercent'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['LostGames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);	
 			
-			}
+			}});
 		});
 		
 	}
