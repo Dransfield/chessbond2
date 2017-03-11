@@ -10,6 +10,12 @@ if (imgarr[num*2].indexOf('.jpg')==-1)
 youtubedl.getInfo(url, options, function(err, info) {
   if (err) return;
 
+if (!info.thumbnail)
+{if (num<imgarr.length)
+ {
+  gitimage(imgarr,num+1,youtubedl)
+}}
+
  console.log('id:', info.id);
   console.log('title:', info.title);
   console.log('url:', info.url);
@@ -49,12 +55,12 @@ infilearray1.on('end', function() {
 });
 }
 else
-{console.log("jpg npt found in img path");
-	console.log("num "+num+" arr length "+imgarr.length);
+{//console.log("jpg npt found in img path");
+	//console.log("num "+num+" arr length "+imgarr.length);
 	 if (num<imgarr.length)
  {
-	 console.log("so doing another gitimage");
-  gitimage(imgarr,num+1,youtubedl)
+	// console.log("so doing another gitimage");
+ // gitimage(imgarr,num+1,youtubedl)
 }}
 	}
 
