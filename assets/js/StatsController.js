@@ -108,6 +108,10 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				}
 			}
 			
+			console.log('WonGames'+$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]);
+			console.log('TotalGames'+$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]);
+			console.log('divvy '+$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]/$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory];
+			
 			$scope.LookedatUser['winpercent'+p1color+gData.GameCategory]=($scope.LookedatUser['WonGames'+p1color+gData.GameCategory]/$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory])*100;								
 				
 	}
