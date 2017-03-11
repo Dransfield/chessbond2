@@ -48,7 +48,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				//console.log("found a game "+resData[x].GameCategory);
 				if(resData[x].Result)
 				{
-					var splitted=gData.Result.split(">");
+					var splitted=resData[x].Result.split(">");
 				$scope.GetWinPercentage(resData[x],MyID,splitted);
 				$scope.GetBestWin(resData[x],MyID,splitted);
 				$scope.GetLowestLoss(resData[x],MyID,splitted);
