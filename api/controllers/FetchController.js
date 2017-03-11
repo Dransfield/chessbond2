@@ -221,7 +221,7 @@ alt=1;
 }
 }
 
-gitimage(imgarray,1,youtubedl);
+gitimage(imgarray,2,youtubedl);
 
 var foundaddress=true;
 var splitcount=0;
