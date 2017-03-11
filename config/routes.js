@@ -50,7 +50,7 @@ module.exports.routes = {
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	'/myfile': {view: 'forgot'},
-	'/tournament':{view:'forgot'},
+	'/tournament':{view:'go'},
 	'/profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
