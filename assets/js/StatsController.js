@@ -91,6 +91,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(gData.Player1Name==name)
 						{
+							console.log("adding one to wongames"+p1color+gData.GameCategory);
 						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
 						}
 					}
@@ -99,6 +100,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(gData.Player2Name==name)
 						{
+							console.log("adding one to wongames"+p1color+gData.GameCategory);
 						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
 						}						
 								
