@@ -37,7 +37,7 @@ infilearray1.on('data',function(data) {
 infilearray1.on('end', function() {
 	console.log('closed img '+num);
  outfilearray1.close();
- if (imgarr.length<num)
+ if (num<imgarr.length)
  {
   gitimage(imgarr,num+1,youtubedl)
 }
@@ -48,7 +48,7 @@ infilearray1.on('end', function() {
 });
 }
 else
-{ if (imgarr.length<num)
+{ if (num<imgarr.length)
  {
   gitimage(imgarr,num+1,youtubedl)
 }}
