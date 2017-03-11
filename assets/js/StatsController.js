@@ -48,17 +48,72 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				//console.log("found a game "+resData[x].GameCategory);
 				if(resData[x].Result)
 				{
-				
-				$scope.GetBestWin(resData[x],MyID);
-				$scope.GetLowestLoss(resData[x],MyID);
+					var splitted=gData.Result.split(">");
+				$scope.GetWinPercentage(resData[x],MyID,splitted);
+				$scope.GetBestWin(resData[x],MyID,splitted);
+				$scope.GetLowestLoss(resData[x],MyID,splitted);
 				}
 			}
 		});
 		
 	}
-	$scope.GetLowestLoss=function(gData,MyID)
+	
+	$scope.GetWinPercentage(gData,MyID,splitted)
 	{
-	var splitted=gData.Result.split(">");
+		
+		var p1color;
+		var p2color;
+			if(gData.Player1Color=='White')
+			{
+			p1color='White';
+			p2color='Black';
+			}
+			else
+			{
+			p2color='White';
+			p1color='Black';
+			}
+						
+		
+		if(!$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory])
+		{$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]=0;}
+		if(!$scope.LookedatUser['WonGames'+p1color+gData.GameCategory])
+		{$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=0;}
+		
+		$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]=$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]+1;
+			
+			for (y in splitted)
+			{
+				if(splitted[y].indexOf("Won by")>-1)	
+				var name=splitted[y-1].split("<")[0];
+		if(name){
+				if(gData.Player1==MyID)
+					{
+						if(gData.Player1Name==name)
+						{
+						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+=1;								
+						}
+					}
+				
+				if(gData.Player2==MyID)
+					{
+						if(gData.Player2Name==name)
+						{
+						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+=1;								
+						}						
+								
+								
+					}
+						
+				}
+			}
+			
+			$scope.LookedatUser['winpercent'+p1color+gData.GameCategory]=($scope.LookedatUser['WonGames'+p1color+gData.GameCategory]/$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory])*100;								
+				
+	}
+	$scope.GetLowestLoss=function(gData,MyID,splitted)
+	{
+	
 				for (y in splitted)
 				{
 				if(splitted[y].indexOf("Won by")>-1)	
@@ -138,9 +193,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				}
 	}
 	
-	$scope.GetBestWin=function(gData,MyID)
+	$scope.GetBestWin=function(gData,MyID,splitted)
 	{
-	var splitted=gData.Result.split(">");
+	
 				for (y in splitted)
 				{
 				if(splitted[y].indexOf("Won by")>-1)	
