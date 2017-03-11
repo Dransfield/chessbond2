@@ -58,7 +58,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		
 	}
 	
-	$scope.GetWinPercentage(gData,MyID,splitted)
+	$scope.GetWinPercentage=function(gData,MyID,splitted)
 	{
 		
 		var p1color;
