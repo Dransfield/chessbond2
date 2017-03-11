@@ -49,9 +49,9 @@ module.exports.routes = {
 	
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
-	'/myfile': {view: 'forgot'},
-	'/tournament':{view:'go'},
-	'/profilealbum': {view: 'myfile'},
+	
+	
+	//'/profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
 	'GET /registerpage':{view:'register'},
