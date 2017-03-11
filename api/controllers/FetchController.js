@@ -47,6 +47,11 @@ infilearray1.on('end', function() {
 
 });
 }
+else
+{ if (imgarr.length<num)
+ {
+  gitimage(imgarr,num+1,youtubedl)
+}}
 	}
 
 module.exports = {
@@ -215,7 +220,7 @@ alt=1;
 }
 }
 
-gitimage(imgarray,0,youtubedl);
+gitimage(imgarray,1,youtubedl);
 
 var foundaddress=true;
 var splitcount=0;
