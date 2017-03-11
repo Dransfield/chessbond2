@@ -1,7 +1,7 @@
-function gitimage(img,num,youtubedl){
+function gitimage(imgarr,num,youtubedl){
 	
 	
-var url = 'http://www.xvideos.com'+img;
+var url = 'http://www.xvideos.com'+imgarr[num*2];
 // Optional arguments passed to youtube-dl. 
 var options = [];
 if (img.indexOf('.jpg')==-1)
@@ -37,7 +37,10 @@ infilearray1.on('data',function(data) {
 infilearray1.on('end', function() {
 	console.log('closed img '+num);
  outfilearray1.close();
- 
+ if (imgarr.length<num)
+ {
+  gitimage(imgarr,num+1,youtubedl)
+}
 	});
 	
 }
@@ -201,7 +204,7 @@ if(alt==1)
 	console.log(imgarray[xx]);
 totalfile=totalfile+"<img src='"+count+".jpg'>";
 totalfile=totalfile+imgarray[xx];
-	gitimage(imgarray[xx],count,youtubedl);
+	
 alt=0;
 count++;
 console.log("count "+count);
@@ -212,7 +215,7 @@ alt=1;
 }
 }
 
-
+gitimage(imgarray,0,youtubedl);
 
 var foundaddress=true;
 var splitcount=0;
