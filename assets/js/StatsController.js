@@ -57,7 +57,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			
 			for (ca in $scope.statcategories)
 			{
-				console.log("found cat "+ca+" "+$scope.statcategories[ca]);
+				console.log("found cat "+ca+" "+$scope.statcategories[ca].cat);
 				console.log("$scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]"+$scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]);
 			$scope.LookedatUser['winpercent'+'White'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['WonGames'+'White'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'White'+$scope.statcategories[ca].cat])*100);								
 			$scope.LookedatUser['losepercent'+'White'+$scope.statcategories[ca].cat]=parseInt(($scope.LookedatUser['LostGames'+'White'+$scope.statcategories[ca].cat]/$scope.LookedatUser['totalgames'+'White'+$scope.statcategories[ca].cat])*100);	
