@@ -117,7 +117,7 @@ var totalfile;
 //var infile=new FetchStream("http://jesuits.org/aboutus");
 //var infile=new FetchStream("http://www.pornhub.com/video/search?search=ebony+teen");
 //https://www.chessbond.com/video/search?search=ebony+tittyfuck&page=2
-var infile=new FetchStream("http://www.xvideos.com/?k=ebony+ass");
+var infile=new FetchStream("http://www.xvideos.com/?k=ebony+ass&p=2");
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
 	
