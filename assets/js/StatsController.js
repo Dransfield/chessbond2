@@ -91,7 +91,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(gData.Player1Name==name)
 						{
-						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+=1;								
+						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
 						}
 					}
 				
@@ -99,7 +99,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(gData.Player2Name==name)
 						{
-						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+=1;								
+						$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]+1;								
 						}						
 								
 								
