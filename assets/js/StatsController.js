@@ -77,11 +77,15 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		
 		if(!$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory])
 		{$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]=0;}
+		if(!$scope.LookedatUser['totalgames'+p1color+gData.GameCategory])
+		{$scope.LookedatUser['totalgames'+p1color+gData.GameCategory]=0;}
+		
 		if(!$scope.LookedatUser['WonGames'+p1color+gData.GameCategory])
 		{$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=0;}
 		
 		$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]=$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]+1;
-			
+				$scope.LookedatUser['totalgames'+p1color+gData.GameCategory]=$scope.LookedatUser['totalgames'+p1color+gData.GameCategory]+1;
+	
 			for (y in splitted)
 			{
 				if(splitted[y].indexOf("Won by")>-1)
