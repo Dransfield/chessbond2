@@ -144,7 +144,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							}						
 							if(gData.Player2Name!=name)
 							{
-							$scope.LookedatUser['LostGames'mycolor+gData.GameCategory]=$scope.LookedatUser['LostGames'+mycolor+gData.GameCategory]+1;								
+							$scope.LookedatUser['LostGames'+mycolor+gData.GameCategory]=$scope.LookedatUser['LostGames'+mycolor+gData.GameCategory]+1;								
 							}
 											
 						}
