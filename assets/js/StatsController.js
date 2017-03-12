@@ -48,6 +48,19 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				//console.log("found a game "+resData[x].GameCategory);
 				if(resData[x].Result)
 				{
+			var p1color;
+			var p2color;
+			if(resData[x].Player1Color=='White')
+			{
+			p1color='White';
+			p2color='Black';
+			}
+			else
+			{
+			p2color='White';
+			p1color='Black';
+			}
+			
 					if(!$scope.LookedatUser['totalgames'+p1color+gData.GameCategory])
 					{$scope.LookedatUser['totalgames'+p1color+gData.GameCategory]=0;}
 		
@@ -58,9 +71,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				{	
 				var name=splitted[y-1].split("<")[0];
 				if(name){
-				$scope.GetWinLossPercentages(resData[x],MyID,splitted);
-				$scope.GetBestWin(resData[x],MyID,splitted);
-				$scope.GetLowestLoss(resData[x],MyID,splitted);
+				$scope.GetWinLossPercentages(resData[x],MyID,splitted,p1color,p2color);
+				$scope.GetBestWin(resData[x],MyID,splitted,p1color,p2color);
+				$scope.GetLowestLoss(resData[x],MyID,splitted,p1color,p2color);
 				}
 				}
 				}
@@ -86,26 +99,10 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		
 	}
 	
-	$scope.GetWinLossPercentages=function(gData,MyID,splitted,name)
+	$scope.GetWinLossPercentages=function(gData,MyID,splitted,name,p1color,p2color)
 	{
 		
-		var p1color;
-		var p2color;
-			if(gData.Player1Color=='White')
-			{
-			p1color='White';
-			p2color='Black';
-			}
-			else
-			{
-			p2color='White';
-			p1color='Black';
-			}
-						
-		
-	
-	
-		if(!$scope.LookedatUser['WonGames'+p1color+gData.GameCategory])
+			if(!$scope.LookedatUser['WonGames'+p1color+gData.GameCategory])
 		{$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]=0;}
 		if(!$scope.LookedatUser['LostGames'+p1color+gData.GameCategory])
 		{$scope.LookedatUser['LostGames'+p1color+gData.GameCategory]=0;}
@@ -142,22 +139,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			//console.log('TotalGames'+$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]);
 			//console.log('divvy '+$scope.LookedatUser['WonGames'+p1color+gData.GameCategory]/$scope.LookedatUser['TotalGames'+p1color+gData.GameCategory]);
 }
-	$scope.GetLowestLoss=function(gData,MyID,splitted,name)
+	$scope.GetLowestLoss=function(gData,MyID,splitted,name,p1color,p2color)
 	{
 	
-				var p1color;
-						var p2color;
-						if(gData.Player1Color=='White')
-						{
-						p1color='White';
-						p2color='Black';
-						}
-						else
-						{
-						p2color='White';
-						p1color='Black';
-						}
-						
 				if(gData.Player1==MyID)
 					{
 						//console.log("gData.Player1Name "+gData.Player1Name);
@@ -220,25 +204,10 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			
 	}
 	
-	$scope.GetBestWin=function(gData,MyID,splitted,name)
+	$scope.GetBestWin=function(gData,MyID,splitted,name,p1color,p2color)
 	{
 	
-				
-							var p1color;
-						var p2color;
-						if(gData.Player1Color=='White')
-						{
-						p1color='White';
-						p2color='Black';
-						}
-						else
-						{
-						p2color='White';
-						p1color='Black';
-						}
-						
-						
-					if(gData.Player1==MyID)
+				if(gData.Player1==MyID)
 					{
 						if(gData.Player1Name==name)
 						{
