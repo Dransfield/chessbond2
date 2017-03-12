@@ -77,7 +77,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
 					{
-						if(splitted[y].indexOf("Drew by")>1)
+						if(splitted[y].indexOf("Drew by")>-1)
 						{
 						$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory]++;
 						
