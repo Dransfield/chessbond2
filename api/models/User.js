@@ -28,10 +28,11 @@ BoardSize:{type:'int',defaultsTo:300},
    CurrentCity:{type:'string',defaultsTo:""},
    FideTitle:{type:'string',defaultsTo:""},
    ValidFideID:{type:'string',defaultsTo:""},
-   FideRatings:{type:'string',defaultsTo:""},
+   FideRatings:{type:'string',defaultsTo:""}
+
+},
   beforeCreate: function(user, cb) {
     user.password = md5(user.password);
     cb();
   }
-}
 };
