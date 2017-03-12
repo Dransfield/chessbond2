@@ -61,9 +61,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			p1color='Black';
 			}
 			
-					if(!$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory])
-					{$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory]=0;}
-		$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory]++;
+				if(!$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory])
+				{$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory]=0;}
+					$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory]++;
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
 					{
@@ -72,9 +72,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							var name=splitted[y-1].split("<")[0];
 								if(name)
 								{
-								$scope.GetWinLossPercentages(resData[x],MyID,splitted,p1color,p2color);
-								$scope.GetBestWin(resData[x],MyID,splitted,p1color,p2color);
-								$scope.GetLowestLoss(resData[x],MyID,splitted,p1color,p2color);
+								$scope.GetWinLossPercentages(resData[x],MyID,splitted,name,p1color,p2color);
+								$scope.GetBestWin(resData[x],MyID,splitted,name,p1color,p2color);
+								$scope.GetLowestLoss(resData[x],MyID,splitted,name,p1color,p2color);
 								}
 							}
 						}
