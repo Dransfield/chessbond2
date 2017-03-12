@@ -65,6 +65,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				}
 				}
 				}
+			}
 			$scope.$apply(function(){
 			for (ca in $scope.categories)
 			{
