@@ -63,7 +63,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			
 					if(!$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory])
 					{$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory]=0;}
-		
+		$scope.LookedatUser['totalgames'+p1color+resData[x].GameCategory]++;
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
 					{
