@@ -233,9 +233,10 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	winnerRecord[winnergamecategory] = elo.updateRating(expectedScoreAcat, 1, winnerstartcatELO);
 	loserRecord[losergamecategory] = elo.updateRating(expectedScoreBcat, 0, loserstartcatELO);
 	
-	
+	console.log("about to save");
 	loserRecord.save();
 	winnerRecord.save();
+	console.log("saved");
 	}
 	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
 	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
