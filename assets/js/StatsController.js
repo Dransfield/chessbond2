@@ -67,12 +67,15 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 						{mycolor=p2color;}
 					
 			
-				if(!$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory])
-				{$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory]=0;}
-					$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory]++;
-					if(!$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory])
-				{$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory]=0;}
-					
+		if(!$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory])
+		{$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory]=0;}
+		$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory]++;
+		if(!$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory])
+		{$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory]=0;}
+		if(!$scope.LookedatUser['WonGames'+mycolor+resData[x].GameCategory])
+		{$scope.LookedatUser['WonGames'+mycolor+resData[x].GameCategory]=0;}
+		if(!$scope.LookedatUser['LostGames'+mycolor+resData[x].GameCategory])
+		{$scope.LookedatUser['LostGames'+mycolor+resData[x].GameCategory]=0;}
 					
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
@@ -119,10 +122,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 	$scope.GetWinLossPercentages=function(gData,MyID,splitted,name,mycolor)
 	{
 		
-			if(!$scope.LookedatUser['WonGames'+mycolor+gData.GameCategory])
-		{$scope.LookedatUser['WonGames'+mycolor+gData.GameCategory]=0;}
-		if(!$scope.LookedatUser['LostGames'+mycolor+gData.GameCategory])
-		{$scope.LookedatUser['LostGames'+mycolor+gData.GameCategory]=0;}
+		
 
 					if(gData.Player1==MyID)
 						{

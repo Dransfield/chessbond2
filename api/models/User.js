@@ -8,6 +8,7 @@
 md5=require("MD5");
 
 module.exports = {
+	 attributes: {
 ChessPieceTheme:{ type: 'string', unique: false,defaultsTo: 'A' },
 BoardTheme:{type:'string',unique:false,defaultsTo: "uscf"},
 Country:{ type: 'string', unique: false,defaultsTo: 'None'},
@@ -32,4 +33,5 @@ BoardSize:{type:'int',defaultsTo:300},
     user.password = md5(user.password);
     cb();
   }
+}
 };
