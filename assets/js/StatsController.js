@@ -61,9 +61,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			p1color='Black';
 			}
 			var mycolor;
-			if(resData[x.Player1==MyID)
+			if(resData[x].Player1==MyID)
 						{mycolor=p1color;}
-			if(resData[x.Player2==MyID)
+			if(resData[x].Player2==MyID)
 						{mycolor=p2color;}
 					
 			
@@ -79,7 +79,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(splitted[y].indexOf("Drew by")>1)
 						{
-						$scope.LookedatUser['DrawnGames'+p1color+resData[x].GameCategory]++;
+						$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory]++;
 						
 						}
 						if(splitted[y].indexOf("Won by")>-1)
@@ -87,9 +87,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							var name=splitted[y-1].split("<")[0];
 								if(name)
 								{
-								$scope.GetWinLossPercentages(resData[x],MyID,splitted,name,p1color,p2color);
-								$scope.GetBestWin(resData[x],MyID,splitted,name,p1color,p2color);
-								$scope.GetLowestLoss(resData[x],MyID,splitted,name,p1color,p2color);
+								$scope.GetWinLossPercentages(resData[x],MyID,splitted,name,mycolor);
+								$scope.GetBestWin(resData[x],MyID,splitted,name,mycolor);
+								$scope.GetLowestLoss(resData[x],MyID,splitted,name,mycolor);
 								}
 							}
 						}
