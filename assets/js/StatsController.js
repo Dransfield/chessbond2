@@ -275,12 +275,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	
 	$scope.GetLowestRating=function(gData,MyID,splitted,name,mycolor)
 	{
-	
-				if(gData.Player1==MyID)
-					{
-						if(gData.Player1Name!=name)
-						{
-							if (gData.GameCategory=="2|1")
+		if (gData.GameCategory=="2|1")
 						{
 							console.log("gData.GameCategory "+gData.GameCategory);
 							console.log("winner is "+name);
@@ -289,18 +284,24 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
 						console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
 						}
+				if(gData.Player1==MyID)
+					{
+						if(gData.Player1Name!=name)
+						{
+						
 						
 							if(gData.Player1CategoryELOafter)
 							{
 								if(gData.Player1CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
 								{
-											if (name=="Chunkations")
+											if (gData.GameCategory=="2|1")
 												{
 												console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
 												console.log("gData.GameCategory "+gData.GameCategory);
 												}
 											
 									$scope.$apply(function(){$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter});
+								console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
 								}
 							}
 						}
