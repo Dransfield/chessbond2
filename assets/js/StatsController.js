@@ -76,7 +76,11 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		{$scope.LookedatUser['WonGames'+mycolor+resData[x].GameCategory]=0;}
 		if(!$scope.LookedatUser['LostGames'+mycolor+resData[x].GameCategory])
 		{$scope.LookedatUser['LostGames'+mycolor+resData[x].GameCategory]=0;}
-					
+		if(!$scope.LookedatUser['highest'+mycolor+resData[x].GameCategory])
+		{$scope.LookedatUser['highest'+mycolor+resData[x].GameCategory]=0;}
+		if(!$scope.LookedatUser['lowest'+mycolor+resData[x].GameCategory])
+		{$scope.LookedatUser['lowest'+mycolor+resData[x].GameCategory]=99999;}
+		
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
 					{
@@ -93,6 +97,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 								$scope.GetWinLossPercentages(resData[x],MyID,splitted,name,mycolor);
 								$scope.GetBestWin(resData[x],MyID,splitted,name,mycolor);
 								$scope.GetLowestLoss(resData[x],MyID,splitted,name,mycolor);
+								$scope.GetHighestRating(resData[x],MyID,splitted,name,mycolor);
 								}
 							}
 						}
@@ -209,40 +214,36 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			
 	}
 	
-	$scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
+	
+	
+	$scope.GetLowestRating=function(gData,MyID,splitted,name,mycolor)
 	{
 	
 				if(gData.Player1==MyID)
 					{
-						if(gData.Player1Name==name)
+						if(gData.Player1Name!=name)
 						{
 					
-							if(gData.Player2CategoryELO)
+							if(gData.Player1CategoryELOafter)
 							{
-								if(!$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
-								{$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=0;}
-								if(gData.Player2CategoryELO>$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
+								if(gData.Player1CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
 								{
 									
-									$scope.$apply(function(){$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=gData.Player2CategoryELO});
+									$scope.$apply(function(){$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter});
 								}
 							}
 						}
 					}
 					if(gData.Player2==MyID)
 					{
-						if(gData.Player2Name==name)
+						if(gData.Player2Name!=name)
 						{
-							if(gData.Player1CategoryELO)
+							if(gData.Player2CategoryELOafter)
 							{
 								
-									if(!$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
-								{$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=0;}
-								
-								
-								if(gData.Player1CategoryELO>$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
+								if(gData.Player2CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
 								{
-									$scope.$apply(function(){$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=gData.Player1CategoryELO});
+									$scope.$apply(function(){$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]=gData.Player2CategoryELOafter});
 								}
 							}
 						
@@ -251,6 +252,45 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				
 				
 	}
+	
+	
+	$scope.GetHighestRating=function(gData,MyID,splitted,name,mycolor)
+	{
+	
+				if(gData.Player1==MyID)
+					{
+						if(gData.Player1Name==name)
+						{
+					
+							if(gData.Player1CategoryELOafter)
+							{
+								if(gData.Player1CategoryELOafter>$scope.LookedatUser['highest'+mycolor+gData.GameCategory])
+								{
+									
+									$scope.$apply(function(){$scope.LookedatUser['highest'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter});
+								}
+							}
+						}
+					}
+					if(gData.Player2==MyID)
+					{
+						if(gData.Player2Name==name)
+						{
+							if(gData.Player2CategoryELOafter)
+							{
+								
+								if(gData.Player2CategoryELOafter>$scope.LookedatUser['highest'+mycolor+gData.GameCategory])
+								{
+									$scope.$apply(function(){$scope.LookedatUser['highest'+mycolor+gData.GameCategory]=gData.Player2CategoryELOafter});
+								}
+							}
+						
+						}
+					}
+				
+				
+	}
+	
 	
 	$scope.getLookedatUser=function(MyID)
 	{	
