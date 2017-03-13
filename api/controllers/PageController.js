@@ -170,7 +170,7 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 
 
 	
-	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout)
+	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
 	{
 	var elo = require('elo-rank')(15);
 	console.log("winner "+winner);
@@ -291,9 +291,27 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	
 	var tts="Status:<span class='redtext'>Game over</span>";
 	
+	var player1Record;
+	var player2Record;
+	var player1gamecategory;
+	var player2gamecategory;
 	
-	
-
+	if(winner1or2==1)
+	{
+		player1record=winnerRecord;
+		player2record=loserRecord;
+		player1gamecategory=winnergamecategory;
+		player2gamecategory=losergamecategory;
+		
+		}
+	else
+	{
+		player2record=winnerRecord;
+		player1record=loserRecord;
+		player2gamecategory=winnergamecategory;
+		player1gamecategory=losergamecategory;
+		
+	}
 	
 
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
