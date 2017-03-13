@@ -152,7 +152,7 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	
 	
 
-	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
+	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
 
@@ -293,10 +293,10 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	
 	
 	
-	
+
 	
 
-	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts}).exec(function afterwards(err, updated){
+	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
 
@@ -772,11 +772,11 @@ deleteopengame:function(req,res){
 			
 	if (clrtomove==cg.Player1Color)
 		{
-		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,'false');
+		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,'false',2);
 		}
 		else
 		{
-		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.GameCategory,cg.id,'false');
+		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.GameCategory,cg.id,'false',1);
 		}
 	}
 	
@@ -897,11 +897,11 @@ deleteopengame:function(req,res){
 		
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true');
+		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true',2);
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true');
+		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true',1);
 		}
 		}
 		}

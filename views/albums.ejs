@@ -32,10 +32,11 @@
    </head>
      <body ng-app="HomepageModule" ng-controller="AlbumsController" ng-cloak>
    <%- include partials/navbar.ejs %>
-   <h3>Statistics</h3>
+   <h3>Albums</h3>
    
    
 	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+	 <div ng-init="getalbums('<%-req.session.passport.user%>')"></div>
 	
 	<div  style="display:flex" ng-repeat="album in myalbums track by $index">
 	<span>
