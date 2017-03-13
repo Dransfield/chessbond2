@@ -228,22 +228,16 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						if(gData.Player1Name!=name)
 						{
 						//console.log("gothere1");
-						if (name=="Chunkations")
-						{console.log("winner is "+name);
-							console.log("I am "+gData.Player1Name);
-							console.log("gData.Player2CategoryELO "+gData.Player2CategoryELO);
-						}
-						
+					
 						
 							if(gData.Player2CategoryELO)
 							{
-								console.log("game has player 2 category ELO of "+gData.Player2CategoryELO);
+								
 								if(!$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory])
 								{$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory]=30000;}
 								
 								if(gData.Player2CategoryELO<$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory])
 								{
-								console.log("$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory]"+$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory]);
 								$scope.$apply(function(){$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory]=gData.Player2CategoryELO});
 								}
 							}
@@ -285,7 +279,13 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 					{
 						if(gData.Player1Name!=name)
 						{
-					
+							if (name=="Chunkations")
+						{console.log("winner is "+name);
+							console.log("I am "+gData.Player1Name);
+							console.log("gData.Player1CategoryELO "+gData.Player1CategoryELO);
+						console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
+						}
+						
 							if(gData.Player1CategoryELOafter)
 							{
 								if(gData.Player1CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
