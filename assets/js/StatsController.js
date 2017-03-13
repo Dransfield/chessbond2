@@ -87,6 +87,11 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
 					{
+						if(splitted[y].indexOf("Drew by")>-1||splitted[y].indexOf("Won by")>-1)
+						{
+							$scope.GetHighestRating(resData[x],MyID,splitted,name,mycolor);
+								$scope.GetLowestRating(resData[x],MyID,splitted,name,mycolor);
+						}
 						if(splitted[y].indexOf("Drew by")>-1)
 						{
 						$scope.LookedatUser['DrawnGames'+mycolor+resData[x].GameCategory]++;
@@ -100,8 +105,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 								$scope.GetWinLossPercentages(resData[x],MyID,splitted,name,mycolor);
 								$scope.GetBestWin(resData[x],MyID,splitted,name,mycolor);
 								$scope.GetLowestLoss(resData[x],MyID,splitted,name,mycolor);
-								$scope.GetHighestRating(resData[x],MyID,splitted,name,mycolor);
-								$scope.GetLowestRating(resData[x],MyID,splitted,name,mycolor);
+							
 								}
 							}
 						}
@@ -280,14 +284,14 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	{
 		
 		if (gData.GameCategory=="2|1")
-						{
-							console.log("gData.GameCategory "+gData.GameCategory);
-							console.log("winner is "+name);
-							console.log("I am "+gData.Player1Name);
-							console.log("gData.Player1CategoryELO "+gData.Player1CategoryELO);
-						console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
-						console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
-						}
+			{
+			console.log("gData.GameCategory "+gData.GameCategory);
+			console.log("winner is "+name);
+			console.log("I am "+gData.Player1Name);
+			console.log("gData.Player1CategoryELO "+gData.Player1CategoryELO);
+			console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
+			console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
+			}
 				
 						
 						
@@ -296,10 +300,10 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 							if(gData.Player1CategoryELOafter)
 							{
 									if (gData.GameCategory=="2|1")
-												{
-												console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
-												console.log("gData.GameCategory "+gData.GameCategory);
-												}
+										{
+										console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
+										console.log("gData.GameCategory "+gData.GameCategory);
+										}
 												
 								if(gData.Player1CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
 								{

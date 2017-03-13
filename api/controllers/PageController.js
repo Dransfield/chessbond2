@@ -87,11 +87,11 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	if (player1!=player2)
 	{
 	
-	player1Record.ELO = elo.updateRating(expectedScoreA, 0.5, player1startELO);
-	player2Record.ELO = elo.updateRating(expectedScoreB, 0.5,player2startELO);
+	player1Record.ELO = elo.updateRating(expectedScoreA,0.5,player1startELO);
+	player2Record.ELO = elo.updateRating(expectedScoreB,0.5,player2startELO);
 	
-	player1Record[player1gamecategory] = elo.updateRating(expectedScoreAcat, 0.5, player1startcatELO);
-	player2Record[player2gamecategory] = elo.updateRating(expectedScoreBcat, 0.5, player2startcatELO);
+	player1Record[player1gamecategory] = elo.updateRating(expectedScoreAcat,0.5,player1startcatELO);
+	player2Record[player2gamecategory] = elo.updateRating(expectedScoreBcat,0.5,player2startcatELO);
 	
 		console.log("got here3");
 
