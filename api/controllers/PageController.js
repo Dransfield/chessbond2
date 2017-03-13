@@ -298,16 +298,16 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	
 	if(winner1or2==1)
 	{
-		player1record=winnerRecord;
-		player2record=loserRecord;
+		player1Record=winnerRecord;
+		player2Record=loserRecord;
 		player1gamecategory=winnergamecategory;
 		player2gamecategory=losergamecategory;
 		
 		}
 	else
 	{
-		player2record=winnerRecord;
-		player1record=loserRecord;
+		player2Record=winnerRecord;
+		player1Record=loserRecord;
 		player2gamecategory=winnergamecategory;
 		player1gamecategory=losergamecategory;
 		
