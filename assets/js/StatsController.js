@@ -170,7 +170,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						//console.log("gData.Player1Name "+gData.Player1Name);
 						//console.log("name "+name);
 						
-						if(gData.Player1Name!=name)
+						if(gData.Player1Name==name)
 						{
 						//console.log("gothere1");
 					
@@ -190,7 +190,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 					}
 					if(gData.Player2==MyID)
 					{
-						if(gData.Player2Name!=name)
+						if(gData.Player2Name==name)
 						{
 						//console.log("gothere2");
 						//console.log("I won that as player2"+resData[x].GameCategory);
