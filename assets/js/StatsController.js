@@ -280,7 +280,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 					{
 						if(gData.Player1Name!=name)
 						{
-							if (name=="Chunkations")
+							if (gData.GameCategory=="2|1")
 						{
 							console.log("gData.GameCategory "+gData.GameCategory);
 							console.log("winner is "+name);
