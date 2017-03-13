@@ -98,6 +98,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 								$scope.GetBestWin(resData[x],MyID,splitted,name,mycolor);
 								$scope.GetLowestLoss(resData[x],MyID,splitted,name,mycolor);
 								$scope.GetHighestRating(resData[x],MyID,splitted,name,mycolor);
+								$scope.GetLowestRating(resData[x],MyID,splitted,name,mycolor);
 								}
 							}
 						}
