@@ -316,8 +316,8 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	console.log("winner1or2 "+winner1or2);
 	console.log("player1Record "+player1Record);
 	console.log("player2Record "+player2Record);
-	console.log("player1Record[player1gamecategory] "+player1Record[player1gamecategory]):
-	console.log("player2Record[player2gamecategory] "+player2Record[player2gamecategory]):
+	console.log("player1Record[player1gamecategory] "+player1Record[player1gamecategory]);
+	console.log("player2Record[player2gamecategory] "+player2Record[player2gamecategory]);
 	
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
