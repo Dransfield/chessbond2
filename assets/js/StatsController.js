@@ -230,7 +230,8 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						//console.log("gothere1");
 						if (name=="Chunkations")
 						{console.log("winner is "+name);
-							console.log("I am "+gData.Player2Name);
+							console.log("I am "+gData.Player1Name);
+							console.log("gData.Player2CategoryELO "+gData.Player2CategoryELO);
 						}
 						
 						
