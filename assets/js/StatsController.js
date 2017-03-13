@@ -81,6 +81,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		if(!$scope.LookedatUser['lowest'+mycolor+resData[x].GameCategory])
 		{$scope.LookedatUser['lowest'+mycolor+resData[x].GameCategory]=99999;}
 		
+		
+							
+		
 				var splitted=resData[x].Result.split(">");
 					for (y in splitted)
 					{
@@ -275,6 +278,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	
 	$scope.GetLowestRating=function(gData,MyID,splitted,name,mycolor)
 	{
+		/*
 		if (gData.GameCategory=="8|0")
 						{
 							console.log("gData.GameCategory "+gData.GameCategory);
@@ -284,32 +288,37 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
 						console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
 						}
+			*/			
+						
+						
 				if(gData.Player1==MyID)
-					{
-						if(gData.Player1Name!=name)
-						{
-						
-						
+					{		
 							if(gData.Player1CategoryELOafter)
 							{
-								if(gData.Player1CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
-								{
-											if (gData.GameCategory=="8|0")
+									/*if (gData.GameCategory=="8|0")
 												{
 												console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
 												console.log("gData.GameCategory "+gData.GameCategory);
-												}
+												}*/
+												
+								if(gData.Player1CategoryELOafter<$scope.LookedatUser['lowest'+mycolor+gData.GameCategory])
+								{
+											//if (gData.GameCategory=="8|0")
+												//{
+												//console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
+												//console.log("gData.GameCategory "+gData.GameCategory);
+												//}
 											
 									$scope.$apply(function(){$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter});
-								console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
+								//console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
 								}
 							}
-						}
+						
 					}
 					if(gData.Player2==MyID)
 					{
-						if(gData.Player2Name!=name)
-						{
+						//if(gData.Player2Name!=name)
+						//{
 							if(gData.Player2CategoryELOafter)
 							{
 								
@@ -319,7 +328,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 								}
 							}
 						
-						}
+						//}
 					}
 				
 				
