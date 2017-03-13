@@ -285,6 +285,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 							console.log("I am "+gData.Player1Name);
 							console.log("gData.Player1CategoryELO "+gData.Player1CategoryELO);
 						console.log("$scope.LookedatUser['lowest'+mycolor+gData.GameCategory] "+$scope.LookedatUser['lowest'+mycolor+gData.GameCategory]);
+						console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);
 						}
 						
 							if(gData.Player1CategoryELOafter)
