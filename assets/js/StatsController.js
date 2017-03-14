@@ -66,7 +66,8 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			if(resData[x].Player2==MyID)
 						{mycolor=p2color;}
 					
-			
+		if(!$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory])
+		{$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=0;}
 		if(!$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory])
 		{$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory]=0;}
 		$scope.LookedatUser['totalgames'+mycolor+resData[x].GameCategory]++;
