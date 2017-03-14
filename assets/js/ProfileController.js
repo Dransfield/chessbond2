@@ -1037,7 +1037,10 @@ $scope.countries=[
 	$scope.fidetitles=$scope.menfidetitles;
 	if($scope.User.FideTitle.indexOf("W")>-1)
 	{
-		$scope.$apply(function(){$scope.User.FideTitle=$scope.User.FideTitle.slice(2, 2);});
+	console.log("$scope.User.FideTitle.slice(2, 2); "+$scope.User.FideTitle.slice(2, 2));
+	
+	$scope.User.FideTitle=$scope.User.FideTitle.slice(2, 2);
+	
 	}
 	}
 	else
