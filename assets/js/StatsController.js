@@ -80,10 +80,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 		{$scope.LookedatUser['highest'+mycolor+resData[x].GameCategory]=0;}
 		if(!$scope.LookedatUser['lowest'+mycolor+resData[x].GameCategory])
 		{$scope.LookedatUser['lowest'+mycolor+resData[x].GameCategory]=99999;}
-		if(!$scope.LookedatUser['bestwin'+mycolor+resData[x].GameCategory])
-		{$scope.LookedatUser['bestwin'+mycolor+resData[x].GameCategory]=0;}
-		if(!$scope.LookedatUser['lowestloss'+mycolor+resData[x].GameCategory])
-		{$scope.LookedatUser['lowestloss'+mycolor+resData[x].GameCategory]=30000;}
+	
 		if(!resData[x].Player1CategoryELO)
 		{resData[x].Player1CategoryELO=1200}
 		if(!resData[x].Player2CategoryELO)
@@ -194,7 +191,9 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 								console.log("HHHHHEEEEEEEEELLLLLLLLLLEOOOOOOOOOO");
 								console.log("gothere2 gData.Player2CategoryELO "+gData.Player2CategoryELO);
 								console.log("$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory] "+$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]);
-							
+								if(!$scope.LookedatUser['bestwin'+mycolor+resData[x].GameCategory])
+								{$scope.LookedatUser['bestwin'+mycolor+resData[x].GameCategory]=0;}
+	
 								if(gData.Player2CategoryELO>$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
 								{
 									console.log("gothere3");
@@ -211,8 +210,10 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						
 						if(gData.Player1CategoryELO)
 							{
-								
-								if(gData.Player1CategoryELO<$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
+								if(!$scope.LookedatUser['bestwin'+mycolor+resData[x].GameCategory])
+									{$scope.LookedatUser['bestwin'+mycolor+resData[x].GameCategory]=0;}
+		
+								if(gData.Player1CategoryELO>$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
 								{
 									$scope.$apply(function(){$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=gData.Player1CategoryELO});
 								}
@@ -241,7 +242,8 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						
 							if(gData.Player2CategoryELO)
 							{
-							
+								if(!$scope.LookedatUser['lowestloss'+mycolor+resData[x].GameCategory])
+								{$scope.LookedatUser['lowestloss'+mycolor+resData[x].GameCategory]=30000;}
 								if(gData.Player2CategoryELO<$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory])
 								{
 								$scope.$apply(function(){$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory]=gData.Player2CategoryELO});
@@ -260,7 +262,8 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						
 						if(gData.Player1CategoryELO)
 							{
-								
+								if(!$scope.LookedatUser['lowestloss'+mycolor+resData[x].GameCategory])
+								{$scope.LookedatUser['lowestloss'+mycolor+resData[x].GameCategory]=30000;}
 								if(gData.Player1CategoryELO<$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory])
 								{
 									$scope.$apply(function(){$scope.LookedatUser['lowestloss'+mycolor+gData.GameCategory]=gData.Player1CategoryELO});
