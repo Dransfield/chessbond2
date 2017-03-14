@@ -343,6 +343,12 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	
 				if(gData.Player1==MyID)
 					{
+							if(gData.GameCategory=="8|0")
+							{
+								console.log("gData.Player1Name "+gData.Player1Name);
+								console.log("name "+name);
+							}
+						
 						if(gData.Player1Name==name)
 						{
 							if(gData.GameCategory=="8|0")
