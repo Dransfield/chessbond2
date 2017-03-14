@@ -180,7 +180,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						
 						if(gData.Player1Name==name)
 						{
-						console.log("gothere1");
+						console.log("gothere1 gData.Player2CategoryELO"+gData.Player2CategoryELO);
 					
 						
 						
