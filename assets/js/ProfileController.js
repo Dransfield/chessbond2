@@ -332,7 +332,9 @@ $scope.Accounts=[];
 		$scope.phrasefordate=function(dat)
 			{
 			var nu=Date.parse(dat);
-			//console.log("nu "+nu);
+			console.log("nu "+nu);
+			if(!nu)
+			{return"-----";}
 		var n = Date.now();
 		
 		var newnum=n-nu;

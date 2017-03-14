@@ -17,7 +17,7 @@ angular.module('HomepageModule').controller('RegisterController', ['$scope', '$h
 			else
 			{
 			toastr.success(resData.data.message);
-				$window.location.href = '/';
+			$window.location.href = '/justloggedin';
 			}
 			}
 			);
