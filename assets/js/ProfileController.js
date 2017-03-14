@@ -1037,9 +1037,9 @@ $scope.countries=[
 	$scope.fidetitles=$scope.menfidetitles;
 	if($scope.User.FideTitle.indexOf("W")>-1)
 	{
-	console.log("ARRRRRGGGGGGGG; "+$scope.User.FideTitle.slice(1, 2));
+	console.log("ARRRRRGGGGGGGG; "+$scope.User.FideTitle.slice(1, 3));
 	
-	$scope.User.FideTitle=$scope.User.FideTitle.slice(2, 2);
+	$scope.User.FideTitle=$scope.User.FideTitle.slice(1, 2);
 	console.log("TFT"+$scope.User.FideTitle);
 	}
 	}
