@@ -186,7 +186,8 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						
 							if(gData.Player2CategoryELO)
 							{
-								console.log("gothere2");
+								console.log("gothere2 gData.Player2CategoryELO "+gData.Player2CategoryELO);
+								console.log("$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory] "+$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]);
 								if(!$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
 								{$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=0;}
 								if(gData.Player2CategoryELO>$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
