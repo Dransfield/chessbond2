@@ -142,7 +142,7 @@
 					<td>
 			<% if (req.session.passport){ %>
        		<% if (req.session.passport.user==lookedatuser){ %>
-       			<button ng-click="editgender=!editgender" class="btn btn-sml">...
+       			<button ng-click="editgender=!editgender" class="btn btn-sml">...</button>
        			 <div ng-show ="editgender" style="display:flex">
 				  <select class="form-control"
                   ng-model="User.Gender"
@@ -156,7 +156,7 @@
                      {{gender}}
                   </option>
                </select>
-               </button>
+               
                <%}%>
 			   <%}%>
 			
@@ -261,7 +261,7 @@
 					<td>
 			<% if (req.session.passport){ %>
        		<% if (req.session.passport.user==lookedatuser){ %>
-       			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...
+       			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...</button>
        			 <div ng-show ="editfidetitle" style="display:flex">
 				  <select class="form-control"
                   ng-model="User.FideTitle"
@@ -274,7 +274,7 @@
                      {{fidetitle}}
                   </option>
                </select>
-               </button>
+               
                <%}%>
                <%}%>
 					{{LookedatUser.FideTitle}}
