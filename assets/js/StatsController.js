@@ -91,8 +91,9 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 					{
 						if(splitted[y].indexOf("Drew by")>-1||splitted[y].indexOf("Won by")>-1)
 						{
-							$scope.GetHighestRating(resData[x],MyID,splitted,name,mycolor);
-								$scope.GetLowestRating(resData[x],MyID,splitted,name,mycolor);
+							$scope.GetHighestRating(resData[x],MyID,splitted,mycolor);
+								$scope.GetLowestRating(resData[x],MyID,splitted,mycolor);
+								$scope.GetAverageOppositionRating(resData[x],MyID,splitted,mycolor);
 						}
 						if(splitted[y].indexOf("Drew by")>-1)
 						{
@@ -121,12 +122,14 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 			$scope.LookedatUser['drawpercent'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['DrawnGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);
 			$scope.LookedatUser['winpercent'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['WonGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);								
 			$scope.LookedatUser['losepercent'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['LostGames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);	
+			$scope.LookedatUser['averageoppositionrating'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt($scope.LookedatUser['totaloppositionrating'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'White'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]);
 			}
 			if($scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])
 			{
 			$scope.LookedatUser['drawpercent'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['DrawnGames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);
 			$scope.LookedatUser['winpercent'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['WonGames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);								
 			$scope.LookedatUser['losepercent'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt(($scope.LookedatUser['LostGames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime])*100);	
+			$scope.LookedatUser['averageoppositionrating'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]=parseInt($scope.LookedatUser['totaloppositionrating'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]/$scope.LookedatUser['totalgames'+'Black'+$scope.categories[ca].time+"|"+$scope.categories[ca].extratime]);		
 			}
 			}
 			});
@@ -177,21 +180,14 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	
 				if(gData.Player1==MyID)
 					{
-						//console.log("gData.Player1Name "+gData.Player1Name);
-						//console.log("name "+name);
-						
+					
 						if(gData.Player1Name==name)
 						{
-						//console.log("gothere1 gData.Player2CategoryELO"+gData.Player2CategoryELO);
 					
 						
 						
 							if(gData.Player2CategoryELO)
 							{
-								/*console.log("HHHHHEEEEEEEEELLLLLLLLLLEOOOOOOOOOO");
-								console.log("gothere2 gData.Player2CategoryELO "+gData.Player2CategoryELO);
-								console.log("$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory] "+$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]);
-								*/
 								if(!$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory])
 								{$scope.LookedatUser['bestwin'+mycolor+gData.GameCategory]=0;}
 	
@@ -279,7 +275,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	
 	
 	
-	$scope.GetLowestRating=function(gData,MyID,splitted,name,mycolor)
+	$scope.GetLowestRating=function(gData,MyID,splitted,mycolor)
 	{
 		/*
 		if (gData.GameCategory=="2|1")
@@ -338,20 +334,13 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	}
 	
 	
-	$scope.GetHighestRating=function(gData,MyID,splitted,name,mycolor)
+	$scope.GetHighestRating=function(gData,MyID,splitted,mycolor)
 	{
 	
 				if(gData.Player1==MyID)
 					{
-							if(gData.GameCategory=="8|0")
-							{
-								console.log("gData.Player1Name "+gData.Player1Name);
-								console.log("name "+name);
-							}
-						
+							
 					
-							if(gData.GameCategory=="8|0")
-							{console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);}
 							if(gData.Player1CategoryELOafter)
 							{
 								if(gData.Player1CategoryELOafter>$scope.LookedatUser['highest'+mycolor+gData.GameCategory])
@@ -378,8 +367,19 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 				
 				
 	}
-	
-	
+	$scope.GetAverageOppositionRating=function(resData[x],MyID,splitted,mycolor)
+	{
+			if(gData.Player1==MyID)
+					{
+					$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=gData.Player2CategoryELOafter});
+					}
+			if(gData.Player2==MyID)
+					{
+					$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter});
+					}
+				
+		
+	}
 	$scope.getLookedatUser=function(MyID)
 	{	
 		
