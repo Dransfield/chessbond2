@@ -1047,6 +1047,13 @@ $scope.countries=[
 	else
 	{	
 	$scope.fidetitles=$scope.womenfidetitles;
+	
+	if($scope.User.FideTitle.indexOf("W")==-1)
+	{
+	$scope.User.FideTitle="W"+$scope.User.FideTitle;
+	$scope.PrefSelectChanged('FideTitle',$scope.User.id);
+	}
+	
 	}
 		$scope.ProfileWasUpdated(MyID);
 	};
