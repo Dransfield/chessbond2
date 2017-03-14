@@ -371,11 +371,11 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 	{
 			if(gData.Player1==MyID)
 					{
-					$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=gData.Player2CategoryELOafter;
+					$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]+gData.Player2CategoryELOafter;
 					}
 			if(gData.Player2==MyID)
 					{
-					$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter;
+					$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]=$scope.LookedatUser['totaloppositionrating'+mycolor+gData.GameCategory]+gData.Player1CategoryELOafter;
 					}
 				
 		
