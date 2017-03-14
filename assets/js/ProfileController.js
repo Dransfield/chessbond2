@@ -1039,7 +1039,8 @@ $scope.countries=[
 	{
 	console.log("ARRRRRGGGGGGGG; "+$scope.User.FideTitle.slice(1, 3));
 	
-	$scope.User.FideTitle=$scope.User.FideTitle.slice(1, 2);
+	$scope.User.FideTitle=$scope.User.FideTitle.slice(1, 3);
+	$scope.PrefSelectChanged('FideTitle',$scope.User.id);
 	console.log("TFT"+$scope.User.FideTitle);
 	}
 	}
