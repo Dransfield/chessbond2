@@ -349,8 +349,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 								console.log("name "+name);
 							}
 						
-						if(gData.Player1Name==name)
-						{
+					
 							if(gData.GameCategory=="8|0")
 							{console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);}
 							if(gData.Player1CategoryELOafter)
@@ -361,12 +360,10 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 									$scope.$apply(function(){$scope.LookedatUser['highest'+mycolor+gData.GameCategory]=gData.Player1CategoryELOafter});
 								}
 							}
-						}
+						
 					}
 					if(gData.Player2==MyID)
 					{
-						if(gData.Player2Name==name)
-						{
 							if(gData.Player2CategoryELOafter)
 							{
 								
@@ -376,7 +373,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 								}
 							}
 						
-						}
+						
 					}
 				
 				
