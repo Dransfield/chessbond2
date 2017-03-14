@@ -332,7 +332,7 @@ $scope.Accounts=[];
 		$scope.phrasefordate=function(dat)
 			{
 			var nu=Date.parse(dat);
-			console.log("nu "+nu);
+			
 			if(!nu)
 			{return"-----";}
 		var n = Date.now();
@@ -693,7 +693,13 @@ $scope.Accounts=[];
 
 			newdate = day+ "/"+month+"/"+year ;
 			$scope.LookedatUser.Registeredmemberon=newdate;
+			if($scope.LookedatUser.Lastlogin){
 			$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.Lastlogin);
+			}
+			else
+			{
+				$scope.LookedatUser.LastloginPhrase=$scope.phraseforloggedindate($scope.LookedatUser.createdAt);
+			}
 			$scope.LookedatUser.ProfileUpdatedPhrase=$scope.phrasefordate($scope.LookedatUser.ProfileUpdated);
 			console.log("looked at user is "+$scope.LookedatUser.name);
 			}
