@@ -367,7 +367,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 				
 				
 	}
-	$scope.GetAverageOppositionRating=function(resData[x],MyID,splitted,mycolor)
+	$scope.GetAverageOppositionRating=function(gData,MyID,splitted,mycolor)
 	{
 			if(gData.Player1==MyID)
 					{
