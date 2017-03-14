@@ -346,7 +346,7 @@ $scope.GetBestWin=function(gData,MyID,splitted,name,mycolor)
 						if(gData.Player1Name==name)
 						{
 							if(gData.GameCategory=="8|0")
-							{console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter)}
+							{console.log("gData.Player1CategoryELOafter "+gData.Player1CategoryELOafter);}
 							if(gData.Player1CategoryELOafter)
 							{
 								if(gData.Player1CategoryELOafter>$scope.LookedatUser['highest'+mycolor+gData.GameCategory])
