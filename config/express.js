@@ -1,6 +1,6 @@
 module.exports.express = {
     customMiddleware: function (app) {
-        var express = require('../node_modules/sails/node_modules/express');
+        var express = require('express');
         app.use(express.compress());
     }
     };
