@@ -1043,13 +1043,13 @@ $scope.countries=[
 	{	
 	$scope.fidetitles=$scope.womenfidetitles;
 	}
-		ProfileWasUpdated(MyID);
+		$scope.ProfileWasUpdated(MyID);
 	};
 	
 	$scope.setCity=function(MyID)
 	{
 		$scope.editcity=false;
-		ProfileWasUpdated(MyID);
+		$scope.ProfileWasUpdated(MyID);
 	};
 
 }]);
