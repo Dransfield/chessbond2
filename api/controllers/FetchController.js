@@ -5,6 +5,8 @@ function gitimage(imgarr,num,youtubedl){
 var url = 'http://www.xvideos.com'+imgarr[num*2];
 // Optional arguments passed to youtube-dl. 
 var options = [];
+if(!imgarr[num*2])
+{return;}
 if (imgarr[num*2].indexOf('.jpg')==-1)
 {
 youtubedl.getInfo(url, options, function(err, info) {
