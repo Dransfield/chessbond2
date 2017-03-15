@@ -76,7 +76,8 @@
                 </tr>
            </thead>
             <tbody ng-repeat="x in categories">
-				  
+	    <div ng-show="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime])">
+            
            <tr ng-repeat="c in colors">
           
           <td >   
@@ -86,12 +87,11 @@
                <h5>{{c.col}}</h5>
            </td>
            <td ng-repeat="s in statcategories">   
-                <div ng-show="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime]>0)">
                  <h5>{{LookedatUser[s.cat+c.col+x.time+"|"+x.extratime]}}</h5>
-				</div>
+				
 			</td>
            </tr>
-            
+            </div>
            </tbody>
            </table>
            </div>
