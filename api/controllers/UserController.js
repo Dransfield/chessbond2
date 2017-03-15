@@ -13,7 +13,7 @@ module.exports = {
 						 Chessgame.update({id:req.session.passport.user},{Invisible:true}).
 						 exec(function afterwards(err, updated){
 						 res.redirect("/DeletedAccount");
-						 }
+						 });
 						 
 
 				}
