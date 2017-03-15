@@ -47,7 +47,7 @@ module.exports.routes = {
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
 	'GET /session/:SessionID':{view:'session'},
 	'GET /DeleteAccount':'UserController.DeleteAccount',
-	'GET /DeletedAccount':{view:'deletedaccount'},
+	'/DeletedAccount':{view:'deletedaccount'},
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	
