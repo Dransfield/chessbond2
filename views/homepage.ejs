@@ -43,7 +43,7 @@
  <%-JSON.stringify(req.session.passport) %>
  -->
 	
-	<div style="z-index:999;width:100%;height:100%;opacity:0.6;position:fixed;left:0;top:0;">
+	<div ng-show="User.Invisible" style="z-index:999;width:100%;height:100%;opacity:0.6;position:fixed;left:0;top:0;">
 	
   <%- include partials/navbar.ejs %>
 	
