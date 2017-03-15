@@ -331,6 +331,8 @@ $scope.PlayGame=function(GameID,Player2)
 $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamType,GamCategory,timelimit){
 		console.log("joingame player1"+PlayerID+" player2"+MyID+" player1name "+PlayerName+" Player2Name "+MyName);
 		console.log("timelimit*60"+timelimit*60);
+		if ($scope.User.Invisible==false)
+		{
 		$http.put('/joingame', {
 			GameID:GameID,
 			PlayerID:PlayerID,
@@ -348,7 +350,12 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
 			$scope.deleteopengame(GameID);
 			}
 			)
-			};
+			}
+			else
+			{
+				toastr.warning('Disabled Account',"Can't join game");
+			}
+		};
 			
 		$scope.deletegame=function(id,user)
 		{
