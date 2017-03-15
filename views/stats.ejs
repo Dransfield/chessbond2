@@ -32,70 +32,8 @@
    </head>
      <body ng-app="HomepageModule" ng-controller="StatsController" ng-cloak>
    <%- include partials/navbar.ejs %>
-   <h3>Statistics</h3>
-		
-		<% var lookedatuser; %>
-	<% if (req.param('userID')){ %>
-			<% lookedatuser=req.param('userID'); %>
-		
-		<% } %>
-		
-	  
-	  <% if (req.session.passport){ %>
-	  <% if (req.session.passport.user){ %>
-	<% if (!req.param('userID')){ %>
-		<% lookedatuser=  req.session.passport.user;%>
-	  <% } %>
-	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
-	  
-      <% } %>
-	<% } %>
-	<div ng-init="getLookedatUser('<%-req.session.passport.user%>')"></div>
-	     <div class="table-responsive">
-            <table class="table table-striped">
-              
-		
-			<thead>
-                <tr>
-	              <th>Category</th>
-                  <th>Color</th>
-                  <th>Current Ratings</th>
-                  <th>Win%</th>
-                  <th>Loss%</th>
-                  <th>Draws%</th>
-                  <th>Highest ratings scored</th>
-                  <th>Lowest ratings scored</th>
-                  <th>Average Oppositon Ratings</th>
-                  <th>Best Win</th>
-                  <th>Lowest Loss</th>
-                  
-                  <th>Total Games</th>
-                  <th>Total Moves</th>
-                  <th>Average Move/Game</th>
-				<!--HEADERS OF TABLE-->
-                </tr>
-           </thead>
-            <tbody ng-repeat="x in categories">
-	    
-           <tr ng-repeat="c in colors">
-          <div ng-show="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime])">
-            
-          <td >   
-               <h5>{{x.time}}|{{x.extratime}}</h5>
-           </td>
-           <td>   
-               <h5>{{c.col}}</h5>
-           </td>
-           <td ng-repeat="s in statcategories">   
-                 <h5 >{{LookedatUser[s.cat+c.col+x.time+"|"+x.extratime]}}</h5>
-				
-			</td>
-           </tr>
-            </div>
-           </tbody>
-           </table>
-           </div>
-		
+   <h3>Account Deleted</h3>
+	<h2>You have one year to recover your account<h2>
 
 	
 	</body>

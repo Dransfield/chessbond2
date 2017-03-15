@@ -52,7 +52,10 @@
 						<li><a href="/MyLogout">Logout</a></li>
 						<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
 						  <a href="{{n.adr}}">{{n.msg}}</a></li>
-						<li><a href="/DeleteAccount">Delete Account</a></li>
+							
+						<li ng-show="User.Invisible=true"><a href="/DeleteAccount">Undelete Account</a></li>
+						<li ng-show="User.Invisible=false"><a href="/DeleteAccount">Delete Account</a></li>
+					
 					</ul>
 				  </li>
 				  </ul>
