@@ -86,7 +86,7 @@
                <h5>{{c.col}}</h5>
            </td>
            <td ng-repeat="s in statcategories">   
-                <div ng-visible="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime]>0)">
+                <div ng-show="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime]>0)">
                  <h5>{{LookedatUser[s.cat+c.col+x.time+"|"+x.extratime]}}</h5>
 				</div>
 			</td>
