@@ -109,6 +109,8 @@ $scope.SoleConnectorVariable="";
 		console.log("$scope.GameForm2"+$scope.timeobject.time);
 		console.log("$scope.GameForm2"+$scope.timeobject.extratime);
 		var gamecat=$scope.timeobject.time+"|"+$scope.timeobject.extratime;
+			if($scope.User.Invisible=false)
+	{
 	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:$scope.timeobject.time,ExtraTimeLimit:$scope.timeobject.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
 
@@ -116,6 +118,11 @@ $scope.SoleConnectorVariable="";
       //window.location.reload(true); 
 		toastr.success('Created New Game');
     });
+	}
+	else
+	{
+		toastr.success('Disabled Account',"Can't create new game");
+	}
 	};
 	
 	$scope.createsession=function(type,id,name)
