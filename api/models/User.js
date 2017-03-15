@@ -27,8 +27,8 @@ BoardSize:{type:'integer',defaultsTo:300},
    Lastlogin:{type:'string',defaultsTo:""},
    CurrentCity:{type:'string',defaultsTo:""},
    FideTitle:{type:'string',defaultsTo:""},
-   ValidFideID:{type:'integer',defaultsTo:0},
-   FideRatings:{type:'integer',defaultsTo:0}
+   ValidFideID:{type:'string',defaultsTo:""},
+   FideRatings:{type:'string',defaultsTo:""}
 
 },
   beforeCreate: function(user, cb) {
