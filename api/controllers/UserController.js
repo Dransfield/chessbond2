@@ -19,7 +19,7 @@ module.exports = {
 				}
 			}
 		}
-	}
+	},
 	DeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){
