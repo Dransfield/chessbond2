@@ -86,8 +86,9 @@
                <h5>{{c.col}}</h5>
            </td>
            <td ng-repeat="s in statcategories">   
+                <div ng-init="LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime]">
                  <h5>{{LookedatUser[s.cat+c.col+x.time+"|"+x.extratime]}}</h5>
-          
+				</div>
 			</td>
            </tr>
             
