@@ -76,10 +76,10 @@
                 </tr>
            </thead>
             <tbody ng-repeat="x in categories">
-	    <div ng-show="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime])">
-            
+	    
            <tr ng-repeat="c in colors">
-          
+          <div ng-show="(LookedatUser['totalgames'+c.col+x.time+"|"+x.extratime])">
+            
           <td >   
                <h5>{{x.time}}|{{x.extratime}}</h5>
            </td>
