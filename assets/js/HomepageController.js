@@ -109,7 +109,7 @@ $scope.SoleConnectorVariable="";
 		console.log("$scope.GameForm2"+$scope.timeobject.time);
 		console.log("$scope.GameForm2"+$scope.timeobject.extratime);
 		var gamecat=$scope.timeobject.time+"|"+$scope.timeobject.extratime;
-			if($scope.User.Invisible=false)
+			if($scope.User.Invisible==false)
 	{
 	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:$scope.timeobject.time,ExtraTimeLimit:$scope.timeobject.extratime,Player1Color:$scope.GameForm.color,Player1: id,Player1Name:name },
     function (resData, jwr) {
