@@ -48,6 +48,8 @@ module.exports.routes = {
 	'GET /session/:SessionID':{view:'session'},
 	'GET /DeleteAccount':'UserController.DeleteAccount',
 	'/DeletedAccount':{view:'accountdeleted'},
+	'GET /UndeleteAccount':'UserController.UndeleteAccount',
+	'/UndeletedAccount':{view:'accountundeleted'},
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	

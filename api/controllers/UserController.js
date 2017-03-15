@@ -6,6 +6,20 @@
  */
 
 module.exports = {
+	UndeleteAccount:function(req,res){
+		if(req.session){
+			if(req.session.passport){
+				if(req.session.passport.user){
+						 User.update({id:req.session.passport.user},{Invisible:false}).
+						 exec(function afterwards(err, updated){
+						 res.redirect("/UndeletedAccount");
+						 });
+						 
+
+				}
+			}
+		}
+	}
 	DeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){
