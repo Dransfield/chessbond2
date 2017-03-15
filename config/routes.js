@@ -52,7 +52,7 @@ module.exports.routes = {
 	'/forgot':{view:'forgot'},
 	
 	
-	//'/profilealbum': {view: 'myfile'},
+	'profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
 	'GET /registerpage':{view:'register'},
