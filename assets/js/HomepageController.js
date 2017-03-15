@@ -121,7 +121,7 @@ $scope.SoleConnectorVariable="";
 	}
 	else
 	{
-		toastr.success('Disabled Account',"Can't create new game");
+		toastr.warning('Disabled Account',"Can't create new game");
 	}
 	};
 	
