@@ -28,13 +28,9 @@ module.exports = {
 						 exec(function afterwards(err, updated){
 							 var schedule = require('node-schedule');
 							//var date = new Date(2012, 11, 21, 5, 30, 0);
-								var date=new Date();
-								console.log(date);
-								date.setSeconds(date.getSeconds() + 10);
-								console.log(date);
-								console.log(updated[0].id);
-							console.log(JSON.stringify(updated));
-							var j = schedule.scheduleJob({seconds:5}, function(usr){
+								var rule = new schedule.RecurrenceRule();
+								rule.second = 42;
+							var j = schedule.scheduleJob(rule, function(usr){
 								console.log('delete '+usr);
 								}.bind(updated[0].id,updated[0].id));
 							 
