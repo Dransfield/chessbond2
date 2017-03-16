@@ -344,7 +344,7 @@ sails.on("lifted",UpdateAccountsMarkedForDeletion);
 							//var date = new Date(2012, 11, 21, 5, 30, 0);
 								var rule = new schedule.RecurrenceRule();
 								//rulehour = 17;
-							rule.second=43;
+							rule.hour=10;
 							var j = schedule.scheduleJob
 							(rule,function(){
 								console.log("cron job is working");
