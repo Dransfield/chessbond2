@@ -358,7 +358,7 @@ sails.on("lifted",UpdateAccountsMarkedForDeletion);
 								
 								if(nowupdated[x].DaysToDelete<1)
 								{
-									User.destroy(id:nowupdated[x].id).exec(function (err) {
+									User.destroy({id:nowupdated[x].id}).exec(function (err) {
 
 										});
 									
