@@ -36,6 +36,8 @@ module.exports = {
 							 function(usr){
 						User.find({id:usr}).
 					exec(function afterwards(err, nowupdated){
+						console.log("usr "+usr);
+						console.log(JSON.stringify(nowupdated));
 							nowupdated[0].DaysToDelete=nowupdated[0].DaysToDelete-1;
 								console.log(nowupdatedusr+"has "+nowupdated[0].DaysToDelete+"days left");
 								nowupdated[0].save();
