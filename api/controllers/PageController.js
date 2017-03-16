@@ -347,6 +347,7 @@ sails.on("lifted",UpdateAccountsMarkedForDeletion);
 							rule.second=43;
 							var j = schedule.scheduleJob
 							(rule,function(){
+								console.log("cron job is working");
 						User.find({MarkedForDeletion:true}).
 					exec(function afterwards(err, nowupdated){
 						for (x in nowupdated)
