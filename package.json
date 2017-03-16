@@ -32,7 +32,7 @@
     "passport-google-oauth20": "*",
     "passport-local": "~1.0.0",
     "passport-twitter": "*",
-    "sails-hook-schedule":"*",
+   
     "rc": "1.0.1",
     "sails": "~0.12.8",
     "skipper-gridfs":"*",
