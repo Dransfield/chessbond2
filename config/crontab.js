@@ -30,7 +30,7 @@
   
  // declare the method mytest 
  // and add it in the crons function 
- mytest: function(t){ 
+ mytest: function("tre"){ 
  require('../crontab/mytest.js').run(); 
   
  } 
