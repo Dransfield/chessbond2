@@ -17,7 +17,7 @@
  crons:function() 
  { 
  var jsonArray = []; 
- jsonArray.push({interval:'*/1 * * * * * ',method:'mytest'}); 
+ jsonArray.push({interval:'* */1 * * * * ',method:'mytest'}); 
   
   
  // add more cronjobs if you want like below 
