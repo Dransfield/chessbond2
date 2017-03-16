@@ -21,7 +21,7 @@
   </head>
 
   <body ng-app="HomepageModule"  ng-mousemove="MouseWasMoved()" ng-controller="ProfileController" style="display:none"  id="mainContainer">
-     	<div ng-style="{'opacity' : User.Invisible ? 0.42:1}" style="background-color:black;z-index:999;width:100%;height:100%;opacity:0.9;position:fixed;left:0;top:0;">
+     	<div  ng-show="User.Invisible" ng-style="{'opacity' : User.Invisible ? 0.42:1}" style="background-color:black;z-index:999;width:100%;height:100%;opacity:0.9;position:fixed;left:0;top:0;">
 	
 	 <% var lookedatuser; %>
 	<% if (req.param('userID')){ %>
