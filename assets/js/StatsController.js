@@ -36,7 +36,7 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							{cat:'totalgames'},
 							{cat:'totalmoves'},
 							{cat:'averagemoves'}];
-	$scope.RedirectMe()
+	$scope.RedirectMe=function()
 	{
 		setTimeout(function(){
 			$window.location.href = '/profile';
