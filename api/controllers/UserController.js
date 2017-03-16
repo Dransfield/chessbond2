@@ -24,15 +24,20 @@ module.exports = {
 		if(req.session){
 			if(req.session.passport){
 				if(req.session.passport.user){
-						 User.update({id:req.session.passport.user},{Invisible:true}).
+						 User.update({id:req.session.passport.user},{Invisible:true,DaysToDelete:365}).
 						 exec(function afterwards(err, updated){
 							 var schedule = require('node-schedule');
 							//var date = new Date(2012, 11, 21, 5, 30, 0);
 								var rule = new schedule.RecurrenceRule();
-								rule.second = 42;
+								//rulehour = 17;
+							rule.second=43;
 							var j = schedule.scheduleJob(rule, function(usr){
-								console.log('delete '+usr);
-								}.bind(updated[0].id,updated[0].id));
+									 User.find({id:usr}).
+						 exec(function afterwards(err, nowupdated){
+							nowupdated[0].DaysToDelete=nowupdated[0].DaysToDelete-1;
+								console.log(nowupdatedusr+"has "+nowupdated[0].DaysToDelete+"days left");
+								nowupdated[0].save();
+								}.bind(updated[0].id));
 							 
 						 res.redirect("/DeletedAccount");
 						 });
