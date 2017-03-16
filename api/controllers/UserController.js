@@ -32,11 +32,11 @@ module.exports = {
 								console.log(date);
 								date.setSeconds(date.getSeconds() + 10);
 								console.log(date);
-								console.log(updated.id);
+								console.log(updated[0].id);
 							console.log(JSON.stringify(updated));
 							var j = schedule.scheduleJob(date, function(usr){
 								console.log('delete '+usr);
-								}.bind(updated.id,updated.id));
+								}.bind(updated[0].id,updated[0].id));
 							 
 						 res.redirect("/DeletedAccount");
 						 });
