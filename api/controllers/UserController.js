@@ -32,8 +32,7 @@ module.exports = {
 								//rulehour = 17;
 							rule.second=43;
 							var j = schedule.scheduleJob
-							(rule,
-							 function(usr){
+							(rule,function(usr){
 						User.find({id:usr}).
 					exec(function afterwards(err, nowupdated){
 						console.log("usr "+usr);
@@ -43,7 +42,7 @@ module.exports = {
 								nowupdated[0].save();
 								});
 								}.bind
-								(updated[0].id));
+								(updated[0].id,updated[0].id)));
 							 
 						 res.redirect("/DeletedAccount");
 						
