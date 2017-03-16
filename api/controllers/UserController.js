@@ -33,6 +33,7 @@ module.exports = {
 								date.setSeconds(date.getSeconds() + 10);
 								console.log(date);
 								console.log(updated.id);
+							console.log(JSON.stringify(updated));
 							var j = schedule.scheduleJob(date, function(usr){
 								console.log('delete '+usr);
 								}.bind(updated.id,updated.id));
