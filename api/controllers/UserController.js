@@ -41,8 +41,7 @@ module.exports = {
 								console.log(nowupdatedusr+"has "+nowupdated[0].DaysToDelete+"days left");
 								nowupdated[0].save();
 								});
-								}.bind
-								(updated[0].id,updated[0].id)));
+								}.bind(updated[0].id,updated[0].id));
 							 
 						 res.redirect("/DeletedAccount");
 						
