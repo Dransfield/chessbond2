@@ -30,7 +30,7 @@ module.exports = {
 							//var date = new Date(2012, 11, 21, 5, 30, 0);
 								var date=new Date();
 								console.log(date);
-								date=date+2000;
+								date.setSeconds(date.getSeconds() + 10);
 								console.log(date);
 							var j = schedule.scheduleJob(date, function(){
 								console.log('The world is going to end today.');
