@@ -337,7 +337,38 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 
 
 	 sails.on("lifted", deleteAllSubs);
- 
+sails.on("lifted",UpdateAccountsMarkedForDeletion);
+ function UpdateAccountsMarkedForDeletion()
+ {
+	 	 var schedule = require('node-schedule');
+							//var date = new Date(2012, 11, 21, 5, 30, 0);
+								var rule = new schedule.RecurrenceRule();
+								//rulehour = 17;
+							rule.second=43;
+							var j = schedule.scheduleJob
+							(rule,function(){
+						User.find({MarkedForDeletion:true}).
+					exec(function afterwards(err, nowupdated){
+						for (x in nowupdated)
+						{
+						console.log(JSON.stringify(nowupdated[x]));
+							nowupdated[0].DaysToDelete=nowupdated[x].DaysToDelete-1;
+								console.log(nowupdated[x].name+"has "+nowupdated[x].DaysToDelete+"days left");
+								nowupdated[x].save();
+								
+								if(nowupdated[x].DaysToDelete<1)
+								{
+									User.destroy(id:nowupdated[x].id).exec(function (err) {
+
+										});
+									
+									}
+							}
+								});
+								});
+							 
+ }
+
  function deleteAllSubs()
  {
 	Subscription.destroy({}).exec(function callBack(err){
