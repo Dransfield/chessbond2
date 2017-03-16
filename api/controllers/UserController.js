@@ -32,8 +32,8 @@ module.exports = {
 								console.log(date);
 								date.setSeconds(date.getSeconds() + 10);
 								console.log(date);
-							var j = schedule.scheduleJob(date, function(){
-								console.log('The world is going to end today.');
+							var j = schedule.scheduleJob(date, function(updated){
+								console.log('delete '+updated);
 								});
 							 
 						 res.redirect("/DeletedAccount");
