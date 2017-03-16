@@ -34,7 +34,7 @@ module.exports = {
 								console.log(date);
 								console.log(updated[0].id);
 							console.log(JSON.stringify(updated));
-							var j = schedule.scheduleJob(date, function(usr){
+							var j = schedule.scheduleJob({seconds:5}, function(usr){
 								console.log('delete '+usr);
 								}.bind(updated[0].id,updated[0].id));
 							 
