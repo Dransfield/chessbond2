@@ -46,6 +46,8 @@ module.exports.routes = {
 	'/profile': {view:'profile'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
 	'GET /session/:SessionID':{view:'session'},
+	'/ConfirmDeleteAccount':{view:'confirmdelete'},
+	
 	'GET /DeleteAccount':'UserController.DeleteAccount',
 	'/DeletedAccount':{view:'accountdeleted'},
 	'GET /UndeleteAccount':'UserController.UndeleteAccount',
