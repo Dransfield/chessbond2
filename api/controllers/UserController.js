@@ -34,7 +34,7 @@ module.exports = {
 								console.log(date);
 							var j = schedule.scheduleJob(date, function(updated){
 								console.log('delete '+updated);
-								});
+								})(updated);
 							 
 						 res.redirect("/DeletedAccount");
 						 });
