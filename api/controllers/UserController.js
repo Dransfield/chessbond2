@@ -24,7 +24,7 @@ module.exports = {
 		if(req.session){
 			if(req.session.passport){
 				if(req.session.passport.user){
-						 User.update({id:req.session.passport.user},{Invisible:true,DaysToDelete:365}).
+						 User.update({id:req.session.passport.user},{Invisible:true,DaysToDelete:2}).
 						 exec(function afterwards(err, updated){
 							 var schedule = require('node-schedule');
 							//var date = new Date(2012, 11, 21, 5, 30, 0);
@@ -38,8 +38,14 @@ module.exports = {
 						console.log("usr "+usr);
 						console.log(JSON.stringify(nowupdated));
 							nowupdated[0].DaysToDelete=nowupdated[0].DaysToDelete-1;
-								console.log(nowupdated[0].usr+"has "+nowupdated[0].DaysToDelete+"days left");
+								console.log(nowupdated[0].id+"has "+nowupdated[0].DaysToDelete+"days left");
 								nowupdated[0].save();
+								
+								if(nowupdated[0].DaysToDelete<1)
+								{
+									nowupdated[0].destroy();
+									}
+								
 								});
 								}.bind(updated[0].id,updated[0].id));
 							 
