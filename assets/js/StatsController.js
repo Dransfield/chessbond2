@@ -36,7 +36,13 @@ $scope.colors=[{col:'Overall'},{col:'Black'},{col:'White'}];
 							{cat:'totalgames'},
 							{cat:'totalmoves'},
 							{cat:'averagemoves'}];
-	
+	$scope.RedirectMe()
+	{
+		setTimeout(function(){
+			$window.location.href = '/profile';
+		},5000);
+		
+		}
 	$scope.getAllgamesandCalculate=function(MyID)
 	{
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
