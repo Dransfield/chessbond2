@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('ConfirmDeleteController', ['$scope'
 	
 	$scope.confirmdelete=function()
 	{
-	console.log(vm.password);
+	console.log($scope.vm.password);
 	}
 	$scope.getuser=function(MyID)
 	{
