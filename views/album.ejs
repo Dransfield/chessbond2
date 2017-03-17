@@ -54,7 +54,8 @@
 						</button>
 		 <input  ng-show="editalbumtitle" type="text"  class="form-control"  ng-change="ChangeAlbum('name','<%-req.param('albumID')%>',Album.name)" ng-model="Album.name" />
 	</span>
-	<div  style="display:flex" ng-repeat="pic in mypics track by $index">
+	
+	<!--<div  style="display:flex"> ng-repeat="pic in mypics track by $index">
 	<span>
 	<img style="width:400px" ng-src="/user/avatar/{{pic.id}}">
 	</span>
@@ -77,8 +78,36 @@
 	
 	
 	</span>
+	-->
+	
+	<div  style="display:flex">
+	<span>
+	<img style="width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
+	</span>
+	<span>
+	Created at {{mypics[picIndex].phrase}}<br>
+	<span ng-show="User.id==Album.user">
+		<button ng-click="editfideid=!editfideid" class="btn btn-sml">.Edit Description..
+						</button>
+		 <input  ng-show="editfideid" type="text"  class="form-control"  ng-change="ChangeAvatar('description',mypics[picIndex].id,mypics[picIndex].description)" ng-model="mypics[picIndex].description" />
+	</span>
+	<br>
+	<span style="border-style:inset">
+	{{mypics[picIndex].description}}
+	</span>
+	<br>
+	<button ng-click="SetAvatar('<%-req.session.passport.user%>',mypics[picIndex].id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
+	<br>
+	
+	<button ng-click="DeleteAvatar(mypics[picIndex].id,mypics[picIndex].avatarFd)" type="submit" class="btn btn-sml btn-success">Delete Image</button>
+	
+	
+	</span>
+	
+	
 	
 	</div>
-	
+		<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
+				<div class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">></div>
 	</body>
 </html>

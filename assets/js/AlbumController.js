@@ -1,5 +1,5 @@
 angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http','$window', 'toastr', function($scope, $http,$window, toastr){
-
+	$scope.picIndex=0;
 	$scope.mypics=[];
 		$scope.ChangeAlbum=function(prefid,me,newpref)
 		{

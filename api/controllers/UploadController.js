@@ -19,7 +19,7 @@ module.exports = {
 	Album.find({id:req.param('albumID')}).exec(function createFindCB(error, createdOrFoundRecords){
 	//console.log("error "+JSON.stringify(error));
 	if (error) return res.negotiate(error);
-	console.log("createdOrFoundRecords "+JSON.stringify(createdOrFoundRecords[0]));
+	//console.log("createdOrFoundRecords "+JSON.stringify(createdOrFoundRecords[0]));
 	Avatar.create({
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 		user:req.session.passport.user,
