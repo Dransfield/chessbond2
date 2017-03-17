@@ -20,13 +20,13 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		$scope.GetMorePics=function(id)
 		{
 			
-		$scope.$apply(function(){$scope.picIndex+=1;});
+		$scope.picIndex+=1;
 			
 		};
 		
 		$scope.GetOlderPics=function(id)
 		{
-		$scope.$apply(function(){$scope.picIndex-=1;});	
+		$scope.picIndex-=1;
 		};
 		$scope.ChangeAvatar=function(prefid,me,newpref)
 		{
