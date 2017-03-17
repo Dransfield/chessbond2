@@ -10,7 +10,7 @@ module.exports = {
 		if(req.session){
 			if(req.session.passport){
 				if(req.session.passport.user){
-						 User.update({id:req.session.passport.user},{Invisible:false,MarkedForDeletion:false}}).
+						 User.update({id:req.session.passport.user},{Invisible:false,MarkedForDeletion:false}).
 						 exec(function afterwards(err, updated){
 						 res.redirect("/UndeletedAccount");
 						 });
