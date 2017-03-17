@@ -2,7 +2,7 @@ module.exports = {
 
 		
 	UploadToAlbum: function (req, res) {
-
+	console.log("req.param('albumID') "+req.param('albumID'));
   req.file('avatar').upload({
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
@@ -17,7 +17,9 @@ module.exports = {
     }
 
 	Album.find({id:req.param('albumID')}).exec(function createFindCB(error, createdOrFoundRecords){
+	console.log("error "+JSON.stringify(error));
 	if (error) return res.negotiate(error);
+	console.log("createdOrFoundRecords "+JSON.stringify(createdOrFoundRecords));
 	Avatar.create({
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 		user:req.session.passport.user,
