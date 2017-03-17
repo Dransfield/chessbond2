@@ -64,7 +64,7 @@ angular.module('HomepageModule').controller('AlbumsController', ['$scope', '$htt
 		
 			if($scope.User.Invisible==false)
 	{
-	io.socket.put('/album', { name:"New Album" ,user:id},
+	io.socket.post('/album', { name:"New Album" ,user:id},
     function (resData, jwr) {
 
       $scope.getalbums(id);
