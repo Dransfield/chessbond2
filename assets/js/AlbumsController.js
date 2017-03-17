@@ -62,7 +62,7 @@ angular.module('HomepageModule').controller('AlbumsController', ['$scope', '$htt
 	{
 		
 		
-			if($scope.User.Invisible==false)
+			if(!$scope.User.Invisible)
 	{
 	io.socket.post('/album', { name:"New Album" ,user:id},
     function (resData, jwr) {
