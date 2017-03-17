@@ -3,7 +3,7 @@ angular.module('HomepageModule').controller('ConfirmDeleteController', ['$scope'
 	$scope.confirmdelete=function()
 	{
 	console.log($scope.vm.password);
-		$http.put("/login",{User.email:$scope.vm.username,password:$scope.vm.password})
+		$http.put("/login",{email:$scope.vm.username,password:$scope.vm.password})
 			.then(function onSuccess (resData, jwr){
 				if (resData.data.message!="Logged In Successfully")
 				{
