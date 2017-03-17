@@ -344,8 +344,8 @@ sails.on("lifted",UpdateAccountsMarkedForDeletion);
 							//var date = new Date(2012, 11, 21, 5, 30, 0);
 								var rule = new schedule.RecurrenceRule();
 								//rulehour = 17;
-							rule.hour=10;
-							rule.minute=29;
+						//	rule.hour=10;
+							//rule.minute=29;
 							rule.second=1;
 							var j = schedule.scheduleJob
 							(rule,function(){
