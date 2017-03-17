@@ -58,7 +58,7 @@ angular.module('HomepageModule').controller('AlbumsController', ['$scope', '$htt
 		
 			
 	};
-	$scope.createalbum=function(type,id,name,gamecat)
+	$scope.createalbum=function(id)
 	{
 		
 		
