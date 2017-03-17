@@ -1,6 +1,55 @@
 module.exports = {
 
 		
+	UploadToAlbum: function (req, res) {
+
+  req.file('avatar').upload({
+    // don't allow the total upload size to exceed ~10MB
+    maxBytes: 10000000
+  },function whenDone(err, uploadedFiles) {
+    if (err) {
+      return res.negotiate(err);
+    }
+
+    // If no files were uploaded, respond with an error.
+    if (uploadedFiles.length === 0){
+      return res.badRequest('No file was uploaded');
+    }
+
+	Album.find({id:req.param('albumID')}).exec(function createFindCB(error, createdOrFoundRecords){
+	if (error) return res.negotiate(error);
+	Avatar.create({
+	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
+		user:req.session.passport.user,
+      // Grab the first file and use it's `fd` (file descriptor)
+      albumid:createdOrFoundRecords.id,
+      avatarFd: uploadedFiles[0].fd
+    }) .exec(function (err,ava){
+      if (err) return res.negotiate(err);
+      
+    // Save the "fd" and the url where the avatar for a user can be accessed
+    User.update(req.session.passport.user, {
+
+      // Generate a unique URL where the avatar can be downloaded.
+      avatarid:ava.id,
+      picture:'https://www.chessbond.com/user/avatar/'+ava.id
+    })
+    .exec(function (err){
+      if (err) return res.negotiate(err);
+      return res.redirect('/album/'+createdOrFoundRecords.id);
+     // /'+req.session.passport.user);
+    });
+  });
+
+	});
+
+	
+  
+});
+    
+  
+ 
+},
 	
 	Upload: function (req, res) {
 

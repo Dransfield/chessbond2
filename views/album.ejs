@@ -37,10 +37,10 @@
 	</div>
    
    <h3>Upload more photos</h3>
-   <form action="/uploadavatar" enctype="multipart/form-data" method="post">
+   <form action="/uploadavatar/<%-req.param('albumID')%>" enctype="multipart/form-data" method="post">
     <input type="file" name="avatar" multiple="multiple"><br>
     <input type="submit" value="Upload">
-    </form>'
+    </form>
    <div ng-init="getalbum('<%-req.param('albumID')%>')">
 	</div>
     <div ng-init="getpics('<%-req.param('albumID')%>')">
