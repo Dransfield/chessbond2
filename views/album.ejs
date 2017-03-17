@@ -108,6 +108,6 @@
 	
 	</div>
 		<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
-				<div class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">></div>
+				<div ng-show="picIndex<mypics.length" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">></div>
 	</body>
 </html>
