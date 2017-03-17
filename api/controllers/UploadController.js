@@ -2,7 +2,7 @@ module.exports = {
 
 		
 	UploadToAlbum: function (req, res) {
-	console.log("req.param('albumID') "+req.param('albumID'));
+	//console.log("req.param('albumID') "+req.param('albumID'));
   req.file('avatar').upload({
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
@@ -17,14 +17,14 @@ module.exports = {
     }
 
 	Album.find({id:req.param('albumID')}).exec(function createFindCB(error, createdOrFoundRecords){
-	console.log("error "+JSON.stringify(error));
+	//console.log("error "+JSON.stringify(error));
 	if (error) return res.negotiate(error);
-	console.log("createdOrFoundRecords "+JSON.stringify(createdOrFoundRecords));
+	//console.log("createdOrFoundRecords "+JSON.stringify(createdOrFoundRecords));
 	Avatar.create({
 	  avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
 		user:req.session.passport.user,
       // Grab the first file and use it's `fd` (file descriptor)
-      albumid:createdOrFoundRecords.id,
+      albumid:createdOrFoundRecords[0].id,
       avatarFd: uploadedFiles[0].fd
     }) .exec(function (err,ava){
       if (err) return res.negotiate(err);
@@ -38,7 +38,7 @@ module.exports = {
     })
     .exec(function (err){
       if (err) return res.negotiate(err);
-      return res.redirect('/album/'+createdOrFoundRecords.id);
+      return res.redirect('/album/'+createdOrFoundRecords[0].id);
      // /'+req.session.passport.user);
     });
   });
