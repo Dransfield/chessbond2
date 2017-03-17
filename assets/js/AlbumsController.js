@@ -67,7 +67,7 @@ angular.module('HomepageModule').controller('AlbumsController', ['$scope', '$htt
 	io.socket.put('/album', { name:"New Album" ,user:id},
     function (resData, jwr) {
 
-      $scope.getalbums=function(id);
+      $scope.getalbums(id);
 		toastr.success('Created New Album');
     });
 	}
