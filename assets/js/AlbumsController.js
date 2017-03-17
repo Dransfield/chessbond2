@@ -44,35 +44,38 @@ angular.module('HomepageModule').controller('AlbumsController', ['$scope', '$htt
 			$scope.User=sailsResponse.data;
 		});
 	};
-	/*
-		$scope.getalbums=function(MyID)
-	{
-		
-		$http.get('/album?user='+MyID, {
-			})
-			.then(function onSuccess(sailsResponse){
-			$scope.myalbums=sailsResponse.data;
-		});
-	}
 	
-	$scope.DeleteAvatar=function(id,picadr)
+		$scope.joinmyuserIDRoom=function(MyID)
 	{
-		console.log('delete '+picadr);
-		io.socket.put('/deleteavatar',{picid:id,adr:picadr},	function  (data){
-		console.log(JSON.stringify(data));
-		$scope.$apply(function(){
-			for(var i = $scope.mypics.length - 1; i >= 0; i--) {
-				
-			if($scope.mypics[i].id === data.id) {
-			$scope.mypics.splice(i, 1);
-			}
-			}
-		});
 		
 		
-	});
+		
+		io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+			
+		
+		
+			
+	};
+	$scope.createalbum=function(type,id,name,gamecat)
+	{
+		
+		
+			if($scope.User.Invisible==false)
+	{
+	io.socket.put('/album', { name:"New Album":name ,user:id},
+    function (resData, jwr) {
+
+      $scope.getalbums=function(id);
+		toastr.success('Created New Album');
+    });
 	}
-	*/
+	else
+	{
+		toastr.warning('Disabled Account',"Can't create new album");
+	}
+	};
 	$scope.getalbums=function(albid)
 	{
 		console.log("looking for albums of "+albid);
