@@ -81,6 +81,8 @@
 	-->
 	
 	<div  style="display:flex">
+	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
+	
 	<span>
 	<img style="width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
 	</span>
@@ -107,7 +109,6 @@
 	
 	
 	</div>
-		<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
-				<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">>{{mypics.length}}</div>
+			<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">>{{mypics.length}}</div>
 	</body>
 </html>
