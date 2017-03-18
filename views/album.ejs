@@ -84,8 +84,8 @@
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
 	
 	<span style="position:relative">
-	<img src="/img/frame.jpg" style="position:absolute;width:600px">
-	<img style="width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
+	<img src="/img/frame.jpg" style="position:relative;width:600px">
+	<img style="position:absolute;width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
 	</span>
 		<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">Next Picture ({{((mypics.length-1)-picIndex)}})</div>
 
