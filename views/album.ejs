@@ -86,6 +86,8 @@
 	<span>
 	<img style="width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
 	</span>
+		<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">>{{mypics.length}}</div>
+
 	<span>
 	Created at {{mypics[picIndex].phrase}}<br>
 	<span ng-show="User.id==Album.user">
@@ -105,8 +107,7 @@
 	
 	
 	</span>
-				<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">>{{mypics.length}}</div>
-
+			
 	
 	
 	</div>
