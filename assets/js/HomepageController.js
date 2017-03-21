@@ -75,7 +75,7 @@ $scope.SoleConnectorVariable="";
 			
 		{
 		 */	
-				console.log("hello1");
+				console.log("sole connector");
 			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
