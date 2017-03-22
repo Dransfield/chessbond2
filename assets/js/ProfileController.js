@@ -597,6 +597,7 @@ $scope.Accounts=[];
 			$scope.GetChessGames(OwnerID);
 			io.socket.on('joined im online room',function(data)
 			{
+				console.log
 			$scope.Accounts[data.joiner].online=true;
 			console.log(data.joiner+" just came online");
 			});
@@ -1012,15 +1013,15 @@ $scope.countries=[
 		
 		$scope.ChangePreference=function(prefid,me,newpref,func)
 		{
-		console.log("change preference "+prefid+" "+me+" "+newpref);
+		//console.log("change preference "+prefid+" "+me+" "+newpref);
 			io.socket.put('/user/'+me+"?"+prefid+"="+newpref,{
 				
 					  }  
 				  
 				,function(resData,jwres)
 			{
-				console.log(resData);
-				console.log(jwres);
+				//console.log(resData);
+				//console.log(jwres);
 				if (func)
 				{func(me);}
 				

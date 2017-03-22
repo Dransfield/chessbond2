@@ -674,21 +674,25 @@
                 </tr>
            </thead>
            <tbody>
+				
+		
 				  
             <tr ng-repeat="game in GameInfo track by $index">
-			<span ng-init="GetAccount(game.WhitePlayerID)">
-			<span ng-init="GetAccount(game.BlackPlayerID)">
-					<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online && Accounts[game.WhitePlayerID].idle" ng-init="GetAccount(game.WhitePlayerID)" src="/images/orangecirclesml.png"></img>
-		  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online && !Accounts[game.WhitePlayerID].idle" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greencirclesml.png"></img>
-				 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greycirclesml.png"></img>
+			
+		<td ng-init="GetAccount(game.WhitePlayerID)" style="position: relative; left: 0; top: 0;">
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online && Accounts[game.WhitePlayerID].idle" ng-init="GetAccount(game.WhitePlayerID)" src="/images/orangecirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online && !Accounts[game.WhitePlayerID].idle" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greencirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greycirclesml.png"></img>
+		<img class="profilepic" src="{{game.WhiteAvatar}}"></img><a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})
+		</td>
 				
-			<td><img class="profilepic" src="{{game.WhiteAvatar}}"></img><a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})</td>
-				
-				<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online && Accounts[game.BlackPlayerID].idle" ng-init="GetAccount(game.BlackPlayerID)" src="/images/orangecirclesml.png"></img>
-		  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online && !Accounts[game.BlackPlayerID].idle" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greencirclesml.png"></img>
-				 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greycirclesml.png"></img>
-				
-			<td><img class="profilepic" src="{{game.BlackAvatar}}"><a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})</td>
+		<td ng-init="GetAccount(game.BlackPlayerID)">
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online && Accounts[game.BlackPlayerID].idle" ng-init="GetAccount(game.BlackPlayerID)" src="/images/orangecirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online && !Accounts[game.BlackPlayerID].idle" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greencirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greycirclesml.png"></img>
+		<img class="profilepic" src="{{game.BlackAvatar}}"><a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})
+		</td>
+		
 			<td>{{game.res}}</td>
 			<td>{{game.timelimit}}|0</td>
 			<td>{{game.moves}}</td>
