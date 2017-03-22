@@ -83,12 +83,16 @@ $scope.Accounts=[];
   
 		$scope.MouseWasMoved=function()
 		{
+			console.log("moved mouse");
 			if($scope.User)
 			{
+			console.log("scope user exists");
+			
 			$scope.IdleTime=0;
+			
 			if($scope.SetIdle==true)
 			{
-				console.log("sending message");
+				console.log("sending message to set idle false");
 				$scope.ChangePreference('idle',$scope.User.id,false);
 				$scope.SetIdle=false;
 						io.socket.put('/imidle',{user:$scope.User.id,idlestatus:false},
