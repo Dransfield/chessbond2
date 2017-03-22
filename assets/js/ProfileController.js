@@ -583,6 +583,13 @@ $scope.Accounts=[];
 			});
 			
 	};
+		$scope.joinImOnlineRoom=function()
+		{
+			var roomname='im online';
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			//console.log(JSON.stringify(resData));
+			});
+		};
 	$scope.GetInfo=function(OwnerID)
 	{
 		
