@@ -610,12 +610,12 @@ $scope.Accounts=[];
 				$scope.$apply(function(){
 					if($scope.Accounts[data.user])
 					{
-			$scope.Accounts[data.user].idle=data.idlestatus;});
+			$scope.Accounts[data.user].idle=data.idlestatus;
 			}
 			//console.log($scope.Accounts[data.user].name+" is idle"+data.idlestatus);
 		
 			});
-			
+			}
 			io.socket.on('WallPost', function (data)
 			{
 			
