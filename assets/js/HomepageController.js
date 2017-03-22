@@ -76,10 +76,10 @@ $scope.SoleConnectorVariable="";
 		{
 		 */	
 				console.log("sole connector");
-			//$scope.joinmyuserIDRoom(id);
+			$scope.joinmyuserIDRoom(id);
 			$scope.ReconnectFunction(id);
 			$scope.getuser(id);
-			//$scope.joinopengameRoom(id);
+			$scope.joinopengameRoom(id);
 			$scope.SoleConnectorVariable="true";
 			/*}
 			
