@@ -33,11 +33,12 @@
      <body ng-app="HomepageModule" ng-controller="StatsController" ng-cloak>
    <%- include partials/navbar.ejs %>
    <h3>Account Disabled</h3>
-  <% if (req.session.passport){ %>
-			<% if (req.session.passport.user){ %>
-			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-			<%}%>
-		<%}%>
+  	<% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+    		<% } %>
+	<% } %>
 			
 	<h2>You have {{User.DaysToDelete}} days to recover your account<h2>
 	<h3>Or It will be deleted.</h3>

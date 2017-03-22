@@ -41,7 +41,11 @@
    	<button ng-click="createalbum(User.id)" class="btn btn-lg btn-success" >Create New Album</button>
 			
    
-	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+		<% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+   	
 	 <div ng-init="getalbums('<%-req.session.passport.user%>')"></div>
 	
 	<div  style="display:flex" ng-repeat="album in myalbums track by $index">
@@ -56,6 +60,7 @@
 	</span>
 	
 	</div>
-	
+	    		<% } %>
+	<% } %>
 	</body>
 </html>

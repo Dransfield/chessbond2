@@ -40,9 +40,12 @@
     </script>
   </head>
   <body ng-app="HomepageModule" ng-controller="SinglePlayerController" ng-cloak>
- <% if (req.session.passport){%>
-     <div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-   <%}%>
+ <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+   		<% } %>
+	<% } %>
   <%- include partials/navbar.ejs %>
   
   <!--

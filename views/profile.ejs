@@ -31,6 +31,7 @@
 	  
 	  <% if (req.session.passport){ %>
 	  <% if (req.session.passport.user){ %>
+		  <div ng-init="joinImOnlineRoom()"></div>
 	<% if (!req.param('userID')){ %>
 		<% lookedatuser=  req.session.passport.user;%>
 	  <% } %>
@@ -50,7 +51,9 @@
 			<% if (req.session.passport.user){ %>
 			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
 			<div ng-init="GetBlockedUsers('<%-req.session.passport.user %>')"></div>
-						
+			
+			<div ng-init="joinImOnlineRoom()"></div>
+		
            <% } %>
            <% } %>
 	
@@ -773,9 +776,9 @@
 				<td>
 			<div style="display:flex">
 		<span style="position: relative; left: 0; top: 0;">
-			<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online && Accounts[rply.sender].idle" ng-init="GetAccount(rply.sender)" src="/images/orangecirclesml.png"></img>
-		  <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online && !Accounts[rply.sender].idle" ng-init="GetAccount(rply.sender)" src="/images/greencirclesml.png"></img>
-				 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)" src="/images/greycirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online && Accounts[rply.sender].idle" ng-init="GetAccount(rply.sender)" src="/images/orangecirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online && !Accounts[rply.sender].idle" ng-init="GetAccount(rply.sender)" src="/images/greencirclesml.png"></img>
+		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[rply.sender].online" ng-init="GetAccount(rply.sender)" src="/images/greycirclesml.png"></img>
 				
 		<img class="profilepic" src="{{rply.senderpic}}"></span>
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>

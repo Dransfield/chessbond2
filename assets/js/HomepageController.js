@@ -239,7 +239,7 @@ io.socket.on('connect',function(data){
 			
 		
 		
-io.socket.on('joined room',function(data)
+io.socket.on('joined im online room',function(data)
 			{
 			io.socket.get("/user?id="+data.joiner,{},function (resData,jwres){
 		var foundplayer=false;
@@ -394,16 +394,24 @@ $scope.joingame=function(GameID,PlayerID,PlayerName,playercolor,MyID,MyName,GamT
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
 		//toastr.success('Created New Game');
-    });
+	});
 		
 		};
+		
+	$scope.joinImOnlineRoom=function()
+	{
+	var roomname='im online';
+	io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			//console.log(JSON.stringify(resData));
+			});
+	};
 
 $scope.joinsessionRoom=function()
 {
 	
 	var roomname='sessionroom';
 	io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
-			console.log(JSON.stringify(resData));
+			//console.log(JSON.stringify(resData));
 			});
 			
 			
@@ -431,8 +439,8 @@ $scope.joinsessionRoom=function()
 			$scope.Players=[];
 			for(x in dat.data)
 			{
-			console.log(dat.data[x].subscriber);
-			console.log(JSON.stringify(dat.data));
+			//console.log(dat.data[x].subscriber);
+			//console.log(JSON.stringify(dat.data));
 			
 			$http.get('/user?id='+dat.data[x].subscriber, {
 			})

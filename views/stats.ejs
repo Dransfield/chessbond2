@@ -47,11 +47,14 @@
 	  
 	  <% if (req.session.passport){ %>
 	  <% if (req.session.passport.user){ %>
-	<% if (!req.param('userID')){ %>
-		<% lookedatuser=  req.session.passport.user;%>
-	  <% } %>
-	 <div ng-init="getuser('<%-req.session.passport.user%>')"></div>
-	  
+			<% if (!req.param('userID')){ %>
+			<% lookedatuser=  req.session.passport.user;%>
+			<% } %>
+			
+	
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+   	
       <% } %>
 	<% } %>
 	<div ng-init="getLookedatUser('<%-req.session.passport.user%>')"></div>

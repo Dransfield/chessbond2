@@ -45,8 +45,12 @@
 	</div>
     <div ng-init="getpics('<%-req.param('albumID')%>')">
 	</div>
-	 <div ng-init="getuser('<%-req.session.passport.user%>')">
-	</div>
+	 	<% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+    		<% } %>
+	<% } %>
 	
 	<h1>{{Album.name}}</h1>
 	<span ng-show="User.id==Album.user">

@@ -33,11 +33,12 @@
      <body ng-app="HomepageModule" ng-controller="ConfirmDeleteController" ng-cloak>
    <%- include partials/navbar.ejs %>
    <h3>Enter your password to confirm Account deletion</h3>
-  <% if (req.session.passport){ %>
-			<% if (req.session.passport.user){ %>
-			<div ng-init="getuser('<%-req.session.passport.user %>')"></div>
-			<%}%>
-		<%}%>
+ <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+   		<% } %>
+	<% } %>
 			
 	<form ng-show="User" name="form" ng-submit="confirmdelete()" role="form">
 	 <span class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">

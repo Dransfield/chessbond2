@@ -33,8 +33,12 @@
      <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
    <%- include partials/navbar.ejs %>
    
-    <div ng-init="getuser('<%-req.session.passport.user%>')">
-	</div>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+   		<% } %>
+	<% } %>
 	<div style="margin-left:10%;margin:10%;white-space: pre-wrap;display:block;width: 69%;line-height: 2em;">
 <h2>Site Map,</h2>
 
