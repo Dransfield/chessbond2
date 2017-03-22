@@ -588,7 +588,10 @@ $scope.Accounts=[];
 		
 			$scope.GetWallPosts(OwnerID);
 			$scope.GetChessGames(OwnerID);
-			
+			io.socket.on('joined im online room',function(data)
+			{
+			$scope.Accounts[data.joiner].online=true;
+			}
 			io.socket.on('IdleNotification',function (data)
 			{
 				console.log(JSON.stringify(data));
@@ -1018,7 +1021,7 @@ $scope.countries=[
      
 		
 		};
-		$scope.PrefSelectChanged=function(pref,me,func)
+	$scope.PrefSelectChanged=function(pref,me,func)
 	{
 		$scope.ChangePreference(pref,me,$scope.User[pref]);
 		$scope.Accounts[me][pref]=$scope.User[pref];
