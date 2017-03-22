@@ -686,7 +686,7 @@
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[game.WhitePlayerID].online" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greycirclesml.png"></img>
 		<img class="profilepic" src="{{game.WhiteAvatar}}"></img>
 		</div>-->
-		<%- include('partials/avatar', {userid: "{{game.WhitePlayerID}}"}); %>
+		<%- include('partials/avatar', {userid: "game.WhitePlayerID"}); %>
     		
 		<a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})
 		</td>
@@ -699,7 +699,7 @@
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[game.BlackPlayerID].online" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greycirclesml.png"></img>
 		<img class="profilepic" src="{{Accounts[game.BlackPlayerID].picture}}"></img>
 		</div>-->
-		<%- include('partials/avatar', {userid: "{{game.BlackPlayerID}}"}); %>
+		<%- include('partials/avatar', {userid: "game.BlackPlayerID"}); %>
     		
 		<a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})
 		</td>
