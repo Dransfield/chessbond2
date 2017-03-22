@@ -615,7 +615,7 @@ $scope.Accounts=[];
 			//console.log($scope.Accounts[data.user].name+" is idle"+data.idlestatus);
 		
 			});
-			}
+			});
 			io.socket.on('WallPost', function (data)
 			{
 			
