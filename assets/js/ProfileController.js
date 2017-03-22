@@ -591,7 +591,7 @@ $scope.Accounts=[];
 			io.socket.on('joined im online room',function(data)
 			{
 			$scope.Accounts[data.joiner].online=true;
-			}
+			});
 			io.socket.on('IdleNotification',function (data)
 			{
 				console.log(JSON.stringify(data));
