@@ -680,23 +680,27 @@
             <tr ng-repeat="game in GameInfo track by $index">
 		
 		<td ng-init="GetAccount(game.WhitePlayerID)" >
-			<div style="position: relative; left: 0; top: 0;">
+			<!--<div style="position: relative; left: 0; top: 0;">
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online && Accounts[game.WhitePlayerID].idle" ng-init="GetAccount(game.WhitePlayerID)" src="/images/orangecirclesml.png"></img>
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.WhitePlayerID].online && !Accounts[game.WhitePlayerID].idle" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greencirclesml.png"></img>
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[game.WhitePlayerID].online" ng-init="GetAccount(game.WhitePlayerID)" src="/images/greycirclesml.png"></img>
 		<img class="profilepic" src="{{game.WhiteAvatar}}"></img>
-		</div>
+		</div>-->
+		<%- include('partials/avatar', {userid: "{{game.WhitePlayerID}}"}); %>
+    		
 		<a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})
 		</td>
 			
 
 		<td ng-init="GetAccount(game.BlackPlayerID)" >
-			<div class="userdropdown">
+			<!--<div class="userdropdown">
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online && Accounts[game.BlackPlayerID].idle" ng-init="GetAccount(game.BlackPlayerID)" src="/images/orangecirclesml.png"></img>
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[game.BlackPlayerID].online && !Accounts[game.BlackPlayerID].idle" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greencirclesml.png"></img>
 		<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[game.BlackPlayerID].online" ng-init="GetAccount(game.BlackPlayerID)" src="/images/greycirclesml.png"></img>
 		<img class="profilepic" src="{{Accounts[game.BlackPlayerID].picture}}"></img>
-		</div>
+		</div>-->
+		<%- include('partials/avatar', {userid: "{{game.BlackPlayerID}}"}); %>
+    		
 		<a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})
 		</td>
 		
@@ -735,6 +739,8 @@
 	<td >
 		
 					<div style="display:flex">
+						<%- include('partials/avatar', {userid: "{{wllpsts.sender}}"}); %>
+    		<!--
 		<span style="position: relative; left: 0; top: 0;">
 			
 		<img ng-show="Accounts[wllpsts.sender].online && !Accounts[wllpsts.sender].idle" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greencirclesml.png">
@@ -743,6 +749,7 @@
 		<img ng-show="!Accounts[wllpsts.sender].online" ng-init="GetAccount(wllpsts.sender)"  style="position:absolute;z-index:2;bottom:-3px;" src="/images/greycirclesml.png">
 		
 		<img class="profilepic" src="{{Accounts[wllpsts.sender].picture}}"></img></span>
+		-->
 		<span><span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
 		<br>by <a href="/profile/{{wllpsts.sender}}" target="_blank"><b style="color:red">{{Accounts[wllpsts.sender].FideTitle}}</b> {{wllpsts.sendername}}</a> {{wllpsts.Age}}
 		</span>
