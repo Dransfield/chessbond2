@@ -597,9 +597,12 @@ $scope.Accounts=[];
 			$scope.GetChessGames(OwnerID);
 			io.socket.on('joined im online room',function(data)
 			{
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
+				if($scope.Accounts[data.joiner])
+				{
 			$scope.Accounts[data.joiner].online=true;
-			console.log(data.joiner+" just came online");
+			}
+			//console.log(data.joiner+" just came online");
 			});
 			io.socket.on('IdleNotification',function (data)
 			{
