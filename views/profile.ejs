@@ -85,12 +85,12 @@
     	
     	<% } %>
 			-->
-		  <div ng-show="LookedatUser.picture" style="position: relative; left: 0; top: 0;">
+		  <div ng-show="LookedatUser.picture" style="position: relative; left: 0; top: 0;" ng-init="GetAccount('<%- lookedatuser %>')">
 			<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online && !Accounts['<%-lookedatuser %>'].idle" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/greencirclesml.png"></img>
 		  	<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts['<%-lookedatuser %>'].online && Accounts['<%-lookedatuser %>'].idle" ng-init="GetAccount('<%-lookedatuser %>')" src="/images/orangecirclesml.png"></img>
 		  
-		   <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online" ng-init="GetAccount('<%- lookedatuser %>')" src="/images/greycirclesml.png"></img>
-		   <img class="profilepic" src="{{LookedatUser.picture}}"></img>
+		   <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts['<%-lookedatuser %>'].online"  src="/images/greycirclesml.png"></img>
+		   <img class="profilepic" src="{{Accounts['<%-lookedatuser %>'].picture}}"></img>
     	</div>
 	
 	<h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
