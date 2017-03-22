@@ -28,6 +28,13 @@ angular.module('HomepageModule').controller('AlbumController', ['$scope', '$http
 		{
 		$scope.picIndex-=1;
 		};
+		$scope.joinImOnlineRoom=function()
+	{
+	var roomname='im online';
+	io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			//console.log(JSON.stringify(resData));
+			});
+	};
 		$scope.ChangeAvatar=function(prefid,me,newpref)
 		{
 		
