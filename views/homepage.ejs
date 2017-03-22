@@ -332,13 +332,13 @@ Join now diving into your next adventure!
             <tr ng-repeat="opengame in opg track by $index">
 			<td><a href="/profile/{{opengame.Player1}}" target="_blank">{{opengame.Player1Name}}</a></td>
 			<td>{{opengame.phrase}}</td>
-			<%- include('partials/avatar', {user: "{{opengame.Player1Name}}",varname:'brian'}); %>
-    		
+		
 			<% if (req.session.passport) { %>
     		
 			<td>		
 				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,opengame.Player1Color,'<%- req.session.passport.user%>',User.name,opengame.GameType,opengame.GameCategory,opengame.TimeLimit)">Join Game</button>
-				
+					<%- include('partials/avatar', {user: "{{opengame.Player1Name}}",varname:'brian'}); %>
+    		
 				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
 				
 			</td>
