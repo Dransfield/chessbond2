@@ -689,7 +689,7 @@
 		<a href="/profile/{{game.WhitePlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.WhitePlayerID].FideTitle}}</b> {{game.WhitePlayerName}}</a>({{game.WhiteELO}})
 		</td>
 			
-		<%- include('partials/avatar', {user: "{{Accounts[game.BlackPlayerID].picture}}"}); %>
+		<%- include('partials/avatar', {user: "{{Accounts[game.BlackPlayerID].picture}}",varname:'brian'}); %>
     		
 		<td ng-init="GetAccount(game.BlackPlayerID)" >
 			<div class="userdropdown">
