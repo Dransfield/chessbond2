@@ -332,7 +332,8 @@ Join now diving into your next adventure!
             <tr ng-repeat="opengame in opg track by $index">
 			<td><a href="/profile/{{opengame.Player1}}" target="_blank">{{opengame.Player1Name}}</a></td>
 			<td>{{opengame.phrase}}</td>
-			
+			<%- include('partials/avatar', {user: "{{opengame.Player1Name}}",varname:'brian'}); %>
+    		
 			<% if (req.session.passport) { %>
     		
 			<td>		
