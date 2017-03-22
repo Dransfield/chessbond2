@@ -93,7 +93,7 @@
 		   <img class="profilepic" src="{{Accounts['<%-lookedatuser %>'].picture}}"></img>
     	</div>
 	-->
-	<%- include('partials/avatar', {userid:'<%-  lookedatuser %>'}); %>
+	<%- include('partials/avatar', {userid:String(lookedatuser)}); %>
     	
 	<h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
             <h2>ELO rating score:{{LookedatUser.ELO}}</h2>
