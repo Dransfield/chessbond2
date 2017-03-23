@@ -1,7 +1,7 @@
 angular.module('HomepageModule').controller('AccountController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
 	
 $scope.Accounts={};
-
+$scope.BlockedUsers=[];
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
 			//console.log(accID+" was added by webpage");
