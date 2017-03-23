@@ -4,7 +4,7 @@ $scope.Accounts={};
 
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
-			console.log(accID+" was added by webpage");
+			//console.log(accID+" was added by webpage");
 			
 			};
 	
