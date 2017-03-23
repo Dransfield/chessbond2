@@ -21,7 +21,13 @@
   </head>
 
   <body ng-app="HomepageModule"  ng-mousemove="MouseWasMoved()" ng-controller="ProfileController" style="display:none"  id="mainContainer">
-  
+   <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
+	
 	 <% var lookedatuser; %>
 	<% if (req.param('userID')){ %>
 			<% lookedatuser=req.param('userID'); %>
@@ -71,7 +77,7 @@
    
     <span   class="jumbotron">
       
-		<h1><%- include('partials/username', {userid: "LookedatUser.id"}); %></h1>
+		<h1><%- include('partials/username', {userid: "LookedatUser.id",Myid:Myid}); %></h1>
      	 <% if(lookedatuser==req.session.passport.user){%>
     	<div ng-show="LookedatUser.avatarid">
 		<img style="width:250px" ng-src="/user/avatar/{{LookedatUser.avatarid}}">
@@ -85,7 +91,7 @@
     	<% } %>
 			
 	
-	<%- include('partials/avatar', {userid:"'"+lookedatuser+"'"}); %>
+	<%- include('partials/avatar', {userid:"'"+lookedatuser+"'",Myid:Myid}); %>
     	
 	<h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
             <h2>Cumulative Rating:{{LookedatUser.ELO}}</h2>
@@ -674,16 +680,16 @@
             <tr ng-repeat="game in GameInfo track by $index">
 		
 		<td >
-		<%- include('partials/avatar', {userid: "game.WhitePlayerID"}); %>
-    	<%- include('partials/username', {userid: "game.WhitePlayerID"}); %>
+		<%- include('partials/avatar', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.WhitePlayerID",Myid:Myid}); %>
 		({{game.WhiteELO}})
 		</td>
 			
 
 		
 		<td>
-		<%- include('partials/avatar', {userid: "game.BlackPlayerID"}); %>
-    	<%- include('partials/username', {userid: "game.BlackPlayerID"}); %>	
+		<%- include('partials/avatar', {userid: "game.BlackPlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.BlackPlayerID",Myid:Myid}); %>	
 		({{game.BlackELO}})
 		
 		</td>
@@ -723,9 +729,9 @@
 	<td >
 		
 		<div style="display:flex">
-			<%- include('partials/avatar', {userid: "wllpsts.sender"}); %>
+			<%- include('partials/avatar', {userid: "wllpsts.sender",Myid:Myid}); %>
     		<span><span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
-		<br>by <%- include('partials/username', {userid: "wllpsts.sender"}); %> {{wllpsts.Age}}
+		<br>by <%- include('partials/username', {userid: "wllpsts.sender",Myid:Myid}); %> {{wllpsts.Age}}
 		</span>
 		</div>
 		
@@ -768,10 +774,10 @@
 				<td>
 			<div style="display:flex">
 		
-		<%- include('partials/avatar', {userid: "rply.sender"}); %>
+		<%- include('partials/avatar', {userid: "rply.sender",Myid:Myid}); %>
     	
 		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
-		<br>by <%- include('partials/username', {userid: "rply.sender"}); %> {{rply.Age}}
+		<br>by <%- include('partials/username', {userid: "rply.sender",Myid:Myid}); %> {{rply.Age}}
 		</span>
 		</div>
 		</td>
