@@ -1,6 +1,7 @@
  angular.module('HomepageModule').service('AccountService', function () {
         var Accounts = {};
 		var AccountsRequested={};
+		var Promises=[];
 		function setAccount(acc){
 			     Accounts[acc.id] = acc;
            
@@ -28,14 +29,18 @@
 				return Accounts[accID][fieldName];
 				}
 			},
-            downloadAccount: function(accID) {
+			addAccount:function(accID) {
+			AccountsRequested[accID]=true;
+			},
+            downloadAccounts: function() {
                 
                       
-                console.log("is "+accID+" account requested?");
-	
-				if(!AccountsRequested[accID])
-				{
-					AccountsRequested[accID]=true;
+                for (x in AccountsRequested)
+                {
+					Promises.push(new Promise((resolve,reject)=>{
+						
+				
+					
 					console.log(accID+" not requested");
 	
 					io.socket.get('/user/'+accID,
@@ -62,18 +67,23 @@
 										console.log(accID+" is not online");
 										setField(accID,'online',false);
 										}
-				
+									resolve();
 									}
+									else
+									{resolve();}
 								
 							});
 						}
+						else
+						{resolve();}
 					});
 	
-				}	
+				});	
                       
                 
             }
             
             
         };
+    }
     });
