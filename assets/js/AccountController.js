@@ -11,7 +11,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
                       
                 for (x in AccountService.AccountsRequested)
                 {
-					AccountService.Promises.push(new Promise((resolve,reject)=>{
+					AccountService.addPromise(new Promise((resolve,reject)=>{
 						
 				
 					

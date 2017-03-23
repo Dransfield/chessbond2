@@ -19,6 +19,9 @@
 			getPromises:function() {
 			return Promises;
 			},
+			addPromise:function(prom) {
+			Promises.push(prom);
+			},
             getAccount: function (id) {
                 return Accounts[id];
             },
