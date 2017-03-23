@@ -33,13 +33,13 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 										if(rply.length>0)
 										{
 										console.log(AccountService.getRequestedAccounts()[x]+" is online");
-										AccountController.setField(AccountService.getRequestedAccounts()[x],'online',true);
+										AccountService.setField(AccountService.getRequestedAccounts()[x],'online',true);
 										}
 										else
 										{
 										
 										//console.log(AccountsRequested[x]+" is not online");
-										AccountController.setField(AccountService.getRequestedAccounts()[x],'online',false);
+										AccountService.setField(AccountService.getRequestedAccounts()[x],'online',false);
 										}
 									resolve(AccountService.getRequestedAccounts()[x]);
 									}
