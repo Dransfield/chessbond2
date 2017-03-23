@@ -1,4 +1,4 @@
-app.factory('UsersFactory', function ($http) {
+angular.module('HomepageModule').factory('UsersFactory', function ($http) {
   var service = {};
 
 
