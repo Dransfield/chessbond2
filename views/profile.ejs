@@ -695,8 +695,9 @@
 		<img class="profilepic" src="{{Accounts[game.BlackPlayerID].picture}}"></img>
 		</div>-->
 		<%- include('partials/avatar', {userid: "game.BlackPlayerID"}); %>
-    		
+    	<%- include('partials/username', {userid: "game.BlackPlayerID"}); %>	
 		<a href="/profile/{{game.BlackPlayerID}}" target="_blank"><b style="color:red">{{Accounts[game.BlackPlayerID].FideTitle}}</b>  {{game.BlackPlayerName}}</a>({{game.BlackELO}})
+		
 		</td>
 		
 			<td>{{game.res}}</td>
