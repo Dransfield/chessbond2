@@ -8,7 +8,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 			};
 	$scope.downloadAccounts= function() {
                 
-                      
+                      console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
 					AccountService.addPromise(new Promise((resolve,reject)=>{
@@ -60,7 +60,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
             
         }
 	$scope.downloadAccounts();
-	$scope.AccountService=AccountService;
+	
 	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
   console.log(values); 
