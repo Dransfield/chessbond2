@@ -9,7 +9,9 @@
 		function   setField(accID,fieldName,fieldValue) {
 			console.log("Accounts[accID] "+Accounts[accID]);
 			console.log("Accounts[accID][fieldName] "+Accounts[accID][fieldName]);
+				if(Accounts[accID]) {
 				Accounts[accID][fieldName]=fieldValue;
+				}
 			}
         return {
             getAccount: function (id) {
@@ -19,10 +21,14 @@
                 Accounts[acc.id] = acc;
             },
             setField:function(accID,fieldName,fieldValue) {
+				if(Accounts[accID]) {
 				Accounts[accID][fieldName]=fieldValue;
+				}
 			},
 			getField:function(accID,fieldName) {
+				if(Accounts[accID]) {
 				return Accounts[accID][fieldName];
+				}
 			},
             downloadAccount: function(accID) {
                 
