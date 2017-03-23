@@ -1,14 +1,13 @@
+<div class="userdropdown">
 
 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="AccountService.getField(<%- userid %>,'online') && AccountService.getField(<%- userid %>,'idle')" src="/images/orangecirclesml.png"></img>
 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="AccountService.getField(<%- userid %>,'online') && AccountService.getField(<%- userid %>,'idle')"  src="/images/greencirclesml.png"></img>
 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!AccountService.getField(<%- userid %>,'online')" src="/images/greycirclesml.png"></img>
 <img class="profilepic" src="{{AccountService.getField(<%- userid %>,'picture')}}"></img>
-<div class="dropdown">
-<div class="btn btn-default dropdown dropdown-toggle" data-toggle="dropdown" ng-init="AccountService.downloadAccount(<%- userid %>)"  ng-controller="AccountController">
 
   <%- include('dropdown', {userid:userid}); %>
     	
 </div>
 
-</div>
+
 
