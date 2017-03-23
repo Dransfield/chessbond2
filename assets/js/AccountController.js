@@ -16,7 +16,7 @@ $scope.Accounts={};
 					
 					var actneeded=AccountService.getRequestedAccounts()[x].id;
 					
-					AccountService.RemoveRequestedAccount(actneeded);
+					
 					AccountService.addPromise(new Promise((resolve,reject)=>{
 						
 				
@@ -25,7 +25,7 @@ $scope.Accounts={};
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
-					
+					AccountService.RemoveRequestedAccount(usr.id);
 						if (usr)
 						{
 							AccountService.setAccount(usr);
