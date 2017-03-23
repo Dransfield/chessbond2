@@ -15,8 +15,7 @@ $scope.Accounts={};
 					
 					var actneeded=AccountService.getRequestedAccounts()[x];
 					
-					if(!$scope.Accounts[actneeded])
-					{
+					AccountService.RemoveRequestedAccount(actneeded);
 					AccountService.addPromise(new Promise((resolve,reject)=>{
 						
 				
@@ -61,7 +60,7 @@ $scope.Accounts={};
 				}));	
                       
                 
-            }}
+            }
             
             
         }

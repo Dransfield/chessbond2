@@ -13,6 +13,9 @@
 				}
 			}
         return {
+			RemoveRequestedAccount:function(accID) {
+			AccountsRequested[accID]=null;
+			},
 			getRequestedAccounts:function() {
 			return AccountsRequested;
 			},
