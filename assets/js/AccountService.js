@@ -1,6 +1,6 @@
  angular.module('HomepageModule').service('AccountService', function () {
-        var Accounts = {};
-		var AccountsRequested={};
+        var Accounts = new Array;
+		var AccountsRequested=new Array();
 		var Promises=[];
 		function setAccount(acc){
 			     Accounts[acc.id] = acc;
@@ -14,7 +14,14 @@
 			}
         return {
 			RemoveRequestedAccount:function(accID) {
-			AccountsRequested[accID]=null;
+				
+			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
+				
+			if(AccountsRequested[i].id === accID) {
+			AccountsRequested.splice(i, 1);
+			}
+			}
+				
 			},
 			getRequestedAccounts:function() {
 			return AccountsRequested;
@@ -48,11 +55,17 @@
 				}
 			},
 			addAccount:function(accID) {
-				if(!AccountsRequested[accID])
-			{
-			AccountsRequested[accID]=accID;
-			console.log(accID+" was requested");
+				
+			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
+				
+				if(AccountsRequested[i].id === accID) {
+				return;
+				}
 			}
+			
+			AccountsRequested.push({id:accID});
+			console.log(accID+" account added");
+			
 			}
             
     };

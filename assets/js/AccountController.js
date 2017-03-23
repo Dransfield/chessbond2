@@ -7,6 +7,7 @@ $scope.Accounts={};
 			console.log(accID+" was requested");
 			
 			};
+	
 	$scope.downloadAccounts= function() {
                 AccountService.clearPromises();
                       console.log("download accounts function fired");
