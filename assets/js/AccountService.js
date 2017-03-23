@@ -13,6 +13,9 @@
 				}
 			}
         return {
+			getRequestedAccounts=function() {
+			return AccountsRequested;
+			},
 			getPromises:function() {
 			return Promises;
 			},
