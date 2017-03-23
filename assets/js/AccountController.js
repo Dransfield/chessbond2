@@ -69,7 +69,7 @@ $scope.Accounts={};
         }}
 	$scope.downloadAccounts();
 	
-	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
+	//console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
  // console.log(values); 
   $scope.$apply(function(){$scope.Accounts=AccountService.getAccounts();});
