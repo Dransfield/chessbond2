@@ -13,6 +13,15 @@
 				}
 			}
         return {
+			LabelRequestedAccount:function(accID) {
+			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
+				
+			if(AccountsRequested[i].id === accID) {
+			AccountsRequested[i].requested=true;
+			}
+			
+			}
+			},
 			RemoveRequestedAccount:function(accID) {
 				
 			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
@@ -68,7 +77,7 @@
 				return;
 				}
 			}
-			AccountsRequested.push({id:accID});
+			AccountsRequested.push({id:accID,requested:false});
 			console.log(accID+" account added by webpage");
 			console.log("requested array looks like :"+JSON.stringify(AccountsRequested));
 			}

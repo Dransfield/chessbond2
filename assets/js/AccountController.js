@@ -15,10 +15,11 @@ $scope.Accounts={};
                 {
 					
 					var actneeded=AccountService.getRequestedAccounts()[x].id;
-				
-					
+					if(!AccountService.getRequestedAccounts()[x].requested)
+					{
 					AccountService.addPromise(new Promise((resolve,reject)=>{
-						
+					
+					AccountService.LabelRequestedAccount(actneeded);
 				
 					
 					console.log(actneeded+" ajax getting now");
@@ -64,7 +65,7 @@ $scope.Accounts={};
             }
             
             
-        }
+        }}
 	$scope.downloadAccounts();
 	
 	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
