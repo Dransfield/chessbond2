@@ -1,6 +1,6 @@
 angular.module('HomepageModule').controller('AccountController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
 	
-$scope.Accounts{};
+$scope.Accounts={};
 
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
