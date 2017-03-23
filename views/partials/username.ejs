@@ -1,5 +1,5 @@
 <div class ="userdropdown" href="/profile/{{<%-userid%>}}" ng-init="addAccount(<%- userid %>)" target="_blank" ng-controller="AccountController">
-<b class="redtext">{{AccountService.getField(<%- userid %>,'FideTitle')}}</b>
- {{AccountService.getField(<%- userid %>,'name')}}
+<b class="redtext">{{Accounts[<%- userid %>].FideTitle)}}</b>
+ {{Accounts[<%- userid %>].Name}}
 <%- include('dropdown', {userid:userid}); %>
 </div>
