@@ -4,7 +4,7 @@ $scope.Accounts={};
 
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
-			console.log(accID+" was requested");
+			console.log(accID+" was added by webpage");
 			
 			};
 	
@@ -21,7 +21,7 @@ $scope.Accounts={};
 						
 				
 					
-					console.log(actneeded+" not requested");
+					console.log(actneeded+" ajax getting now");
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
