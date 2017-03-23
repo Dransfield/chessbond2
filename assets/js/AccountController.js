@@ -24,7 +24,7 @@ $scope.Accounts={};
 						if (usr)
 						{
 							AccountService.setAccount(usr);
-								io.socket.get('/subscription?subscriber='+AccountService.getRequestedAccounts()[x],
+								io.socket.get('/subscription?subscriber='+usr.id,
 								function (rply) {
 		
 								
@@ -33,19 +33,19 @@ $scope.Accounts={};
 									console.log("got reply");
 										if(rply.length>0)
 										{
-										console.log(AccountService.getRequestedAccounts()[x]+" is online");
-										AccountService.setField(AccountService.getRequestedAccounts()[x],'online',true);
+										console.log(usr.name+" is online");
+										AccountService.setField(usr.id,'online',true);
 										}
 										else
 										{
 										
-										//console.log(AccountsRequested[x]+" is not online");
-										AccountService.setField(AccountService.getRequestedAccounts()[x],'online',false);
+										console.log(usr.name+" is not online");
+										AccountService.setField(usr.id,'online',false);
 										}
-									resolve(AccountService.getRequestedAccounts()[x]);
+									resolve(usr.id);
 									}
 									else
-									{resolve(AccountService.getRequestedAccounts()[x]);}
+									{resolve(usr.id);}
 								
 							});
 						}
