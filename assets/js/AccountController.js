@@ -9,13 +9,13 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	$scope.downloadAccounts= function() {
                 
                       
-                for (x in AccountService.getRequestedAccounts)
+                for (x in AccountService.getRequestedAccounts())
                 {
 					AccountService.addPromise(new Promise((resolve,reject)=>{
 						
 				
 					
-					console.log(AccountService.getRequestedAccounts[x]+" not requested");
+					console.log(AccountService.getRequestedAccounts()[x]+" not requested");
 	
 					io.socket.get('/user/'+AccountService.getRequestedAccounts[x],
 					function(usr){
