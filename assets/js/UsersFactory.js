@@ -2,12 +2,12 @@ angular.module('HomepageModule').factory('UsersFactory', function ($http) {
   var service = {};
 
 
-  service.GetAccount2 = function (Myid) {
+  service.GetAccount2 = function (accountsarray,Myid) {
     		
 		
 		console.log("is "+Myid+" account gotten?");
 	
-	if(!$scope.Accounts[Myid])
+	if(!accountsarray[Myid])
 	{
 		console.log(Myid+" not gotten");
 	
@@ -18,12 +18,12 @@ angular.module('HomepageModule').factory('UsersFactory', function ($http) {
 			  if (usr)
 			{
 	
-				$scope.Accounts[Myid]=usr;
+				accountsarray[Myid]=usr;
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
-		
-				$scope.$apply(function()
+		$scope.$apply(function()
 				{
+				
 				if(rply)
 				{
 					console.log("got reply");
@@ -31,14 +31,14 @@ angular.module('HomepageModule').factory('UsersFactory', function ($http) {
 				{
 					console.log("got reply>0"+Myid);
 				
-				$scope.Accounts[Myid].online=true;
+				accountsarray[Myid].online=true;
 				
 				}
 				else
 				{
 					console.log(JSON.stringify(rply));
 						console.log(Myid+" is not online");
-					$scope.Accounts[Myid].online=false;
+					accountsarray[Myid].online=false;
 				}
 				
 			}});
