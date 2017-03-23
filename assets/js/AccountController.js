@@ -17,13 +17,13 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 					
 					console.log(AccountService.getRequestedAccounts()[x]+" not requested");
 	
-					io.socket.get('/user/'+AccountService.getRequestedAccounts[x],
+					io.socket.get('/user/'+AccountService.getRequestedAccounts()[x],
 					function(usr){
 					
 						if (usr)
 						{
 							AccountService.setAccount(usr);
-								io.socket.get('/subscription?subscriber='+AccountService.getRequestedAccounts[x],
+								io.socket.get('/subscription?subscriber='+AccountService.getRequestedAccounts()[x],
 								function (rply) {
 		
 								
@@ -32,24 +32,24 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 									console.log("got reply");
 										if(rply.length>0)
 										{
-										console.log(AccountService.getRequestedAccounts[x]+" is online");
-										AccountController.setField(AccountService.getRequestedAccounts[x],'online',true);
+										console.log(AccountService.getRequestedAccounts()[x]+" is online");
+										AccountController.setField(AccountService.getRequestedAccounts()[x],'online',true);
 										}
 										else
 										{
 										
-										console.log(AccountsRequested[x]+" is not online");
-										AccountController.setField(AccountService.getRequestedAccounts[x],'online',false);
+										//console.log(AccountsRequested[x]+" is not online");
+										AccountController.setField(AccountService.getRequestedAccounts()[x],'online',false);
 										}
-									resolve(AccountService.getRequestedAccounts[x]);
+									resolve(AccountService.getRequestedAccounts()[x]);
 									}
 									else
-									{resolve(AccountService.getRequestedAccounts[x]);}
+									{resolve(AccountService.getRequestedAccounts()[x]);}
 								
 							});
 						}
 						else
-						{resolve(AccountService.getRequestedAccounts[x]);}
+						{resolve(AccountService.getRequestedAccounts()[x]);}
 					});
 	
 				}));	
