@@ -673,15 +673,15 @@
 				  
             <tr ng-repeat="game in GameInfo track by $index">
 		
-		<td ng-init="AccountService.downloadAccount(game.WhitePlayerID)">
+		<td >
 		<%- include('partials/avatar', {userid: "game.WhitePlayerID"}); %>
     	<%- include('partials/username', {userid: "game.WhitePlayerID"}); %>
 		({{game.WhiteELO}})
 		</td>
 			
 
-		<!--<td ng-init="GetAccount(game.BlackPlayerID)" >-->
-		<td ng-init="UsersFactory.GetAccount2(game.BlackPlayerID)">
+		
+		<td>
 		<%- include('partials/avatar', {userid: "game.BlackPlayerID"}); %>
     	<%- include('partials/username', {userid: "game.BlackPlayerID"}); %>	
 		({{game.BlackELO}})

@@ -1,3 +1,5 @@
-<div class ="userdropdown" href="/profile/{{<%-userid%>}}" target="_blank"><b class="redtext">{{Accounts[<%-userid%>].FideTitle}}</b> {{Accounts[<%-userid%>].name}}
+<div class ="userdropdown" href="/profile/{{<%-userid%>}}" ng-init="AccountService.downloadAccount(<%- userid %>)" target="_blank">
+<b class="redtext">{{AccountService.getField(<%- userid %>,'FideTitle')}}</b>
+ {{AccountService.getField(<%- userid %>,'Name'}}
 <%- include('dropdown', {userid:userid}); %>
 </div>
