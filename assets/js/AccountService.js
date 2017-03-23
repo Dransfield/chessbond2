@@ -3,12 +3,10 @@
 		var AccountsRequested={};
 		function setAccount(acc){
 			     Accounts[acc.id] = acc;
-            console.log(" Accounts[acc.id] "+ Accounts[acc.id]);
+           
            
             }
 		function   setField(accID,fieldName,fieldValue) {
-			console.log("Accounts[accID] "+Accounts[accID]);
-			console.log("Accounts[accID][fieldName] "+Accounts[accID][fieldName]);
 				if(Accounts[accID]) {
 				Accounts[accID][fieldName]=fieldValue;
 				}
