@@ -53,7 +53,7 @@ app.factory('UsersFactory', function ($http) {
 	 
 
 	
-	};	
+	}
   
 
 
