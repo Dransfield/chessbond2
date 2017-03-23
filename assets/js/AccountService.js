@@ -69,8 +69,8 @@
 				}
 			}
 			AccountsRequested.push({id:accID});
-			console.log(accID+" account added");
-			
+			console.log(accID+" account added by webpage");
+			console.log("requested array looks like :"+JSON.stringify(AccountsRequested));
 			}
             
     };
