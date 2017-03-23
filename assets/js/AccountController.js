@@ -14,7 +14,7 @@ $scope.Accounts={};
                 for (x in AccountService.getRequestedAccounts())
                 {
 					
-					var actneeded=AccountService.getRequestedAccounts()[x];
+					var actneeded=AccountService.getRequestedAccounts()[x].id;
 					
 					AccountService.RemoveRequestedAccount(actneeded);
 					AccountService.addPromise(new Promise((resolve,reject)=>{
