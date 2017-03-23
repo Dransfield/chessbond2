@@ -681,8 +681,8 @@
 		</td>
 			
 
-		<td ng-init="GetAccount(game.BlackPlayerID)" >
-		
+		<!--<td ng-init="GetAccount(game.BlackPlayerID)" >-->
+		<td ng-init="UsersFactory.GetAccount2(game.BlackPlayerID)">
 		<%- include('partials/avatar', {userid: "game.BlackPlayerID"}); %>
     	<%- include('partials/username', {userid: "game.BlackPlayerID"}); %>	
 		({{game.BlackELO}})
