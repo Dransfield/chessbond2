@@ -1,5 +1,6 @@
 angular.module('HomepageModule').controller('AccountController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
 	
+$scope.Accounts{};
 
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
@@ -7,7 +8,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 			
 			};
 	$scope.downloadAccounts= function() {
-                
+                AccountService.clearPromises();
                       console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
@@ -64,6 +65,6 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
   console.log(values); 
-  $scope.$apply(function(){$scope.AccountService=AccountService;});
+  $scope.$apply(function(){$scope.Accounts=AccountService.getAccounts();});
 });
 }]);

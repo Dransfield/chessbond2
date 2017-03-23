@@ -16,6 +16,9 @@
 			getRequestedAccounts:function() {
 			return AccountsRequested;
 			},
+			clearPromises:function(){
+			Promises=[];
+			},
 			getPromises:function() {
 			return Promises;
 			},
@@ -25,6 +28,9 @@
             getAccount: function (id) {
                 return Accounts[id];
             },
+            getAccounts:function() {
+			return Accounts;
+			},
             setAccount: function(acc) {
                 Accounts[acc.id] = acc;
             },
