@@ -36,7 +36,9 @@
 				}
 			},
 			addAccount:function(accID) {
-			AccountsRequested[accID]=true;
+			AccountsRequested[accID]=accID;
+			console.log(accID+" was requested");
+			
 			},
             downloadAccounts: function() {
                 
