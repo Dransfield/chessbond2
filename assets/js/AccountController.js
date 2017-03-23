@@ -26,10 +26,11 @@ $scope.Accounts={};
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
-					AccountService.RemoveRequestedAccount(usr.id);
+					
 						if (usr)
 						{
 							AccountService.setAccount(usr);
+							AccountService.RemoveRequestedAccount(usr.id);
 								io.socket.get('/subscription?subscriber='+usr.id,
 								function (rply) {
 		
