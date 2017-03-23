@@ -19,9 +19,9 @@ $scope.TypedCity="";
 $scope.FoundCities=[];
 $scope.Accounts=[];
 
-$scope.AccountService=AccountService;
 
-AccountService.downloadAccount('345ert');
+
+
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
