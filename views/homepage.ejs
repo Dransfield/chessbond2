@@ -43,7 +43,13 @@
  <%-JSON.stringify(req.session.passport) %>
  -->
 	
-    
+    <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+	<% } %>
+	<% } %>
+	     	
   <%- include partials/navbar.ejs %>
  
 	 	<div  ng-show="User.Invisible" style="background-color:black;z-index:999;width:100%;height:100%;opacity:0.9;position:fixed;left:0;top:50;">
@@ -54,6 +60,7 @@
 			
 			<% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
+			
 			<div ng-init="joinImOnlineRoom()"></div>
 			<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
 			<% } %>
@@ -232,8 +239,8 @@ Join now diving into your next adventure!
            <tbody>
 				  
             <tr ng-repeat="game in joinedgames track by $index">
-			<td><%- include('partials/username', {userid: "game.Player1"}); %></td>
-			<td><%- include('partials/username', {userid: "game.Player2"}); %></td>
+			<td><%- include('partials/username', {userid: "game.Player1",Myid:Myid}); %></td>
+			<td><%- include('partials/username', {userid: "game.Player2",Myid:Myid}); %></td>
 			
 			<td>
 				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
@@ -263,7 +270,7 @@ Join now diving into your next adventure!
            <tbody>
 				
             <tr ng-repeat="player in Players track by $index">
-			<td><%- include('partials/username', {userid: "player.id"}); %></td>
+			<td><%- include('partials/username', {userid: "player.id",Myid:Myid}); %></td>
 	
 			<% if (req.session.authenticated) { %>
     		<% if (req.session.authenticated==true) { %>
@@ -330,14 +337,14 @@ Join now diving into your next adventure!
            <tbody>
 				
             <tr ng-repeat="opengame in opg track by $index">
-			<td><%- include('partials/username', {userid: "opengame.Player1"}); %></td>
+			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
 			<td>{{opengame.phrase}}</td>
 		
 			<% if (req.session.passport) { %>
     		
 			<td>		
 				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,opengame.Player1Color,'<%- req.session.passport.user%>',User.name,opengame.GameType,opengame.GameCategory,opengame.TimeLimit)">Join Game</button>
-					<%- include('partials/avatar', {userid: "opengame.Player1"}); %>
+					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
     		
 				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
 				

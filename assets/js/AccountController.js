@@ -7,7 +7,14 @@ $scope.Accounts={};
 			//console.log(accID+" was added by webpage");
 			
 			};
-	
+	$scope.BlockUser=function(MyID,sender)
+		{
+		$scope.BlockedUsers[sender]=true;
+			
+			io.socket.post('/block',{blocker:MyID,blocked:sender},
+			function (resData, jwRes) {
+				});
+		};
 	$scope.downloadAccounts= function() {
                 AccountService.clearPromises();
                     //  console.log("download accounts function fired");
