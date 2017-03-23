@@ -1,4 +1,6 @@
 
+  <div class="dropdown">
+  <div class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
 <div class ="userdropdown" ng-init="AccountService.downloadAccount(<%- userid %>)"  ng-controller="AccountController">
 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="AccountService.getField(<%- userid %>,'online') && AccountService.getField(<%- userid %>,'idle')" src="/images/orangecirclesml.png"></img>
@@ -8,4 +10,6 @@
 
   <%- include('dropdown', {userid:userid}); %>
     	
+</div>
+</div>
 </div>
