@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	
 	$scope.AccountService=AccountService;
 	$scope.AccountService.downloadAccounts();
-	Promise.all($scope.AccountService.Promises).then(values => { 
+	Promise.all($scope.AccountService.getPromises).then(values => { 
   console.log(values); 
   $scope.$apply(function(){});
 });
