@@ -18,6 +18,9 @@ $scope.fidetitles=$scope.menfidetitles;
 $scope.TypedCity="";
 $scope.FoundCities=[];
 $scope.Accounts=[];
+
+$scope.AccountService=AccountService;
+
 AccountService.downloadAccount('345ert');
 
 function capitalizeFirstLetter(string) {

@@ -4,7 +4,9 @@
 		function setAccount(acc){
                 Accounts[acc.id] = acc;
             }
-		
+		function   setField(accID,fieldName,fieldValue) {
+				Accounts[accID][fieldName]=fieldValue;
+			}
         return {
             getAccount: function (id) {
                 return Accounts[id];
