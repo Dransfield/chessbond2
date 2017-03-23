@@ -1,4 +1,4 @@
-<div class="userdropdown">
+<div class="userdropdown" ng-init="AccountService.addAccount(<%- userid %>)">
 
 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="AccountService.getField(<%- userid %>,'online') && AccountService.getField(<%- userid %>,'idle')" src="/images/orangecirclesml.png"></img>
 <img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="AccountService.getField(<%- userid %>,'online') && AccountService.getField(<%- userid %>,'idle')"  src="/images/greencirclesml.png"></img>
