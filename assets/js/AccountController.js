@@ -12,6 +12,8 @@ $scope.Accounts={};
                       console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
+					if(!$scope.Accounts[AccountService.getRequestedAccounts()[x]])
+					{
 					AccountService.addPromise(new Promise((resolve,reject)=>{
 						
 				
@@ -56,7 +58,7 @@ $scope.Accounts={};
 				}));	
                       
                 
-            }
+            }}
             
             
         }
