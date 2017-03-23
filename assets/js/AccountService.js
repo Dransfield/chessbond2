@@ -1,4 +1,4 @@
- angular.module('HomepageModule').service('Accounts', function () {
+ angular.module('HomepageModule').service('AccountService', function () {
         var Accounts = {};
 		var AccountsRequested={};
         return {
