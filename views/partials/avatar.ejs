@@ -1,9 +1,9 @@
 
 
-<div class ="userdropdown">
-<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" ng-init="GetAccount(<%- userid %>)" src="/images/orangecirclesml.png"></img>
-<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[<%- userid %>].online && !Accounts[<%- userid %>].idle" ng-init="GetAccount(<%- userid %>)" src="/images/greencirclesml.png"></img>
-<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[<%- userid %>].online" ng-init="GetAccount(<%- userid %>)" src="/images/greycirclesml.png"></img>
+<div class ="userdropdown" ng-init="UsersFactory.GetAccount2(<%- userid %>)">
+<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" src="/images/orangecirclesml.png"></img>
+<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="Accounts[<%- userid %>].online && !Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>
+<img style="position:absolute;z-index: 2;bottom: -4px;"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>
 <img class="profilepic" src="{{Accounts[<%- userid %>].picture}}"></img>
 
   <%- include('dropdown', {userid:userid}); %>
