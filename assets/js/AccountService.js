@@ -30,7 +30,7 @@
 					
 						if (usr)
 						{
-							this.setAccount(usr);
+							setAccount(usr);
 								io.socket.get('/subscription?subscriber='+accID,
 								function (rply) {
 		
