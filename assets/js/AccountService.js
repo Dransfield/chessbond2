@@ -1,6 +1,10 @@
  angular.module('HomepageModule').service('AccountService', function () {
         var Accounts = {};
 		var AccountsRequested={};
+		function setAccount=function(acc){
+                Accounts[acc.id] = acc;
+            }
+		
         return {
             getAccount: function (id) {
                 return Accounts[id];
