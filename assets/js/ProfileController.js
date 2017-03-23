@@ -18,7 +18,7 @@ $scope.fidetitles=$scope.menfidetitles;
 $scope.TypedCity="";
 $scope.FoundCities=[];
 
-
+UsersFactory.GetAccount2('345ert');
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
