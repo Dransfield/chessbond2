@@ -26,7 +26,7 @@
 					
 						if (usr)
 						{
-							setAccount(usr);
+							this.setAccount(usr);
 								io.socket.get('/subscription?subscriber='+accID,
 								function (rply) {
 		
