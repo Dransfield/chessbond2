@@ -83,14 +83,14 @@ $scope.Accounts=[];
   
 		$scope.MouseWasMoved=function()
 		{
-			console.log("moved mouse");
+			//console.log("moved mouse");
 			if($scope.User)
 			{
-			console.log("scope user exists");
+			//console.log("scope user exists");
 			
 			$scope.IdleTime=0;
 			
-			if($scope.SetIdle==true)
+			if($scope.SetIdle)
 			{
 				console.log("sending message to set idle false");
 				$scope.ChangePreference('idle',$scope.User.id,false);
