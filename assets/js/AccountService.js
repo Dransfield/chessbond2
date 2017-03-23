@@ -62,7 +62,12 @@
 				return;
 				}
 			}
-			
+			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
+				
+				if(AccountsRequested[i].id === accID) {
+				return;
+				}
+			}
 			AccountsRequested.push({id:accID});
 			console.log(accID+" account added");
 			
