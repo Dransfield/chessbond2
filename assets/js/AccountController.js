@@ -64,6 +64,6 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
   console.log(values); 
-  $scope.$apply(function(){});
+  $scope.$apply(function(){$scope.AccountService=AccountService;});
 });
 }]);
