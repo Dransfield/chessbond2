@@ -14,7 +14,7 @@
             downloadAccount: function(accID) {
                 
                       
-                console.log("is "+Myid+" account gotten?");
+                console.log("is "+accID+" account gotten?");
 	
 				if(!AccountsRequested[accID])
 				{
@@ -27,7 +27,7 @@
 						if (usr)
 						{
 							setAccount(usr);
-								io.socket.get('/subscription?subscriber='+Myid,
+								io.socket.get('/subscription?subscriber='+accID,
 								function (rply) {
 		
 								
@@ -42,7 +42,7 @@
 										else
 										{
 										
-										console.log(Myid+" is not online");
+										console.log(accID+" is not online");
 										setField(accID,'online',false);
 										}
 				
