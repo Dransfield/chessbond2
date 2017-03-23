@@ -31,12 +31,12 @@
             downloadAccount: function(accID) {
                 
                       
-                console.log("is "+accID+" account gotten?");
+                console.log("is "+accID+" account requested?");
 	
 				if(!AccountsRequested[accID])
 				{
 					AccountsRequested[accID]=true;
-					console.log(accID+" not gotten");
+					console.log(accID+" not requested");
 	
 					io.socket.get('/user/'+accID,
 					function(usr){
