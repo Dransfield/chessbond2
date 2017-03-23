@@ -673,7 +673,7 @@
 				  
             <tr ng-repeat="game in GameInfo track by $index">
 		
-		<td ng-init="UsersFactory.GetAccount2(game.WhitePlayerID)">
+		<td ng-init="AccountService.downloadAccount(game.WhitePlayerID)">
 		<%- include('partials/avatar', {userid: "game.WhitePlayerID"}); %>
     	<%- include('partials/username', {userid: "game.WhitePlayerID"}); %>
 		({{game.WhiteELO}})

@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('ProfileController', ['$scope', '$http','$window' ,'toastr','UsersFactory', function($scope, $http,$window,toastr,UsersFactory){
+angular.module('HomepageModule').controller('ProfileController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
 $scope.User;
 $scope.SoleConnectorVariable="";
 $scope.MyGames=[];
@@ -18,7 +18,7 @@ $scope.fidetitles=$scope.menfidetitles;
 $scope.TypedCity="";
 $scope.FoundCities=[];
 $scope.Accounts=[];
-UsersFactory.GetAccount2($scope.Accounts,'345ert');
+AccountService.downloadAccount('345ert');
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
