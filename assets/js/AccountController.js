@@ -23,7 +23,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 						if (usr)
 						{
 							AccountService.setAccount(usr);
-								io.socket.get('/subscription?subscriber='+AccountService.AccountsRequested[x],
+								io.socket.get('/subscription?subscriber='+AccountService.getRequestedAccounts[x],
 								function (rply) {
 		
 								
@@ -32,24 +32,24 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 									console.log("got reply");
 										if(rply.length>0)
 										{
-										console.log(AccountService.AccountsRequested[x]+" is online");
-										AccountController.setField(AccountService.AccountsRequested[x],'online',true);
+										console.log(AccountService.getRequestedAccounts[x]+" is online");
+										AccountController.setField(AccountService.getRequestedAccounts[x],'online',true);
 										}
 										else
 										{
 										
 										console.log(AccountsRequested[x]+" is not online");
-										AccountController.setField(AccountService.AccountsRequested[x],'online',false);
+										AccountController.setField(AccountService.getRequestedAccounts[x],'online',false);
 										}
-									resolve(AccountService.AccountsRequested[x]);
+									resolve(AccountService.getRequestedAccounts[x]);
 									}
 									else
-									{resolve(AccountService.AccountsRequested[x]);}
+									{resolve(AccountService.getRequestedAccounts[x]);}
 								
 							});
 						}
 						else
-						{resolve(AccountService.AccountsRequested[x]);}
+						{resolve(AccountService.getRequestedAccounts[x]);}
 					});
 	
 				}));	
