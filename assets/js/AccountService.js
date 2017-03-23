@@ -10,7 +10,7 @@
             },
             setField:function(accID,fieldName,fieldValue) {
 				Accounts[accID][fieldName]=fieldValue;
-			}
+			},
             downloadAccount: function(accID) {
                 
                       
