@@ -60,6 +60,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
             
         }
 	$scope.downloadAccounts();
+	$scope.AccountService=AccountService;
 	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
   console.log(values); 
