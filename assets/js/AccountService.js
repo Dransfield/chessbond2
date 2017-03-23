@@ -13,7 +13,7 @@
 				}
 			}
         return {
-			getRequestedAccounts=function() {
+			getRequestedAccounts:function() {
 			return AccountsRequested;
 			},
 			getPromises:function() {
