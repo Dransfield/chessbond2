@@ -8,8 +8,8 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 			};
 	
 	AccountService.downloadAccounts();
-	console.log(JSON.stringify($scope.AccountService.getRequestedAccounts()));
-	Promise.all($scope.AccountService.getPromises()).then(values => { 
+	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
+	Promise.all(AccountService.getPromises()).then(values => { 
   console.log(values); 
   $scope.$apply(function(){});
 });
