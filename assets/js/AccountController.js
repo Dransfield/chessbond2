@@ -9,21 +9,21 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	$scope.downloadAccounts= function() {
                 
                       
-                for (x in AccountController.AccountsRequested)
+                for (x in AccountService.AccountsRequested)
                 {
 					Promises.push(new Promise((resolve,reject)=>{
 						
 				
 					
-					console.log(AccountController.AccountsRequested[x]+" not requested");
+					console.log(AccountService.AccountsRequested[x]+" not requested");
 	
-					io.socket.get('/user/'+AccountController.AccountsRequested[x],
+					io.socket.get('/user/'+AccountService.AccountsRequested[x],
 					function(usr){
 					
 						if (usr)
 						{
-							AccountController.setAccount(usr);
-								io.socket.get('/subscription?subscriber='+AccountController.AccountsRequested[x],
+							AccountService.setAccount(usr);
+								io.socket.get('/subscription?subscriber='+AccountService.AccountsRequested[x],
 								function (rply) {
 		
 								
@@ -32,24 +32,24 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 									console.log("got reply");
 										if(rply.length>0)
 										{
-										console.log(AccountController.AccountsRequested[x]+" is online");
-										AccountController.setField(AccountController.AccountsRequested[x],'online',true);
+										console.log(AccountService.AccountsRequested[x]+" is online");
+										AccountController.setField(AccountService.AccountsRequested[x],'online',true);
 										}
 										else
 										{
 										
 										console.log(AccountsRequested[x]+" is not online");
-										AccountController.setField(AccountController.AccountsRequested[x],'online',false);
+										AccountController.setField(AccountService.AccountsRequested[x],'online',false);
 										}
-									resolve(AccountController.AccountsRequested[x]);
+									resolve(AccountService.AccountsRequested[x]);
 									}
 									else
-									{resolve(AccountController.AccountsRequested[x]);}
+									{resolve(AccountService.AccountsRequested[x]);}
 								
 							});
 						}
 						else
-						{resolve(AccountController.AccountsRequested[x]);}
+						{resolve(AccountService.AccountsRequested[x]);}
 					});
 	
 				}));	
