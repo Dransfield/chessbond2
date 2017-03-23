@@ -42,7 +42,7 @@
 			return Accounts;
 			},
             setAccount: function(acc) {
-                Accounts.push(acc);
+                Accounts[acc.id]=acc;
             },
             setField:function(accID,fieldName,fieldValue) {
 				if(Accounts[accID]) {
