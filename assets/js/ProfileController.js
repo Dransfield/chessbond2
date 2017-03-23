@@ -17,7 +17,7 @@ $scope.fidetitles=$scope.menfidetitles;
 
 $scope.TypedCity="";
 $scope.FoundCities=[];
-
+$scope.Accounts=[];
 UsersFactory.GetAccount2($scope.Accounts,'345ert');
 
 function capitalizeFirstLetter(string) {
@@ -72,7 +72,7 @@ $scope.SetIdle=true;
 
 
 
-$scope.Accounts=[];
+
 
 
     $("#mainContainer").show();
