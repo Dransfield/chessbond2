@@ -64,23 +64,23 @@
 				}
 			},
 			addAccount:function(accID) {
-				console.log("website trying to add:"+accID);
+				//console.log("website trying to add:"+accID);
 			for(var i = Accounts.length - 1; i >= 0; i--) {
-				console.log("found "+Accounts[i].name+" on accounts array in service");
+				//console.log("found "+Accounts[i].name+" on accounts array in service");
 				if(Accounts[i].id === accID) {
 				return;
 				}
 			}
 			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
-				console.log("found "+AccountsRequested[i].id+" on requested array in service");
+				//console.log("found "+AccountsRequested[i].id+" on requested array in service");
 				
 				if(AccountsRequested[i].id === accID) {
 				return;
 				}
 			}
 			AccountsRequested.push({id:accID,requested:false});
-			console.log(accID+" account added by webpage");
-			console.log("requested array looks like :"+JSON.stringify(AccountsRequested));
+			//console.log(accID+" account added by webpage");
+			//console.log("requested array looks like :"+JSON.stringify(AccountsRequested));
 			}
             
     };
