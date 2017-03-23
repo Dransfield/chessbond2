@@ -12,15 +12,18 @@ $scope.Accounts={};
                       console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
-					if(!$scope.Accounts[AccountService.getRequestedAccounts()[x]])
+					
+					var actneeded=AccountService.getRequestedAccounts()[x];
+					
+					if(!$scope.Accounts[actneeded])
 					{
 					AccountService.addPromise(new Promise((resolve,reject)=>{
 						
 				
 					
-					console.log(AccountService.getRequestedAccounts()[x]+" not requested");
+					console.log(actneeded+" not requested");
 	
-					io.socket.get('/user/'+AccountService.getRequestedAccounts()[x],
+					io.socket.get('/user/'+actneeded,
 					function(usr){
 					
 						if (usr)
@@ -52,7 +55,7 @@ $scope.Accounts={};
 							});
 						}
 						else
-						{resolve(AccountService.getRequestedAccounts()[x]);}
+						{resolve(actneeded);}
 					});
 	
 				}));	
