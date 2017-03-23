@@ -10,7 +10,7 @@ $scope.Accounts={};
 	
 	$scope.downloadAccounts= function() {
                 AccountService.clearPromises();
-                      console.log("download accounts function fired");
+                    //  console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
 					
@@ -22,7 +22,7 @@ $scope.Accounts={};
 					AccountService.LabelRequestedAccount(actneeded);
 				
 					
-					console.log(actneeded+" ajax getting now");
+					//console.log(actneeded+" ajax getting now");
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
@@ -37,16 +37,16 @@ $scope.Accounts={};
 								
 									if(rply)
 									{
-									console.log("got reply");
+								//	console.log("got reply");
 										if(rply.length>0)
 										{
-										console.log(usr.name+" is online");
+								//		console.log(usr.name+" is online");
 										AccountService.setField(usr.id,'online',true);
 										}
 										else
 										{
 										
-										console.log(usr.name+" is not online");
+									//	console.log(usr.name+" is not online");
 										AccountService.setField(usr.id,'online',false);
 										}
 									resolve(usr.id);
@@ -71,7 +71,7 @@ $scope.Accounts={};
 	
 	console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
-  console.log(values); 
+ // console.log(values); 
   $scope.$apply(function(){$scope.Accounts=AccountService.getAccounts();});
 });
 }]);
