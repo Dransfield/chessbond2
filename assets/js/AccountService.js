@@ -21,6 +21,9 @@
             setField:function(accID,fieldName,fieldValue) {
 				Accounts[accID][fieldName]=fieldValue;
 			},
+			getField:function(accID,fieldName) {
+				return Accounts[accID][fieldName];
+			},
             downloadAccount: function(accID) {
                 
                       
