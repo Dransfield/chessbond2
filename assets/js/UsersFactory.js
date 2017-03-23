@@ -21,8 +21,7 @@ angular.module('HomepageModule').factory('UsersFactory', function ($http) {
 				accountsarray[Myid]=usr;
 	io.socket.get('/subscription?subscriber='+Myid,
 			function (rply) {
-		$scope.$apply(function()
-				{
+		
 				
 				if(rply)
 				{
@@ -41,7 +40,7 @@ angular.module('HomepageModule').factory('UsersFactory', function ($http) {
 					accountsarray[Myid].online=false;
 				}
 				
-			}});
+			}
 		
 		});
 	
