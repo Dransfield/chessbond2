@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	
 
 	$scope.addAccount=function(accID) {
-			AccountService.AccountsRequested[accID]=accID;
+			AccountService.addAccount(accID);
 			console.log(accID+" was requested");
 			
 			};
