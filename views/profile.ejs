@@ -72,7 +72,7 @@
     <span   class="jumbotron">
         <h1><b style="color:red">{{LookedatUser.FideTitle}}</b>  {{LookedatUser.name}}</h1>
       
-		<h1><%- include('partials/username', {userid: "{{LookedatUser.id}}"); %></h1>
+		<h1><%- include('partials/username', {userid: "{{LookedatUser.id}}"}); %></h1>
      	 <% if(lookedatuser==req.session.passport.user){%>
     	<div ng-show="LookedatUser.avatarid">
 		<img style="width:250px" ng-src="/user/avatar/{{LookedatUser.avatarid}}">
