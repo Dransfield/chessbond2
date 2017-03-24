@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default navbar-inverse"  ng-controller="HomepageController" ng-cloak>
+<nav class="navbar navbar-default navbar-inverse" ng-init="addAccount(<%- userid %>)" ng-controller="AccountController" ng-cloak>
 	<div class="container-fluid"   >
 		<div class="navbar-header" >
 			<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
@@ -13,8 +13,8 @@
 			<span style='display:flex'>
 			<img style="background-color:white;max-width:50px;height:50px; "
              src="/knight.png">
-              <div  style="color:white;" ng-show="User.Invisible">
-			Days Left To Account Deletion:{{User.DaysToDelete}}
+              <div  style="color:white;" ng-show="Accounts[<%- userid %>].Invisible">
+			Days Left To Account Deletion:{{Accounts[<%- userid %>].DaysToDelete}}
 			</div>
 			<a class="navbar-brand" href="/#" >Chessbond
 			
@@ -46,7 +46,7 @@
 				 <span class="badge" ng-show="Notifications.length>0" ng-init="GetNotifications('<%- req.session.passport.user%>')">{{Notifications.length}}</span>
 				 </li>
 				  <li  ng-show="User" class="dropdown">
-					<a ng-show="User" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ User.name}}<span class="caret"></span></a>
+					<a ng-show="User" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ Accounts[<%- userid %>].name}}<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
@@ -56,8 +56,8 @@
 						<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
 						  <a href="{{n.adr}}">{{n.msg}}</a></li>
 							
-						<li ng-show="User.Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
-					<li ng-show="!User.Invisible"><a href="/DeleteAccount">Delete Account</a></li>
+						<li ng-show="Accounts[<%- userid %>].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
+					<li ng-show="!Accounts[<%- userid %>].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
 					
 					</ul>
 				  </li>
