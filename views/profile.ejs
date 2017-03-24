@@ -727,7 +727,7 @@
    <tr ng-repeat="wllpsts in WallPosts track by $index">
 	
 	<td >
-		<%- include('partials/wallmessage', {userid: "wllpsts.sender",Myid:Myid,content:wllpsts.content,Postid:wllpsts.id}); %>
+		<%- include('partials/wallmessage', {userid: "wllpsts.sender",Myid:Myid,content:"wllpsts.content",Postid:"wllpsts.id"}); %>
 		
 		<div style="display:flex">
 			<%- include('partials/avatar', {userid: "wllpsts.sender",Myid:Myid}); %>
