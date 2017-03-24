@@ -5,3 +5,9 @@ height:100px;
 position:relative;
 z-index: 1;
 }
+.onlinecircle
+{
+position:absolute;
+z-index: 2;
+bottom: -4px;
+}

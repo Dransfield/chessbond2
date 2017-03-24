@@ -409,6 +409,7 @@ $scope.SetIdle=true;
 		}
 		});
 	};
+	/*
 	$scope.GetBlockedUsers=function(MyID)
 	
 	{
@@ -425,7 +426,7 @@ $scope.SetIdle=true;
 		});
 		});
 	};
-
+*/
 		
 	$scope.GetWallPosts=function(id)
 	{	

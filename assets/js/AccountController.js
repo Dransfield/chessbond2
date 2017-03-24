@@ -1,7 +1,13 @@
 angular.module('HomepageModule').controller('AccountController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
 	
 $scope.Accounts={};
-$scope.BlockedUsers=[];
+$scope.BlockedAccounts=[];
+	$scope.SetShouldGetBlockedAccounts=function(accID){
+		AccountService.SetShouldGetBlockedAccounts();
+	};
+	$scope.RequestBlockedAccounts=function(accID){
+		AccountService.RequestBlockedAccounts();
+	};
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
 			//console.log(accID+" was added by webpage");
@@ -15,8 +21,34 @@ $scope.BlockedUsers=[];
 			function (resData, jwRes) {
 				});
 		};
+		
 	$scope.downloadAccounts= function() {
-                AccountService.clearPromises();
+				AccountService.clearBlockedAccountPromises();
+				if(AccountService.getShouldGetBlockedAccounts()==true)
+				
+				{
+					if(AccountService.getRequestedBlockedAccounts()==false)
+					{
+						AccountService.setRequestedBlockedAccounts();
+					AccountService.addBlockedAccountPromise(
+					new Promise((resolve,reject)=>{
+							io.socket.get('/block?blocker='+accID,
+			function (blk) {
+				
+				for (x in blk)
+				{
+					
+				
+				AccountService.setBlockedAccount(blk[x].blocked);	
+				
+				}
+				resolve('Blocked');
+				});	
+					}
+					)
+					);
+					}
+                AccountService.clearAccountPromises();
                     //  console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
@@ -24,7 +56,7 @@ $scope.BlockedUsers=[];
 					var actneeded=AccountService.getRequestedAccounts()[x].id;
 					if(!AccountService.getRequestedAccounts()[x].requested)
 					{
-					AccountService.addPromise(new Promise((resolve,reject)=>{
+					AccountService.addAccountPromise(new Promise((resolve,reject)=>{
 					
 					AccountService.LabelRequestedAccount(actneeded);
 				
@@ -79,6 +111,11 @@ $scope.BlockedUsers=[];
 	//console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 	Promise.all(AccountService.getPromises()).then(values => { 
  // console.log(values); 
-  $scope.$apply(function(){$scope.Accounts=AccountService.getAccounts();});
+  $scope.$apply(
+  function(){
+	  $scope.Accounts=AccountService.getAccounts();
+	  $scope.BlockedAccounts=AccountService.getBlockedAccounts();
+	  }
+	  );
 });
 }]);

@@ -1,7 +1,13 @@
  angular.module('HomepageModule').service('AccountService', function () {
         var Accounts = new Array;
-		var AccountsRequested=new Array();
-		var Promises=[];
+        var AccountPromises=new Array();
+        var AccountsRequested=new Array();
+        
+        var BlockedAccounts=new Array();
+        var BlockedAccountPromises=new Array();
+        var BlockedAccountsRequested=false;
+		var ShouldGetBlockedAccounts=false;
+		
 		function setAccount(acc){
 			     Accounts[acc.id] = acc;
            
@@ -13,6 +19,16 @@
 				}
 			}
         return {
+			SetShouldGetBlockedAccounts:function(accID){
+				ShouldGetBlockedAccounts=true;
+			},
+			GetShouldGetBlockedAccounts:function(accID){
+				return	ShouldGetBlockedAccounts;
+			},
+		
+			getBlockedAccounts:function(accID){
+			return BlockedAccounts;
+			},
 			LabelRequestedAccount:function(accID) {
 			for(var i = AccountsRequested.length - 1; i >= 0; i--) {
 				
@@ -35,14 +51,29 @@
 			getRequestedAccounts:function() {
 			return AccountsRequested;
 			},
-			clearPromises:function(){
-			Promises=[];
+			getRequestedBlockedAccounts:function() {
+			return BlockedAccountsRequested;
 			},
-			getPromises:function() {
-			return Promises;
+			setRequestedBlockedAccounts:function() {
+			 BlockedAccountsRequested=true;
 			},
-			addPromise:function(prom) {
-			Promises.push(prom);
+			clearAccountPromises:function(){
+			AccountPromises=[];
+			},
+			clearBlockedAccountPromises:function(){
+			BlockedAccountPromises=[];
+			},
+			getAccountPromises:function() {
+			return AccountPromises;
+			},
+			getBlockedAccountPromises:function() {
+			return BlockedPromises;
+			},
+			addAccountPromise:function(prom) {
+			AccountPromises.push(prom);
+			},
+			addBlockedAccountPromise:function(prom){
+			BlockedAccountPromises.push(prom);
 			},
             getAccount: function (id) {
                 return Accounts[id];
@@ -52,6 +83,9 @@
 			},
             setAccount: function(acc) {
                 Accounts[acc.id]=acc;
+            },
+            setBlockedAccount: function(acc) {
+                BlockedAccounts[acc]=true;
             },
             setField:function(accID,fieldName,fieldValue) {
 				if(Accounts[accID]) {
