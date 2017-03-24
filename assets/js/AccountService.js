@@ -3,7 +3,7 @@
         var AccountPromises=new Array();
         var AccountsRequested=new Array();
         
-        var BlockedAccounts=new Array;
+        var BlockedAccounts={};
         var BlockedAccountPromises=new Array();
         var BlockedAccountsRequested=false;
 		var ShouldGetBlockedAccounts=false;
@@ -102,9 +102,8 @@
 			
 				
                 BlockedAccounts[acc]=acc;
-                BlockedAccounts.push(acc);
-                console.log("BlockedAccounts.length "+BlockedAccounts.length);
-                console.log("BlockedAccounts[acc] "+BlockedAccounts[acc]);
+                
+               
                 
             },
             setField:function(accID,fieldName,fieldValue) {
