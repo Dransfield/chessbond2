@@ -1,0 +1,24 @@
+	<div style="display:flex">
+			<%- include('partials/avatar', {userid: "userid",Myid:Myid}); %>
+    		<span><span ng-show="!BlockedUsers[userid]">{{content}}</span>
+		<br>by <%- include('partials/username', {userid: "userid",Myid:Myid}); %> {{Age}}
+		</span>
+		</div>
+		
+<% if (req.session.passport) { %>
+	<% if (req.session.passport.user) { %>
+		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
+		<div><button type="submit" ng-show="userid==Myid" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
+		<div><button type="submit" ng-show="!BlockedUsers[userid]" ng-click="BlockUser('Myid',userid)" class="btn btn-default btn-sm">Block User</button></div>
+		<div><button type="submit" ng-show="BlockedUsers[userid]" ng-click="UnBlockUser('Myid',userid)" class="btn btn-default btn-sm">UnBlock User</button></div>
+		
+		
+		<div ng-show="ShowReply[$index]">
+	
+
+		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
+		<button type="submit" ng-click="SendWallPostReply(userid,Myid,WallPostReplyInput[$index],Postid)" class="btn btn-warning btn-sm">Reply</button>
+		</div>
+		<% } %>
+	<% } %>
+	</div>

@@ -727,6 +727,7 @@
    <tr ng-repeat="wllpsts in WallPosts track by $index">
 	
 	<td >
+		<%- include('partials/wallmessage', {userid: "wllpsts.sender",Myid:Myid,content:wllpsts.content,Postid:wllpsts.id}); %>
 		
 		<div style="display:flex">
 			<%- include('partials/avatar', {userid: "wllpsts.sender",Myid:Myid}); %>
@@ -735,14 +736,7 @@
 		</span>
 		</div>
 		
-		  
-    			
-
-		
-
-		
-		
-	<% if (req.session.passport) { %>
+<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
 		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
 		<div><button type="submit" ng-show="User.id==LookedatUser.id" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
