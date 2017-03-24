@@ -102,6 +102,7 @@
 			
 				
                 BlockedAccounts[acc]=acc;
+                BlockedAccounts.push(acc);
                 console.log("BlockedAccounts.length "+BlockedAccounts.length);
                 console.log("BlockedAccounts[acc] "+BlockedAccounts[acc]);
                 
