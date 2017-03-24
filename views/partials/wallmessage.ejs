@@ -1,7 +1,7 @@
 	<div style="display:flex">
-			<%- include('partials/avatar', {userid: "userid",Myid:Myid}); %>
+			<%- include('avatar', {userid: "userid",Myid:Myid}); %>
     		<span><span ng-show="!BlockedUsers[userid]">{{content}}</span>
-		<br>by <%- include('partials/username', {userid: "userid",Myid:Myid}); %> {{Age}}
+		<br>by <%- include('username', {userid: "userid",Myid:Myid}); %> {{Age}}
 		</span>
 		</div>
 		
