@@ -39,7 +39,7 @@ $scope.TotalPromises=[];
 				for (x in blk)
 				{
 					
-				console.log("found "+JSON.stringify(blx[x]));
+				console.log("found "+JSON.stringify(blk[x]));
 				AccountService.setBlockedAccount(blk[x].blocked);	
 				
 				}
