@@ -14,7 +14,8 @@ $scope.TotalPromises=[];
 			};
 	$scope.BlockUser=function(MyID,sender)
 		{
-		$scope.BlockedUsers[sender]=true;
+			console.log("blockuser function");
+		$scope.BlockedAccounts[sender]=true;
 			
 			io.socket.post('/block',{blocker:MyID,blocked:sender},
 			function (resData, jwRes) {
