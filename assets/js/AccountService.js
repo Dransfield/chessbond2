@@ -67,7 +67,7 @@
 			return AccountPromises;
 			},
 			getBlockedAccountPromises:function() {
-			return BlockedPromises;
+			return BlockedAccountPromises;
 			},
 			addAccountPromise:function(prom) {
 			AccountPromises.push(prom);
