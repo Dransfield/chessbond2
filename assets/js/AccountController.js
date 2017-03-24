@@ -32,9 +32,10 @@ $scope.TotalPromises=[];
 						AccountService.setRequestedBlockedAccounts();
 					AccountService.addBlockedAccountPromise(
 					new Promise((resolve,reject)=>{
-							io.socket.get('/block?blocker='+AccountService.getBlockerPerson,
+						console.log("in blk promise");
+							io.socket.get('/block?blocker='+AccountService.getBlockerPerson(),
 			function (blk) {
-				
+				console.log("in blk promise recieved reply");
 				for (x in blk)
 				{
 					
