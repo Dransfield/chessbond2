@@ -105,6 +105,16 @@
                 
                
                 
+            }, 
+            UnsetBlockedAccount: function(acc) {
+				console.log(acc +"is unblocked ");
+				
+			
+				
+                BlockedAccounts[acc]=false;
+                
+               
+                
             },
             setField:function(accID,fieldName,fieldValue) {
 				if(Accounts[accID]) {

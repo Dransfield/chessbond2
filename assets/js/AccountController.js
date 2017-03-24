@@ -16,7 +16,7 @@ $scope.TotalPromises=[];
 		{
 			console.log("blockuser function");
 		$scope.BlockedAccounts[sender]=true;
-			
+			AccountService.setBlockedAccount(sender);
 			io.socket.post('/block',{blocker:MyID,blocked:sender},
 			function (resData, jwRes) {
 				});
@@ -25,7 +25,7 @@ $scope.TotalPromises=[];
 	{
 		
 		$scope.BlockedUsers[sender]=false;
-			
+			AccountService.UnsetBlockedAccount(sender);
 		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
 	function  (data){
 		console.log("Get"+JSON.stringify(data));
