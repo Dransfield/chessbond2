@@ -40,7 +40,6 @@
 
 			  <% if (req.session.passport){ %>
 			<% if (req.session.passport.user){ %>
-			 <%- include('partials/chatmessagelist', {groupid: req.param('ID'),Myid:req.session.passport.user}); %>
 			<%}%>
 			<%}%>
 			
