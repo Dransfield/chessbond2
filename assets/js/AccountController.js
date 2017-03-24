@@ -108,7 +108,7 @@ $scope.BlockedAccounts=[];
 	$scope.downloadAccounts();
 	
 	//console.log(JSON.stringify(AccountService.getRequestedAccounts()));
-	Promise.all(AccountService.getPromises()).then(values => { 
+	Promise.all(AccountService.getAccountPromises().push(AccountService.getBlockedAccountPromises())).then(values => { 
  // console.log(values); 
   $scope.$apply(
   function(){
