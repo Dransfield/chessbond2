@@ -48,6 +48,7 @@ $scope.BlockedAccounts=[];
 					)
 					);
 					}
+			}
                 AccountService.clearAccountPromises();
                     //  console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
