@@ -101,7 +101,7 @@
 				
 			
 				
-                BlockedAccounts[acc]=true;
+                BlockedAccounts[acc]=acc;
                 console.log("BlockedAccounts.length "+BlockedAccounts.length);
             },
             setField:function(accID,fieldName,fieldValue) {
