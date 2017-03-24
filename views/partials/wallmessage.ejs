@@ -8,7 +8,7 @@
 <% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
 		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
-		<div><button type="submit" ng-show="<%-userid%>==<%-Myid%>" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
+		<div><button type="submit" ng-show="{{<%-userid%>}}==<%-Myid%>" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
 		<div ng-controller="AccountController"><button type="submit" ng-show="!BlockedAccounts[<%- userid%>]" ng-click="BlockUser('<%-Myid%>',<%-userid%>)"  class="btn btn-default btn-sm">Block User</button></div>
 		<div ng-controller="AccountController"><button type="submit" ng-show="BlockedAccounts[<%- userid%>]" ng-click="UnBlockUser('<%-Myid%>',<%-userid%>)" class="btn btn-default btn-sm">UnBlock User</button></div>
 		
