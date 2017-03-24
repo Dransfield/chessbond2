@@ -115,9 +115,10 @@ $scope.TotalPromises=[];
 	
 	Promise.all(AccountService.getBlockedAccountPromises()
 ).then(values => { 
- // console.log(values); 
+  console.log(values); 
   $scope.$apply(
   function(){
+	  console.log("applying blocked accounts");
 	  $scope.BlockedAccounts=AccountService.getBlockedAccounts();
 	  }
 	  );
