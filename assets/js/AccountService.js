@@ -7,7 +7,7 @@
         var BlockedAccountPromises=new Array();
         var BlockedAccountsRequested=false;
 		var ShouldGetBlockedAccounts=false;
-		
+		var BlockerPerson;
 		function setAccount(acc){
 			     Accounts[acc.id] = acc;
            
@@ -19,8 +19,15 @@
 				}
 			}
         return {
+			getBlockerPerson:function(){
+			return BlockerPerson;
+			},
+			setBlockerPerson:function(blk){
+			BlockerPerson=blk;
+			},
 			setShouldGetBlockedAccounts:function(accID){
 				ShouldGetBlockedAccounts=true;
+				BlockerPerson=accID;
 			},
 			getShouldGetBlockedAccounts:function(accID){
 				return	ShouldGetBlockedAccounts;
