@@ -1,0 +1,11 @@
+	<div ng-init="getChatMessages(<%-req.param('ID')  %>)" ng-controller="ChatMessageListController">
+			<table>
+   <tr ng-repeat="wllpsts in WallPosts track by $index">
+	
+	<td >
+    		
+		<%- include('chatmessage', {userid: "wllpsts.sender",Myid:Myid,content:"wllpsts.content"}); %> 
+	</td>
+	</tr>
+	</table>
+	</div>
