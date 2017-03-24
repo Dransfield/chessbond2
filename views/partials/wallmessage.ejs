@@ -3,7 +3,7 @@
     		<span><span ng-show="!BlockedAccounts[<%- userid%>]">{{<%- content%>}}</span>
 		<br>by <%- include('username', {userid: userid,Myid:Myid}); %> {{Age}}
 		</span>
-		</div>
+		
 		
 <% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
