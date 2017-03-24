@@ -19,10 +19,10 @@
 				}
 			}
         return {
-			SetShouldGetBlockedAccounts:function(accID){
+			setShouldGetBlockedAccounts:function(accID){
 				ShouldGetBlockedAccounts=true;
 			},
-			GetShouldGetBlockedAccounts:function(accID){
+			getShouldGetBlockedAccounts:function(accID){
 				return	ShouldGetBlockedAccounts;
 			},
 		
