@@ -2,12 +2,10 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	
 $scope.Accounts={};
 $scope.BlockedAccounts=[];
-	$scope.SetShouldGetBlockedAccounts=function(accID){
-		AccountService.SetShouldGetBlockedAccounts();
+	$scope.setShouldGetBlockedAccounts=function(accID){
+		AccountService.setShouldGetBlockedAccounts();
 	};
-	$scope.RequestBlockedAccounts=function(accID){
-		AccountService.RequestBlockedAccounts();
-	};
+	
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
 			//console.log(accID+" was added by webpage");
