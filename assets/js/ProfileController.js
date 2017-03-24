@@ -390,7 +390,7 @@ $scope.SetIdle=true;
 			function (resData, jwRes) {
 				});
 		};
-		
+	/*	
 	$scope.UnBlockUser=function(MyID,sender)
 	{
 		
@@ -409,6 +409,7 @@ $scope.SetIdle=true;
 		}
 		});
 	};
+	 */
 	/*
 	$scope.GetBlockedUsers=function(MyID)
 	

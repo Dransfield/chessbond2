@@ -21,7 +21,24 @@ $scope.TotalPromises=[];
 			function (resData, jwRes) {
 				});
 		};
+		$scope.UnBlockUser=function(MyID,sender)
+	{
 		
+		$scope.BlockedUsers[sender]=false;
+			
+		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
+	function  (data){
+		console.log("Get"+JSON.stringify(data));
+			for(x in data){
+	io.socket.put('/block/destroy',{id:data[x].id},
+		function  (data){
+			
+			
+		
+		});
+		}
+		});
+	};
 	$scope.downloadAccounts= function() {
 				AccountService.clearBlockedAccountPromises();
 				if(AccountService.getShouldGetBlockedAccounts()==true)
