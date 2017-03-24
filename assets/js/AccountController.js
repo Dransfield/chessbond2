@@ -4,7 +4,7 @@ $scope.Accounts={};
 $scope.BlockedAccounts=[];
 $scope.TotalPromises=[];
 	$scope.setShouldGetBlockedAccounts=function(accID){
-		AccountService.setShouldGetBlockedAccounts();
+		AccountService.setShouldGetBlockedAccounts(accID);
 	};
 	
 	$scope.addAccount=function(accID) {
@@ -38,7 +38,7 @@ $scope.TotalPromises=[];
 				for (x in blk)
 				{
 					
-				
+				console.log("found "+JSON.stringify(blx[x]));
 				AccountService.setBlockedAccount(blk[x].blocked);	
 				
 				}
