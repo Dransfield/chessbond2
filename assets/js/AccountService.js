@@ -34,6 +34,11 @@
 			},
 		
 			getBlockedAccounts:function(accID){
+			console.log("get blocked accounts");	
+				for(var i = BlockedAccounts.length - 1; i >= 0; i--) {
+				console.log(BlockedAccounts[i]);
+			}
+				
 			return BlockedAccounts;
 			},
 			LabelRequestedAccount:function(accID) {
@@ -92,6 +97,7 @@
                 Accounts[acc.id]=acc;
             },
             setBlockedAccount: function(acc) {
+				console.log(acc +"is blocked ");
                 BlockedAccounts[acc]=true;
             },
             setField:function(accID,fieldName,fieldValue) {
