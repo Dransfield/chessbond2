@@ -120,6 +120,7 @@ $scope.TotalPromises=[];
   function(){
 	  console.log("applying blocked accounts");
 	  $scope.BlockedAccounts=AccountService.getBlockedAccounts();
+	 console.log(JSON.stringify($scope.BlockedAccounts));
 	  }
 	  );
 });
