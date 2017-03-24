@@ -1,4 +1,4 @@
-	<div style="display:flex" ng-init="setShouldGetBlockedAccounts(<%- Myid %>)" ng-controller="AccountController">
+	<div style="display:flex" ng-init="setShouldGetBlockedAccounts('<%- Myid %>')" ng-controller="AccountController">
 			<%- include('avatar', {userid:userid,Myid:Myid}); %>
     		<span><span ng-show="!BlockedUsers[userid]">{{<%- content%>}}</span>
 		<br>by <%- include('username', {userid: userid,Myid:Myid}); %> {{Age}}
