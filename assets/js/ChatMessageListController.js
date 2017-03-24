@@ -1,10 +1,10 @@
 angular.module('HomepageModule').controller('ChatMessageListController', ['$scope', '$http','$window' ,'toastr','DateService', function($scope, $http,$window,toastr,DateService){
 	
 $scope.WallPosts=[];
-	$scope.getChatMessages=function(id){
+	$scope.getChatMessages=function(id,skip=0){
 	
-	{	
-		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+$scope.wallpostskip+'&sort=createdAt DESC',
+	
+		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+skip+'&sort=createdAt DESC',
 			function (msgs) {
 				//console.log(JSON.stringify(msgs));
 				
