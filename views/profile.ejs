@@ -29,8 +29,8 @@
 	<% } %>
 	
 	 <% var lookedatuser; %>
-	<% if (req.param('userID')){ %>
-			<% lookedatuser=req.param('userID'); %>
+	<% if (req.param('ID')){ %>
+			<% lookedatuser=req.param('ID'); %>
 		
 		<% } %>
 		
@@ -38,7 +38,7 @@
 	  <% if (req.session.passport){ %>
 	  <% if (req.session.passport.user){ %>
 		  <div ng-init="joinImOnlineRoom()"></div>
-	<% if (!req.param('userID')){ %>
+	<% if (!req.param('ID')){ %>
 		<% lookedatuser=  req.session.passport.user;%>
 	  <% } %>
       <% } %>
@@ -757,6 +757,8 @@
 	
 		
 		<table>
+				<%- include('partials/chatmessagelist', {groupid: req.param('ID'),Myid:Myid}); %>
+	
 			<tr>
 				<td ng-show="wllpsts.Replies[0]">
 					Replies:

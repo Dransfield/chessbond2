@@ -1,7 +1,7 @@
 
 <html>
   <head>
-    <%- include partials/title.ejs %>
+     <%- include partials/title.ejs %>
      <%- include partials/description.ejs %> 
    <%- include partials/keywords.ejs %> 
      <!-- Viewport mobile tag for sensible mobile support -->
@@ -59,18 +59,16 @@
 		</div>
         
         <div class="text-center col-md-12">
-		<h3>Enter the email for the account:</h3>	 
+		<h3>Enter your new password for the account:</h3>	 
         </div>
         
         <div class="text-center  col-md-4">
 		</div>
         <div class="text-center  col-md-4">
-		 <form name="form" ng-submit="ForgotPassword()" role="form">
-		  <input type="text" name="address" id="address" class="form-control" ng-model="vm.address" required />
+		 <form name="form" ng-submit="NewPassword('<%- req.param('code')  %>')" role="form">
+		  <input type="text" name="address" id="address" class="form-control" ng-model="vm.password" required />
             <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Go</button>
-           
-			
-			</div>
+        </div>
 	
 	    <div class="text-center  col-md-4">
 	
