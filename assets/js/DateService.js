@@ -2,7 +2,7 @@
      
         return {
 			
-			phrasefordate=function(dat)
+			phrasefordate:function(dat)
 			{
 			var nu=Date.parse(dat);
 			
