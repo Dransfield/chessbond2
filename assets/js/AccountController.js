@@ -2,6 +2,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 	
 $scope.Accounts={};
 $scope.BlockedAccounts=[];
+$scope.TotalPromises=[];
 	$scope.setShouldGetBlockedAccounts=function(accID){
 		AccountService.setShouldGetBlockedAccounts();
 	};
@@ -104,16 +105,29 @@ $scope.BlockedAccounts=[];
             }
             
             
-        }}
+        }
+        
+        
+        }
 	$scope.downloadAccounts();
 	
+	
+	Promise.all(AccountService.getBlockedAccountPromises()
+).then(values => { 
+ // console.log(values); 
+  $scope.$apply(
+  function(){
+	  $scope.BlockedAccounts=AccountService.getBlockedAccounts();
+	  }
+	  );
+});
+	
 	//console.log(JSON.stringify(AccountService.getRequestedAccounts()));
-	Promise.all(AccountService.getAccountPromises().push(AccountService.getBlockedAccountPromises())).then(values => { 
+	Promise.all(AccountService.getAccountPromises()).then(values => { 
  // console.log(values); 
   $scope.$apply(
   function(){
 	  $scope.Accounts=AccountService.getAccounts();
-	  $scope.BlockedAccounts=AccountService.getBlockedAccounts();
 	  }
 	  );
 });
