@@ -19,6 +19,7 @@
 				}
 			}
         return {
+			Accounts,
 			getBlockerPerson:function(){
 			return BlockerPerson;
 			},

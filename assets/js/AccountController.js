@@ -87,7 +87,7 @@ $scope.DownloadedAccountsOnce=false;
         
         
         }
-	$scope.Accounts=AccountService.getAccounts();
+	$scope.Accounts=AccountService.Accounts;
 	
 		Promise.all(AccountService.getAccountPromises()).then(values => { 
  // console.log(values); 
