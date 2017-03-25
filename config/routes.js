@@ -39,7 +39,7 @@ module.exports.routes = {
 	'GET /privacypolicy':{view:'privacypolicy'},
 	'GET /sitemap':{view:'sitemap'},
 	'GET /contactus':{view:'contactus'},
-	'GET /album/:albumID': {view: 'album'},
+	'GET /album/:ID': {view: 'album'},
 	'GET /albums/:userID': {view: 'albums'},
 	'GET /user/avatar/:id':'UploadController.avatar',
 	'/profile/:ID': {view:'profile'},
