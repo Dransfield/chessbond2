@@ -66,10 +66,10 @@ $scope.DownloadedAccountsOnce=false;
 										$scope.$apply(
 										function(){$scope.Accounts=AccountService.getAccounts();});
 										
-									resolve(usr.id);
+									$rootScope.$broadcast('new user');
 									}
 									else
-									{resolve(usr.id);}
+									{$rootScope.$broadcast('new user');}
 								
 							});
 						}
@@ -87,8 +87,12 @@ $scope.DownloadedAccountsOnce=false;
         
         
         }
-	$scope.Accounts=AccountService.Accounts;
-	
+        $scope.$on('new user', function(event, args) {
+
+		$scope.Accounts=AccountService.Accounts;
+		});
+
+	/*
 		Promise.all(AccountService.getAccountPromises()).then(values => { 
  // console.log(values); 
   $scope.$apply(
@@ -101,7 +105,7 @@ $scope.DownloadedAccountsOnce=false;
 	  }
 	  );
 });
-
+*/
 	
 	//console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 
