@@ -151,6 +151,8 @@ $scope.TotalPromises=[];
 	  console.log("applying  accounts");
 	 
 	  $scope.Accounts=AccountService.getAccounts();
+	  
+	  console.log(JSON.stringify($scope.Accounts));
 	  }
 	  );
 });
