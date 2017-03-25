@@ -41,12 +41,11 @@
 					
 				  <ul class="nav navbar-nav navbar-right">
 				 <li>
-				 <!--<span ng-init="joinmyuserIDRoom('<%- req.session.passport.user%>')"></span>
-				 -->
+				 
 				 <span class="badge" ng-show="Notifications.length>0" ng-init="GetNotifications('<%- req.session.passport.user%>')">{{Notifications.length}}</span>
 				 </li>
-				  <li  ng-show="User" class="dropdown">
-					<a ng-show="User" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ Accounts['<%- Myid %>'].name}}<span class="caret"></span></a>
+				  <li  ng-show="<%- req.session.passport %>" class="dropdown">
+					<a ng-show="<%- req.session.passport %>" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ Accounts['<%- Myid %>'].name}}<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
