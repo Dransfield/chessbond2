@@ -31,7 +31,15 @@
       <!--SCRIPTS END-->
    </head>
      <body ng-app="HomepageModule" ng-controller="StatsController" ng-cloak>
-   <%- include partials/navbar.ejs %>
+    <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
+
+    
+ <%- include('partials/navbar',{userid:Myid,Myid:Myid}); %>
    <h3>Account Disabled</h3>
   	<% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>

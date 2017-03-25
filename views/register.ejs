@@ -39,7 +39,15 @@
   <% if (req.session.passport){%>
      <div ng-init="getuser('<%-req.session.passport.user %>')"></div>
    <%}%>
-  <%- include partials/navbar.ejs %>
+    <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
+
+    
+ <%- include('partials/navbar',{userid:Myid,Myid:Myid}); %>
   <div class="col-md-6 col-md-offset-3">
     <h2>Register</h2>
     <form name="form" ng-submit="register()" role="form">
