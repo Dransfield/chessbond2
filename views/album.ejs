@@ -45,13 +45,13 @@
 	</div>
    
    <h3>Upload more photos</h3>
-   <form action="/uploadavatar/<%-req.param('albumID')%>" enctype="multipart/form-data" method="post">
+   <form action="/uploadavatar/<%-req.param('ID')%>" enctype="multipart/form-data" method="post">
     <input type="file" name="avatar" multiple="multiple"><br>
     <input type="submit" value="Upload">
     </form>
-   <div ng-init="getalbum('<%-req.param('albumID')%>')">
+   <div ng-init="getalbum('<%-req.param('ID')%>')">
 	</div>
-    <div ng-init="getpics('<%-req.param('albumID')%>')">
+    <div ng-init="getpics('<%-req.param('ID')%>')">
 	</div>
 	 	<% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
@@ -64,7 +64,7 @@
 	<span ng-show="User.id==Album.user">
 		<button ng-click="editalbumtitle=!editalbumtitle" class="btn btn-sml">Edit Album Title..
 						</button>
-		 <input  ng-show="editalbumtitle" type="text"  class="form-control"  ng-change="ChangeAlbum('name','<%-req.param('albumID')%>',Album.name)" ng-model="Album.name" />
+		 <input  ng-show="editalbumtitle" type="text"  class="form-control"  ng-change="ChangeAlbum('name','<%-req.param('ID')%>',Album.name)" ng-model="Album.name" />
 	</span>
 	
 	<!--<div  style="display:flex"> ng-repeat="pic in mypics track by $index">
