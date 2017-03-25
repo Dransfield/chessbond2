@@ -62,6 +62,10 @@ $scope.DownloadedAccountsOnce=false;
 									//	console.log(usr.name+" is not online");
 										AccountService.setField(usr.id,'online',false);
 										}
+										
+										$scope.$apply(
+										function(){$scope.Accounts=AccountService.getAccounts();});
+										
 									resolve(usr.id);
 									}
 									else
@@ -83,8 +87,7 @@ $scope.DownloadedAccountsOnce=false;
         
         
         }
-	$scope.$apply(
-  function(){$scope.Accounts=AccountService.getAccounts();});
+	$scope.Accounts=AccountService.getAccounts();
 	
 		Promise.all(AccountService.getAccountPromises()).then(values => { 
  // console.log(values); 
