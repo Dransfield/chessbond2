@@ -62,10 +62,10 @@ $scope.DownloadedAccountsOnce=false;
 									//	console.log(usr.name+" is not online");
 										AccountService.setField(usr.id,'online',false);
 										}
-									resolve(usr.id).then(ApplyAccounts);
+									Promise.resolve(usr.id).then(ApplyAccounts());
 									}
 									else
-									{resolve(usr.id).then(ApplyAccounts);}
+									{Promise.resolve(usr.id).then(ApplyAccounts());}
 								
 							});
 						}
