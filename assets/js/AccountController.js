@@ -40,6 +40,7 @@ $scope.TotalPromises=[];
 		});
 	};
 	$scope.downloadAccounts= function() {
+			console.log("download accounts");
 				AccountService.clearBlockedAccountPromises();
 				if(AccountService.getShouldGetBlockedAccounts()==true)
 				
