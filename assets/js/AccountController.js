@@ -9,7 +9,7 @@ $scope.TotalPromises=[];
 	
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
-			//console.log(accID+" was added by webpage");
+			console.log(accID+" was added by webpage");
 			
 			};
 	$scope.BlockUser=function(MyID,sender)
