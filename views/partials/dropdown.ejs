@@ -16,7 +16,11 @@
     <a href="#">Challenge to a Game</a>	
    </li>
    <li>
-    <a href="#">Invite to Chat	</a>
+    <div ng-controller="PrivateConversationController">
+      <div  ng-show="PrivateConversation[<%- userid%>]" ng-click="GoToPrivateConversation('<%- Myid %>',<%- userid %>)">Go To Chat</div>
+	  <div  ng-show="!PrivateConversation[<%- userid%>]" ng-click="StartPrivateConversation('<%- Myid %>',<%- userid %>)">Invite To Chat</div>
+	
+    </div>
     </li>
     <li>
     <a href="#">Add to Friend List	</a>

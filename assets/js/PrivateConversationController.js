@@ -1,8 +1,29 @@
 angular.module('HomepageModule').controller('PrivateConversationController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
 
-$scope.getuserAndJoinRoom=function(MyID)
-	{
+//$scope.getuserAndJoinRoom=function(MyID)
+//	{
 
 
-};
+//};
+
+
+io.socket.get('/privateconversation?talkingto='+id,
+			function (msgs) {
+				//console.log(JSON.stringify(msgs));
+				
+				
+				console.log("msgs.length "+msgs.length);
+				for (x in msgs)
+				{
+				$scope.WallPosts[x]=msgs[x];
+				
+				msgs[x].Age=DateService.phrasefordate(msgs[x].createdAt);//$scope.CalcAge(msgs[x].createdAt);
+				
+						
+				}
+				
+			
+			});
+
+
 }]);

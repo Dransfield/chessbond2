@@ -57,7 +57,7 @@
 		<% if (req.session.passport) { %>
 	<% if (req.session.passport.user) { %>
 	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
-	<input type="text" autocomplete="off" class="form-control" placeholder="post to wall" name="name" ng-model="WallPostInput"  required>
+	<input type="text" autocomplete="off" class="form-control" placeholder="post message" name="name" ng-model="WallPostInput"  required>
 	<button class="btn btn-default btn-sm" type="submit" >Post Message</button>
 	
 	</form>
