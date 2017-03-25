@@ -62,10 +62,10 @@ $scope.DownloadedAccountsOnce=false;
 									//	console.log(usr.name+" is not online");
 										AccountService.setField(usr.id,'online',false);
 										}
-									ApplyAccounts();
+									resolve(usr.id);
 									}
 									else
-									{ApplyAccounts();}
+									{resolve(usr.id);}
 								
 							});
 						}
@@ -83,9 +83,8 @@ $scope.DownloadedAccountsOnce=false;
         
         
         }
+	$scope.Accounts=AccountService.getAccounts();
 	
-	function ApplyAccounts()
-	{
 		Promise.all(AccountService.getAccountPromises()).then(values => { 
  // console.log(values); 
   $scope.$apply(
@@ -97,8 +96,8 @@ $scope.DownloadedAccountsOnce=false;
 	  console.log(JSON.stringify($scope.Accounts));
 	  }
 	  );
-	});
-	}
+});
+
 	
 	//console.log(JSON.stringify(AccountService.getRequestedAccounts()));
 
