@@ -3,6 +3,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ht
 $scope.Accounts={};
 $scope.BlockedAccounts=[];
 $scope.TotalPromises=[];
+$scope.DownloadedAccountsOnce=false;
 	$scope.setShouldGetBlockedAccounts=function(accID){
 		AccountService.setShouldGetBlockedAccounts(accID);
 	};
@@ -11,6 +12,11 @@ $scope.TotalPromises=[];
 			AccountService.addAccount(accID);
 			console.log(accID+" was added by webpage");
 			
+			if(!$scope.DownloadedAccountsOnce)
+			{
+			$scope.downloadAccounts();
+			$scope.DownloadedAccountsOnce=true;
+			}
 			};
 	$scope.BlockUser=function(MyID,sender)
 		{
@@ -129,7 +135,7 @@ $scope.TotalPromises=[];
         
         
         }
-	$scope.downloadAccounts();
+	
 	
 	
 	Promise.all(AccountService.getBlockedAccountPromises()
