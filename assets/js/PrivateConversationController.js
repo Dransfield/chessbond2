@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('PrivateConversationController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
+angular.module('HomepageModule').controller('PrivateConversationController', ['$scope', '$http','$window' ,'toastr','ConversationService', function($scope, $http,$window,toastr,ConversationService){
 
 //$scope.getuserAndJoinRoom=function(MyID)
 //	{
