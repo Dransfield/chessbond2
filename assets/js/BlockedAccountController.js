@@ -20,7 +20,7 @@ $scope.DownloadedAccountsOnce=false;
 		$scope.UnBlockUser=function(MyID,sender)
 	{
 		
-		$scope.BlockedUsers[sender]=false;
+		$scope.BlockedAccounts[sender]=false;
 			BlockedAccountService.UnsetBlockedAccount(sender);
 		io.socket.get('/block?blocked='+sender+'&blocker='+MyID,
 	function  (data){
