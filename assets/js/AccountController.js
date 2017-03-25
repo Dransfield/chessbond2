@@ -152,7 +152,7 @@ $scope.TotalPromises=[];
 	 
 	  $scope.Accounts=AccountService.getAccounts();
 	  
-	  console.log(JSON.stringify($scope.Accounts));
+	 // console.log(JSON.stringify($scope.Accounts));
 	  }
 	  );
 });
