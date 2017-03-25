@@ -38,7 +38,7 @@ $scope.DownloadedAccountsOnce=false;
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
-					
+					console.log("downloaded account "+actneeded);
 						if (usr)
 						{
 							AccountService.setAccount(usr);
