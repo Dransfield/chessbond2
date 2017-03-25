@@ -21,7 +21,7 @@ $scope.DownloadedAccountsOnce=false;
 	
 	$scope.downloadAccounts= function() {
 			
-                AccountService.clearAccountPromises();
+               // AccountService.clearAccountPromises();
                     //  console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
@@ -29,7 +29,7 @@ $scope.DownloadedAccountsOnce=false;
 					var actneeded=AccountService.getRequestedAccounts()[x].id;
 					if(!AccountService.getRequestedAccounts()[x].requested)
 					{
-					AccountService.addAccountPromise(new Promise((resolve,reject)=>{
+					//AccountService.addAccountPromise(new Promise((resolve,reject)=>{
 					
 					AccountService.LabelRequestedAccount(actneeded);
 				
@@ -77,7 +77,7 @@ $scope.DownloadedAccountsOnce=false;
 						{resolve(actneeded);}
 					});
 	
-				}));	
+				//}));	
                       
                 
             }
