@@ -41,6 +41,7 @@ $scope.DownloadedAccountsOnce=false;
 					console.log("downloaded account "+actneeded);
 						if (usr)
 						{
+							console.log("usr is valid");
 							AccountService.setAccount(usr);
 							AccountService.RemoveRequestedAccount(usr.id);
 								io.socket.get('/subscription?subscriber='+usr.id,
