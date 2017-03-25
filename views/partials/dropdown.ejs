@@ -27,7 +27,7 @@
   </li>
    <li>
    <div ng-controller="BlockedAccountController" setShouldGetBlockedAccounts('<%- Myid %>')>
-    <div  ng-show="BlockedAccounts[<%- userid%>]" ng-click="UnBlockUser('<%- Myid %>',<%- userid %>)">UnBlock Member</div>
+    <div  ng-show="BlockedAccounts[<%- userid%>]" ng-click="UnBlockUser('<%- Myid %>','<%- userid %>')">UnBlock Member</div>
 	  <div  ng-show="!BlockedAccounts[<%- userid%>]" ng-click="BlockUser('<%- Myid %>',<%- userid %>)">Block Member</div>
 	
 	</div>
