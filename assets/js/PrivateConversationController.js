@@ -5,7 +5,7 @@ angular.module('HomepageModule').controller('PrivateConversationController', ['$
 
 
 //};
-
+/*
 
 io.socket.get('/privateconversation?talkingto='+id,
 			function (msgs) {
@@ -24,6 +24,6 @@ io.socket.get('/privateconversation?talkingto='+id,
 				
 			
 			});
-
+*/
 
 }]);
