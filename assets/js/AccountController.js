@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('AccountController', ['$scope', '$http','$window' ,'toastr','AccountService', function($scope, $http,$window,toastr,AccountService){
+angular.module('HomepageModule').controller('AccountController', ['$scope', '$rootScope','$http','$window' ,'toastr','AccountService', function($scope,$rootScope, $http,$window,toastr,AccountService){
 	
 $scope.Accounts={};
 
