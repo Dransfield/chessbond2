@@ -85,7 +85,7 @@ $scope.DownloadedAccountsOnce=false;
 		$scope.$apply(function(){			
 		
 		
-		$scope.Accounts=AccountService.getAccounts;});
+		$scope.Accounts=AccountService.getAccounts();});
 		console.log("new user scope.accounts "+JSON.stringify($scope.Accounts));
 		});
 		$scope.$on('new account added', function(event, args) {
