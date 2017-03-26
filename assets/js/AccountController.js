@@ -28,7 +28,7 @@ $scope.DownloadedAccountsOnce=false;
 					AccountService.LabelRequestedAccount(actneeded);
 				
 					
-					//console.log(actneeded+" ajax getting now");
+					console.log(actneeded+" ajax getting now");
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
