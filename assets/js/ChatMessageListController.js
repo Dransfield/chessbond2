@@ -9,7 +9,7 @@ $scope.WallPosts=[];
 			});
 	io.socket.on('WallPost', function (data)
 			{
-			
+			console.log("recieved wall post socket");
 		
 			
 			$scope.$apply(function(){
