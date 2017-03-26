@@ -9,20 +9,20 @@ $scope.DownloadedAccountsOnce=false;
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
 			
-			console.log("website added account "+accID);
+			//console.log("website added account "+accID);
 			$rootScope.$broadcast('new account added')
 			};
 	
 	$scope.downloadAccounts= function() {
 			
                // AccountService.clearAccountPromises();
-                     console.log("download accounts function fired");
+                    // console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
 					
 					var actneeded=AccountService.getRequestedAccounts()[x].id;
 					
-					console.log("AccountService.getRequestedAccounts()[x].requested "+AccountService.getRequestedAccounts()[x].requested);
+					//console.log("AccountService.getRequestedAccounts()[x].requested "+AccountService.getRequestedAccounts()[x].requested);
 					
 					if(!AccountService.getRequestedAccounts()[x].requested)
 					{
@@ -31,7 +31,7 @@ $scope.DownloadedAccountsOnce=false;
 					AccountService.LabelRequestedAccount(actneeded);
 				
 					
-					console.log(actneeded+" ajax getting now");
+					//console.log(actneeded+" ajax getting now");
 	
 					io.socket.get('/user/'+actneeded,
 					function(usr){
