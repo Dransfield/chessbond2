@@ -8,7 +8,7 @@ angular.module('HomepageModule').controller('PostMessageController', ['$scope', 
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			
-			io.socket.post('/newnotification',{reciever:usrid,msg:'New '+msgtype+' Recieved',adr:address},
+			io.socket.post('/newnotification',{reciever:groupid,msg:'New '+msgtype+' Recieved',adr:address},
 			function (resData, jwRes) {
 				
 				});
