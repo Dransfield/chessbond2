@@ -51,7 +51,7 @@
 			
 			 <%- include('partials/chatmessagelist', {groupid: req.param('ID'),Myid:req.session.passport.user}); %>
 			 <%- include('partials/postmessage',{groupid: req.param('ID'),userid:Myid,Myid:Myid,msgtype:'Private Conversation',address:'/privateconversation'+req.param('ID')}); %>
-		//	,'<%- userid %>'
+		
 			<%}%>
 			<%}%>
 			
