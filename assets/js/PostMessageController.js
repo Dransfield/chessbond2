@@ -4,14 +4,14 @@ angular.module('HomepageModule').controller('PostMessageController', ['$scope', 
 		{
 			var none='none';
 			
-			$http.post("/newwallpost",{ReplyTo:'none',roomName:groupid,content:$scope.WallPostInput,sender:Myid,reciever:groupid})
+			$http.post("/newwallpost",{ReplyTo:'none',content:$scope.WallPostInput,sender:Myid,grpid:groupid,messagetype:msgtype})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			
-			io.socket.post('/newnotification',{reciever:groupid,msg:'New '+msgtype+' Recieved',adr:address},
-			function (resData, jwRes) {
+			//io.socket.post('/newnotification',{reciever:groupid,msg:'New '+msgtype+' Recieved',adr:address},
+			//function (resData, jwRes) {
 				
-				});
+				//});
 			
 			}
 			);

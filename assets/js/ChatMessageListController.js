@@ -3,8 +3,10 @@ angular.module('HomepageModule').controller('ChatMessageListController', ['$scop
 $scope.WallPosts=[];
 
 	$scope.getChatMessages=function(id,skip=0){
-	$scope.TheID=id;
-		io.socket.get("/subscribeToRoom",{roomName:id},function (resData,jwres){
+	
+	var room="/privateconversation/"+id
+	
+		io.socket.get("/subscribeToRoom",{roomName:room},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
 	io.socket.on('WallPost', function (data)
