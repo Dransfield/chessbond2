@@ -89,7 +89,7 @@ $scope.DownloadedAccountsOnce=false;
 		//console.log("new user scope.accounts "+JSON.stringify($scope.Accounts));
 		});
 		//$scope.$on('new account added', function(event, args) {
-
+		$scope.Accounts=AccountService.Accounts;
 		$scope.downloadAccounts();
 	//	});
 	/*
