@@ -9,14 +9,14 @@ $scope.DownloadedAccountsOnce=false;
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
 			
-			
+			console.log("website added account "+accID);
 			$rootScope.$broadcast('new account added')
 			};
 	
 	$scope.downloadAccounts= function() {
 			
                // AccountService.clearAccountPromises();
-                    //  console.log("download accounts function fired");
+                     console.log("download accounts function fired");
                 for (x in AccountService.getRequestedAccounts())
                 {
 					
