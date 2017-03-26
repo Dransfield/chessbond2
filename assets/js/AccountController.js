@@ -8,7 +8,7 @@ $scope.DownloadedAccountsOnce=false;
 	
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
-			console.log(accID+" was added by webpage");
+			
 			
 			$rootScope.$broadcast('new account added')
 			};
@@ -35,7 +35,7 @@ $scope.DownloadedAccountsOnce=false;
 					console.log("downloaded account "+actneeded);
 						if (usr)
 						{
-							console.log("usr is valid");
+							//console.log("usr is valid"+usr.id);
 							AccountService.setAccount(usr);
 							$rootScope.$broadcast('new user');
 								io.socket.get('/subscription?subscriber='+usr.id,
@@ -83,7 +83,7 @@ $scope.DownloadedAccountsOnce=false;
         }
         $scope.$on('new user', function(event, args) {
 		$scope.$apply(function(){
-		$scope.Accounts=AccountService.Accounts;});
+		$scope.Accounts=AccountService.getAccounts;});
 		});
 		$scope.$on('new account added', function(event, args) {
 
