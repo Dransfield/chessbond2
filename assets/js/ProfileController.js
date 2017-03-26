@@ -218,27 +218,7 @@ $scope.SetIdle=true;
 	
 
 	
-	$scope.SendWallPost=function(usrid)
-		{
-			var none='none';
-			console.log("user "+$scope.User);
-			console.log("lookedatuser "+$scope.LookedatUser);
-			
-			$http.post("/newwallpost",{ReplyTo:'none',senderpic:$scope.User.picture,content:$scope.WallPostInput,sender:$scope.User.id,sendername:$scope.User.name,roomName:'profile/'+$scope.LookedatUser.id,reciever:$scope.LookedatUser.id})
-			.then(function onSuccess (){
-			$scope.chatInput = null;
-			
-			io.socket.post('/newnotification',{reciever:$scope.LookedatUser.id,msg:'New Wall Post Recieved',adr:'/profile/'+$scope.LookedatUser.id},
-			function (resData, jwRes) {
-				
-				});
-			
-			}
-			);
-			
-			
-			
-		};
+
 		$scope.GetMoreWallPosts=function(id)
 		{
 		$scope.wallpostskip+=10;

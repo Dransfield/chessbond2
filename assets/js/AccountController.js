@@ -2,7 +2,7 @@ angular.module('HomepageModule').controller('AccountController', ['$scope', '$ro
 	
 $scope.Accounts={};
 
-$scope.TotalPromises=[];
+
 $scope.DownloadedAccountsOnce=false;
 	$scope.setShouldGetBlockedAccounts=function(accID){
 		AccountService.setShouldGetBlockedAccounts(accID);
@@ -43,7 +43,7 @@ $scope.DownloadedAccountsOnce=false;
 						{
 							console.log("usr is valid");
 							AccountService.setAccount(usr);
-							AccountService.RemoveRequestedAccount(usr.id);
+							
 								io.socket.get('/subscription?subscriber='+usr.id,
 								function (rply) {
 		
@@ -63,8 +63,8 @@ $scope.DownloadedAccountsOnce=false;
 										AccountService.setField(usr.id,'online',false);
 										}
 										
-										$scope.$apply(
-										function(){$scope.Accounts=AccountService.getAccounts();});
+										//$scope.$apply(
+									//	function(){$scope.Accounts=AccountService.getAccounts();});
 										
 									$rootScope.$broadcast('new user');
 									}

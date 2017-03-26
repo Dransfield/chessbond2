@@ -50,19 +50,12 @@
 			<% if (req.session.passport.user){ %>
 			
 			 <%- include('partials/chatmessagelist', {groupid: req.param('ID'),Myid:req.session.passport.user}); %>
-			
+			 <%- include('partials/postmessage',{groupid: req.param('ID'),userid:Myid,Myid:Myid,msgtype:'Private Conversation',address:'/privateconversation'+req.param('ID')}); %>
+		//	,'<%- userid %>'
 			<%}%>
 			<%}%>
 			
-		<% if (req.session.passport) { %>
-	<% if (req.session.passport.user) { %>
-	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
-	<input type="text" autocomplete="off" class="form-control" placeholder="post message" name="name" ng-model="WallPostInput"  required>
-	<button class="btn btn-default btn-sm" type="submit" >Post Message</button>
 	
-	</form>
-	<% } %>
-	<% } %>
 
 
     
