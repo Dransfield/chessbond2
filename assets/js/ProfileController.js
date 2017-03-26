@@ -607,6 +607,8 @@ $scope.SetIdle=true;
 		
 			});
 			});
+			
+			/*
 			io.socket.on('WallPost', function (data)
 			{
 			
@@ -633,7 +635,7 @@ $scope.SetIdle=true;
 			});
 			console.log(data);
 			});
-		
+		*/
 		io.socket.get("/subscribeToRoom",{roomName:'profile/'+OwnerID},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 		});
