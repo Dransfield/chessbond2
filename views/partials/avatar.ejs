@@ -3,7 +3,7 @@
 <img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" src="/images/orangecirclesml.png"></img>
 <img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>
 <img class="onlinecircle"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>
-<img class="profilepic" src="{{Accounts[<%- userid %>].picture}}"></img>
+<img class="profilepic" ng-src="Accounts[<%- userid %>].picture"></img>
 '{{<%- userid %>}}'
 '{{Accounts[<%- userid %>].picture}}'
   <%- include('dropdown', {userid:userid,Myid:Myid}); %>
