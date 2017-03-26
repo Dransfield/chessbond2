@@ -31,9 +31,7 @@
 		    getAccount: function (id) {
                 return Accounts[id];
             },
-            getAccounts:function() {
-			return Accounts;
-			},
+           Accounts,
             setAccount: function(acc) {
                 Accounts[acc.id]=acc;
             },
