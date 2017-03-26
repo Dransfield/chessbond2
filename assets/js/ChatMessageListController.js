@@ -25,6 +25,7 @@ $scope.WallPosts=[];
 			});
 	};
 	
-	$scope.getChatMessages($scope.TheID);
-	
+	$scope.$apply(function(){
+	$scope.WallPosts=$scope.WallPosts;
+	});
 }]);
