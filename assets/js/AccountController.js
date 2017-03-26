@@ -21,6 +21,9 @@ $scope.DownloadedAccountsOnce=false;
                 {
 					
 					var actneeded=AccountService.getRequestedAccounts()[x].id;
+					
+					console.log("AccountService.getRequestedAccounts()[x].requested "+AccountService.getRequestedAccounts()[x].requested);
+					
 					if(!AccountService.getRequestedAccounts()[x].requested)
 					{
 					//AccountService.addAccountPromise(new Promise((resolve,reject)=>{
