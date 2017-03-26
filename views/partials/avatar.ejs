@@ -4,7 +4,7 @@
 <img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>
 <img class="onlinecircle"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>
 <img class="profilepic" src="{{Accounts[<%- userid %>].picture}}"></img>
-
+'<%- userid %>'
   <%- include('dropdown', {userid:userid,Myid:Myid}); %>
     	
 </div>
