@@ -4,7 +4,7 @@ angular.module('HomepageModule').controller('PostMessageController', ['$scope', 
 		{
 			var none='none';
 			
-			$http.post("/newwallpost",{ReplyTo:'none',room:groupid,content:$scope.WallPostInput,sender:Myid,reciever:groupid})
+			$http.post("/newwallpost",{ReplyTo:'none',roomName:groupid,content:$scope.WallPostInput,sender:Myid,reciever:groupid})
 			.then(function onSuccess (){
 			$scope.chatInput = null;
 			
