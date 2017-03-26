@@ -11,7 +11,7 @@ $scope.WallPosts=[];
 				
 				
 				console.log("msgs.length "+msgs.length);
-				
+				$scope.$apply(function(){
 				for (x in msgs)
 				{
 				$scope.WallPosts[x]=msgs[x];
@@ -20,7 +20,7 @@ $scope.WallPosts=[];
 				
 						
 				}
-			
+			});
 			
 			});
 	};
