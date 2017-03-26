@@ -4,9 +4,7 @@ $scope.Accounts={};
 
 
 $scope.DownloadedAccountsOnce=false;
-	$scope.setShouldGetBlockedAccounts=function(accID){
-		AccountService.setShouldGetBlockedAccounts(accID);
-	};
+	
 	
 	$scope.addAccount=function(accID) {
 			AccountService.addAccount(accID);
