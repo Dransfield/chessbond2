@@ -16,7 +16,7 @@
     <a href="#">Challenge to a Game</a>	
    </li>
    <li>
-    <div ng-controller="PrivateconversationController">
+    <div ng-controller="PrivateconversationController" ng-init="setShouldGetPrivateconversations('<%- Myid %>')">
       <div  ng-show="PrivateConversations[<%- userid%>]" ng-click="GoToPrivateConversation('<%- Myid %>',<%- userid %>)">Go To Chat</div>
 	  <div  ng-show="!PrivateConversations[<%- userid%>]" ng-click="StartPrivateConversation('<%- Myid %>',<%- userid %>)">Invite To Chat</div>
 	
@@ -26,7 +26,7 @@
     <a href="#">Add to Friend List	</a>
   </li>
    <li>
-   <div ng-controller="BlockedAccountController" setShouldGetBlockedAccounts('<%- Myid %>')>
+   <div ng-controller="BlockedAccountController" ng-init="setShouldGetBlockedAccounts('<%- Myid %>')">
     <div  ng-show="BlockedAccounts[<%- userid%>]" ng-click="UnBlockUser('<%- Myid %>',<%- userid %>)">UnBlock Member</div>
 	  <div  ng-show="!BlockedAccounts[<%- userid%>]" ng-click="BlockUser('<%- Myid %>',<%- userid %>)">Block Member</div>
 	
