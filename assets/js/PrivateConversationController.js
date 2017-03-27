@@ -9,7 +9,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 	};
 	
 	
-	$scope.NewPrivateconversation=function(MyID,sender)
+	$scope.StartPrivateConversation=function(MyID,sender)
 		{
 			
 		$scope.PrivateConversations[sender]=true;
