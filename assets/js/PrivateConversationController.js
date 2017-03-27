@@ -1,6 +1,6 @@
 angular.module('HomepageModule').controller('PrivateconversationController', ['$scope','$rootScope', '$http','$window' ,'toastr','PrivateConversationService', function($scope,$rootScope, $http,$window,toastr,PrivateConversationService){
 
-$scope.Privateconversations=[];
+$scope.PrivateConversations=[];
 
 $scope.DownloadedPrivateconversationsOnce=false;
 	$scope.setShouldGetPrivateconversations=function(accID){
@@ -12,7 +12,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 	$scope.NewPrivateconversation=function(MyID,sender)
 		{
 			
-		$scope.Privateconversations[sender]=true;
+		$scope.PrivateConversations[sender]=true;
 			BlockedAccountService.setPrivateconversation(sender);
 			io.socket.post('/privateconversation',{Talker1:MyID,Talker2:sender},
 			function (resData, jwRes) {
