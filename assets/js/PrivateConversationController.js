@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('PrivateconversationController', ['$scope', '$http','$window' ,'toastr','PrivateconversationService', function($scope, $http,$window,toastr,PrivateconversationService){
+angular.module('HomepageModule').controller('PrivateconversationController', ['$scope', '$http','$window' ,'toastr','PrivateConversationService', function($scope, $http,$window,toastr,PrivateConversationService){
 
 $scope.Privateconversations=[];
 
