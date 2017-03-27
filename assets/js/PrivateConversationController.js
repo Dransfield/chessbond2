@@ -14,7 +14,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 			
 		$scope.BlockedAccounts[sender]=true;
 			BlockedAccountService.setPrivateconversation(sender);
-			io.socket.post('/Privateconversation',{Talker1:MyID,Talker2:sender},
+			io.socket.post('/privateconversation',{Talker1:MyID,Talker2:sender},
 			function (resData, jwRes) {
 				});
 		};
@@ -29,9 +29,9 @@ $scope.DownloadedPrivateconversationsOnce=false;
 						PrivateConversationService.setRequestedPrivateConversations();
 					
 				
-					io.socket.get("/privateconversation",{or:[{'talker1':PrivateConversationService.getTalkerPerson()},{'talker2':PrivateConversationService.getTalkerPerson()}],limit:30000},
+					io.socket.get("/privateconversation",{or:[{Talker1:PrivateConversationService.getTalkerPerson()},{Talker2:PrivateConversationService.getTalkerPerson()}],limit:30000},
 		function (pc) {
-				console.log("in blk promise recieved reply");
+				console.log("in private conversation recieved reply"+JSON.stringify(pc));
 				for (x in pc)
 				{
 					
