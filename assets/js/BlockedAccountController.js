@@ -1,10 +1,11 @@
 angular.module('HomepageModule').controller('BlockedAccountController', ['$scope', '$http','$window' ,'toastr','BlockedAccountService', function($scope, $http,$window,toastr,BlockedAccountService){
 
 $scope.BlockedAccounts=[];
-$scope.TotalPromises=[];
+
 $scope.DownloadedAccountsOnce=false;
 	$scope.setShouldGetBlockedAccounts=function(accID){
 		BlockedAccountService.setShouldGetBlockedAccounts(accID);
+		$rootScope.$broadcast('get blocked accounts');
 	};
 	
 	
@@ -39,15 +40,14 @@ $scope.DownloadedAccountsOnce=false;
 	};
 	$scope.downloadAccounts= function() {
 			console.log("download accounts");
-				BlockedAccountService.clearBlockedAccountPromises();
+				
 				if(BlockedAccountService.getShouldGetBlockedAccounts()==true)
 				
 				{
 					if(BlockedAccountService.getRequestedBlockedAccounts()==false)
 					{
 						BlockedAccountService.setRequestedBlockedAccounts();
-					BlockedAccountService.addBlockedAccountPromise(
-					new Promise((resolve,reject)=>{
+				
 						console.log("in blk promise");
 							io.socket.get('/block?blocker='+BlockedAccountService.getBlockerPerson(),
 			function (blk) {
@@ -59,31 +59,27 @@ $scope.DownloadedAccountsOnce=false;
 				BlockedAccountService.setBlockedAccount(blk[x].blocked);	
 				
 				}
-				resolve('Blocked');
+				$rootScope.$broadcast('new blocked accounts');
 				});	
 					}
-					)
-					);
+					
+					
 					}
-			}
+			
               
         
         
         }
 	
 	
-	
-	Promise.all(BlockedAccountService.getBlockedAccountPromises()
-).then(values => { 
-  console.log(values); 
-  $scope.$apply(
-  function(){
-	  console.log("applying blocked accounts");
+	 $scope.$on('get blocked accounts', function(event, args) {
+	$scope.downloadAccounts();
+	});
+
+	  $scope.$on('new blocked accounts', function(event, args) {
 	  $scope.BlockedAccounts=BlockedAccountService.getBlockedAccounts();
-	 console.log(JSON.stringify($scope.BlockedAccounts));
-	  }
-	  );
-});
+	});
+
 	
 
 
