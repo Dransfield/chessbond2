@@ -1,4 +1,4 @@
-angular.module('HomepageModule').controller('BlockedAccountController', ['$scope','$rootScope' '$http','$window' ,'toastr','BlockedAccountService', function($scope, $rootScope,$http,$window,toastr,BlockedAccountService){
+angular.module('HomepageModule').controller('BlockedAccountController', ['$scope','$rootScope', '$http','$window' ,'toastr','BlockedAccountService', function($scope, $rootScope,$http,$window,toastr,BlockedAccountService){
 
 $scope.BlockedAccounts=[];
 
