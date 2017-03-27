@@ -29,7 +29,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 						PrivateConversationService.setRequestedPrivateConversations();
 					
 				
-					io.socket.get("/privateconversation",{or:[{'talker1':MyID},{'talker2':MyID}],limit:30000},
+					io.socket.get("/privateconversation",{or:[{'talker1':PrivateConversationService.getTalkerPerson()},{'talker2':PrivateConversationService.getTalkerPerson()}],limit:30000},
 		function (pc) {
 				console.log("in blk promise recieved reply");
 				for (x in pc)
