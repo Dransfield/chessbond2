@@ -8,7 +8,11 @@ $scope.DownloadedPrivateconversationsOnce=false;
 	$scope.downloadPrivateconversations();
 	};
 	
-	
+	$scope.GoToPrivateConversation=function(MyID,sender)
+	{
+		console.log('/seeprivateconversation/'+$scope.PrivateConversations[sender]);
+		$window.location.href = '/seeprivateconversation/'+$scope.PrivateConversations[sender];
+	}
 	$scope.StartPrivateConversation=function(MyID,sender)
 		{
 			
@@ -37,8 +41,17 @@ $scope.DownloadedPrivateconversationsOnce=false;
 				for (x in pc)
 				{
 					
-				
-				PrivateConversationService.setPrivateConversation(pc[x]);	
+					console.log("Talker1"+pc.Talker1);
+					console.log("Talker2"+pc.Talker2);
+					
+				if(PrivateConversationService.getTalkerPerson()==pc.Talker1)
+				{
+				PrivateConversationService.setPrivateConversation(pc.Talker2,pc[x].id);	
+				}
+				else
+				{
+				PrivateConversationService.setPrivateConversation(pc.Talker1,pc[x].id);	
+				}
 				
 				}
 				$rootScope.$broadcast('new pc');

@@ -16,7 +16,7 @@
     <a href="#">Challenge to a Game</a>	
    </li>
    <li>
-    <div ng-controller="PrivateconversationController" ng-init="setShouldGetPrivateconversations('<%- Myid %>')">
+    <div ng-controller="PrivateconversationController" ng-init="setShouldGetPrivateconversations('<%- Myid %>')">{{PrivateConversations[<%- userid%>]}}
       <div  ng-show="PrivateConversations[<%- userid%>]" ng-click="GoToPrivateConversation('<%- Myid %>',<%- userid %>)">Go To Chat</div>
 	  <div  ng-show="!PrivateConversations[<%- userid%>]" ng-click="StartPrivateConversation('<%- Myid %>',<%- userid %>)">Invite To Chat</div>
 	
