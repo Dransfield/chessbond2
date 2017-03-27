@@ -37,7 +37,7 @@ $scope.WallPosts=[];
 			console.log(data);
 			});
 			
-		io.socket.get('/wallpost?replyto=none&reciever='+id+'&limit=10&skip='+skip+'&sort=createdAt DESC',
+		io.socket.get('/wallpost?replyto=none&groupid='+id+'&limit=10&skip='+skip+'&sort=createdAt DESC',
 			function (msgs) {
 				//console.log(JSON.stringify(msgs));
 				
