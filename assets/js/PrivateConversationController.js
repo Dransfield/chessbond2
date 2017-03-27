@@ -17,10 +17,11 @@ $scope.DownloadedPrivateconversationsOnce=false;
 		{
 			
 		
-			PrivateConversationService.setPrivateconversation(sender);
+			
 			io.socket.post('/privateconversation',{Talker1:MyID,Talker2:sender},
 			function (resData, jwRes) {
-				BlockedAccountService.setPrivateconversation(sender,resData[0].id);
+				console.log("resData[0].id "+resData[0].id);
+				PrivateConversationService.setPrivateconversation(sender,resData[0].id);
 				$scope.PrivateConversations[sender]=resData[0].id;
 				});
 		};
