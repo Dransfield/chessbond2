@@ -33,8 +33,8 @@
 			setRequestedPrivateConversations:function() {
 			 PrivateConversationsRequested=true;
 			},
-            setPrivateConversation: function(acc) {
-                PrivateConversations[acc]=true;
+            setPrivateConversation: function(acc,pcID) {
+                PrivateConversations[acc]=pcID;
             }, 
             UnsetPrivateConversation: function(acc) {
                 PrivateConversations[acc]=false;
