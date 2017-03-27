@@ -15,7 +15,7 @@ module.exports = {
 				if(req.param('messagetype')=="Private Conversation")
 				{
 		
-				privateconversation.findOne
+				PrivateConversation.findOne
 				({id: req.param('grpid')},function foundPC(err,pc)
 					{
 						if (!err)
