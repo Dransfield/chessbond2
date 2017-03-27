@@ -42,14 +42,15 @@ $scope.DownloadedPrivateconversationsOnce=false;
 				$rootScope.$broadcast('new pc');
 				});	
 					}
-					)
-					);
 					}
-			}
+					
+					
+					}
+			
               
         
         
-        }
+        
 	
 	
 	  $scope.$on('new pc', function(event, args) {
