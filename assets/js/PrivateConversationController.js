@@ -12,7 +12,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 	$scope.NewPrivateconversation=function(MyID,sender)
 		{
 			
-		$scope.BlockedAccounts[sender]=true;
+		$scope.Privateconversations[sender]=true;
 			BlockedAccountService.setPrivateconversation(sender);
 			io.socket.post('/privateconversation',{Talker1:MyID,Talker2:sender},
 			function (resData, jwRes) {
