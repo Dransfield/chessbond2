@@ -21,12 +21,12 @@ $scope.DownloadedPrivateconversationsOnce=false;
 		
 	$scope.downloadPrivateconversations= function() {
 			console.log("download Privateconversations");
-				if(PrivateConversationService.getShouldGetPrivateconversations()==true)
+				if(PrivateConversationService.getShouldGetPrivateConversations()==true)
 				
 				{
-					if(PrivateConversationService.getRequestedPrivateconversations()==false)
+					if(PrivateConversationService.getRequestedPrivateConversations()==false)
 					{
-						PrivateConversationService.setRequestedPrivateconversations();
+						PrivateConversationService.setRequestedPrivateConversations();
 					
 				
 					io.socket.get("/privateconversation",{or:[{'talker1':MyID},{'talker2':MyID}],limit:30000},
@@ -36,7 +36,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 				{
 					
 				
-				PrivateConversationService.setPrivateconversation(pc[x]);	
+				PrivateConversationService.setPrivateConversation(pc[x]);	
 				
 				}
 				$rootScope.$broadcast('new pc');

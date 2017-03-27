@@ -19,6 +19,7 @@
 				ShouldGetPrivateConversations=true;
 				TalkerPerson=accID;
 			},
+			
 			getShouldGetPrivateConversations:function(accID){
 				return	ShouldGetPrivateConversations;
 			},
@@ -26,10 +27,10 @@
 			getPrivateConversations:function(accID){
 			return PrivateConversations;
 			},
-			getRequestedPrivateConversationss:function() {
+			getRequestedPrivateConversations:function() {
 			return PrivateConversationsRequested;
 			},
-			setRequestedPrivateConversationss:function() {
+			setRequestedPrivateConversations:function() {
 			 PrivateConversationsRequested=true;
 			},
             setPrivateConversation: function(acc) {
