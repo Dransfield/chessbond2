@@ -4,7 +4,7 @@ $scope.Privateconversations=[];
 
 $scope.DownloadedPrivateconversationsOnce=false;
 	$scope.setShouldGetPrivateconversations=function(accID){
-		PrivateConversationService.setShouldGetBlockedAccounts(accID);
+		PrivateConversationService.setShouldGetPrivateConversations(accID);
 	$scope.downloadPrivateconversations();
 	};
 	
