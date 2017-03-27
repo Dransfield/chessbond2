@@ -37,7 +37,7 @@ module.exports = {
 								reciever=pc.Talker1;
 								}
 			
-								Notification.create({reciever:reciever,msg:"New Private Message Recieved",adr:'/privateconversation/'+req.param('grpid')})
+								Notification.create({reciever:reciever,msg:"New Private Message Recieved",adr:'/seeprivateconversation/'+req.param('grpid')})
 								.exec(
 									function (err, records) 
 									{
