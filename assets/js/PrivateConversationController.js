@@ -21,7 +21,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 			io.socket.post('/privateconversation',{Talker1:MyID,Talker2:sender},
 			function (resData, jwRes) {
 				console.log("resData[0].id "+resData.id);
-				PrivateConversationService.setPrivateconversation(sender,resData.id);
+				PrivateConversationService.setPrivateConversation(sender,resData.id);
 				$scope.PrivateConversations[sender]=resData.id;
 				});
 		};
