@@ -45,13 +45,13 @@ $scope.DownloadedPrivateconversationsOnce=false;
 					console.log("Talker1"+pc.Talker1);
 					console.log("Talker2"+pc.Talker2);
 					
-				if(PrivateConversationService.getTalkerPerson()==pc.Talker1)
+				if(PrivateConversationService.getTalkerPerson()==pc[x].Talker1)
 				{
-				PrivateConversationService.setPrivateConversation(pc.Talker2,pc[x].id);	
+				PrivateConversationService.setPrivateConversation(pc[x].Talker2,pc[x].id);	
 				}
 				else
 				{
-				PrivateConversationService.setPrivateConversation(pc.Talker1,pc[x].id);	
+				PrivateConversationService.setPrivateConversation(pc[x].Talker1,pc[x].id);	
 				}
 				
 				}
