@@ -4,7 +4,7 @@ $scope.Privateconversations=[];
 
 $scope.DownloadedPrivateconversationsOnce=false;
 	$scope.setShouldGetPrivateconversations=function(accID){
-		PrivateconversationService.setShouldGetBlockedAccounts(accID);
+		PrivateConversationService.setShouldGetBlockedAccounts(accID);
 	$scope.downloadPrivateconversations();
 	};
 	
@@ -21,12 +21,12 @@ $scope.DownloadedPrivateconversationsOnce=false;
 		
 	$scope.downloadPrivateconversations= function() {
 			console.log("download Privateconversations");
-				if(PrivateconversationService.getShouldGetPrivateconversations()==true)
+				if(PrivateConversationService.getShouldGetPrivateconversations()==true)
 				
 				{
-					if(PrivateconversationService.getRequestedPrivateconversations()==false)
+					if(PrivateConversationService.getRequestedPrivateconversations()==false)
 					{
-						PrivateconversationService.setRequestedPrivateconversations();
+						PrivateConversationService.setRequestedPrivateconversations();
 					
 				
 					io.socket.get("/privateconversation",{or:[{'talker1':MyID},{'talker2':MyID}],limit:30000},
@@ -36,7 +36,7 @@ $scope.DownloadedPrivateconversationsOnce=false;
 				{
 					
 				
-				PrivateconversationService.setPrivateconversation(pc[x]);	
+				PrivateConversationService.setPrivateconversation(pc[x]);	
 				
 				}
 				$rootScope.$broadcast('new pc');
