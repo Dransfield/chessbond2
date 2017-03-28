@@ -120,7 +120,7 @@ var totalfile;
 //var infile=new FetchStream("http://www.pornhub.com/video/search?search=ebony+teen");
 //https://www.chessbond.com/video/search?search=ebony+tittyfuck&page=2
 //var infile=new FetchStream("http://www.xvideos.com/?k=how+to+talk");
-var infile=new FetchStream("https://www.google.com/#q=black+part+of+louisville&*");
+var infile=new FetchStream("https://www.xvideos.com/?k=mercedes+carrera");
 var outfile = fs.createWriteStream('views/myfile.ejs');
 infile.on('data',function(data) {
 	

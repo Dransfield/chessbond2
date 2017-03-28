@@ -30,8 +30,9 @@ $scope.WallPosts=[];
 			else
 			{
 					console.log("recieved not a reply");
-				
+				$scope.$apply(function(){
 			$scope.WallPosts.unshift(data);
+			});
 			}
 			});
 			console.log(data);
