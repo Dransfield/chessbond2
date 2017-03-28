@@ -38,6 +38,8 @@
     "skipper-gridfs":"*",
     "sails-disk": "~0.10.9",
         "sails-mongo": "*"
+        "youtube-dl":"*",
+        "typescript":"*"
   },
   "scripts": {
     "debug": "node debug app.js",
