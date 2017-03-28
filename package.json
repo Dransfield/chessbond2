@@ -37,7 +37,7 @@
     "sails": "~0.12.8",
     "skipper-gridfs":"*",
     "sails-disk": "~0.10.9",
-        "sails-mongo": "*"
+        "sails-mongo": "*",
         "youtube-dl":"*",
         "typescript":"*"
   },
