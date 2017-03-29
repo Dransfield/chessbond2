@@ -7,8 +7,12 @@ class Username extends React.Component {
          data: 'Initial data...'
       }
 
-     // this.updateState = this.updateState.bind(this);
-
+      this.updateState = this.updateState.bind(this);
+	io.socket.get('/user?id='+MyID, {
+			})
+			.then(function onSuccess(sailsResponse){
+			this.setState({user:sailsResponse.data});
+		});
    };
 updateState() {
       this.setState({data: 'Data updated...'})
@@ -19,6 +23,7 @@ updateState() {
             <button onClick = {this.updateState}>CLICK</button>
             <h4>{this.state.data}</h4>
          </div>
+         <h1>this.state.user.name</h1>
       );
    }
 }
