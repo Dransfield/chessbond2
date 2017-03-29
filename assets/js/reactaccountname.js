@@ -22,8 +22,9 @@ updateState() {
          <div>
             <button onClick = {this.updateState}>CLICK</button>
             <h4>{this.state.data}</h4>
+             <h1>{this.state.user.name}</h1>
          </div>
-         <h1>{this.state.user.name}</h1>
+        
       );
    }
 }
