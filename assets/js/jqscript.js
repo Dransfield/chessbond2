@@ -4,6 +4,7 @@ $(document).ready(){
  io.socket.get('/user/'+MyID,
 					function(usr){
 			myuser=usr;
-			$("#usr").innerHTML(myuser.name);
+			console.log(JSON.stringify(myuser));
+			$("#usr").html(myuser.name);
 		});
 };
