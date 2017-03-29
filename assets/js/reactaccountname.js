@@ -10,7 +10,7 @@ class Username extends React.Component {
       this.updateState = this.updateState.bind(this);
 	 io.socket.get('/user/'+MyID,
 					function(usr){
-			this.setState({user:sailsResponse.data});
+			this.setState({user:usr});
 		});
    };
 updateState() {
