@@ -24,5 +24,5 @@ updateState() {
 }
 ReactDOM.render(
   <Username />,
-  document.getElementById('container')
+  document.getElementById('accname')
 );
