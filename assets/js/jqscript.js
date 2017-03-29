@@ -6,7 +6,7 @@ var Accounts={};
 			myuser=usr;
 			console.log(JSON.stringify(myuser));
 			Accounts[usr.id]=usr;
-			showUsername($("#usr",usr);
+			showUsername($("#usr"),usr);
 			$("#usr").html(Accounts[usr.id].name);
 		});
 //});
