@@ -1,5 +1,5 @@
 	var myuser;
-var Accounts{};
+var Accounts={};
 //io.socket.on('connect',function(data){
  io.socket.get('/user/'+MyID,
 					function(usr){
