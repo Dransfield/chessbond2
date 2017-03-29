@@ -1,7 +1,4 @@
-ReactDOM.render(
-  <Username />,
-  document.getElementById('container')
-);
+
 class Username extends React.Component {
    constructor(props) {
       super(props);
@@ -25,3 +22,7 @@ updateState() {
       );
    }
 }
+ReactDOM.render(
+  <Username />,
+  document.getElementById('container')
+);
