@@ -1,3 +1,4 @@
+/*
 module.exports = function(grunt) {
 
     grunt.config.set('babel', {
@@ -17,3 +18,4 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-babel');
 };
+*/
