@@ -55,6 +55,6 @@ try {
   }
 }
 
-
+require('ts-node').register({ /* options */ }); // See options in https://www.npmjs.com/package/ts-node
 // Start server
 sails.lift(rc('sails'));
