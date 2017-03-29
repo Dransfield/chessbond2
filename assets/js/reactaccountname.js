@@ -8,9 +8,8 @@ class Username extends React.Component {
       }
 
       this.updateState = this.updateState.bind(this);
-	io.socket.get('/user?id='+MyID, {
-			})
-			.then(function onSuccess(sailsResponse){
+	 io.socket.get('/user/'+MyID,
+					function(usr){
 			this.setState({user:sailsResponse.data});
 		});
    };
