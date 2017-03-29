@@ -8,8 +8,9 @@ module.exports = function(grunt) {
             },
         files: [{
           expand: true,
-          cwd: 'assets/js/',
-          src: ['**/*.js', '!dependencies/**/*.js'],
+          cwd: 'assets/js/',*/
+         // src: ['**/*.js', '!dependencies/**/*.js'],
+         /*
           dest: '.tmp/public/js/',
           ext: '.js'
         }]
