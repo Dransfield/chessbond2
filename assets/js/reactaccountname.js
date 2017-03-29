@@ -7,7 +7,7 @@ class Username extends React.Component {
          data: 'Initial data...'
       }
 
-      this.updateState = this.updateState.bind(this);
+     // this.updateState = this.updateState.bind(this);
 
    };
 updateState() {
