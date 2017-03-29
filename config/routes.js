@@ -33,6 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 	'GET /': {view: 'homepage'},
 	'GET /ang':{view:'ang2homepage'},
+	'GET /jq':{view:'jqhp'},
 	'GET /stats/:userID':{view:'stats'},
 	'GET /stats':{view:'stats'},
 	'GET /aboutus':{view:'aboutus'},
