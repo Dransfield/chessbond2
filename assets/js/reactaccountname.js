@@ -11,14 +11,14 @@ class Username extends React.Component {
       this.updateState2 = this.updateState2.bind(this);
 	 io.socket.get('/user/'+MyID,
 					function(usr){
-			updateState2(usr);
+			this.updateState2(usr);
 		});
    };
 updateState() {
       this.setState({data: 'Data updated...'})
    }
 updateState2(usr) {
-      this.setState({user: usr})
+      this.setState({user: usr});
    }
    render() {
       return (
