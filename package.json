@@ -61,7 +61,8 @@
         "sails-mongo": "*",
         "youtube-dl":"*",
         "typescript":"*",
-        "bower":"*"
+        "bower":"*",
+        "ts-node":"*"
   },
   "scripts": {
     "debug": "node debug app.js",
