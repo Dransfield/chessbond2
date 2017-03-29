@@ -1,6 +1,6 @@
 	var myuser;
 
-$(document).ready(function(){
+io.socket.on('connect',function(data){(
  io.socket.get('/user/'+MyID,
 					function(usr){
 			myuser=usr;
