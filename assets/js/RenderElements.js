@@ -5,16 +5,14 @@ function showUsername(elem,usracc)
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showButton(elem,words){
-	console.log("ButtonNumber"+ButtonNumber);
+	ButtonNumber=ButtonNumber+1;
+	//console.log("ButtonNumber"+ButtonNumber);
 	elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
-	$("#button"+ButtonNumber).click(function() {
-  alert( "Handler for .click() called."+ButtonNumber);
-});
-
+	
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
 //});
-	ButtonNumber=ButtonNumber+1;
+	
 }
 function showNavbar(elem,usracc)
 {
@@ -128,10 +126,15 @@ function showOpenGameList(elem,games)
 				for (iter in games)
 				{
 					
-					var thisTr=myelem.append("<tr><td id='opengameiter"+iter+"'></td></tr>");
-					 showUsername($("#opengameiter"+iter),games[iter].Player1);
-					showButton($("#opengameiter"+iter),"Join Game");
-			
+					myelem.append("<tr id='opengameiter"+iter+"'></tr>");
+					$("#opengameiter"+iter).append("<td id='opengametdnameiter"+iter+"'></td>");
+					 showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
+					$("#opengameiter"+iter).append("<td id='opengametdbuttoniter"+iter+"'></td>");
+					showButton($("#opengametdbuttoniter"+iter),"Join Game");
+					$("#button"+ButtonNumber).click(function() {
+					joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
+					});
+
 				}
             /*
             <tr ng-repeat="opengame in opg track by $index">
@@ -141,7 +144,7 @@ function showOpenGameList(elem,games)
 			<% if (req.session.passport) { %>
     		
 			<td>		
-				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,opengame.Player1Color,'<%- req.session.passport.user%>',User.name,opengame.GameType,opengame.GameCategory,opengame.TimeLimit)">Join Game</button>
+				<button ng-click="">Join Game</button>
 					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
     		
 				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
