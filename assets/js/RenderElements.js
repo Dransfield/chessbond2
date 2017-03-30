@@ -18,7 +18,7 @@ function showNavbar(elem,usracc)
 			<!-- This is the brand on the left-hand side. -->
 			<span style='display:flex'>
 			<img style="background-color:white;max-width:50px;height:50px; "
-             src="/knight.png">`)
+             src="/knight.png">
              
               <div  style="color:white;" id="InvisibleMessage">
 			</div>
