@@ -6,7 +6,7 @@ var OpenGames={};
 var p1 = new Promise((resolve, reject) => {
 console.log("p1 promise");
 io.socket.get("/openchessgame?limit=3000"),{},( function (dat) {
-			
+			console.log("dat "+dat);
 			resolve(dat.data);
 			//for(x in dat.data)
 			//{
@@ -23,6 +23,7 @@ var p2 = new Promise((resolve, reject) => {
 console.log("p2 promise");
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
 		function (resData,jwres){
+			console.log("resData "+resData);
 			resolve(resData);
 });		
 });
