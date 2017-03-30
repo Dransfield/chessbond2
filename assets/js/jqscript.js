@@ -6,7 +6,7 @@ var OpenGames={};
 var AccountsToRetrieve={};
 var AccountPromises=[];
 var opcg = new Promise((resolve, reject) => {
-console.log("p1 promise");
+//console.log("p1 promise");
 io.socket.get("/openchessgame?limit=3000",{},
 function (resData,jwres){
 			//console.log("dat "+dat);
@@ -23,7 +23,7 @@ function (resData,jwres){
 		});
 		
 var cg = new Promise((resolve, reject) => {
-console.log("p2 promise");
+//console.log("p2 promise");
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
 		function (resData,jwres){
 			console.log("resData "+resData);
@@ -34,17 +34,17 @@ Promise.all([opcg, cg]).then(values => {
  // console.log("values"+values); // [3, 1337, "foo"] 
 //console.log("values[0]"+values[0]);
 OpenGames=values[0];
-console.log("open game promise done "+JSON.stringify(OpenGames));
+//console.log("open game promise done "+JSON.stringify(OpenGames));
 for (x in values[0])
 {
-console.log("values[0][x].Player1"+values[0][x].Player1);
+//console.log("values[0][x].Player1"+values[0][x].Player1);
 AccountsToRetrieve[values[0][x].Player1]=values[0][x].Player1;
 }
 for (x in values[1])
 {
-console.log("values[1][x].Player1"+values[1][x].Player1);
+//console.log("values[1][x].Player1"+values[1][x].Player1);
 AccountsToRetrieve[values[1][x].Player1]=values[1][x].Player1;
-console.log("values[1][x].Player2"+values[1][x].Player2);
+//console.log("values[1][x].Player2"+values[1][x].Player2);
 AccountsToRetrieve[values[1][x].Player2]=values[1][x].Player2;
 
 }
@@ -73,14 +73,14 @@ for (x in AccountsToRetrieve)
 }
 
 Promise.all(AccountPromises).then(values => { 
-	console.log("account promises done");
-	console.log("OpenGames "+JSON.stringify(OpenGames));
+	//console.log("account promises done");
+	//console.log("OpenGames "+JSON.stringify(OpenGames));
 showOpenGameList($("#usr"),OpenGames);
 
 });
 }
 , reason => {
-	console.log("promise failed");
+	//console.log("promise failed");
   console.log(reason)
 });
 

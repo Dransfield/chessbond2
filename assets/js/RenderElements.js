@@ -80,7 +80,7 @@ function showNavbar(elem,usracc)
 	if(Accounts[usracc])
 	{
 		console.log("Welcome "+Accounts[usracc].name);
-		$("#NameDiv").html("<span  class='caret'></span>Welcome "+Accounts[usracc].name);
+		$("#NameDiv").html("Welcome "+Accounts[usracc].name+"<span  class='caret'></span>");
 	if(Accounts[usracc].Invisible)
              {
 				$("#InvisibleMessage").html("Days Left To Account Deletion:"+Accounts[usracc].DaysToDelete);
