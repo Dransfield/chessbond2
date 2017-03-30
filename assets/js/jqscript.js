@@ -49,7 +49,7 @@ console.log("values[0][x].Player1"+values[0][x].Player1);
   console.log(reason)
 });
 
-
+showOpenGameList($("#usr"));
 //io.socket.on('connect',function(data){
  io.socket.get('/user/'+MyID,
 					function(usr){
