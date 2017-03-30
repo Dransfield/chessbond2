@@ -95,7 +95,7 @@ function showOpenGameList(elem,games)
             <table class="table table-striped">
               
 		
-			<thead id="OpenGameListDiv">
+			<thead id='OpenGameListDiv'>
                 <tr>
 	              <th>Player</th>
                   <th>Date</th>
