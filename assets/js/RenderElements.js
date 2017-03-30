@@ -1,12 +1,13 @@
+var ButtonNumber=0;
 function showUsername(elem,usracc)
 {
 	
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showButton(elem,words){
-	var ele=elem.append("<span class='btn btn-lg btn-success'>"+words+"</span>").click(alert("chunks"));
-	console.log(ele);
-	return ele;
+	elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
+	$("#button"+ButtonNumber).click(alert("chunks"));
+	ButtonNumber=ButtonNumber+1;
 }
 function showNavbar(elem,usracc)
 {
@@ -122,7 +123,7 @@ function showOpenGameList(elem,games)
 					
 					var thisTr=myelem.append("<tr><td id='opengameiter"+iter+"'></td></tr>");
 					 showUsername($("#opengameiter"+iter),games[iter].Player1);
-				var but=	showButton($("#opengameiter"+iter),"Join Game");
+					showButton($("#opengameiter"+iter),"Join Game");
 			
 				}
             /*
