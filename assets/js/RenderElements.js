@@ -68,7 +68,7 @@ function showNavbar(elem,usracc)
 		
    </div>
 </nav>
-	`).hide().fadeIn();
+	`).hide().slideDown();
 	
 	//<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
 					//<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
