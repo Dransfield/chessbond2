@@ -5,6 +5,7 @@ function showUsername(elem,usracc)
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showButton(elem,words){
+	console.log("ButtonNumber"+ButtonNumber);
 	elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
 	$("#button"+ButtonNumber).click(alert("chunks"));
 	ButtonNumber=ButtonNumber+1;
