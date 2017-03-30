@@ -3,7 +3,7 @@ var Accounts={};
 var OpenGames={};
 
 var p1 = new Promise((resolve, reject) => {
-$http.get('/openchessgame?limit=3000').then( function (dat) {
+io.socket.get("/openchessgame?limit=3000"),{},( function (dat) {
 			
 			resolve(dat.data);
 			//for(x in dat.data)
