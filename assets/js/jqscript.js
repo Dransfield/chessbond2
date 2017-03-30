@@ -33,6 +33,8 @@ console.log("p2 promise");
 Promise.all([opcg, cg]).then(values => { 
  // console.log("values"+values); // [3, 1337, "foo"] 
 //console.log("values[0]"+values[0]);
+OpenGames=values[0];
+showOpenGameList($("#usr"),values[0]);
 for (x in values[0])
 {
 console.log("values[0][x].Player1"+values[0][x].Player1);
@@ -57,6 +59,11 @@ for (x in AccountsToRetrieve)
 			Accounts[usr.id]=usr;
 			showUsername($("#usr"),usr);
 			//$("#usr").html(Accounts[usr.id].name);
+			if (MyID==usr.id)
+			{
+				showNavbar($("#navbar"),usr);
+				}
+			
 		});
 
 	}
@@ -68,7 +75,7 @@ for (x in AccountsToRetrieve)
   console.log(reason)
 });
 
-showOpenGameList($("#usr"));
+
 //io.socket.on('connect',function(data){
  io.socket.get('/user/'+MyID,
 					function(usr){
