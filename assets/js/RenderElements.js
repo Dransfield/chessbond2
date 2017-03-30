@@ -1,10 +1,12 @@
 function showUsername(elem,usracc)
 {
-	console.log(elem);
+	
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showButton(elem,words){
-	return elem.append("<span class='btn btn-lg btn-success'>"+words+"</span>");
+	var ele=elem.append("<span class='btn btn-lg btn-success'>"+words+"</span>");
+	console.log(ele);
+	return ele;
 }
 function showNavbar(elem,usracc)
 {
