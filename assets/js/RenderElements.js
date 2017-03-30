@@ -164,11 +164,8 @@ function showOpenGameList(elem,games)
 			
 			}
 			)
-			}
-			else
-			{
-				toastr.warning('Disabled Account',"Can't join game");
-			}
+			
+			
 					
 					});
 
