@@ -67,7 +67,7 @@ for (x in AccountsToRetrieve)
 				}
 			resole(usr);
 		});
-	});
+	})
 	);
 }
 
