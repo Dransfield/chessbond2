@@ -8,7 +8,7 @@ function showButton(elem,words){
 	console.log("ButtonNumber"+ButtonNumber);
 	var ele=elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
 	ele.click(function() {
-  alert( "Handler for .click() called." );
+  alert( "Handler for .click() called."+ButtonNumber);
 });
 
 	//$("#button"+ButtonNumber).click(function() {
