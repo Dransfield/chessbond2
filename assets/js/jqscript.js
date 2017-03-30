@@ -1,4 +1,4 @@
-import  showUsername from 'RenderElements';
+import  {showUsername} from 'RenderElements';
 	var myuser;
 var Accounts={};
 var OpenGames={};
