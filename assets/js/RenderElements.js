@@ -106,7 +106,7 @@ function showOpenGameList(elem,games)
 					var thisTr=elem.append("<tr><td>");
 					 showUsername(thisTr,games[iter].Player1);
 				 var thisTr=elem.append("</td></tr>");
-				}`);
+				}
             /*
             <tr ng-repeat="opengame in opg track by $index">
 			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
