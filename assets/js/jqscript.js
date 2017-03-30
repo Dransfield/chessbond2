@@ -79,6 +79,8 @@ for (x in AccountsToRetrieve)
 });
 
 Promise.all(AccountPromises).then(values => { 
+	console.log("account promises done");
+	console.log("OpenGames "+OpenGames);
 showOpenGameList($("#usr"),OpenGames);
 
 });
