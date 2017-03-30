@@ -99,7 +99,7 @@ function showOpenGameList(elem,games)
 				<!--HEADERS OF TABLE-->
                 </tr>
            </thead>
-           <tbody>`).hide().fadeIn();
+           <tbody>`).hide().slideDown();
 				
 				for (iter in games)
 				{
