@@ -45,7 +45,7 @@ function showNavbar(elem,usracc)
 				 <span class="badge" id="NumberofNotificationsSpan" ></span>
 				 </li>
 				  <li  class="dropdown">
-					<a  id="NameDiv" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="NameDiv" class="caret"></span></a>
+					<a  id="NameDiv"  href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="NameDiv" class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
