@@ -113,7 +113,7 @@ function showOpenGameList(elem,games)
 				{
 					
 					var thisTr=myelem.append("<tr><td id='opengameiter"+iter+"'></td></tr>");
-					 showUsername($("opengameiter"+iter),games[iter].Player1);
+					 showUsername($("#opengameiter"+iter),games[iter].Player1);
 				 
 				}
             /*
