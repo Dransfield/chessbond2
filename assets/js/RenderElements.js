@@ -145,7 +145,9 @@ function showOpenGameList(elem,games)
 					$("#button"+ButtonNumber).click(function() {
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
 					
-						$http.put('/joingame', {
+					
+					io.socket.put('/joingame',{
+				
 			GameID:games[iter].id,
 			PlayerID:games[iter].Player1,
 			//PlayerName:PlayerName,
@@ -156,14 +158,18 @@ function showOpenGameList(elem,games)
 			GameCategory:games[iter].GameCategory,
 			Player1TimeLimit:games[iter].TimeLimit*60,
 			Player2TimeLimit:games[iter].TimeLimit*60
-			})
-			.then(function onSuccess(sailsResponse){
-			
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				
 			 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
 				});
 			
-			}
-			)
+				}
+			);
+					
+				
 			
 			
 					
