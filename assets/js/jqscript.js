@@ -34,6 +34,14 @@ console.log("values[0]"+values[0]);
 for (x in values[0])
 {
 console.log("values[0][x].Player1"+values[0][x].Player1);
+ io.socket.get('/user/'+values[0][x].Player1,
+					function(usr){
+			myuser=usr;
+			console.log(JSON.stringify(myuser));
+			Accounts[usr.id]=usr;
+			showUsername($("#usr"),usr);
+			//$("#usr").html(Accounts[usr.id].name);
+		});
 }
 }
 , reason => {
@@ -49,7 +57,7 @@ console.log("values[0][x].Player1"+values[0][x].Player1);
 			console.log(JSON.stringify(myuser));
 			Accounts[usr.id]=usr;
 			showUsername($("#usr"),usr);
-			$("#usr").html(Accounts[usr.id].name);
+		//	$("#usr").html(Accounts[usr.id].name);
 		});
 //});
 

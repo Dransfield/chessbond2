@@ -1,4 +1,4 @@
 function showUsername(elem,usracc)
 {
-elem.html(usracc.FideTitle+" "+usracc.name);	
+elem.append(usracc.FideTitle+" "+usracc.name);	
 }
