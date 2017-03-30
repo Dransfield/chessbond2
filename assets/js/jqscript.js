@@ -26,10 +26,11 @@ var p2 = new Promise((resolve, reject) => {
 });		
 });
 Promise.all([p1, p2]).then(values => { 
-  console.log(values); // [3, 1337, "foo"] 
+  console.log("values"+values); // [3, 1337, "foo"] 
+console.log("values[0]"+values[0]);
 for (x in values[0])
 {
-console.log(values[0][x].Player1);
+console.log("values[0][x].Player1"+values[0][x].Player1);
 }
 }
 , reason => {
