@@ -1,5 +1,6 @@
 function showUsername(elem,usracc)
 {
+	console.log(elem);
 elem.html("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showNavbar(elem,usracc)
