@@ -63,7 +63,7 @@ for (x in AccountsToRetrieve)
 			//$("#usr").html(Accounts[usr.id].name);
 			if (MyID==usr.id)
 			{
-				showNavbar($("#navbar"),usr);
+				showNavbar($("#navbar"),MyID);
 				}
 			resolve(usr);
 		});
