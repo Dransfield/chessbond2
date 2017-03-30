@@ -1,4 +1,4 @@
-var showUsername = require('RenderElements');
+
 	var myuser;
 var Accounts={};
 var OpenGames={};

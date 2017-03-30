@@ -35,6 +35,7 @@ var jsFilesToInject = [
 	'js/dependencies/stockfish.js',
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
+  'js/RenderElements.js',
   'js/HomepageModule.js',
   'js/AccountService.js',
 	
