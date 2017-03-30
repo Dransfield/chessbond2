@@ -1,5 +1,21 @@
 
-
+<html>
+  <head>
+    <%- include partials/title.ejs %>
+    <%- include partials/description.ejs %>
+    <%- include partials/keywords.ejs %>  
+     <!-- Viewport mobile tag for sensible mobile support -->
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <!--STYLES END-->
+        </head>
     <script>var MyID='<%- req.session.passport.user %>'</script>
     <div id="usr">
     
@@ -20,3 +36,16 @@
  <script src="/js/jqscript.js"></script>
 
     <!--SCRIPTS END-->
+    
+    
+    <div style="float: right; font-family: arial;font-weight:bold;font-size:15px;color:#86BEE0;">
+    <a href="https://www.positivessl.com" style=" float: right;font-family: arial; font-size: 10px; color: #212121; text-decoration: none;"><img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="SSL Certificate" title="SSL Certificate" border="0" /></a>
+<a href="https://www.positivessl.com" style="color:#86BEE0; text-decoration: none;">SSL Certificate</a></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%- include partials/footer.ejs %>
+    </body>
+   </html>
