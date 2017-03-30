@@ -65,7 +65,7 @@ for (x in AccountsToRetrieve)
 			{
 				showNavbar($("#navbar"),usr);
 				}
-			resole(usr);
+			resolve(usr);
 		});
 	})
 	);

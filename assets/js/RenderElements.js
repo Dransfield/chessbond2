@@ -2,7 +2,81 @@ function showUsername(elem,usracc)
 {
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
+function showNavbar(elem,usracc)
+{
+	elem.append(`
+	<nav class="navbar navbar-default navbar-inverse">
+	<div class="container-fluid"   >
+		<div class="navbar-header" >
+			<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+			   <!-- This controls the number of lines in the image when the nav collapse -->
+			   <span class="icon-bar"></span>
+			   <span class="icon-bar"></span>
+			   <span class="icon-bar"></span>
+			</button>
 
+			<!-- This is the brand on the left-hand side. -->
+			<span style='display:flex'>
+			<img style="background-color:white;max-width:50px;height:50px; "
+             src="/knight.png">
+              <div  style="color:white;" ng-show="Accounts['<%- Myid %>'].Invisible">
+			Days Left To Account Deletion:{{Accounts['<%- Myid %>'].DaysToDelete}}
+			</div>
+			<a class="navbar-brand" href="/#" >Chessbond
+			
+			</a>
+			
+			</span>	  
+		</div>
+              
+     		 <ul class="navbar-nav" style="padding:6px;">
+			<li  class="nav-item">
+			<%- include options.ejs %>
+			</li>
+			</ul>
+		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+	
+			<ul class="nav navbar-right">
+			
+				<% if (!req.session.passport) { %>
+				
+					
+						
+				
+				  <% } else {%>
+					
+				  <ul class="nav navbar-nav navbar-right">
+				 <li>
+				 
+				 <span class="badge" ng-show="Notifications.length>0" ng-init="GetNotifications('<%- req.session.passport.user%>')">{{Notifications.length}}</span>
+				 </li>
+				  <li  ng-show="Accounts['<%- Myid %>']" class="dropdown">
+					<a ng-show="Accounts['<%- Myid %>']" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ Accounts['<%- Myid %>'].name}}<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
+						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
+						<li><a href="/stats/<%- req.session.passport.user%>" >My Stats</a></li>
+						
+						<li><a href="/MyLogout">Logout</a></li>
+						<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
+						  <a href="{{n.adr}}">{{n.msg}}</a></li>
+							
+						<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
+					<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
+					
+					</ul>
+				  </li>
+				  </ul>
+				  
+				
+					<% } %>
+			</ul>
+		</div>
+		
+   </div>
+</nav>
+	
+}
 function showOpenGameList(elem,games)
 {
 	
