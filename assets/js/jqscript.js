@@ -1,4 +1,4 @@
-import  {showUsername} from 'RenderElements';
+var showUsername = require('RenderElements');
 	var myuser;
 var Accounts={};
 var OpenGames={};
