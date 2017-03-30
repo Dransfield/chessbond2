@@ -6,10 +6,14 @@ elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accou
 }
 function showButton(elem,words){
 	console.log("ButtonNumber"+ButtonNumber);
-	elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
-	$("#button"+ButtonNumber).click(function() {
+	var ele=elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
+	ele.click(function() {
   alert( "Handler for .click() called." );
 });
+
+	//$("#button"+ButtonNumber).click(function() {
+ // alert( "Handler for .click() called." );
+//});
 	ButtonNumber=ButtonNumber+1;
 }
 function showNavbar(elem,usracc)
