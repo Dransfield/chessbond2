@@ -79,7 +79,7 @@ function showNavbar(elem,usracc)
 	if(Accounts[usracc])
 	{
 		console.log("Welcome "+Accounts[usracc].name);
-		$("#NameDiv").html("Welcome "+Accounts[usracc].name+"<span  class='caret'></span>");
+		$("#NameDiv").html("<span  class='caret'></span>Welcome "+Accounts[usracc].name);
 	if(Accounts[usracc].Invisible)
              {
 				$("#InvisibleMessage").html("Days Left To Account Deletion:"+Accounts[usracc].DaysToDelete);
@@ -95,7 +95,7 @@ function showOpenGameList(elem,games)
             <table class="table table-striped">
               
 		
-			<thead>
+			<thead id="OpenGameListDiv">
                 <tr>
 	              <th>Player</th>
                   <th>Date</th>
@@ -103,11 +103,16 @@ function showOpenGameList(elem,games)
 				<!--HEADERS OF TABLE-->
                 </tr>
            </thead>
-           <tbody>`).hide().slideDown();
-				
+           <tbody>
+           
+           
+           
+           `).hide().slideDown();
+				var myelem=$("#OpenGameListDiv");
 				for (iter in games)
 				{
-					var thisTr=elem.append("<tr><td>");
+					
+					var thisTr=myelem.append("<tr><td>");
 					 showUsername(thisTr,games[iter].Player1);
 				 var thisTr=elem.append("</td></tr>");
 				}
