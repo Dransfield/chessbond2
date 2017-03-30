@@ -72,17 +72,17 @@ for (x in AccountsToRetrieve)
 	);
 }
 
-
-}
-, reason => {
-	console.log("promise failed");
-  console.log(reason)
-});
-
 Promise.all(AccountPromises).then(values => { 
 	console.log("account promises done");
 	console.log("OpenGames "+JSON.stringify(OpenGames));
 showOpenGameList($("#usr"),OpenGames);
 
 });
+}
+, reason => {
+	console.log("promise failed");
+  console.log(reason)
+});
+
+
 
