@@ -61,7 +61,7 @@ for (x in AccountsToRetrieve)
 
 	}
 
-}
+
 }
 , reason => {
 	console.log("promise failed");
