@@ -31,7 +31,7 @@ function showNavbar(elem,usracc)
               
      		 <ul class="navbar-nav" style="padding:6px;">
 			<li  class="nav-item">
-			<%- include options.ejs %>
+			
 			</li>
 			</ul>
 		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
@@ -45,7 +45,7 @@ function showNavbar(elem,usracc)
 				 <span class="badge" id="NumberofNotificationsSpan" ></span>
 				 </li>
 				  <li  class="dropdown">
-					<a  id="NameDiv" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+					<a  id="NameDiv" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="NameDiv" class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
@@ -69,7 +69,7 @@ function showNavbar(elem,usracc)
    </div>
 </nav>
 	`).hide().slideDown();
-	
+	//<%- include options.ejs %>
 	//<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
 					//<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
 					
@@ -78,7 +78,7 @@ function showNavbar(elem,usracc)
 						  //<a href="{{n.adr}}">{{n.msg}}</a></li>
 	if(Accounts[usracc])
 	{
-		
+		console.log("Welcome "+Accounts[usracc].name);
 		$("#NameDiv").html("Welcome "+Accounts[usracc].name);
 	if(Accounts[usracc].Invisible)
              {
