@@ -4,7 +4,7 @@ function showUsername(elem,usracc)
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showButton(elem,words){
-	var ele=elem.append("<span class='btn btn-lg btn-success'>"+words+"</span>");
+	var ele=elem.append("<span class='btn btn-lg btn-success'>"+words+"</span>").click(alert("chunks"));
 	console.log(ele);
 	return ele;
 }
@@ -123,6 +123,7 @@ function showOpenGameList(elem,games)
 					var thisTr=myelem.append("<tr><td id='opengameiter"+iter+"'></td></tr>");
 					 showUsername($("#opengameiter"+iter),games[iter].Player1);
 				var but=	showButton($("#opengameiter"+iter),"Join Game");
+				but.on('click
 				but.click(alert("hi"));
 				}
             /*
