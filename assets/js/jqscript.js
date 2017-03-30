@@ -7,8 +7,8 @@ var p1 = new Promise((resolve, reject) => {
 console.log("p1 promise");
 io.socket.get("/openchessgame?limit=3000",{},
 function (resData,jwres){
-			console.log("dat "+dat);
-			resolve(dat.data);
+			//console.log("dat "+dat);
+			resolve(resData);
 			//for(x in dat.data)
 			//{
 			//dat.data[x].phrase=phrasefordate(dat.data[x].createdAt);
