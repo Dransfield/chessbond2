@@ -100,7 +100,18 @@ function showNavbar(elem,usracc)
 }
 function showOpenGameList(elem,games)
 {
-	
+			
+		var roomname='openchessgameroom';
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+			
+			io.socket.on('deleteopengameevent', function (data)
+			{
+				$("#opengameiter"+data.gameid).detach();
+			});
+			
 	console.log("games "+JSON.stringify(games));
 		 elem.append(`<h2 class='sub-header'>Open Games</h2>
           <div class='table-responsive' style='overflow:visible;'>
@@ -126,13 +137,39 @@ function showOpenGameList(elem,games)
 				for (iter in games)
 				{
 					
-					myelem.append("<tr id='opengameiter"+iter+"'></tr>");
-					$("#opengameiter"+iter).append("<td id='opengametdnameiter"+iter+"'></td>");
+					myelem.append("<tr id='opengameiter"+games[iter]+"'></tr>");
+					$("#opengameiter"+games[iter]).append("<td id='opengametdnameiter"+iter+"'></td>");
 					 showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
-					$("#opengameiter"+iter).append("<td id='opengametdbuttoniter"+iter+"'></td>");
+					$("#opengameiter"+games[iter]).append("<td id='opengametdbuttoniter"+iter+"'></td>");
 					showButton($("#opengametdbuttoniter"+iter),"Join Game");
 					$("#button"+ButtonNumber).click(function() {
-					joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
+				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
+					
+						$http.put('/joingame', {
+			GameID:games[iter].id,
+			PlayerID:games[iter].Player1,
+			//PlayerName:PlayerName,
+			PlayerColor:games[iter].Player1Color,
+			MyID:MyID,
+			//MyName:MyName,
+			GameType:games[iter].GameType,
+			GameCategory:games[iter].GameCategory,
+			Player1TimeLimit:games[iter].TimeLimit*60,
+			Player2TimeLimit:games[iter].TimeLimit*60
+			})
+			.then(function onSuccess(sailsResponse){
+			
+			 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
+				});
+			
+			}
+			)
+			}
+			else
+			{
+				toastr.warning('Disabled Account',"Can't join game");
+			}
+					
 					});
 
 				}
