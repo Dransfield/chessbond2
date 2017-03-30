@@ -45,7 +45,7 @@ function showNavbar(elem,usracc)
 				 <span class="badge" id="NumberofNotificationsSpan" ></span>
 				 </li>
 				  <li  class="dropdown">
-					<a  ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome Accounts[usracc].name<span class="caret"></span></a>
+					<a  id="NameDiv" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
@@ -76,11 +76,15 @@ function showNavbar(elem,usracc)
 	//do NumberofNotificationsSpan
 	//NotificationsList<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
 						  //<a href="{{n.adr}}">{{n.msg}}</a></li>
+	if(Accounts[usracc])
+	{
+		
+		$("#nameDiv").html("Welcome "+Accounts[usracc].name);
 	if(Accounts[usracc].Invisible)
              {
 				$("#InvisibleMessage").html("Days Left To Account Deletion:"+Accounts[usracc].DaysToDelete);
 			}
-	
+	}
 }
 function showOpenGameList(elem,games)
 {
