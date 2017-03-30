@@ -121,7 +121,7 @@ function showOpenGameList(elem,games)
 					var thisTr=myelem.append("<tr><td id='opengameiter"+iter+"'></td></tr>");
 					 showUsername($("#opengameiter"+iter),games[iter].Player1);
 				var but=	showButton($("#opengameiter"+iter),"Join Game");
-				but.onClick(alert("hi"));
+				but.click(alert("hi"));
 				}
             /*
             <tr ng-repeat="opengame in opg track by $index">
