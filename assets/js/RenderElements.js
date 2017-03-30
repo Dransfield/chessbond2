@@ -92,11 +92,11 @@ function showOpenGameList(elem,games)
 	
 	
 		 elem.append(`<h2 class='sub-header'>Open Games</h2>
-          <div class="table-responsive" style="overflow:visible;">
-            <table class="table table-striped">
+          <div class='table-responsive' style='overflow:visible;'>
+            <table class='table table-striped'>
               
 		
-			<thead id='OpenGameListDiv'>
+			<thead >
                 <tr>
 	              <th>Player</th>
                   <th>Date</th>
@@ -104,9 +104,11 @@ function showOpenGameList(elem,games)
 				<!--HEADERS OF TABLE-->
                 </tr>
            </thead>
-           <tbody>
+           <tbody id='OpenGameListDiv'>
            
-           
+           </tbody>
+           </table>
+           </div>
            
            `).hide().slideDown();
 				var myelem=$("#OpenGameListDiv");
@@ -134,8 +136,6 @@ function showOpenGameList(elem,games)
 			
 			<% } %>
 			</tr>
-            </tbody>
-            </table>
-          </div>	
+            	
 		*/
 }
