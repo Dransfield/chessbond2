@@ -18,9 +18,9 @@ function showNavbar(elem,usracc)
 			<!-- This is the brand on the left-hand side. -->
 			<span style='display:flex'>
 			<img style="background-color:white;max-width:50px;height:50px; "
-             src="/knight.png">
-              <div  style="color:white;" ng-show="Accounts['<%- Myid %>'].Invisible">
-			Days Left To Account Deletion:{{Accounts['<%- Myid %>'].DaysToDelete}}
+             src="/knight.png">`);
+             
+              <div  style="color:white;" id="InvisibleMessage">
 			</div>
 			<a class="navbar-brand" href="/#" >Chessbond
 			
@@ -38,43 +38,48 @@ function showNavbar(elem,usracc)
 	
 			<ul class="nav navbar-right">
 			
-				<% if (!req.session.passport) { %>
-				
-					
-						
-				
-				  <% } else {%>
 					
 				  <ul class="nav navbar-nav navbar-right">
 				 <li>
 				 
-				 <span class="badge" ng-show="Notifications.length>0" ng-init="GetNotifications('<%- req.session.passport.user%>')">{{Notifications.length}}</span>
+				 <span class="badge" id="NumberofNotificationsSpan" ></span>
 				 </li>
-				  <li  ng-show="Accounts['<%- Myid %>']" class="dropdown">
-					<a ng-show="Accounts['<%- Myid %>']" ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ Accounts['<%- Myid %>'].name}}<span class="caret"></span></a>
+				  <li  class="dropdown">
+					<a  ng-cloak href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome Accounts[usracc].name<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
 						<li><a href="/stats/<%- req.session.passport.user%>" >My Stats</a></li>
 						
 						<li><a href="/MyLogout">Logout</a></li>
-						<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
-						  <a href="{{n.adr}}">{{n.msg}}</a></li>
+						<li id="NotificationsList"></li>
 							
-						<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
-					<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
+						<li id="UndeleteAccount"></li>
+					<li id="DeleteAccount"></li>
 					
 					</ul>
 				  </li>
 				  </ul>
 				  
 				
-					<% } %>
+			
 			</ul>
 		</div>
 		
    </div>
 </nav>
+	`);
+	
+	//<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
+					//<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
+					
+	//do NumberofNotificationsSpan
+	//NotificationsList<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
+						  //<a href="{{n.adr}}">{{n.msg}}</a></li>
+	if(Accounts[usracc].Invisible)
+             {
+				$("#InvisibleMessage").html("Days Left To Account Deletion:"+Accounts[usracc].DaysToDelete);
+			}
 	
 }
 function showOpenGameList(elem,games)
@@ -101,7 +106,7 @@ function showOpenGameList(elem,games)
 					var thisTr=elem.append("<tr><td>");
 					 showUsername(thisTr,games[iter].Player1);
 				 var thisTr=elem.append("</td></tr>");
-				 }
+				}`);
             /*
             <tr ng-repeat="opengame in opg track by $index">
 			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
