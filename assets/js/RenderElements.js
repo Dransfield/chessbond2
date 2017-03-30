@@ -137,10 +137,10 @@ function showOpenGameList(elem,games)
 				for (iter in games)
 				{
 					
-					myelem.append("<tr id='opengameiter"+games[iter]+"'></tr>");
-					$("#opengameiter"+games[iter]).append("<td id='opengametdnameiter"+iter+"'></td>");
+					myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
+					$("#opengameiter"+games[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
 					 showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
-					$("#opengameiter"+games[iter]).append("<td id='opengametdbuttoniter"+iter+"'></td>");
+					$("#opengameiter"+games[iter].id).append("<td id='opengametdbuttoniter"+iter+"'></td>");
 					showButton($("#opengametdbuttoniter"+iter),"Join Game");
 					$("#button"+ButtonNumber).click(function() {
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
