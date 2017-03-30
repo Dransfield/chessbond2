@@ -1,6 +1,6 @@
 function showUsername(elem,usracc)
 {
-elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
+elem.html("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
 function showNavbar(elem,usracc)
 {
