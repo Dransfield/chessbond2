@@ -3,6 +3,9 @@ function showUsername(elem,usracc)
 	console.log(elem);
 elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 }
+function showButton(elem,words){
+	return elem.append("<span class='btn btn-lg btn-success'>"+words+"</span>");
+}
 function showNavbar(elem,usracc)
 {
 	elem.append(`
@@ -117,7 +120,8 @@ function showOpenGameList(elem,games)
 					
 					var thisTr=myelem.append("<tr><td id='opengameiter"+iter+"'></td></tr>");
 					 showUsername($("#opengameiter"+iter),games[iter].Player1);
-				 
+				var but=	showButton($("#opengameiter"+iter,"Join Game");
+				but.onClick(alert("hi");
 				}
             /*
             <tr ng-repeat="opengame in opg track by $index">
