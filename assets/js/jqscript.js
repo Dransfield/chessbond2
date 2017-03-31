@@ -2,7 +2,7 @@
 	var myuser;
 var Accounts={};
 var OpenGames={};
-
+var JoinedGames={};
 var AccountsToRetrieve={};
 var AccountPromises=[];
 var opcg = new Promise((resolve, reject) => {
@@ -34,6 +34,7 @@ Promise.all([opcg, cg]).then(values => {
  // console.log("values"+values); // [3, 1337, "foo"] 
 //console.log("values[0]"+values[0]);
 OpenGames=values[0];
+JoinedGames=values[1];
 //console.log("open game promise done "+JSON.stringify(OpenGames));
 for (x in values[0])
 {
@@ -76,7 +77,7 @@ Promise.all(AccountPromises).then(values => {
 	//console.log("account promises done");
 	//console.log("OpenGames "+JSON.stringify(OpenGames));
 showOpenGameList($("#usr"),OpenGames);
-
+showJoinedGameList($(#usr"),JoinedGames);
 });
 }
 , reason => {
