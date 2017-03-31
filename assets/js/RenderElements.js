@@ -99,7 +99,7 @@ function showNavbar(elem,usracc)
 	}
 }
 
-function showJoinedGames(elem,games)
+function showJoinedGameList(elem,games)
 {
 	elem.append(`
 <h2 class='sub-header'>Your Games</h2>
