@@ -77,7 +77,7 @@ Promise.all(AccountPromises).then(values => {
 	//console.log("account promises done");
 	//console.log("OpenGames "+JSON.stringify(OpenGames));
 showOpenGameList($("#usr"),OpenGames);
-showJoinedGameList($(#usr"),JoinedGames);
+showJoinedGameList($("#usr"),JoinedGames);
 });
 }
 , reason => {
