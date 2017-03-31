@@ -20,7 +20,130 @@
         </head>
        <body>
         <div id="navbar"></div>
-    <script>var MyID='<%- req.session.passport.user %>'</script>
+        <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<script>var MyID='<%- req.session.passport.user %>'</script>
+			<% }else{ %>
+			<script>var MyID=''</script>
+	
+			<%}%>
+			<% }else{ %>
+    <script>var MyID=''</script>
+			
+    <%}%>
+    
+    
+    <div class="jumbotron ">
+      <div class="row">
+	     <div class="col-md-4">
+			 </div>
+         <div class="col-md-4 text-center">
+	    <h1 >Chessbond</h1>
+    
+
+			 </div>
+    
+         <div class="col-md-4">
+			 </div>
+			 </div>
+    <% if (req.session.passport && req.session.passport.user) { %>
+    
+    <% }else{ %>
+    	 <style>
+	 .mytext{font-size:14px;
+	 
+	 }
+	 </style>
+	 <div style="display:flex">
+	 <span style="border-style: solid;width:50%;padding-left:6px">
+	<p ><span style="color:blue"> In Defence of Chessbond.com</span></p>
+
+
+<span class="mytext"><span style="color:blue">Chess</span> is one of the oldest board games 
+on the planet, played by people of all ages and from different backgrounds. 
+Despite an undeserved reputation as being high-brow or nerdy, the game is actually 
+growing in popularity. Why is that the case?
+</span>
+
+
+<span class="mytext">
+Players develop a combination of skills that can be applied to a variety of 
+life situations. They learn to be observant, to plan their moves carefully and 
+precisely and to anticipate their opponent’s tactics. There are other benefits
+ that go beyond the game itself, such as the ability to socialise with others,
+  the <span style="color:blue">chance to travel</span> to tournaments and 
+  <span style="color:blue">experiencing other cultures</span>, and the
+   opportunity to <span style="color:blue">build long-term friendships</span> with like-minded people.
+</span>
+
+
+
+<div class="mytext">
+As technology continues to dominate our lives, it was just a matter of time
+ before chess was given the digital makeover. A new website has been launched 
+ that enables enthusiasts to play online with anyone, anywhere in the world, at
+  the click of a mouse.</div>
+
+<div class="mytext"><span style="color:blue">Chessbond.com </span> is poised to take your 
+chess play to the next level, helps chess lovers enjoy a game at home, in a 
+coffee shop, during a trip or even while taking the dog for a walk.
+ Thanks to widespread internet access and Wi-Fi availability, it’s never been
+  easier to find a suitable opponent, putting the game within reach of more
+   and more people. Such instant access also makes it more convenient to arrange
+    cross-border tournaments, encourage 
+    <span style="color:blue">international travel</span>
+    and provide 
+    <span style="color:blue">
+    experiences of the world</span> outside your own space.</div>
+
+
+<div class="mytext">From its origin in India almost 1500 years ago, chess has come a long way. 
+With sites like this
+<!--<span style="color:blue">
+ Chessbond.com 
+</span>-->
+championing its cause, that trend looks set to 
+continue well into the 21st century and beyond. Why not sign up to 
+<span style="color:blue">
+Chessbond.com
+</span>
+today? Get started playing free chess, making friends and penpals, exchanging
+ travel and cultural experiences, and above all , Have fun!</div>
+<h3 style="color:blue">
+So, What are you waiting for?
+Join now diving into your next adventure!
+</h3>
+	 </span>
+		 <span>
+        
+		<span>	 
+         <a class=" btn btn-primary" href="/loginfacebook">Login with Facebook</a>
+		<a class="btn btn-primary" href="/logintwitter">Login with Twitter</a>
+		<a  class="btn btn-primary" href="/logingoogle">Login with Google</a>
+    	</span>
+	<h2>Login</h2>
+    <form name="form" ng-submit="login()" role="form">
+        <span class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Email</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </span>
+        <span class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </span>
+        <span class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="/registerpage" class="btn btn-link">Register</a>
+            <a href="/forgot" class="btn btn-link">Forgot Password</a>
+        </span>
+    </form>
+</span>
+</div>
+    <%}%>
+    
     <div id="usr">
     
     </div>
