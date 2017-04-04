@@ -108,7 +108,7 @@ function showDropDown(usracc)
     <a href="#">Challenge to a Game</a>	
    </li>
    <li>
-    <div id="PrivateConversation"`+usracc+`>
+    <div id="PrivateConversation`+usracc+`">
     </div>
     </li>
     <li>
@@ -391,7 +391,7 @@ function showOpenGameList(elem,games)
 				addOpenGame(myelem,games,games.length-1);
 			
 			});
-			console.log("games "+JSON.stringify(games));
+			//console.log("games "+JSON.stringify(games));
 			
 	
 		 elem.append(`<h2 class='sub-header'>Open Games</h2>
