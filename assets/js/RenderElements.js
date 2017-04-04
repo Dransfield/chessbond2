@@ -70,8 +70,9 @@ var gamecategories=[{time:1,extratime:0},
 
 function CreateDropDown(usracc)
 {
-	DropDowns[usracc]= $("<div class='userdropdown'></div>");
-	DropDowns[usracc].append("<ul class='userdropdown-content' ><li><a href='#'>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
+	DropDowns[usracc]= $("<div class='userdropdown'><ul id='droplist"+usracc+"' class='userdropdown-content' ></ul></div>");
+	
+	$("#droplist"+usracc).append("<li><a href='#'>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
 	DropDowns[usracc].append("<li><a href='#'>View Game Archive</a></li>");
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
 	DropDowns[usracc].append("<li><a href='#'>Follow	</a></li>");
