@@ -98,7 +98,11 @@ elem.append("<div>Deleted Account</div>");
 			console.log(DropDowns[usracc]);
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 			});
-		
+		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseleave(function()
+		{console.log("MOUSE LEAVE");
+			console.log(DropDowns[usracc]);
+			DropDowns[usracc].detach();
+			});
 	
 /*
  * 
