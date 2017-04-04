@@ -349,6 +349,7 @@ function addJoinedGame(iter,games,myelem){
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
 				
 				showButton($("#joinedgameButtd"+iter),"Go to Game");
+				$("#joinedgameButtd"+iter).attr('href',"/humanvshuman/"+games[iter].id);
 				}
 
 function showNewGameControls(elem){
