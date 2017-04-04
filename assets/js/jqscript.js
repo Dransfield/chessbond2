@@ -40,7 +40,7 @@ var cg = new Promise((resolve, reject) => {
 });
 Promise.all([opcg, cg]).then(values => { 
  // console.log("values"+values); // [3, 1337, "foo"] 
-//console.log("values[0]"+values[0]);
+console.log("values[0]"+JSON.stringify(values[0]));
 OpenGames=values[0];
 JoinedGames=values[1];
 AccountsToRetrieve[MyID]=MyID;
