@@ -77,6 +77,10 @@ for (x in AccountsToRetrieve)
 			{
 				showNavbar($("#navbar"),MyID);
 				}
+				if(usr)
+				{
+				CreateDropDown(usr);
+				}
 			resolve(usr);
 		});
 	})

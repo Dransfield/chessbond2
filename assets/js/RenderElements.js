@@ -1,5 +1,6 @@
 var ButtonNumber=0;
-
+var UserNamesPrinted={};
+var DropDowns={};
 
 	function phrasefordate(dat)
 			{
@@ -67,18 +68,37 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+function CreateDropDown(usracc)
+{
+	DropDowns[usracc]= $("<div>JQ DROPDOWN</div>");
+}
+
 function showUsername(elem,usracc)
 {
+	if(!UserNamesPrinted[usracc])
+	{UserNamesPrinted[usracc]=1;}
+	else
+	{UserNamesPrinted[usracc]=UserNamesPrinted[usracc]+1;}
+	
 	if(Accounts[usracc])
 	{
-elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
+elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+UserNamesPrinted' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
  }
  else
  {
 elem.append("<div>Deleted Account</div>");	
  	 
-	} 
+	}
+	if(UserNamesPrinted[usracc]==1)
+	{
+		$("#usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]).mouseenter(function()
+		{
+			$("#usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]).append(DropDowns[usracc]);
+			});
+		
+	}
 /*
+ * 
  function handlerIn()
  
   {console.log("handler in!");
