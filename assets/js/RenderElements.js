@@ -80,10 +80,12 @@ function showUsername(elem,usracc)
 	else
 	{UserNamesPrinted[usracc]=UserNamesPrinted[usracc]+1;}
 	
+	var thisuserprinted=UserNamesPrinted[usracc];
+	
 	if(Accounts[usracc])
 	{
 		//class ='userdropdown'
-elem.append("<div  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
+elem.append("<div  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
  }
  else
  {
@@ -91,10 +93,10 @@ elem.append("<div>Deleted Account</div>");
  	 
 	}
 	
-		$("#usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]).mouseenter(function()
+		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
 		{console.log("MOUSE ENTER");
 			console.log(DropDowns[usracc]);
-			$("#usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]).append(DropDowns[usracc]);
+			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 			});
 		
 	
