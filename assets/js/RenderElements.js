@@ -170,7 +170,7 @@ function showNewGameControls(elem){
 		</form>
 			
 			</div>
-	`);
+	`).hide();
 elem.append(`	 <div class="row">
 			 <div class="col-md-2 ">  
 			</div>
