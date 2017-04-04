@@ -69,7 +69,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showUsername(elem,usracc)
 {
-var ele=elem.append("<span  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
+var ele=elem.append("<div href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+"</div>");	
 
  function handlerIn()
  
@@ -77,11 +77,7 @@ var ele=elem.append("<span  href='/profile/"+usracc+"' id='usernamedropdown"+usr
 	  showDropDown($("#usernamedropdown"+usracc),usracc);}
   function handlerOut()
   {console.log("handler out!");}
-  
-  $(document.body).on('mouseenter', ele, function() {
-	  console.log("hi");
-  });
-  
+
 $("#usernamedropdown"+usracc).mouseenter(
 function(){
 	console.log("in");
