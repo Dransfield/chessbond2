@@ -92,7 +92,7 @@ elem.append("<div>Deleted Account</div>");
 	if(UserNamesPrinted[usracc]==1)
 	{
 		$("#usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]).mouseenter(function()
-		{
+		{console.log("MOUSE ENTER");
 			$("#usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]).append(DropDowns[usracc]);
 			});
 		
