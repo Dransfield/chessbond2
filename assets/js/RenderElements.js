@@ -246,7 +246,7 @@ elem.append(`	 <div class="row">
 		console.log("chosen color "+chosencolor);
 		var gamecat=gamecategories[timecat].time+"|"+gamecategories[timecat].extratime;
 			
-	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:gamecategories[timecat].time,ExtraTimeLimit:gamecategories[timecat].extratime,Player1Color:GameForm.color,Player1:id,Player1Name:Username },
+	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:gamecategories[timecat].time,ExtraTimeLimit:gamecategories[timecat].extratime,Player1Color:chosencolor,Player1:id,Player1Name:Username },
     function (resData, jwr) {
 
       // Refresh the page now that we've been logged in.
