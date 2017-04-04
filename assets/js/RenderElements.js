@@ -152,26 +152,40 @@ function showJoinedGameList(elem,games)
           */
 }
 function showNewGameControls(elem){
-elem.append(`
-	<div ng-show="ShowNewGameOptions">
-		<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
-	<!--	<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >-->
-		
-			<h2>Choose a Time Limit:</h2>
-			<select  ng-options="(c.time+'|'+c.extratime) for c in gamecategories" ng-model="timeobject" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
-	 <!-- <option ng-value="c" ng-repeat="c in gamecategories" >{{c.time+"|"+c.extratime}}</option>-->
-	</select>
-	<h2>Which Color would you like to be?:</h2>
-	<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
-	  <option>White</option>
-	  <option>Black</option>
-	</select>
-	<button id="go button" type="submit" class="btn btn-success">Go</button>
-	</form>
-		
-		</div>
-`);
-
+	elem.append(`
+		<div ng-show="ShowNewGameOptions">
+			<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
+		<!--	<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >-->
+			
+				<h2>Choose a Time Limit:</h2>
+				<select  ng-options="(c.time+'|'+c.extratime) for c in gamecategories" ng-model="timeobject" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
+		 <!-- <option ng-value="c" ng-repeat="c in gamecategories" >{{c.time+"|"+c.extratime}}</option>-->
+		</select>
+		<h2>Which Color would you like to be?:</h2>
+		<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
+		  <option>White</option>
+		  <option>Black</option>
+		</select>
+		<button id="go button" type="submit" class="btn btn-success">Go</button>
+		</form>
+			
+			</div>
+	`);
+`elem.append(`	 <div class="row">
+			 <div class="col-md-2 ">  
+			</div>
+			<div class="text-center col-md-3">
+			<a  ng-show="SoleConnectorVariable=='true'" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			</div>
+		 <div class="col-md-2 ">  
+			</div>
+		 <div class="text-center col-md-3">
+		 
+			<button  ng-show="SoleConnectorVariable=='true'" ng-click="ShowNewGameOptions=!ShowNewGameOptions" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			</div>
+		<div class="col-md-2 ">  
+			</div>
+		</div>`);
 }
 
 function showOpenGameList(elem,games)
@@ -209,6 +223,7 @@ function showOpenGameList(elem,games)
            </div>
            
            `).hide().slideDown();
+           
 				var myelem=$("#OpenGameListDiv");
 				for (iter in games)
 				{
