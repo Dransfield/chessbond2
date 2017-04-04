@@ -70,7 +70,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function CreateDropDown(usracc)
 {
-	DropDowns[usracc]= $("<div>JQ DROPDOWN</div>");
+	DropDowns[usracc]= $("<div class='userdropdown'>JQ DROPDOWN</div>");
 }
 
 function showUsername(elem,usracc)
@@ -85,7 +85,8 @@ function showUsername(elem,usracc)
 	if(Accounts[usracc])
 	{
 		//class ='userdropdown'
-elem.append("<div  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
+		//"+showDropDown(usracc)+"
+elem.append("<div  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" </div>");	
  }
  else
  {
@@ -94,13 +95,13 @@ elem.append("<div>Deleted Account</div>");
 	}
 	
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
-		{console.log("MOUSE ENTER");
-			console.log(DropDowns[usracc]);
+		{//console.log("MOUSE ENTER");
+			//console.log(DropDowns[usracc]);
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 			});
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseleave(function()
-		{console.log("MOUSE LEAVE");
-			console.log(DropDowns[usracc]);
+		{//console.log("MOUSE LEAVE");
+			//console.log(DropDowns[usracc]);
 			DropDowns[usracc].detach();
 			});
 	
