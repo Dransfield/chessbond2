@@ -63,6 +63,7 @@ for (x in AccountsToRetrieve)
 			
 			//showUsername($("#usr"),usr.id);
 			//$("#usr").html(Accounts[usr.id].name);
+			console.log("do navbar? "+MyID+" "+usr.id);
 			if (MyID==usr.id)
 			{
 				showNavbar($("#navbar"),MyID);

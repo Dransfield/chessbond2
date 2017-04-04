@@ -132,6 +132,7 @@ function showJoinedGameList(elem,games)
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
 				
 				showButton($("#joinedgameButtd"+iter),"Go to Game");
+				
 				}
           /*
             <tr ng-repeat="game in joinedgames track by $index">
@@ -193,7 +194,7 @@ function showOpenGameList(elem,games)
 					showButton($("#opengametdbuttoniter"+iter),"Join Game");
 					$("#button"+ButtonNumber).click(function() {
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
-					
+				
 					
 					io.socket.put('/joingame',{
 				
