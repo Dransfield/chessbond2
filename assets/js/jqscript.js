@@ -120,13 +120,13 @@ if($("#homepage"))
 	var PrivateconText;
 	if(PrivateConversations[MyID])
 	{
-	if(PrivateConversations[MyID][usracc])
-	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][usracc]+">Go To Chat</a>";}
+	if(PrivateConversations[MyID][Accounts[x]])
+	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][Accounts[x]]+">Go To Chat</a>";}
 		else
-	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
+	{PrivateconText="<id='StartPrivateDiv"+Accounts[x]+"'>Invite To Chat</div>";}
 	}
 		else
-	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
+	{PrivateconText="<id='StartPrivateDiv"+Accounts[x]+"'>Invite To Chat</div>";}
 	
 	
 	$("#PrivateConversation"+Accounts[x].id).append(PrivateconText);
