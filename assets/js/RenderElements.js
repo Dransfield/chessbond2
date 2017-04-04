@@ -80,7 +80,7 @@ function showDropDown(elem,usracc)
 	
 	elem.append(`  <ul class="userdropdown-content">
   <li>
-    <a href="#">Cumulative Rating `+Accounts[usracc].ELO+`</a>
+    <a href="#">Cumulative Rating </a>
   </li>
   <li>
     <a href="#">View Game Archive</a>
