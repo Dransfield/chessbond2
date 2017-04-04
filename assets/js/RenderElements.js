@@ -401,9 +401,9 @@ function showOpenGameList(elem,games)
 				addOpenGame(myelem,games,games.length-1);
 			
 			});
+			console.log("games "+JSON.stringify(games));
 			
-			
-	console.log("games "+JSON.stringify(games));
+	
 		 elem.append(`<h2 class='sub-header'>Open Games</h2>
           <div class='table-responsive' style='overflow:visible;'>
             <table class='table table-striped'>

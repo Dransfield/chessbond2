@@ -105,6 +105,14 @@ for (x in AccountsToRetrieve)
 				});	
 		}));
 }
+
+Promise.all(AccountPromises).then(values => { 
+	console.log("account promises done");
+	//console.log("OpenGames "+JSON.stringify(OpenGames));
+if($("#homepage"))
+{renderHomePage();}
+});
+
 });
 function renderHomePage()
 {
@@ -114,12 +122,7 @@ showJoinedGameList($("#usr"),JoinedGames);
 showNewGameControls($("#newGameControls"));	
 }
 
-Promise.all(AccountPromises).then(values => { 
-	//console.log("account promises done");
-	//console.log("OpenGames "+JSON.stringify(OpenGames));
-if($("#homepage"))
-{renderHomePage();}
-});
+
 
 
 
