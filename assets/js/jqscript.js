@@ -79,7 +79,7 @@ for (x in AccountsToRetrieve)
 				}
 				if(usr)
 				{
-				CreateDropDown(usr);
+				CreateDropDown(usr.id);
 				}
 			resolve(usr);
 		});
