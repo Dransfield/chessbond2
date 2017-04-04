@@ -192,7 +192,7 @@ function showDropDown(usracc)
 function showAnchorButton(elem,words){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
-	elem.append("<a><span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span></a>");
+	elem.append("<a id='button"+ButtonNumber+"'><span class='btn btn-lg btn-success' >"+words+"</span></a>");
 	
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
