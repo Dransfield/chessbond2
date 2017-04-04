@@ -314,17 +314,17 @@ function showJoinedGameList(elem,games)
           var myelem=$("#JoinedGameListDiv");
 				for (iter in games)
 				{
-				myelem.append("<tr id='joinedgamerow"+games[iter].id+"'></tr>");
-				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep1td"+iter+"'></td>");
-				console.log("show user name in join div "+games[iter].Player1);
-				showUsername($("#joinedgamep1td"+iter),games[iter].Player1);
-				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep2td"+iter+"'></td>");
-				showUsername($("#joinedgamep2td"+iter),games[iter].Player2);
-				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
-				
-				showButton($("#joinedgameButtd"+iter),"Go to Game");
-				
+					addJoinedGame(iter,games,myelem);
 				}
+				
+io.socket.on('newmygameevent', function (data)
+			{
+			console.log('recieved new game event '+data);
+			
+			data.phrase=phrasefordate(data.createdAt);
+			games.push(data);
+			addJoinedGame(games.length-1,games,myelem);
+			});
           /*
             <tr ng-repeat="game in joinedgames track by $index">
 			<td><%- include('partials/username', {userid: "game.Player1",Myid:Myid}); %></td>
@@ -338,6 +338,19 @@ function showJoinedGameList(elem,games)
 			</tr>
           */
 }
+
+function addJoinedGame(iter,games,myelem){
+				myelem.append("<tr id='joinedgamerow"+games[iter].id+"'></tr>");
+				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep1td"+iter+"'></td>");
+				console.log("show user name in join div "+games[iter].Player1);
+				showUsername($("#joinedgamep1td"+iter),games[iter].Player1);
+				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep2td"+iter+"'></td>");
+				showUsername($("#joinedgamep2td"+iter),games[iter].Player2);
+				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
+				
+				showButton($("#joinedgameButtd"+iter),"Go to Game");
+				}
+
 function showNewGameControls(elem){
 	elem.append(`
 		<div id="newgamecontrols">

@@ -151,7 +151,9 @@ function renderHomePage()
 showOpenGameList($("#usr"),OpenGames);
 showJoinedGameList($("#usr"),JoinedGames);
 
-showNewGameControls($("#newGameControls"));	
+showNewGameControls($("#newGameControls"));
+
+	
 }
 
 
