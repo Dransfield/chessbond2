@@ -31,8 +31,8 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-	'GET /': {view: 'homepage'},
-	'GET /ang':{view:'ang2homepage'},
+	//'GET /': {view: 'homepage'},
+	'GET /':{view:'ang2homepage'},
 	'GET /jq':{view:'jqhp'},
 	'GET /stats/:userID':{view:'stats'},
 	'GET /stats':{view:'stats'},
