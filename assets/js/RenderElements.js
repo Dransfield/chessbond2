@@ -59,9 +59,9 @@ function showNavbar(elem,usracc)
 				  <li  class="dropdown">
 					<a    href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  ><span id="NameDiv"></span><span  class='caret'></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
-						<li><a href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
-						<li><a href="/stats/<%- req.session.passport.user%>" >My Stats</a></li>
+						<li><a id="profilelink" href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
+						<li><a id="albumlink" href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
+						<li><a id="statslink" href="/stats/<%- req.session.passport.user%>" >My Stats</a></li>
 						
 						<li><a href="/MyLogout">Logout</a></li>
 						<li id="NotificationsList"></li>
@@ -91,6 +91,10 @@ function showNavbar(elem,usracc)
 	if(Accounts[usracc])
 	{
 		console.log("Welcome "+Accounts[usracc].name);
+		$("#albumlink").attr('href','/albums/'+usracc);
+		$("#profilelink").attr('href','/profile/'+usracc);
+		$("#statslink").attr('href','/stats/'+usracc);
+		
 		$("#NameDiv").html("Welcome "+Accounts[usracc].name);
 	if(Accounts[usracc].Invisible)
              {
