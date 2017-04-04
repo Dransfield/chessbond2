@@ -188,16 +188,16 @@ function showJoinedGameList(elem,games)
 function showNewGameControls(elem){
 	elem.append(`
 		<div id="newgamecontrols">
-			<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
+			<form id="newgameform" >
 		
 				<h2>Choose a Time Limit:</h2>
 				<select id="addGameCategories" class="form-control bg-success" >
 		
 		</select>
 		<h2>Which Color would you like to be?:</h2>
-		<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
-		  <option>White</option>
-		  <option>Black</option>
+		<select  id="colorpicker" class="form-control bg-success" data-style="btn-success">
+		  <option value='White'>White</option>
+		  <option value='Black'>Black</option>
 		</select>
 		<button id="go button" type="submit" class="btn btn-success">Go</button>
 		</form>
@@ -207,8 +207,9 @@ function showNewGameControls(elem){
 	
 	for (giter in gamecategories)
 	{
-	$("#addGameCategories").append("<option value='gamecat"+giter+"'>"+gamecategories[giter].time+" "+gamecategories[giter].extratime+"</option>");
+	$("#addGameCategories").append("<option value='gamecat"+giter+"'>"+gamecategories[giter].time+" | "+gamecategories[giter].extratime+"</option>");
 	}
+	
 	
 elem.append(`	 <div class="row">
 			 <div class="col-md-2 ">  
@@ -231,6 +232,32 @@ elem.append(`	 <div class="row">
 		$("#playAgainstPersonButton").click(function()
 		{
 			$("#newgamecontrols").slideDown();
+		});
+	
+		$("#gobutton").click(function()
+		{
+		var type='Timed';
+		var id=MyID;
+		var Username=Accounts[MyID].Name;
+		var timecat=$("#addGameCategories").val();
+		var chosencolor=$("#colorpicker").val();
+		console.log("GameForm1"+gamecategories[timecat].time);
+		console.log("GameForm2"+gamecategories[timecat].extratime);
+		console.log("chosen color "+chosencolor);
+		var gamecat=gamecategories[timecat].time+"|"+gamecategories[timecat].extratime;
+			
+	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:gamecategories[timecat].time,ExtraTimeLimit:gamecategories[timecat].extratime,Player1Color:GameForm.color,Player1:id,Player1Name:Username },
+    function (resData, jwr) {
+
+      // Refresh the page now that we've been logged in.
+      //window.location.reload(true); 
+		toastr.success('Created New Game');
+    });
+	}
+	
+	};
+		
+		
 		});
 		
 }
