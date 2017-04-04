@@ -199,7 +199,7 @@ function showNewGameControls(elem){
 		  <option value='White'>White</option>
 		  <option value='Black'>Black</option>
 		</select>
-		<button id="go button" type="submit" class="btn btn-success">Go</button>
+		<button id="gobutton" type="submit" class="btn btn-success">Go</button>
 		
 			
 			</div>
@@ -234,7 +234,7 @@ elem.append(`	 <div class="row">
 			$("#newgamecontrols").slideDown();
 		});
 	
-		$("#go button").click(function()
+		$("#gobutton").click(function()
 		{
 		var type='Timed';
 		var id=MyID;
