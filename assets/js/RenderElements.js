@@ -92,9 +92,9 @@ function showDropDown(usracc)
 	
 	var PrivateconText;
 	if(PrivateConversations[MyID][usracc])
-	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][usracc]+">Go To Chat</a>";
+	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][usracc]+">Go To Chat</a>";}
 		else
-	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>"}
+	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
 	return(`  <ul class="userdropdown-content" >
   <li>
     <a href="#">Cumulative Rating `+Accounts[usracc].ELO+`</a>
