@@ -390,10 +390,10 @@ function showOpenGameList(elem,games)
 			console.log('newopengameevent'+data);
 			data.phrase=phrasefordate(data.createdAt);
 			
-			games.push(data);
+			OpenGames.push(data);
 			
 				var myelem=$("#OpenGameListDiv");
-				addOpenGame(myelem,games.length-1);
+				addOpenGame(myelem,OpenGames.length-1);
 			
 			});
 			
