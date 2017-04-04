@@ -82,7 +82,8 @@ function showUsername(elem,usracc)
 	
 	if(Accounts[usracc])
 	{
-elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+UserNamesPrinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
+		//class ='userdropdown'
+elem.append("<div  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+UserNamesPrinted[usracc]+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
  }
  else
  {
