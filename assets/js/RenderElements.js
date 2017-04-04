@@ -78,7 +78,7 @@ function CreateDropDown(usracc)
 DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
 DropDowns[usracc].append("<li><div id='PrivateConversation"+usracc+"'></div></li>");
     
-DropDowns[usracc].append("<li><a href='#'>Add to Friend List</a></li>");
+DropDowns[usracc].append("<li><a href='#'>Add to Friend List</a></li></ul>");
 
 }
 
