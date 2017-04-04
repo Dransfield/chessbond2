@@ -385,10 +385,10 @@ function showOpenGameList(elem,games)
 				
 				function addOpenGame(myelem,iter)
 				{
-					myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
-					$("#opengameiter"+games[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
-					 showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
-					$("#opengameiter"+games[iter].id).append("<td id='opengametdbuttoniter"+iter+"'></td>");
+					myelem.append("<tr id='opengameiter"+OpenGames[iter].id+"'></tr>");
+					$("#opengameiter"+OpenGames[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
+					 showUsername($("#opengametdnameiter"+iter),OpenGames[iter].Player1);
+					$("#opengameiter"+OpenGames[iter].id).append("<td id='opengametdbuttoniter"+iter+"'></td>");
 					showButton($("#opengametdbuttoniter"+iter),"Join Game");
 					$("#button"+ButtonNumber).click(function() {
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
@@ -396,22 +396,22 @@ function showOpenGameList(elem,games)
 					
 					io.socket.put('/joingame',{
 				
-			GameID:games[iter].id,
-			PlayerID:games[iter].Player1,
+			GameID:OpenGames[iter].id,
+			PlayerID:OpenGames[iter].Player1,
 			//PlayerName:PlayerName,
-			PlayerColor:games[iter].Player1Color,
+			PlayerColor:OpenGames[iter].Player1Color,
 			MyID:MyID,
 			//MyName:MyName,
-			GameType:games[iter].GameType,
-			GameCategory:games[iter].GameCategory,
-			Player1TimeLimit:games[iter].TimeLimit*60,
-			Player2TimeLimit:games[iter].TimeLimit*60
+			GameType:OpenGames[iter].GameType,
+			GameCategory:OpenGames[iter].GameCategory,
+			Player1TimeLimit:OpenGames[iter].TimeLimit*60,
+			Player2TimeLimit:OpenGames[iter].TimeLimit*60
 					  }  
 				  
 				,function(resData,jwres)
 			{
 				
-			 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
+			 io.socket.put('/deleteopengame', { gameid:OpenGames[iter].id},function  (data,jwres){
 				});
 			
 				}
