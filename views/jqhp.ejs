@@ -20,6 +20,7 @@
         </head>
        <body>
         <div id="navbar"></div>
+        <div id="homepage"></div>
         <% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
 			<script>var MyID='<%- req.session.passport.user %>'</script>
@@ -47,7 +48,7 @@
 			 </div>
 			 </div>
     <% if (req.session.passport && req.session.passport.user) { %>
-    
+    <div id="newGameControls"></div>
     <% }else{ %>
     	 <style>
 	 .mytext{font-size:14px;

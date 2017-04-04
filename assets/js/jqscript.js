@@ -75,11 +75,19 @@ for (x in AccountsToRetrieve)
 	);
 }
 
+function renderHomePage()
+{
+showOpenGameList($("#usr"),OpenGames);
+showJoinedGameList($("#usr"),JoinedGames);
+
+showNewGameControls($("#newGameControls"));	
+}
+
 Promise.all(AccountPromises).then(values => { 
 	//console.log("account promises done");
 	//console.log("OpenGames "+JSON.stringify(OpenGames));
-showOpenGameList($("#usr"),OpenGames);
-showJoinedGameList($("#usr"),JoinedGames);
+if($("#homepage"))
+{renderHomePage();}
 });
 }
 , reason => {
