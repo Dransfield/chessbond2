@@ -15,7 +15,6 @@ module.exports = function(grunt) {
     'jst:dev',
     'less:dev',
     'sync:dev',
-   // 'babel:dev',
     'coffee:dev'
   ]);
 };
