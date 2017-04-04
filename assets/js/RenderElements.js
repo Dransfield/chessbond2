@@ -69,10 +69,13 @@ var gamecategories=[{time:1,extratime:0},
 
 function showUsername(elem,usracc)
 {
-elem.append("<span class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
+elem.append("<span  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 
-showDropDown($("#usernamedropdown"+usracc),usracc);
 
+elem.hover(handlerIn,handlerOut);
+  function handlerIn()
+ 
+  {showDropDown($("#usernamedropdown"+usracc),usracc);}
 }
 
 function showDropDown(elem,usracc)
@@ -111,7 +114,10 @@ function showDropDown(elem,usracc)
 	
 	</div>
   </li>
-  </ul>`);
+  </ul>`).hide();
+  
+  
+  
 }
 
 function showButton(elem,words){
