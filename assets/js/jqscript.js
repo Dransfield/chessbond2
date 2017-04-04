@@ -102,6 +102,7 @@ for (x in AccountsToRetrieve)
 				}
 				
 				}
+				resolve(pc);
 				});	
 		}));
 }
