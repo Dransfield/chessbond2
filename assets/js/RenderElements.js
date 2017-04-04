@@ -253,12 +253,9 @@ elem.append(`	 <div class="row">
       //window.location.reload(true); 
 		toastr.success('Created New Game');
     });
-	}
 	
-	};
-		
-		
-		});
+	
+	});
 		
 }
 
