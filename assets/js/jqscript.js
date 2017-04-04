@@ -120,11 +120,8 @@ Promise.all(AccountPromises).then(values => {
 if($("#homepage"))
 {renderHomePage();}
 });
-}
-, reason => {
-	//console.log("promise failed");
-  console.log(reason)
-});
+
+
 
 
 
