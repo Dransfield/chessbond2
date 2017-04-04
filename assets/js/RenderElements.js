@@ -78,7 +78,40 @@ showDropDown($("#usernamedropdown"+usracc),usracc);
 function showDropDown(elem,usracc)
 {
 	
+	elem.append(`  <ul class="userdropdown-content">
+  <li>
+    <a href="#">Cumulative Rating `+Accounts[usracc].ELO+`"</a>
+  </li>
+  <li>
+    <a href="#">View Game Archive</a>
+   </li>
+   <li>
+    <a href="#">View Game	<%- userid %></a>
+   </li>
+   <li>
+    <a href="#">Follow	</a>
+   </li>
+   <li>
+    <a href="#">Challenge to a Game</a>	
+   </li>
+   <li>
+    <div ng-controller="PrivateconversationController" ng-init="setShouldGetPrivateconversations('<%- Myid %>')">{{PrivateConversations[<%- userid%>]}}
+      <div  ng-show="PrivateConversations[<%- userid%>]" ng-click="GoToPrivateConversation('<%- Myid %>',<%- userid %>)">Go To Chat</div>
+	  <div  ng-show="!PrivateConversations[<%- userid%>]" ng-click="StartPrivateConversation('<%- Myid %>',<%- userid %>)">Invite To Chat</div>
 	
+    </div>
+    </li>
+    <li>
+    <a href="#">Add to Friend List	</a>
+  </li>
+   <li>
+   <div ng-controller="BlockedAccountController" ng-init="setShouldGetBlockedAccounts('<%- Myid %>')">
+    <div  ng-show="BlockedAccounts[<%- userid%>]" ng-click="UnBlockUser('<%- Myid %>',<%- userid %>)">UnBlock Member</div>
+	  <div  ng-show="!BlockedAccounts[<%- userid%>]" ng-click="BlockUser('<%- Myid %>',<%- userid %>)">Block Member</div>
+	
+	</div>
+  </li>
+  </ul>`);
 }
 
 function showButton(elem,words){
