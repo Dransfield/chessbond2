@@ -69,7 +69,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showUsername(elem,usracc)
 {
-elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(Accounts[usracc].ELO)+"</div>");	
+elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(usracc)+"</div>");	
 	  
 /*
  function handlerIn()
@@ -87,12 +87,17 @@ handlerOut);
  */
 }
 
-function showDropDown(rating)
+function showDropDown(usracc)
 {
 	
+	var PrivateconText;
+	if(PrivateConversations[MyID][usracc])
+	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][usracc]+">Go To Chat</a>";
+		else
+	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>"}
 	return(`  <ul class="userdropdown-content" >
   <li>
-    <a href="#">Cumulative Rating `+rating+`</a>
+    <a href="#">Cumulative Rating `+Accounts[usracc].ELO+`</a>
   </li>
   <li>
     <a href="#">View Game Archive</a>
@@ -106,11 +111,8 @@ function showDropDown(rating)
    <li>
     <a href="#">Challenge to a Game</a>	
    </li>
-   <li>
-    <div ng-controller="PrivateconversationController" ng-init="setShouldGetPrivateconversations('<%- Myid %>')">{{PrivateConversations[<%- userid%>]}}
-      <div  ng-show="PrivateConversations[<%- userid%>]" ng-click="GoToPrivateConversation('<%- Myid %>',<%- userid %>)">Go To Chat</div>
-	  <div  ng-show="!PrivateConversations[<%- userid%>]" ng-click="StartPrivateConversation('<%- Myid %>',<%- userid %>)">Invite To Chat</div>
-	
+   <li>`
+    <div id="PrivateConversation"`+usracc+`>
     </div>
     </li>
     <li>
@@ -125,6 +127,23 @@ function showDropDown(rating)
   </li>
   </ul>`);
   
+	$("#StartPrivateDiv"+usracc).click(function(){
+	
+	
+	io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
+			function (resData, jwRes) {
+				console.log("resData[0].id "+resData.id);
+				PrivateConversations[MyID][usracc]=resData;
+			
+				});
+	
+	io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
+			function (resData, jwRes) {
+				console.log("resData[0].id "+resData.id);
+				PrivateConversations[MyID][usracc]=resData;
+			
+				});
+	});
   
   
 }

@@ -5,6 +5,14 @@ var OpenGames={};
 var JoinedGames={};
 var AccountsToRetrieve={};
 var AccountPromises=[];
+var PrivateConversations={};
+
+var roomname=MyID;
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+
 var opcg = new Promise((resolve, reject) => {
 //console.log("p1 promise");
 io.socket.get("/openchessgame?limit=3000",{},
@@ -73,8 +81,31 @@ for (x in AccountsToRetrieve)
 		});
 	})
 	);
+	AccountPromises.push(new Promise((resolve,reject)=>{
+	
+					io.socket.get("/privateconversation",{or:[{Talker1:AccountsToRetrieve[x]},{Talker2:AccountsToRetrieve[x]}],limit:30000},
+		function (pc) {
+				console.log("recieved private conversation"+JSON.stringify(pc));
+				for (x in pc)
+				{
+					
+					console.log("Talker1"+pc.Talker1);
+					console.log("Talker2"+pc.Talker2);
+					
+				if(AccountsToRetrieve[x]==pc[x].Talker1)
+				{
+					PrivateConversations[AccountsToRetrieve[x]][pc[x].Talker2]=pc;
+				}
+				else
+				{
+					PrivateConversations[AccountsToRetrieve[x]][pc[x].Talker1]=pc;	
+				}
+				
+				}
+				});	
+		}));
 }
-
+});
 function renderHomePage()
 {
 showOpenGameList($("#usr"),OpenGames);
