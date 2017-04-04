@@ -70,7 +70,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function CreateDropDown(usracc)
 {
-	DropDowns[usracc]= $("<div class='userdropdown'></div>");
+	DropDowns[usracc]= $("<div class='userdropdown'> </div>");
 	DropDowns[usracc]['list']=$("<ul id='droplist"+usracc+"' class='userdropdown-content' ></ul>");
 	DropDowns[usracc].append(DropDowns[usracc]['list']);
 	DropDowns[usracc]['list'].append("<li><a href='#'>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
@@ -107,7 +107,7 @@ elem.append("<div>Deleted Account</div>");
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
 		{//console.log("MOUSE ENTER");
 			//console.log(DropDowns[usracc]);
-			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]).hide().slideDown();
+			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc].hide().slideDown());
 			});
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseleave(function()
 		{//console.log("MOUSE LEAVE");
