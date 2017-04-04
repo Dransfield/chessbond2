@@ -191,9 +191,9 @@ function showNewGameControls(elem){
 			<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
 		
 				<h2>Choose a Time Limit:</h2>
-				<div id="addGameCategories" class="form-control bg-success" >
+				<select id="addGameCategories" class="form-control bg-success" >
 		
-		</div>
+		</select>
 		<h2>Which Color would you like to be?:</h2>
 		<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
 		  <option>White</option>
