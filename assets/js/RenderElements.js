@@ -78,7 +78,7 @@ showDropDown($("#usernamedropdown"+usracc),usracc);
 function showDropDown(elem,usracc)
 {
 	
-	elem.append(`  <ul class="userdropdown-content">
+	elem.append(`  <ul >
   <li>
     <a href="#">Cumulative Rating </a>
   </li>
