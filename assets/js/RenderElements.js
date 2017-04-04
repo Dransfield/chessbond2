@@ -78,7 +78,14 @@ elem.append("<span  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' c
   function handlerOut()
   {console.log("handler out!");}
   
-$("#usernamedropdown"+usracc).mouseenter(function(){console.log("in");});
+  $(document.body).on('mouseenter', "#usernamedropdown"+usracc, function() {
+	  console.log("hi");
+  });
+  
+$("#usernamedropdown"+usracc).mouseenter(
+function(){
+	console.log("in");
+	});
 //,function(){console.log("out");});
  
 }
