@@ -69,8 +69,8 @@ var gamecategories=[{time:1,extratime:0},
 
 function showUsername(elem,usracc)
 {
-var ele=elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+"</div>");	
-	  showDropDown($("#usernamedropdown"+usracc),usracc);
+elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown()+"</div>");	
+	  
 /*
  function handlerIn()
  
@@ -87,10 +87,10 @@ handlerOut);
  */
 }
 
-function showDropDown(elem,usracc)
+function showDropDown()
 {
 	
-	elem.append(`  <ul class="userdropdown-content" >
+	return(`  <ul class="userdropdown-content" >
   <li>
     <a href="#">Cumulative Rating </a>
   </li>
