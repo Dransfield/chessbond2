@@ -1,9 +1,42 @@
 var ButtonNumber=0;
+
+var gamecategories=[{time:1,extratime:0},
+					{time:2,extratime:0},
+					{time:3,extratime:0},
+					{time:4,extratime:0},
+					{time:5,extratime:0},
+					{time:6,extratime:0},
+					{time:7,extratime:0},
+					{time:8,extratime:0},
+					{time:9,extratime:0},
+					{time:10,extratime:0},
+					{time:15,extratime:0},
+					{time:20,extratime:0},
+					{time:30,extratime:0},
+					{time:60,extratime:0},
+					{time:2,extratime:1},
+					{time:3,extratime:1},
+					{time:5,extratime:2},
+					{time:10,extratime:5},
+					{time:15,extratime:5},
+					{time:20,extratime:10},
+					{time:30,extratime:10},
+					{time:60,extratime:10}];
+
 function showUsername(elem,usracc)
 {
-	
-elem.append("<span class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
+elem.append("<span id='usernamedropdown"+usracc+"' class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
+
+showDropDown($("#usernamedropdown"+usracc),usracc);
+
 }
+
+function showDropDown(elem,usracc)
+{
+	
+	
+}
+
 function showButton(elem,words){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
@@ -14,6 +47,7 @@ function showButton(elem,words){
 //});
 	
 }
+
 function showNavbar(elem,usracc)
 {
 	elem.append(`
@@ -157,9 +191,9 @@ function showNewGameControls(elem){
 			<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
 		
 				<h2>Choose a Time Limit:</h2>
-				<select  ng-options="(c.time+'|'+c.extratime) for c in gamecategories" ng-model="timeobject" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
+				<div id="addGameCategories" class="form-control bg-success" >
 		
-		</select>
+		</div>
 		<h2>Which Color would you like to be?:</h2>
 		<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
 		  <option>White</option>
@@ -170,6 +204,12 @@ function showNewGameControls(elem){
 			
 			</div>
 	`);
+	
+	for (giter in gamecategories)
+	{
+	$("#gamecategories").append("<select>"+gamecategories[x].time+" "+gamecategories[x].extratime+"</select>");
+	}
+	
 elem.append(`	 <div class="row">
 			 <div class="col-md-2 ">  
 			</div>
