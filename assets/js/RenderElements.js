@@ -1,5 +1,49 @@
 var ButtonNumber=0;
 
+
+	function phrasefordate(dat)
+			{
+			var nu=Date.parse(dat);
+			//console.log("nu "+nu);
+		var n = Date.now();
+		
+		var newnum=n-nu;
+		newnum=newnum/1000;
+		if (newnum<60)
+		{
+		if (newnum<0)
+		{newnum=0;}
+		phrase=parseInt(newnum)+" seconds ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" minutes ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" hours ago";
+		}
+		else
+		{
+		newnum=newnum/24;
+		
+		phrase=parseInt(newnum)+" days ago";
+		
+		}
+		
+		}
+		
+		}
+		return phrase;
+	}
+	
+
 var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},
@@ -273,6 +317,19 @@ function showOpenGameList(elem,games)
 				$("#opengameiter"+data.gameid).detach();
 			});
 			
+			io.socket.on('newopengameevent', function (data)
+			{
+			console.log('newopengameevent'+data);
+			data.phrase=phrasefordate(data.createdAt);
+			
+			games.push(data);
+			
+				var myelem=$("#OpenGameListDiv");
+				addOpenGame(myelem,games.length-1);
+			
+			});
+			
+			
 	console.log("games "+JSON.stringify(games));
 		 elem.append(`<h2 class='sub-header'>Open Games</h2>
           <div class='table-responsive' style='overflow:visible;'>
@@ -296,9 +353,38 @@ function showOpenGameList(elem,games)
            `).hide().slideDown();
            
 				var myelem=$("#OpenGameListDiv");
+				
+				
 				for (iter in games)
 				{
-					
+				addOpenGame(myelem,iter);
+
+				}
+            /*
+            <tr ng-repeat="opengame in opg track by $index">
+			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
+			<td>{{opengame.phrase}}</td>
+		
+			<% if (req.session.passport) { %>
+    		
+			<td>		
+				<button ng-click="">Join Game</button>
+					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
+    		
+				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
+				
+			</td>
+			
+			<% } %>
+			</tr>
+            	
+		*/
+}
+
+	
+				
+				function addOpenGame(myelem,iter)
+				{
 					myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
 					$("#opengameiter"+games[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
 					 showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
@@ -336,25 +422,4 @@ function showOpenGameList(elem,games)
 			
 					
 					});
-
-				}
-            /*
-            <tr ng-repeat="opengame in opg track by $index">
-			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
-			<td>{{opengame.phrase}}</td>
-		
-			<% if (req.session.passport) { %>
-    		
-			<td>		
-				<button ng-click="">Join Game</button>
-					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
-    		
-				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
-				
-			</td>
-			
-			<% } %>
-			</tr>
-            	
-		*/
-}
+		}
