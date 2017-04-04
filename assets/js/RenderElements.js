@@ -207,7 +207,7 @@ function showNewGameControls(elem){
 	
 	for (giter in gamecategories)
 	{
-	$("#addGameCategories").append("<select>"+gamecategories[x].time+" "+gamecategories[x].extratime+"</select>");
+	$("#addGameCategories").append("<select>"+gamecategories[giter].time+" "+gamecategories[giter].extratime+"</select>");
 	}
 	
 elem.append(`	 <div class="row">
