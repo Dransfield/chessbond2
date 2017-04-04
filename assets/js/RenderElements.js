@@ -71,13 +71,15 @@ function showUsername(elem,usracc)
 {
 elem.append("<span  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name);	
 
-
-$("#usernamedropdown"+usracc).hover(handlerIn,handlerOut);
-  function handlerIn()
+ function handlerIn()
  
-  {showDropDown($("#usernamedropdown"+usracc),usracc);}
+  {console.log("handler in!");
+	  showDropDown($("#usernamedropdown"+usracc),usracc);}
   function handlerOut()
-  {}
+  {console.log("handler out!");}
+  
+$("#usernamedropdown"+usracc).hover(handlerIn,handlerOut);
+ 
 }
 
 function showDropDown(elem,usracc)
