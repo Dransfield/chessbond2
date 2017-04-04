@@ -189,6 +189,17 @@ function showDropDown(usracc)
   
 }
 
+function showAnchorButton(elem,words){
+	ButtonNumber=ButtonNumber+1;
+	//console.log("ButtonNumber"+ButtonNumber);
+	elem.append("<a><span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span></a>");
+	
+	//$("#button"+ButtonNumber).click(function() {
+ // alert( "Handler for .click() called." );
+//});
+	
+}
+
 function showButton(elem,words){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
@@ -348,7 +359,7 @@ function addJoinedGame(iter,games,myelem){
 				showUsername($("#joinedgamep2td"+iter),games[iter].Player2);
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
 				
-				showButton($("#joinedgameButtd"+iter),"Go to Game");
+				showAnchorButton($("#joinedgameButtd"+iter),"Go to Game");
 				$("#joinedgameButtd"+iter).attr('href',"/humanvshuman/"+games[iter].id);
 				}
 
