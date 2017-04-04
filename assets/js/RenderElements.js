@@ -171,7 +171,7 @@ function showNewGameControls(elem){
 			
 			</div>
 	`);
-`elem.append(`	 <div class="row">
+elem.append(`	 <div class="row">
 			 <div class="col-md-2 ">  
 			</div>
 			<div class="text-center col-md-3">
