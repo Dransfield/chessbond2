@@ -73,13 +73,12 @@ function CreateDropDown(usracc)
 	DropDowns[usracc]= $("<div class='userdropdown'><ul id='droplist"+usracc+"' class='userdropdown-content' ></ul></div>");
 	
 	$("#droplist"+usracc).append("<li><a href='#'>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
-	DropDowns[usracc].append("<li><a href='#'>View Game Archive</a></li>");
-   	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
-	DropDowns[usracc].append("<li><a href='#'>Follow	</a></li>");
-DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
-DropDowns[usracc].append("<li><div id='PrivateConversation"+usracc+"'></div></li>");
-    
-DropDowns[usracc].append("<li><a href='#'>Add to Friend List</a></li></ul>");
+	$("#droplist"+usracc).append("<li><a href='#'>View Game Archive</a></li>");
+   	$("#droplist"+usracc).append("<li><a href='#'>View Game	</a></li>");
+	$("#droplist"+usracc).append("<li><a href='#'>Follow	</a></li>");
+	$("#droplist"+usracc).append("<li><a href='#'>Challenge to a Game</a></li>");
+	$("#droplist"+usracc).append("<li><div id='PrivateConversation"+usracc+"'></div></li>");
+	$("#droplist"+usracc).append("<li><a href='#'>Add to Friend List</a></li>");
 
 }
 
