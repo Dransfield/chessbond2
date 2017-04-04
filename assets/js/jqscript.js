@@ -35,6 +35,7 @@ Promise.all([opcg, cg]).then(values => {
 //console.log("values[0]"+values[0]);
 OpenGames=values[0];
 JoinedGames=values[1];
+AccountsToRetrieve[MyID]=MyID;
 //console.log("open game promise done "+JSON.stringify(OpenGames));
 for (x in values[0])
 {
