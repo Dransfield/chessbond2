@@ -78,7 +78,7 @@ elem.append("<span  href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' c
   function handlerOut()
   {console.log("handler out!");}
   
-  $(document.body).on('mouseenter', "#usernamedropdown"+usracc, function() {
+  $(document.body).on('mouseenter', elem, function() {
 	  console.log("hi");
   });
   
