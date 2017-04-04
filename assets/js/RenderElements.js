@@ -70,11 +70,12 @@ var gamecategories=[{time:1,extratime:0},
 function showUsername(elem,usracc)
 {
 var ele=elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+"</div>");	
+	  showDropDown($("#usernamedropdown"+usracc),usracc);}
 /*
  function handlerIn()
  
   {console.log("handler in!");
-	  showDropDown($("#usernamedropdown"+usracc),usracc);}
+
   function handlerOut()
   {console.log("handler out!");}
 
