@@ -69,7 +69,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showUsername(elem,usracc)
 {
-elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown()+"</div>");	
+elem.append("<div class ='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" "+showDropDown(Accounts[usracc].ELO)+"</div>");	
 	  
 /*
  function handlerIn()
@@ -87,12 +87,12 @@ handlerOut);
  */
 }
 
-function showDropDown()
+function showDropDown(rating)
 {
 	
 	return(`  <ul class="userdropdown-content" >
   <li>
-    <a href="#">Cumulative Rating </a>
+    <a href="#">Cumulative Rating `+rating+`</a>
   </li>
   <li>
     <a href="#">View Game Archive</a>
