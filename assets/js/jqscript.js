@@ -92,6 +92,11 @@ for (x in AccountsToRetrieve)
 					console.log("Talker1"+pc.Talker1);
 					console.log("Talker2"+pc.Talker2);
 					
+					if(!PrivateConversations[AccountsToRetrieve[x]])
+					{
+						PrivateConversations[AccountsToRetrieve[x]]={};
+					}
+					
 				if(AccountsToRetrieve[x]==pc[x].Talker1)
 				{
 					PrivateConversations[AccountsToRetrieve[x]][pc[x].Talker2]=pc;
