@@ -153,7 +153,7 @@ function showJoinedGameList(elem,games)
 }
 function showNewGameControls(elem){
 	elem.append(`
-		<div ng-show="ShowNewGameOptions">
+		<div id="newgamecontrols">
 			<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
 		<!--	<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >-->
 			
@@ -175,17 +175,23 @@ function showNewGameControls(elem){
 			 <div class="col-md-2 ">  
 			</div>
 			<div class="text-center col-md-3">
-			<a  ng-show="SoleConnectorVariable=='true'" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			<a  id="playAgainstAIButton" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
 			</div>
 		 <div class="col-md-2 ">  
 			</div>
 		 <div class="text-center col-md-3">
 		 
-			<button  ng-show="SoleConnectorVariable=='true'" ng-click="ShowNewGameOptions=!ShowNewGameOptions" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<button  id="playAgainstPersonButton" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
 			</div>
 		<div class="col-md-2 ">  
 			</div>
 		</div>`);
+		
+		$("#playAgainstPersonButton").click(function()
+		{
+			$("#newgamecontrols").slideDown();
+		});
+		
 }
 
 function showOpenGameList(elem,games)
