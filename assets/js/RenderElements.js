@@ -192,7 +192,7 @@ function showDropDown(usracc)
 function showAnchorButton(elem,words){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
-	elem.append("<a class='btn btn-lg btn-success'  id='button"+ButtonNumber+"'>"+words+"</a>");
+	elem.append("<a href='#' class='btn btn-lg btn-success'  id='button"+ButtonNumber+"'>"+words+"</a>");
 	
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
@@ -360,7 +360,7 @@ function addJoinedGame(iter,games,myelem){
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
 				
 				showAnchorButton($("#joinedgameButtd"+iter),"Go to Game");
-				$("#joinedgameButtd"+iter).attr('href',"/humanvshuman/"+games[iter].id);
+				$("#button"+ButtonNumber).attr('href',"/humanvshuman/"+games[iter].id);
 				}
 
 function showNewGameControls(elem){
