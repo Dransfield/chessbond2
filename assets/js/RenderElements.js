@@ -90,16 +90,6 @@ handlerOut);
 function showDropDown(usracc)
 {
 	
-	var PrivateconText;
-	if(PrivateConversations[MyID])
-	{
-	if(PrivateConversations[MyID][usracc])
-	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][usracc]+">Go To Chat</a>";}
-		else
-	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
-	}
-		else
-	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
 	
 	return(`  <ul class="userdropdown-content" >
   <li>

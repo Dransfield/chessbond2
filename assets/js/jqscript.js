@@ -34,13 +34,13 @@ var cg = new Promise((resolve, reject) => {
 //console.log("p2 promise");
 		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
 		function (resData,jwres){
-			console.log("resData "+resData);
+			//console.log("resData "+resData);
 			resolve(resData);
 });		
 });
 Promise.all([opcg, cg]).then(values => { 
  // console.log("values"+values); // [3, 1337, "foo"] 
-console.log("values[0]"+JSON.stringify(values[0]));
+//console.log("values[0]"+JSON.stringify(values[0]));
 OpenGames=values[0];
 JoinedGames=values[1];
 AccountsToRetrieve[MyID]=MyID;
@@ -111,7 +111,29 @@ Promise.all(AccountPromises).then(values => {
 	console.log("account promises done");
 	//console.log("OpenGames "+JSON.stringify(OpenGames));
 if($("#homepage"))
-{renderHomePage();}
+{
+	renderHomePage();
+	
+	for (x in Accounts)
+	{
+	
+	var PrivateconText;
+	if(PrivateConversations[MyID])
+	{
+	if(PrivateConversations[MyID][usracc])
+	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][usracc]+">Go To Chat</a>";}
+		else
+	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
+	}
+		else
+	{PrivateconText="<id='StartPrivateDiv"+usracc+"'>Invite To Chat</div>";}
+	
+	
+	$("#PrivateConversation"+Accounts[x].id).append(PrivateconText);
+	
+	}
+}
+
 });
 
 });
