@@ -76,6 +76,8 @@ elem.hover(handlerIn,handlerOut);
   function handlerIn()
  
   {showDropDown($("#usernamedropdown"+usracc),usracc);}
+  function handlerOut()
+  {}
 }
 
 function showDropDown(elem,usracc)
