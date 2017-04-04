@@ -234,7 +234,7 @@ elem.append(`	 <div class="row">
 			$("#newgamecontrols").slideDown();
 		});
 	
-		$("#gobutton").click(function()
+		$("#go button").click(function()
 		{
 		var type='Timed';
 		var id=MyID;
