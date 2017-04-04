@@ -188,7 +188,7 @@ function showJoinedGameList(elem,games)
 function showNewGameControls(elem){
 	elem.append(`
 		<div id="newgamecontrols">
-			<form id="newgameform" >
+			
 		
 				<h2>Choose a Time Limit:</h2>
 				<select id="addGameCategories" class="form-control bg-success" >
@@ -200,7 +200,7 @@ function showNewGameControls(elem){
 		  <option value='Black'>Black</option>
 		</select>
 		<button id="go button" type="submit" class="btn btn-success">Go</button>
-		</form>
+		
 			
 			</div>
 	`);
