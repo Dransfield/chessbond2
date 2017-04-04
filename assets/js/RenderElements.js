@@ -271,6 +271,7 @@ function showJoinedGameList(elem,games)
 				{
 				myelem.append("<tr id='joinedgamerow"+games[iter].id+"'></tr>");
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep1td"+iter+"'></td>");
+				console.log("show user name in join div "+games[iter].Player1);
 				showUsername($("#joinedgamep1td"+iter),games[iter].Player1);
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep2td"+iter+"'></td>");
 				showUsername($("#joinedgamep2td"+iter),games[iter].Player2);

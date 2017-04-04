@@ -89,8 +89,8 @@ for (x in AccountsToRetrieve)
 				for (x in pc)
 				{
 					
-					console.log("Talker1"+pc.Talker1);
-					console.log("Talker2"+pc.Talker2);
+					console.log("Talker1"+pc[x].Talker1);
+					console.log("Talker2"+pc[x].Talker2);
 					
 					if(!PrivateConversations[AccountsToRetrieve[x]])
 					{
