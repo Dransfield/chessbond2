@@ -155,11 +155,10 @@ function showNewGameControls(elem){
 	elem.append(`
 		<div id="newgamecontrols">
 			<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
-		<!--	<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >-->
-			
+		
 				<h2>Choose a Time Limit:</h2>
 				<select  ng-options="(c.time+'|'+c.extratime) for c in gamecategories" ng-model="timeobject" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
-		 <!-- <option ng-value="c" ng-repeat="c in gamecategories" >{{c.time+"|"+c.extratime}}</option>-->
+		
 		</select>
 		<h2>Which Color would you like to be?:</h2>
 		<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
@@ -170,7 +169,7 @@ function showNewGameControls(elem){
 		</form>
 			
 			</div>
-	`).hide();
+	`);
 elem.append(`	 <div class="row">
 			 <div class="col-md-2 ">  
 			</div>
@@ -186,6 +185,8 @@ elem.append(`	 <div class="row">
 		<div class="col-md-2 ">  
 			</div>
 		</div>`);
+		
+		$("#newgamecontrols").hide();
 		
 		$("#playAgainstPersonButton").click(function()
 		{
