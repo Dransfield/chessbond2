@@ -104,7 +104,7 @@ Promise.all(AccountPromises).then(values => {
 
 function addFollowed(usracc)
 {
-	
+	console.log("add followed "+usracc);
 	PrivateconText="<a >Following</a>";
 					
 	DropDowns[usracc]['Foll'].append(PrivateconText);
@@ -310,11 +310,11 @@ function addFollowPromises()
 							//console.log("Talker2"+pc[x].Talker2);
 							
 							var otherPerson=pc[y].followed;
-							
+							console.log("pc "+JSON.stringify(pc));
 								if(Accounts[otherPerson])
 								{
 							
-								
+								console.log("about to addfollowed");
 									Follows[otherperson]=pc[y];
 									addFollowed(otherPerson);
 									
