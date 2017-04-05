@@ -127,12 +127,12 @@ Promise.all(AccountPromises).then(values => {
 					var otherPerson;
 				if(MyID==pc[y].Talker1)
 				{
-					PrivateConversations[MyID][pc[y].Talker2]=pc;
+					PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 					otherPerson=pc[y].Talker2;
 				}
 				else
 				{
-					PrivateConversations[MyID][pc[y].Talker1]=pc;	
+					PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 					otherPerson=pc[y].Talker1;
 				}
 				
