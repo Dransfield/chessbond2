@@ -99,9 +99,12 @@ if(!PrivateConversations[MyID])
 {PrivateConversations[MyID]={};}
 
 if(PrivateConversations[MyID][usracc])
-{$("#PrivateConversationDD"+usracc).append("<div id='GoToPrivateDiv"+usracc+"'>Go To Chat</div>");}
+	{$("#PrivateConversationDD"+usracc).append("<div id='GoToPrivateDiv"+usracc+"'>Go To Chat</div>");}
 else
-{$("#PrivateConversationDD"+usracc).append("<div id='StartPrivateDiv"+usracc+"'>Begin Chat</div>");}
+	{
+	console.log("Begin chat "+usracc);
+	$("#PrivateConversationDD"+usracc).append("<div id='StartPrivateDiv"+usracc+"'>Begin Chat</div>");
+	}
 
 $("#StartPrivateDiv"+usracc).click(function(){
 	
