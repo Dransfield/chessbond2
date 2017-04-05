@@ -136,7 +136,7 @@ function showDropDown(usracc)
 {
 	
 	
-	return(`  <ul class="userdropdown-content" >
+	return(`  <ul class="userdropdown-content2" >
   <li>
     <a href="#">Cumulative Rating `+Accounts[usracc].ELO+`</a>
   </li>
