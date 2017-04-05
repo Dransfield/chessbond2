@@ -212,11 +212,11 @@ function addPrivatePromises()
 					var thisguy=Accounts[x].id;
 					var thisguysname=Accounts[x].name;
 					
-				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
+					console.log("requesting private conversations for "+thisguy+" "+thisguysname);
 					io.socket.get("/privateconversation",{or:[{Talker1:thisguy},{Talker2:thisguy}],limit:30000},
 						function (pc) {
-						//console.log("recieved private conversation"+JSON.stringify(pc));
-						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						console.log("recieved private conversation"+JSON.stringify(pc));
+						console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
 						if (pc.length==0)
 						{
 						addBeginChat(thisguy);
