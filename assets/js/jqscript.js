@@ -5,6 +5,7 @@ var OpenGames={};
 var JoinedGames={};
 var AccountsToRetrieve={};
 var AccountPromises=[];
+var PrivatePromises=[];
 var PrivateConversations={};
 
 var roomname=MyID;
@@ -96,9 +97,20 @@ for (x in AccountsToRetrieve)
 		});
 	})
 	);
-	AccountPromises.push(new Promise((resolve,reject)=>{
 	
-					io.socket.get("/privateconversation",{or:[{Talker1:AccountsToRetrieve[x]},{Talker2:AccountsToRetrieve[x]}],limit:30000},
+}
+
+Promise.all(AccountPromises).then(values => { 
+	console.log("account promises done");
+	//console.log("OpenGames "+JSON.stringify(OpenGames));
+	
+	
+	for (x in Accounts)
+	{
+		
+		PrivatePromises.push(new Promise((resolve,reject)=>{
+	
+					io.socket.get("/privateconversation",{or:[{Talker1:Accounts[x].id},{Talker2:Accounts[x].id}],limit:30000},
 		function (pc) {
 				console.log("recieved private conversation"+JSON.stringify(pc));
 				for (y in pc)
@@ -112,49 +124,53 @@ for (x in AccountsToRetrieve)
 						PrivateConversations[MyID]={};
 					}
 					
-				if(MyID==pc[x].Talker1)
+					var otherPerson;
+				if(MyID==pc[y].Talker1)
 				{
-					PrivateConversations[MyID][pc[x].Talker2]=pc;
+					PrivateConversations[MyID][pc[y].Talker2]=pc;
+					otherPerson=pc[y].Talker2;
 				}
 				else
 				{
-					PrivateConversations[MyID][pc[x].Talker1]=pc;	
+					PrivateConversations[MyID][pc[y].Talker1]=pc;	
+					otherPerson=pc[y].Talker1;
 				}
 				
+				
+				var PrivateconText;
+				if(PrivateConversations[MyID])
+				{
+				if(PrivateConversations[MyID][otherPerson])
+				{
+					PrivateconText="<a href='/seeprivateconversation/"+PrivateConversations[MyID][otherPerson].id+"'>Go To Chat</a>";
+				}
+					else
+				{
+					PrivateconText="<div id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
+				}
+					else
+				{PrivateconText="<id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
+				
+	
+				$("#PrivateConversationDD"+otherPerson).append(PrivateconText);
+	
 				}
 				resolve(pc);
 				});	
 		}));
-}
+		
+	
+	}
+	Promise.all(AccountPromises).then(values => { 
+		if($("#homepage"))
+		{
+		renderHomePage();
+		}
+		});
 
-Promise.all(AccountPromises).then(values => { 
-	console.log("account promises done");
-	//console.log("OpenGames "+JSON.stringify(OpenGames));
-if($("#homepage"))
-{
-	renderHomePage();
-	
-	for (x in Accounts)
-	{
-	
-	var PrivateconText;
-	if(PrivateConversations[MyID])
-	{
-	if(PrivateConversations[MyID][Accounts[x]])
-	{PrivateconText="<a href='/privateconversation/"+PrivateConversations[MyID][Accounts[x]]+">Go To Chat</a>";}
-		else
-	{PrivateconText="<id='StartPrivateDiv"+Accounts[x]+"'>Invite To Chat</div>";}
-	}
-		else
-	{PrivateconText="<id='StartPrivateDiv"+Accounts[x]+"'>Invite To Chat</div>";}
-	
-	
-	$("#PrivateConversation"+Accounts[x].id).append(PrivateconText);
-	
-	}
-}
 
 });
+
 
 });
 function renderHomePage()
