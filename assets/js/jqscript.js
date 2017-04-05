@@ -288,7 +288,7 @@ function addPrivatePromises()
 						resolve(pc);
 					});
 				}));
-	}}}
+	
 }
 
 
