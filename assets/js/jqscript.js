@@ -241,13 +241,19 @@ function addPrivatePromises()
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 							otherPerson=pc[y].Talker2;
+							if (Accounts[pc[y].Talker1])
+							{
 							otherPersonsName=Accounts[pc[y].Talker2].name;
+							}
 							}
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							otherPerson=pc[y].Talker1;
+							if (Accounts[pc[y].Talker1])
+							{
 							otherPersonsName=Accounts[pc[y].Talker1].name;
+							}
 							}
 				
 							if(Accounts[otherPerson])
