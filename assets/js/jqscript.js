@@ -290,11 +290,18 @@ function addFollowPromises()
 						function (pc) {
 						//console.log("recieved private conversation"+JSON.stringify(pc));
 						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
-						if (pc.length==0)
+						if(pc)
+						{
+							if (pc.length==0)
+							{
+							addBeginFollow(thisguy);
+							}	
+						}	
+						
+						if(!pc)
 						{
 						addBeginFollow(thisguy);
-						}	
-							
+						}
 						
 							for (y in pc)
 							{
