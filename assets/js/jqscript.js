@@ -101,24 +101,24 @@ for (x in AccountsToRetrieve)
 					io.socket.get("/privateconversation",{or:[{Talker1:AccountsToRetrieve[x]},{Talker2:AccountsToRetrieve[x]}],limit:30000},
 		function (pc) {
 				console.log("recieved private conversation"+JSON.stringify(pc));
-				for (x in pc)
+				for (y in pc)
 				{
 					
 					//console.log("Talker1"+pc[x].Talker1);
 					//console.log("Talker2"+pc[x].Talker2);
 					
-					if(!PrivateConversations[AccountsToRetrieve[x]])
+					if(!PrivateConversations[MyID])
 					{
-						PrivateConversations[AccountsToRetrieve[x]]={};
+						PrivateConversations[MyID]={};
 					}
 					
-				if(AccountsToRetrieve[x]==pc[x].Talker1)
+				if(MyID==pc[x].Talker1)
 				{
-					PrivateConversations[AccountsToRetrieve[x]][pc[x].Talker2]=pc;
+					PrivateConversations[MyID][pc[x].Talker2]=pc;
 				}
 				else
 				{
-					PrivateConversations[AccountsToRetrieve[x]][pc[x].Talker1]=pc;	
+					PrivateConversations[MyID][pc[x].Talker1]=pc;	
 				}
 				
 				}
