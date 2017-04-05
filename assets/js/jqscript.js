@@ -6,7 +6,9 @@ var JoinedGames={};
 var AccountsToRetrieve={};
 var AccountPromises=[];
 var PrivatePromises=[];
+var FollowPromises=[];
 var PrivateConversations={};
+var Follows={};
 
 var roomname=MyID;
 		
@@ -14,12 +16,22 @@ var roomname=MyID;
 			console.log(JSON.stringify(resData));
 			});
 			
-			io.socket.on('PrivateConversationStarted', function (data)
+				io.socket.on('PrivateConversationStarted', function (data)
 			{
 			
 			
 			$("#PrivateConversationDD"+data.user).empty();
 			$("#PrivateConversationDD"+data.user).append("<a href='/seeprivateconversation/"+PrivateConversations[MyID][data.user].id+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
+			
+			
+			});
+				
+				io.socket.on('FollowStarted', function (data)
+			{
+			
+			
+			$("#FollowDD"+data.user).empty();
+			$("#FollowDD"+data.user).append("<a>Following</a>");
 			
 			
 			});
@@ -67,9 +79,10 @@ Promise.all(AccountPromises).then(values => {
 	console.log("account promises done");
 	//console.log("OpenGames "+JSON.stringify(OpenGames));
 	
-	addPrivatePromises()
+	addPrivatePromises();
+	addFollowPromises();
 	
-	Promise.all(PrivatePromises).then(values => { 
+	Promise.all([PrivatePromises,FollowPromises]).then(values => { 
 		console.log("private promises done");
 		if($("#homepage"))
 		{
@@ -78,6 +91,7 @@ Promise.all(AccountPromises).then(values => {
 	});
 
 	
+
 });
 	
 	
@@ -88,7 +102,13 @@ Promise.all(AccountPromises).then(values => {
 	
 
 
-
+function addFollowed(usracc)
+{
+	
+	PrivateconText="<a >Following</a>";
+					
+	DropDowns[usracc]['Foll'].append(PrivateconText);
+}
 function addSeeChat(usracc)
 {
 	
@@ -122,7 +142,33 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 
 
 }
-
+function addBeginFollow(usracc)
+{
+	
+DropDowns[usracc]['BeginFoll']=$("<a id='StartFollowDiv"+usracc+"'>Follow</a>");
+				DropDowns[usracc]['Foll'].append(DropDowns[usracc]['BeginFoll']);
+				DropDowns[usracc]['BeginFoll'].click(function(){
+					$("#FollowDD"+usracc).empty();
+					$("#FollowDD"+usracc).append("<a>Processing..</a>");
+					io.socket.post('/follow',{follower:MyID,followed:usracc},
+							function (resData, jwRes) {
+								console.log("resData[0].id "+resData.id);
+								Follows[usracc]=resData;
+								io.socket.post('/startfollow',{follower:MyID,followed:usracc},
+							function (resData, jwRes) {
+								console.log("resData[0].id "+resData.id);
+								
+								});
+					
+								});
+					
+					
+					});
+	
+	
+	
+	
+}
 function addAccountPromise(usracc)
 {
 AccountPromises.push(new Promise((resolve, reject) => {
@@ -224,6 +270,61 @@ function addPrivatePromises()
 				}));
 	}}}
 }
+
+
+function addFollowPromises()
+{
+	//console.log("addprivatepromises func");
+	for (x in Accounts)
+	{
+		if(Accounts[x])
+		{
+			if(Accounts[x].id)
+			{
+		FollowPromises.push(new Promise((resolve,reject)=>{
+					var thisguy=Accounts[x].id;
+					var thisguysname=Accounts[x].name;
+					
+				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
+					io.socket.get("/follow",{follower:MyID,followed:thisguy},limit:30000},
+						function (pc) {
+						//console.log("recieved private conversation"+JSON.stringify(pc));
+						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						if (pc.length==0)
+						{
+						addBeginFollow(thisguy);
+						}	
+							
+						
+							for (y in pc)
+							{
+					
+							//console.log("Talker1"+pc[x].Talker1);
+							//console.log("Talker2"+pc[x].Talker2);
+							
+							var otherPerson=pc[y].followed;
+							
+								if(Accounts[otherPerson])
+								{
+							
+								
+									Follows[otherperson]=pc[y];
+									addFollowed(otherPerson);
+									
+									
+					
+								}
+							
+							
+							
+							
+							}
+						resolve(pc);
+					});
+				}));
+	}}}
+}
+
 function renderHomePage()
 {
 showOpenGameList($("#usr"),OpenGames);

@@ -76,7 +76,8 @@ function CreateDropDown(usracc)
 	DropDowns[usracc].append("<li><a>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
 	DropDowns[usracc].append("<li><a href='#'>View Game Archive</a></li>");
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
-	DropDowns[usracc].append("<li><a href='#'>Follow	</a></li>");
+   	DropDowns[usracc]['Foll']=$("<li id='FollowDD"+usracc+"'></li>");
+	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
 	DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
 	DropDowns[usracc]['Priv']=$("<li id='PrivateConversationDD"+usracc+"'></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Priv']);

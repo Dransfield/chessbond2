@@ -35,6 +35,8 @@ module.exports.routes = {
 	'GET /':{view:'jqhp'},
 	//'GET /jq':{view:'jqhp'},
 	'POST /startprivateconversation':'PrivateConversationController.New',
+	'POST /startfollow':'FollowController.New',
+	
 	'GET /stats/:userID':{view:'stats'},
 	'GET /stats':{view:'stats'},
 	'GET /aboutus':{view:'aboutus'},
