@@ -193,11 +193,11 @@ function addPrivatePromises()
 								{
 									if(PrivateConversations[MyID][otherPerson])
 									{
-									addSeeChatButton(otherPerson);
+									addSeeChat(otherPerson);
 									}
 									else
 									{
-									addBeginChatButton(otherPerson);
+									addBeginChat(otherPerson);
 									}
 					
 				
@@ -205,7 +205,7 @@ function addPrivatePromises()
 								}
 								else
 								{
-								addBeginChatButton(otherPerson);
+								addBeginChat(otherPerson);
 								}
 				
 							}
