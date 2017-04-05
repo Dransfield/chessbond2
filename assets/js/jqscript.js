@@ -151,16 +151,16 @@ Promise.all(AccountPromises).then(values => {
 						addBeginChatButton(otherPerson);
 			
 					}
-						else
+					
+				
+				
+				}
+					else
 					{
 					
 						addBeginChatButton(otherPerson);
 					}
 				
-				
-				
-				}
-	
 				}
 				resolve(pc);
 				});	
