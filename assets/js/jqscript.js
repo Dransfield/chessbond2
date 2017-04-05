@@ -12,6 +12,17 @@ var roomname=MyID;
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
+			
+			io.socket.on('PrivateConversationStarted', function (data)
+			{
+			
+			
+			$("#PrivateConversationDD"+data.user).empty();
+			$("#PrivateConversationDD"+data.user).append("<div id='GoToPrivateDiv"+data.user+"'>Go To Chat</div>");
+			
+			
+			});
+
 
 var opcg = new Promise((resolve, reject) => {
 //console.log("p1 promise");

@@ -78,8 +78,33 @@ function CreateDropDown(usracc)
    	DropDowns[usracc]['list'].append("<li><a href='#'>View Game	</a></li>");
 	DropDowns[usracc]['list'].append("<li><a href='#'>Follow	</a></li>");
 	DropDowns[usracc]['list'].append("<li><a href='#'>Challenge to a Game</a></li>");
-	DropDowns[usracc]['list'].append("<li><div id='PrivateConversation"+usracc+"'></div></li>");
+	DropDowns[usracc]['list'].append("<li><div id='PrivateConversationDD"+usracc+"'></div></li>");
 	DropDowns[usracc]['list'].append("<li><a href='#'>Add to Friend List</a></li>");
+
+
+if(PrivateConversations[MyID][usracc])
+{$("#PrivateConversationDD"+usracc).append("<div id='GoToPrivateDiv"+usracc+"'>Go To Chat</div>");}
+else
+{$("#PrivateConversationDD"+usracc).append("<div id='StartPrivateDiv"+usracc+"'>Begin Chat</div>");}
+
+$("#StartPrivateDiv"+usracc).click(function(){
+	
+	
+	io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
+			function (resData, jwRes) {
+				console.log("resData[0].id "+resData.id);
+				PrivateConversations[MyID][usracc]=resData;
+			
+				});
+	
+	io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
+			function (resData, jwRes) {
+				console.log("resData[0].id "+resData.id);
+				PrivateConversations[MyID][usracc]=resData;
+			
+				});
+	});
+
 
 }
 
