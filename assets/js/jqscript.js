@@ -286,7 +286,7 @@ function addFollowPromises()
 					var thisguysname=Accounts[x].name;
 					
 				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
-					io.socket.get("/follow",{follower:MyID,followed:thisguy},limit:30000},
+					io.socket.get("/follow",{follower:MyID,followed:thisguy},
 						function (pc) {
 						//console.log("recieved private conversation"+JSON.stringify(pc));
 						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
