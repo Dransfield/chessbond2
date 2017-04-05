@@ -157,7 +157,8 @@ function addPrivatePromises()
 	console.log("addprivatepromises func");
 	for (x in Accounts)
 	{
-		
+		if(Accounts[x])
+		{
 		PrivatePromises.push(new Promise((resolve,reject)=>{
 					var thisguy=Accounts[x].id;
 					var thisguysname=Accounts[x].name;
@@ -221,7 +222,7 @@ function addPrivatePromises()
 						resolve(pc);
 					});
 				}));
-	}
+	}}
 }
 function renderHomePage()
 {
