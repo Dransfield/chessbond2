@@ -19,7 +19,7 @@ var roomname=MyID;
 				io.socket.on('PrivateConversationStarted', function (data)
 			{
 			
-			
+			console.log("adding go to chat to  "+JSON.stringify(data));
 			$("#PrivateConversationDD"+data.user).empty();
 			$("#PrivateConversationDD"+data.user).append("<a href='/seeprivateconversation/"+PrivateConversations[MyID][data.user].id+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
 			
