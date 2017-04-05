@@ -175,7 +175,7 @@ function addPrivatePromises()
 						addBeginChat(thisguy);
 						}	
 							
-						}
+						
 							for (y in pc)
 							{
 					
