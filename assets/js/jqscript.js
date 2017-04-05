@@ -70,6 +70,7 @@ Promise.all(AccountPromises).then(values => {
 	addPrivatePromises()
 	
 	Promise.all(PrivatePromises).then(values => { 
+		console.log("private promises done");
 		if($("#homepage"))
 		{
 		renderHomePage();
@@ -210,8 +211,9 @@ function addPrivatePromises()
 				
 							}
 							
-							resolve(pc);
+							
 						}
+						resolve(pc);
 					});
 				}));
 	}
