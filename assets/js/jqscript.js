@@ -91,6 +91,7 @@ for (x in AccountsToRetrieve)
 				}
 				if(usr)
 				{
+					console.log("creating dropdown for "+usr.id);
 				CreateDropDown(usr.id);
 				}
 			resolve(usr);
@@ -150,7 +151,7 @@ Promise.all(AccountPromises).then(values => {
 				}
 					else
 				{PrivateconText="<id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
-				
+				console.log("otherPerson "+otherPerson);
 				DropDowns[otherPerson]['Priv'].append(PrivateconText);
 				
 	
