@@ -142,19 +142,24 @@ Promise.all(AccountPromises).then(values => {
 				var PrivateconText;
 				if(PrivateConversations[MyID])
 				{
-				if(PrivateConversations[MyID][otherPerson])
-				{
-					PrivateconText="<a href='/seeprivateconversation/"+PrivateConversations[MyID][otherPerson].id+"'>Go To Chat</a>";
+					if(PrivateConversations[MyID][otherPerson])
+					{
+					addSeeChatButton(otherPerson);
+					}
+						else
+					{
+						addBeginChatButton(otherPerson);
+			
+					}
+						else
+					{
+					
+						addBeginChatButton(otherPerson);
+					}
+				
+				
+				
 				}
-					else
-				{
-					PrivateconText="<div id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
-				}
-					else
-				{PrivateconText="<id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
-				console.log("otherPerson "+otherPerson);
-				DropDowns[otherPerson]['Priv'].append(PrivateconText);
-			}
 	
 				}
 				resolve(pc);
@@ -175,6 +180,40 @@ Promise.all(AccountPromises).then(values => {
 
 
 });
+
+function addSeeChat(usracc)
+{
+	
+	PrivateconText="<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>";
+					
+	DropDowns[usracc]['Priv'].append(PrivateconText);
+}
+function addBeginChat(usracc)
+{
+	
+DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</a>");
+				DropDowns[usracc]['Priv'].append(DropDowns[usracc]['BeginChat']);
+				DropDowns[usracc]['BeginChat'].click(function(){
+					
+					io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
+							function (resData, jwRes) {
+								console.log("resData[0].id "+resData.id);
+								PrivateConversations[MyID][usracc]=resData;
+								io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
+							function (resData, jwRes) {
+								console.log("resData[0].id "+resData.id);
+								
+								});
+					
+								});
+					
+					
+					});
+	
+
+
+}
+
 function renderHomePage()
 {
 showOpenGameList($("#usr"),OpenGames);

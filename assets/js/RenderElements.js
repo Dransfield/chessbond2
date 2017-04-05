@@ -83,6 +83,7 @@ function CreateDropDown(usracc)
 	DropDowns[usracc].append("<li><a href='#'>Add to Friend List</a></li>");
 
 
+/*
 if(!PrivateConversations[MyID])
 {PrivateConversations[MyID]={};}
 
@@ -94,23 +95,7 @@ else
 	DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</a>");
 	DropDowns[usracc]['Priv'].append(DropDowns[usracc]['BeginChat']);
 	}
-
-DropDowns[usracc]['BeginChat'].click(function(){
-	
-	io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
-			function (resData, jwRes) {
-				console.log("resData[0].id "+resData.id);
-				PrivateConversations[MyID][usracc]=resData;
-				io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
-			function (resData, jwRes) {
-				console.log("resData[0].id "+resData.id);
-				
-				});
-	
-				});
-	
-	
-	});
+*/
 
 
 }
