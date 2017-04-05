@@ -110,20 +110,19 @@ else
 
 DropDowns[usracc]['BeginChat'].click(function(){
 	
-	
-	io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
-			function (resData, jwRes) {
-				console.log("resData[0].id "+resData.id);
-				PrivateConversations[MyID][usracc]=resData;
-			
-				});
-	
 	io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
 			function (resData, jwRes) {
 				console.log("resData[0].id "+resData.id);
 				PrivateConversations[MyID][usracc]=resData;
-			
+				io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
+			function (resData, jwRes) {
+				console.log("resData[0].id "+resData.id);
+				
 				});
+	
+				});
+	
+	
 	});
 
 
