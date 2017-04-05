@@ -159,11 +159,14 @@ function addPrivatePromises()
 	{
 		
 		PrivatePromises.push(new Promise((resolve,reject)=>{
-					console.log("requesting private conversations for "+Accounts[x].id+" "+Accounts[x].Name);
-					io.socket.get("/privateconversation",{or:[{Talker1:Accounts[x].id},{Talker2:Accounts[x].id}],limit:30000},
+					var thisguy=Accounts[x].id;
+					var thisguysname=Accounts[x].name;
+					
+					console.log("requesting private conversations for "+thisguy+" "+thisguysname);
+					io.socket.get("/privateconversation",{or:[{Talker1:thisguy},{Talker2:thisguy}],limit:30000},
 						function (pc) {
 						//console.log("recieved private conversation"+JSON.stringify(pc));
-						console.log("found "+pc.length+" private conversations for "+Accounts[x].id+" "+Accounts[x].Name);
+						console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
 							for (y in pc)
 							{
 					
