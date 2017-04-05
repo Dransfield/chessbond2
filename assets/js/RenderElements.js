@@ -70,9 +70,11 @@ var gamecategories=[{time:1,extratime:0},
 
 function CreateDropDown(usracc)
 {
+	/*
 	DropDowns[usracc]= $("<div class='userdropdown'> </div>");
 	DropDowns[usracc]['list']=$("<ul id='droplist"+usracc+"' class='userdropdown-content' ></ul>");
 	DropDowns[usracc].append(DropDowns[usracc]['list']);
+	
 	DropDowns[usracc]['list'].append("<li><a href='#'>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
 	DropDowns[usracc]['list'].append("<li><a href='#'>View Game Archive</a></li>");
    	DropDowns[usracc]['list'].append("<li><a href='#'>View Game	</a></li>");
@@ -80,6 +82,18 @@ function CreateDropDown(usracc)
 	DropDowns[usracc]['list'].append("<li><a href='#'>Challenge to a Game</a></li>");
 	DropDowns[usracc]['list'].append("<li><div id='PrivateConversationDD"+usracc+"'></div></li>");
 	DropDowns[usracc]['list'].append("<li><a href='#'>Add to Friend List</a></li>");
+*/
+
+	DropDowns[usracc]=$("<ul id='droplist"+usracc+"' class='userdropdown-content' ></ul>");
+	
+	DropDowns[usracc].append("<li><a href='#'>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
+	DropDowns[usracc].append("<li><a href='#'>View Game Archive</a></li>");
+   	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
+	DropDowns[usracc].append("<li><a href='#'>Follow	</a></li>");
+	DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
+	DropDowns[usracc].append("<li><div id='PrivateConversationDD"+usracc+"'></div></li>");
+	DropDowns[usracc].append("<li><a href='#'>Add to Friend List</a></li>");
+
 
 if(!PrivateConversations[MyID])
 {PrivateConversations[MyID]={};}
