@@ -104,10 +104,11 @@ if(PrivateConversations[MyID][usracc])
 else
 	{
 	console.log("Begin chat "+usracc);
-	DropDowns[usracc]['Priv'].append("<div id='StartPrivateDiv"+usracc+"'>Begin Chat</div>");
+	DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</a>");
+	DropDowns[usracc]['Priv'].append(DropDowns[usracc]['BeginChat']);
 	}
 
-$("#StartPrivateDiv"+usracc).click(function(){
+DropDowns[usracc]['BeginChat'].click(function(){
 	
 	
 	io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
