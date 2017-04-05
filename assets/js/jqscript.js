@@ -137,7 +137,8 @@ Promise.all(AccountPromises).then(values => {
 					otherPerson=pc[y].Talker1;
 				}
 				
-				
+				if(Accounts[otherPerson])
+				{
 				var PrivateconText;
 				if(PrivateConversations[MyID])
 				{
@@ -153,7 +154,7 @@ Promise.all(AccountPromises).then(values => {
 				{PrivateconText="<id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
 				console.log("otherPerson "+otherPerson);
 				DropDowns[otherPerson]['Priv'].append(PrivateconText);
-				
+			}
 	
 				}
 				resolve(pc);
