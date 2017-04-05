@@ -102,7 +102,8 @@ function addBeginChat(usracc)
 DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</a>");
 				DropDowns[usracc]['Priv'].append(DropDowns[usracc]['BeginChat']);
 				DropDowns[usracc]['BeginChat'].click(function(){
-					
+					$("#PrivateConversationDD"+usracc).empty();
+					$("#PrivateConversationDD"+usracc).append("<span>Processing..</span>");
 					io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
 							function (resData, jwRes) {
 								console.log("resData[0].id "+resData.id);
