@@ -18,7 +18,7 @@ var roomname=MyID;
 			
 			
 			$("#PrivateConversationDD"+data.user).empty();
-			$("#PrivateConversationDD"+data.user).append("<div id='GoToPrivateDiv"+data.user+"'>Go To Chat</div>");
+			$("#PrivateConversationDD"+data.user).append("<a href='/privateconversation/"+data.user+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
 			
 			
 			});
