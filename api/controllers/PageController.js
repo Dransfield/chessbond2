@@ -622,7 +622,7 @@ deleteopengame:function(req,res){
 		}
 		if (req.param('PlayerID')==req.param('MyID'))
 	{
-		myRecordRecord=players[0];
+		myRecord=players[0];
 		oppoRecord=players[0];
 	}
 		OppoName=oppoRecord.name;
