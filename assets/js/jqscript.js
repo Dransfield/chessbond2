@@ -154,7 +154,7 @@ AccountPromises.push(new Promise((resolve, reject) => {
 
 function addPrivatePromises()
 {
-	
+	console.log("addprivatepromises func");
 	for (x in Accounts)
 	{
 		
@@ -194,6 +194,7 @@ function addPrivatePromises()
 								{
 									if(PrivateConversations[MyID][otherPerson])
 									{
+										console.log("about to add see chat for  "+otherPerson);
 									addSeeChat(otherPerson);
 									}
 									else
