@@ -113,7 +113,7 @@ Promise.all(AccountPromises).then(values => {
 	
 					io.socket.get("/privateconversation",{or:[{Talker1:Accounts[x].id},{Talker2:Accounts[x].id}],limit:30000},
 		function (pc) {
-				console.log("recieved private conversation"+JSON.stringify(pc));
+				//console.log("recieved private conversation"+JSON.stringify(pc));
 				for (y in pc)
 				{
 					
@@ -162,7 +162,7 @@ Promise.all(AccountPromises).then(values => {
 		
 	
 	}
-	Promise.all(AccountPromises).then(values => { 
+	Promise.all(PrivatePromises).then(values => { 
 		if($("#homepage"))
 		{
 		renderHomePage();
