@@ -81,6 +81,8 @@ function CreateDropDown(usracc)
 	DropDowns[usracc]['list'].append("<li><div id='PrivateConversationDD"+usracc+"'></div></li>");
 	DropDowns[usracc]['list'].append("<li><a href='#'>Add to Friend List</a></li>");
 
+if(!PrivateConversations[MyID])
+{PrivateConversations[MyID]={};}
 
 if(PrivateConversations[MyID][usracc])
 {$("#PrivateConversationDD"+usracc).append("<div id='GoToPrivateDiv"+usracc+"'>Go To Chat</div>");}
