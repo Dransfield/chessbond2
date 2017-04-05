@@ -235,16 +235,19 @@ function addPrivatePromises()
 							}
 					
 							var otherPerson;
+							var otherPersonsName;
 							
 							if(MyID==pc[y].Talker1)
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 							otherPerson=pc[y].Talker2;
+							otherPersonsName=Accounts[pc[y].Talker2].name;
 							}
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							otherPerson=pc[y].Talker1;
+							otherPersonsName=Accounts[pc[y].Talker1].name;
 							}
 				
 							if(Accounts[otherPerson])
@@ -254,7 +257,7 @@ function addPrivatePromises()
 								{
 									if(PrivateConversations[MyID][otherPerson])
 									{
-									console.log("about to add see chat for  "+otherPerson);
+									console.log("about to add see chat for  "+otherPerson+" "+otherPersonsName);
 									addSeeChat(otherPerson);
 									}
 									
