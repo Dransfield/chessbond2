@@ -202,26 +202,37 @@ AccountPromises.push(new Promise((resolve, reject) => {
 function addPrivatePromises()
 {
 	//console.log("addprivatepromises func");
+	/*
 	for (x in Accounts)
 	{
 		if(Accounts[x])
 		{
 			if(Accounts[x].id)
 			{
+				*/
 		PrivatePromises.push(new Promise((resolve,reject)=>{
-					var thisguy=Accounts[x].id;
-					var thisguysname=Accounts[x].name;
+					//var thisguy=Accounts[x].id;
+					//var thisguysname=Accounts[x].name;
 					
-					console.log("requesting private conversations for "+thisguy+" "+thisguysname);
-					io.socket.get("/privateconversation",{or:[{Talker1:thisguy},{Talker2:thisguy}],limit:30000},
+					//console.log("requesting private conversations for "+thisguy+" "+thisguysname);
+					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:30000},
 						function (pc) {
-						console.log("recieved private conversation"+JSON.stringify(pc));
-						console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						//console.log("recieved private conversation"+JSON.stringify(pc));
+						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						
 						if (pc.length==0)
 						{
-						addBeginChat(thisguy);
-						}	
-							
+							for (x in Accounts)
+							{
+								if(Accounts[x])
+								{
+									if(Accounts[x].id)
+									{
+									addBeginChat(thisguy);
+									}	
+								}
+							}
+						}
 						
 							for (y in pc)
 							{
