@@ -61,9 +61,8 @@ Promise.all([opcg, cg]).then(values => {
 	console.log("account to retrieve "+AccountsToRetrieve[x]);
 	addAccountPromise(AccountsToRetrieve[x]);
 	}
-});
-
-
+	
+	
 Promise.all(AccountPromises).then(values => { 
 	console.log("account promises done");
 	//console.log("OpenGames "+JSON.stringify(OpenGames));
@@ -79,6 +78,11 @@ Promise.all(AccountPromises).then(values => {
 
 	
 });
+	
+	
+});
+
+
 
 	
 
