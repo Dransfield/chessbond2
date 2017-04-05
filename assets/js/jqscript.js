@@ -117,7 +117,7 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 
 }
 
-addAccountPromise(usracc)
+function addAccountPromise(usracc)
 {
 AccountPromises.push(new Promise((resolve, reject) => {
 	 io.socket.get('/user/'+usracc,
