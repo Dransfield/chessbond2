@@ -151,8 +151,8 @@ Promise.all(AccountPromises).then(values => {
 					else
 				{PrivateconText="<id='StartPrivateDiv"+otherPerson+"'>Invite To Chat</div>";}
 				
-	
-				$("#PrivateConversationDD"+otherPerson).append(PrivateconText);
+				DropDowns[usracc]['Priv'].append(PrivateconText);
+				
 	
 				}
 				resolve(pc);
