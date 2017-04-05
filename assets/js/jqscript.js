@@ -142,7 +142,7 @@ AccountPromises.push(new Promise((resolve, reject) => {
 				
 				if(usr)
 				{
-				console.log("creating dropdown for "+usr.id);
+				console.log("creating dropdown for "+usr.id+" "+usr.name);
 				CreateDropDown(usr.id);
 				}
 				 
