@@ -315,7 +315,7 @@ function addFollowPromises()
 								{
 							
 								console.log("about to addfollowed");
-									Follows[otherperson]=pc[y];
+									Follows[otherPerson]=pc[y];
 									addFollowed(otherPerson);
 									
 									
