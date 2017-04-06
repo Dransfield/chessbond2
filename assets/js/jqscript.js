@@ -96,11 +96,12 @@ io.socket.get("/privateconversation",{id:convID},
   { e.preventDefault();
 	  console.log("send wall post"+chatform.val());
 		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
+		 	chatform.val("");
 		}
 		 });
 		chatbutton.click(function(){
 			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
-			
+			chatform.val("");
 			});
 	
 	
