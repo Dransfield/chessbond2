@@ -98,8 +98,8 @@ function SendWallPost(Myid,groupid,msgtype,address,msg)
 		{
 			var none='none';
 			
-			io.socket.post("/newwallpost",{ReplyTo:'none',content:msg,sender:Myid,grpid:groupid,messagetype:msgtype})
-			.then(function onSuccess (){
+			io.socket.post("/newwallpost",{ReplyTo:'none',content:msg,sender:Myid,grpid:groupid,messagetype:msgtype},
+			.function onSuccess (){
 			//$scope.chatInput = null;
 			
 			//io.socket.post('/newnotification',{reciever:groupid,msg:'New '+msgtype+' Recieved',adr:address},
