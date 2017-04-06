@@ -83,6 +83,7 @@ var cg = new Promise
 Promise.all([opcg, cg]).then(values => { 
 	OpenGames=values[0];
 	JoinedGames=values[1];
+	console.log("TWO NAVBARS");
 	AccountsToRetrieve[MyID]=MyID;
 	for (x in OpenGames)
 	{
