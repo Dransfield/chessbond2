@@ -264,7 +264,7 @@ function showNavbar(elem,usracc)
 			</span>	  
 		</div>
               
-     		 <ul class="navbar-nav" style="padding-top:16px;padding-left:170px;">
+     		 <ul class="navbar-nav" style="padding-top:8px;padding-left:170px;">
 			<li  class="nav-item">
 			<img style="background-color:white; "
              src="/tourny.gif">
