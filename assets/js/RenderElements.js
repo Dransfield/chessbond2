@@ -86,10 +86,11 @@ else
 	newdiv=$("<div style='background-color:lightgreen;overflow:visible;padding:4px;'></div>");
 	
 }
+elem.append(newdiv);
 showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
-elem.append(newdiv);
+
 elem.append("<hr>");
 elem.scrollTop(elem[0].scrollHeight);
 }
