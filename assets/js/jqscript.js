@@ -94,7 +94,7 @@ io.socket.get("/privateconversation",{id:convID},
  if(key == 13)  // the enter key code
   {
 		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
-		
+		}
 		 });
 		chatbutton.click(function(){
 			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
