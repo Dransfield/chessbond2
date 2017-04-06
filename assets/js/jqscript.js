@@ -81,7 +81,7 @@ io.socket.get("/privateconversation",{id:convID},
 		privcon.append(chatform);
 		privcon.append(chatbutton);
 		chatbutton.click(function(){
-			SendWallPost(MyID,convID,"Private Conversation","");
+			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
 			
 			});
 	
@@ -94,11 +94,11 @@ io.socket.get("/privateconversation",{id:convID},
 }
 
 
-function SendWallPost(Myid,groupid,msgtype,address)
+function SendWallPost(Myid,groupid,msgtype,address,msg)
 		{
 			var none='none';
 			
-			io.socket.post("/newwallpost",{ReplyTo:'none',content:$scope.WallPostInput,sender:Myid,grpid:groupid,messagetype:msgtype})
+			io.socket.post("/newwallpost",{ReplyTo:'none',content:msg,sender:Myid,grpid:groupid,messagetype:msgtype})
 			.then(function onSuccess (){
 			//$scope.chatInput = null;
 			
