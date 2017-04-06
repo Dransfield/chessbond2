@@ -89,7 +89,7 @@ else
 showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
-//elem.append(newdiv);
+elem.append(newdiv);
 elem.append("<hr>");
 elem.scrollTop(elem[0].scrollHeight);
 }
