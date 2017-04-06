@@ -21,7 +21,7 @@
     <body >
 
     <div id="navbar"></div>
-        <div id="privateconversationpage"></div>
+        <div id="privateconversationpage" style="overflow:auto;"></div>
         <div id="chatinput"></div>
         <% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
