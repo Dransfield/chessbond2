@@ -59,6 +59,11 @@ var roomname=MyID;
 function setupChatPage()
 {
 	
+	$("#mousemove").mousemove(function()
+	{
+		
+		$("#favicon").attr("href","/favicon.ico");
+	});
 	var roomname="/privateconversation/"+convID;
 		
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
