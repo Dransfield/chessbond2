@@ -81,7 +81,7 @@ io.socket.get("/privateconversation",{id:convID},
 		JSON.stringify(resData);
 		for(iter in resData)
 		{
-			showChatMessage($("#privateconversationpage"),resData);
+			showChatMessage($("#privateconversationpage"),resData[iter]);
 		}
 		
 		var privcon=$("#chatinput")
