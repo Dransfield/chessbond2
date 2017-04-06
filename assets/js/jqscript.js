@@ -49,7 +49,16 @@ var roomname=MyID;
 
 function setupChatPage()
 {
-
+	io.socket.on('WallPost', function (data)
+			{
+			console.log("recieved wall post socket");
+		
+			
+					$("#privateconversationpage").append(data.content);
+			});
+				
+			
+			
 
 io.socket.get("/privateconversation",{id:convID},
 	function (resData,jwres){
@@ -71,7 +80,10 @@ io.socket.get("/privateconversation",{id:convID},
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		privcon.append(chatform);
 		privcon.append(chatbutton);
-		chatbutton.click(function(){alert("ghey");});
+		chatbutton.click(function(){
+			SendWallPost(MyID,convID,"Private Conversation","");
+			
+			});
 	
 	
 	});
