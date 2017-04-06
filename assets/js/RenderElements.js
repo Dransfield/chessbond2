@@ -77,7 +77,7 @@ function showChatList(elem)
 function showChatMessage(elem,msg)
 {
 	//var newdiv=$("<div></div>");
-showAvatar(elem,msg.sender);
+showsmallAvatar(elem,msg.sender);
 showUsername(elem,msg.sender);
 elem.append(":"+msg.content);	
 //elem.append(newdiv);
@@ -114,6 +114,22 @@ else
 */
 
 
+}
+
+
+function showsmallAvatar(elem,usracc)
+
+{
+	elem.append(`
+	<div class="userdropdown">
+
+<!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" src="/images/orangecirclesml.png"></img>-->
+<!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>-->
+<!--<img class="onlinecircle"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>-->
+<img class="smallprofilepic" src="`+Accounts[usracc].picture+`"></img>
+
+</div>
+`);	
 }
 
 function showAvatar(elem,usracc)
