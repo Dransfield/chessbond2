@@ -170,7 +170,7 @@ function showUsername(elem,usracc)
 	{
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
-elem.append("<div class='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" </div>");	
+elem.append("<a class='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" </a>");	
  }
  else
  {
