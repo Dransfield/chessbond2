@@ -47,7 +47,20 @@ var roomname=MyID;
 		}
 
 function setupChatPage()
-{}
+{
+
+
+io.socket.get("/privateconversation",{id:convID},
+	function (resData,jwres){
+		JSON.stringify(resData);
+		AccountsToRetrieve[resData.Talker1]=resData.Talker1;
+		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
+		
+		retrieveAccounts();
+	});
+
+	
+}
 
 function setupHomePage()
 {
