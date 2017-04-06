@@ -37,11 +37,11 @@ var roomname=MyID;
 			});
 
 
-		if($("#homepage"))
+		if($("#homepage").length)
 		{
 		setupHomePage();
 		}
-		if($("#privateconversationpage"))
+		if($("#privateconversationpage").length)
 		{
 		setupChatPage();
 		}
