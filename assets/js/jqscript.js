@@ -8,6 +8,7 @@ var AccountPromises=[];
 var PrivatePromises=[];
 var FollowPromises=[];
 var PrivateConversations={};
+var PrivateMessages={};
 var Follows={};
 
 var roomname=MyID;
@@ -57,6 +58,15 @@ io.socket.get("/privateconversation",{id:convID},
 		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
 		
 		retrieveAccounts();
+		io.socket.get("/wallpost",{groupid:convID},
+	function (resData,jwres){
+		JSON.stringify(resData);
+		for(iter in resData)
+		{
+		$("#privateconversationpage").append(resData[iter].content);
+		}
+	});
+	
 	});
 
 	
