@@ -324,7 +324,7 @@ function showNavbar(elem,usracc)
               
      		 <ul class="navbar-nav" style="padding-top:10px;padding-left:200px;">
 			<li  class="nav-item">
-			<a href="/opentournament" <img style="background-color:white; "
+			<a href="/opentournament"> <img style="background-color:white; "
              src="/tournyred1.gif"></a>
 			</li>
 			</ul>
