@@ -89,7 +89,7 @@ io.socket.get("/privateconversation",{id:convID},
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		privcon.append(chatform);
 		privcon.append(chatbutton);
-		 chatbutton.keypress(function (e) {
+		 chatform.keypress(function (e) {
  var key = e.which;
  console.log("key "+key);
  if(key == 13)  // the enter key code
