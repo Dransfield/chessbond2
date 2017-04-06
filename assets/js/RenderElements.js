@@ -171,13 +171,20 @@ function showUsername(elem,usracc)
 	{
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
-elem.append("<a class='userdropdown' href='/profile/"+usracc+"' id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" </a>");	
+elem.append("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" </div>");	
+ //href='/profile/"+usracc+"'
  }
  else
  {
 elem.append("<div>Deleted Account</div>");	
  	 
 	}
+	
+	$("#usernamedropdown"+usracc+"-"+thisuserprinted).click(function()
+	{
+			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
+		
+			});
 	
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
 		{console.log("MOUSE ENTER");
