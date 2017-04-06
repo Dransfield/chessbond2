@@ -267,7 +267,7 @@ function showNavbar(elem,usracc)
      		 <ul class="navbar-nav" style="padding-top:10px;padding-left:200px;">
 			<li  class="nav-item">
 			<img style="background-color:white; "
-             src="/tourny.gif">
+             src="/tournyred1.gif">
 			</li>
 			</ul>
 		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
