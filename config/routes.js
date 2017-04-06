@@ -48,7 +48,7 @@ module.exports.routes = {
 	'GET /albums/:userID': {view: 'albums'},
 	'GET /user/avatar/:id':'UploadController.avatar',
 	'/profile/:ID': {view:'profile'},
-	'/seeprivateconversation/:ID': {view:'privateconversation'},
+	'/seeprivateconversation/:ID': {view:'privateconversationjq'},
 	'/profile': {view:'profile'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
 	'GET /session/:SessionID':{view:'session'},

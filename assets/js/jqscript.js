@@ -37,6 +37,20 @@ var roomname=MyID;
 			});
 
 
+		if($("#homepage"))
+		{
+		setupHomePage();
+		}
+		if($("#privateconversationpage"))
+		{
+		setupChatPage();
+		}
+
+function setupChatPage()
+{}
+
+function setupHomePage()
+{
 var opcg = new Promise
 ((resolve, reject) => {
 	io.socket.get("/openchessgame?limit=3000",{},
@@ -68,6 +82,17 @@ Promise.all([opcg, cg]).then(values => {
 	AccountsToRetrieve[values[1][x].Player2]=values[1][x].Player2;
 	}
 
+	retrieveAccounts();
+	
+
+	
+	
+});
+
+}
+function retrieveAccounts()
+
+{
 	for (x in AccountsToRetrieve)
 	{
 	console.log("account to retrieve "+AccountsToRetrieve[x]);
@@ -88,17 +113,19 @@ Promise.all(AccountPromises).then(values => {
 		{
 		renderHomePage();
 		}
+		if($("#privateconversationpage"))
+		{
+		renderChatPage();
+		}
 	});
 
 	
 
-});
+});	
 	
 	
-});
-
-
-
+	
+}
 	
 
 
@@ -298,6 +325,7 @@ function addPrivatePromises()
 function addFollowPromises()
 {
 	//console.log("addprivatepromises func");
+	
 	for (x in Accounts)
 	{
 		if(Accounts[x])
@@ -355,15 +383,17 @@ function addFollowPromises()
 	}}}
 }
 
-function renderHomePage()
-{
-showOpenGameList($("#usr"),OpenGames);
-showJoinedGameList($("#usr"),JoinedGames);
-
-showNewGameControls($("#newGameControls"));
-
+function renderChatPage()
+	{
+	showChatList($("#privateconversationpage"));
+	}
 	
-}
+function renderHomePage()
+	{
+	showOpenGameList($("#usr"),OpenGames);
+	showJoinedGameList($("#usr"),JoinedGames);
+	showNewGameControls($("#newGameControls"));
+	}
 
 
 

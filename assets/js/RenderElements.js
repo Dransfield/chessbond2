@@ -67,6 +67,17 @@ var gamecategories=[{time:1,extratime:0},
 					{time:20,extratime:10},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
+function showChatList(elem)
+{
+	
+	
+	
+	for (x in PrivateConversations)
+	{
+	elem.append("<p> "+PrivateConversations	
+	}
+	
+}
 
 function CreateDropDown(usracc)
 {
