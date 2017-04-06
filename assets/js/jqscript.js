@@ -46,7 +46,11 @@ var roomname=MyID;
 		{
 		setupChatPage();
 		}
-
+		if($("#opentournamentpage").length)
+		{
+		setupOpenTournament();	
+		}
+		
 function setupChatPage()
 {
 	
