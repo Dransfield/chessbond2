@@ -44,7 +44,7 @@ module.exports = {
 
 									sails.sockets.broadcast(records.reciever,'notification', records);
 	
-									return res.ok();
+									
 									}
 								);
 							}
