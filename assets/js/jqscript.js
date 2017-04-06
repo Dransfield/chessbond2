@@ -49,6 +49,15 @@ var roomname=MyID;
 
 function setupChatPage()
 {
+	
+	var roomname="/privateconversation/"+convID;
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+	
+	
+	
 	io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket");
