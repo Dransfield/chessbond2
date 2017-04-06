@@ -65,6 +65,12 @@ io.socket.get("/privateconversation",{id:convID},
 		{
 		$("#privateconversationpage").append(resData[iter].content);
 		}
+		
+		$("#privateconversationpage").append("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+		$("#privateconversationpage").append("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
+	
+	
+	
 	});
 	
 	});
