@@ -50,7 +50,12 @@ var roomname=MyID;
 		{
 		setupOpenTournament();	
 		}
-		
+	
+	function setupOpenTournament()
+	{
+		AccountsToRetrieve[MyID]=MyID;
+		retrieveAccounts();
+		}
 function setupChatPage()
 {
 	
