@@ -71,7 +71,7 @@ io.socket.get("/privateconversation",{id:convID},
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		privcon.append(chatform);
 		privcon.append(chatbutton);
-		chatbutton.click(alert("ghey"));
+		chatbutton.click(function(){alert("ghey");});
 	
 	
 	});
