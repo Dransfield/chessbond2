@@ -253,7 +253,7 @@ function showNavbar(elem,usracc)
 			<!-- This is the brand on the left-hand side. -->
 			<span style='display:flex'>
 			<img style="background-color:white;max-width:50px;height:50px; "
-             src="/knight.png">
+             src="/knight50.png">
              
               <div  style="color:white;" id="InvisibleMessage">
 			</div>
@@ -266,7 +266,8 @@ function showNavbar(elem,usracc)
               
      		 <ul class="navbar-nav" style="padding:6px;">
 			<li  class="nav-item">
-			
+			<img style="background-color:white; "
+             src="/tourny.gif">
 			</li>
 			</ul>
 		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">

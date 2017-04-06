@@ -72,6 +72,27 @@ io.socket.get("/privateconversation",{id:convID},
 	
 }
 
+
+function SendWallPost(Myid,groupid,msgtype,address)
+		{
+			var none='none';
+			
+			io.socket.post("/newwallpost",{ReplyTo:'none',content:$scope.WallPostInput,sender:Myid,grpid:groupid,messagetype:msgtype})
+			.then(function onSuccess (){
+			//$scope.chatInput = null;
+			
+			//io.socket.post('/newnotification',{reciever:groupid,msg:'New '+msgtype+' Recieved',adr:address},
+			//function (resData, jwRes) {
+				
+				//});
+			
+			}
+			);
+			
+			
+			
+	}
+
 function setupHomePage()
 {
 var opcg = new Promise
