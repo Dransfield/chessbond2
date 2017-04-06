@@ -79,11 +79,11 @@ function showChatMessage(elem,msg)
 var newdiv;
 if(msg.sender==MyID)
 {
-	newdiv=$("<span class='userdropdown' style='background-color:lightgrey;overflow:visible;'></span>");
+	newdiv=$("<div class='userdropdown' style='background-color:lightgrey;overflow:visible;'></div>");
 }
 else
 {
-	newdiv=$("<span class='userdropdown' style='background-color:lightgreen;overflow:visible;'></span>");
+	newdiv=$("<div class='userdropdown' style='background-color:lightgreen;overflow:visible;'></div>");
 	
 }
 showsmallAvatar(newdiv,msg.sender);
