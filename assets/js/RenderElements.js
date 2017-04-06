@@ -122,7 +122,7 @@ function showAvatar(elem,usracc)
 <!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" src="/images/orangecirclesml.png"></img>-->
 <!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>-->
 <!--<img class="onlinecircle"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>-->
-<img class="profilepic" src="`+Accounts[usracc].picture}}+`"></img>
+<img class="profilepic" src="`+Accounts[usracc].picture+`"></img>
 
 </div>
 `);	
