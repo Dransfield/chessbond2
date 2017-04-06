@@ -76,10 +76,19 @@ function showChatList(elem)
 }
 function showChatMessage(elem,msg)
 {
-	//var newdiv=$("<div></div>");
-showsmallAvatar(elem,msg.sender);
-showUsername(elem,msg.sender);
-elem.append(":"+msg.content);	
+var newdiv;
+if(msg.sender==MyID)
+{
+	newdiv=$("<span style='background-color=blue'></span>");
+}
+else
+{
+	newdiv=$("<span style='background-color=light blue'></span>");
+	
+}
+showsmallAvatar(newdiv,msg.sender);
+showUsername(newdiv,msg.sender);
+newdiv.append(":"+msg.content);	
 //elem.append(newdiv);
 elem.append("<hr>");
 elem.scrollTop(elem[0].scrollHeight);
