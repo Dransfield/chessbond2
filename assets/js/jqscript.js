@@ -72,6 +72,7 @@ function setupChatPage()
 			console.log("recieved wall post socket");
 		
 			showChatMessage($("#privateconversationpage"),data);
+			$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
 				
