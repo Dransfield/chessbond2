@@ -76,9 +76,12 @@ function showChatList(elem)
 }
 function showChatMessage(elem,msg)
 {
-showAvatar(elem,msg.sender);
-showUsername(elem,msg.sender);
-elem.append(":"+msg.content);	
+	var newdiv=$("<div></div>");
+showAvatar(newdiv,msg.sender);
+showUsername(newdiv,msg.sender);
+newdiv.append(":"+msg.content);	
+elem.append(newdiv);
+elem.append("<hr></hr>");
 }
 function CreateDropDown(usracc)
 {
