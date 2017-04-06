@@ -72,10 +72,6 @@ function showChatList(elem)
 	
 	
 	
-	for (x in PrivateConversations)
-	{
-	elem.append("<p> "+PrivateConversations	
-	}
 	
 }
 
