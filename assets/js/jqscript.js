@@ -89,6 +89,10 @@ io.socket.get("/privateconversation",{id:convID},
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		privcon.append(chatform);
 		privcon.append(chatbutton);
+		 chatbutton.bind("enterKey",function(e){
+		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
+		
+		 });
 		chatbutton.click(function(){
 			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
 			
