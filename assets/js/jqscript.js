@@ -220,19 +220,6 @@ function addPrivatePromises()
 						//console.log("recieved private conversation"+JSON.stringify(pc));
 						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
 						
-						if (pc.length==0)
-						{
-							for (x in Accounts)
-							{
-								if(Accounts[x])
-								{
-									if(Accounts[x].id)
-									{
-									addBeginChat(thisguy);
-									}	
-								}
-							}
-						}
 						
 							for (y in pc)
 							{
@@ -285,6 +272,22 @@ function addPrivatePromises()
 							
 							
 						}
+						
+							for (x in Accounts)
+							{
+								if(Accounts[x])
+								{
+									if(Accounts[x].id)
+									{
+										if(!PrivateConversations[MyID][Accounts[x].id])
+										{
+										addBeginChat(Accounts[x].id);
+										}
+									}	
+								}
+							}
+						
+						
 						resolve(pc);
 					});
 				}));
