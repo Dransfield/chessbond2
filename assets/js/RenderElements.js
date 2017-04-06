@@ -74,7 +74,12 @@ function showChatList(elem)
 	
 	
 }
-
+function showChatMessage(elem,msg)
+{
+	
+showUsername(elem,msg.id);
+elem.append(msg.content);	
+}
 function CreateDropDown(usracc)
 {
 

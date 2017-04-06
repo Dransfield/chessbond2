@@ -62,8 +62,8 @@ function setupChatPage()
 			{
 			console.log("recieved wall post socket");
 		
-			
-					$("#privateconversationpage").append(data.content);
+			showChatMessage($("#privateconversationpage"),data);
+				//	$("#privateconversationpage").append(data.content);
 			});
 				
 			
@@ -81,7 +81,7 @@ io.socket.get("/privateconversation",{id:convID},
 		JSON.stringify(resData);
 		for(iter in resData)
 		{
-		$("#privateconversationpage").append(resData[iter].content);
+			showChatMessage($("#privateconversationpage"),resData);
 		}
 		
 		var privcon=$("#chatinput")
