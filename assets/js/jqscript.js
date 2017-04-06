@@ -76,7 +76,7 @@ io.socket.get("/privateconversation",{id:convID},
 		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
 		
 		retrieveAccounts();
-		io.socket.get("/wallpost",{groupid:convID},
+		io.socket.get("/wallpost?limit=39999",{groupid:convID},
 	function (resData,jwres){
 		JSON.stringify(resData);
 		for(iter in resData)
