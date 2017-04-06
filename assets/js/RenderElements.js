@@ -81,7 +81,7 @@ showAvatar(elem,msg.sender);
 showUsername(elem,msg.sender);
 elem.append(":"+msg.content);	
 //elem.append(newdiv);
-elem.append("<hr></hr>");
+elem.append("<hr>");
 }
 function CreateDropDown(usracc)
 {
