@@ -171,7 +171,7 @@ function showUsername(elem,usracc)
 	{
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
-elem.append("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> "+Accounts[usracc].name+" </div>");	
+elem.append("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div>");	
  //href='/profile/"+usracc+"'
  }
  else
@@ -182,20 +182,20 @@ elem.append("<div>Deleted Account</div>");
 	
 	$("#usernamedropdown"+usracc+"-"+thisuserprinted).click(function()
 	{
-		console.log("clicked on username");
+		//console.log("clicked on username");
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 		
 			});
 	
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
 		{//console.log("MOUSE ENTER");
-			console.log(DropDowns[usracc]);
+			//console.log(DropDowns[usracc]);
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 		
 			});
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseleave(function()
 		{//console.log("MOUSE LEAVE");
-			console.log(DropDowns[usracc]);
+			//console.log(DropDowns[usracc]);
 			DropDowns[usracc].detach();
 			});
 	

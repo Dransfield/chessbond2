@@ -78,7 +78,7 @@ io.socket.get("/privateconversation",{id:convID},
 		retrieveAccounts();
 		io.socket.get("/wallpost?limit=39999",{groupid:convID},
 	function (resData,jwres){
-		JSON.stringify(resData);
+		//JSON.stringify(resData);
 		for(iter in resData)
 		{
 			showChatMessage($("#privateconversationpage"),resData[iter]);
@@ -91,10 +91,10 @@ io.socket.get("/privateconversation",{id:convID},
 		privcon.append(chatbutton);
 		 chatform.keypress(function (e) {
  var key = e.which;
- console.log("key "+key);
+ //console.log("key "+key);
  if(key == 13)  // the enter key code
   { e.preventDefault();
-	  console.log("send wall post"+chatform.val());
+	 // console.log("send wall post"+chatform.val());
 		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
 		 	chatform.val("");
 		}
