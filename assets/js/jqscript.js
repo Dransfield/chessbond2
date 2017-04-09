@@ -58,7 +58,7 @@ var roomname=MyID;
 		}
 function setupChatPage()
 {
-	
+	$("#closechat").click().slideup;
 	$("#mousemove").mousemove(function()
 	{
 		
