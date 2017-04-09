@@ -562,11 +562,15 @@ function showOpenGameList(elem,games)
 			else
 			{
 			games.push(data);
-			AccountsToRetrieve[data.Player1]=data.Player1;
-			
-			Promise.all(retrieveAccount(data)).then(values => {
+			retrieveAccount(data.id).then(
+			function(){
+			retrieveFollowed(data.id)
+			}).then(
+			function(){
+			retrievePrivate(data.id)
+			}).then(
 			addOpenGame(myelem,games,games.length-1);
-			});	
+			});
 			}
 				
 			});

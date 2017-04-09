@@ -238,18 +238,22 @@ function retrieveAccount(usracc,func)
 				console.log("creating dropdown for "+usr.id+" "+usr.name);
 				CreateDropDown(usr.id);
 				}
-				 
+				 Accounts[usr.id]=usr;
 				resolve(usr);
 		}
 		);
 	
 });
 
-var followPromise
+return acctPromise;
+}
 
-	acctPromise.then(function(val){
+function retrieveFollowed(usracc)
+{
+
+	
 		
-	 followPromise = new Promise(function(resolve, reject) {
+	  var followPromise = new Promise(function(resolve, reject) {
 	  
 	  
 	  io.socket.get("/follow",{followed:usracc},
@@ -296,8 +300,13 @@ var followPromise
 					});
 	  
 	});
+	return followPromise;
+}
 
-	var privatePromise = new Promise(function(resolve, reject) {
+function retrievePrivate()
+{
+
+	privatePromise = new Promise(function(resolve, reject) {
 	  
 	  
 	  	io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:30000},
@@ -377,9 +386,9 @@ var followPromise
 					});
 	  
 	});
-	});
 	
-	return([acctPromise,followPromise,privatePromise]);
+	
+	return privatePromise;
 	
 }
 
