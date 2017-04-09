@@ -642,6 +642,8 @@ function addOpenGame(myelem,games,iter)
 	myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
 	$("#opengameiter"+games[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
 	showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
+	$("#opengameiter"+games[iter].id).append("<td id='opengamedateiter"+iter+"'></td>");
+	$("#opengamedateiter"+iter).append(games[iter].date);
 	$("#opengameiter"+games[iter].id).append("<td id='opengametdbuttoniter"+iter+"'></td>");
 	showButton($("#opengametdbuttoniter"+iter),"Join Game");
 	$("#button"+ButtonNumber).click(function()

@@ -63,7 +63,7 @@ function setupChatPage()
 	$("#closechat").click(function()
 	
 	{
-		console.log("clsoe chat");
+		console.log("close chat");
 		$("#privateconversationpage").slideUp();
 			io.socket.post("/leftprivateconversation",{grpid:convID,leaver:MyID},
 			function onSuccess (){
