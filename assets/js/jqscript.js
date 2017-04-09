@@ -89,8 +89,9 @@ function setupChatPage()
 	
 	
 	io.socket.on('personleft',function(data){
-		showChatMessage($("#privateconversationpage"),data);
-	}
+		console.log(JSON.stringify(data));
+		showPersonLeft($("#privateconversationpage"),data);
+	});
 	io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket");
