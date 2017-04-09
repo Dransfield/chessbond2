@@ -379,8 +379,7 @@ var followPromise
 	});
 	});
 	
-	Promise.all([acctPromise,followPromise,privatePromise]).then(values => { 
-	func
+	return([acctPromise,followPromise,privatePromise]);
 	});
 }
 

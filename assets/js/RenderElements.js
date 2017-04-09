@@ -563,7 +563,10 @@ function showOpenGameList(elem,games)
 			{
 			games.push(data);
 			AccountsToRetrieve[data.Player1]=data.Player1;
-			retrieveAccount(data.Player1,addOpenGame(myelem,games,games.length-1));	
+			
+			Promise.all(retrieveAccount(data)).then(values => {
+			addOpenGame(myelem,games,games.length-1);
+			});	
 			}
 				
 			});
@@ -622,18 +625,18 @@ function showOpenGameList(elem,games)
 
 	
 				
-				function addOpenGame(myelem,games,iter)
-				{
-					myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
-					$("#opengameiter"+games[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
-					 showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
-					$("#opengameiter"+games[iter].id).append("<td id='opengametdbuttoniter"+iter+"'></td>");
-					showButton($("#opengametdbuttoniter"+iter),"Join Game");
-					$("#button"+ButtonNumber).click(function() {
+function addOpenGame(myelem,games,iter)
+{
+	myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
+	$("#opengameiter"+games[iter].id).append("<td id='opengametdnameiter"+iter+"'></td>");
+	showUsername($("#opengametdnameiter"+iter),games[iter].Player1);
+	$("#opengameiter"+games[iter].id).append("<td id='opengametdbuttoniter"+iter+"'></td>");
+	showButton($("#opengametdbuttoniter"+iter),"Join Game");
+	$("#button"+ButtonNumber).click(function()
+	{
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
-				
-					
-					io.socket.put('/joingame',{
+		io.socket.put('/joingame',
+		{
 				
 			GameID:games[iter].id,
 			PlayerID:games[iter].Player1,
@@ -645,22 +648,23 @@ function showOpenGameList(elem,games)
 			GameCategory:games[iter].GameCategory,
 			Player1TimeLimit:games[iter].TimeLimit*60,
 			Player2TimeLimit:games[iter].TimeLimit*60
-					  }  
+		}  
 				  
-				,function(resData,jwres)
+		,function(resData,jwres)
+		{
+				
+			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
-				
-			 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
-				});
+			});
 			
-				}
-			);
+		}
+		);
 					
 				
 			
 			
 					
-					});
+	});
 					
 					
 			$("#opengameiter"+games[iter].id).append("<td id='opengamedeletetdbuttoniter"+iter+"'></td>");
