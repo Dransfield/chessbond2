@@ -569,6 +569,7 @@ function showOpenGameList(elem,games)
 			function(){
 			retrievePrivate(data.id)
 			}).then(
+			function(){
 			addOpenGame(myelem,games,games.length-1);
 			});
 			}
