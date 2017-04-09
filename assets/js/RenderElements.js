@@ -550,13 +550,22 @@ function showOpenGameList(elem,games)
 			io.socket.on('newopengameevent', function (data)
 			{
 			console.log('newopengameevent'+JSON.stringify(data));
+			
 			data.phrase=phrasefordate(data.createdAt);
 			
+			if(Accounts[data.Player1])
+			{
 			games.push(data);
-			
-				var myelem=$("#OpenGameListDiv");
-				addOpenGame(myelem,games,games.length-1);
-			
+			var myelem=$("#OpenGameListDiv");
+			addOpenGame(myelem,games,games.length-1);
+			}
+			else
+			{
+			games.push(data);
+			AccountsToRetrieve[data.Player1]=data.Player1;
+			retrieveAccount(data.Player1,addOpenGame(myelem,games,games.length-1));	
+			}
+				
 			});
 			//console.log("games "+JSON.stringify(games));
 			
@@ -652,4 +661,16 @@ function showOpenGameList(elem,games)
 			
 					
 					});
+					
+					
+			$("#opengameiter"+games[iter].id).append("<td id='opengamedeletetdbuttoniter"+iter+"'></td>");
+				showButton($("#opengamedeletetdbuttoniter"+iter),"Delete Game");
+					$("#button"+ButtonNumber).click(function() {
+				 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
+				});
+			
+				}
+			
+				
+				});
 		}

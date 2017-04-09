@@ -55,7 +55,9 @@ var roomname=MyID;
 	{
 		AccountsToRetrieve[MyID]=MyID;
 		retrieveAccounts();
-		}
+	}
+	
+	
 function setupChatPage()
 {
 	$("#closechat").click(function()
@@ -170,6 +172,7 @@ function SendWallPost(Myid,groupid,msgtype,address,msg)
 
 function setupHomePage()
 {
+	AccountsToRetrieve[MyID]=MyID;
 var opcg = new Promise
 ((resolve, reject) => {
 	io.socket.get("/openchessgame?limit=3000",{},
@@ -210,6 +213,177 @@ Promise.all([opcg, cg]).then(values => {
 });
 
 }
+
+
+function retrieveAccount(usracc,func)
+{
+	var acctPromise = new Promise(function(resolve, reject) {
+  io.socket.get('/user/'+usracc,
+		function(usr)
+		{
+			myuser=usr;
+			//console.log(JSON.stringify(myuser));
+			Accounts[usr.id]=usr;
+			
+			//showUsername($("#usr"),usr.id);
+			//$("#usr").html(Accounts[usr.id].name);
+			console.log("do navbar? "+MyID+" "+usr.id);
+				if (MyID==usr.id)
+				{
+				showNavbar($("#navbar"),MyID);
+				}
+				
+				if(usr)
+				{
+				console.log("creating dropdown for "+usr.id+" "+usr.name);
+				CreateDropDown(usr.id);
+				}
+				 
+				resolve(usr);
+		}
+		);
+	
+});
+
+var followPromise
+
+	acctPromise.then(function(val){
+		
+	 followPromise = new Promise(function(resolve, reject) {
+	  
+	  
+	  io.socket.get("/follow",{followed:usracc},
+						function (pc) {
+						//console.log("recieved private conversation"+JSON.stringify(pc));
+						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						if(pc)
+						{
+							if (pc.length==0)
+							{
+							addBeginFollow(usracc);
+							}	
+						}	
+						
+						if(!pc)
+						{
+						addBeginFollow(usracc);
+						}
+						
+							for (y in pc)
+							{
+					
+							//console.log("Talker1"+pc[x].Talker1);
+							//console.log("Talker2"+pc[x].Talker2);
+							
+							var otherPerson=pc[y].followed;
+							console.log("pc "+JSON.stringify(pc[y]));
+								if(Accounts[otherPerson])
+								{
+							
+								console.log("about to addfollowed");
+									Follows[otherPerson]=pc[y];
+									addFollowed(otherPerson);
+									
+									
+					
+								}
+							
+							
+							
+							
+							}
+						resolve(pc);
+					});
+	  
+	});
+
+	var privatePromise = new Promise(function(resolve, reject) {
+	  
+	  
+	  	io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:30000},
+						function (pc) {
+						//console.log("recieved private conversation"+JSON.stringify(pc));
+						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						
+						
+							for (y in pc)
+							{
+					
+							//console.log("Talker1"+pc[x].Talker1);
+							//console.log("Talker2"+pc[x].Talker2);
+							
+							if(!PrivateConversations[MyID])
+							{
+							PrivateConversations[MyID]={};
+							}
+					
+							var otherPerson;
+							var otherPersonsName;
+							
+							if(MyID==pc[y].Talker1)
+							{
+							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
+							otherPerson=pc[y].Talker2;
+							if (Accounts[pc[y].Talker2])
+							{
+							otherPersonsName=Accounts[pc[y].Talker2].name;
+							}
+							}
+							else
+							{
+							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
+							otherPerson=pc[y].Talker1;
+							if (Accounts[pc[y].Talker1])
+							{
+							otherPersonsName=Accounts[pc[y].Talker1].name;
+							}
+							}
+				
+							if(Accounts[otherPerson])
+							{
+							
+								if(PrivateConversations[MyID])
+								{
+									if(PrivateConversations[MyID][otherPerson])
+									{
+									console.log("about to add see chat for  "+otherPerson+" "+otherPersonsName);
+									addSeeChat(otherPerson);
+									}
+									
+					
+								}
+							
+							}
+							
+							
+						}
+						
+							for (x in Accounts)
+							{
+								if(Accounts[x])
+								{
+									if(Accounts[x].id)
+									{
+										if(!PrivateConversations[MyID][Accounts[x].id])
+										{
+										addBeginChat(Accounts[x].id);
+										}
+									}	
+								}
+							}
+						
+						
+						resolve(pc);
+					});
+	  
+	});
+	});
+	
+	Promise.all([acctPromise,followPromise,privatePromise]).then(values => { 
+	func
+	});
+}
+
 function retrieveAccounts()
 
 {
@@ -510,6 +684,7 @@ function renderChatPage()
 	
 function renderHomePage()
 	{
+		
 	showOpenGameList($("#usr"),OpenGames);
 	showJoinedGameList($("#usr"),JoinedGames);
 	showNewGameControls($("#newGameControls"));
