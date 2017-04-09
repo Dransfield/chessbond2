@@ -74,6 +74,17 @@ function showChatList(elem)
 	
 	
 }
+function showPersonLeft(elem,prsn)
+{
+	
+	newdiv=$("<div style='background-color:red;overflow:visible;padding:4px;'></div>");
+	elem.append(newdiv);
+	showUsername(newdiv,prsn);
+	newdiv.append("<span> has left the chat by closing their chat window</span>");
+	elem.append("<hr>");
+	elem.scrollTop(elem[0].scrollHeight);
+
+}
 function showChatMessage(elem,msg)
 {
 var newdiv;
