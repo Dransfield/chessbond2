@@ -60,7 +60,9 @@ function setupChatPage()
 {
 	$("#closechat").click(function()
 	
-	{$("#closechat").slideup();}
+	{
+		console.log("clsoe chat");
+		$("#closechat").slideup();}
 	)
 	$("#mousemove").mousemove(function()
 	{
