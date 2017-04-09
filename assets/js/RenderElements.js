@@ -570,7 +570,7 @@ function showOpenGameList(elem,games)
 			retrievePrivate(data.id)
 			}).then(
 			function(){
-			addOpenGame(myelem,games,games.length-1);
+			addOpenGame($("#OpenGameListDiv"),games,games.length-1);
 			});
 			}
 				
