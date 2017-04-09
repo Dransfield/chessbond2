@@ -561,20 +561,26 @@ function showOpenGameList(elem,games)
 			}
 			else
 			{
+			
 			games.push(data);
-			retrieveAccount(data.id).then(
-			function(){
-			retrieveFollowed(data.id)
-			}).then(
-			function(){
-			retrievePrivate(data.id)
-			}).then(
-			function(){
-			addOpenGame($("#OpenGameListDiv"),games,games.length-1);
-			});
+			retrieveAccount(data.Player1).then
+			(
+				function()
+				{
+					retrieveFollowed(data.Player1).then(
+						function(){
+							retrievePrivate(data.Player1).then
+							(
+								function(){
+								addOpenGame($("#OpenGameListDiv"),games,games.length-1);
+								}
+							)
+						}
+					)
+				}
+			);
+			
 			}
-				
-			});
 			//console.log("games "+JSON.stringify(games));
 			
 	
