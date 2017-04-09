@@ -62,7 +62,19 @@ function setupChatPage()
 	
 	{
 		console.log("clsoe chat");
-		$("#privateconversationpage").slideUp();}
+		$("#privateconversationpage").slideUp();
+			io.socket.post("/leftprivateconversation",{grpid:convID,leaver:MyID},
+			function onSuccess (){
+			//$scope.chatInput = null;
+			
+			//io.socket.post('/newnotification',{reciever:groupid,msg:'New '+msgtype+' Recieved',adr:address},
+			//function (resData, jwRes) {
+				
+				//});
+			
+			}
+			);
+		}
 	)
 	$("#mousemove").mousemove(function()
 	{
