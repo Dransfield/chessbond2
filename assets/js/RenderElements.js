@@ -581,6 +581,7 @@ function showOpenGameList(elem,games)
 			);
 			
 			}
+		});
 			//console.log("games "+JSON.stringify(games));
 			
 	
