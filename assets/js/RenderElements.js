@@ -549,7 +549,7 @@ function showOpenGameList(elem,games)
 			
 			io.socket.on('newopengameevent', function (data)
 			{
-			console.log('newopengameevent'+data);
+			console.log('newopengameevent'+JSON.stringify(data));
 			data.phrase=phrasefordate(data.createdAt);
 			
 			games.push(data);
