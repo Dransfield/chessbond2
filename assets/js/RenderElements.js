@@ -672,5 +672,5 @@ function showOpenGameList(elem,games)
 				});
 			
 				
-				});
-		}
+				}
+		
