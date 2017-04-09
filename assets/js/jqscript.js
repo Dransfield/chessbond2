@@ -380,7 +380,7 @@ var followPromise
 	});
 	
 	return([acctPromise,followPromise,privatePromise]);
-	});
+	
 }
 
 function retrieveAccounts()
