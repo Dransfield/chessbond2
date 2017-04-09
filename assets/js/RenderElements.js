@@ -669,7 +669,7 @@ function showOpenGameList(elem,games)
 				 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
 				});
 			
-				}
+				});
 			
 				
 				});
