@@ -309,8 +309,8 @@ function showButton(elem,words){
 
 function showNavbar(elem,usracc)
 {
-	//elem.append(`
-	Navbar=$('<nav class="navbar navbar-default navbar-inverse">
+elem.append(`<nav class="navbar navbar-default navbar-inverse">
+//Navbar=$('<nav class="navbar navbar-default navbar-inverse">
 	<div class="container-fluid"   >
 		<div class="navbar-header" >
 			<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
