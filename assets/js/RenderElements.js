@@ -348,7 +348,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			
 					
 				  <div id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
-				Welcome `+plyrName+`
+				Welcome `+plyrName+`<span  class='caret'></span>
 				  </div>
 				  
 				
