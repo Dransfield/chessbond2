@@ -345,10 +345,10 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 	
 			<ul class="nav navbar-right">
-			`+plyrName+`
+			
 					
 				  <ul id="attachnavdropdown" class="nav navbar-nav navbar-right">
-				
+				Welcome `+plyrName+`
 				  </ul>
 				  
 				
