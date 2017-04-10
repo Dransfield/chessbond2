@@ -347,7 +347,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			<ul class="nav navbar-right">
 			
 					
-				  <ul id="attachnavdropdown" style="color:white" class="nav navbar-nav navbar-right">
+				  <ul id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
 				Welcome `+plyrName+`
 				  </ul>
 				  
