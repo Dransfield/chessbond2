@@ -309,6 +309,8 @@ function showButton(elem,words){
 
 function showNavbar(elem,usracc)
 {
+	var plyrName=Accounts[usracc].name;
+	
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
 //Navbar=$('<nav class="navbar navbar-default navbar-inverse">
 	<div class="container-fluid"   >
@@ -343,7 +345,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 	
 			<ul class="nav navbar-right">
-			
+			`+plyrName+`
 					
 				  <ul id="attachnavdropdown" class="nav navbar-nav navbar-right">
 				
@@ -401,7 +403,7 @@ for (iter in NDDlinks)
 					</ul>
 				  </li>*/
 	
-	if(Accounts[usracc])
+	/*if(Accounts[usracc])
 	{
 		console.log("Welcome "+Accounts[usracc].name);
 		$("#albumlink").attr('href','/albums/'+usracc);
@@ -414,6 +416,7 @@ for (iter in NDDlinks)
 				$("#InvisibleMessage").html("Days Left To Account Deletion:"+Accounts[usracc].DaysToDelete);
 			}
 	}
+	*/
 }
 
 function showJoinedGameList(elem,games)
