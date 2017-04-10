@@ -347,7 +347,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			<ul class="nav navbar-right">
 			
 					
-				  <ul id="attachnavdropdown" class="nav navbar-nav navbar-right">
+				  <ul id="attachnavdropdown" style="color:white" class="nav navbar-nav navbar-right">
 				Welcome `+plyrName+`
 				  </ul>
 				  
@@ -360,7 +360,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 </nav>
 `);
 
-NavbarDropDown=$("#attachnavdropdown");
+NavbarDropDown=$("<div style='position:absolute'></div>");
 NDDlinks={};
 NDDlinks['ProfileLink']=$("<li><a id='profilelink' href='/profile/"+Accounts[MyID]+"' >My Profile</a></li>");
 NDDlinks['AlbumLink']=$("<li><a id='albumlink' href='/albums/"+Accounts[MyID]+"' >My Albums</a></li>");
@@ -368,6 +368,23 @@ NDDlinks['StatsLink']=$("<li><a id='statslink' href='/stats/"+Accounts[MyID]+"' 
 NDDlinks['LogoutLink']=$("<li><a href='/MyLogout'>Logout</a></li>");
 for (iter in NDDlinks)
 {NavbarDropDown.append(NDDlinks[iter]);}
+
+$("#attachnavdropdown").mouseenter(function()
+{$(this).append(NavbarDropDown);}
+);
+
+$("#attachnavdropdown").click(function()
+{
+{$(this).append(NavbarDropDown);}
+	
+});
+
+$("#attachnavdropdown").mouseleave(function()
+{NavbarDropDown.detach();}
+);
+
+
+
 				//		<li id="NotificationsList"></li>
 			//				
 		//				<li id="UndeleteAccount"></li>
