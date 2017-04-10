@@ -362,7 +362,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 
 NavbarDropDown=$("<ul style='width:inherit;position:absolute;background-color:black;padding:3px;box-shadow: 10px 10px 5px grey;'></ul>");
 NDDlinks={};
-NDDlinks['ProfileLink']=$("<li style='text-color:white'><a  id='profilelink' href='/profile/"+Accounts[MyID].id+"' >My Profile</a></li>");
+NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].id+"'><li style='color:white'> My Profile</li></a>");
 NDDlinks['AlbumLink']=$("<li style='color:white'><a id='albumlink' href='/albums/"+Accounts[MyID].id+"' >My Albums</a></li>");
 NDDlinks['StatsLink']=$("<li style='color:white'><a id='statslink' href='/stats/"+Accounts[MyID].id+"' >My Stats</a></li>");
 NDDlinks['LogoutLink']=$("<li style='color:white'><a href='/MyLogout'>Logout</a></li>");
