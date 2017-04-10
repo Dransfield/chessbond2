@@ -360,7 +360,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 </nav>
 `);
 
-NavbarDropDown=$("<ul style='position:absolute;background-color:black;padding:3px;box-shadow: 10px 10px 5px grey;'></ul>");
+NavbarDropDown=$("<ul style='width:inherit;position:absolute;background-color:black;padding:3px;box-shadow: 10px 10px 5px grey;'></ul>");
 NDDlinks={};
 NDDlinks['ProfileLink']=$("<li style='color:white'><a  id='profilelink' href='/profile/"+Accounts[MyID].id+"' >My Profile</a></li>");
 NDDlinks['AlbumLink']=$("<li style='color:white'><a id='albumlink' href='/albums/"+Accounts[MyID].id+"' >My Albums</a></li>");
