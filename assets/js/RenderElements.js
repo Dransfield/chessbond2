@@ -535,6 +535,13 @@ elem.append(`	 <div class="row">
 
 function showOpenGameList(elem,games)
 {
+	
+	var roomname='openchessgameroom';
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+			
 io.socket.on('connect',function(){
 			
 						
