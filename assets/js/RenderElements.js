@@ -360,12 +360,12 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 </nav>
 `);
 
-NavbarDropDown=$("<ul style='z-index:99;width:inherit;position:absolute;right:5px;background-color:black;padding:30px 5px 10px 5px;box-shadow: 10px 10px 5px grey;'></ul>");
+NavbarDropDown=$("<ul style='z-index:99;width:inherit;position:absolute;right:10px;background-color:white;padding:30px 5px 10px 5px;box-shadow: 10px 10px 5px grey;'></ul>");
 NDDlinks={};
-NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].id+"'><li style='color:white'> My Profile</li></a>");
-NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='color:white'>My Albums</li></a>");
-NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='color:white'>My Stats</li></a>");
-NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='color:white'>Logout</li></a>");
+NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].id+"'><li style='color:black'> My Profile</li></a>");
+NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='color:black'>My Albums</li></a>");
+NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='color:black'>My Stats</li></a>");
+NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='color:black'>Logout</li></a>");
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
