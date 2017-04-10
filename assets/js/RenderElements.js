@@ -362,9 +362,9 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 
 NavbarDropDown=$("<div style='position:absolute'></div>");
 NDDlinks={};
-NDDlinks['ProfileLink']=$("<li><a id='profilelink' href='/profile/"+Accounts[MyID]+"' >My Profile</a></li>");
-NDDlinks['AlbumLink']=$("<li><a id='albumlink' href='/albums/"+Accounts[MyID]+"' >My Albums</a></li>");
-NDDlinks['StatsLink']=$("<li><a id='statslink' href='/stats/"+Accounts[MyID]+"' >My Stats</a></li>");
+NDDlinks['ProfileLink']=$("<li><a id='profilelink' href='/profile/"+Accounts[MyID].id+"' >My Profile</a></li>");
+NDDlinks['AlbumLink']=$("<li><a id='albumlink' href='/albums/"+Accounts[MyID].id+"' >My Albums</a></li>");
+NDDlinks['StatsLink']=$("<li><a id='statslink' href='/stats/"+Accounts[MyID].id+"' >My Stats</a></li>");
 NDDlinks['LogoutLink']=$("<li><a href='/MyLogout'>Logout</a></li>");
 for (iter in NDDlinks)
 {NavbarDropDown.append(NDDlinks[iter]);}
