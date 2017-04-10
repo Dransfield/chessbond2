@@ -369,7 +369,7 @@ NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='color:white'>Logout</li
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
-	NavbarDropDown.append("<hr>");
+	NavbarDropDown.append("<br>");
 	}
 
 $("#attachnavdropdown").mouseenter(function()
