@@ -1,6 +1,7 @@
 var ButtonNumber=0;
 var UserNamesPrinted={};
 var DropDowns={};
+var Navbar={};
 
 	function phrasefordate(dat)
 			{
@@ -308,8 +309,8 @@ function showButton(elem,words){
 
 function showNavbar(elem,usracc)
 {
-	elem.append(`
-	<nav class="navbar navbar-default navbar-inverse">
+	//elem.append(`
+	Navbar=$('<nav class="navbar navbar-default navbar-inverse">
 	<div class="container-fluid"   >
 		<div class="navbar-header" >
 			<button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
@@ -344,8 +345,43 @@ function showNavbar(elem,usracc)
 			<ul class="nav navbar-right">
 			
 					
-				  <ul class="nav navbar-nav navbar-right">
-				 <li>
+				  <ul id="attachnavdropdown" class="nav navbar-nav navbar-right">
+				
+				  </ul>
+				  
+				
+			
+			</ul>
+		</div>
+		
+   </div>
+</nav>
+`);
+
+NavbarDropDown=$("#attachnavdropdown");
+NDDlinks={};
+NDDlinks['ProfileLink']=$("<li><a id='profilelink' href='/profile/"+Accounts[MyID]+"' >My Profile</a></li>");
+NDDlinks['AlbumLink']=$("<li><a id='albumlink' href='/albums/"+Accounts[MyID]+"' >My Albums</a></li>");
+NDDlinks['StatsLink']=$("<li><a id='statslink' href='/stats/"+Accounts[MyID]+"' >My Stats</a></li>");
+NDDlinks['LogoutLink']=$("<li><a href='/MyLogout'>Logout</a></li>");
+for (iter in NDDlinks)
+{NavbarDropDown.append(NDDlinks[iter]);}
+				//		<li id="NotificationsList"></li>
+			//				
+		//				<li id="UndeleteAccount"></li>
+	//					<li id="DeleteAccount"></li>
+//						`);
+	//`).hide().slideDown();
+	//<%- include options.ejs %>
+	//<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
+					//<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
+					
+	//do NumberofNotificationsSpan
+	//NotificationsList<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
+						  //<a href="{{n.adr}}">{{n.msg}}</a></li>
+	
+	/*
+	 <li>
 				 
 				 <span class="badge" id="NumberofNotificationsSpan" ></span>
 				 </li>
@@ -360,27 +396,11 @@ function showNavbar(elem,usracc)
 						<li id="NotificationsList"></li>
 							
 						<li id="UndeleteAccount"></li>
-					<li id="DeleteAccount"></li>
+						<li id="DeleteAccount"></li>
 					
 					</ul>
-				  </li>
-				  </ul>
-				  
-				
-			
-			</ul>
-		</div>
-		
-   </div>
-</nav>
-	`).hide().slideDown();
-	//<%- include options.ejs %>
-	//<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
-					//<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
-					
-	//do NumberofNotificationsSpan
-	//NotificationsList<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
-						  //<a href="{{n.adr}}">{{n.msg}}</a></li>
+				  </li>*/
+	
 	if(Accounts[usracc])
 	{
 		console.log("Welcome "+Accounts[usracc].name);
@@ -552,7 +572,10 @@ io.socket.on('connect',function(){
 			});
 			
 		});
-			
+			io.socket.on('deleteopengameevent', function (data)
+			{
+				$("#opengameiter"+data.gameid).detach();
+			});
 			io.socket.on('deleteopengameevent', function (data)
 			{
 				$("#opengameiter"+data.gameid).detach();
