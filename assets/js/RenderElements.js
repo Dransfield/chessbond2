@@ -310,7 +310,33 @@ function showButton(elem,words){
 function showNavbar(elem,usracc)
 {
 	var plyrName=Accounts[usracc].name;
-	
+
+elem.append(`<nav class="navbar navbar-default navbar-inverse">
+			<span style='display:flex'>
+
+			<!-- This is the brand on the left-hand side. -->
+			<img style="background-color:white;max-width:50px;height:50px; "
+             src="/knight50.png">
+             
+              <div  style="color:white;" id="InvisibleMessage">
+			</div>
+			<a class="navbar-brand" href="/#" >Chessbond
+			
+			</a>
+              
+			<a href="/opentournament"> <img style="background-color:white; "
+             src="/tournyred1.gif"></a>
+			
+					
+				  <div id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
+				Welcome `+plyrName+`<span  class='caret'></span>
+				  </div>
+</span>				  
+				
+			
+`);
+
+/*	
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
 
 	<div class="container-fluid"   >
@@ -359,6 +385,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
    </div>
 </nav>
 `);
+*/
 
 NavbarDropDown=$("<ul style='z-index:99;width:inherit;position:absolute;right:10px;background-color:white;padding:30px 5px 10px 5px;box-shadow: 10px 10px 5px grey;'></ul>");
 NDDlinks={};
