@@ -313,7 +313,7 @@ function showNavbar(elem,usracc)
 
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			<span style='display:flex;wrap: flex ;justify-content:space-between'>
-
+			<div>
 			<!-- This is the brand on the left-hand side. -->
 			<img style="background-color:white;max-width:50px;height:50px; "
              src="/knight50.png">
@@ -323,7 +323,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			<a class="navbar-brand" href="/#" >Chessbond
 			
 			</a>
-              
+              </div>
 			<a href="/opentournament"> <img style="background-color:white; "
              src="/tournyred1.gif"></a>
 			
