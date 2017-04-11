@@ -30,6 +30,6 @@ bottom: -4px;
   }
   /* Small screens */
 @media all and (max-width: 500px) {
-  .navigation {
+  .mynavbar {
   flex-direction: column;
 }
