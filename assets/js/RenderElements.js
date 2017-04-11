@@ -311,8 +311,8 @@ function showNavbar(elem,usracc)
 {
 	var plyrName=Accounts[usracc].name;
 
-elem.append(`<nav class="navbar navbar-default navbar-inverse">
-			<span style='display:flex;wrap: flex ;justify-content:space-between;align-items:center'>
+elem.append(`
+			<span class="mynavbar">
 			<span>
 			<!-- This is the brand on the left-hand side. -->
 			<img style="background-color:white;max-width:50px;height:50px; "
