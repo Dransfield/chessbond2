@@ -552,7 +552,10 @@ function addPrivatePromises()
 						function (pc) {
 						//console.log("recieved private conversation"+JSON.stringify(pc));
 						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
-						
+						if(!PrivateConversations[MyID])
+							{
+							PrivateConversations[MyID]={};
+							}
 						
 							for (y in pc)
 							{
@@ -560,10 +563,7 @@ function addPrivatePromises()
 							//console.log("Talker1"+pc[x].Talker1);
 							//console.log("Talker2"+pc[x].Talker2);
 							
-							if(!PrivateConversations[MyID])
-							{
-							PrivateConversations[MyID]={};
-							}
+							
 					
 							var otherPerson;
 							var otherPersonsName;
