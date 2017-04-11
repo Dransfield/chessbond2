@@ -57,7 +57,11 @@ var roomname=MyID;
 		retrieveAccounts();
 	}
 	
+function setupProfilePage()
+{
 	
+}
+
 function setupChatPage()
 {
 	$("#closechat").click(function()

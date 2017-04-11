@@ -342,7 +342,7 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
              src="/tournyred1.gif"></a>
 			</li>
 			</ul>
-		   <div id="navbarNav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+		   <div id="navbarNav" >
 	
 			<ul class="nav navbar-right">
 			
