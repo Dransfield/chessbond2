@@ -24,7 +24,7 @@ bottom: -4px;
     /* On small screens, we are no longer using row direction but column */
     display:flex;
     wrap:flex ;
-   
+   background-color:black;
     justify-content:space-between;
     align-items:center
   }
