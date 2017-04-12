@@ -431,7 +431,7 @@ function showTextwithInput(elem,words,elemTochange)
 				,function(resData,jwres)
 			{
 					Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
-					Accounts[ProfID]['ProfileUpdated']['span'].html(	Accounts[ProfID]['ProfileUpdatedPhrase']);
+					Accounts[ProfID]['ProfileUpdatedPhrase']['span'].html(	Accounts[ProfID]['ProfileUpdatedPhrase']);
 			}
 			);
 		
