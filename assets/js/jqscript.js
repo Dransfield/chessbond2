@@ -102,7 +102,13 @@ function setupProfilePage()
 		
 }
 
-
+function retrievePrivatesandFollows()
+	{
+	addPrivatePromises();
+	addFollowPromises();
+	return Promise.all(FollowPromises,PrivatePromises);
+	}
+	
 function setupChatPage()
 {
 	$("#closechat").click(function()
@@ -153,44 +159,35 @@ function setupChatPage()
 
 io.socket.get("/privateconversation",{id:convID},
 	function (resData,jwres){
-		JSON.stringify(resData);
+		console.log(JSON.stringify(resData));
 		AccountsToRetrieve[resData.Talker1]=resData.Talker1;
 		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
 		
-		retrieveAccounts();
-		
-		getWallposts(convID).then((res) => function(){
-		
-		console.log(JSON.stringify(res));
-		for(iter in res)
+		retrieveAccounts().then(function()
 		{
-			showChatMessage($("#privateconversationpage"),res[iter]);
-		}
+			retrievePrivatesandFollows().then(function()
+			{ 
+				getWallposts(convID).then((res) => function(){
+					for(iter in res)
+					{	
+					showChatMessage($("#privateconversationpage"),res[iter]);
+					}
+					
+					renderChatPage();
+					
+				})
+			})
+		})	
+	});
+	
+
 		
-		var privcon=$("#chatinput")
-		var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
-		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
-		privcon.append(chatform);
-		privcon.append(chatbutton);
-		 chatform.keypress(function (e) {
- var key = e.which;
- //console.log("key "+key);
- if(key == 13)  // the enter key code
-  { e.preventDefault();
-	 // console.log("send wall post"+chatform.val());
-		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
-		 	chatform.val("");
-		}
-		 });
-		chatbutton.click(function(){
-			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
-			chatform.val("");
-			});
+		
+		
 	
 	
-	});
 	
-	});
+	
 
 	
 }
@@ -467,30 +464,8 @@ function retrieveAccounts()
 	}
 	
 	
-Promise.all(AccountPromises).then(values => { 
-	console.log("account promises done");
-	//console.log("OpenGames "+JSON.stringify(OpenGames));
-	
-	addPrivatePromises();
-	addFollowPromises();
-	
-	Promise.all([PrivatePromises,FollowPromises]).then(values => { 
-		console.log("private promises done");
-		if($("#homepage"))
-		{
-		renderHomePage();
-		}
-		if($("#privateconversationpage"))
-		{
-		renderChatPage();
-		}
-	});
+return Promise.all(AccountPromises)
 
-	
-
-});	
-	
-	
 	
 }
 	
@@ -753,6 +728,25 @@ function addFollowPromises()
 function renderChatPage()
 	{
 	showChatList($("#privateconversationpage"));
+		var privcon=$("#chatinput")
+		var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
+		privcon.append(chatform);
+		privcon.append(chatbutton);
+		 chatform.keypress(function (e) {
+ var key = e.which;
+ //console.log("key "+key);
+ if(key == 13)  // the enter key code
+  { e.preventDefault();
+	 // console.log("send wall post"+chatform.val());
+		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
+		 	chatform.val("");
+		}
+		 });
+		chatbutton.click(function(){
+			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
+			chatform.val("");
+			});
 	}
 	
 function renderHomePage()
