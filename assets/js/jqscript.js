@@ -132,7 +132,7 @@ function setupProfilePage()
 			'Favorite Books/Food:','Favorite Quote/Writer:','My Professional Chess Tournaments/Trainings/Participations:',
 			'My best performance in live chess tournaments:','My Live Chess Tournaments History:',
 			'My other performing skills/Inspiring Sports:','My Victory Speech would be (If I became Chess Champion):',
-			'My Victory Speech would be	(If I won the Nobel Prize in any category):',
+			'My Victory Speech would be	(If I won the Nobel Prize in any category):'
 			
 			];
 			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
@@ -146,7 +146,7 @@ function setupProfilePage()
 			];
 			
 			
-			Account[ProfID].BirthDayTotal=Account[ProfID].BirthDay+"/"+Account[ProfID].BirthMonth+"/"+Account[ProfID].BirthYear;
+			Accounts[ProfID].BirthDayTotal=Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear;
 			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
 				
 			var dateObj=new Date(Accounts[ProfID].createdAt);
