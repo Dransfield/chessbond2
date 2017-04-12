@@ -10,6 +10,7 @@ var FollowPromises=[];
 var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
+var WallPosts={};
 
 			
 		subscribeToMandatoryRooms()
@@ -169,7 +170,7 @@ io.socket.get("/privateconversation",{id:convID},
 			retrievePrivatesandFollows().then(function()
 			{ 
 			console.log("marathon2"+convID);
-				getWallposts(convID).then((res) => function(){
+				getWallposts(convID).then(function(){
 				console.log("marathon3");
 					for(iter in res)
 					{	
@@ -224,7 +225,11 @@ var cg = new Promise
 io.socket.get("/wallpost?limit=39999",{groupid:grpID},
 	function (resData,jwres){
 		console.log("got wall posts"+JSON.stringify(resData));
-resolve(resData);
+		for (iter in resData)
+		{
+		WallPosts[resData.id]=resData;
+		}
+resolve();
 });
 });
 return cg;
