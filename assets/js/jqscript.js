@@ -174,7 +174,11 @@ function setupProfilePage()
 			td=$("<td></td>");
 			tr.append(td);
 			var myspan=addSpan(td);
+			
+			if(!Accounts[ProfID][two])
+			{Accounts[ProfID][two]="";}
 			myspan.html(Accounts[ProfID][two]);
+			
 			Accounts[ProfID][two]['span']=myspan;
 			if (texteditable==1)
 			{
