@@ -125,8 +125,8 @@ function setupProfilePage()
 			
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:'];
-			
-			var pairarraytwo=['ProfileViews','Registeredmemberon',phraseforloggedindate(Accounts[ProfID].Lastlogin),
+			var loginphrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
+			var pairarraytwo=['ProfileViews','Registeredmemberon',loginphrase,
 			'Numberoftimesloggedin'];
 			
 			function addvarpair(tbl,one,two)

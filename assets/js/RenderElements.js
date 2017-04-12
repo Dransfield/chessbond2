@@ -5,10 +5,10 @@ var Navbar={};
 
 function phraseforloggedindate(dat)
 		{
-			console.log("nu "+nu);
+			//console.log("nu "+nu);
 			var nu=Date.parse(dat);
 			console.log(nu);
-			console.log(console.log(nu));
+			//console.log(console.log(nu));
 			
 			var n = Date.now();
 			var newnum=n-nu;
