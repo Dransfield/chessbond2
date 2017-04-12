@@ -92,14 +92,23 @@ function setupProfilePage()
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
 	
-	retrieveAccounts();
-	
 	//increase profile views
 	io.socket.put('/LookedAtProfile',{userID:ProfID},
 		function  (data){
 		
 		});
-		
+	
+			
+	retrieveAccounts().then(function()
+		{
+			retrievePrivatesandFollows().then(function()
+			{ 
+			local elem=addFlexDiv($("#profilepage"));	
+			showUsernameJumbo(elem,MyID);
+			
+			});
+			
+		});
 		
 }
 

@@ -80,6 +80,20 @@ function showPersonLeft(elem,prsn)
 	elem.scrollTop(elem[0].scrollHeight);
 
 }
+function addFlexDiv(elem)
+{
+	var flex=$("<div style='display:flex'></div>")
+	elem.append(flex);
+	return flex;
+	
+}
+function showUsernameJumbo(elem,usracc)
+{
+	var jum=$("<span class='jumbotron'><span>");
+      var header=$("<h1></h1>");
+      showUsername(header,usracc);
+	
+}
 function showChatMessage(elem,msg)
 {
 var newdiv;
