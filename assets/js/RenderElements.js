@@ -137,6 +137,9 @@ else
 function showsmallAvatar(elem,usracc)
 
 {
+	
+	if(!Accounts[usracc])
+	{console.log(usracc+"is null account";}
 	elem.append(`
 	<div class="userdropdown">
 
