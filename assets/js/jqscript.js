@@ -168,7 +168,7 @@ io.socket.get("/privateconversation",{id:convID},
 			console.log("marathon1");
 			retrievePrivatesandFollows().then(function()
 			{ 
-			console.log("marathon2");
+			console.log("marathon2"+convID);
 				getWallposts(convID).then((res) => function(){
 				console.log("marathon3");
 					for(iter in res)
