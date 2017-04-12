@@ -92,6 +92,7 @@ else
 	newdiv=$("<div style='background-color:lightgreen;overflow:visible;padding:4px;'></div>");
 	
 }
+console.log("show chat message "+JSON.stringify(msg));
 elem.append(newdiv);
 showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
