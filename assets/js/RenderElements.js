@@ -695,7 +695,7 @@ function addJoinedGame(iter,games,myelem){
 
 function showNewGameControls(elem){
 	elem.append(`
-		<div id="newgamecontrols">
+		<div style="display:flex;"id="newgamecontrols">
 			
 		
 				<h2>Choose a Time Limit:</h2>
@@ -719,21 +719,13 @@ function showNewGameControls(elem){
 	}
 	
 	
-elem.append(`	 <div class="row">
-			 <div class="col-md-2 ">  
-			</div>
-			<div class="text-center col-md-3">
+elem.append(`	
+			
 			<a  id="playAgainstAIButton" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
-			</div>
-		 <div class="col-md-2 ">  
-			</div>
-		 <div class="text-center col-md-3">
-		 
+		
 			<button  id="playAgainstPersonButton" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
-			</div>
-		<div class="col-md-2 ">  
-			</div>
-		</div>`);
+			
+		`);
 		
 		$("#newgamecontrols").hide();
 		
