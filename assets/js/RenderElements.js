@@ -3,6 +3,72 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 
+function phraseforloggedindate
+		{
+			console.log("nu "+nu);
+			var nu=Date.parse(dat);
+			console.log(nu);
+			console.log(console.log(nu));
+			
+			var n = Date.now();
+			var newnum=n-nu;
+			console.log('newnum '+newnum);
+			var millisecondsinaday=(24*(60*(60*(1000))));
+			console.log("millisecondsinaday "+millisecondsinaday);
+			if (newnum<millisecondsinaday)
+			{
+				
+				newnum=newnum/1000;
+				console.log("newnum after 1000 "+newnum);
+		if (newnum<60)
+		{
+		if (newnum<0)
+		{newnum=0;}
+		phrase=parseInt(newnum)+" seconds ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		console.log("newnum after  60"+newnum);
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" minutes ago";
+		}
+		else
+		{
+		newnum=newnum/60;
+		console.log("newnum after another 60"+newnum);
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" hours ago";
+		}
+		else
+		{
+			console.log("newnum after  24 "+newnum);
+		newnum=newnum/24;
+		
+		phrase=parseInt(newnum)+" days ago";
+		
+		}
+		
+		}
+		
+		}
+		return phrase;
+			}
+			else
+			{
+				var nu=new Date(dat);
+			var month = nu.getUTCMonth() + 1; //months from 1-12
+			var day = nu.getUTCDate();
+			var year = nu.getUTCFullYear();
+
+			newdate = day+ "/"+month+"/"+year ;
+			return newdate;
+			}
+		}
+		
+
 	function phrasefordate(dat)
 			{
 			var nu=Date.parse(dat);
