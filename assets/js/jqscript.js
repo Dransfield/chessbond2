@@ -227,7 +227,7 @@ io.socket.get("/wallpost?limit=39999",{groupid:grpID},
 		console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
 		{
-		WallPosts[resData.id]=resData;
+		WallPosts[resData.id]=resData[iter];
 		}
 resolve();
 });
