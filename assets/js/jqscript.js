@@ -174,8 +174,7 @@ function setupProfilePage()
 			td=$("<td></td>");
 			tr.append(td);
 			var myspan=addSpan(td);
-			myspan.inner(Accounts[ProfID][two]);
-			myspan.val(Accounts[ProfID][two]);
+			myspan.html(Accounts[ProfID][two]);
 			if (texteditable==1)
 			{
 				console.log("show text with input");
