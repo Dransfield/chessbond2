@@ -337,7 +337,8 @@ function showStripedTable(elem)
 function showTextwithInput(elem,words)
 {
 	var w=$(words);
-	return w;
+	elem.append(words);
+	elem.append(w);
 	
 }
 function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
