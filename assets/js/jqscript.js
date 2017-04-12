@@ -124,7 +124,27 @@ function setupProfilePage()
 			var tbl=showStripedTable(elem);
 			
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
-			'Number of times logged in:'];
+			'Number of times logged in:','Gender:','Date of birth:','Current City:',
+			'Fide Title:<br>(Self Claimed:)','Valid Fide ID:','Fide Ratings:',
+			'Profile Updated:','Speak (languages):','Countries Travelled:','Wishing to Travel:',
+			'My Upcoming Trip:','Who Am I?:','How Do I Start My Day?:','Hobbies/Interests:',
+			'Request/Expectation:','Favorite Music/Band:','Favorite TV Shows/Concerts:',
+			'Favorite Books/Food:','Favorite Quote/Writer:','My Professional Chess Tournaments/Trainings/Participations:',
+			'My best performance in live chess tournaments:','My Live Chess Tournaments History:',
+			'My other performing skills/Inspiring Sports:','My Victory Speech would be (If I became Chess Champion):',
+			'My Victory Speech would be	(If I won the Nobel Prize in any category):',
+			
+			];
+			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
+			'Numberoftimesloggedin','Gender',
+			'BirthDay','CurrentCity'
+			'FideTitle','FideID','FideRatings','ProfileUpdatedPhrase','SpokenLanguages'
+			'CountriesTravelled','WishingToTravel','MyUpcomingTrip','WhoAmI','HowDoIStartMyDay',
+			'HobbiesInterests','RequestExpectation','FavoriteMusicBand','FavoriteTVShows','FavoriteBooksFood',
+			'FavoriteQuoteWriter','ProChessTournaments','MyBestChessPerformance',
+			'MyLiveChessTournamentsHistory','SkillsSports','VictorySpeech','NobelSpeech'
+			];
+			
 			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
 				
 			var dateObj=new Date(Accounts[ProfID].createdAt);
@@ -134,8 +154,7 @@ function setupProfilePage()
 
 			newdate = day+ "/"+month+"/"+year ;
 			Accounts[ProfID].Registeredmemberon=newdate;
-			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
-			'Numberoftimesloggedin'];
+			
 			
 			function addvarpair(tbl,one,two)
 			{
