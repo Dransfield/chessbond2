@@ -124,7 +124,7 @@ function setupProfilePage()
 			var tbl=showStripedTable(elem);
 			var tr=$("<tr></tr>");
 			tbl.append(tr);
-			var td=$("<td></td>"):
+			var td=$("<td></td>");
 			tr.append(td);
 			
 			td.append(showTextwithInput(td,'pulaski'));
