@@ -120,6 +120,7 @@ function setupProfilePage()
 			showNewGameControls(elem);
 			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
 			var elem=addFlexDiv(leftright,"rightcol","column");
+			showHeader(elem,2,"Who am I?");
 			
 			
 			});
