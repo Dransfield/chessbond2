@@ -138,7 +138,7 @@ function setupProfilePage()
 			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
 			'Numberoftimesloggedin','Gender',
 			'BirthDayTotal','CurrentCity',
-			'FideTitle','FideID','FideRatings','ProfileUpdatedPhrase','SpokenLanguages'
+			'FideTitle','FideID','FideRatings','ProfileUpdatedPhrase','SpokenLanguages',
 			'CountriesTravelled','WishingToTravel','MyUpcomingTrip','WhoAmI','HowDoIStartMyDay',
 			'HobbiesInterests','RequestExpectation','FavoriteMusicBand','FavoriteTVShows','FavoriteBooksFood',
 			'FavoriteQuoteWriter','ProChessTournaments','MyBestChessPerformance',
