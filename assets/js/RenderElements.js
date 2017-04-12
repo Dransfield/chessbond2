@@ -161,9 +161,9 @@ function addDiv(elem)
 	
 	
 }
-function addSpan(elem)
+function addSpan(elem,id)
 {
-	var flex=$("<span></span>")
+	var flex=$("<span id='"+id+"'></span>")
 	elem.append(flex);
 	return flex;
 	
@@ -430,10 +430,10 @@ function showTextwithInput(elem,words,elemTochange)
 				  
 				,function(resData,jwres)
 			{
-				var span=Accounts[ProfID]['ProfileUpdatedPhrase']['span'];
+				
 					Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
-					Accounts[ProfID]['ProfileUpdatedPhrase']['span']=span;
-					Accounts[ProfID]['ProfileUpdatedPhrase']['span'].html(	Accounts[ProfID]['ProfileUpdatedPhrase']);
+					
+					$("#ProfileUpdatedPhrase").html(	Accounts[ProfID]['ProfileUpdatedPhrase']);
 			}
 			);
 		
