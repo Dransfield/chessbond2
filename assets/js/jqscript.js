@@ -136,7 +136,7 @@ function setupProfilePage()
 			
 			}
 			
-			addvarpair(tbl,"Profile Views:",Accounts[ProfID]['Profile Views']);
+			addvarpair(tbl,"Profile Views:",Accounts[ProfID].ProfileViews);
 			
 			});
 			
