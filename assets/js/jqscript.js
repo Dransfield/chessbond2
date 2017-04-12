@@ -172,9 +172,9 @@ io.socket.get("/privateconversation",{id:convID},
 			console.log("marathon2"+convID);
 				getWallposts(convID).then(function(){
 				console.log("marathon3");
-					for(iter in res)
+					for(iter in WallPosts)
 					{	
-					showChatMessage($("#privateconversationpage"),res[iter]);
+					showChatMessage($("#privateconversationpage"),WallPosts[iter]);
 					}
 					
 					renderChatPage();
