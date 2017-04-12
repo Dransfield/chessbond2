@@ -126,8 +126,10 @@ function setupProfilePage()
 			tbl.append(tr);
 			var td=$("<td></td>");
 			tr.append(td);
-			
-			td.append(showTextwithInput(td,'pulaski'));
+			td.append("Profile Views:");
+			td=$("<td></td>");
+			tr.append(td);
+			td.append(Accounts['Profile Views']);
 			});
 			
 		});
