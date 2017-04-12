@@ -159,7 +159,7 @@ io.socket.get("/privateconversation",{id:convID},
 		
 		retrieveAccounts();
 		
-		getWallPosts(convID).then((res) => function(){
+		getWallposts(convID).then((res) => function(){
 		
 		//JSON.stringify(resData);
 		for(iter in res)
