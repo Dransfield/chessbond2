@@ -415,6 +415,7 @@ function showTextwithInput(elem,words,elemTochange)
 	myinput.change(function(){
 		Accounts[ProfID][words]=myinput.val();
 		elemTochange.val(Accounts[ProfID][words]);
+		elemTochange.inner(Accounts[ProfID][words]);
 		});
 }
 function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){

@@ -174,6 +174,7 @@ function setupProfilePage()
 			td=$("<td></td>");
 			tr.append(td);
 			var myspan=addSpan(td);
+			myspan.inner(Accounts[ProfID][two]);
 			myspan.val(Accounts[ProfID][two]);
 			if (texteditable==1)
 			{
