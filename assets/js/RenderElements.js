@@ -412,8 +412,8 @@ function showTextwithInput(elem,words,elemTochange)
 {
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
-	myinput.keydown(function(){
-		Accounts[ProfID][words]=myinput.val();
+	myinput.keydown(function(event){
+		Accounts[ProfID][words]=Accounts[ProfID][words]+event.which;
 		//elemTochange.val(Accounts[ProfID][words]);
 		elemTochange.html(Accounts[ProfID][words]);
 		});
