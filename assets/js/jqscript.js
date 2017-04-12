@@ -124,14 +124,10 @@ function setupProfilePage()
 			var tbl=showStripedTable(elem);
 			
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
-			'Number of times logged in:'
-			
-			];
+			'Number of times logged in:'];
 			
 			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
-			'Numberoftimesloggedin'
-			
-			];
+			'Numberoftimesloggedin'];
 			
 			function addvarpair(tbl,one,two)
 			{
