@@ -320,7 +320,11 @@ function showDropDown(usracc)
   
   
 }
-
+function showTextwithInput(elem,words)
+{
+	
+	
+}
 function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);

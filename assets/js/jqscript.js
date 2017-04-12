@@ -119,6 +119,9 @@ function setupProfilePage()
 			showHeader(elem,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
 			showNewGameControls(elem);
 			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
+			var elem=addFlexDiv(leftright,"rightcol","column");
+			
+			
 			});
 			
 		});
