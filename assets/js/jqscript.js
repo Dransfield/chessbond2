@@ -103,7 +103,7 @@ function setupProfilePage()
 		{
 			retrievePrivatesandFollows().then(function()
 			{ 
-			local elem=addFlexDiv($("#profilepage"));	
+			var elem=addFlexDiv($("#profilepage"));	
 			showUsernameJumbo(elem,MyID);
 			
 			});
