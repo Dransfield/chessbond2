@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include partials/title.ejs %>
+ <%- include partials/description.ejs %> 
+   <%- include partials/keywords.ejs %> 
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     
+    <!--STYLES-->
+     <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+
+    <!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
+
+
+  </head>
+
+  <body>
+ <div id="navbar"></div>
+		
+
+	<div id="profilepage"></div>
+	
+	
+				<div ng-init="IncreaseViews('<%-lookedatuser %>')"></div>
+				<div ng-init="getLookedatUser('<%- lookedatuser %>')"></div>
+				 <div ng-init="GetInfo('<%-lookedatuser %>')"></div>
+	
+	<div ng-show="User.name=='keith ashford'||User.name=='Brian Williams'||Accounts[Myid].name=='Peter Williams'||User.name=='Peter Williams'">
+	<button ng-click="GetFile()">Get</button>
+	</div>
+	
+	 <div style="display:flex"> 
+   
+    <span   class="jumbotron">
+      
+		<h1><%- include('partials/username', {userid: "LookedatUser.id",Myid:Myid}); %></h1>
+     	 <% if(lookedatuser==req.session.passport.user){%>
+    	<div ng-show="LookedatUser.avatarid">
+		<img style="width:250px" ng-src="/user/avatar/{{LookedatUser.avatarid}}">
+		</div>
+    	
+		<form action="/uploadavatar" enctype="multipart/form-data" method="post">
+    <input type="file" name="avatar" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>'
+    	
+    	<% } %>
+			
+	
+	<%- include('partials/avatar', {userid:"'"+lookedatuser+"'",Myid:Myid}); %>
+    	
+	<h2>Highest Difficulty Level Beaten:{{LookedatUser.DifficultyLevelBeaten}}</h2>
+            <h2>Cumulative Rating:{{LookedatUser.ELO}}</h2>
+         
+            <a href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+	<br><a href="/" class="btn btn-lg btn-success">Create a New vs Human Game</a>
+	<a type="button" href="/stats/<%-lookedatuser %>" class="btn btn-info btn-lg">Statistics</a>
+	 </span>
+	 <span>
+		 <h2>Who am I?</h2>
+    <table class="table table-striped">
+              
+			<thead>
+                <tr>
+	              <th></th>
+                  <th></th>
+                  </tr>
+              </thead>
+           <tbody>
+				<tr>
+					
+					<td>
+					Profile Views:
+					</td>
+					<td>
+					{{LookedatUser.ProfileViews}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Registered member on:
+					</td>
+					<td>
+						{{LookedatUser.Registeredmemberon}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Last login:
+					</td>
+					<td>
+					{{LookedatUser.LastloginPhrase}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Number of times logged in:
+					</td>
+					<td>
+					{{LookedatUser.Numberoftimesloggedin}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Gender:
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
+       			<button ng-click="editgender=!editgender" class="btn btn-sml">...</button>
+       			 <div ng-show ="editgender" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.Gender"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('Gender','<%-req.session.passport.user%>',setGender)"
+                  >
+                  <option ng-repeat="gender in genders" value="{{gender}}">
+                     {{gender}}
+                  </option>
+               </select>
+               </div>
+               <%}%>
+			   <%}%>
+			
+					{{LookedatUser.Gender}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Date of birth:
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
+               	<button ng-click="editbirthday=!editbirthday" class="btn btn-sml">...
+               </button>
+               <div ng-show="editbirthday" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.BirthDay"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthDay','<%-req.session.passport.user%>',ProfileWasUpdated)"
+                  >
+                  <option ng-repeat="day in birthdays" value="{{day}}">
+                     {{day}}
+                  </option>
+               </select>
+				   <select class="form-control"
+                  ng-model="User.BirthMonth"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthMonth','<%-req.session.passport.user%>',ProfileWasUpdated)"
+                  >
+                  <option ng-repeat="month in birthmonths" ng-value="{{month.name}}">
+                     {{month.name}}
+                  </option>
+               </select>
+				   <select class="form-control"
+                  ng-model="User.BirthYear"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('BirthYear','<%-req.session.passport.user%>,ProfileWasUpdated)"
+                  >
+                  <option ng-repeat="year in birthyears" value="{{year}}">
+                     {{year}}
+                  </option>
+               </select>
+              
+                </div>
+                
+                <%}%>
+                <%}%>
+            
+                {{LookedatUser.BirthDay}}
+                /
+					{{LookedatUser.BirthMonth}}
+				/
+					{{LookedatUser.BirthYear}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Current City:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+				<% if (req.session.passport.user==lookedatuser){ %>
+						<button ng-click="editcity=!editcity" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editcity" type="text"  class="form-control"  ng-change="GetCities()" ng-model="TypedCity" />
+						  <select ng-show="editcity" class="form-control"
+                  ng-model="User.CurrentCity"
+                  name="string"
+                  size="2"
+                  required="string"
+                  ng-selected="FoundCities[0]"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',ProfileWasUpdated)"
+                  >
+						<option ng-repeat="cit in FoundCities" value="{{cit.city}}">
+                     {{cit.city}} {{cit.country}}
+                  </option>
+					</select>
+						<!-- <input  ng-show="editcity" type="text"  class="form-control"  ng-keyup="PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)" ng-model="User.CurrentCity" />
+						<button ng-show="editcity" class="btn btn-sml" ng-click=" PrefSelectChanged('CurrentCity','<%-req.session.passport.user%>',setCurrentCity)">Done
+						</button>-->
+						
+				 <%}%>
+				<%}%>
+					{{LookedatUser.CurrentCity}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Fide Title:<br>(Self Claimed:)
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+       		<% if (req.session.passport.user==lookedatuser){ %>
+       			<button ng-click="editfidetitle=!editfidetitle" class="btn btn-sml">...</button>
+       			 <div ng-show ="editfidetitle" style="display:flex">
+				  <select class="form-control"
+                  ng-model="User.FideTitle"
+                  name="string"
+                  
+                  required="string"
+                  ng-required="string"
+                  ng-change="PrefSelectChanged('FideTitle','<%-req.session.passport.user%>',ProfileWasUpdated)" >
+                  <option ng-repeat="fidetitle in fidetitles" value="{{fidetitle}}">
+                     {{fidetitle}}
+                  </option>
+               </select>
+               </div>
+               <%}%>
+               <%}%>
+					{{LookedatUser.FideTitle}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Valid Fide ID:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+						<button ng-click="editfideid=!editfideid" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editfideid" type="number"  class="form-control"  ng-change="ChangePreference('FideID','<%-req.session.passport.user%>',LookedatUser.FideID,ProfileWasUpdated)" ng-model="LookedatUser.FideID" />
+					
+					<%}%>
+				<%}%>
+			    	{{LookedatUser.FideID}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Fide Ratings:
+					</td>
+					<td>
+						<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editfideratings=!editfideratings" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editfideratings" type="number"  class="form-control"  ng-change="ChangePreference('FideRatings','<%-req.session.passport.user%>',LookedatUser.FideRatings,ProfileWasUpdated)" ng-model="LookedatUser.FideRatings" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FideRatings}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Profile Updated:
+					</td>
+					<td>
+					{{LookedatUser.ProfileUpdatedPhrase}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Speak (languages):
+					</td>
+					<td>
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editlanguages=!editlanguages" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editlanguages" type="text"  class="form-control"  ng-change="ChangePreference('SpokenLanguages','<%-req.session.passport.user%>',LookedatUser.SpokenLanguages,ProfileWasUpdated)" ng-model="LookedatUser.SpokenLanguages" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.SpokenLanguages}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Countries Travelled:
+					</td>
+					<td>
+						<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editCountriesTravelled=!editCountriesTravelled" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editCountriesTravelled" type="text"  class="form-control"  ng-change="ChangePreference('CountriesTravelled','<%-req.session.passport.user%>',LookedatUser.CountriesTravelled,ProfileWasUpdated)" ng-model="LookedatUser.CountriesTravelled" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.CountriesTravelled}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Wishing to Travel:
+					</td>
+					<td>
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editWishingToTravel=!editWishingToTravel" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editWishingToTravel" type="text"  class="form-control"  ng-change="ChangePreference('WishingToTravel','<%-req.session.passport.user%>',LookedatUser.WishingToTravel,ProfileWasUpdated)" ng-model="LookedatUser.WishingToTravel" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.WishingToTravel}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Upcoming Trip:
+					</td>
+					<td>
+					
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editMyUpcomingTrip=!editMyUpcomingTrip" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editMyUpcomingTrip" type="text"  class="form-control"  ng-change="ChangePreference('MyUpcomingTrip','<%-req.session.passport.user%>',LookedatUser.MyUpcomingTrip,ProfileWasUpdated)" ng-model="LookedatUser.MyUpcomingTrip" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.MyUpcomingTrip}}
+					</td>
+				</tr>
+				<tr>
+					
+					<td>
+						
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editWhoAmI=!editWhoAmI" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editWhoAmI" type="text"  class="form-control"  ng-change="ChangePreference('WhoAmI','<%-req.session.passport.user%>',LookedatUser.WhoAmI,ProfileWasUpdated)" ng-model="LookedatUser.WhoAmI" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.WhoAmI}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					How Do I Start My Day?:
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editHowDoIStartMyDay=!editHowDoIStartMyDay" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editHowDoIStartMyDay" type="text"  class="form-control"  ng-change="ChangePreference('HowDoIStartMyDay','<%-req.session.passport.user%>',LookedatUser.HowDoIStartMyDay,ProfileWasUpdated)" ng-model="LookedatUser.HowDoIStartMyDay" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.HowDoIStartMyDay}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Hobbies/Interests:
+					</td>
+					<td>
+						<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editHobbiesInterests=!editHobbiesInterests" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editHobbiesInterests" type="text"  class="form-control"  ng-change="ChangePreference('HobbiesInterests','<%-req.session.passport.user%>',LookedatUser.HobbiesInterests,ProfileWasUpdated)" ng-model="LookedatUser.HobbiesInterests" />
+				
+					<%}%>
+				<%}%>
+			
+					{{LookedatUser.HobbiesInterests}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Request/Expectation:
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editRequestExpectation=!editRequestExpectation" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editRequestExpectation" type="text"  class="form-control"  ng-change="ChangePreference('RequestExpectation','<%-req.session.passport.user%>',LookedatUser.RequestExpectation,ProfileWasUpdated)" ng-model="LookedatUser.RequestExpectation" />
+				
+					<%}%>
+				<%}%>
+			
+					{{LookedatUser.RequestExpectation}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite Music/Band:
+					</td>
+					<td>
+			<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteMusicBand=!editFavoriteMusicBand" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteMusicBand" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteMusicBand','<%-req.session.passport.user%>',LookedatUser.FavoriteMusicBand,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteMusicBand" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FavoriteMusicBand}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite TV Shows/Concerts:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteTVShows=!editFavoriteTVShows" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteTVShows" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteTVShows','<%-req.session.passport.user%>',LookedatUser.FavoriteTVShows,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteTVShows" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FavoriteTVShows}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite Books/Food:
+					</td>
+					<td>
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteBooksFood=!editFavoriteBooksFood" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteBooksFood" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteBooksFood','<%-req.session.passport.user%>',LookedatUser.FavoriteBooksFood,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteBooksFood" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.FavoriteBooksFood}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Favorite Quote/Writer:
+					</td>
+					<td>
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editFavoriteQuoteWriter=!editFavoriteQuoteWriter" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editFavoriteQuoteWriter" type="text"  class="form-control"  ng-change="ChangePreference('FavoriteQuoteWriter','<%-req.session.passport.user%>',LookedatUser.FavoriteQuoteWriter,ProfileWasUpdated)" ng-model="LookedatUser.FavoriteQuoteWriter" />
+				
+					<%}%>
+				<%}%>
+				
+					{{LookedatUser.FavoriteQuoteWriter}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Professional Chess Tournaments/Trainings/Participations:
+					</td>
+					<td>
+						
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editProChessTournaments=!editProChessTournaments" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editProChessTournaments" type="text"  class="form-control"  ng-change="ChangePreference('ProChessTournaments','<%-req.session.passport.user%>',LookedatUser.ProChessTournaments,ProfileWasUpdated)" ng-model="LookedatUser.ProChessTournaments" />
+				
+					<%}%>
+				<%}%>
+					{{LookedatUser.ProChessTournaments}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My best performance in live chess tournaments
+					</td>
+					<td>
+						
+					<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editMyBestChessPerformance=!editMyBestChessPerformance" class="btn btn-sml">...
+						</button>
+						 <input  ng-show="editMyBestChessPerformance" type="text"  class="form-control"  ng-change="ChangePreference('MyBestChessPerformance','<%-req.session.passport.user%>',LookedatUser.MyBestChessPerformance,ProfileWasUpdated)" ng-model="LookedatUser.MyBestChessPerformance" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.MyBestChessPerformance}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Live Chess Tournaments History:
+					</td>
+					<td>
+					
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editMyLiveChessTournamentsHistory=!editMyLiveChessTournamentsHistory" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editMyLiveChessTournamentsHistory" type="text"  class="form-control"  ng-change="ChangePreference('MyLiveChessTournamentsHistory','<%-req.session.passport.user%>',LookedatUser.MyLiveChessTournamentsHistory,ProfileWasUpdated)" ng-model="LookedatUser.MyLiveChessTournamentsHistory" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.MyLiveChessTournamentsHistory}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My other performing skills/Inspiring Sports:
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editSkillsSports=!editSkillsSports" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editSkillsSports" type="text"  class="form-control"  ng-change="ChangePreference('SkillsSports','<%-req.session.passport.user%>',LookedatUser.SkillsSports,ProfileWasUpdated)" ng-model="LookedatUser.SkillsSports" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.SkillsSports}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Victory Speech would be
+					(If I became Chess Champion):
+					</td>
+					<td>
+						
+				<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editVictorySpeech=!editVictorySpeech" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editVictorySpeech" type="text"  class="form-control"  ng-change="ChangePreference('VictorySpeech','<%-req.session.passport.user%>',LookedatUser.VictorySpeech,ProfileWasUpdated)" ng-model="LookedatUser.VictorySpeech" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.VictorySpeech}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+					My Victory Speech would be
+					(If I won the Nobel Prize in any category):
+					</td>
+					<td>
+							<% if (req.session.passport){ %>
+					<% if (req.session.passport.user==lookedatuser){ %>
+					<button ng-click="editNobelSpeech=!editNobelSpeech" class="btn btn-sml">...
+					</button>
+					 <input  ng-show="editNobelSpeech" type="text"  class="form-control"  ng-change="ChangePreference('NobelSpeech','<%-req.session.passport.user%>',LookedatUser.NobelSpeech,ProfileWasUpdated)" ng-model="LookedatUser.NobelSpeech" />
+					<%}%>
+				<%}%>
+					{{LookedatUser.NobelSpeech}}
+					</td>
+				</tr>
+			</tbody>
+	</table>
+  </span>
+  </div>
+<%- include partials/flag1.ejs %>
+
+
+	 
+  <div style="display:flex"> 
+		<% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+				
+					<% if (req.session.passport.user==lookedatuser){ %>
+   
+					 <select ng-show="User" class="form-control" name="mySelect" id="mySelect"
+					  ng-model="User.Country"
+					  ng-change="PrefSelectChanged('Country','<%-req.session.passport.user%>',null)"
+					  >
+					  <option ng-repeat="c in countries track by $index" value="{{c.name}}">
+						  {{c.name}}</option>
+					 </select>
+				<% } %>
+			<% } %>
+		<% } %>
+	
+	</div>
+	 <div style="display:flex"> 
+		 <span>
+	 <h2 class="sub-header">Recent Games</h2>
+          <div   class="table-responsive">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>White</th>
+                  <th>Black</th>
+                  <th>Result</th>
+                  <th>Time</th>
+                  <th>Moves</th>
+                  <th>Date</th>
+                  <th>Action</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+		
+				  
+            <tr ng-repeat="game in GameInfo track by $index">
+		
+		<td >
+		<%- include('partials/avatar', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+		({{game.WhiteELO}})
+		</td>
+			
+
+		
+		<td>
+		<%- include('partials/avatar', {userid: "game.BlackPlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.BlackPlayerID",Myid:Myid}); %>	
+		({{game.BlackELO}})
+		
+		</td>
+		
+			<td>{{game.res}}</td>
+			<td>{{game.GameCategory}}</td>
+			<td>{{game.moves}}</td>
+			<td>{{game.date}}</td>
+			<td><a href="/humanvshuman/{{game.id}}" target="_blank">Link</a></td>
+			
+			
+			<tr>
+			</tr>
+            </tbody>
+            </table>
+            	<div class="btn btn-lg btn-success" ng-show="chessgameskip>0" ng-click="GetOlderChessGames(LookedatUser.id)"><</div>
+				<div class="btn btn-lg btn-success" ng-click="GetMoreChessGames(LookedatUser.id)">></div>
+
+          </div>
+          </span>
+  
+	<span>
+		
+		<h2>My Wall</h2>
+	<% if (req.session.passport) { %>
+	<% if (req.session.passport.user) { %>
+	<form ng-submit="SendWallPost('<%- req.session.passport.user %>')">
+	<input type="text" autocomplete="off" class="form-control" placeholder="post to wall" name="name" ng-model="WallPostInput"  required>
+	<button class="btn btn-default btn-sm" type="submit" >Post to Wall</button>
+	
+	</form>
+	<% } %>
+	<% } %>
+	<table>
+   <tr ng-repeat="wllpsts in WallPosts track by $index">
+	
+	<td >
+		<%- include('partials/wallmessage', {userid: "wllpsts.sender",Myid:Myid,content:"wllpsts.content",Postid:"wllpsts.id"}); %>
+		
+		<!--<div style="display:flex">
+			<%- include('partials/avatar', {userid: "wllpsts.sender",Myid:Myid}); %>
+    		<span><span ng-show="!BlockedUsers[wllpsts.sender]">{{wllpsts.content}}</span>
+		<br>by <%- include('partials/username', {userid: "wllpsts.sender",Myid:Myid}); %> {{wllpsts.Age}}
+		</span>
+		</div>
+		
+<% if (req.session.passport) { %>
+	<% if (req.session.passport.user) { %>
+		<div><button type="submit" style='height:50%' class="btn btn-default btn-sm" ng-show="!ShowReply[$index]" ng-click="ShowReply[$index]=!ShowReply[$index]">Reply</button></div>
+		<div><button type="submit" ng-show="User.id==LookedatUser.id" ng-click="DeleteWallPost(wllpsts.id)" class="btn btn-default btn-sm">Delete</button></div>
+		<div><button type="submit" ng-show="!BlockedUsers[wllpsts.sender]" ng-click="BlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">Block User</button></div>
+		<div><button type="submit" ng-show="BlockedUsers[wllpsts.sender]" ng-click="UnBlockUser('<%- req.session.passport.user %>',wllpsts.sender)" class="btn btn-default btn-sm">UnBlock User</button></div>
+		
+		
+		<div ng-show="ShowReply[$index]">
+	
+
+		<input type="text" autocomplete="off" class="form-control" placeholder="reply" name="name" ng-model="WallPostReplyInput[$index]"  required>
+		<button type="submit" ng-click="SendWallPostReply(wllpsts.sender,'<%- req.session.passport.user %>',WallPostReplyInput[$index],wllpsts.id)" class="btn btn-warning btn-sm">Reply</button>
+		</div>
+		<% } %>
+	<% } %>
+	</div>
+	-->
+	
+		
+		<table>
+				
+			<tr>
+				<td ng-show="wllpsts.Replies[0]">
+					Replies:
+				</td>
+			</tr>
+		<tr ng-repeat="rply in wllpsts.Replies track by $index">
+			<td>
+				</td>
+				<td>
+			<div style="display:flex">
+		
+		<%- include('partials/avatar', {userid: "rply.sender",Myid:Myid}); %>
+    	
+		<span><span ng-show="!BlockedUsers[rply.sender]">{{rply.content}}</span>
+		<br>by <%- include('partials/username', {userid: "rply.sender",Myid:Myid}); %> {{rply.Age}}
+		</span>
+		</div>
+		</td>
+			</tr>
+		</table>
+	
+	<hr>
+		
+	</td>
+	
+	
+	
+	</tr>
+	</table>
+		<div class="btn btn-lg btn-success" ng-show="wallpostskip>0" ng-click="GetOlderWallPosts(LookedatUser.id)"><</div>
+<div class="btn btn-lg btn-success" ng-click="GetMoreWallPosts(LookedatUser.id)">></div>
+
+	
+</span>
+</div>
+			
+<%- include partials/footer.ejs %>
+    <!--SCRIPTS-->
+  <script src="/js/dependencies/sails.io.js"></script>
+        <script src="/js/dependencies/angular.1.3.js"></script>
+         <script src="/js/dependencies/angular-sanitize.js"></script>
+        <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+        <script src="/js/dependencies/chessboard-0.3.0.js"></script>
+        <script src="/js/dependencies/chess.min.js"></script>
+        <script src="/js/dependencies/stockfish.js"></script>
+        <script src="/js/dependencies/angular-toastr.js"></script>
+        <script src="/js/dependencies/bootstrap.min.js"></script>
+        <script src="/js/dependencies/compareTo.module.js"></script>
+        <script src="/js/dependencies/enginegame.js"></script>
+        <script src="/js/HomepageModule.js"></script>
+        <script src="/js/HomepageController.js"></script>
+      <script src="/js/ProfileController.js"></script>
+        <script src="/js/RegisterController.js"></script>
+        <script src="/js/SinglePlayerController.js"></script>
+        <script src="/js/TwoPlayerController.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>
