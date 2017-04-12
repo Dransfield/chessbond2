@@ -422,12 +422,26 @@ function showTextwithInput(elem,words,elemTochange)
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//elemTochange.val(Accounts[ProfID][words]);
 		elemTochange.html(Accounts[ProfID][words]);
+		Accounts[ProfID]['ProfileUpdated']=new Date();
+				
+			io.socket.put('/user/'+ProfID+"?ProfileUpdated="+Accounts[ProfID]['ProfileUpdated'],{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				
+			}
+			);
+		
 		io.socket.put('/user/'+ProfID+"?"+words+"="+Accounts[ProfID][words],{
 				
 					  }  
 				  
 				,function(resData,jwres)
 			{
+				
+				
 				}
 			);
 	}
