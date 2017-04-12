@@ -11,12 +11,16 @@ var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
 
-var roomname=MyID;
-		
-			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			});
 			
+		subscribeToMandatoryRooms()
+			
+		io.socket.on
+		('connect',function()
+		{
+		subscribeToMandatoryRooms()
+		}
+		);
+		
 				io.socket.on('PrivateConversationStarted', function (data)
 			{
 			
@@ -54,6 +58,27 @@ var roomname=MyID;
 		setupOpenTournament();	
 		}
 	
+	
+	
+	
+		function subscribeToMandatoryRooms()
+		{
+			io.socket.get("/subscribeToRoom",{roomName:'IdleNotificationRoom'},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+			io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+		
+			io.socket.get("/subscribeToRoom",{roomName:'im online'},function (resData,jwres){
+			//console.log(JSON.stringify(resData));
+			});
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+		}
+		
 	function setupOpenTournament()
 	{
 		AccountsToRetrieve[MyID]=MyID;
@@ -64,10 +89,12 @@ function setupProfilePage()
 {
 	
 	AccountsToRetrieve[MyID]=MyID;
+	AccountsToRetrieve[ProfID]=ProfID;
+	
 	retrieveAccounts();
 	
 	//increase profile views
-	io.socket.put('/LookedAtProfile',{userID:MyID},
+	io.socket.put('/LookedAtProfile',{userID:ProfID},
 		function  (data){
 		
 		});
@@ -187,6 +214,19 @@ function SendWallPost(Myid,groupid,msgtype,address,msg)
 			
 	}
 
+function getChessGames()
+{
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
+		function (resData,jwres){
+			resolve(resData);
+		});		
+});
+return cg;	
+	
+}
+
 function setupHomePage()
 {
 	AccountsToRetrieve[MyID]=MyID;
@@ -198,15 +238,8 @@ var opcg = new Promise
 	});
 });
 		
-var cg = new Promise
-((resolve, reject) => {
-		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
-		function (resData,jwres){
-			resolve(resData);
-		});		
-});
 
-Promise.all([opcg, cg]).then(values => { 
+Promise.all([opcg, getChessGames()]).then(values => { 
 	OpenGames=values[0];
 	JoinedGames=values[1];
 	console.log("TWO NAVBARS");
