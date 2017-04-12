@@ -122,14 +122,22 @@ function setupProfilePage()
 			var elem=addFlexDiv(leftright,"rightcol","column");
 			showHeader(elem,2,"Who am I?");
 			var tbl=showStripedTable(elem);
+			
+			function addvarpair(tbl,one,two)
+			{
 			var tr=$("<tr></tr>");
 			tbl.append(tr);
 			var td=$("<td></td>");
 			tr.append(td);
-			td.append("Profile Views:");
+			td.append(one);
 			td=$("<td></td>");
 			tr.append(td);
-			td.append(Accounts['Profile Views']);
+			td.append(two);
+			
+			}
+			
+			addvarpair(tbl,"Profile Views:",Accounts[ProfID]['Profile Views']);
+			
 			});
 			
 		});
