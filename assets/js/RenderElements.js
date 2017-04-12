@@ -695,7 +695,7 @@ function addJoinedGame(iter,games,myelem){
 
 function showNewGameControls(elem){
 	elem.append(`
-		<div style="display:flex;"id="newgamecontrols">
+		<div id="newgamecontrols">
 			
 		
 				<h2>Choose a Time Limit:</h2>
