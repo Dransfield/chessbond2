@@ -321,10 +321,10 @@ function showDropDown(usracc)
   
 }
 
-function showAnchorButton(elem,words){
+function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
-	elem.append("<a href='#' class='btn btn-lg btn-success'  id='button"+ButtonNumber+"'>"+words+"</a>");
+	elem.append("<a href='"+linkto+"' class='btn btn-lg "+btnstyle+"'  id='button"+ButtonNumber+"'>"+words+"</a>");
 	
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
@@ -332,11 +332,10 @@ function showAnchorButton(elem,words){
 	
 }
 
-function showButton(elem,words){
+function showButton(elem,words,btnstyle="btn-success"){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
 	elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
-	
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
 //});
