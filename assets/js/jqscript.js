@@ -736,7 +736,7 @@ function addFollowPromises()
 
 function renderChatPage()
 	{
-	showChatList($("#privateconversationpage"));
+	
 		var privcon=$("#chatinput")
 		var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
