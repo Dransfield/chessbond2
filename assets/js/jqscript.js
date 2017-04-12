@@ -106,8 +106,16 @@ function setupProfilePage()
 				console.log("add flexdiv");
 			var elem=addFlexDiv($("#profilepage"));	
 			showUsernameJumbo(elem,ProfID);
-			showAvatar(elem,ProfID);
-			showImageUploadForm(elem,usracc)
+			var divv=addDiv(elem);
+			showAvatar(divv,ProfID);
+			if(MyID==ProfID)
+			{
+			showImageUploadForm(elem,ProfID)
+			}
+			
+			showHeader(elem,2,"Highest Difficulty Level Beaten:"+Accounts[ProfID].DifficultyLevelBeaten);
+			showHeader(elem,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
+			
 			});
 			
 		});

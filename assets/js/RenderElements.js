@@ -87,6 +87,14 @@ function addFlexDiv(elem)
 	return flex;
 	
 }
+function addDiv(elem)
+{
+	var flex=$("<div></div>")
+	elem.append(flex);
+	return flex;
+	
+	
+}
 function showUsernameJumbo(elem,usracc)
 {
 	var jum=$("<span class='jumbotron'><span>");
