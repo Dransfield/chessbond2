@@ -161,7 +161,7 @@ io.socket.get("/privateconversation",{id:convID},
 		
 		getWallposts(convID).then((res) => function(){
 		
-		//JSON.stringify(resData);
+		console.log(JSON.stringify(res));
 		for(iter in res)
 		{
 			showChatMessage($("#privateconversationpage"),res[iter]);
