@@ -166,12 +166,10 @@ io.socket.get("/privateconversation",{id:convID},
 		
 		retrieveAccounts().then(function()
 		{
-			console.log("marathon1");
 			retrievePrivatesandFollows().then(function()
 			{ 
-			console.log("marathon2"+convID);
 				getWallposts(convID).then(function(){
-				console.log("marathon3");
+				
 					for(iter in WallPosts)
 					{	
 					showChatMessage($("#privateconversationpage"),WallPosts[iter]);
@@ -276,7 +274,13 @@ Promise.all([opcg, getChessGames()]).then(values => {
 	AccountsToRetrieve[values[1][x].Player2]=values[1][x].Player2;
 	}
 
-	retrieveAccounts();
+	retrieveAccounts().then(function()
+		{
+			retrievePrivatesandFollows().then(function()
+			{ 
+			renderHomePage();
+			});
+		});
 	
 
 	
