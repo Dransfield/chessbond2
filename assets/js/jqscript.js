@@ -121,8 +121,8 @@ function setupProfilePage()
 			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
 			var elem=addFlexDiv(leftright,"rightcol","column");
 			showHeader(elem,2,"Who am I?");
-			
-			
+			var tbl=showStripedTable(elem);
+			tbl.append(showTextwithInput('pulaski'));
 			});
 			
 		});
