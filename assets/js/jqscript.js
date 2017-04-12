@@ -128,7 +128,7 @@ function setupChatPage()
 			}
 			);
 		}
-	)
+	);
 	$("#mousemove").mousemove(function()
 	{
 		
@@ -165,9 +165,12 @@ io.socket.get("/privateconversation",{id:convID},
 		
 		retrieveAccounts().then(function()
 		{
+			console.log("marathon1");
 			retrievePrivatesandFollows().then(function()
 			{ 
+			console.log("marathon2");
 				getWallposts(convID).then((res) => function(){
+				console.log("marathon3");
 					for(iter in res)
 					{	
 					showChatMessage($("#privateconversationpage"),res[iter]);
