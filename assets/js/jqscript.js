@@ -74,9 +74,9 @@ var Follows={};
 			//console.log(JSON.stringify(resData));
 			});
 		
-			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			});
+			//io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			//console.log(JSON.stringify(resData));
+			//});
 		}
 		
 	function setupOpenTournament()
@@ -101,6 +101,7 @@ function setupProfilePage()
 		
 		
 }
+
 
 function setupChatPage()
 {
@@ -157,12 +158,13 @@ io.socket.get("/privateconversation",{id:convID},
 		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
 		
 		retrieveAccounts();
-		io.socket.get("/wallpost?limit=39999",{groupid:convID},
-	function (resData,jwres){
+		
+		getWallPosts(convID).then((res) => function(){
+		
 		//JSON.stringify(resData);
-		for(iter in resData)
+		for(iter in res)
 		{
-			showChatMessage($("#privateconversationpage"),resData[iter]);
+			showChatMessage($("#privateconversationpage"),res[iter]);
 		}
 		
 		var privcon=$("#chatinput")
@@ -213,6 +215,19 @@ function SendWallPost(Myid,groupid,msgtype,address,msg)
 			
 			
 	}
+	
+function getWallposts(grpID)
+{
+	
+var cg = new Promise
+((resolve, reject) => {
+io.socket.get("/wallpost?limit=39999",{groupid:grpID},
+	function (resData,jwres){
+resolve(resData);
+});
+});
+return cg;
+}
 
 function getChessGames()
 {
