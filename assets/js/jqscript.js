@@ -105,8 +105,8 @@ function setupProfilePage()
 			{ 
 				console.log("add flexdiv");
 			var elem=addFlexDiv($("#profilepage"));	
-			showUsernameJumbo(elem,MyID);
-			
+			showUsernameJumbo(elem,ProfID);
+			showAvatar(ProfID);
 			});
 			
 		});
