@@ -144,9 +144,15 @@ function setupProfilePage()
 			'FavoriteQuoteWriter','ProChessTournaments','MyBestChessPerformance',
 			'MyLiveChessTournamentsHistory','SkillsSports','VictorySpeech','NobelSpeech'
 			];
-			
-			
+			var pairarraythree=[0,0,0,2,3,1,4,5,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+			if(Accounts[ProfID].Birthday)
+			{
 			Accounts[ProfID].BirthDayTotal=Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear;
+			}
+			else
+			{
+			Accounts[ProfID].BirthDayTotal="/ / /";	
+			}
 			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
 				
 			var dateObj=new Date(Accounts[ProfID].createdAt);
@@ -158,7 +164,7 @@ function setupProfilePage()
 			Accounts[ProfID].Registeredmemberon=newdate;
 			
 			
-			function addvarpair(tbl,one,two)
+			function addvarpair(tbl,one,two,texteditable)
 			{
 			var tr=$("<tr></tr>");
 			tbl.append(tr);
@@ -168,12 +174,15 @@ function setupProfilePage()
 			td=$("<td></td>");
 			tr.append(td);
 			td.append(two);
-			
+			if (texteditable==1)
+			{
+			showTextwithInput(td,two)	
+			}
 			}
 			
 			for (variter in pairarrayone)
 			{
-			addvarpair(tbl,pairarrayone[variter],Accounts[ProfID][pairarraytwo[variter]]);
+			addvarpair(tbl,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
 			}
 			
 			});

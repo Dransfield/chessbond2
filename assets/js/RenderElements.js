@@ -402,10 +402,12 @@ function showStripedTable(elem)
 }
 function showTextwithInput(elem,words)
 {
-	var w=$(words);
-	elem.append(words);
-	elem.append(w);
-	
+	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	elem.append(myinput);
+	myinput.change(function(){
+		Accounts[ProfID][words]=myinput.val();
+		elemTochange.val(Accounts[ProfID][words]);
+		});
 }
 function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
 	ButtonNumber=ButtonNumber+1;
