@@ -82,7 +82,7 @@ function showPersonLeft(elem,prsn)
 }
 function addFlexDiv(elem,id,direction)
 {
-	var flex=$("<div id='"+id+"' style='display:flex;flex-direction"+direction+";'></div>")
+	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";'></div>")
 	elem.append(flex);
 	return flex;
 	
