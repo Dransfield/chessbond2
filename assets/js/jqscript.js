@@ -137,7 +137,7 @@ function setupProfilePage()
 			];
 			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
 			'Numberoftimesloggedin','Gender',
-			'BirthDay','CurrentCity'
+			'BirthDayTotal','CurrentCity',
 			'FideTitle','FideID','FideRatings','ProfileUpdatedPhrase','SpokenLanguages'
 			'CountriesTravelled','WishingToTravel','MyUpcomingTrip','WhoAmI','HowDoIStartMyDay',
 			'HobbiesInterests','RequestExpectation','FavoriteMusicBand','FavoriteTVShows','FavoriteBooksFood',
@@ -145,6 +145,8 @@ function setupProfilePage()
 			'MyLiveChessTournamentsHistory','SkillsSports','VictorySpeech','NobelSpeech'
 			];
 			
+			
+			Account[ProfID].BirthDayTotal=Account[ProfID].BirthDay+"/"+Account[ProfID].BirthMonth+"/"+Account[ProfID].BirthYear;
 			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
 				
 			var dateObj=new Date(Accounts[ProfID].createdAt);
