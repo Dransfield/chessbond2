@@ -413,12 +413,14 @@ function showTextwithInput(elem,words,elemTochange)
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
 	myinput.keydown(function(event){
+		if(event.key)
+		{
 		if(event.key.length==1)
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//elemTochange.val(Accounts[ProfID][words]);
 		elemTochange.html(Accounts[ProfID][words]);
-	}
+	}}
 		});
 }
 function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
