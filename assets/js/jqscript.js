@@ -173,9 +173,10 @@ function setupProfilePage()
 			td.append(" "+one+" ");
 			td=$("<td></td>");
 			tr.append(td);
-			td.append(two);
+			td.append(Accounts[ProfID}[two]);
 			if (texteditable==1)
 			{
+				console.log("show text with input");
 			showTextwithInput(td,two)	
 			}
 			}
