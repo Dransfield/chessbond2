@@ -154,7 +154,7 @@ function setupProfilePage()
 			Accounts[ProfID].BirthDayTotal="/ / /";	
 			}
 			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
-				
+				Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
 			var dateObj=new Date(Accounts[ProfID].createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
