@@ -161,6 +161,14 @@ function addDiv(elem)
 	
 	
 }
+function addSpan(elem)
+{
+	var flex=$("<span></span>")
+	elem.append(flex);
+	return flex;
+	
+	
+}
 function showHeader(elem,num,content)
 {
 elem.append("<h"+num+">"+content+"</h"+num+">");	
@@ -400,7 +408,7 @@ function showStripedTable(elem)
 	return body;
 	
 }
-function showTextwithInput(elem,words)
+function showTextwithInput(elem,words,elemTochange)
 {
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);

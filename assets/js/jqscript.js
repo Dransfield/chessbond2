@@ -173,11 +173,12 @@ function setupProfilePage()
 			td.append(" "+one+" ");
 			td=$("<td></td>");
 			tr.append(td);
-			td.append(Accounts[ProfID][two]);
+			var myspan=addSpan(td);
+			myspan.val(Accounts[ProfID][two]);
 			if (texteditable==1)
 			{
 				console.log("show text with input");
-			showTextwithInput(td,two)	
+			showTextwithInput(td,two,myspan);	
 			}
 			}
 			
