@@ -93,6 +93,7 @@ else
 	
 }
 console.log("show chat message "+JSON.stringify(msg));
+console.log("sender "+msg.sender);
 elem.append(newdiv);
 showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
