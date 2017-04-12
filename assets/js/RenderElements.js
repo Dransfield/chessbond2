@@ -430,7 +430,9 @@ function showTextwithInput(elem,words,elemTochange)
 				  
 				,function(resData,jwres)
 			{
+				var span=Accounts[ProfID]['ProfileUpdatedPhrase']['span'];
 					Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
+					Accounts[ProfID]['ProfileUpdatedPhrase']['span']=span;
 					Accounts[ProfID]['ProfileUpdatedPhrase']['span'].html(	Accounts[ProfID]['ProfileUpdatedPhrase']);
 			}
 			);
