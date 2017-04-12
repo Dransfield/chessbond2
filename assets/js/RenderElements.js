@@ -91,8 +91,9 @@ function showUsernameJumbo(elem,usracc)
 {
 	var jum=$("<span class='jumbotron'><span>");
       var header=$("<h1></h1>");
+      jum.append(header);
       showUsername(header,usracc);
-	
+	elem.append(jum);
 }
 function showChatMessage(elem,msg)
 {
