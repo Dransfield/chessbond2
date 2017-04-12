@@ -125,8 +125,16 @@ function setupProfilePage()
 			
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:'];
-			var loginphrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
-			var pairarraytwo=['ProfileViews','Registeredmemberon',loginphrase,
+			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
+				
+			var dateObj=new Date(Accounts[ProfID].createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+
+			newdate = day+ "/"+month+"/"+year ;
+			Accounts[ProfID].Registeredmemberon=newdate;
+			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
 			'Numberoftimesloggedin'];
 			
 			function addvarpair(tbl,one,two)
