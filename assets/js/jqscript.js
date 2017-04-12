@@ -144,7 +144,7 @@ function setupProfilePage()
 			
 			for (variter in pairarrayone)
 			{
-			addvarpair(tbl,pairarrayone[iter],Accounts[ProfID][pairarraytwo[iter]]);
+			addvarpair(tbl,pairarrayone[variter],Accounts[ProfID][pairarraytwo[variter]]);
 			}
 			
 			});
