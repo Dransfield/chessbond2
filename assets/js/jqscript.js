@@ -122,7 +122,7 @@ function setupProfilePage()
 			var elem=addFlexDiv(leftright,"rightcol","column");
 			showHeader(elem,2,"Who am I?");
 			var tbl=showStripedTable(elem);
-			tbl.append(showTextwithInput('pulaski'));
+			tbl.append(showTextwithInput(tbl,'pulaski'));
 			});
 			
 		});
