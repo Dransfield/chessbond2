@@ -223,7 +223,7 @@ var cg = new Promise
 ((resolve, reject) => {
 io.socket.get("/wallpost?limit=39999",{groupid:grpID},
 	function (resData,jwres){
-		console.log("got wall posts"+JSON.stringify(resData)a);
+		console.log("got wall posts"+JSON.stringify(resData));
 resolve(resData);
 });
 });
