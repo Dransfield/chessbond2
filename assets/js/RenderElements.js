@@ -3,7 +3,7 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 
-function phraseforloggedindate
+function phraseforloggedindate(dat)
 		{
 			console.log("nu "+nu);
 			var nu=Date.parse(dat);
