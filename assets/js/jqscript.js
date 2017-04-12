@@ -62,6 +62,10 @@ var roomname=MyID;
 	
 function setupProfilePage()
 {
+	
+	AccountsToRetrieve[MyID]=MyID;
+	retrieveAccounts();
+	
 	//increase profile views
 	io.socket.put('/LookedAtProfile',{userID:MyID},
 		function  (data){
