@@ -95,6 +95,11 @@ function addDiv(elem)
 	
 	
 }
+function showHeader(elem,num,content)
+{
+elem.append("<h"+num+">"+content+"</h"+num+">");	
+	
+}
 function showUsernameJumbo(elem,usracc)
 {
 	var jum=$("<span class='jumbotron'><span>");
