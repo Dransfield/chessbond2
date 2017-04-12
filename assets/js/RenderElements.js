@@ -95,6 +95,15 @@ function showUsernameJumbo(elem,usracc)
       showUsername(header,usracc);
 	elem.append(jum);
 }
+function showImageUploadForm(elem,usracc)
+{
+	elem.append(`
+<form action="/uploadavatar" enctype="multipart/form-data" method="post">
+    <input type="file" name="avatar" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>`);
+	
+}
 function showChatMessage(elem,msg)
 {
 var newdiv;

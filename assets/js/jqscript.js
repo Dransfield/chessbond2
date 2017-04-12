@@ -106,7 +106,8 @@ function setupProfilePage()
 				console.log("add flexdiv");
 			var elem=addFlexDiv($("#profilepage"));	
 			showUsernameJumbo(elem,ProfID);
-			showAvatar(ProfID);
+			showAvatar(elem,ProfID);
+			showImageUploadForm(elem,usracc)
 			});
 			
 		});
