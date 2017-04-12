@@ -123,6 +123,9 @@ function setupProfilePage()
 			showHeader(elem,2,"Who am I?");
 			var tbl=showStripedTable(elem);
 			
+			var pairarrayone=['Profile Views:','Registered member on:'];
+			var pairarraytwo=['ProfileViews','Registeredmemberon'];
+			
 			function addvarpair(tbl,one,two)
 			{
 			var tr=$("<tr></tr>");
@@ -136,7 +139,10 @@ function setupProfilePage()
 			
 			}
 			
-			addvarpair(tbl,"Profile Views:",Accounts[ProfID].ProfileViews);
+			for (variter in pairarrayone)
+			{
+			addvarpair(tbl,pairarrayone[iter],Accounts[ProfID][pairarraytwo[iter]]);
+			}
 			
 			});
 			
