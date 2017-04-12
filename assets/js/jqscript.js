@@ -139,7 +139,7 @@ function setupProfilePage()
 			tbl.append(tr);
 			var td=$("<td></td>");
 			tr.append(td);
-			td.append(one);
+			td.append(" "+one+" ");
 			td=$("<td></td>");
 			tr.append(td);
 			td.append(two);
