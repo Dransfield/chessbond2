@@ -37,7 +37,10 @@ var roomname=MyID;
 			
 			});
 
-
+		if($("#profilepage").length)
+		{
+		setupProfilePage();
+		}
 		if($("#homepage").length)
 		{
 		setupHomePage();
@@ -59,7 +62,13 @@ var roomname=MyID;
 	
 function setupProfilePage()
 {
-	
+	//increase profile views
+	io.socket.put('/LookedAtProfile',{userID:MyID},
+		function  (data){
+		
+		});
+		
+		
 }
 
 function setupChatPage()
