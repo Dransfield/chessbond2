@@ -80,9 +80,9 @@ function showPersonLeft(elem,prsn)
 	elem.scrollTop(elem[0].scrollHeight);
 
 }
-function addFlexDiv(elem)
+function addFlexDiv(elem,id,direction)
 {
-	var flex=$("<div style='display:flex'></div>")
+	var flex=$("<div id='"+id+"' style='display:flex;flex-direction"+direction+";'></div>")
 	elem.append(flex);
 	return flex;
 	
