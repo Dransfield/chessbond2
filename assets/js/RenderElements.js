@@ -422,6 +422,14 @@ function showTextwithInput(elem,words,elemTochange)
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//elemTochange.val(Accounts[ProfID][words]);
 		elemTochange.html(Accounts[ProfID][words]);
+		io.socket.put('/user/'+ProfID+"?"+words+"="+Accounts[ProfID][words],{
+				
+					  }  
+				  
+				,function(resData,jwres)
+			{
+				}
+			);
 	}
 		});
 }
