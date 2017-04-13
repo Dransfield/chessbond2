@@ -123,7 +123,11 @@ function setupProfilePage()
 			var elem=addFlexDiv(leftright,"rightcol","column");
 			elem.css("width:50%");
 			showHeader(elem,2,"Who am I?");
-			var tbl=showStripedTable(elem);
+			//var tbl=showStripedTable(elem);
+			
+			var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
+			var tblLeft=addFlexDiv(tbl,'tblLeft',"column","wrap")
+			var tblRight=addFlexDiv(tbl,'tblRight',"column","wrap")
 			
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:','Gender:','Date of birth:','Current City:',
@@ -168,6 +172,12 @@ function setupProfilePage()
 			
 			function addvarpair(tbl,one,two,texteditable)
 			{
+			tblLeft.append(one);
+				
+			}
+			/*
+			function addvarpair(tbl,one,two,texteditable)
+			{
 			var tr=$("<tr></tr>");
 			tbl.append(tr);
 			var td=$("<td></td>");
@@ -187,7 +197,7 @@ function setupProfilePage()
 			showTextwithInput(td,two,myspan);	
 			}
 			}
-			
+			*/
 			for (variter in pairarrayone)
 			{
 			addvarpair(tbl,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
