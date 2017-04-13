@@ -126,9 +126,9 @@ function setupProfilePage()
 			//var tbl=showStripedTable(elem);
 			
 			//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
-			var tblLeft=addFlexDiv(leftright,'tblLeft',"column","wrap")
+			//var tblLeft=addFlexDiv(leftright,'tblLeft',"column","wrap")
 			var tblRight=addFlexDiv(leftright,'tblRight',"column","wrap")
-			showHeader(tblLeft,2,"Who am I?");
+			showHeader(tblRight,2,"Who am I?");
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:','Gender:','Date of birth:','Current City:',
 			'Fide Title:<br>(Self Claimed:)','Valid Fide ID:','Fide Ratings:',
@@ -170,9 +170,10 @@ function setupProfilePage()
 			Accounts[ProfID].Registeredmemberon=newdate;
 			
 			
-			function addvarpair(tbl1,tbl2,one,two,texteditable)
+			function addvarpair(tbl,one,two,texteditable)
 			{
-			tbl1.append(one);
+			var block=addFlexDiv(tbl,two,"row","nowrap");
+			block.append(one);
 				
 			}
 			/*
@@ -200,7 +201,7 @@ function setupProfilePage()
 			*/
 			for (variter in pairarrayone)
 			{
-			addvarpair(tblLeft,tblRight,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
+			addvarpair(tblRight,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
 			}
 			
 			});
