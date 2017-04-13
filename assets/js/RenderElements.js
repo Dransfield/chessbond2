@@ -422,12 +422,11 @@ function showStripedTable(elem)
 	
 }
 
-function UpdateTypedText(words,elemTochange)
+function updateAccountInfo(words)
 {
-	elemTochange.html(Accounts[ProfID][words]);
 		Accounts[ProfID]['ProfileUpdated']=new Date();
-				
-			io.socket.put('/user/'+ProfID+"?ProfileUpdated="+Accounts[ProfID]['ProfileUpdated'],{
+	
+	io.socket.put('/user/'+ProfID+"?ProfileUpdated="+Accounts[ProfID]['ProfileUpdated'],{
 				
 					  }  
 				  
@@ -450,7 +449,15 @@ function UpdateTypedText(words,elemTochange)
 				
 				
 				}
-			);
+			);	
+	
+}
+
+function UpdateTypedText(words,elemTochange)
+{
+	elemTochange.html(Accounts[ProfID][words]);
+				updateAccountInfo(words);
+		
 }
 
 function showTextwithInput(elem,words,elemTochange)

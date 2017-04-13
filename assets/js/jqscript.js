@@ -206,7 +206,8 @@ function setupProfilePage()
 			{
 				
 				console.log(JSON.stringify(sel));
-				//myspan.html(e.target.selectedOptions.value);
+				myspan.html(sel.val());
+				Accounts[ProfID].Gender=sel.val();
 				
 				//console.log(e.target.selectedOptions.value);
 				
