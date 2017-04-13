@@ -170,9 +170,9 @@ function setupProfilePage()
 			Accounts[ProfID].Registeredmemberon=newdate;
 			
 			
-			function addvarpair(tbl,one,two,texteditable)
+			function addvarpair(tbl1,tbl2,one,two,texteditable)
 			{
-			tblLeft.append(one);
+			tbl1.append(one);
 				
 			}
 			/*
@@ -200,7 +200,7 @@ function setupProfilePage()
 			*/
 			for (variter in pairarrayone)
 			{
-			addvarpair(tbl,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
+			addvarpair(tblLeft,tblRight,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
 			}
 			
 			});
