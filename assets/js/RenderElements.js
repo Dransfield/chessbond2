@@ -396,16 +396,17 @@ function showDropDown(usracc)
 }
 function showStripedTable(elem)
 {
-	var table=$(" <table class='table table-striped'></table>");
-    var head=$("<thead></thead>");
-	var body=$("<tbody></tbody>");
-	
-	table.append(head);
-	table.append(body);
+	//var table=$(" <table class='table table-striped'></table>");
+    //var head=$("<thead></thead>");
+	//var body=$("<tbody></tbody>");
+	var table=$("<table></table>");
+	//table.append(head);
+	//table.append(body);
 	
 	
 	elem.append(table);
-	return body;
+	//return body;
+	return table;
 	
 }
 function showTextwithInput(elem,words,elemTochange)
