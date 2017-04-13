@@ -449,7 +449,7 @@ function showTextwithInput(elem,words,elemTochange)
 		{
 		Accounts[ProfID][words]="";	
 		}
-		console.log(event.key);
+		console.log(event);
 		if (event.key=='Backspace')
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words.length-2];
