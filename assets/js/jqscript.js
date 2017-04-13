@@ -170,9 +170,11 @@ function setupProfilePage()
 			Accounts[ProfID].Registeredmemberon=newdate;
 			
 			
-			function addvarpair(tbl,one,two,texteditable)
+			function addvarpair(tbl,one,two,texteditable,bckgrd)
 			{
 			var block=addFlexDiv(tbl,two,"row","nowrap");
+			if (bckgrd==0)
+			{block.css("background-color","light-grey");}
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			block.append(one);
@@ -206,9 +208,16 @@ function setupProfilePage()
 			}
 			}
 			*/
+			var bck=0;
 			for (variter in pairarrayone)
 			{
-			addvarpair(tblRight,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter]);
+				
+			addvarpair(tblRight,pairarrayone[variter],pairarraytwo[variter],pairarraythree[variter],bck);
+			if (bck==0)
+			{bck=1;}
+			else
+			{bck=0;}
+			
 			}
 			
 			});
