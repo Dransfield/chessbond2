@@ -502,15 +502,15 @@ elem.append(`
 					
 					</a>
 					
-              </span>
+              
 				<a href="/opentournament"> <img style="background-color:white; "
 				src="/tournyred1.gif">
 				</a>
 				
-				<div id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
+				<div id="attachnavdropdown" >
 				Welcome `+plyrName+`<span  class='caret'></span>
 				</div>
-		  </span>
+		  
 				
 			
 `);
