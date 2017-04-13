@@ -177,6 +177,7 @@ function setupProfilePage()
 			{block.css("background-color","OldLace");}
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
+			block.css("width","50%");
 			block.append(one);
 			
 			if(!Accounts[ProfID][two])
