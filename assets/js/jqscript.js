@@ -201,7 +201,7 @@ function setupProfilePage()
 			{
 			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
 			block2.append("<span>Edit:</span>");
-			var sel=showSelect(block2,["Male","Female"],["Male","Female"]);	
+			var sel=showSelect(block2,["Male","Female"],["Male","Female"],"Choose Gender");	
 			sel.change(function(e)
 			{
 				

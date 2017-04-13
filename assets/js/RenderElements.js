@@ -395,7 +395,7 @@ function showDropDown(usracc)
   
 }
 
-function showSelect(elem,optionnames,optionvalues,defaulttext="choose")
+function showSelect(elem,optionnames,optionvalues,defaulttext)
 {
 	var selectbloke=$("<select></select>");
 	selectbloke.append("<option selected disabled>"+defaulttext+"</option>")l
