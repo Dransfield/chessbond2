@@ -173,7 +173,7 @@ function setupProfilePage()
 			
 			function addvarpair(tbl,one,two,texteditable,bckgrd)
 			{
-			var block=addFlexDiv(tbl,two,"row","nowrap");
+			var block=addFlexDiv(tbl,two+"flex","row","nowrap");
 			if (bckgrd==0)
 			{block.css("background-color","#e0e0eb");}
 			
@@ -183,7 +183,7 @@ function setupProfilePage()
 			var myspan1=addSpan(block,one+"r");
 			myspan1.html(one);
 			myspan1.css("width","50%");
-			console.log("one "+one);
+			//console.log("one "+one);
 			if(one=="Profile Updated:")
 			{Accounts[ProfID]['Profupdatedspan']=myspan1;}
 			
