@@ -183,7 +183,10 @@ function setupProfilePage()
 			{Accounts[ProfID][two]="";}
 			var myspan=addSpan(block,two);
 			myspan.html(Accounts[ProfID][two]);
-			
+			if (texteditable==1)
+			{
+			showTextwithInput(block,two,myspan);	
+			}
 			}
 			/*
 			function addvarpair(tbl,one,two,texteditable)
