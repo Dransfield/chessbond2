@@ -181,7 +181,7 @@ function setupProfilePage()
 			block.css("padding","10px");
 			
 			var myspan1=addSpan(block,one);
-			
+			myspan1.html(one);
 			myspan1.css("width","50%");
 			
 			if(!Accounts[ProfID][two])
