@@ -174,7 +174,7 @@ function setupProfilePage()
 			{
 			var block=addFlexDiv(tbl,two,"row","nowrap");
 			if (bckgrd==0)
-			{block.css("background-color","light-grey");}
+			{block.css("background-color","OldLace");}
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			block.append(one);
