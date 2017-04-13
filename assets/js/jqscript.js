@@ -203,9 +203,9 @@ function setupProfilePage()
 			block2.append("<span>Edit:</span>");
 			var sel=showSelect(block2,["Male","Female"],["Male","Female"]);	
 			sel.change(function(e)
-			{
+			{console.log(e);
 				myspan.html(e.selectedOptions.value);
-				console.log(e);
+				
 				console.log(e.selectedOptions.value);
 				
 			});
