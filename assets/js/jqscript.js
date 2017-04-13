@@ -177,7 +177,7 @@ function setupProfilePage()
 			block.append(one);
 			if(!Accounts[ProfID][two])
 			{Accounts[ProfID][two]="";}
-			var myspan=addSpan(td,two);
+			var myspan=addSpan(block,two);
 			myspan.html(Accounts[ProfID][two]);
 			
 			}
