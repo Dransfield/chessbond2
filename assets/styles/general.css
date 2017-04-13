@@ -23,7 +23,7 @@ bottom: -4px;
   .mynavbar {
     /* On small screens, we are no longer using row direction but column */
     display:flex;
-    flex-wrap:wrap ;
+    flex-wrap:nowrap ;
    background-color:black;
     justify-content:space-between;
     align-items:center
