@@ -205,7 +205,7 @@ function setupProfilePage()
 				for (i = 0; i < 32; i++) {
 					days[i]=i;
 				} 
-				var months=["January","February","March","April","May"
+				var months=["January","February","March","April","May",
 				"June","July","August","September","October","November",
 				"December"];
 				var years=[];
