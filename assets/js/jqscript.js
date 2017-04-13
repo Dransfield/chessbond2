@@ -180,7 +180,7 @@ function setupProfilePage()
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			
-			var myspan1=addSpan(block,one);
+			var myspan1=addSpan(block,one+"r");
 			myspan1.html(one);
 			myspan1.css("width","50%");
 			if(one=="Profile Updated:")
