@@ -107,7 +107,7 @@ function setupProfilePage()
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			
 			var elem=addFlexDiv(leftright,"leftcol","column");
-			
+			elem.css("width","50%");
 			showUsernameJumbo(elem,ProfID);
 			var divv=addDiv(elem);
 			showAvatar(divv,ProfID);
@@ -175,7 +175,7 @@ function setupProfilePage()
 			{
 			var block=addFlexDiv(tbl,two,"row","nowrap");
 			if (bckgrd==0)
-			{block.css("background-color","Snow");}
+			{block.css("background-color","#d1d1e0");}
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			
