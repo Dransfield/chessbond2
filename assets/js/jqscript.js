@@ -191,6 +191,8 @@ function setupProfilePage()
 			myspan.css("width","50%");
 			
 			myspan.html(Accounts[ProfID][two]);
+			if(MyID==ProfID)
+			{
 			if (texteditable==1)
 			{
 			
@@ -205,6 +207,7 @@ function setupProfilePage()
 			{block.css("background-color","#e0e0eb");}
 			
 			showTextwithInput(block,two,myspan);	
+			}
 			}
 			}
 			/*
