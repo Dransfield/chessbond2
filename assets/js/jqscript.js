@@ -176,6 +176,7 @@ function setupProfilePage()
 			var block=addFlexDiv(tbl,two,"row","nowrap");
 			if (bckgrd==0)
 			{block.css("background-color","#e0e0eb");}
+			
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			
@@ -187,6 +188,17 @@ function setupProfilePage()
 			myspan.html(Accounts[ProfID][two]);
 			if (texteditable==1)
 			{
+			
+			var block=addFlexDiv(tbl,two+"edit","row","nowrap");
+			
+			if(bckgrd==0)
+			{bckgrd=1;}
+			else
+			{bckgrd=0;}
+			
+			if (bckgrd==0)
+			{block.css("background-color","#e0e0eb");}
+			
 			showTextwithInput(block,two,myspan);	
 			}
 			}
