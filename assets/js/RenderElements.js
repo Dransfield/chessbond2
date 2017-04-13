@@ -452,7 +452,8 @@ function showTextwithInput(elem,words,elemTochange)
 		console.log(event);
 		if (event.keyCode==8)
 		{
-		Accounts[ProfID][words]=Accounts[ProfID][words.length-2];
+		console.log("pressed backspace");
+		Accounts[ProfID][words]=Accounts[ProfID][words].substring(0, Accounts[ProfID][words].length - 1);
 			UpdateTypedText(words,elemTochange);
 		}
 		if(event.key.length==1)
