@@ -183,6 +183,7 @@ function setupProfilePage()
 			var myspan1=addSpan(block,one+"r");
 			myspan1.html(one);
 			myspan1.css("width","50%");
+			console.log("one "+one);
 			if(one=="Profile Updated:")
 			{Accounts[ProfID]['Profupdatedspan']=myspan1;}
 			
@@ -198,7 +199,7 @@ function setupProfilePage()
 			if (texteditable==1)
 			{
 			
-			var block=addFlexDiv(tbl,two+"edit","row","nowrap");
+			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
 			
 			/*if(bckgrd==0)
 			{bckgrd=1;}
@@ -206,9 +207,9 @@ function setupProfilePage()
 			{bckgrd=0;}
 			*/
 			if (bckgrd==0)
-			{block.css("background-color","#e0e0eb");}
+			{block2.css("background-color","#e0e0eb");}
 			
-			showTextwithInput(block,two,myspan);	
+			showTextwithInput(block2,two,myspan);	
 			}
 			}
 			}
