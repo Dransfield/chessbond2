@@ -395,9 +395,10 @@ function showDropDown(usracc)
   
 }
 
-function showSelect(elem,optionnames,optionvalues)
+function showSelect(elem,optionnames,optionvalues,defaulttext="choose")
 {
 	var selectbloke=$("<select></select>");
+	selectbloke.append("<option selected disabled>"+defaulttext+"</option>")l
 	for (iter in optionnames)
 	{
 	selectbloke.append("<option value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</option>");	
@@ -424,6 +425,8 @@ function showStripedTable(elem)
 
 function updateAccountInfo(words)
 {
+	console.log("words "+words);
+	console.log("Accounts[ProfID][words] "+Accounts[ProfID][words]);
 		Accounts[ProfID]['ProfileUpdated']=new Date();
 	
 	io.socket.put('/user/'+ProfID+"?ProfileUpdated="+Accounts[ProfID]['ProfileUpdated'],{

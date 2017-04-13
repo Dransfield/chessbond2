@@ -208,7 +208,7 @@ function setupProfilePage()
 				console.log(JSON.stringify(sel));
 				myspan.html(sel.val());
 				Accounts[ProfID].Gender=sel.val();
-				
+				updateAccountInfo("Gender");
 				//console.log(e.target.selectedOptions.value);
 				
 			});
