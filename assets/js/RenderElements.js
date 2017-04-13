@@ -492,25 +492,29 @@ function showNavbar(elem,usracc)
 
 elem.append(`
 			<span class="mynavbar">
-			<span>
-			<!-- This is the brand on the left-hand side. -->
-			<img style="background-color:white;max-width:50px;height:50px; "
-             src="/knight50.png">
-             
-              <span  style="color:white;" id="InvisibleMessage">
-			</span>
-			<a class="navbar-brand" href="/#" >Chessbond
-			
-			</a>
-              </span>
-			<a href="/opentournament"> <img style="background-color:white; "
-             src="/tournyred1.gif"></a>
-			
+				<span>
+				<!-- This is the brand on the left-hand side. -->
+					<span><img style="background-color:white;max-width:50px;height:50px; "
+					src="/knight50.png">
+					</img> 
+					</span>
+					<span  style="color:white;" id="InvisibleMessage">
+					</span>
 					
-				  <div id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
+					<span>
+					<a class="navbar-brand" href="/#" >Chessbond
+					
+					</a>
+					</span>
+              </span>
+				<a href="/opentournament"> <img style="background-color:white; "
+				src="/tournyred1.gif">
+				</a>
+				
+				<div id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
 				Welcome `+plyrName+`<span  class='caret'></span>
-				  </div>
-</span>				  
+				</div>
+		  </span>
 				
 			
 `);
