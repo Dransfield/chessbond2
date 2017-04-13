@@ -180,11 +180,16 @@ function setupProfilePage()
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			
-			block.append(one);
+			var myspan1=addSpan(block,one);
+			
+			myspan1.css("width","50%");
 			
 			if(!Accounts[ProfID][two])
 			{Accounts[ProfID][two]="";}
 			var myspan=addSpan(block,two);
+			
+			myspan.css("width","50%");
+			
 			myspan.html(Accounts[ProfID][two]);
 			if (texteditable==1)
 			{
