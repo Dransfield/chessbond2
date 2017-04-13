@@ -204,8 +204,9 @@ function setupProfilePage()
 			var sel=showSelect(block2,["Male","Female"],["Male","Female"]);	
 			sel.change(function(e)
 			{
-				//myspan.html
+				myspan.html(e.selectedOptions.value);
 				console.log(e);
+				console.log(e.selectedOptions.value);
 				
 			});
 			
