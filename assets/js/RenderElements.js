@@ -491,6 +491,7 @@ function showNavbar(elem,usracc)
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
+		<div class="mynavbar">
 			<img style="background-color:white;width:50px;height:50px; "
 					src="/knight50.png">
 			</img> 
@@ -509,9 +510,9 @@ elem.append(`
 				
 				<span id="attachnavdropdown" >
 				Welcome `+plyrName+`<span  class='caret'></span>
-				</span>
+				</>
 		  
-				
+				</div>
 			
 `);
 
