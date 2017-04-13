@@ -409,26 +409,10 @@ function showStripedTable(elem)
 	return table;
 	
 }
-function showTextwithInput(elem,words,elemTochange)
+
+function UpdateTypedText(words)
 {
-	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
-	elem.append(myinput);
-	myinput.keydown(function(event){
-		if(!Accounts[ProfID][words])
-		{
-		Accounts[ProfID][words]="";	
-		}
-		console.log(event.key);
-		if (event.key=='BackSpace')
-		{
-		Accounts[ProfID][words]=Accounts[ProfID][words.length-2];
-			
-		}
-		if(event.key.length==1)
-		{
-		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
-		//elemTochange.val(Accounts[ProfID][words]);
-		elemTochange.html(Accounts[ProfID][words]);
+	elemTochange.html(Accounts[ProfID][words]);
 		Accounts[ProfID]['ProfileUpdated']=new Date();
 				
 			io.socket.put('/user/'+ProfID+"?ProfileUpdated="+Accounts[ProfID]['ProfileUpdated'],{
@@ -454,6 +438,28 @@ function showTextwithInput(elem,words,elemTochange)
 				
 				}
 			);
+}
+
+function showTextwithInput(elem,words,elemTochange)
+{
+	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	elem.append(myinput);
+	myinput.keydown(function(event){
+		if(!Accounts[ProfID][words])
+		{
+		Accounts[ProfID][words]="";	
+		}
+		console.log(event.key);
+		if (event.key=='Backspace')
+		{
+		Accounts[ProfID][words]=Accounts[ProfID][words.length-2];
+			UpdateTypedText(words);
+		}
+		if(event.key.length==1)
+		{
+		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
+		UpdateTypedText(words);
+		
 	}
 		});
 }
