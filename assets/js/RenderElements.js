@@ -492,6 +492,8 @@ function showNavbar(elem,usracc)
 
 elem.append(`
 		<div class="mynavbar">
+		
+		<span>
 			<img style="background-color:white;width:50px;height:50px; "
 					src="/knight50.png">
 			</img> 
@@ -502,13 +504,13 @@ elem.append(`
 					<a  href="/#" >Chessbond
 					
 					</a>
-					
+		</span>	
               
 				<a href="/opentournament"> <img style="background-color:white; "
 				src="/tournyred1.gif">
 				</a>
 				
-				<span id="attachnavdropdown" >
+				<span id="attachnavdropdown" style="color:white;" >
 				Welcome `+plyrName+`<span  class='caret'></span>
 				</>
 		  
