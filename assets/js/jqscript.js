@@ -183,6 +183,8 @@ function setupProfilePage()
 			var myspan1=addSpan(block,one);
 			myspan1.html(one);
 			myspan1.css("width","50%");
+			if(one=="Profile Updated:")
+			{Accounts[ProfID]['Profupdatedspan']=myspan1;}
 			
 			if(!Accounts[ProfID][two])
 			{Accounts[ProfID][two]="";}

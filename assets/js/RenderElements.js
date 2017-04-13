@@ -425,6 +425,7 @@ function UpdateTypedText(words,elemTochange)
 					Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
 					
 					$("#ProfileUpdatedPhrase").html(Accounts[ProfID]['ProfileUpdatedPhrase']);
+				Accounts[ProfID]['Profupdatedspan'].html("Profile Updated:");
 			}
 			);
 		
