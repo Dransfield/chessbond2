@@ -201,10 +201,19 @@ function setupProfilePage()
 			{
 			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
 			block2.append("<span>Edit:</span>");
-			showSelect(block2,["Male","Female"],["Male","Female"]);	
-				if (bckgrd==0)
+			var sel=showSelect(block2,["Male","Female"],["Male","Female"]);	
+			sel.change(function(e)
+			{
+				//myspan.html
+				console.log(e);
+				
+			});
+			
+			if (bckgrd==0)
 			{block2.css("background-color","#e0e0eb");}
+			
 			}
+			
 			if (texteditable==1)
 			{
 			
