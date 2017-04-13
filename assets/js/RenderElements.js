@@ -442,7 +442,7 @@ function UpdateTypedText(words,elemTochange)
 
 function showTextwithInput(elem,words,elemTochange)
 {
-	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	var myinput=$("Edit:<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
 	myinput.keydown(function(event){
 		if(!Accounts[ProfID][words])
