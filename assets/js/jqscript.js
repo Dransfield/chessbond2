@@ -175,7 +175,11 @@ function setupProfilePage()
 			var block=addFlexDiv(tbl,two,"row","nowrap");
 			block.css("padding","10px");
 			block.append(one);
-				
+			if(!Accounts[ProfID][two])
+			{Accounts[ProfID][two]="";}
+			var myspan=addSpan(td,two);
+			myspan.html(Accounts[ProfID][two]);
+			
 			}
 			/*
 			function addvarpair(tbl,one,two,texteditable)
