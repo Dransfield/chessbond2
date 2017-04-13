@@ -104,7 +104,7 @@ function setupProfilePage()
 			retrievePrivatesandFollows().then(function()
 			{ 
 				console.log("add flexdiv");
-			var leftright=addFlexDiv($("#profilepage"),"leftright","row");
+			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			var elem=addFlexDiv(leftright,"leftcol","column");
 				
 			showUsernameJumbo(elem,ProfID);
