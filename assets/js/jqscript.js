@@ -128,6 +128,7 @@ function setupProfilePage()
 			//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
 			//var tblLeft=addFlexDiv(leftright,'tblLeft',"column","wrap")
 			var tblRight=addFlexDiv(leftright,'tblRight',"column","wrap")
+			tblRight.css("width","50%");
 			showHeader(tblRight,2,"Who am I?");
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:','Gender:','Date of birth:','Current City:',
@@ -177,7 +178,7 @@ function setupProfilePage()
 			{block.css("background-color","OldLace");}
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
-			block.css("width","50%");
+			
 			block.append(one);
 			
 			if(!Accounts[ProfID][two])
