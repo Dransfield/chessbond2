@@ -491,21 +491,17 @@ function showNavbar(elem,usracc)
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
-			<span>
-				<span>
-				<!-- This is the brand on the left-hand side. -->
-					<span><img style="background-color:white;max-width:50px;height:50px; "
+			<img style="background-color:white;max-width:50px;height:50px; "
 					src="/knight50.png">
-					</img> 
-					</span>
-					<span  style="color:white;" id="InvisibleMessage">
-					</span>
+			</img> 
 					
-					<span>
+			
+					
+					
 					<a class="navbar-brand" href="/#" >Chessbond
 					
 					</a>
-					</span>
+					
               </span>
 				<a href="/opentournament"> <img style="background-color:white; "
 				src="/tournyred1.gif">
