@@ -126,8 +126,8 @@ function setupProfilePage()
 			//var tbl=showStripedTable(elem);
 			
 			//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
-			var tblLeft=addFlexDiv(elem,'tblLeft',"column","wrap")
-			var tblRight=addFlexDiv(elem,'tblRight',"column","wrap")
+			var tblLeft=addFlexDiv(leftright,'tblLeft',"column","wrap")
+			var tblRight=addFlexDiv(leftright,'tblRight',"column","wrap")
 			showHeader(tblLeft,2,"Who am I?");
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:','Gender:','Date of birth:','Current City:',
