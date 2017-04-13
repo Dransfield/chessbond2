@@ -498,7 +498,7 @@ elem.append(`
 			
 					
 					
-					<a class="navbar-brand" href="/#" >Chessbond
+					<a  href="/#" >Chessbond
 					
 					</a>
 					
@@ -507,9 +507,9 @@ elem.append(`
 				src="/tournyred1.gif">
 				</a>
 				
-				<div id="attachnavdropdown" >
+				<span id="attachnavdropdown" >
 				Welcome `+plyrName+`<span  class='caret'></span>
-				</div>
+				</span>
 		  
 				
 			
