@@ -179,7 +179,7 @@ function setupProfilePage()
 			{Accounts[ProfID][two]="";}
 			var myspan=addSpan(block,two);
 			myspan.html(Accounts[ProfID][two]);
-			
+			myspan.css("width","50%");
 			}
 			/*
 			function addvarpair(tbl,one,two,texteditable)
