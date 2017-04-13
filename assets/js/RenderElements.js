@@ -410,7 +410,7 @@ function showStripedTable(elem)
 	
 }
 
-function UpdateTypedText(words)
+function UpdateTypedText(words,elemTochange)
 {
 	elemTochange.html(Accounts[ProfID][words]);
 		Accounts[ProfID]['ProfileUpdated']=new Date();
@@ -453,12 +453,12 @@ function showTextwithInput(elem,words,elemTochange)
 		if (event.key=='Backspace')
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words.length-2];
-			UpdateTypedText(words);
+			UpdateTypedText(words,elemTochange);
 		}
 		if(event.key.length==1)
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
-		UpdateTypedText(words);
+		UpdateTypedText(words,elemTochange);
 		
 	}
 		});
