@@ -105,8 +105,9 @@ function setupProfilePage()
 			{ 
 				console.log("add flexdiv");
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
+			leftright.css("width:100%");
 			var elem=addFlexDiv(leftright,"leftcol","column");
-				
+			elem.css("width:50%");
 			showUsernameJumbo(elem,ProfID);
 			var divv=addDiv(elem);
 			showAvatar(divv,ProfID);
@@ -120,6 +121,7 @@ function setupProfilePage()
 			showNewGameControls(elem);
 			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
 			var elem=addFlexDiv(leftright,"rightcol","column");
+			elem.css("width:50%");
 			showHeader(elem,2,"Who am I?");
 			var tbl=showStripedTable(elem);
 			
