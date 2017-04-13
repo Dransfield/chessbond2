@@ -191,11 +191,11 @@ function setupProfilePage()
 			
 			var block=addFlexDiv(tbl,two+"edit","row","nowrap");
 			
-			if(bckgrd==0)
+			/*if(bckgrd==0)
 			{bckgrd=1;}
 			else
 			{bckgrd=0;}
-			
+			*/
 			if (bckgrd==0)
 			{block.css("background-color","#e0e0eb");}
 			
