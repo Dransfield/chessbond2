@@ -398,7 +398,7 @@ function showDropDown(usracc)
 function showSelect(elem,optionnames,optionvalues)
 {
 	var selectbloke=$("<select></select>");
-	for (iter in options)
+	for (iter in optionnames)
 	{
 	selectbloke.append("<option value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</option>");	
 	}
