@@ -173,8 +173,10 @@ function setupProfilePage()
 			function addvarpair(tbl,one,two,texteditable)
 			{
 			var block=addFlexDiv(tbl,two,"row","nowrap");
+			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			block.append(one);
+			block.css("width","50%");
 			if(!Accounts[ProfID][two])
 			{Accounts[ProfID][two]="";}
 			var myspan=addSpan(block,two);
