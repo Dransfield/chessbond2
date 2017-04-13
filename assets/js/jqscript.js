@@ -107,7 +107,7 @@ function setupProfilePage()
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			leftright.css("width:100%");
 			var elem=addFlexDiv(leftright,"leftcol","column");
-			elem.css("width:50%");
+			
 			showUsernameJumbo(elem,ProfID);
 			var divv=addDiv(elem);
 			showAvatar(divv,ProfID);
@@ -120,12 +120,12 @@ function setupProfilePage()
 			showHeader(elem,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
 			showNewGameControls(elem);
 			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
-			var elem=addFlexDiv(leftright,"rightcol","column");
-			elem.css("width:50%");
-			showHeader(elem,2,"Who am I?");
+			var tbl=addFlexDiv(leftright,"rightcol","column");
+			
+			showHeader(tbl,2,"Who am I?");
 			//var tbl=showStripedTable(elem);
 			
-			var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
+			//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
 			var tblLeft=addFlexDiv(tbl,'tblLeft',"column","wrap")
 			var tblRight=addFlexDiv(tbl,'tblRight',"column","wrap")
 			
