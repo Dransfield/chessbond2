@@ -176,12 +176,12 @@ function setupProfilePage()
 			block.css("justify-content","space-between");
 			block.css("padding","10px");
 			block.append(one);
-			block.css("width","50%");
+			
 			if(!Accounts[ProfID][two])
 			{Accounts[ProfID][two]="";}
 			var myspan=addSpan(block,two);
 			myspan.html(Accounts[ProfID][two]);
-			myspan.css("width","50%");
+			
 			}
 			/*
 			function addvarpair(tbl,one,two,texteditable)
