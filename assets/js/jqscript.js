@@ -184,6 +184,7 @@ function setupProfilePage()
 			myspan1.html(one);
 			myspan1.css("width","50%");
 			//console.log("one "+one);
+			
 			if(one=="Profile Updated:")
 			{Accounts[ProfID]['Profupdatedspan']=myspan1;}
 			
@@ -196,6 +197,12 @@ function setupProfilePage()
 			myspan.html(Accounts[ProfID][two]);
 			if(MyID==ProfID)
 			{
+			if (texteditable==4)
+			{
+			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
+			showSelect(block2,["Male","Female"],["Male","Female"]);	
+				
+			}
 			if (texteditable==1)
 			{
 			

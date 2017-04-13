@@ -394,6 +394,18 @@ function showDropDown(usracc)
   
   
 }
+
+function showSelect(elem,optionnames,optionvalues)
+{
+	var selectbloke=$("<select></select>");
+	for (iter in options)
+	{
+	selectbloke.append("<option value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</option>");	
+	}
+	elem.append(selectbloke);
+	return selectbloke;
+}
+
 function showStripedTable(elem)
 {
 	//var table=$(" <table class='table table-striped'></table>");
