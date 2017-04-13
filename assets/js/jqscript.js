@@ -199,7 +199,7 @@ function setupProfilePage()
 			{
 			if (texteditable==3)
 				{
-				var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
+				var block2=addFlexDiv(tbl,two+"edit","row","wrap");
 				block2.append("<span>Edit:</span>");
 				var days=[];
 				for (i = 0; i < 32; i++) {
