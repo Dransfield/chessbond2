@@ -491,7 +491,7 @@ function showNavbar(elem,usracc)
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
-			<img style="background-color:white;max-width:50px;height:50px; "
+			<img style="background-color:white;width:50px;height:50px; "
 					src="/knight50.png">
 			</img> 
 					
