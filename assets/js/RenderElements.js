@@ -418,6 +418,12 @@ function showTextwithInput(elem,words,elemTochange)
 		{
 		Accounts[ProfID][words]="";	
 		}
+		console.log(event.key);
+		if (event.key=='BackSpace')
+		{
+		Accounts[ProfID][words]=Accounts[ProfID][words.length-2];
+			
+		}
 		if(event.key.length==1)
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
