@@ -173,6 +173,7 @@ function setupProfilePage()
 			function addvarpair(tbl,one,two,texteditable)
 			{
 			var block=addFlexDiv(tbl,two,"row","nowrap");
+			block.css("padding","10px");
 			block.append(one);
 				
 			}
