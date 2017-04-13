@@ -397,7 +397,7 @@ function showDropDown(usracc)
 function showStripedTable(elem)
 {
 	var table=$(" <table class='table table-striped'></table>");
-    var head=$("<thead><tr><th></th><th></th></tr></thead>");
+    var head=$("<thead></thead>");
 	var body=$("<tbody></tbody>");
 	
 	table.append(head);
