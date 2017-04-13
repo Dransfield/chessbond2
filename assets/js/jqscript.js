@@ -120,15 +120,15 @@ function setupProfilePage()
 			showHeader(elem,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
 			showNewGameControls(elem);
 			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
-			var tbl=addFlexDiv(leftright,"rightcol","column");
+			//var tbl=addFlexDiv(leftright,"rightcol","column");
 			
-			showHeader(tbl,2,"Who am I?");
+			
 			//var tbl=showStripedTable(elem);
 			
 			//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
-			var tblLeft=addFlexDiv(tbl,'tblLeft',"column","wrap")
-			var tblRight=addFlexDiv(tbl,'tblRight',"column","wrap")
-			
+			var tblLeft=addFlexDiv(elem,'tblLeft',"column","wrap")
+			var tblRight=addFlexDiv(elem,'tblRight',"column","wrap")
+			showHeader(tblLeft,2,"Who am I?");
 			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
 			'Number of times logged in:','Gender:','Date of birth:','Current City:',
 			'Fide Title:<br>(Self Claimed:)','Valid Fide ID:','Fide Ratings:',
