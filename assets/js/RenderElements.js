@@ -491,7 +491,7 @@ function showNavbar(elem,usracc)
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
-			<span class="mynavbar">
+			<span>
 				<span>
 				<!-- This is the brand on the left-hand side. -->
 					<span><img style="background-color:white;max-width:50px;height:50px; "
