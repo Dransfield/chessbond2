@@ -197,6 +197,26 @@ function setupProfilePage()
 			myspan.html(Accounts[ProfID][two]);
 			if(MyID==ProfID)
 			{
+			if (texteditable==3)
+				{
+				var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
+				block2.append("<span>Edit:</span>");
+				var days=[];
+				for (i = 0; i < 32; i++) {
+					days[i]=i;
+				} 
+				var months=["January","February","March","April","May"
+				"June","July","August","September","October","November",
+				"December"];
+				var years=[];
+					for (i = 1900; i < new Date().getYear(); i++) {
+					years[i]=i;
+				} 
+				var sel=showSelect(block2,days,days,"Choose Day");	
+				var sel=showSelect(block2,months,months,"Choose Month");	
+				var sel=showSelect(block2,years,years,"Choose Year");	
+				
+				}
 			if (texteditable==4)
 			{
 			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
