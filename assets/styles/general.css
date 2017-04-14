@@ -31,14 +31,14 @@ bottom: -4px;
   
   .bigCyanButton{
 color:white;
-background-color:cyan;
+background-color: #d9edf7;
 font-size:2em;
 text-align:center;
 border-radius: 15px;
 }
 .bigGreenButton{
 color:white;
-background-color:#73AD21;
+background-color: #dff0d8;
 font-size:2em;
 border-radius: 15px;
 text-align:center;
