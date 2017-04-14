@@ -28,12 +28,8 @@ bottom: -4px;
     justify-content:space-between;
     align-items:center
   }
-  /* Small screens */
-@media all and (max-width: 500px) {
-  .mynavbar {
-  flex-direction: column;
-}
-.bigCyanButton{
+  
+  .bigCyanButton{
 color:white;
 background-color:cyan;
 font-size:3em;
@@ -43,3 +39,9 @@ color:white;
 background-color:green;
 font-size:3em;
 }
+  /* Small screens */
+@media all and (max-width: 500px) {
+  .mynavbar {
+  flex-direction: column;
+}
+
