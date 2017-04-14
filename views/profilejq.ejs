@@ -37,8 +37,17 @@
     <script>var MyID=''</script>
 			
     <%}%>
-    <script>var ProfID='<%-req.param('ID')%>'</script>
     
+     <% if (req.param('ID')) { %>
+	
+    <script>var ProfID='<%-req.param('ID')%>'</script>
+    <% }else{ %>
+	<script>var ProfID=MyID</script>
+    	
+			
+    <%}%>
+    
+		
     
     
 <%- include partials/footer.ejs %>
