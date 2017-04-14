@@ -212,9 +212,32 @@ function setupProfilePage()
 					for (i = 1900; i < new Date().getYear(); i++) {
 					years[i]=i;
 				} 
-				var sel=showSelect(block2,days,days,"Choose Day");	
-				var sel=showSelect(block2,months,months,"Choose Month");	
-				var sel=showSelect(block2,years,years,"Choose Year");	
+				var daysel=showSelect(block2,days,days,"Choose Day");	
+				var monthsel=showSelect(block2,months,months,"Choose Month");	
+				var yearsel=showSelect(block2,years,years,"Choose Year");	
+				
+				daysel.change(function()
+				{
+				Accounts[ProfID].BirthDay=daysel.val();	
+				updateAccountInfo("BirthDay");
+				updatebirth();
+				}
+				monthsel.change(function()
+				{
+				Accounts[ProfID].BirthMonth=monthsel.val();	
+				updateAccountInfo("BirthMonth");
+				updatebirth();
+				}
+				yearsel.change(function()
+				{
+				Accounts[ProfID].BirthYear=yearsel.val();	
+				updateAccountInfo("BirthYear");
+				updatebirth();
+				}
+				function updatebirth()
+				{
+				myspan.html(Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear);	
+				}
 				
 				}
 			if (texteditable==4)
