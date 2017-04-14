@@ -247,7 +247,7 @@ function setupProfilePage()
 					fidesel.clear();
 					fideTitles=["WGM","WIM","WFM","WCM"];
 					for(witer in fideTitles)
-					fidesel.append("<select value='"+fideTitles[witer]"'>"+fideTitles[witer]+"</select>");
+					fidesel.append("<select value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</select>");
 				
 				}
 				
