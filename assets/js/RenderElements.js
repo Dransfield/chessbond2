@@ -762,9 +762,9 @@ function showNewGameControls(elem){
 	
 elem.append(`	
 			
-			<a  id="playAgainstAIButton" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			<a  id="playAgainstAIButton" href="/playvsai" class="chessBtn">Play Chess against the AI!</a>
 		
-			<button  id="playAgainstPersonButton" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			<button  id="playAgainstPersonButton" type="submit" class="chessBtn">Create a New vs Human Game</button>
 			
 		`);
 		
