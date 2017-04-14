@@ -215,7 +215,7 @@ function setupProfilePage()
 				{
 				var block2=addFlexDiv(tbl,two+"edit","row","wrap");
 				block2.append("<span>Edit:</span>");
-				var fidesel=showSelect(block2,titles,titles,"Choose Fide");	
+				var fidesel=showSelect(block2,fideTitles,fideTitles,"Choose Fide");	
 				fidesel.change(function()
 				{
 				Accounts[ProfID].FideTitle=fidesel.val();	
