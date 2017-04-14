@@ -487,7 +487,7 @@ function showTextwithInput(elem,words,elemTochange)
 	}
 		});
 }
-function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
+function showAnchorButton(elem,words,linkto,btnstyle="bigCyanButton"){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
 	//elem.append("<a href='"+linkto+"' style='width:100%' class='btn btn-lg "+btnstyle+"'  id='button"+ButtonNumber+"'>"+words+"</a>");
@@ -762,9 +762,9 @@ function showNewGameControls(elem){
 	
 elem.append(`	
 			
-			<a  id="playAgainstAIButton" href="/playvsai" class="chessBtnGrnBig">Play Chess against the AI!</a>
+			<a  id="playAgainstAIButton" href="/playvsai" class="bigGreenButton">Play Chess against the AI!</a>
 		
-			<button  id="playAgainstPersonButton" type="submit" class="chessBtnGrnBig">Create a New vs Human Game</button>
+			<button  id="playAgainstPersonButton" type="submit" class="bigGreenButton">Create a New vs Human Game</button>
 			
 		`);
 		

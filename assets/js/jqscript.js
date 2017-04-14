@@ -119,7 +119,7 @@ function setupProfilePage()
 			showHeader(elem,2,"Highest Difficulty Level Beaten:"+Accounts[ProfID].DifficultyLevelBeaten);
 			showHeader(elem,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
 			showNewGameControls(elem);
-			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"btn-info")
+			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"bigCyanButton")
 			//var tbl=addFlexDiv(leftright,"rightcol","column");
 			
 			
