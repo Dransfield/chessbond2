@@ -490,7 +490,7 @@ function showTextwithInput(elem,words,elemTochange)
 function showAnchorButton(elem,words,linkto,btnstyle="btn-success"){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
-	elem.append("<a href='"+linkto+"' class='btn btn-lg "+btnstyle+"'  id='button"+ButtonNumber+"'>"+words+"</a>");
+	elem.append("<a href='"+linkto+"' style='width:100%' class='btn btn-lg "+btnstyle+"'  id='button"+ButtonNumber+"'>"+words+"</a>");
 	
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
