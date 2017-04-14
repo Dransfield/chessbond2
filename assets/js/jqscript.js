@@ -152,7 +152,7 @@ function setupProfilePage()
 			'MyLiveChessTournamentsHistory','SkillsSports','VictorySpeech','NobelSpeech'
 			];
 			var pairarraythree=[0,0,0,0,4,3,2,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
-			if(Accounts[ProfID].Birthday)
+			if(Accounts[ProfID].BirthDay)
 			{
 			Accounts[ProfID].BirthDayTotal=Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear;
 			}
