@@ -376,6 +376,8 @@ function setupProfilePage()
 			
 			}
 			
+			showSelect(leftright,countries,countries,"Choose your country");
+			
 			});
 			
 		});
