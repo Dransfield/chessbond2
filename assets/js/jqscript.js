@@ -151,7 +151,21 @@ function setupProfilePage()
 			'FavoriteQuoteWriter','ProChessTournaments','MyBestChessPerformance',
 			'MyLiveChessTournamentsHistory','SkillsSports','VictorySpeech','NobelSpeech'
 			];
-			var pairarraythree=[0,0,0,0,4,3,2,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+			
+			
+				var fideTitles=["GM","IM","FM","CM"];
+			var fideSpan;
+			var fideDiv;
+			if(Accounts[ProfID].Gender)
+			{
+			if (Accounts[ProfID].Gender=="Female")
+			{
+				fideTitles=["WGM","WIM","WFM","WCM"];
+			}	
+				
+			}
+			
+			var pairarraythree=[0,0,0,0,4,3,2,5,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 			if(Accounts[ProfID].BirthDay)
 			{
 			Accounts[ProfID].BirthDayTotal=Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear;
@@ -197,6 +211,18 @@ function setupProfilePage()
 			myspan.html(Accounts[ProfID][two]);
 			if(MyID==ProfID)
 			{
+			if (texteditable==5)
+				{
+				var block2=addFlexDiv(tbl,two+"edit","row","wrap");
+				block2.append("<span>Edit:</span>");
+				var fidesel=showSelect(block2,titles,titles,"Choose Fide");	
+				fidesel.change(function()
+				{
+				Accounts[ProfID].FideTitle=fidesel.val();	
+				updateAccountInfo("FideTitle");
+				
+				});
+				}
 			if (texteditable==3)
 				{
 				var block2=addFlexDiv(tbl,two+"edit","row","wrap");
@@ -252,6 +278,8 @@ function setupProfilePage()
 				myspan.html(sel.val());
 				Accounts[ProfID].Gender=sel.val();
 				updateAccountInfo("Gender");
+				
+				
 				//console.log(e.target.selectedOptions.value);
 				
 			});
