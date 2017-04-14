@@ -156,6 +156,7 @@ function setupProfilePage()
 				var fideTitles=["GM","IM","FM","CM"];
 			var fideSpan;
 			var fideDiv;
+			var fidesel;
 			if(Accounts[ProfID].Gender)
 			{
 			if (Accounts[ProfID].Gender=="Female")
@@ -213,16 +214,53 @@ function setupProfilePage()
 			{
 			if (texteditable==5)
 				{
+					fideSpan=myspan;
 				var block2=addFlexDiv(tbl,two+"edit","row","wrap");
 				block2.append("<span>Edit:</span>");
-				var fidesel=showSelect(block2,fideTitles,fideTitles,"Choose Fide");	
+				fidesel=showSelect(block2,fideTitles,fideTitles,"Choose Fide");	
 				fidesel.change(function()
 				{
 				Accounts[ProfID].FideTitle=fidesel.val();	
 				updateAccountInfo("FideTitle");
-				
+				myspan.html(fidesel.val());
 				});
 				}
+				
+			if (texteditable==4)
+			{
+			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
+			block2.append("<span>Edit:</span>");
+			var sel=showSelect(block2,["Male","Female"],["Male","Female"],"Choose Gender");	
+			sel.change(function(e)
+			{
+				console.log(JSON.stringify(sel));
+				myspan.html(sel.val());
+				Accounts[ProfID].Gender=sel.val();
+				updateAccountInfo("Gender");
+				
+				if (Accounts[ProfID].Gender=="Female")
+				{
+					if(!Accounts[ProfID].FideTitle.startsWith("W"))
+					{
+					Accounts[ProfID].FideTitle="W"+Accounts[ProfID].FideTitle;	
+					}
+					fidesel.clear();
+					fideTitles=["WGM","WIM","WFM","WCM"];
+					for(witer in fideTitles)
+					fidesel.append("<select value='"+fideTitles[witer]"'>"+fideTitles[witer]+"</select>");
+				
+				}
+				
+				
+				//console.log(e.target.selectedOptions.value);
+				
+			});
+			
+			if (bckgrd==0)
+			{block2.css("background-color","#e0e0eb");}
+			
+			}
+			
 			if (texteditable==3)
 				{
 				var block2=addFlexDiv(tbl,two+"edit","row","wrap");
@@ -266,28 +304,7 @@ function setupProfilePage()
 				}
 				
 				}
-			if (texteditable==4)
-			{
-			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
-			block2.append("<span>Edit:</span>");
-			var sel=showSelect(block2,["Male","Female"],["Male","Female"],"Choose Gender");	
-			sel.change(function(e)
-			{
-				
-				console.log(JSON.stringify(sel));
-				myspan.html(sel.val());
-				Accounts[ProfID].Gender=sel.val();
-				updateAccountInfo("Gender");
-				
-				
-				//console.log(e.target.selectedOptions.value);
-				
-			});
 			
-			if (bckgrd==0)
-			{block2.css("background-color","#e0e0eb");}
-			
-			}
 			
 			if (texteditable==1)
 			{
