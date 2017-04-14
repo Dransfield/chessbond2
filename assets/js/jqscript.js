@@ -245,6 +245,7 @@ function setupProfilePage()
 					Accounts[ProfID].FideTitle="W"+Accounts[ProfID].FideTitle;	
 					}
 					fidesel.empty();
+					fidespan.html(Accounts[ProfID].FideTitle);
 					fideTitles=["WGM","WIM","WFM","WCM"];
 					for(witer in fideTitles)
 					{
@@ -258,10 +259,11 @@ function setupProfilePage()
 					Accounts[ProfID].FideTitle=Accounts[ProfID].FideTitle.substring(1);	
 					}
 					fidesel.empty();
+					fidespan.html(Accounts[ProfID].FideTitle);
 					fideTitles=["GM","IM","FM","CM"];
 					for(witer in fideTitles)
 					{
-						console.log("appending "+fideTitles[witer]);
+						
 					fidesel.append("<option value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</option>");
 					}
 				}
