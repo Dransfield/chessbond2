@@ -106,7 +106,7 @@ function setupProfilePage()
 				console.log("add flexdiv");
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			
-			var elem=addFlexDiv(leftright,"leftcol","column");
+			var elem=addFlexDiv(leftright,"leftcol","column","wrap");
 			elem.css("width","50%");
 			showUsernameJumbo(elem,ProfID);
 			var divv=addDiv(elem);
