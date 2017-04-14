@@ -33,3 +33,9 @@ bottom: -4px;
   .mynavbar {
   flex-direction: column;
 }
+
+.chessBtnGrnBig{
+color:white;
+background-color:green;
+font-size:3em;
+}
