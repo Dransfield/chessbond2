@@ -34,11 +34,13 @@ color:white;
 background-color:cyan;
 font-size:2em;
 text-align:center;
+border-radius: 25px;
 }
 .bigGreenButton{
 color:white;
-background-color:green;
+background-color:#73AD21;
 font-size:2em;
+border-radius: 25px;
 }
   /* Small screens */
 @media all and (max-width: 500px) {
