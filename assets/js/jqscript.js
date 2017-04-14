@@ -378,16 +378,24 @@ function setupProfilePage()
 			
 			
 			var flagsel=showSelect(leftright,countries,countries,"Choose your country");
-			var flagimage=$("<img id='flagimage' src=''></img>");
+			var flagimage=$("<img data-toggle='tooltip' title='' id='flagimage' src=''></img>");
 			leftright.append(flagimage);
+			
+			if(Accounts[ProfID]['Country'])
+			{
+			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
+				
+				
+			}
 			
 			flagsel.change(
 			function()
 			{
 				console.log(countryToFilename(flagsel.val()));
 				console.log(flagsel.val());
-			flagimage.attr("src",countryToFilename(flagsel.val()));
-				
+			flagimage.attr("src","/images/flatflags/"+countryToFilename(flagsel.val())+".png");
+				Accounts[ProfID]['Country']=flagsel.val();
+				updateAccountInfo('Country');
 			}
 			
 			)

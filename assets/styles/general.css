@@ -5,6 +5,15 @@ height:100px;
 position:relative;
 z-index: 1;
 }
+.countryflag
+{
+
+color:#AAAAAA;
+background-color: #AAAAAA;
+padding: 2px;
+height:40px; 
+
+}
 .smallprofilepic
 {
 width:25px;
