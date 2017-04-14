@@ -678,9 +678,9 @@ function showRecentGames(elem,games)
 	showHeader(span,"Recent Games");
 	
 	var whiteFlex=addFlexDiv(span,"whitegames","column",'nowrap');
-	whiteflex.append("White");
+	whiteflex.append("<p>White</p>");
 	var blackFlex=addFlexDiv(span,"whitegames","column",'nowrap');
-	blackflex.append("Black");		
+	blackflex.append("<p>Black</p>");		
 	  
            /*       <th>Result</th>
                   <th>Time</th>

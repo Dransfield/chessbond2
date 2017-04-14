@@ -400,7 +400,7 @@ function setupProfilePage()
 			
 			)
 			
-			
+			var games=3;
 			showRecentGames(leftright,games);
 			
 			});
