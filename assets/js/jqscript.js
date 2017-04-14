@@ -261,6 +261,7 @@ function setupProfilePage()
 					fideTitles=["GM","IM","FM","CM"];
 					for(witer in fideTitles)
 					{
+						console.log("appending "+fideTitles[witer]);
 					fidesel.append("<select value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</select>");
 					}
 				}
