@@ -221,19 +221,19 @@ function setupProfilePage()
 				Accounts[ProfID].BirthDay=daysel.val();	
 				updateAccountInfo("BirthDay");
 				updatebirth();
-				}
+				});
 				monthsel.change(function()
 				{
 				Accounts[ProfID].BirthMonth=monthsel.val();	
 				updateAccountInfo("BirthMonth");
 				updatebirth();
-				}
+				});
 				yearsel.change(function()
 				{
 				Accounts[ProfID].BirthYear=yearsel.val();	
 				updateAccountInfo("BirthYear");
 				updatebirth();
-				}
+				});
 				function updatebirth()
 				{
 				myspan.html(Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear);	
