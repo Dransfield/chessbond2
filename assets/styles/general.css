@@ -29,7 +29,7 @@ bottom: -4px;
     align-items:center
   }
   
-.bigButton{
+.KbigButton{
 color:white;
 font-size:2em;
 border-radius: 9px;
@@ -37,12 +37,12 @@ text-align:center;
 padding:5px;
 }
 
-.greenElement
+.KgreenElement
 {
 background: #5cb85c;
 
 }
-cyanElement
+.KcyanElement
 {
 background-color: #5bc0de;
 
