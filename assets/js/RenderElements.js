@@ -670,6 +670,64 @@ $("#attachnavdropdown").mouseleave(function()
 	}
 	*/
 }
+function showRecentGames(elem,games)
+{
+	var flexy=addFlexDiv(elem,"recentgames","row",'wrap');
+	var span=addSpan(flexy,id);
+	showHeader(span,"Recent Games");
+	
+	var whiteFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	whiteflex.append("White");
+	var blackFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	blackflex.append("Black");		
+	  
+           /*       <th>Result</th>
+                  <th>Time</th>
+                  <th>Moves</th>
+                  <th>Date</th>
+                  <th>Action</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+		
+				  
+            <tr ng-repeat="game in GameInfo track by $index">
+		
+		<td >
+		<%- include('partials/avatar', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+		({{game.WhiteELO}})
+		</td>
+			
+
+		
+		<td>
+		<%- include('partials/avatar', {userid: "game.BlackPlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.BlackPlayerID",Myid:Myid}); %>	
+		({{game.BlackELO}})
+		
+		</td>
+		
+			<td>{{game.res}}</td>
+			<td>{{game.GameCategory}}</td>
+			<td>{{game.moves}}</td>
+			<td>{{game.date}}</td>
+			<td><a href="/humanvshuman/{{game.id}}" target="_blank">Link</a></td>
+			
+			
+			<tr>
+			</tr>
+            </tbody>
+            </table>
+            	<div class="btn btn-lg btn-success" ng-show="chessgameskip>0" ng-click="GetOlderChessGames(LookedatUser.id)"><</div>
+				<div class="btn btn-lg btn-success" ng-click="GetMoreChessGames(LookedatUser.id)">></div>
+
+          </div>
+          </span>
+          */	
+}
 
 function showJoinedGameList(elem,games)
 {
