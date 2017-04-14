@@ -31,16 +31,17 @@ bottom: -4px;
   
   .bigCyanButton{
 color:white;
-background-color: #d9edf7;
+background-color: #5bc0de;
+    border-radius: 9px;
 font-size:2em;
 text-align:center;
-border-radius: 15px;
+
 }
 .bigGreenButton{
 color:white;
 background: #5cb85c;
 font-size:2em;
-border-radius: 15px;
+border-radius: 9px;
 text-align:center;
 }
   /* Small screens */
