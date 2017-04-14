@@ -29,21 +29,25 @@ bottom: -4px;
     align-items:center
   }
   
-  .bigCyanButton{
+.bigButton{
 color:white;
-background-color: #5bc0de;
-    border-radius: 9px;
-font-size:2em;
-text-align:center;
-
-}
-.bigGreenButton{
-color:white;
-background: #5cb85c;
 font-size:2em;
 border-radius: 9px;
 text-align:center;
+padding:5px;
 }
+
+.greenElement
+{
+background: #5cb85c;
+
+}
+cyanElement
+{
+background-color: #5bc0de;
+
+}
+
   /* Small screens */
 @media all and (max-width: 500px) {
   .mynavbar {
