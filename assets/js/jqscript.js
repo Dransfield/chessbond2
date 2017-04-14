@@ -244,7 +244,7 @@ function setupProfilePage()
 					{
 					Accounts[ProfID].FideTitle="W"+Accounts[ProfID].FideTitle;	
 					}
-					fidesel.clear();
+					fidesel.empty();
 					fideTitles=["WGM","WIM","WFM","WCM"];
 					for(witer in fideTitles)
 					fidesel.append("<select value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</select>");
