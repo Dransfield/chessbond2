@@ -247,10 +247,23 @@ function setupProfilePage()
 					fidesel.empty();
 					fideTitles=["WGM","WIM","WFM","WCM"];
 					for(witer in fideTitles)
+					{
 					fidesel.append("<select value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</select>");
-				
+					}
 				}
-				
+				if (Accounts[ProfID].Gender=="Male")
+				{
+					if(Accounts[ProfID].FideTitle.startsWith("W"))
+					{
+					Accounts[ProfID].FideTitle=Accounts[ProfID].FideTitle.substring(1);	
+					}
+					fidesel.empty();
+					fideTitles=["GM","IM","FM","CM"];
+					for(witer in fideTitles)
+					{
+					fidesel.append("<select value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</select>");
+					}
+				}
 				
 				//console.log(e.target.selectedOptions.value);
 				
