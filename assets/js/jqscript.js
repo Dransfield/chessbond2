@@ -400,6 +400,9 @@ function setupProfilePage()
 			
 			)
 			
+			
+			showRecentGames(leftright,games);
+			
 			});
 			
 		});
