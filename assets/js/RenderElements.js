@@ -1205,7 +1205,7 @@ var countries=[
 	,'Zimbabwe'
 ];
 
-	var countryTofilename=function(country)
+	var countryToFilename=function(country)
 {
 	if (country){
 	//return country.replace(/ /gi, "_");

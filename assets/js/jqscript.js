@@ -376,7 +376,19 @@ function setupProfilePage()
 			
 			}
 			
-			showSelect(leftright,countries,countries,"Choose your country");
+			
+			var flagsel=showSelect(leftright,countries,countries,"Choose your country");
+			var flagimage=$("<img id='flagimage' src=''></img>");
+			leftright.append(flagimage);
+			
+			flagsel.change(
+			function()
+			{
+			flagimage.attr("src",countryToFilename(flagsel.val());
+				
+			}
+			
+			)
 			
 			});
 			
