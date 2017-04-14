@@ -209,7 +209,7 @@ function setupProfilePage()
 				"June","July","August","September","October","November",
 				"December"];
 				var years=[];
-					for (i = 1900; i < new Date().getYear(); i++) {
+					for (i = 1900; i < new Date().getFullYear(); i++) {
 					years[i]=i;
 				} 
 				var daysel=showSelect(block2,days,days,"Choose Day");	
