@@ -384,7 +384,7 @@ function setupProfilePage()
 			flagsel.change(
 			function()
 			{
-			flagimage.attr("src",countryToFilename(flagsel.val());
+			flagimage.attr("src",countryToFilename(flagsel.val()));
 				
 			}
 			
