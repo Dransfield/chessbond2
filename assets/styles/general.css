@@ -32,12 +32,13 @@ bottom: -4px;
   .bigCyanButton{
 color:white;
 background-color:cyan;
-font-size:3em;
+font-size:2em;
+text-align:center;
 }
 .bigGreenButton{
 color:white;
 background-color:green;
-font-size:3em;
+font-size:2em;
 }
   /* Small screens */
 @media all and (max-width: 500px) {
