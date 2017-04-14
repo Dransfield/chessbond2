@@ -674,7 +674,7 @@ function showRecentGames(elem,games)
 {
 	console.log("showrecent games");
 	var flexy=addFlexDiv(elem,"recentgames","row",'wrap');
-	var span=addSpan(flexy,id);
+	var span=addSpan(flexy,'id');
 	showHeader(span,"Recent Games");
 	
 	var whiteFlex=addFlexDiv(span,"whitegames","column",'nowrap');
