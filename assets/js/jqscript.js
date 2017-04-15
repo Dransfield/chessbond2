@@ -333,7 +333,7 @@ function setupProfilePage()
 				var inp=showInput(block2);	
 				inp.keydown(function(event)
 				{
-				console.log("changed text input");
+				console.log("changed text input"+inp.val());
 				getCities(inp.val()).then(values=>function()
 				{
 					console.log("promise resolved");
@@ -1010,7 +1010,7 @@ function getCities(TypedCity)
 ((resolve, reject) => {
 io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
 	function (resData,jwres){
-		//console.log(resData);
+		console.log(resData);
 		//console.log($scope.TypedCity);
 		for (x in resData)
 		{
