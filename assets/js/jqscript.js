@@ -329,7 +329,7 @@ function setupProfilePage()
 				
 				if (bckgrd==0)
 				{block2.css("background-color","#e0e0eb");}
-				var resultSpan=showSpan(block2);
+				var resultSpan=addSpan(block2);
 				var inp=showInput(block2);	
 				inp.keydown(function(event)
 				{
@@ -337,7 +337,7 @@ function setupProfilePage()
 				getCities($(this).val()+event.key).then(values=>{
 					console.log("promise resolved");
 				console.log(JSON.stringify(values));
-				var myResspan=showSpan(block2);
+				var myResspan=addSpan(block2);
 				for (myiter in values)
 				{
 				myResspan.append(values[iter].city);
