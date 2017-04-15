@@ -321,8 +321,22 @@ function setupProfilePage()
 				myspan.html(Accounts[ProfID].BirthDay+"/"+Accounts[ProfID].BirthMonth+"/"+Accounts[ProfID].BirthYear);	
 				}
 				
-				}
+			}
+			if (texteditable==2)
+				{
+				CurrentCity
+				var block2=addFlexDiv(tbl,two+"city","row","nowrap");
+				
+				if (bckgrd==0)
+				{block2.css("background-color","#e0e0eb");}
 			
+				var inp=showInput(block2);	
+				inp.change(function()
+				{
+				myspan.html(getCities(TypedCity));
+				}
+					
+				}
 			
 			if (texteditable==1)
 			{
@@ -339,6 +353,7 @@ function setupProfilePage()
 			
 			showTextwithInput(block2,two,myspan);	
 			}
+			
 			}
 			}
 			/*
@@ -982,6 +997,30 @@ function addPrivatePromises()
 	
 }
 
+function getCities(TypedCity)
+{
+	var cg = new Promise
+((resolve, reject) => {
+io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
+	function (resData,jwres){
+		//console.log(resData);
+		//console.log($scope.TypedCity);
+		for (x in resData)
+		{
+		
+		resData[x].city=capitalizeFirstLetter(resData[x].city);	
+		}
+		
+			FoundCities=resData;
+	
+		
+		});
+		});	
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function addFollowPromises()
 {

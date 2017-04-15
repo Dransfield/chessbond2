@@ -463,6 +463,13 @@ function UpdateTypedText(words,elemTochange)
 		
 }
 
+function showInput(elem)
+{
+	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	elem.append(myinput);
+return myinput;	
+}
+
 function showTextwithInput(elem,words,elemTochange)
 {
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
