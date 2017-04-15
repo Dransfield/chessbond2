@@ -324,9 +324,9 @@ function setupProfilePage()
 			}
 			if (texteditable==2)
 				{
-				CurrentCity
+			
 				var block2=addFlexDiv(tbl,two+"city","row","nowrap");
-				
+				block2.append("<span>Edit:</span>");
 				if (bckgrd==0)
 				{block2.css("background-color","#e0e0eb");}
 			
