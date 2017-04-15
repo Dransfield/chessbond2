@@ -331,7 +331,7 @@ function setupProfilePage()
 				{block2.css("background-color","#e0e0eb");}
 			
 				var inp=showInput(block2);	
-				inp.change(function()
+				inp.keydown(function(event)
 				{
 				console.log("changed text input");
 				getCities(inp.val()).then(values=>function()
