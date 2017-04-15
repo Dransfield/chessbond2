@@ -336,7 +336,11 @@ function setupProfilePage()
 				console.log("changed text input"+inp.val());
 				getCities(inp.val()).then(values=>{
 					console.log("promise resolved");
-				myspan.html(values);
+				console.log(JSON.stringify(values));
+				for (myiter in values)
+				{
+				myspan.append(values[iter]);
+				}
 				
 				});
 				
