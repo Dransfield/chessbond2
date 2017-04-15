@@ -691,7 +691,7 @@ function showRecentGames(elem,games)
 	dateFlex.append("<p>Date</p>");  
    var actionFlex=addFlexDiv(span,"whitegames","column",'nowrap');
 	actionFlex.append("<p>Action</p>");  
-   
+   /*
 				
 		
 				  
