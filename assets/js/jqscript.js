@@ -340,7 +340,7 @@ function setupProfilePage()
 				var myResspan=addSpan(block2);
 				for (myiter in values)
 				{
-				myResspan.append(values[iter].city);
+				myResspan.append(values[myiter].city);
 				}
 				resultSpan.empty();
 				resultSpan.append(myResspan);
