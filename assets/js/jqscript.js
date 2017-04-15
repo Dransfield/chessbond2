@@ -334,8 +334,7 @@ function setupProfilePage()
 				inp.keydown(function(event)
 				{
 				console.log("changed text input"+inp.val());
-				getCities(inp.val()).then(values=>function()
-				{
+				getCities(inp.val()).then(values=>{
 					console.log("promise resolved");
 				myspan.html(values);
 				
