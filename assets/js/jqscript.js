@@ -333,10 +333,10 @@ function setupProfilePage()
 				var inp=showInput(block2);	
 				inp.change(function()
 				{
-				
-				getCities(TypedCity).then(values=>function()
+				console.log("changed text input");
+				getCities(inp.val()).then(values=>function()
 				{
-					
+					console.log("promise resolved");
 				myspan.html(values);
 				
 				});
