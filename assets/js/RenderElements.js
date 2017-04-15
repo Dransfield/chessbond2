@@ -675,22 +675,23 @@ function showRecentGames(elem,games)
 	console.log("showrecent games");
 	var flexy=addFlexDiv(elem,"recentgames","row",'wrap');
 	var span=addSpan(flexy,'id');
-	showHeader(span,"Recent Games");
+	showHeader(span,2,"Recent Games");
 	
 	var whiteFlex=addFlexDiv(span,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
 	var blackFlex=addFlexDiv(span,"whitegames","column",'nowrap');
 	blackFlex.append("<p>Black</p>");		
-	  
-           /*       <th>Result</th>
-                  <th>Time</th>
-                  <th>Moves</th>
-                  <th>Date</th>
-                  <th>Action</th>
-				<!--HEADERS OF TABLE-->
-                </tr>
-           </thead>
-           <tbody>
+	var resultFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	resultFlex.append("<p>Result</p>");  
+   var timeFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	timeFlex.append("<p>Time</p>");  
+   var movesFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	movesFlex.append("<p>Moves</p>");  
+   var dateFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	dateFlex.append("<p>Date</p>");  
+   var actionFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	actionFlex.append("<p>Action</p>");  
+   
 				
 		
 				  
