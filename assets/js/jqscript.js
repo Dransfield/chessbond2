@@ -326,14 +326,21 @@ function setupProfilePage()
 				{
 			
 				var block2=addFlexDiv(tbl,two+"city","row","nowrap");
-				block2.append("<span>Edit:</span>");
+				
 				if (bckgrd==0)
 				{block2.css("background-color","#e0e0eb");}
 			
 				var inp=showInput(block2);	
 				inp.change(function()
 				{
-				myspan.html(getCities(TypedCity));
+				
+				getCities(TypedCity).then(values=>function()
+				{
+					
+				myspan.html(values);
+				
+				}
+				
 				});
 					
 				}
@@ -1012,10 +1019,11 @@ io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
 		}
 		
 			FoundCities=resData;
-	
+		resolve(resData);
 		
 		});
 		});	
+		return cg;
 }
 
 function capitalizeFirstLetter(string) {
