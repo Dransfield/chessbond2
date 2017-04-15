@@ -1009,6 +1009,7 @@ function addPrivatePromises()
 
 function getCities(TypedCity)
 {
+	console.log("TypedCity "+TypedCity);
 	var cg = new Promise
 ((resolve, reject) => {
 io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
