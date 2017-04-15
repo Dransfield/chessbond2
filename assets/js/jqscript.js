@@ -334,7 +334,7 @@ function setupProfilePage()
 				inp.keydown(function(event)
 				{
 				console.log("changed text input"+$(this).val());
-				getCities($(this)).then(values=>{
+				getCities($(this).val()).then(values=>{
 					console.log("promise resolved");
 				console.log(JSON.stringify(values));
 				for (myiter in values)
