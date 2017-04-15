@@ -329,18 +329,21 @@ function setupProfilePage()
 				
 				if (bckgrd==0)
 				{block2.css("background-color","#e0e0eb");}
-			
+				var resultSpan=showSpan(block2);
 				var inp=showInput(block2);	
 				inp.keydown(function(event)
 				{
-				console.log("changed text input"+$(this).val());
-				getCities($(this).val()).then(values=>{
+				console.log("changed text input"+$(this).val()+event.key);
+				getCities($(this).val()+event.key).then(values=>{
 					console.log("promise resolved");
 				console.log(JSON.stringify(values));
+				var myResspan=showSpan(block2);
 				for (myiter in values)
 				{
-				myspan.append(values[iter]);
+				myResspan.append(values[iter].city);
 				}
+				resultSpan.empty();
+				resultSpan.append(myResspan);
 				
 				});
 				
