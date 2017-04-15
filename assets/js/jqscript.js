@@ -334,7 +334,7 @@ function setupProfilePage()
 				inp.change(function()
 				{
 				myspan.html(getCities(TypedCity));
-				}
+				});
 					
 				}
 			
