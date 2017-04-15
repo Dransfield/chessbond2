@@ -339,7 +339,7 @@ function setupProfilePage()
 					
 				myspan.html(values);
 				
-				}
+				});
 				
 				});
 					
