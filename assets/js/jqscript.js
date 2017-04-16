@@ -415,7 +415,7 @@ function setupProfilePage()
 			
 			
 			var flagsel=showSelect(leftright,countries,countries,"Choose your country");
-			var flagimage=$("<img data-toggle='tooltip' title='' id='flagimage' src=''></img>");
+			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
 			leftright.append(flagimage);
 			
 			if(Accounts[ProfID]['Country'])
