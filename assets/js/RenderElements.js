@@ -703,7 +703,22 @@ function showRecentGames(elem,games)
    {
 	   //console.log(iter);
 	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
-	whiteFlex.append(JoinedGames[ProfID][iter][0].Player1);   
+	if(JoinedGames[ProfID][iter][0].Player1Color=='White')
+	{
+	showUserName(whiteFlex,JoinedGames[ProfID][iter][0].Player1);   
+	showUserName(blackFlex,JoinedGames[ProfID][iter][0].Player2);   
+	
+	}
+	else
+	{
+	showUserName(blackFlex,JoinedGames[ProfID][iter][0].Player1);   
+	showUserName(whiteFlex,JoinedGames[ProfID][iter][0].Player2);   
+	
+	}
+	timeFlex.append(timeFlex,JoinedGames[ProfID][iter][0].GameCategory);
+{
+	
+}
 	//console.log(JoinedGames[ProfID][iter].Player1);
 	}
    /*
