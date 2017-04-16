@@ -705,14 +705,14 @@ function showRecentGames(elem,games)
 	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
 	if(JoinedGames[ProfID][iter][0].Player1Color=='White')
 	{
-	showUserName(whiteFlex,JoinedGames[ProfID][iter][0].Player1);   
-	showUserName(blackFlex,JoinedGames[ProfID][iter][0].Player2);   
+	showUsername(whiteFlex,JoinedGames[ProfID][iter][0].Player1);   
+	showUsername(blackFlex,JoinedGames[ProfID][iter][0].Player2);   
 	
 	}
 	else
 	{
-	showUserName(blackFlex,JoinedGames[ProfID][iter][0].Player1);   
-	showUserName(whiteFlex,JoinedGames[ProfID][iter][0].Player2);   
+	showUsername(blackFlex,JoinedGames[ProfID][iter][0].Player1);   
+	showUsername(whiteFlex,JoinedGames[ProfID][iter][0].Player2);   
 	
 	}
 	timeFlex.append(timeFlex,JoinedGames[ProfID][iter][0].GameCategory);
