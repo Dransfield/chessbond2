@@ -11,7 +11,8 @@ z-index: 1;
 color:#AAAAAA;
 background-color: #AAAAAA;
 padding: 2px;
-
+height:64px; 
+width:64px; 
 }
 .smallprofilepic
 {
