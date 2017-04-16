@@ -337,13 +337,16 @@ function setupProfilePage()
 				getCities($(this).val()+event.key).then(values=>{
 					console.log("promise resolved");
 				console.log(JSON.stringify(values));
-				var myResspan=addSpan(block2);
+				
+				var cityarr=[];
 				for (myiter in values)
 				{
-				myResspan.append(values[myiter].city);
+				cityarr.push(values[myiter].city);
 				}
-				resultSpan.empty();
-				resultSpan.append(myResspan);
+				block2.empty();
+				showSelect(block2,cityarr,cityarr,"matched cities")
+				
+				
 				
 				});
 				
