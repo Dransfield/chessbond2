@@ -590,7 +590,7 @@ var cg = new Promise
 		function (resData,jwres){
 			JoinedGames[persons[x]]={};
 			JoinedGames[persons[x]][x]=resData;
-			resolve(resData);
+			resolve(resData[0]);
 		});		
 });
 PromiseArray.push(cg);	
