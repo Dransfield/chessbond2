@@ -698,13 +698,13 @@ function showRecentGames(elem,games)
 	dateFlex.append("<p>Date</p>");  
    var actionFlex=addFlexDiv(span,"whitegames","column",'nowrap');
 	actionFlex.append("<p>Action</p>");  
-   console.log(JSON.stringify(JoinedGames[ProfID]));
+   //console.log(JSON.stringify(JoinedGames[ProfID]));
    for (iter in JoinedGames[ProfID])
    {
-	   console.log(iter);
-	   console.log(JSON.stringify(JoinedGames[ProfID][iter]));
-	whiteFlex.append(JoinedGames[ProfID][iter].Player1);   
-	console.log(JoinedGames[ProfID][iter].Player1);
+	   //console.log(iter);
+	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
+	whiteFlex.append(JoinedGames[ProfID][iter][0].Player1);   
+	//console.log(JoinedGames[ProfID][iter].Player1);
 	}
    /*
 	
