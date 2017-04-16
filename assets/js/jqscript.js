@@ -594,8 +594,9 @@ var cg = new Promise
 		});		
 });
 PromiseArray.push(cg);	
+
 }
-return PromiseArray;
+return Promise.all(PromiseArray);
 
 }
 
