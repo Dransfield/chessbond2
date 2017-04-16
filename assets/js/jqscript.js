@@ -103,6 +103,7 @@ function setupProfilePage()
 		{
 			retrievePrivatesandFollows().then(function()
 			{ 
+				retrieveGames([ProfID]).then(function(){
 				console.log("add flexdiv");
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			
@@ -415,6 +416,7 @@ function setupProfilePage()
 			
 			
 			var flagsel=showSelect(leftright,countries,countries,"Choose your country");
+			flagsel.css("height","25%");
 			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
 			leftright.append(flagimage);
 			
@@ -441,7 +443,7 @@ function setupProfilePage()
 			showRecentGames(leftright,games);
 			
 			});
-			
+		});
 		});
 		
 }
@@ -576,17 +578,23 @@ resolve();
 return cg;
 }
 
-function getChessGames()
+function retrieveGames(persons)
 {
+	var PromiseArray=[];
+	for (x in persons)
+	{
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/chessgame",{or:[{'Player1':MyID},{'Player2':MyID}],limit:30000},
+		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000},
 		function (resData,jwres){
+			JoinedGames[persons[x]][x]=resData;
 			resolve(resData);
 		});		
 });
-return cg;	
-	
+PromiseArray.push(cg);	
+}
+return PromiseArray;
+
 }
 
 function setupHomePage()
@@ -601,7 +609,7 @@ var opcg = new Promise
 });
 		
 
-Promise.all([opcg, getChessGames()]).then(values => { 
+Promise.all([opcg, retrieveGames([MyID])]).then(values => { 
 	OpenGames=values[0];
 	JoinedGames=values[1];
 	console.log("TWO NAVBARS");
