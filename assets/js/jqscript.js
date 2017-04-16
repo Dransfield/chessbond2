@@ -349,6 +349,8 @@ function setupProfilePage()
 				
 				citysel.change(function(){
 				myspan.html(citysel.val());	
+				Accounts[ProfID]['CurrentCity']=citysel.val();
+				updateAccountInfo('CurrentCity');
 				});
 				
 				
