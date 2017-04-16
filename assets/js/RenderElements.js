@@ -715,7 +715,7 @@ function showRecentGames(elem,games)
 	showUsername(whiteFlex,JoinedGames[ProfID][iter][0].Player2);   
 	
 	}
-	timeFlex.append(timeFlex,JoinedGames[ProfID][iter][0].GameCategory);
+	timeFlex.append(JoinedGames[ProfID][iter][0].GameCategory);
 {
 	
 }
