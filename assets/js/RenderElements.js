@@ -794,6 +794,7 @@ io.socket.on('newmygameevent', function (data)
 }
 
 function addJoinedGame(iter,games,myelem){
+				console.log(JSON.stringify(games[iter]));
 				myelem.append("<tr id='joinedgamerow"+games[iter].id+"'></tr>");
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep1td"+iter+"'></td>");
 				console.log("show user name in join div "+games[iter].Player1);
