@@ -343,9 +343,13 @@ function setupProfilePage()
 				{
 				cityarr.push(values[myiter].city);
 				}
-				block2.empty();
-				showSelect(block2,cityarr,cityarr,"matched cities")
+				resultSpan.empty();
+				var citysel=showSelect(resultSpan,cityarr,cityarr,"matched cities")
 				
+				
+				citysel.change(function(){
+				myspan.html(citysel.val());	
+				});
 				
 				
 				});
