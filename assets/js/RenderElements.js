@@ -701,6 +701,8 @@ function showRecentGames(elem,games)
    console.log(JSON.stringify(JoinedGames[ProfID]));
    for (iter in JoinedGames[ProfID])
    {
+	   console.log(iter);
+	   console.log(JSON.stringify(JoinedGames[ProfID][iter]));
 	whiteFlex.append(JoinedGames[ProfID][iter].Player1);   
 	console.log(JoinedGames[ProfID][iter].Player1);
 	}
