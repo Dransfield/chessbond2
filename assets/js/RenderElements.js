@@ -744,6 +744,7 @@ function showRecentGames(elem,games)
 
 function showJoinedGameList(elem,games)
 {
+	console.log(JSON.stringify(games));
 	elem.append(`
 <h2 class='sub-header'>Your Games</h2>
           <div class='table-responsive' style='overflow:visible;'>
