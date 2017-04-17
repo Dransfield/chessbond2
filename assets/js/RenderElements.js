@@ -753,9 +753,9 @@ function showRecentGames(elem,usracc)
 	//console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
 	//console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
 	timeFlex.append("<p>"+JoinedGames[usracc][iter].GameCategory+"</p>");
-{
+	moveFlex.append("<p>"+JoinedGames[usracc][iter].Moves+"</p>");
 	
-}
+
 	//console.log(JoinedGames[ProfID][iter].Player1);
 	}
    /*
