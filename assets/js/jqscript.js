@@ -599,7 +599,9 @@ var cg = new Promise
 			console.log("resdata");
 			console.log(JSON.stringify(resData[0]));
 			console.log("joined games persons[x]");
-			console.log(JSON.stringify(JoinedGames[persons[x]]));
+			console.log(JSON.stringify(JoinedGames[persons[x]][0]));
+			console.log(JSON.stringify(JoinedGames[persons[x]][0][0]));
+			console.log(JSON.stringify(JoinedGames[persons[x]][0][1]));
 			resolve(resData[0]);
 		});		
 });
