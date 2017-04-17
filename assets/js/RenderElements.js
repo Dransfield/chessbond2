@@ -749,9 +749,9 @@ function showRecentGames(elem,games)
 	showUsername(whiteFlex,JoinedGames[ProfID][iter].Player2);   
 	
 	}
-	console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
-	console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
-	timeFlex.append(JoinedGames[ProfID][iter][0].GameCategory);
+	//console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
+	//console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
+	timeFlex.append(JoinedGames[ProfID][iter].GameCategory);
 {
 	
 }
