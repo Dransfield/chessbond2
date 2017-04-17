@@ -685,19 +685,19 @@ function showRecentGames(elem,games)
 	var flexy=addFlexDiv(elem,"recentgames","row",'wrap');
 
 	
-	var whiteFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
-	var blackFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	blackFlex.append("<p>Black</p>");		
-	var resultFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	var resultFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	resultFlex.append("<p>Result</p>");  
-   var timeFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+   var timeFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	timeFlex.append("<p>Time</p>");  
-   var movesFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+   var movesFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	movesFlex.append("<p>Moves</p>");  
-   var dateFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+   var dateFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	dateFlex.append("<p>Date</p>");  
-   var actionFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+   var actionFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	actionFlex.append("<p>Action</p>");  
    //console.log(JSON.stringify(JoinedGames[ProfID]));
    for (iter in JoinedGames[ProfID])
