@@ -693,49 +693,55 @@ function showRecentGames(elem,usracc)
 	
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	var span=addSpan(whiteFlex,'id');
-		span.append("<p>White</p>");
+	span.append("<p>White</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-
-		var span=addSpan(flexy,'id');
+	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+	var span=addSpan(blackFlex,'id');
 	span.append("<p>Black</p>");		
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-	var blackFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	
 
 	var resultFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
-	resultFlex.append("<p>Result</p>");  
-	resultFlex.css("padding",padding);
-   	resultFlex.css(borderpos1,bordersize1);
-	resultFlex.css(borderpos2,bordersize2);
+	var span=addSpan(resultFlex,'id');
+	
+	span.append("<p>Result</p>");  
+	span.css("padding",padding);
+   	span.css(borderpos1,bordersize1);
+	span.css(borderpos2,bordersize2);
 	
    var timeFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
-	timeFlex.append("<p>Time</p>");  
-	timeFlex.css("padding",padding);
-	timeFlex.css(borderpos1,bordersize1);
-	timeFlex.css(borderpos2,bordersize2);
+	var span=addSpan(timeFlex,'id');
+	span.append("<p>Time</p>");  
+	span.css("padding",padding);
+	span.css(borderpos1,bordersize1);
+	span.css(borderpos2,bordersize2);
 	
    var movesFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
-	movesFlex.append("<p>Moves</p>");  
-	movesFlex.css("padding",padding);
-	movesFlex.css(borderpos1,bordersize1);
-	movesFlex.css(borderpos2,bordersize2);
+   var span=addSpan(movesFlex,'id');
+	span.append("<p>Moves</p>");  
+	span.css("padding",padding);
+	span.css(borderpos1,bordersize1);
+	span.css(borderpos2,bordersize2);
 	
    var dateFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
-	dateFlex.append("<p>Date</p>");  
-	dateFlex.css("padding",padding);
-	dateFlex.css(borderpos1,bordersize1);
-	dateFlex.css(borderpos2,bordersize2);
+   var span=addSpan(dateFlex,'id');
+	span.append("<p>Date</p>");  
+	span.css("padding",padding);
+	span.css(borderpos1,bordersize1);
+	span.css(borderpos2,bordersize2);
 	
    var actionFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
-	actionFlex.append("<p>Action</p>");  
-	actionFlex.css("padding",padding);
-   	actionFlex.css(borderpos1,bordersize1);
-	actionFlex.css(borderpos2,bordersize2);
+	var span=addSpan(actionFlex,'id');
+	span.append("<p>Action</p>");  
+	span.css("padding",padding);
+   	span.css(borderpos1,bordersize1);
+	span.css(borderpos2,bordersize2);
 	
    //console.log(JSON.stringify(JoinedGames[ProfID]));
    for (iter in JoinedGames[usracc])
