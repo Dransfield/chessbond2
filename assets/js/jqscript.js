@@ -592,6 +592,8 @@ var cg = new Promise
 		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000},
 		function (resData,jwres){
 			JoinedGames[persons[x]]={};
+			console.log(JSON.stringify(resData));
+			console.log(resData);
 			for (y in resData)
 			{
 			JoinedGames[persons[x]][y]=resData[y];
