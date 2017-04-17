@@ -595,9 +595,10 @@ var cg = new Promise
 			for (y in resData)
 			{
 			JoinedGames[persons[x]][y]=resData[y];
-			}	
 			console.log("resdata");
-			console.log(JSON.stringify(resData[0]));
+			console.log(JSON.stringify(resData[y]));
+			}	
+		
 			console.log("joined games persons[x]");
 			console.log(JSON.stringify(JoinedGames[persons[x]]['0']));
 			console.log(JSON.stringify(JoinedGames[persons[x]]['0'][0]));
