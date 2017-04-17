@@ -593,6 +593,8 @@ var cg = new Promise
 		function (resData,jwres){
 			JoinedGames[persons[x]]={};
 			JoinedGames[persons[x]][x]=resData;
+			console.log("resdata");
+			console.log(JSON.stringify(resData[0]));
 			resolve(resData[0]);
 		});		
 });
