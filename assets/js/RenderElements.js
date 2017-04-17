@@ -844,7 +844,7 @@ io.socket.on('newmygameevent', function (data)
 				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
 			</td>
 			
-			</tr>
+			</tr>retri
           */
 }
 

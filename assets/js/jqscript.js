@@ -105,6 +105,8 @@ function setupProfilePage()
 			{ 
 				retrieveGames([ProfID]).then(function(){
 				console.log("add flexdiv");
+				console.log("joined games");
+				console.log(JSON.stringify(JoinedGames));
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			
 			var elem=addFlexDiv(leftright,"leftcol","column","wrap");
