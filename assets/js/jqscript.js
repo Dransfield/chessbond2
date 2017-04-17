@@ -99,11 +99,12 @@ function setupProfilePage()
 		});
 	
 			
-	retrieveAccounts().then(function()
-		{
-			retrievePrivatesandFollows().then(function()
-			{ 
+	
 				retrieveGames([ProfID]).then(function(){
+					retrieveAccounts().then(function()
+					{
+						retrievePrivatesandFollows().then(function()
+						{			 
 				console.log("add flexdiv");
 				console.log("joined games");
 				console.log(JSON.stringify(JoinedGames));
@@ -592,8 +593,8 @@ var cg = new Promise
 		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000},
 		function (resData,jwres){
 			JoinedGames[persons[x]]=[];
-			console.log(JSON.stringify(resData));
-			console.log(resData);
+			//console.log(JSON.stringify(resData));
+		//	console.log(resData);
 			for (y in resData)
 			{
 			JoinedGames[persons[x]].push(resData[y]);
@@ -601,10 +602,10 @@ var cg = new Promise
 			//console.log(JSON.stringify(resData[y]));
 			}	
 		
-			console.log("joined games persons[x]");
-			console.log(JSON.stringify(JoinedGames[persons[x]][0]));
-			console.log(JSON.stringify(JoinedGames[persons[x]][1]));
-			console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
+			//console.log("joined games persons[x]");
+			//console.log(JSON.stringify(JoinedGames[persons[x]][0]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]][1]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
 			resolve(resData);
 		});		
 });

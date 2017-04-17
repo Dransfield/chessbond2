@@ -298,6 +298,7 @@ elem.append("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuse
  }
  else
  {
+	 console.log(Accounts[usracc]);
 elem.append("<div>Deleted Account</div>");	
  	 
 	}
