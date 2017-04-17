@@ -686,9 +686,9 @@ function showRecentGames(elem,games)
 	var flexy=addFlexDiv(overallFlex,"recentgames","row",'wrap');
 	var padding ="10px"
 	var borderpos1="border-top";
-	bordersize1="1px";
+	bordersize1="2px";
 	var borderpos2="border-bottom";
-	bordersize2="1px";
+	bordersize2="2px";
 	
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
