@@ -733,20 +733,20 @@ function showRecentGames(elem,games)
 	actionFlex.css(borderpos2,bordersize2);
 	
    //console.log(JSON.stringify(JoinedGames[ProfID]));
-   for (iter in JoinedGames[ProfID][0][0])
+   for (iter in JoinedGames[ProfID])
    {
 	   //console.log(iter);
 	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
-	if(JoinedGames[ProfID][0][0][iter].Player1Color=='White')
+	if(JoinedGames[ProfID][iter].Player1Color=='White')
 	{
-	showUsername(whiteFlex,JoinedGames[ProfID][0][0][iter].Player1);   
-	showUsername(blackFlex,JoinedGames[ProfID][0][0][iter].Player2);   
+	showUsername(whiteFlex,JoinedGames[ProfID][iter].Player1);   
+	showUsername(blackFlex,JoinedGames[ProfID][iter].Player2);   
 	
 	}
 	else
 	{
-	showUsername(blackFlex,JoinedGames[ProfID][iter][0].Player1);   
-	showUsername(whiteFlex,JoinedGames[ProfID][iter][0].Player2);   
+	showUsername(blackFlex,JoinedGames[ProfID][iter].Player1);   
+	showUsername(whiteFlex,JoinedGames[ProfID][iter].Player2);   
 	
 	}
 	console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);

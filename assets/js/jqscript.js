@@ -602,10 +602,10 @@ var cg = new Promise
 			}	
 		
 			console.log("joined games persons[x]");
-			console.log(JSON.stringify(JoinedGames[persons[x]]['0']));
-			console.log(JSON.stringify(JoinedGames[persons[x]]['1']));
+			console.log(JSON.stringify(JoinedGames[persons[x]][0]));
+			console.log(JSON.stringify(JoinedGames[persons[x]][1]));
 			console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
-			resolve(resData[0]);
+			resolve(resData);
 		});		
 });
 PromiseArray.push(cg);	
