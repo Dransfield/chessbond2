@@ -685,15 +685,15 @@ function showRecentGames(elem,games)
 	showHeader(span,2,"Recent Games");
 	var flexy=addFlexDiv(overallFlex,"recentgames","row",'wrap');
 	var padding ="10px"
-	var borderpos1="border-top";
-	bordersize1="2px";
-	var borderpos2="border-bottom";
-	bordersize2="2px";
+	var borderpos1="border-top-style";
+	bordersize1="solid";
+	var borderpos2="border-bottom-style";
+	bordersize2="solid";
 	
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
 	whiteFlex.css("padding",padding);
-	whiteFlex.css("border-top",bordersize1);
+	whiteFlex.css(borderpos1,bordersize1);
 	whiteFlex.css(borderpos2,bordersize2);
 	
 	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
