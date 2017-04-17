@@ -733,11 +733,11 @@ function showRecentGames(elem,games)
 	actionFlex.css(borderpos2,bordersize2);
 	
    //console.log(JSON.stringify(JoinedGames[ProfID]));
-   for (iter in JoinedGames[ProfID])
+   for (iter in JoinedGames[ProfID][0])
    {
 	   //console.log(iter);
 	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
-	if(JoinedGames[ProfID][iter][0].Player1Color=='White')
+	if(JoinedGames[ProfID][0][iter].Player1Color=='White')
 	{
 	showUsername(whiteFlex,JoinedGames[ProfID][iter][0].Player1);   
 	showUsername(blackFlex,JoinedGames[ProfID][iter][0].Player2);   
