@@ -691,12 +691,13 @@ function showRecentGames(elem,usracc)
 	var borderpos2="border-bottom-style";
 	bordersize2="solid";
 	
-	var span=addSpan(flexy,'id');
+	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+	var span=addSpan(whiteFlex,'id');
 		span.append("<p>White</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	var whiteFlex=addFlexDiv(span,"whitegames","column",'nowrap');
+	
 
 		var span=addSpan(flexy,'id');
 	span.append("<p>Black</p>");		
