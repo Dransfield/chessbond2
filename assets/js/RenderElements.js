@@ -678,7 +678,7 @@ $("#attachnavdropdown").mouseleave(function()
 	}
 	*/
 }
-function showRecentGames(elem)
+function showRecentGames(elem,usracc)
 {
 	console.log("showrecent games");
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
@@ -734,25 +734,25 @@ function showRecentGames(elem)
 	actionFlex.css(borderpos2,bordersize2);
 	
    //console.log(JSON.stringify(JoinedGames[ProfID]));
-   for (iter in JoinedGames[ProfID])
+   for (iter in JoinedGames[usracc])
    {
 	   //console.log(iter);
 	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
 	if(JoinedGames[ProfID][iter].Player1Color=='White')
 	{
-	showUsername(whiteFlex,JoinedGames[ProfID][iter].Player1);   
-	showUsername(blackFlex,JoinedGames[ProfID][iter].Player2);   
+	showUsername(whiteFlex,JoinedGames[usracc][iter].Player1);   
+	showUsername(blackFlex,JoinedGames[usracc][iter].Player2);   
 	
 	}
 	else
 	{
-	showUsername(blackFlex,JoinedGames[ProfID][iter].Player1);   
-	showUsername(whiteFlex,JoinedGames[ProfID][iter].Player2);   
+	showUsername(blackFlex,JoinedGames[usracc][iter].Player1);   
+	showUsername(whiteFlex,JoinedGames[usracc][iter].Player2);   
 	
 	}
 	//console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
 	//console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
-	timeFlex.append(JoinedGames[ProfID][iter].GameCategory);
+	timeFlex.append(JoinedGames[usracc][iter].GameCategory);
 {
 	
 }

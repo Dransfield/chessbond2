@@ -444,7 +444,7 @@ function setupProfilePage()
 			)
 			
 			var games=3;
-			showRecentGames(leftright,games);
+			showRecentGames(leftright,ProfID);
 			
 			});
 		});
@@ -1172,7 +1172,7 @@ function renderHomePage()
 	{
 		
 	showOpenGameList($("#usr"),OpenGames);
-	showRecentGames($("#usr"));
+	showRecentGames($("#usr"),MyID);
 	//showJoinedGameList($("#usr"),JoinedGames);
 	showNewGameControls($("#newGameControls"));
 	}
