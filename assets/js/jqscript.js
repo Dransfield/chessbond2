@@ -591,19 +591,19 @@ var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000},
 		function (resData,jwres){
-			JoinedGames[persons[x]]={};
+			JoinedGames[persons[x]]=[];
 			console.log(JSON.stringify(resData));
 			console.log(resData);
 			for (y in resData)
 			{
-			JoinedGames[persons[x]][y]=resData[y];
-			console.log("resdata");
-			console.log(JSON.stringify(resData[y]));
+			JoinedGames[persons[x]].push(resData[y]);
+			//console.log("resdata");
+			//console.log(JSON.stringify(resData[y]));
 			}	
 		
 			console.log("joined games persons[x]");
 			console.log(JSON.stringify(JoinedGames[persons[x]]['0']));
-			console.log(JSON.stringify(JoinedGames[persons[x]]['0'][0]));
+			console.log(JSON.stringify(JoinedGames[persons[x]]['1']));
 			console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
 			resolve(resData[0]);
 		});		
