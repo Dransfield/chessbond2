@@ -738,7 +738,7 @@ function showRecentGames(elem,usracc)
    {
 	   //console.log(iter);
 	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
-	if(JoinedGames[ProfID][iter].Player1Color=='White')
+	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 	showUsername(whiteFlex,JoinedGames[usracc][iter].Player1);   
 	showUsername(blackFlex,JoinedGames[usracc][iter].Player2);   
