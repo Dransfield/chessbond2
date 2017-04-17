@@ -684,23 +684,29 @@ function showRecentGames(elem,games)
 		var span=addSpan(overallFlex,'id');
 	showHeader(span,2,"Recent Games");
 	var flexy=addFlexDiv(overallFlex,"recentgames","row",'wrap');
-
+	var padding ="10px"
 	
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
-	whiteFlex.css("padding","5px");
+	whiteFlex.css("padding",padding);
 	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	blackFlex.append("<p>Black</p>");		
+	blackFlex.css("padding",padding);
 	var resultFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	resultFlex.append("<p>Result</p>");  
+	resultFlex.css("padding",padding);
    var timeFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	timeFlex.append("<p>Time</p>");  
+	timeFlex.css("padding",padding);
    var movesFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	movesFlex.append("<p>Moves</p>");  
+	movesFlex.css("padding",padding);
    var dateFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	dateFlex.append("<p>Date</p>");  
+	dateFlex.css("padding",padding);
    var actionFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	actionFlex.append("<p>Action</p>");  
+	actionFlex.css("padding",padding);
    //console.log(JSON.stringify(JoinedGames[ProfID]));
    for (iter in JoinedGames[ProfID])
    {
