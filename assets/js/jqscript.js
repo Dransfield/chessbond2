@@ -417,6 +417,7 @@ function setupProfilePage()
 			
 			var flagsel=showSelect(leftright,countries,countries,"Choose your country");
 			flagsel.css("height","25%");
+			flagsel.css("width","100%");
 			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
 			leftright.append(flagimage);
 			
