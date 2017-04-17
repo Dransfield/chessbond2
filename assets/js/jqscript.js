@@ -414,12 +414,12 @@ function setupProfilePage()
 			
 			}
 			
-			
-			var flagsel=showSelect(leftright,countries,countries,"Choose your country");
+			var flagSpan=addSpan(leftright);
+			var flagsel=showSelect(flagSpan,countries,countries,"Choose your country");
 			flagsel.css("height","25%");
-			flagsel.css("width","100%");
+			flagSpan.css("width","100%");
 			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
-			leftright.append(flagimage);
+			flagSpan.append(flagimage);
 			
 			if(Accounts[ProfID]['Country'])
 			{
