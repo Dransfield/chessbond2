@@ -680,9 +680,10 @@ $("#attachnavdropdown").mouseleave(function()
 function showRecentGames(elem,games)
 {
 	console.log("showrecent games");
-		var span=addSpan(elem,'id');
+	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
+		var span=addSpan(overallFlex,'id');
 	showHeader(span,2,"Recent Games");
-	var flexy=addFlexDiv(elem,"recentgames","row",'wrap');
+	var flexy=addFlexDiv(overallFlex,"recentgames","row",'wrap');
 
 	
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
