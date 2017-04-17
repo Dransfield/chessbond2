@@ -598,6 +598,9 @@ var cg = new Promise
 			for (y in resData)
 			{
 			JoinedGames[persons[x]].push(resData[y]);
+			AccountsToRetrieve[resData[y].Player1]=resData[y].Player1;
+			AccountsToRetrieve[resData[y].Player2]=resData[y].Player2;
+			
 			//console.log("resdata");
 			//console.log(JSON.stringify(resData[y]));
 			}	
