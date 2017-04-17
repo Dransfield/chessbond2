@@ -624,13 +624,16 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 	}
 	console.log(JSON.stringify(values[1]));
 	console.log(JSON.stringify(JoinedGames));
-	
+	console.log("opengames");
+	console.log(JSON.stringify(OpenGames));
+	if(JoinedGames[0])
+	{
 	for (x in JoinedGames)
 	{
 	AccountsToRetrieve[values[1][x].Player1]=values[1][x].Player1;
 	AccountsToRetrieve[values[1][x].Player2]=values[1][x].Player2;
 	}
-
+	}
 	retrieveAccounts().then(function()
 		{
 			retrievePrivatesandFollows().then(function()
