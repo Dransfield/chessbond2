@@ -622,7 +622,7 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 	{
 	AccountsToRetrieve[values[0][x].Player1]=values[0][x].Player1;
 	}
-	
+	console.log(JSON.stringify(values[1]));
 	for (x in JoinedGames)
 	{
 	AccountsToRetrieve[values[1][x].Player1]=values[1][x].Player1;
