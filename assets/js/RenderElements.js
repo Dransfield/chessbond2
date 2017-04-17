@@ -693,7 +693,7 @@ function showRecentGames(elem,games)
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
 	whiteFlex.css("padding",padding);
-	whiteFlex.css(borderpos1,bordersize1);
+	whiteFlex.css("border-top",bordersize1);
 	whiteFlex.css(borderpos2,bordersize2);
 	
 	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
