@@ -685,28 +685,53 @@ function showRecentGames(elem,games)
 	showHeader(span,2,"Recent Games");
 	var flexy=addFlexDiv(overallFlex,"recentgames","row",'wrap');
 	var padding ="10px"
+	var borderpos1="border-top";
+	bordersize1="1px";
+	var borderpos2="border-bottom";
+	bordersize2="1px";
 	
 	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	whiteFlex.append("<p>White</p>");
 	whiteFlex.css("padding",padding);
+	whiteFlex.css(borderpos1,bordersize1);
+	whiteFlex.css(borderpos2,bordersize2);
+	
 	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	blackFlex.append("<p>Black</p>");		
 	blackFlex.css("padding",padding);
+	blackFlex.css(borderpos1,bordersize1);
+	blackFlex.css(borderpos2,bordersize2);
+	
 	var resultFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	resultFlex.append("<p>Result</p>");  
 	resultFlex.css("padding",padding);
+   	resultFlex.css(borderpos1,bordersize1);
+	resultFlex.css(borderpos2,bordersize2);
+	
    var timeFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	timeFlex.append("<p>Time</p>");  
 	timeFlex.css("padding",padding);
+	timeFlex.css(borderpos1,bordersize1);
+	timeFlex.css(borderpos2,bordersize2);
+	
    var movesFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	movesFlex.append("<p>Moves</p>");  
 	movesFlex.css("padding",padding);
+	movesFlex.css(borderpos1,bordersize1);
+	movesFlex.css(borderpos2,bordersize2);
+	
    var dateFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	dateFlex.append("<p>Date</p>");  
 	dateFlex.css("padding",padding);
+	dateFlex.css(borderpos1,bordersize1);
+	dateFlex.css(borderpos2,bordersize2);
+	
    var actionFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
 	actionFlex.append("<p>Action</p>");  
 	actionFlex.css("padding",padding);
+   	actionFlex.css(borderpos1,bordersize1);
+	actionFlex.css(borderpos2,bordersize2);
+	
    //console.log(JSON.stringify(JoinedGames[ProfID]));
    for (iter in JoinedGames[ProfID])
    {
