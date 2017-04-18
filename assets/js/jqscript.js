@@ -457,11 +457,12 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftcol,ProfID);
-			showChatForm(leftcol,ProfID,"wall");
+			var chatDiv=addFlexDiv(leftcol,"dunni","column",'wrap')
+			showChatForm(chatDiv,ProfID,"wall");
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(leftcol,WallPosts[iter]);
+					showChatMessage(chatDiv,WallPosts[iter]);
 					}
 			});
 			io.socket.on('WallPost', function (data)
@@ -470,9 +471,9 @@ function setupProfilePage()
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
 			
 			WallPosts.push(data);
-			leftcol.append("<hr>");
-			//showChatMessage(leftcol,WallPosts[(WallPosts.length-1)]);
-			$("#favicon").attr("href","/favicon2.ico");
+			chatDiv.append("<hr>");
+			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)]);
+			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
 		});
