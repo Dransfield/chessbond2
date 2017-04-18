@@ -910,7 +910,7 @@ function showNewGameControls(elem){
 	
 elem.append(`	
 			
-			<button><a  id="playAgainstAIButton" href="/playvsai" class="KbigButton KgreenElement">Play Chess against the AI!</a></button>
+			<a  id="playAgainstAIButton" href="/playvsai" class="KbigButton KgreenElement"><button>Play Chess against the AI!</button></a>
 		
 			<button  id="playAgainstPersonButton" type="submit" class="KbigButton KgreenElement">Create a New vs Human Game</button>
 			

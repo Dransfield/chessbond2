@@ -104,7 +104,12 @@ function setupProfilePage()
 					retrieveAccounts().then(function()
 					{
 						retrievePrivatesandFollows().then(function()
-						{			 
+						{			
+							getWallposts(convID).then(function(){
+				
+					
+					
+				 
 				console.log("add flexdiv");
 				console.log("joined games");
 				console.log(JSON.stringify(JoinedGames));
@@ -445,11 +450,14 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftright,ProfID);
-			
+			for(iter in WallPosts)
+					{	
+					showChatMessage(leftright,WallPosts[iter]);
+					}
 			});
 		});
 		});
-		
+		});
 }
 
 function retrievePrivatesandFollows()
