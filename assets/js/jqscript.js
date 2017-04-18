@@ -478,12 +478,17 @@ function setupProfilePage()
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
-					
+		if(Accounts[MyID].Invisible)
+		{
+		$('body').append("<div style='background-color:white;position:fixed;height: 90%;width: 100%;'>Account Disabled</div>")
+		}
 			});
 			
 		});
 		});
 		});
+		
+		
 }
 
 function retrievePrivatesandFollows()
