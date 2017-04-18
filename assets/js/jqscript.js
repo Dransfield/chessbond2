@@ -549,7 +549,7 @@ io.socket.get("/privateconversation",{id:convID},
 					{	
 					showChatMessage($("#privateconversationpage"),WallPosts[iter]);
 					}
-					$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"););
+					$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"));
 		
 					renderChatPage();
 					
