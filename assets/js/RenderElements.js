@@ -174,11 +174,17 @@ function showHeader(elem,num,content)
 elem.append("<h"+num+">"+content+"</h"+num+">");	
 	
 }
+function showWebsiteNameJumbo(elem)
+{
+	 var header=$("<h1></h1>");
+      elem.append(header);
+	header.append("Chessbond");
+}
 function showUsernameJumbo(elem,usracc)
 {
-	//var jum=$("<span class='jumbotron'><span>");
+	var jum=$("<span class='jumbotron'><span>");
       var header=$("<h1></h1>");
-      //jum.append(header);
+      jum.append(header);
       showUsername(header,usracc);
 	elem.append(header);
 }

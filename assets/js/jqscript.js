@@ -1174,6 +1174,7 @@ function renderHomePage()
 	showOpenGameList($("#usr"),OpenGames);
 	showRecentGames($("#usr"),MyID);
 	//showJoinedGameList($("#usr"),JoinedGames);
+	showWebsiteNameJumbo($("#newGameControls"))
 	showNewGameControls($("#newGameControls"));
 	}
 
