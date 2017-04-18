@@ -823,6 +823,7 @@ function showRecentGames(elem,usracc)
 	actionFlex.click(function(){
 		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
 	});
+}
 	//console.log(JoinedGames[ProfID][iter].Player1);
 	
    /*
