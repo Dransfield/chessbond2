@@ -115,20 +115,20 @@ function setupProfilePage()
 				console.log(JSON.stringify(JoinedGames));
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			
-			var elem=addFlexDiv(leftright,"leftcol","column","wrap");
-			elem.css("width","50%");
-			showUsernameJumbo(elem,ProfID);
-			var divv=addDiv(elem);
-			showAvatar(divv,ProfID);
+			var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
+			leftcol.css("width","50%");
+			showUsernameJumbo(leftcol,ProfID);
+			//var divv=addDiv(leftcol);
+			showAvatar(leftcol,ProfID);
 			if(MyID==ProfID)
 			{
-			showImageUploadForm(elem,ProfID)
+			showImageUploadForm(leftcol,ProfID)
 			}
 			
-			showHeader(elem,2,"Highest Difficulty Level Beaten:"+Accounts[ProfID].DifficultyLevelBeaten);
-			showHeader(elem,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
-			showNewGameControls(elem);
-			showAnchorButton(elem,'Statistics',"/stats/"+ProfID,"KbigButton KcyanElement");
+			showHeader(leftcol,2,"Highest Difficulty Level Beaten:"+Accounts[ProfID].DifficultyLevelBeaten);
+			showHeader(leftcol,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
+			showNewGameControls(leftcol);
+			showAnchorButton(leftcol,'Statistics',"/stats/"+ProfID,"KbigButton KcyanElement");
 			//var tbl=addFlexDiv(leftright,"rightcol","column");
 			
 			
@@ -449,7 +449,7 @@ function setupProfilePage()
 			)
 			
 			var games=3;
-			showRecentGames(elem,ProfID);
+			showRecentGames(leftcol,ProfID);
 			showChatForm(tblRight,ProfID);
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
