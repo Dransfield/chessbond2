@@ -92,7 +92,7 @@ var GamePlaying={};
 	function setupPlayervsPlayerPage()
 	{
 		
-		retrieveGame(gameID).then(function()
+		retrieveGame(GameID).then(function()
 		{
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
 			AccountsToRetrieve[GamePlaying.Player2]=GamePlaying.Player2;
