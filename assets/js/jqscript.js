@@ -481,7 +481,6 @@ function setupProfilePage()
 		if(Accounts[MyID].Invisible)
 		{
 			console.log("IM INVISIBLE");
-		$('body').append("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'>Account Disabled</div>")
 		}
 			});
 			
