@@ -450,18 +450,18 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftcol,ProfID);
-			showChatForm(tblRight,ProfID);
+			showChatForm(leftcol,ProfID);
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(tblRight,WallPosts[iter]);
+					showChatMessage(leftcol,WallPosts[iter]);
 					}
 			});
 			io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket");
 		
-			showChatMessage(tblright,data);
+			showChatMessage(leftcol,data);
 			$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
