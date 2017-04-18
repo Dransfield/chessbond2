@@ -108,6 +108,7 @@ var GamePlaying={};
 				showsmallAvatar(topPlayerMarque,GamePlaying.Player1);
 				showUsername(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append(Accounts[GamePlaying.Player1].ELO);
+				showFlag(flagSpan,topPlayerMarque);
 				});
 			});
 		});
@@ -459,16 +460,8 @@ function setupProfilePage()
 			var flagsel=showSelect(flagSpan,countries,countries,"Choose your country");
 			flagsel.css("height","25%");
 			flagSpan.css("width","100%");
-			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
-			flagSpan.append(flagimage);
 			
-			if(Accounts[ProfID]['Country'])
-			{
-			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
-				
-				
-			}
-			
+			showFlag(flagSpan,ProfID)
 			flagsel.change(
 			function()
 			{
