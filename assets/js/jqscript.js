@@ -105,7 +105,7 @@ var GamePlaying={};
 				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
-				showsmallAvatar(newdiv,GamePlaying.Player1);
+				showsmallAvatar(topPlayerMarque,GamePlaying.Player1);
 				});
 			});
 		});
