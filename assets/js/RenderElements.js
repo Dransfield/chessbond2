@@ -819,7 +819,10 @@ function showRecentGames(elem,usracc)
 	timeFlex.append("<p>"+JoinedGames[usracc][iter].GameCategory+"</p>");
 	movesFlex.append("<p>"+JoinedGames[usracc][iter].Move+"</p>");
 	dateFlex.append("<p>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
-
+	actionFlex.append("<span class='KbigButton KgreenElement'>Go To Game</span>");
+	actionFlex.click(function(){
+		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
+	});
 	//console.log(JoinedGames[ProfID][iter].Player1);
 	}
    /*
