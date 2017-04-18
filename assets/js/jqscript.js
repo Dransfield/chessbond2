@@ -464,8 +464,9 @@ function setupProfilePage()
 					{	
 					showChatMessage(chatDiv,WallPosts[iter]);
 					}
-			});
-			io.socket.on('WallPost', function (data)
+					
+					
+					io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket"+JSON.stringify(data));
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
@@ -476,6 +477,9 @@ function setupProfilePage()
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
+					
+			});
+			
 		});
 		});
 		});
