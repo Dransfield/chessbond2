@@ -673,8 +673,8 @@ $("#attachnavdropdown").click(function()
 });
 
 $("#attachnavdropdown").mouseleave(function()
-{NavbarDropDown.detach();}
-coverall.show();
+{NavbarDropDown.detach();
+coverall.show();}
 );
 
 
