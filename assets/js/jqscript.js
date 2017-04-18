@@ -526,7 +526,7 @@ function setupChatPage()
 		
 			showChatMessage($("#privateconversationpage"),data);
 			$("#favicon").attr("href","/favicon2.ico");
-			$("#privateconversationpage").scrollTop($("#privateconversationpage").scrollHeight);
+			$("#privateconversationpage").scrollTop($("#privateconversationpage").height);
 				//	$("#privateconversationpage").append(data.content);
 			});
 				
@@ -549,7 +549,7 @@ io.socket.get("/privateconversation",{id:convID},
 					{	
 					showChatMessage($("#privateconversationpage"),WallPosts[iter]);
 					}
-					$("#privateconversationpage").scrollTop($("#privateconversationpage").scrollHeight);
+					$("#privateconversationpage").scrollTop($("#privateconversationpage").height);
 		
 					renderChatPage();
 					
