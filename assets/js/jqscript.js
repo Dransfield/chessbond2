@@ -41,7 +41,11 @@ var WallPosts=[];
 			
 			
 			});
-
+		if($("#playervsplayer").length)
+		{
+			
+		setupPlayervsPlayerPage();
+		}
 		if($("#profilepage").length)
 		{
 		setupProfilePage();
@@ -85,7 +89,14 @@ var WallPosts=[];
 		AccountsToRetrieve[MyID]=MyID;
 		retrieveAccounts();
 	}
-	
+	function setupPlayervsPlayerPage()
+	{
+		var overall=$("#playervsplayer")
+	var boardDivDiv=addDiv(overall);
+	var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
+		var addSpan(topPlayerMarque,"topminutes");
+		topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+	}
 function setupProfilePage()
 {
 	

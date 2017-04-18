@@ -146,9 +146,9 @@ function showPersonLeft(elem,prsn)
 	elem.scrollTop(elem[0].scrollHeight);
 
 }
-function addFlexDiv(elem,id,direction,wrap='nowrap')
-{
-	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";'></div>")
+function addFlexDiv(elem,id,direction,wrap='nowrap',jcontent='space-around',aItems='center')
+{justify-content:space-around;align-items: center;"
+	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";justify-content:"+jcontent+";align-items:"aItems+";'></div>")
 	elem.append(flex);
 	return flex;
 	

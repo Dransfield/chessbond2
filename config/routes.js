@@ -54,6 +54,7 @@ module.exports.routes = {
 	'/profile': {view:'profilejq'},
 	//'/newprofile': {view:'profilejq'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
+	'GET /humanvshumannew/:ID':{view:'humanvshumanjq'},
 	'GET /session/:SessionID':{view:'session'},
 	'/ConfirmDeleteAccount':{view:'confirmdelete'},
 	
