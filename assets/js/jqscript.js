@@ -109,6 +109,11 @@ var GamePlaying={};
 				showUsername(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append(Accounts[GamePlaying.Player1].ELO);
 				showFlag(flagSpan,topPlayerMarque);
+				topPlayerMarque.append("ping");
+				topPlayerMarque.append("timer");
+				addSpan(boardDivDiv,"boardcontainer");
+				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
+ 
 				});
 			});
 		});

@@ -181,6 +181,7 @@ function showFlag(elem,usracc)
 				
 			}
 			elem.append(flagimage);
+			
 	}
 function showHeader(elem,num,content)
 {
