@@ -578,7 +578,7 @@ elem.append(`
 if(Accounts[MyID].Invisible)
 {
 $("#navbarfirstspan").after("Days Left To Account Deletion:"+Accounts[MyID].DaysToDelete);
-$(document.body).append("<div style='background-color:white;position:fixed;height: 90%;width: 100%;'>Account Disabled</div>")
+$('body').append("<div style='background-color:white;position:fixed;height: 90%;width: 100%;'>Account Disabled</div>")
 }
 /*	
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
