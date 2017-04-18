@@ -575,11 +575,12 @@ elem.append(`
 		</div>
 			
 `);
+var coverall;
 if(Accounts[MyID].Invisible)
 {
 $("#navbarfirstspan").after("Days Left To Account Deletion:"+Accounts[MyID].DaysToDelete);
-$('body').append("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'>Account Disabled</div>")
-		
+coverall=$("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'>Account Disabled</div>");
+$('body').append(coverall);
 }
 /*	
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
@@ -659,17 +660,21 @@ for (iter in NDDlinks)
 	}
 
 $("#attachnavdropdown").mouseenter(function()
-{$(this).append(NavbarDropDown);}
+{$(this).append(NavbarDropDown);
+	coverall.hide();}
 );
 
 $("#attachnavdropdown").click(function()
 {
-{$(this).append(NavbarDropDown);}
+{$(this).append(NavbarDropDown);
+	coverall.hide();
+	}
 	
 });
 
 $("#attachnavdropdown").mouseleave(function()
 {NavbarDropDown.detach();}
+coverall.show();
 );
 
 
