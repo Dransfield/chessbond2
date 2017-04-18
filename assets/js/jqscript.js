@@ -466,9 +466,11 @@ function setupProfilePage()
 			});
 			io.socket.on('WallPost', function (data)
 			{
-			console.log("recieved wall post socket");
-		
-			showChatMessage(leftcol,data);
+			console.log("recieved wall post socket"+JSON.stringify(data));
+			console.log("recieved wall post socket"+JSON.stringify(data[0]));
+			
+			WallPosts.push(data);
+			showChatMessage(leftcol,data[0]);
 			$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
