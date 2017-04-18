@@ -60,9 +60,9 @@ module.exports = {
 			sails.sockets.broadcast('/profile/'+req.param('grpid'),'WallPost', records);
 				Notification.create({reciever:req.param('grpid'),msg:"New Wall Post Recieved",adr:'/profile/'+req.param('grpid')}).exec
 				(
-					function (err, records) 
+					function (err, records1) 
 					{
-					sails.sockets.broadcast(records.reciever,'notification', records);
+					sails.sockets.broadcast(records1.reciever,'notification', records1);
 					}
 				);
 					

@@ -467,10 +467,11 @@ function setupProfilePage()
 			io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket"+JSON.stringify(data));
-			console.log("recieved wall post socket"+JSON.stringify(data[0]));
+		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
 			
 			WallPosts.push(data);
-			showChatMessage(leftcol,WallPosts[(WallPosts.length-1)]);
+			leftcol.append("<hr>");
+			//showChatMessage(leftcol,WallPosts[(WallPosts.length-1)]);
 			$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
