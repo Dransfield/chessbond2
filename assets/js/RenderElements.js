@@ -147,8 +147,8 @@ function showPersonLeft(elem,prsn)
 
 }
 function addFlexDiv(elem,id,direction,wrap='nowrap',jcontent='space-around',aItems='center')
-{justify-content:space-around;align-items: center;"
-	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";justify-content:"+jcontent+";align-items:"aItems+";'></div>")
+{
+	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";justify-content:"+jcontent+";align-items:"+aItems+";'></div>")
 	elem.append(flex);
 	return flex;
 	

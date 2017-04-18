@@ -94,7 +94,7 @@ var WallPosts=[];
 		var overall=$("#playervsplayer")
 	var boardDivDiv=addDiv(overall);
 	var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
-		var addSpan(topPlayerMarque,"topminutes");
+		var topMinutes=addSpan(topPlayerMarque,"topminutes");
 		topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 	}
 function setupProfilePage()
