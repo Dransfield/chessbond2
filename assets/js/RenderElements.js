@@ -182,9 +182,9 @@ function showWebsiteNameJumbo(elem)
 }
 function showUsernameJumbo(elem,usracc)
 {
-	var jum=$("<span class='jumbotron'><span>");
+	//var jum=$("<span class='jumbotron'><span>");
       var header=$("<h1 style='word-wrap: break-word;'></h1>");
-      jum.append(header);
+     // jum.append(header);
       showUsername(header,usracc);
 	elem.append(header);
 }
