@@ -472,8 +472,9 @@ function setupProfilePage()
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
 			
 			WallPosts.push(data);
-			chatDiv.append("<hr>");
+			
 			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)]);
+		
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
