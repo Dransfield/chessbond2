@@ -637,7 +637,7 @@ NDDlinks['DeleteLink']=$("<a href='/DeleteAccount'><li style='list-style-positio
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
-	NavbarDropDown.append("<br>");
+	
 	NavbarDropDown.append("<hr>");
 	NavbarDropDown.append("<hr>");
 	
