@@ -51,28 +51,31 @@ module.exports = {
 						}
 		
 					}
-					
-				if(req.param('messagetype')=="wall")
-				{
-					sails.sockets.broadcast('/profile/'+req.param('grpid'),'WallPost', records);
-				Notification.create({reciever:req.param('grpid'),msg:"New Wall Post Recieved",adr:'/seeprivateconversation/'+req.param('grpid')})
-				.exec(
+				 );
+			 }
+				
+			if(req.param('messagetype')=="wall")
+			{
+			sails.sockets.broadcast('/profile/'+req.param('grpid'),'WallPost', records);
+				Notification.create({reciever:req.param('grpid'),msg:"New Wall Post Recieved",adr:'/seeprivateconversation/'+req.param('grpid')}).exec
+				(
 					function (err, records) 
 					{
 					sails.sockets.broadcast(records.reciever,'notification', records);
 					}
 				);
 					
-				return res.ok();
-				}	
+			return res.ok();
+			}	
 			
 			
 			
 			
 			
-		}
-	);
-	}
+		
 	
+	}
+	);
+}
 };
 
