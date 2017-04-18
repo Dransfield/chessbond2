@@ -578,6 +578,7 @@ elem.append(`
 if(Accounts[MyID].Invisible)
 {
 $("#navbarfirstspan").after("Days Left To Account Deletion:"+Accounts[MyID].DaysToDelete);
+$('body').append("<div style='position: absolute;height: 100%;width: 100%;'></div>")
 }
 /*	
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
