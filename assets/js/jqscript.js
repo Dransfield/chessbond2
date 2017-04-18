@@ -10,7 +10,7 @@ var FollowPromises=[];
 var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
-var WallPosts={};
+var WallPosts=[];
 
 			
 		subscribeToMandatoryRooms()
@@ -451,6 +451,7 @@ function setupProfilePage()
 			var games=3;
 			showRecentGames(leftright,ProfID);
 			showChatForm(leftright,ProfID);
+			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
 					showChatMessage(leftright,WallPosts[iter]);
@@ -583,7 +584,7 @@ io.socket.get("/wallpost?limit=39999",{groupid:grpID},
 		console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
 		{
-		WallPosts[resData.id]=resData[iter];
+		WallPosts.push(resData[iter]);
 		}
 resolve();
 });
