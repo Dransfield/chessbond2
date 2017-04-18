@@ -450,6 +450,7 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftright,ProfID);
+			showChatForm(leftright,ProfID);
 			for(iter in WallPosts)
 					{	
 					showChatMessage(leftright,WallPosts[iter]);
@@ -1155,25 +1156,8 @@ function addFollowPromises()
 function renderChatPage()
 	{
 	console.log("renderchatpage");
-		var privcon=$("#chatinput");
-		var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
-		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
-		privcon.append(chatform);
-		privcon.append(chatbutton);
-		 chatform.keypress(function (e) {
- var key = e.which;
- //console.log("key "+key);
- if(key == 13)  // the enter key code
-  { e.preventDefault();
-	 // console.log("send wall post"+chatform.val());
-		 	SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
-		 	chatform.val("");
-		}
-		 });
-		chatbutton.click(function(){
-			SendWallPost(MyID,convID,"Private Conversation","",chatform.val());
-			chatform.val("");
-			});
+		showChatForm($("#chatinput"),convID);
+		
 	}
 	
 function renderHomePage()

@@ -469,7 +469,28 @@ function UpdateTypedText(words,elemTochange)
 				updateAccountInfo(words);
 		
 }
-
+function showChatForm(elem,chatID)
+{
+	var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
+		elem.append(chatform);
+		elem.append(chatbutton);
+		 chatform.keypress(function (e) {
+ var key = e.which;
+ //console.log("key "+key);
+ if(key == 13)  // the enter key code
+  { e.preventDefault();
+	 // console.log("send wall post"+chatform.val());
+		 	SendWallPost(MyID,chatID,"Private Conversation","",chatform.val());
+		 	chatform.val("");
+		}
+		 });
+		chatbutton.click(function(){
+			SendWallPost(MyID,chatID,"Private Conversation","",chatform.val());
+			chatform.val("");
+			});
+	
+}
 function showInput(elem)
 {
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
