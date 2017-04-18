@@ -450,11 +450,11 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftright,ProfID);
-			showChatForm(leftright,ProfID);
+			showChatForm(tblRight,ProfID);
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(leftright,WallPosts[iter]);
+					showChatMessage(tblRight,WallPosts[iter]);
 					}
 			});
 		});
