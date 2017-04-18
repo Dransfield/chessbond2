@@ -457,7 +457,7 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftcol,ProfID);
-			var chatDiv=addFlexDiv(leftcol,"dunni","column",'wrap')
+			var chatDiv=addFlexDiv(leftcol,"dunni","column",'wrap');
 			showChatForm(chatDiv,ProfID,"wall");
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
