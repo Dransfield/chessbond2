@@ -449,13 +449,21 @@ function setupProfilePage()
 			)
 			
 			var games=3;
-			showRecentGames(leftright,ProfID);
+			showRecentGames(elem,ProfID);
 			showChatForm(tblRight,ProfID);
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
 					showChatMessage(tblRight,WallPosts[iter]);
 					}
+			});
+			io.socket.on('WallPost', function (data)
+			{
+			console.log("recieved wall post socket");
+		
+			showChatMessage(tblright,data);
+			$("#favicon").attr("href","/favicon2.ico");
+				//	$("#privateconversationpage").append(data.content);
 			});
 		});
 		});
