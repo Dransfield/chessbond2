@@ -11,7 +11,7 @@ var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
 var WallPosts=[];
-
+var GamePlaying={};
 			
 		subscribeToMandatoryRooms()
 			
@@ -91,11 +91,24 @@ var WallPosts=[];
 	}
 	function setupPlayervsPlayerPage()
 	{
-		var overall=$("#playervsplayer")
-	var boardDivDiv=addDiv(overall);
-	var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
-		var topMinutes=addSpan(topPlayerMarque,"topminutes");
-		topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+		
+		retrieveGame(gameID).then(function()
+		{
+			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
+			AccountsToRetrieve[GamePlaying.Player2]=GamePlaying.Player2;
+			retrieveAccounts().then(function()
+			{
+				retrievePrivatesandFollows().then(function(){
+					
+				var overall=$("#playervsplayer")
+				var boardDivDiv=addDiv(overall);
+				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
+				var topMinutes=addSpan(topPlayerMarque,"topminutes");
+				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+	
+				});
+			});
+		});
 	}
 function setupProfilePage()
 {
@@ -633,6 +646,29 @@ resolve();
 });
 return cg;
 }
+
+function retrieveGame(gameid)
+{
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/chessgame",{id:gameid},
+		function (resData,jwres){
+	
+			//console.log(JSON.stringify(resData));
+		//	console.log(resData);
+		
+			//console.log("joined games persons[x]");
+			//console.log(JSON.stringify(JoinedGames[persons[x]][0]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]][1]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
+			GamePlaying=resData;
+			resolve(resData);
+		});		
+});
+
+return cg;
+}
+
 
 function retrieveGames(persons)
 {
