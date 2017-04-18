@@ -105,7 +105,7 @@ function setupProfilePage()
 					{
 						retrievePrivatesandFollows().then(function()
 						{			
-							getWallposts(convID).then(function(){
+							getWallposts(ProfID).then(function(){
 				
 					
 					
