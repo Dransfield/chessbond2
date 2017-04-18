@@ -106,6 +106,8 @@ var GamePlaying={};
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(topPlayerMarque,GamePlaying.Player1);
+				showUsername(topPlayerMarque,GamePlaying.Player1);
+				topPlayerMarque.append(Accounts[GamePlaying.Player1].ELO);
 				});
 			});
 		});
