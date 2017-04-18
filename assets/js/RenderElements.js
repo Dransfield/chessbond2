@@ -469,7 +469,7 @@ function UpdateTypedText(words,elemTochange)
 				updateAccountInfo(words);
 		
 }
-function showChatForm(elem,chatID)
+function showChatForm(elem,chatID,msgtype)
 {
 	var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
@@ -481,12 +481,12 @@ function showChatForm(elem,chatID)
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
-		 	SendWallPost(MyID,chatID,"Private Conversation","",chatform.val());
+		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val());
 		 	chatform.val("");
 		}
 		 });
 		chatbutton.click(function(){
-			SendWallPost(MyID,chatID,"Private Conversation","",chatform.val());
+			SendWallPost(MyID,chatID,msgtype,"",chatform.val());
 			chatform.val("");
 			});
 	

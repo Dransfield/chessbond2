@@ -93,6 +93,13 @@ function setupProfilePage()
 	AccountsToRetrieve[ProfID]=ProfID;
 	
 	//increase profile views
+	
+	var roomname="/profile/"+ProfID;
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+	
 	io.socket.put('/LookedAtProfile',{userID:ProfID},
 		function  (data){
 		
@@ -450,7 +457,7 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftcol,ProfID);
-			showChatForm(leftcol,ProfID);
+			showChatForm(leftcol,ProfID,"wall");
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
@@ -1165,7 +1172,7 @@ function addFollowPromises()
 function renderChatPage()
 	{
 	console.log("renderchatpage");
-		showChatForm($("#chatinput"),convID);
+		showChatForm($("#chatinput"),convID,"Private Conversation");
 		
 	}
 	
