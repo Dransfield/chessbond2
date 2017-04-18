@@ -551,7 +551,7 @@ function showNavbar(elem,usracc)
 elem.append(`
 		<div class="mynavbar">
 		
-			<span>
+			<span id="navbarfirstspan">
 				<img style="background-color:white;width:50px;height:50px; "
 						src="/knight50.png">
 				</img> 
@@ -575,7 +575,10 @@ elem.append(`
 		</div>
 			
 `);
-
+if(Accounts[MyID].Invisible)
+{
+$("#navbarfirstspan").after("Days Left To Account Deletion:"+Accounts[MyID].DaysToDelete);
+}
 /*	
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
 
@@ -633,7 +636,17 @@ NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].
 NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Albums</li></a>");
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
+
+if (!Accounts[MyID].Invisible)
+{
 NDDlinks['DeleteLink']=$("<a href='/DeleteAccount'><li style='list-style-position: inside;color:black'>Delete Account</li></a>");
+}
+else
+{
+NDDlinks['DeleteLink']=$("<a href='/UndeleteAccount'><li style='list-style-position: inside;color:black'>UnDelete Account</li></a>");
+}
+
+
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
