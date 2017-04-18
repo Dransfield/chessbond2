@@ -62,4 +62,8 @@ background-color: #5bc0de;
   .mynavbar {
   flex-direction: column;
 }
-
+@media only screen and (max-width: 480px) {
+       h1 { font-size: 18px !important; }
+       h2 { font-size: 14px !important; }
+       h3 { font-size: 12px !important; }
+     }
