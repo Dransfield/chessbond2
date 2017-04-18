@@ -1176,6 +1176,7 @@ function renderHomePage()
 	//showJoinedGameList($("#usr"),JoinedGames);
 	$("#newGameControls").css("text-align","center");
 	showWebsiteNameJumbo($("#newGameControls"))
+	
 	showNewGameControls($("#newGameControls"));
 	}
 
