@@ -526,7 +526,7 @@ function setupChatPage()
 		
 			showChatMessage($("#privateconversationpage"),data);
 			$("#favicon").attr("href","/favicon2.ico");
-			$("#privateconversationpage").scrollTop($("#privateconversationpage").height);
+		$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"));
 				//	$("#privateconversationpage").append(data.content);
 			});
 				
