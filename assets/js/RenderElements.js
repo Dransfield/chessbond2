@@ -633,10 +633,14 @@ NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].
 NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Albums</li></a>");
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
+NDDlinks['DeleteLink']=$("<a href='/DeleteAccount'><li style='list-style-position: inside;color:black'>Delete Account</li></a>");
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
 	NavbarDropDown.append("<br>");
+	NavbarDropDown.append("<hr>");
+	NavbarDropDown.append("<hr>");
+	
 	}
 
 $("#attachnavdropdown").mouseenter(function()
