@@ -939,6 +939,11 @@ elem.append(`
 		
 		$("#newgamecontrols").hide();
 		
+		$("#playAgainstAIButton").click(function()
+		{
+		$(location).attr('href', '/playvsai');
+		});
+		
 		$("#playAgainstPersonButton").click(function()
 		{
 			$("#newgamecontrols").slideDown();
