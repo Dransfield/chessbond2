@@ -217,7 +217,7 @@ showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
 
 elem.append("<hr>");
-elem.scrollTop(elem[0].scrollHeight);
+
 }
 function CreateDropDown(usracc)
 {
