@@ -186,7 +186,7 @@ var GamePlaying={};
 		movesNotation,
 		movesPosition = [];
 
-	movesNotation = chess.moves({square: notationSquare, verbose: true});
+	movesNotation = game.moves({square: notationSquare, verbose: true});
 	for (i = 0; i < movesNotation.length; i++) {
 		movesPosition.push(ChessUtils.convertNotationSquareToIndex(movesNotation[i].to));
 	}
