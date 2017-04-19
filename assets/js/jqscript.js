@@ -155,7 +155,7 @@ var GamePlaying={};
 				board = new Chessboard('boardcontainer', {
 		position: ChessUtils.FEN.startId,
 		eventHandlers: {
-			onPieceSelected: pieceSelected,
+			//onPieceSelected: pieceSelected,
 			onMove: onDrop
 		}
 	});
