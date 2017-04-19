@@ -553,12 +553,17 @@ function showBoardOptions(elem)
 {
 	var vbb=showButton(elem,"Show Board Options","KregularButton KgreenElement");
 	var optionDiv=addFlexDiv(elem,"optionDiv","row","wrap","space-around","center");
-	var boardThemeSel=showSelect(elem,boardThemeNames,boardThemeValues,"Board Theme");
+	var boardThemeSel=showSelect(optionDiv,boardThemeNames,boardThemeValues,"Board Theme");
 	optionDiv.hide();
 	vbb.click(function(){
 		optionDiv.slideToggle();
 	});
-	
+		boardThemeSel.change(function()
+		{
+		$(".chess_square_light").css("background-color",boardThemeSel.val().whitebackground);	
+		$(".chess_square_dark").css("background-color",boardThemeSel.val().blackbackground);	
+		
+		});
 }
 
 function showButton(elem,words,btnstyle="btn-success"){
