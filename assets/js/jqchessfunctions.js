@@ -123,19 +123,23 @@ changeOverallScore=function(piece,colour)
 	}
 	}
 	var onSnapEnd = function() {};
-	 function onDrop(source, target) {
+	 function onDrop(move) {
   
 							if (usersTurn(game,MyID)===false)
 						{ 
 							toastr.warning("It's not your turn");
 							return 'snapback';}
 						// see if the move is legal
-						var move = game.move({
-							from: source,
-							to: target,
-							promotion: 'q' // NOTE: always promote to a queen for example simplicity
-						  });
-
+						
+						var nextPlayer,
+						status,
+					move = game.move({
+						from: move.from,
+						to: move.to,
+						promotion: 'q'
+						});
+						
+						
 					  // illegal move
 					  
 					  if (move === null || GamePlaying.Result){
@@ -156,7 +160,7 @@ changeOverallScore=function(piece,colour)
 						  console.log('in threefold?'+game.in_threefold_repetition());
 						    
 						  
-						   return 'snapback';
+						   return;
 						   }
 							GamePlaying.Move+=1;
 							//ChangeOverallScore(move.captured,move.color);
@@ -235,6 +239,7 @@ changeOverallScore=function(piece,colour)
 					 // console.log('move'+JSON.stringify(move));
 					//console.log("result: "+GamePlaying.Result);
 					updateStatus(game,move);
+					return game.fen();
 };
 
 function updateStatus(game,move)

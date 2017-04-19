@@ -1158,7 +1158,6 @@ ChessUtils class to contain static utility functions.
 	@return {String} The player name (white or black)
 	*/
 	ChessUtils.getPlayerNameFromPiece = function (piece) {
-		console.log("piece "+piece);
 		if (ChessUtils.isPieceWhite(piece)) { return ChessUtils.PLAYER.white.className; }
 		if (ChessUtils.isPieceBlack(piece)) { return ChessUtils.PLAYER.black.className; }
 	};
