@@ -548,10 +548,20 @@ function showAnchorButton(elem,words,linkto,btnstyle){
 	
 }
 
+
+function showBoardOptions(elem)
+{
+	showButton(elem,"Kregularbutton Kgreenelement","Show Board Options");
+	
+	
+}
+
 function showButton(elem,words,btnstyle="btn-success"){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
-	elem.append("<span class='btn btn-lg btn-success' id='button"+ButtonNumber+"'>"+words+"</span>");
+	var btn=$("<span class='"btnstyle"' id='button"+ButtonNumber+"'>"+words+"</span>");
+	elem.append(btn);
+	return btn;
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
 //});

@@ -134,6 +134,7 @@ var GamePlaying={};
 					
 				var overall=$("#playervsplayer")
 				var boardDivDiv=addFlexDiv(overall,"bdd","column","nowrap");
+				showBoardOptions(boardDivDiv);
 				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
@@ -144,7 +145,7 @@ var GamePlaying={};
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row");
-				//boardcontainer.css("width","30%");
+				boardcontainer.css("width","100%");
 				//console.log(boardcontainer.prop("width"));
 				console.log("bc width "+boardcontainer.css( "width" ));
 				console.log("bdd width "+boardDivDiv.css("width"));
