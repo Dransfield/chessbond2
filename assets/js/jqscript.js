@@ -108,7 +108,7 @@ var GamePlaying={};
 				showsmallAvatar(topPlayerMarque,GamePlaying.Player1);
 				showUsername(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append(Accounts[GamePlaying.Player1].ELO);
-				showFlag(flagSpan,topPlayerMarque);
+				showFlag(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				addSpan(boardDivDiv,"boardcontainer");
