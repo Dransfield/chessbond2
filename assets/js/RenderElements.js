@@ -560,9 +560,9 @@ function showBoardOptions(elem)
 	});
 		boardThemeSel.change(function()
 		{
-			console.log($(this).val());
-		console.log(JSON.stringify($(this).val()));
-		$(".chess_square_light").css("background-color",boardThemeSel.val().whitebackground);	
+			console.log($(this).val()[0]);
+		console.log(JSON.stringify($(this).val()['whitebackground']));
+		$(".chess_square_light").css("background-color",boardThemeSel.val()[0].whitebackground);	
 		$(".chess_square_dark").css("background-color",boardThemeSel.val().blackbackground);	
 		
 		});

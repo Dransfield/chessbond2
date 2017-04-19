@@ -51,7 +51,9 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
     ];
    var boardThemeNames=['original'];
    var boardThemeValues=
-      [{name:'original',whitebackground:'#f0d9b5',whiteforeground:'#b58863',blackbackground:'#b58863',blackforeground:'#f0d9b5'}];
+      [{name:'original',whitebackground:'#f0d9b5',
+		  whiteforeground:'#b58863',blackbackground:'#b58863',
+		  blackforeground:'#f0d9b5'}];
   /*
 .whiteoriginal {
   background-color: #f0d9b5;
