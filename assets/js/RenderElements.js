@@ -422,7 +422,7 @@ function showSelect(elem,optionnames,optionvalues,defaulttext)
 	selectbloke.append("<option selected disabled>"+defaulttext+"</option>");
 	for (iter in optionnames)
 	{
-	selectbloke.append("<option value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</option>");	
+	selectbloke.append("<option value='"+JSON.stringify(optionvalues[iter])+"'>"+optionnames[iter]+"</option>");	
 	}
 	elem.append(selectbloke);
 	return selectbloke;
