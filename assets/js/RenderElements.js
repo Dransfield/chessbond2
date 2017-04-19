@@ -570,6 +570,8 @@ function showBoardOptions(elem)
 		//console.log(JSON.stringify($(this).val()['whitebackground']));
 		$(".chess_square_light").css("background-color",obj.whitebackground);	
 		$(".chess_square_dark").css("background-color",obj.blackbackground);
+		$(".chess_square_light").css("color",obj.whiteforeground);	
+		$(".chess_square_dark").css("color",obj.blackforeground);
 		
 		Accounts[MyID].BoardTheme=obj.name;	
 		updateAccountInfo('BoardTheme',MyID);
