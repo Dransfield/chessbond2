@@ -551,7 +551,7 @@ function showAnchorButton(elem,words,linkto,btnstyle){
 
 function showBoardOptions(elem)
 {
-	showButton(elem,"Show Board Options","Kregularbutton Kgreenelement");
+	showButton(elem,"Show Board Options","KregularButton KgreenElement");
 	var optionDiv=addFlexDiv(elem,"optionDiv","row","wrap","space-around","center");
 	var boardThemeSel=showSelect(elem,boardThemeNames,boardThemeValues,"Board Theme");
 	optionDiv.hide();
