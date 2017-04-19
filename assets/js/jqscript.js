@@ -311,7 +311,7 @@ function setupProfilePage()
 			
 			function addvarpair(tbl,one,two,texteditable,bckgrd)
 			{
-			var block=addFlexDiv(tbl,two+"flex","row","nowrap","space-between");
+			var block=addFlexDiv(tbl,two+"flex","row","nowrap","space-around");
 			if (bckgrd==0)
 			{block.css("background-color","#e0e0eb");}
 			block.css("width","100%");
