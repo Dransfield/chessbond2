@@ -870,10 +870,10 @@ function showRecentGames(elem,usracc)
           </div>
           </span>
           */	
-          addGamesToRecentGames();
+          addGamesToRecentGames(usracc);
 }
 
-function addGamesToRecentGames()
+function addGamesToRecentGames(usracc)
 {
 	for (iter in JoinedGames[usracc])
    {
