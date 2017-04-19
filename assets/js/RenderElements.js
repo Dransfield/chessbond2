@@ -551,11 +551,11 @@ function showAnchorButton(elem,words,linkto,btnstyle){
 
 function showBoardOptions(elem)
 {
-	showButton(elem,"Show Board Options","KregularButton KgreenElement");
+	var vbb=showButton(elem,"Show Board Options","KregularButton KgreenElement");
 	var optionDiv=addFlexDiv(elem,"optionDiv","row","wrap","space-around","center");
 	var boardThemeSel=showSelect(elem,boardThemeNames,boardThemeValues,"Board Theme");
 	optionDiv.hide();
-	showButton.click(function(){
+	vbb.click(function(){
 		optionDiv.slideToggle();
 	});
 	
