@@ -155,7 +155,7 @@ var GamePlaying={};
 				board1 = new Chessboard('boardcontainer', {
 		position: ChessUtils.FEN.startId,
 		eventHandlers: {
-			//onPieceSelected: pieceSelected,
+			onPieceSelected: pieceSelected,
 			onMove: onDrop
 		}
 	});
@@ -180,6 +180,19 @@ var GamePlaying={};
 			});
 		});
 	}
+	
+	function pieceSelected(notationSquare) {
+	var i,
+		movesNotation,
+		movesPosition = [];
+
+	movesNotation = chess.moves({square: notationSquare, verbose: true});
+	for (i = 0; i < movesNotation.length; i++) {
+		movesPosition.push(ChessUtils.convertNotationSquareToIndex(movesNotation[i].to));
+	}
+	return movesPosition;
+}
+
 function setupProfilePage()
 {
 	
