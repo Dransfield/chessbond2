@@ -379,7 +379,7 @@ function setupProfilePage()
 					fideTitles=["WGM","WIM","WFM","WCM"];
 					for(witer in fideTitles)
 					{
-					fidesel.append("<option value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</option>");
+					fidesel.append("<option value='"+JSON.stringify(fideTitles[witer])+"'>"+fideTitles[witer]+"</option>");
 					}
 				}
 				if (Accounts[ProfID].Gender=="Male")
@@ -395,7 +395,7 @@ function setupProfilePage()
 					for(witer in fideTitles)
 					{
 						
-					fidesel.append("<option value='"+fideTitles[witer]+"'>"+fideTitles[witer]+"</option>");
+					fidesel.append("<option value='"+JSON.stringify(fideTitles[witer])+"'>"+fideTitles[witer]+"</option>");
 					}
 				}
 				
