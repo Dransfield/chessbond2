@@ -52,14 +52,12 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
    var boardThemeNames=['original'];
    var boardThemeValues=
       [{name:'original',whitebackground:'#f0d9b5',whiteforeground:'#b58863',blackbackground:'#b58863',blackforeground:'#f0d9b5'}];
-  
-    * white square */
+  /*
 .whiteoriginal {
   background-color: #f0d9b5;
   color: #b58863;
 }
 
-/* black square */
 .blackoriginal {
   background-color: #b58863;
   color: #f0d9b5;
@@ -219,7 +217,7 @@ background-color:#fe9900;
   background-color: #EFEFEF;
   color: #EFEFEF;
 }
-
+*/
 
   var   previousboardtheme='original';
   //  boardcontainerstyle="col-sm-7 col-md-6";
