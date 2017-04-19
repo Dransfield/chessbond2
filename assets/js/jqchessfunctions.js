@@ -126,23 +126,13 @@ changeOverallScore=function(piece,colour)
 	 function onDrop(mov) {
 		
 		
-				var nextPlayer,
-						status,
-					move = game.move({
-						from: mov.from,
-						to: mov.to,
-						promotion: 'q'
-						});
-						
-						console.log("mov "+JSON.stringify(mov));
-						
-						console.log("move "+JSON.stringify(move));
+				
 						
 		
 							if (usersTurn(game,MyID)===false)
 						{ 
 							toastr.warning("It's not your turn");
-							return;}
+							return game.fen();}
 						// see if the move is legal
 					
 					
@@ -164,10 +154,17 @@ changeOverallScore=function(piece,colour)
 						  console.log('in threefold?'+game.in_threefold_repetition());
 						    
 						  
-						   return;
+						   return game.fen();
 						   }
 						
-				
+				var nextPlayer,
+						status,
+					move = game.move({
+						from: mov.from,
+						to: mov.to,
+						promotion: 'q'
+						});
+					
 					  // illegal move
 					  
 					 
