@@ -1324,6 +1324,16 @@ function renderHomePage()
 	showWebsiteNameJumbo($("#newGameControls"))
 	
 	showNewGameControls($("#newGameControls"));
+	
+	io.socket.on('newmygameevent', function (data)
+			{
+			console.log('recieved new game event '+data);
+			
+			data.phrase=phrasefordate(data.createdAt);
+			games.push(data);
+			addJoinedGame(games.length-1,games,myelem);
+			});
+	
 	}
 
 

@@ -776,14 +776,14 @@ function showRecentGames(elem,usracc)
 	var borderpos2="border-bottom-style";
 	bordersize2="solid";
 	
-	var whiteFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+	var whiteFlex=addFlexDiv(flexy,"whiteName","column",'nowrap');
 	var span=addSpan(whiteFlex,'id');
 	span.append("<p>White</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-	var blackFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+	var blackFlex=addFlexDiv(flexy,"blackName","column",'nowrap');
 	var span=addSpan(blackFlex,'id');
 	span.append("<p>Black</p>");		
 	span.css("padding",padding);
@@ -792,7 +792,7 @@ function showRecentGames(elem,usracc)
 	
 	
 
-	var resultFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+	var resultFlex=addFlexDiv(flexy,"resultFlex","column",'nowrap');
 	var span=addSpan(resultFlex,'id');
 	
 	span.append("<p>Result</p>");  
@@ -800,28 +800,28 @@ function showRecentGames(elem,usracc)
    	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-   var timeFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+   var timeFlex=addFlexDiv(flexy,"timeFlex","column",'nowrap');
 	var span=addSpan(timeFlex,'id');
 	span.append("<p>Time</p>");  
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-   var movesFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+   var movesFlex=addFlexDiv(flexy,"movesFlex","column",'nowrap');
    var span=addSpan(movesFlex,'id');
 	span.append("<p>Moves</p>");  
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-   var dateFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+   var dateFlex=addFlexDiv(flexy,"dateFlex","column",'nowrap');
    var span=addSpan(dateFlex,'id');
 	span.append("<p>Date</p>");  
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-   var actionFlex=addFlexDiv(flexy,"whitegames","column",'nowrap');
+   var actionFlex=addFlexDiv(flexy,"actionFlex","column",'nowrap');
 	var span=addSpan(actionFlex,'id');
 	span.append("<p>Action</p>");  
 	span.css("padding",padding);
@@ -829,36 +829,7 @@ function showRecentGames(elem,usracc)
 	span.css(borderpos2,bordersize2);
 	
    //console.log(JSON.stringify(JoinedGames[ProfID]));
-   for (iter in JoinedGames[usracc])
-   {
-	   //console.log(iter);
-	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
-	if(JoinedGames[usracc][iter].Player1Color=='White')
-	{
-		var par1=whiteFlex.append("<p></p>");
-	showUsername(par1,JoinedGames[usracc][iter].Player1);   
-		var par2=blackFlex.append("<p></p>");
-	
-	showUsername(par2,JoinedGames[usracc][iter].Player2);   
-	
-	}
-	else
-	{
-	showUsername(blackFlex,JoinedGames[usracc][iter].Player1);   
-	showUsername(whiteFlex,JoinedGames[usracc][iter].Player2);   
-	
-	}
-	//console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
-	//console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
-	timeFlex.append("<p>"+JoinedGames[usracc][iter].GameCategory+"</p>");
-	movesFlex.append("<p>"+JoinedGames[usracc][iter].Move+"</p>");
-	dateFlex.append("<p>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
-	actionFlex.append("<span class='KregularButton KgreenElement'>Go To Game</span>");
-	actionFlex.css('cursor', 'pointer');
-	actionFlex.click(function(){
-		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
-	});
-}
+   
 	//console.log(JoinedGames[ProfID][iter].Player1);
 	
    /*
@@ -899,6 +870,41 @@ function showRecentGames(elem,usracc)
           </div>
           </span>
           */	
+          addGamesToRecentGames();
+}
+
+function addGamesToRecentGames()
+{
+	for (iter in JoinedGames[usracc])
+   {
+	   //console.log(iter);
+	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
+	if(JoinedGames[usracc][iter].Player1Color=='White')
+	{
+		var par1=$("#whiteName").append("<p></p>");
+	showUsername(par1,JoinedGames[usracc][iter].Player1);   
+		var par2=$("#blackName").append("<p></p>");
+	
+	showUsername(par2,JoinedGames[usracc][iter].Player2);   
+	
+	}
+	else
+	{
+	showUsername(blackFlex,JoinedGames[usracc][iter].Player1);   
+	showUsername(whiteFlex,JoinedGames[usracc][iter].Player2);   
+	
+	}
+	//console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
+	//console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
+	timeFlex.append("<p>"+JoinedGames[usracc][iter].GameCategory+"</p>");
+	movesFlex.append("<p>"+JoinedGames[usracc][iter].Move+"</p>");
+	dateFlex.append("<p>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
+	actionFlex.append("<span class='KregularButton KgreenElement'>Go To Game</span>");
+	actionFlex.css('cursor', 'pointer');
+	actionFlex.click(function(){
+		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
+	});
+}
 }
 
 function showJoinedGameList(elem,games)
