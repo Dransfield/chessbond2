@@ -161,6 +161,7 @@ var GamePlaying={};
 	});
 				
 				board1.start();
+				board1.orientation('black');
 				 game = new Chess();
 				 if (GamePlaying.Player1!=GamePlaying.Player2)
 				{
