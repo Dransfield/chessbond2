@@ -685,20 +685,30 @@ for (iter in NDDlinks)
 
 $("#attachnavdropdown").mouseenter(function()
 {$(this).append(NavbarDropDown);
+	if(coverall)
+	{
 	coverall.hide();}
+	}
 );
 
 $("#attachnavdropdown").click(function()
 {
 {$(this).append(NavbarDropDown);
+	if(coverall)
+	{
 	coverall.hide();
 	}
+}
 	
 });
 
 $("#attachnavdropdown").mouseleave(function()
 {NavbarDropDown.detach();
-coverall.show();}
+if(coverall)
+	{
+	coverall.show();
+	}
+}
 );
 
 
