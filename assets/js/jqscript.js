@@ -319,7 +319,7 @@ function setupProfilePage()
 			//block.css("padding","10px");
 			
 			var myspan1=addSpan(block,one+"r");
-			myspan1.html(one);
+			myspan1.html("<b>"+one+"</b>");
 			//myspan1.css("width","50%");
 			//console.log("one "+one);
 			
