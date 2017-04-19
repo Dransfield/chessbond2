@@ -769,13 +769,64 @@ function showRecentGames(elem,usracc)
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
 		var span=addSpan(overallFlex,'id');
 	showHeader(span,2,"Recent Games");
-	var flexy=addFlexDiv(overallFlex,"recentgames","row",'wrap');
+	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
 	var padding ="10px"
 	var borderpos1="border-top-style";
 	bordersize1="solid";
 	var borderpos2="border-bottom-style";
 	bordersize2="solid";
 	
+	
+	
+   //console.log(JSON.stringify(JoinedGames[ProfID]));
+   
+	//console.log(JoinedGames[ProfID][iter].Player1);
+	
+   /*
+	
+		
+				  
+            <tr ng-repeat="game in GameInfo track by $index">
+		
+		<td >
+		<%- include('partials/avatar', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.WhitePlayerID",Myid:Myid}); %>
+		({{game.WhiteELO}})
+		</td>
+			
+
+		
+		<td>
+		<%- include('partials/avatar', {userid: "game.BlackPlayerID",Myid:Myid}); %>
+    	<%- include('partials/username', {userid: "game.BlackPlayerID",Myid:Myid}); %>	
+		({{game.BlackELO}})
+		
+		</td>
+		
+			<td>{{game.res}}</td>
+			<td>{{game.GameCategory}}</td>
+			<td>{{game.moves}}</td>
+			<td>{{game.date}}</td>
+			<td><a href="/humanvshuman/{{game.id}}" target="_blank">Link</a></td>
+			
+			
+			<tr>
+			</tr>
+            </tbody>
+            </table>
+            	<div class="btn btn-lg btn-success" ng-show="chessgameskip>0" ng-click="GetOlderChessGames(LookedatUser.id)"><</div>
+				<div class="btn btn-lg btn-success" ng-click="GetMoreChessGames(LookedatUser.id)">></div>
+
+          </div>
+          </span>
+          */	
+          addGamesToRecentGames(usracc);
+}
+
+function addGamesToRecentGames(usracc)
+{
+	var flexy=$("recentgamesflexy");
+	flexy.empty();
 	var whiteFlex=addFlexDiv(flexy,"whiteName","column",'nowrap');
 	var span=addSpan(whiteFlex,'id');
 	span.append("<p>White</p>");
@@ -828,53 +879,6 @@ function showRecentGames(elem,usracc)
    	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
 	
-   //console.log(JSON.stringify(JoinedGames[ProfID]));
-   
-	//console.log(JoinedGames[ProfID][iter].Player1);
-	
-   /*
-	
-		
-				  
-            <tr ng-repeat="game in GameInfo track by $index">
-		
-		<td >
-		<%- include('partials/avatar', {userid: "game.WhitePlayerID",Myid:Myid}); %>
-    	<%- include('partials/username', {userid: "game.WhitePlayerID",Myid:Myid}); %>
-		({{game.WhiteELO}})
-		</td>
-			
-
-		
-		<td>
-		<%- include('partials/avatar', {userid: "game.BlackPlayerID",Myid:Myid}); %>
-    	<%- include('partials/username', {userid: "game.BlackPlayerID",Myid:Myid}); %>	
-		({{game.BlackELO}})
-		
-		</td>
-		
-			<td>{{game.res}}</td>
-			<td>{{game.GameCategory}}</td>
-			<td>{{game.moves}}</td>
-			<td>{{game.date}}</td>
-			<td><a href="/humanvshuman/{{game.id}}" target="_blank">Link</a></td>
-			
-			
-			<tr>
-			</tr>
-            </tbody>
-            </table>
-            	<div class="btn btn-lg btn-success" ng-show="chessgameskip>0" ng-click="GetOlderChessGames(LookedatUser.id)"><</div>
-				<div class="btn btn-lg btn-success" ng-click="GetMoreChessGames(LookedatUser.id)">></div>
-
-          </div>
-          </span>
-          */	
-          addGamesToRecentGames(usracc);
-}
-
-function addGamesToRecentGames(usracc)
-{
 	for (iter in JoinedGames[usracc])
    {
 	   //console.log(iter);
