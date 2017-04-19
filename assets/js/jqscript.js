@@ -146,8 +146,9 @@ var GamePlaying={};
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row");
 				boardcontainer.css("width","30%");
 				//console.log(boardcontainer.prop("width"));
-				console.log(boardcontainer.css( "width" ));
-				console.log(boardDivDiv.css("width"));
+				console.log("bc width "+boardcontainer.css( "width" ));
+				console.log("bdd width "+boardDivDiv.css("width"));
+				console.log("marque width "+topPlayerMarque.css("width"));
 				console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
 				
