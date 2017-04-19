@@ -100,6 +100,29 @@ var GamePlaying={};
 			{
 				retrievePrivatesandFollows().then(function(){
 					
+						GamePlaying.PlayerOnBottom='White';
+		if (GamePlaying.Player2==MyID){
+			console.log("im player2");
+			console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
+			if (GamePlaying.Player1Color=='White')
+			{
+			
+			GamePlaying.PlayerOnBottom='Black';
+			}
+		
+		}
+		
+	if (GamePlaying.Player1==MyID){
+		if (GamePlaying.Player1Color=='Black')
+		{
+		board1.flip();
+	
+		GamePlaying.PlayerOnBottom='Black';
+		
+		}
+	}
+					
+					
 				var overall=$("#playervsplayer")
 				var boardDivDiv=addDiv(overall);
 				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
@@ -114,30 +137,19 @@ var GamePlaying={};
 				addSpan(boardDivDiv,"boardcontainer");
 				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
 				
-				GamePlaying.PlayerOnBottom='White';
-	if (GamePlaying.Player2==MyID){
-		console.log("im player2");
-		console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
-		if (GamePlaying.Player1Color=='White')
-		{
-		board1.flip();
-		
-		GamePlaying.PlayerOnBottom='Black';
-		}
-	
-	}
-		
-	if (GamePlaying.Player1==MyID){
-		if (GamePlaying.Player1Color=='Black')
-		{
-		board1.flip();
-	
-		GamePlaying.PlayerOnBottom='Black';
-		
-		}
-	}
-				
-				
+				if (GamePlaying.Player1==MyID){
+					if (GamePlaying.Player1Color=='Black')
+					{
+					board1.flip();
+					}
+				}			
+				if (GamePlaying.Player2==MyID){
+					if (GamePlaying.Player1Color=='White')
+					{
+					board1.flip();
+					}
+				}	
+
 				
 				});
 			});

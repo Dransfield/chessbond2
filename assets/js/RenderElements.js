@@ -176,7 +176,7 @@ function showFlag(elem,usracc)
 		
 			if(Accounts[usracc]['Country'])
 			{
-			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
+			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[usracc]['Country'])+".png");
 			
 				
 			}
