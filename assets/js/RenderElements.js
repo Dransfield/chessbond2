@@ -561,6 +561,7 @@ function showBoardOptions(elem)
 		boardThemeSel.change(function()
 		{
 			console.log(boardThemeSel.val().whitebackground);
+		console.log(JSON.stringify(boardThemeSel.val()));
 		$(".chess_square_light").css("background-color",boardThemeSel.val().whitebackground);	
 		$(".chess_square_dark").css("background-color",boardThemeSel.val().blackbackground);	
 		
