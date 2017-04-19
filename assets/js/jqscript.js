@@ -350,7 +350,7 @@ function setupProfilePage()
 				{
 				Accounts[ProfID].FideTitle=JSON.parse(fidesel.val());	
 				updateAccountInfo("FideTitle");
-				myspan.html(fidesel.val());
+				myspan.html(JSON.parse(fidesel.val()));
 				});
 				}
 				
@@ -476,7 +476,7 @@ function setupProfilePage()
 				
 				
 				citysel.change(function(){
-				myspan.html(citysel.val());	
+				myspan.html(JSON.parse(citysel.val()));	
 				Accounts[ProfID]['CurrentCity']=JSON.parse(citysel.val());
 				updateAccountInfo('CurrentCity');
 				});
