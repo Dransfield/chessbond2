@@ -883,8 +883,8 @@ function addGamesToRecentGames(usracc)
 	
 	for (iter in JoinedGames[usracc])
    {
-	   //console.log(iter);
-	  // console.log(JSON.stringify(JoinedGames[ProfID][iter]));
+	   console.log(iter);
+	  console.log(JSON.stringify(JoinedGames[ProfID][iter]));
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 		var par1=$("#whiteName").append("<p></p>");
