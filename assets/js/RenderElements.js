@@ -448,7 +448,7 @@ function updateAccountInfo(words,usracc)
 {
 	console.log("words "+words);
 	console.log("Accounts[ProfID][words] "+Accounts[usracc][words]);
-		Accounts[ProfID]['ProfileUpdated']=new Date();
+		Accounts[usracc]['ProfileUpdated']=new Date();
 	
 	io.socket.put('/user/'+usracc+"?ProfileUpdated="+Accounts[usracc]['ProfileUpdated'],{
 				
