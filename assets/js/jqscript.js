@@ -448,7 +448,7 @@ function setupProfilePage()
 			if (texteditable==2)
 				{
 			
-				var block2=addFlexDiv(tbl,two+"city","row","wrap");
+				var block2=addFlexDiv(tbl,two+"city","row","wrap","space-between");
 				
 				if (bckgrd==0)
 				{block2.css("background-color","#e0e0eb");}
