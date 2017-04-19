@@ -350,7 +350,7 @@ function setupProfilePage()
 				{
 					//console.log(fidesel.val());
 				Accounts[ProfID].FideTitle=JSON.parse(fidesel.val());	
-				updateAccountInfo("FideTitle");
+				updateAccountInfo("FideTitle",MyID);
 				myspan.html(JSON.parse(fidesel.val()));
 				});
 				}
@@ -365,7 +365,7 @@ function setupProfilePage()
 				//console.log(JSON.stringify(sel));
 				myspan.html(JSON.parse(sel.val()));
 				Accounts[ProfID].Gender=JSON.parse(sel.val());
-				updateAccountInfo("Gender");
+				updateAccountInfo("Gender",MyID);
 				
 				if (Accounts[ProfID].Gender=="Female")
 				{
@@ -374,7 +374,7 @@ function setupProfilePage()
 					Accounts[ProfID].FideTitle="W"+Accounts[ProfID].FideTitle;	
 					}
 					fidesel.empty();
-					updateAccountInfo("FideTitle");
+					updateAccountInfo("FideTitle",MyID);
 					fideSpan.html(Accounts[ProfID].FideTitle);
 					fideTitles=["WGM","WIM","WFM","WCM"];
 					for(witer in fideTitles)
@@ -389,7 +389,7 @@ function setupProfilePage()
 					Accounts[ProfID].FideTitle=Accounts[ProfID].FideTitle.substring(1);	
 					}
 					fidesel.empty();
-					updateAccountInfo("FideTitle");
+					updateAccountInfo("FideTitle",MyID);
 					fideSpan.html(Accounts[ProfID].FideTitle);
 					fideTitles=["GM","IM","FM","CM"];
 					for(witer in fideTitles)
@@ -430,19 +430,19 @@ function setupProfilePage()
 				daysel.change(function()
 				{
 				Accounts[ProfID].BirthDay=JSON.parse(daysel.val());	
-				updateAccountInfo("BirthDay");
+				updateAccountInfo("BirthDay",MyID);
 				updatebirth();
 				});
 				monthsel.change(function()
 				{
 				Accounts[ProfID].BirthMonth=JSON.parse(monthsel.val());	
-				updateAccountInfo("BirthMonth");
+				updateAccountInfo("BirthMonth",MyID);
 				updatebirth();
 				});
 				yearsel.change(function()
 				{
 				Accounts[ProfID].BirthYear=JSON.parse(yearsel.val());	
-				updateAccountInfo("BirthYear");
+				updateAccountInfo("BirthYear",MyID);
 				updatebirth();
 				});
 				function updatebirth()
@@ -479,7 +479,7 @@ function setupProfilePage()
 				citysel.change(function(){
 				myspan.html(JSON.parse(citysel.val()));	
 				Accounts[ProfID]['CurrentCity']=JSON.parse(citysel.val());
-				updateAccountInfo('CurrentCity');
+				updateAccountInfo('CurrentCity',MyID);
 				});
 				
 				
@@ -555,7 +555,7 @@ function setupProfilePage()
 				console.log(flagsel.val());
 			flagimage.attr("src","/images/flatflags/"+countryToFilename(flagsel.val())+".png");
 				Accounts[ProfID]['Country']=flagsel.val();
-				updateAccountInfo('Country');
+				updateAccountInfo('Country',MyID);
 			}
 			
 			)

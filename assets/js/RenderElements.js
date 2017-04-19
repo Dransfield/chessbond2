@@ -444,27 +444,27 @@ function showStripedTable(elem)
 	
 }
 
-function updateAccountInfo(words)
+function updateAccountInfo(words,usracc)
 {
 	console.log("words "+words);
-	console.log("Accounts[ProfID][words] "+Accounts[ProfID][words]);
+	console.log("Accounts[ProfID][words] "+Accounts[usracc][words]);
 		Accounts[ProfID]['ProfileUpdated']=new Date();
 	
-	io.socket.put('/user/'+ProfID+"?ProfileUpdated="+Accounts[ProfID]['ProfileUpdated'],{
+	io.socket.put('/user/'+usracc+"?ProfileUpdated="+Accounts[usracc]['ProfileUpdated'],{
 				
 					  }  
 				  
 				,function(resData,jwres)
 			{
 				
-					Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
+					Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(Accounts[usracc]['ProfileUpdated']);
 					
-					$("#ProfileUpdatedPhrase").html(Accounts[ProfID]['ProfileUpdatedPhrase']);
-				Accounts[ProfID]['Profupdatedspan'].html("Profile Updated:");
+					$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
+				Accounts[usracc]['Profupdatedspan'].html("Profile Updated:");
 			}
 			);
 		
-		io.socket.put('/user/'+ProfID+"?"+words+"="+Accounts[ProfID][words],{
+		io.socket.put('/user/'+usracc+"?"+words+"="+Accounts[usracc][words],{
 				
 					  }  
 				  
@@ -480,7 +480,7 @@ function updateAccountInfo(words)
 function UpdateTypedText(words,elemTochange)
 {
 	elemTochange.html(Accounts[ProfID][words]);
-				updateAccountInfo(words);
+				updateAccountInfo(words,MyID);
 		
 }
 function showChatForm(elem,chatID,msgtype)
@@ -567,7 +567,7 @@ function showBoardOptions(elem)
 		$(".chess_square_dark").css("background-color",obj.blackbackground);
 		
 		Accounts[MyID].BoardTheme=obj.name;	
-		updateAccountInfo('BoardTheme');
+		updateAccountInfo('BoardTheme',MyID);
 		});
 }
 
