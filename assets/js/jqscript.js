@@ -145,7 +145,7 @@ var GamePlaying={};
 				topPlayerMarque.append("timer");
 				var boardcontainer=addSpan(boardDivDiv,"boardcontainer");
 				boardcontainer.css("width","30%");
-				console.log(boardcontainer.prop("width"));
+				//console.log(boardcontainer.prop("width"));
 				console.log(boardcontainer.css( "width" ));
 				console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
