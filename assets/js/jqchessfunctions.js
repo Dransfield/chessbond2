@@ -164,12 +164,12 @@ changeOverallScore=function(piece,colour)
 							
 							
 							
-						if (GamePlaying.Player1==me)
+						if (GamePlaying.Player1==MyID)
 							{
 								GamePlaying.Player1Moved='true';
 								ShowWithdrawButton=false;
 							}
-						if (GamePlaying.Player2==me)
+						if (GamePlaying.Player2==MyID)
 							{
 								GamePlaying.Player2Moved='true';
 								ShowWithdrawButton=false;
