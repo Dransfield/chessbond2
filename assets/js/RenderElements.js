@@ -560,10 +560,11 @@ function showBoardOptions(elem)
 	});
 		boardThemeSel.change(function()
 		{
-			console.log($(this).val()[0]);
+			var obj=JSON.parse($(this).val());
+			console.log(obj.whitebackground);
 		console.log(JSON.stringify($(this).val()['whitebackground']));
-		$(".chess_square_light").css("background-color",boardThemeSel.val()[0].whitebackground);	
-		$(".chess_square_dark").css("background-color",boardThemeSel.val().blackbackground);	
+		$(".chess_square_light").css("background-color",obj.whitebackground);	
+		$(".chess_square_dark").css("background-color",obj.blackbackground);	
 		
 		});
 }
