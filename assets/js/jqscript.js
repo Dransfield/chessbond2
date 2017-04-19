@@ -348,6 +348,7 @@ function setupProfilePage()
 				fidesel=showSelect(block2,fideTitles,fideTitles,"Choose Fide");	
 				fidesel.change(function()
 				{
+					console.log(fidesel.val());
 				Accounts[ProfID].FideTitle=JSON.parse(fidesel.val());	
 				updateAccountInfo("FideTitle");
 				myspan.html(JSON.parse(fidesel.val()));
