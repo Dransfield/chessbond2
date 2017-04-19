@@ -144,7 +144,7 @@ var GamePlaying={};
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row");
-				boardcontainer.css("width","30%");
+				//boardcontainer.css("width","30%");
 				//console.log(boardcontainer.prop("width"));
 				console.log("bc width "+boardcontainer.css( "width" ));
 				console.log("bdd width "+boardDivDiv.css("width"));
