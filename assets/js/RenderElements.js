@@ -461,7 +461,7 @@ function updateAccountInfo(words,usracc)
 					
 					$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
 			
-			if(Accounts[usracc]['Profupdatedspan'].html)
+			if(Accounts[usracc]['Profupdatedspan'])
 			{
 				Accounts[usracc]['Profupdatedspan'].html("Profile Updated:");
 			}	
