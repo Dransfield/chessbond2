@@ -70,7 +70,7 @@ background-color: #5bc0de;
   flex-direction: column;
 }
 @media only screen and (max-width: 480px) {
-       h1 { font-size: 18px !important; }
-       h2 { font-size: 14px !important; }
-       h3 { font-size: 12px !important; }
+       h1 { font-size: 3em !important; }
+       h2 { font-size: 2em !important; }
+       h3 { font-size: 1em !important; }
      }

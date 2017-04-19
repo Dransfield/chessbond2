@@ -765,7 +765,7 @@ if(coverall)
 }
 function showRecentGames(elem,usracc)
 {
-	console.log("showrecent games");
+	//console.log("showrecent games");
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
 		var span=addSpan(overallFlex,'id');
 	showHeader(span,2,"Recent Games");
