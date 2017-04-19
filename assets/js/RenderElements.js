@@ -551,7 +551,7 @@ function showAnchorButton(elem,words,linkto,btnstyle){
 
 function showBoardOptions(elem)
 {
-	showButton(elem,"Kregularbutton Kgreenelement","Show Board Options");
+	showButton(elem,"Show Board Options","Kregularbutton Kgreenelement");
 	
 	
 }
