@@ -828,6 +828,7 @@ function addGamesToRecentGames(usracc)
 	bordersize2="solid";
 	var flexy=$("recentgamesflexy");
 	flexy.empty();
+	console.log(flexy);
 	var whiteFlex=addFlexDiv(flexy,"whiteName","column",'nowrap');
 	var span=addSpan(whiteFlex,'id');
 	span.append("<p>White</p>");
