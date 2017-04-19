@@ -243,32 +243,9 @@ function updateStatus(game,move)
 GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 
-/*
-if (game.turn()=='b')
-{
-	//console.log("WhiteInterval "+WhiteInterval);
-	clearInterval(WhiteInterval);
-	clearInterval(BlackInterval);
-	StartBlackClock();
-	}
-	else
-	{
-	clearInterval(WhiteInterval);
-	clearInterval(BlackInterval);
-	StartWhiteClock();
-		
-		
-	}
-*/
-updateTurnTakerLabel(game);
-updatePlayersLabel(game);
-//game.load(gameRecord.fen);
 
-//console.log("put chessgame result is :"+GamePlaying.Result);
-//console.log("put chessgame move is :"+GamePlaying.Move);
-//console.log("put chessgame captured whites:"+GamePlaying.capturedWhitepieces);
-//console.log("put chessgame captured Blacks:"+GamePlaying.capturedBlackpieces);
-
+//updateTurnTakerLabel(game);
+//updatePlayersLabel(game);
 
 
 io.socket.put('/Chessgame/'+GamePlaying.id,{
