@@ -314,7 +314,7 @@ function setupProfilePage()
 			var block=addFlexDiv(tbl,two+"flex","row","nowrap","space-between");
 			if (bckgrd==0)
 			{block.css("background-color","#e0e0eb");}
-			
+			block.css("width","100%");
 			
 			//block.css("padding","10px");
 			
