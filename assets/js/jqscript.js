@@ -315,8 +315,8 @@ function setupProfilePage()
 			if (bckgrd==0)
 			{block.css("background-color","#e0e0eb");}
 			
-			block.css("justify-content","space-between");
-			block.css("padding","10px");
+			
+			//block.css("padding","10px");
 			
 			var myspan1=addSpan(block,one+"r");
 			myspan1.html(one);
