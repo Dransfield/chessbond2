@@ -330,7 +330,7 @@ function setupProfilePage()
 			{Accounts[ProfID][two]="";}
 			var myspan=addSpan(block,two);
 			
-			myspan.css("width","50%");
+			//myspan.css("width","50%");
 			
 			myspan.html(Accounts[ProfID][two]);
 			if(MyID==ProfID)
@@ -351,7 +351,7 @@ function setupProfilePage()
 				
 			if (texteditable==4)
 			{
-			var block2=addFlexDiv(tbl,two+"edit","row","nowrap");
+			var block2=addFlexDiv(tbl,two+"edit","row","nowrap","space-between");
 			block2.append("<span>Edit:</span>");
 			var sel=showSelect(block2,["Male","Female"],["Male","Female"],"Choose Gender");	
 			sel.change(function(e)
