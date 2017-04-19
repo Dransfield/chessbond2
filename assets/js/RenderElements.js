@@ -460,7 +460,12 @@ function updateAccountInfo(words,usracc)
 					Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(Accounts[usracc]['ProfileUpdated']);
 					
 					$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
+			
+			if(Accounts[usracc]['Profupdatedspan'].html)
+			{
 				Accounts[usracc]['Profupdatedspan'].html("Profile Updated:");
+			}	
+			
 			}
 			);
 		
