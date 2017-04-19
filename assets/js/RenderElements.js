@@ -770,11 +770,7 @@ function showRecentGames(elem,usracc)
 		var span=addSpan(overallFlex,'id');
 	showHeader(span,2,"Recent Games");
 	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
-	var padding ="10px"
-	var borderpos1="border-top-style";
-	bordersize1="solid";
-	var borderpos2="border-bottom-style";
-	bordersize2="solid";
+	
 	
 	
 	
@@ -825,6 +821,11 @@ function showRecentGames(elem,usracc)
 
 function addGamesToRecentGames(usracc)
 {
+	var padding ="10px"
+	var borderpos1="border-top-style";
+	bordersize1="solid";
+	var borderpos2="border-bottom-style";
+	bordersize2="solid";
 	var flexy=$("recentgamesflexy");
 	flexy.empty();
 	var whiteFlex=addFlexDiv(flexy,"whiteName","column",'nowrap');
