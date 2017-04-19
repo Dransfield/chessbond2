@@ -144,6 +144,7 @@ var GamePlaying={};
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				addSpan(boardDivDiv,"boardcontainer");
+				console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
 				
 				if (GamePlaying.Player1==MyID){
