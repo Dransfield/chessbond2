@@ -159,8 +159,8 @@ changeOverallScore=function(piece,colour)
 						   return 'snapback';
 						   }
 							GamePlaying.Move+=1;
-							ChangeOverallScore(move.captured,move.color);
-							Showcapturedpiece(move.captured,move.color,true);
+							//ChangeOverallScore(move.captured,move.color);
+							//Showcapturedpiece(move.captured,move.color,true);
 							
 							
 							
