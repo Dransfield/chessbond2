@@ -134,7 +134,7 @@ var GamePlaying={};
 					
 				var overall=$("#playervsplayer")
 				var boardDivDiv=addFlexDiv(overall,"bdd","column","nowrap");
-				showBoardOptions(boardDivDiv);
+				//showBoardOptions(boardDivDiv);
 				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
