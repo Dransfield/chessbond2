@@ -162,6 +162,9 @@ var GamePlaying={};
 				
 				board1.start();
 				board1.orientation('black');
+				
+				board1.css("chess_square_light","#AAAAAA");
+				
 				 game = new Chess();
 				 if (GamePlaying.Player1!=GamePlaying.Player2)
 				{
