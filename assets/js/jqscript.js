@@ -1330,7 +1330,7 @@ function renderHomePage()
 			console.log('recieved new game event '+data);
 			
 			data.phrase=phrasefordate(data.createdAt);
-			JoinedGames.push(data);
+			JoinedGames[MyID].push(data);
 			//addJoinedGame(games.length-1,games,myelem);
 			addGamesToRecentGames(MyID);
 			});
