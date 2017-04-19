@@ -162,6 +162,8 @@ var GamePlaying={};
 				
 				board1.start();
 				 game = new Chess();
+				 if (GamePlaying.Player1!=GamePlaying.Player2)
+				{
 				if (GamePlaying.Player1==MyID){
 					if (GamePlaying.Player1Color=='Black')
 					{
@@ -174,8 +176,8 @@ var GamePlaying={};
 					board1.flip();
 					}
 				}	
-
-				
+				}
+			
 				});
 			});
 		});
