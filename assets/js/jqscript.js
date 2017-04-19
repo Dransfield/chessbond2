@@ -348,7 +348,7 @@ function setupProfilePage()
 				fidesel=showSelect(block2,fideTitles,fideTitles,"Choose Fide");	
 				fidesel.change(function()
 				{
-				Accounts[ProfID].FideTitle=fidesel.val();	
+				Accounts[ProfID].FideTitle=JSON.parse(fidesel.val());	
 				updateAccountInfo("FideTitle");
 				myspan.html(fidesel.val());
 				});
@@ -361,9 +361,9 @@ function setupProfilePage()
 			var sel=showSelect(block2,["Male","Female"],["Male","Female"],"Choose Gender");	
 			sel.change(function(e)
 			{
-				console.log(JSON.stringify(sel));
-				myspan.html(sel.val());
-				Accounts[ProfID].Gender=sel.val();
+				//console.log(JSON.stringify(sel));
+				myspan.html(JSON.parse(sel.val()));
+				Accounts[ProfID].Gender=JSON.parse(sel.val());
 				updateAccountInfo("Gender");
 				
 				if (Accounts[ProfID].Gender=="Female")
@@ -428,19 +428,19 @@ function setupProfilePage()
 				
 				daysel.change(function()
 				{
-				Accounts[ProfID].BirthDay=daysel.val();	
+				Accounts[ProfID].BirthDay=JSON.parse(daysel.val());	
 				updateAccountInfo("BirthDay");
 				updatebirth();
 				});
 				monthsel.change(function()
 				{
-				Accounts[ProfID].BirthMonth=monthsel.val();	
+				Accounts[ProfID].BirthMonth=JSON.parse(monthsel.val());	
 				updateAccountInfo("BirthMonth");
 				updatebirth();
 				});
 				yearsel.change(function()
 				{
-				Accounts[ProfID].BirthYear=yearsel.val();	
+				Accounts[ProfID].BirthYear=JSON.parse(yearsel.val());	
 				updateAccountInfo("BirthYear");
 				updatebirth();
 				});
@@ -477,7 +477,7 @@ function setupProfilePage()
 				
 				citysel.change(function(){
 				myspan.html(citysel.val());	
-				Accounts[ProfID]['CurrentCity']=citysel.val();
+				Accounts[ProfID]['CurrentCity']=JSON.parse(citysel.val());
 				updateAccountInfo('CurrentCity');
 				});
 				
