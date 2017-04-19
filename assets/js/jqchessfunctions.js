@@ -56,10 +56,10 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
    ];
    var boardThemeValues=
       [{name:'original',whitebackground:'#f0d9b5',
-		  whiteforeground:'#AAAAAA',blackbackground:'#FFFFFF',
+		  whiteforeground:'#AAAAAA',blackbackground:'#b58863',
 		  blackforeground:'#f0d9b5'},
 		  {name:'A1',whitebackground:'#fbe2db',
-		  whiteforeground:'#111111',blackbackground:'##901d78',
+		  whiteforeground:'#111111',blackbackground:'#901d78',
 		  blackforeground:'#FFFFFF'}
 		  
 		  
