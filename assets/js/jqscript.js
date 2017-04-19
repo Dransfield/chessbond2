@@ -2,7 +2,7 @@
 var myuser;
 var Accounts={};
 var OpenGames={};
-var JoinedGames={};
+var JoinedGames=[];
 var AccountsToRetrieve={};
 var AccountPromises=[];
 var PrivatePromises=[];
