@@ -123,26 +123,30 @@ changeOverallScore=function(piece,colour)
 	}
 	}
 	var onSnapEnd = function() {};
-	 function onDrop(move) {
-  
-							if (usersTurn(game,MyID)===false)
-						{ 
-							toastr.warning("It's not your turn");
-							return 'snapback';}
-						// see if the move is legal
-						
-						var nextPlayer,
+	 function onDrop(mov) {
+		
+		
+				var nextPlayer,
 						status,
 					move = game.move({
-						from: move.from,
-						to: move.to,
+						from: mov.from,
+						to: mov.to,
 						promotion: 'q'
 						});
 						
+						console.log("mov "+JSON.stringify(mov));
 						
-					  // illegal move
-					  
-					  if (move === null || GamePlaying.Result){
+						console.log("move "+JSON.stringify(move));
+						
+		
+							if (usersTurn(game,MyID)===false)
+						{ 
+							toastr.warning("It's not your turn");
+							return;}
+						// see if the move is legal
+					
+					
+					 if (GamePlaying.Result){
 						  if (GamePlaying.Result)
 							{
 								
@@ -162,6 +166,11 @@ changeOverallScore=function(piece,colour)
 						  
 						   return;
 						   }
+						
+				
+					  // illegal move
+					  
+					 
 							GamePlaying.Move+=1;
 							//ChangeOverallScore(move.captured,move.color);
 							//Showcapturedpiece(move.captured,move.color,true);
@@ -238,7 +247,7 @@ changeOverallScore=function(piece,colour)
 					
 					 // console.log('move'+JSON.stringify(move));
 					//console.log("result: "+GamePlaying.Result);
-					updateStatus(game,move);
+					updateStatus(game,mov);
 					return game.fen();
 };
 
