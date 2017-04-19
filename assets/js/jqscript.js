@@ -144,6 +144,7 @@ var GamePlaying={};
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				var boardcontainer=addSpan(boardDivDiv,"boardcontainer");
+				boardcontainer.css("width","30%");
 				console.log(boardcontainer.prop("width"));
 				console.log(boardcontainer.css( "width" ));
 				console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
