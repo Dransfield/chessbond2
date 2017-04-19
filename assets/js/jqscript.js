@@ -143,7 +143,7 @@ var GamePlaying={};
 				showFlag(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
-				var boardcontainer=addSpan(boardDivDiv,"boardcontainer");
+				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer");
 				boardcontainer.css("width","30%");
 				//console.log(boardcontainer.prop("width"));
 				console.log(boardcontainer.css( "width" ));
