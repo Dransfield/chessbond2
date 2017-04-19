@@ -150,7 +150,7 @@ var GamePlaying={};
 				console.log("bc width "+boardcontainer.css( "width" ));
 				console.log("bdd width "+boardDivDiv.css("width"));
 				console.log("marque width "+topPlayerMarque.css("width"));
-				console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
+				//console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				// board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
 				board1 = new Chessboard('boardcontainer', {
 		position: ChessUtils.FEN.startId,
