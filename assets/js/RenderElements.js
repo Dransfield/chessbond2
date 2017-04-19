@@ -834,6 +834,7 @@ function showRecentGames(elem,usracc)
 	movesFlex.append("<p>"+JoinedGames[usracc][iter].Move+"</p>");
 	dateFlex.append("<p>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
 	actionFlex.append("<span class='KregularButton KgreenElement'>Go To Game</span>");
+	actionFlex.css('cursor', 'pointer');
 	actionFlex.click(function(){
 		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
 	});

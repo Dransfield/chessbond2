@@ -12,9 +12,7 @@ var PrivateMessages={};
 var Follows={};
 var WallPosts=[];
 var GamePlaying={};
-			var board1 ;
-
-var game;
+	
 		subscribeToMandatoryRooms()
 			
 		io.socket.on
@@ -92,36 +90,7 @@ var game;
 		retrieveAccounts();
 	}
 	
-	function usersTurn(game,me)
-		{
-		if (game.turn()=='w')
-		{
-		if (GamePlaying.Player1==me && GamePlaying.Player1Color=='White' )
-		{
-			return true;
-		}
-		if (GamePlaying.Player2==me && GamePlaying.Player1Color=='Black' )
-		{
-			
-			return true;
-		}
-		}
-		
-		if (game.turn()=='b')
-		{
-		if (GamePlaying.Player1==me && GamePlaying.Player1Color=='Black' )
-		{
-			return true;
-		}
-		if (GamePlaying.Player2==me && GamePlaying.Player1Color=='White' )
-		{
-			
-			return true;
-		}
-
-		}
-	return false;
-	}
+	
 	
 	
 	

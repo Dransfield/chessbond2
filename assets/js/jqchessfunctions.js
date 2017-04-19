@@ -1,4 +1,111 @@
 
+var boardEl;
+		var board1 ;
+var squareClass = 'square-55d63';
+  var squareToHighlight;
+  boardEl = $('#boardcontainer');
+var game;
+
+var TopMinutes="0";
+var TopSeconds="0";
+var TopMilliseconds="000";
+
+var BottomMinutes="0";
+var BottomSeconds="0";
+var BottomMilliseconds="000";
+
+var WhiteTime=0;
+var BlackTime=0;
+
+var WhiteTimeDisplay="string";
+var WhiteMinutes="string";
+var WhiteSeconds="string";
+var WhiteMilliSeconds="string";
+
+var BlackTimeDisplay="string";
+var BlackMinutes="string";
+var BlackSeconds="string";
+var BlackMilliSeconds="string";
+
+var PingStartTime=0;
+
+var capturedWhitepieces=[];
+
+var capturedBlackpieces=[];
+
+var WhiteInterval=0;
+var BlackInterval=0;
+
+ var  boardorientations = [
+        {id: '1', name: 'Left',value:'Left'},
+	  {id: '2', name: 'Right',value:'Right'}
+          ];
+var   piecethemes = [
+      'A','B','C','D','E','F','G','H'
+    ];
+var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
+ var     boardthemes = [
+      'symbol','uscf','dilena','wikipedia','leipzig','metro','original',
+      'A1','A2','B1','B2','C1','C2','D1','D2','E1','E2'
+    ];
+  var   previousboardtheme='original';
+  //  boardcontainerstyle="col-sm-7 col-md-6";
+   var   boardsizes = [
+     /*
+      {id: '1', name: 'Small',value:200},
+      {id: '2', name: 'Medium',value:300},
+      {id: '3', name: 'Large',value:400},
+	  {id: '4', name: 'Big',value:600}
+    */
+      {id: '1', name: 'Small',value:100},
+      {id: '2', name: 'Medium',value:200},
+      {id: '3', name: 'Large',value:300},
+	  {id: '4', name: 'Big',value:400}
+    
+    ];
+    
+    var ShowAcceptDrawButton=false;
+    
+    var piecevalues={P:1,N:3,B:3,R:5,Q:9};
+ //   BellSound= new Audio('/alert.mp3');
+//	MoveSound=new Audio('/move.mp3');
+//	CheckMateSound=new Audio("/checkmate.mp3");
+	var DrawSound=new Audio("/draw.mp3");
+//	WithdrawSound=new Audio("/withdraw.mp3");
+	var SoundEnabled=false;
+	$("#SoundModal").modal()
+	var EnableSound=function()
+{
+			
+	console.log("Sound Enabled");
+	BellSound= new Audio('/alert.mp3');
+	MoveSound=new Audio('/move.mp3');
+	CheckMateSound=new Audio("/checkmate.mp3");
+	DrawSound=new Audio("/draw.mp3");
+	WithdrawSound=new Audio("/withdraw.mp3");
+	BellSound.volume=0;
+	MoveSound.volume=0;
+	CheckMateSound.volume=0;
+	DrawSound.volume=0;
+	WithdrawSound.volume=0;
+	BellSound.play();
+	MoveSound.play();
+	CheckMateSound.play();
+	DrawSound.play();
+	WithdrawSound.play();
+	BellSound.pause();
+	MoveSound.pause();
+	CheckMateSound.pause();
+	//DrawSound.pause();
+	WithdrawSound.pause();
+	BellSound.volume=.1;
+	MoveSound.volume=.1;
+	//CheckMateSound.volume=.1;
+	DrawSound.volume=.1;
+	WithdrawSound.volume=.1;
+	
+};
+
 changeOverallScore=function(piece,colour)
     {
     if (piece)
@@ -7,18 +114,18 @@ changeOverallScore=function(piece,colour)
     if (colour=='b')
 		{
 
-		GamePlaying.OverallScore-=$scope.piecevalues[piece];
+		GamePlaying.OverallScore-=piecevalues[piece];
 		}
 		else
 		{
-		GamePlaying.OverallScore+=$scope.piecevalues[piece];	
+		GamePlaying.OverallScore+=piecevalues[piece];	
 		}
 	}
 	}
-	
+	var onSnapEnd = function() {};
 	 function onDrop(source, target) {
   
-							if (usersTurn(game,me)===false)
+							if (usersTurn(game,MyID)===false)
 						{ 
 							toastr.warning("It's not your turn");
 							return 'snapback';}
@@ -53,19 +160,19 @@ changeOverallScore=function(piece,colour)
 						   }
 							GamePlaying.Move+=1;
 							ChangeOverallScore(move.captured,move.color);
-							$scope.Showcapturedpiece(move.captured,move.color,true);
+							Showcapturedpiece(move.captured,move.color,true);
 							
 							
 							
 						if (GamePlaying.Player1==me)
 							{
 								GamePlaying.Player1Moved='true';
-								$scope.ShowWithdrawButton=false;
+								ShowWithdrawButton=false;
 							}
 						if (GamePlaying.Player2==me)
 							{
 								GamePlaying.Player2Moved='true';
-								$scope.ShowWithdrawButton=false;
+								ShowWithdrawButton=false;
 							}
 						
 						console.log("is it over?");
@@ -90,12 +197,12 @@ changeOverallScore=function(piece,colour)
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							$scope.ShowOfferDrawButton=false;
-								if($scope.User)
+							ShowOfferDrawButton=false;
+								if(Accounts[MyID])
 								{		
-								if($scope.User.SoundEnabled=='Sound Enabled')
+								if(Accounts[MyID].SoundEnabled=='Sound Enabled')
 								{
-								$scope.PlayCheckMate();
+								PlayCheckMate();
 								
 								}
 								}
@@ -117,7 +224,7 @@ changeOverallScore=function(piece,colour)
 						  square=   boardEl.find('.square-' + move.from);
 							square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 						
-						  $scope.Moves=game.pgn().split(".");
+						  Moves=game.pgn().split(".");
 					  //console.log("left"+position.left);
 					  //console.log("top"+position.top);
 					  //console.log("html"+square.html());
@@ -139,16 +246,16 @@ GamePlaying.lastmove=move.from+move.to;
 /*
 if (game.turn()=='b')
 {
-	//console.log("$scope.WhiteInterval "+$scope.WhiteInterval);
-	clearInterval($scope.WhiteInterval);
-	clearInterval($scope.BlackInterval);
-	$scope.StartBlackClock();
+	//console.log("WhiteInterval "+WhiteInterval);
+	clearInterval(WhiteInterval);
+	clearInterval(BlackInterval);
+	StartBlackClock();
 	}
 	else
 	{
-	clearInterval($scope.WhiteInterval);
-	clearInterval($scope.BlackInterval);
-	$scope.StartWhiteClock();
+	clearInterval(WhiteInterval);
+	clearInterval(BlackInterval);
+	StartWhiteClock();
 		
 		
 	}
@@ -217,3 +324,34 @@ io.socket.put('/Chessgame/'+GamePlaying.id,{
 
 
 }
+
+function usersTurn(game,me)
+		{
+		if (game.turn()=='w')
+		{
+		if (GamePlaying.Player1==me && GamePlaying.Player1Color=='White' )
+		{
+			return true;
+		}
+		if (GamePlaying.Player2==me && GamePlaying.Player1Color=='Black' )
+		{
+			
+			return true;
+		}
+		}
+		
+		if (game.turn()=='b')
+		{
+		if (GamePlaying.Player1==me && GamePlaying.Player1Color=='Black' )
+		{
+			return true;
+		}
+		if (GamePlaying.Player2==me && GamePlaying.Player1Color=='White' )
+		{
+			
+			return true;
+		}
+
+		}
+	return false;
+	}
