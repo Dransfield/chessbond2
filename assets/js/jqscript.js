@@ -144,7 +144,7 @@ var GamePlaying={};
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				addSpan(boardDivDiv,"boardcontainer");
-				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+$scope.User.ChessPieceTheme[0]+'/{piece}.png'} );
+				 board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
 				
 				if (GamePlaying.Player1==MyID){
 					if (GamePlaying.Player1Color=='Black')
