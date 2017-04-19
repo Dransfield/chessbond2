@@ -163,7 +163,7 @@ var GamePlaying={};
 				board1.start();
 				board1.orientation('black');
 				
-				$("#chess_square_light").css("background-color","#AAAAAA");
+				$("#chess_square_light").css("background-color","green");
 				
 				 game = new Chess();
 				 if (GamePlaying.Player1!=GamePlaying.Player2)
