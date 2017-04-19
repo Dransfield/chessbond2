@@ -45,9 +45,182 @@ var   piecethemes = [
     ];
 var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
  var     boardthemes = [
-      'symbol','uscf','dilena','wikipedia','leipzig','metro','original',
+      'symbol','uscf','dilena','wikipedia','leipzig','metro',
+		'original',
       'A1','A2','B1','B2','C1','C2','D1','D2','E1','E2'
     ];
+   var boardThemeNames=['original'];
+   var boardThemeValues=
+      [{name:'original',whitebackground:'#f0d9b5',whiteforeground:'#b58863',blackbackground:'#b58863',blackforeground:'#f0d9b5'}];
+  
+    * white square */
+.whiteoriginal {
+  background-color: #f0d9b5;
+  color: #b58863;
+}
+
+/* black square */
+.blackoriginal {
+  background-color: #b58863;
+  color: #f0d9b5;
+}
+
+ edde9b
+
+.whiteA1
+{
+ background-color:#fbe2db;
+}
+
+.blackA1
+{
+ background-color:#901d78;
+}
+
+.whiteA2
+{
+background-color:#f09ba0;
+}
+
+.blackA2
+{
+background-color:#0093dd;
+}
+
+.whiteB1
+{
+background-color:#f6e2ee;
+}
+
+.blackB1
+{
+background-color:#5e6f89;
+}
+
+.whiteB2
+{
+background-color:#fffcc7;
+}
+
+.blackB2
+{
+background-color:#da251c;
+}
+.whiteC1
+{
+background-color:#d3b49f;
+}
+
+.blackC1
+{
+background-color:#71625b;
+}
+.whiteC2
+{
+background-color:#ffffff;
+}
+
+.blackC2
+{
+background-color:#1f1a17;
+}
+.whiteD1
+{
+background-color:#b2b5aa;
+}
+
+.blackD1
+{
+background-color:#613005;
+}
+.whiteD2
+{
+background-color:#e8c312;
+}
+
+.blackD2
+{
+background-color:#0093dd;
+}
+.whiteE1
+{
+background-color:#bab3d5;
+}
+
+.blackE1
+{
+background-color:#070e79;
+}
+
+.whiteE2
+{
+background-color:#ffffcb;
+}
+
+.blackE2
+{
+background-color:#fe9900;
+}
+
+
+.whitesymbol{
+  background-color: #FFFFFF;
+  color: #58AC8A;
+}
+.blacksymbol{
+  background-color: #58AC8A;
+  color: #EFEFEF;
+}
+
+.whiteuscf{
+  background-color: #C3C6BE;
+  color: #AAAAAA;
+}
+.blackuscf{
+  background-color: #727FA2;
+  color: #EFEFEF;
+}
+
+.whitedilena{
+  background-color: #FFE5B6;
+  color: #AAAAAA;
+}
+.blackdilena{
+  background-color: #B16228;
+  color: #EFEFEF;
+}
+
+
+
+.whitewikipedia{
+  background-color: #D18B47;
+  color: #AAAAAA;
+}
+.blackwikipedia{
+  background-color: #FFCE9E;
+  color: #EFEFEF;
+}
+
+.whiteleipzig{
+  background-color: #FFFFFF;
+  color: #AAAAAA;
+}
+.blackleipzig{
+  background-color: #E1E1E1;
+  color: #EFEFEF;
+}
+
+
+.whitemetro{
+  background-color: #FFFFFF;
+  color: #AAAAAA;
+}
+.blackmetro{
+  background-color: #EFEFEF;
+  color: #EFEFEF;
+}
+
+
   var   previousboardtheme='original';
   //  boardcontainerstyle="col-sm-7 col-md-6";
    var   boardsizes = [

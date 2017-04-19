@@ -105,22 +105,22 @@ var GamePlaying={};
 		{
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
 			AccountsToRetrieve[GamePlaying.Player2]=GamePlaying.Player2;
-			retrieveAccounts().then(function()
+			retrieveAccounts(true).then(function()
 			{
 				retrievePrivatesandFollows().then(function(){
 					
 						GamePlaying.PlayerOnBottom='White';
-		if (GamePlaying.Player2==MyID){
-			console.log("im player2");
-			console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
-			if (GamePlaying.Player1Color=='White')
-			{
-			
-			GamePlaying.PlayerOnBottom='Black';
-			}
-		
-		}
-		
+						if (GamePlaying.Player2==MyID){
+							console.log("im player2");
+							console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
+							if (GamePlaying.Player1Color=='White')
+							{
+							
+							GamePlaying.PlayerOnBottom='Black';
+							}
+						
+						}
+						
 	if (GamePlaying.Player1==MyID){
 		if (GamePlaying.Player1Color=='Black')
 		{
@@ -839,7 +839,7 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 }
 
 
-function retrieveAccount(usracc,func)
+function retrieveAccount(usracc,func,boardscreen=false)
 {
 	var acctPromise = new Promise(function(resolve, reject) {
   io.socket.get('/user/'+usracc,
@@ -854,7 +854,7 @@ function retrieveAccount(usracc,func)
 			console.log("do navbar? "+MyID+" "+usr.id);
 				if (MyID==usr.id)
 				{
-				showNavbar($("#navbar"),MyID);
+				showNavbar($("#navbar"),MyID,boardscreen);
 				}
 				
 				if(usr)
@@ -1016,13 +1016,13 @@ function retrievePrivate()
 	
 }
 
-function retrieveAccounts()
+function retrieveAccounts(boardscreen=false)
 
 {
 	for (x in AccountsToRetrieve)
 	{
 	console.log("account to retrieve "+AccountsToRetrieve[x]);
-	addAccountPromise(AccountsToRetrieve[x]);
+	addAccountPromise(AccountsToRetrieve[x],boardscreen);
 	}
 	
 	
@@ -1100,7 +1100,7 @@ DropDowns[usracc]['BeginFoll']=$("<a id='StartFollowDiv"+usracc+"'>Follow</a>");
 	
 	
 }
-function addAccountPromise(usracc)
+function addAccountPromise(usracc,boardscreen=false)
 {
 AccountPromises.push(new Promise((resolve, reject) => {
 	 io.socket.get('/user/'+usracc,
@@ -1115,7 +1115,7 @@ AccountPromises.push(new Promise((resolve, reject) => {
 			console.log("do navbar? "+MyID+" "+usr.id);
 				if (MyID==usr.id)
 				{
-				showNavbar($("#navbar"),MyID);
+				showNavbar($("#navbar"),MyID,boardscreen);
 				}
 				
 				if(usr)

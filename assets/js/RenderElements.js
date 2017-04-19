@@ -552,7 +552,12 @@ function showAnchorButton(elem,words,linkto,btnstyle){
 function showBoardOptions(elem)
 {
 	showButton(elem,"Show Board Options","Kregularbutton Kgreenelement");
-	
+	var optionDiv=addFlexDiv(elem,"optionDiv","row","wrap","space-around","center");
+	var boardThemeSel=showSelect(elem,boardThemeNames,boardThemeValues,"Board Theme");
+	optionDiv.hide();
+	showButton.click(function(){
+		optionDiv.slideToggle();
+	});
 	
 }
 
@@ -568,7 +573,7 @@ function showButton(elem,words,btnstyle="btn-success"){
 	
 }
 
-function showNavbar(elem,usracc)
+function showNavbar(elem,usracc,boardscreen=false)
 {
 	var plyrName=Accounts[usracc].name;
 
@@ -599,6 +604,14 @@ elem.append(`
 		</div>
 			
 `);
+
+if (boardscreen)
+{
+	var optionspan=$("#navbarfirstspan").append("<span></span>");
+	showBoardOptions(optionspan);
+	
+}
+
 var coverall;
 if(Accounts[MyID].Invisible)
 {
@@ -1021,7 +1034,7 @@ elem.append(`
 		
 		$("#playAgainstPersonButton").click(function()
 		{
-			$("#newgamecontrols").slideDown();
+			$("#newgamecontrols").slideToggle();
 		});
 	
 		$("#gobutton").click(function()
