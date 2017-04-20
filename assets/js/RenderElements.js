@@ -604,7 +604,8 @@ function showBoardOptions(elem)
 		volumeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
-		Accounts[MyID].SoundVolume=obj.value;
+		console.log(obj);
+		Accounts[MyID].SoundVolume=obj;
 		updateAccountInfo('SoundVolume',MyID);
 		});
 		
