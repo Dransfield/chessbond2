@@ -168,15 +168,12 @@ var soundVolume=5;
 	});
 	
 	
-	console.log("boardThemeValues[0].name "+boardThemeValues[0].name);
-	console.log("Accounts[MyID].BoardTheme "+Accounts[MyID].BoardTheme);
 	for (btIter in boardThemeValues)
 	{
-		if (boardThemeValues[btIter].name=Accounts[MyID].BoardTheme)
+		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
 		{
 			
 			var obj=boardThemeValues[btIter];
-	console.log("obj.whitebackground "+obj.whitebackground);
 	$(".chess_square_light").css("background-color",obj.whitebackground);	
 		$(".chess_square_dark").css("background-color",obj.blackbackground);
 		$(".chess_square_light > div.chess_label").css("color",obj.whiteforeground);	
