@@ -583,9 +583,7 @@ function showBoardOptions(elem)
 		boardSizeSel.change(function()
 		{
 			var obj=JSON.parse($(this).val());
-		//	console.log(obj.whitebackground);
-		//console.log(JSON.stringify($(this).val()['whitebackground']));
-		$(".chess_square_light").css("background-color",obj.whitebackground);	
+		
 		$("#boardcontainer").css("width",obj.value+"%");
 		
 		Accounts[MyID].BoardSize=obj.name;	

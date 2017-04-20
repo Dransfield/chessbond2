@@ -145,7 +145,14 @@ var GamePlaying={};
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row");
-				boardcontainer.css("width","100%");
+				
+				for (sIter in boardSizeValues)
+				{
+					if (boardSizeValues.name=Accounts[MyID].BoardSize)
+					{
+				boardcontainer.css("width",boardSizeValues[sIter].value+"%");
+					}
+				}
 				//console.log(boardcontainer.prop("width"));
 				console.log("bc width "+boardcontainer.css( "width" ));
 				console.log("bdd width "+boardDivDiv.css("width"));

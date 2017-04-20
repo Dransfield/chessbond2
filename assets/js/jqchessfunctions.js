@@ -118,7 +118,7 @@ var boardThemeNames=['original','A1','A2',
 
   var   previousboardtheme='original';
   //  boardcontainerstyle="col-sm-7 col-md-6";
-   var   boardSizesValues = [
+   var   boardSizeValues = [
    
       {id: '1', name: 'Small',value:25},
       {id: '2', name: 'Medium',value:50},
