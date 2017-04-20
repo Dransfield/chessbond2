@@ -49,7 +49,8 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
 		'original',
       'A1','A2','B1','B2','C1','C2','D1','D2','E1','E2'
     ];
-   var boardThemeNames=['original','A1',
+   var boardThemeNames=['original','A1','A2',
+   'B1','B2','C1','C2'
    
    
    
