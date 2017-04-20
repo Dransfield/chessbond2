@@ -49,12 +49,7 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
 		'original',
       'A1','A2','B1','B2','C1','C2','D1','D2','E1','E2'
     ];
-   var boardThemeNames=['original','A1','A2',
-   'B1','B2','C1','C2'
    
-   
-   
-   ];
    var boardThemeValues=
       [{name:'original',whitebackground:'#f0d9b5',
 		  whiteforeground:'#111111',blackbackground:'#b58863',
@@ -77,117 +72,49 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
 		  blackforeground:'#111111'},
 		    {name:'C2',whitebackground:'#ffffff',
 		  whiteforeground:'#111111',blackbackground:'#1f1a17',
+		  blackforeground:'#111111'},
+		    {name:'D1',whitebackground:'#b2b5aa',
+		  whiteforeground:'#111111',blackbackground:'#613005',
+		  blackforeground:'#111111'},
+		  {name:'D2',whitebackground:'#e8c312',
+		  whiteforeground:'#111111',blackbackground:'#0093dd',
+		  blackforeground:'#111111'},
+		    {name:'E1',whitebackground:'#bab3d5',
+		  whiteforeground:'#111111',blackbackground:'#070e79',
+		  blackforeground:'#111111'},
+		  {name:'E2',whitebackground:'#ffffcb',
+		  whiteforeground:'#111111',blackbackground:'#fe9900',
+		  blackforeground:'#111111'},
+		  {name:'symbol',whitebackground:'#FFFFFF',
+		  whiteforeground:'#111111',blackbackground:'#58AC8A',
+		  blackforeground:'#111111'},
+		   {name:'uscf',whitebackground:'#C3C6BE',
+		  whiteforeground:'#111111',blackbackground:'#727FA2',
+		  blackforeground:'#111111'},
+		    {name:'dilena',whitebackground:'#FFE5B6',
+		  whiteforeground:'#111111',blackbackground:'#B16228',
+		  blackforeground:'#111111'},
+		   {name:'wikipedia',whitebackground:'#D18B47',
+		  whiteforeground:'#111111',blackbackground:'#FFCE9E',
+		  blackforeground:'#111111'},
+		   {name:'leipzig',whitebackground:'#FFFFFF',
+		  whiteforeground:'#111111',blackbackground:'#E1E1E1',
+		  blackforeground:'#111111'},
+		  {name:'metro',whitebackground:'#FFFFFF',
+		  whiteforeground:'#111111',blackbackground:'#EFEFEF',
 		  blackforeground:'#111111'}
 		  ];
-  /*
+ 
 
 
-
-.whiteC2
-{
-background-color:#ffffff;
-}
-
-.blackC2
-{
-background-color:#1f1a17;
-}
-.whiteD1
-{
-background-color:#b2b5aa;
-}
-
-.blackD1
-{
-background-color:#613005;
-}
-.whiteD2
-{
-background-color:#e8c312;
-}
-
-.blackD2
-{
-background-color:#0093dd;
-}
-.whiteE1
-{
-background-color:#bab3d5;
-}
-
-.blackE1
-{
-background-color:#070e79;
-}
-
-.whiteE2
-{
-background-color:#ffffcb;
-}
-
-.blackE2
-{
-background-color:#fe9900;
-}
-
-
-.whitesymbol{
-  background-color: #FFFFFF;
-  color: #58AC8A;
-}
-.blacksymbol{
-  background-color: #58AC8A;
-  color: #EFEFEF;
-}
-
-.whiteuscf{
-  background-color: #C3C6BE;
-  color: #AAAAAA;
-}
-.blackuscf{
-  background-color: #727FA2;
-  color: #EFEFEF;
-}
-
-.whitedilena{
-  background-color: #FFE5B6;
-  color: #AAAAAA;
-}
-.blackdilena{
-  background-color: #B16228;
-  color: #EFEFEF;
-}
-
-
-
-.whitewikipedia{
-  background-color: #D18B47;
-  color: #AAAAAA;
-}
-.blackwikipedia{
-  background-color: #FFCE9E;
-  color: #EFEFEF;
-}
-
-.whiteleipzig{
-  background-color: #FFFFFF;
-  color: #AAAAAA;
-}
-.blackleipzig{
-  background-color: #E1E1E1;
-  color: #EFEFEF;
-}
-
-
-.whitemetro{
-  background-color: #FFFFFF;
-  color: #AAAAAA;
-}
-.blackmetro{
-  background-color: #EFEFEF;
-  color: #EFEFEF;
-}
-*/
+var boardThemeNames=['original','A1','A2',
+   'B1','B2','C1','C2','D1','D2','E1','E2',
+   'symbol','ucsf','dilena','wikipedia','leipzig'
+   ,'metro'
+   
+   
+   
+   ];
 
   var   previousboardtheme='original';
   //  boardcontainerstyle="col-sm-7 col-md-6";
