@@ -118,20 +118,15 @@ var boardThemeNames=['original','A1','A2',
 
   var   previousboardtheme='original';
   //  boardcontainerstyle="col-sm-7 col-md-6";
-   var   boardsizes = [
-     /*
-      {id: '1', name: 'Small',value:200},
-      {id: '2', name: 'Medium',value:300},
-      {id: '3', name: 'Large',value:400},
-	  {id: '4', name: 'Big',value:600}
-    */
-      {id: '1', name: 'Small',value:100},
-      {id: '2', name: 'Medium',value:200},
-      {id: '3', name: 'Large',value:300},
-	  {id: '4', name: 'Big',value:400}
+   var   boardSizesValues = [
+   
+      {id: '1', name: 'Small',value:25},
+      {id: '2', name: 'Medium',value:50},
+      {id: '3', name: 'Large',value:75},
+	  {id: '4', name: 'Big',value:100}
     
     ];
-    
+    var boardSizeNames=['Small','Medium','Large','Big'];
     var ShowAcceptDrawButton=false;
     
     var piecevalues={P:1,N:3,B:3,R:5,Q:9};

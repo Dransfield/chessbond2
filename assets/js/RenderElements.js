@@ -559,10 +559,13 @@ function showBoardOptions(elem)
 	var vbb=showButton(elem,"Show Board Options","KregularButton KgreenElement");
 	var optionDiv=addFlexDiv(elem,"optionDiv","row","wrap","space-around","center");
 	var boardThemeSel=showSelect(optionDiv,boardThemeNames,boardThemeValues,"Board Theme");
+	var boardSizeSel=showSelect(optionDiv,boardSizeNames,boardSizeValues,"Board Size");
+	
 	optionDiv.hide();
 	vbb.click(function(){
 		optionDiv.slideToggle();
 	});
+	
 		boardThemeSel.change(function()
 		{
 			var obj=JSON.parse($(this).val());
@@ -575,6 +578,18 @@ function showBoardOptions(elem)
 		
 		Accounts[MyID].BoardTheme=obj.name;	
 		updateAccountInfo('BoardTheme',MyID);
+		});
+		
+		boardSizeSel.change(function()
+		{
+			var obj=JSON.parse($(this).val());
+		//	console.log(obj.whitebackground);
+		//console.log(JSON.stringify($(this).val()['whitebackground']));
+		$(".chess_square_light").css("background-color",obj.whitebackground);	
+		$("#boardcontainer").css("width",obj.value+"%");
+		
+		Accounts[MyID].BoardSize=obj.name;	
+		updateAccountInfo('BoardSize',MyID);
 		});
 }
 
