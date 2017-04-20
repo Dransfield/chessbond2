@@ -167,6 +167,9 @@ var soundVolume=5;
 		}
 	});
 	
+	
+	console.log("boardThemeValues[0].name "+boardThemeValues[0].name);
+	console.log("Accounts[MyID].BoardTheme "+Accounts[MyID].BoardTheme);
 	for (btIter in boardThemeValues)
 	{
 		if (boardThemeValues[btIter].name=Accounts[MyID].BoardTheme)
