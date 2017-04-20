@@ -564,7 +564,7 @@ function showBoardOptions(elem)
 	var volumeButton=showButton(optionDiv,"Sound Enabled","KregularButton KgreenElement");
 	
 	voumeButton.click(function()
-	{console.log( $(this).text());}
+	{console.log( $(this).text());});
 	
 	optionDiv.hide();
 	vbb.click(function(){
