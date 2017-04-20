@@ -44,7 +44,7 @@ var   piecethemes = [
       'A','B','C','D','E','F','G','H'
     ];
 var     volumeValues=[0,1,2,3,4,5,6,7,8,9,10];
-var     volumenames=[0,1,2,3,4,5,6,7,8,9,10];
+var     volumeNames=[0,1,2,3,4,5,6,7,8,9,10];
   
  var     boardthemes = [
       'symbol','uscf','dilena','wikipedia','leipzig','metro',
