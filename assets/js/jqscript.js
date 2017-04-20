@@ -12,7 +12,7 @@ var PrivateMessages={};
 var Follows={};
 var WallPosts=[];
 var GamePlaying={};
-	
+var soundVolume=5;
 		subscribeToMandatoryRooms()
 			
 		io.socket.on

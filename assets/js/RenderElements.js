@@ -560,6 +560,11 @@ function showBoardOptions(elem)
 	var optionDiv=addFlexDiv(elem,"optionDiv","row","wrap","space-around","center");
 	var boardThemeSel=showSelect(optionDiv,boardThemeNames,boardThemeValues,"Board Theme");
 	var boardSizeSel=showSelect(optionDiv,boardSizeNames,boardSizeValues,"Board Size");
+	var volumeSel=showSelect(optionDiv,volumeNames,volumeValues,"Sound Volume");
+	var volumeButton=showButton(optionDiv,"Sound Enabled","KregularButton KgreenElement");
+	
+	voumeButton.click(function()
+	{console.log( $(this).text());}
 	
 	optionDiv.hide();
 	vbb.click(function(){
@@ -582,14 +587,20 @@ function showBoardOptions(elem)
 		
 		boardSizeSel.change(function()
 		{
-			var obj=JSON.parse($(this).val());
-		
+		var obj=JSON.parse($(this).val());
 		$("#boardcontainer").css("width",obj.value+"%");
-		
 		Accounts[MyID].BoardSize=obj.name;	
 		updateAccountInfo('BoardSize',MyID);
 		board1.resize();
 		});
+		
+		volumeSel.change(function()
+		{
+		var obj=JSON.parse($(this).val());
+		Accounts[MyID].SoundVolume=obj.value;
+		updateAccountInfo('SoundVolume',MyID);
+		});
+		
 }
 
 function showButton(elem,words,btnstyle="btn-success"){
