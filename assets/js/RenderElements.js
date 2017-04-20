@@ -597,6 +597,7 @@ function showBoardOptions(elem)
 		$("#boardcontainer").css("width",obj.value+"%");
 		Accounts[MyID].BoardSize=obj.name;	
 		updateAccountInfo('BoardSize',MyID);
+		console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
 		});
 		
