@@ -148,7 +148,7 @@ var soundVolume=5;
 				
 				for (sIter in boardSizeValues)
 				{
-					if (boardSizeValues.name=Accounts[MyID].BoardSize)
+					if (boardSizeValues[sIter].name==Accounts[MyID].BoardSize)
 					{
 				boardcontainer.css("width",boardSizeValues[sIter].value+"%");
 					}
