@@ -57,62 +57,31 @@ var     soundvolumes=[0,1,2,3,4,5,6,7,8,9,10];
    var boardThemeValues=
       [{name:'original',whitebackground:'#f0d9b5',
 		  whiteforeground:'#111111',blackbackground:'#b58863',
-		  blackforeground:'#FFFFFF'},
+		  blackforeground:'#111111'},
 		  {name:'A1',whitebackground:'#fbe2db',
 		  whiteforeground:'#111111',blackbackground:'#901d78',
-		  blackforeground:'#FFFFFF'}
+		  blackforeground:'#111111'},
+		  {name:'A2',whitebackground:'#f09ba0',
+		  whiteforeground:'#111111',blackbackground:'#0093dd',
+		  blackforeground:'#111111'},
+		  {name:'B1',whitebackground:'#f6e2ee',
+		  whiteforeground:'#111111',blackbackground:'#5e6f89',
+		  blackforeground:'#111111'},
 		  
-		  
+		    {name:'B2',whitebackground:'#fffcc7',
+		  whiteforeground:'#111111',blackbackground:'#da251c',
+		  blackforeground:'#111111'},
+		    {name:'C1',whitebackground:'#d3b49f',
+		  whiteforeground:'#111111',blackbackground:'#71625b',
+		  blackforeground:'#111111'},
+		    {name:'C2',whitebackground:'#ffffff',
+		  whiteforeground:'#111111',blackbackground:'#1f1a17',
+		  blackforeground:'#111111'}
 		  ];
   /*
-.whiteA1
-{
- background-color:#fbe2db;
-}
 
-.blackA1
-{
- background-color:#901d78;
-}
 
-.whiteA2
-{
-background-color:#f09ba0;
-}
 
-.blackA2
-{
-background-color:#0093dd;
-}
-
-.whiteB1
-{
-background-color:#f6e2ee;
-}
-
-.blackB1
-{
-background-color:#5e6f89;
-}
-
-.whiteB2
-{
-background-color:#fffcc7;
-}
-
-.blackB2
-{
-background-color:#da251c;
-}
-.whiteC1
-{
-background-color:#d3b49f;
-}
-
-.blackC1
-{
-background-color:#71625b;
-}
 .whiteC2
 {
 background-color:#ffffff;
