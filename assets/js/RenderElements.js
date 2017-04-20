@@ -563,7 +563,7 @@ function showBoardOptions(elem)
 	var volumeSel=showSelect(optionDiv,volumeNames,volumeValues,"Sound Volume");
 	var volumeButton=showButton(optionDiv,"Sound Enabled","KregularButton KgreenElement");
 	
-	voumeButton.click(function()
+	volumeButton.click(function()
 	{console.log( $(this).text());});
 	
 	optionDiv.hide();
