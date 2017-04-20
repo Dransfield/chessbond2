@@ -588,6 +588,7 @@ function showBoardOptions(elem)
 		
 		Accounts[MyID].BoardSize=obj.name;	
 		updateAccountInfo('BoardSize',MyID);
+		board1.resize();
 		});
 }
 
