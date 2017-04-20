@@ -150,7 +150,7 @@ var soundVolume=5;
 				{
 					console.log("boardSizeValues[sIter] "+boardSizeValues[sIter].name);
 					
-					if (boardSizeValues[sIter].name==Accounts[MyID].BoardSize)
+					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
 					{
 				boardcontainer.css("width",boardSizeValues[sIter].value+"%");
 					}

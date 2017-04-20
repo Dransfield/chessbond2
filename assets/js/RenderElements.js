@@ -595,7 +595,7 @@ function showBoardOptions(elem)
 		{
 		var obj=JSON.parse($(this).val());
 		$("#boardcontainer").css("width",obj.value+"%");
-		Accounts[MyID].BoardSize=obj.name;	
+		Accounts[MyID].BoardSize=obj.value;	
 		updateAccountInfo('BoardSize',MyID);
 		console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
