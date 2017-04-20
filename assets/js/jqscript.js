@@ -174,7 +174,9 @@ var soundVolume=5;
 	{
 		if (boardThemeValues[btIter].name=Accounts[MyID].BoardTheme)
 		{
+			
 			var obj=boardThemeValues[btIter];
+	console.log("obj.whitebackground "+obj.whitebackground);
 	$(".chess_square_light").css("background-color",obj.whitebackground);	
 		$(".chess_square_dark").css("background-color",obj.blackbackground);
 		$(".chess_square_light > div.chess_label").css("color",obj.whiteforeground);	
