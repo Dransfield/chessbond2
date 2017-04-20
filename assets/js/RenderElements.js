@@ -566,7 +566,7 @@ function showBoardOptions(elem)
 	volumeButton.click(function()
 	{
 		console.log( $(this).text());
-		if ($(this).text()="Sound Enabled")
+		if ($(this).text()=="Sound Enabled")
 		{$(this).text("Sound Disabled");}
 			else
 		{$(this).text("Sound Enabled");}
