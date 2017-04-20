@@ -159,6 +159,19 @@ var GamePlaying={};
 			onMove: onDrop
 		}
 	});
+	
+	for (btIter in boardThemeValues)
+	{
+		if (boardThemeValues[btIter].name=Accounts[MyID].BoardTheme)
+		{
+			var obj=boardThemeValues[btIter];
+	$(".chess_square_light").css("background-color",obj.whitebackground);	
+		$(".chess_square_dark").css("background-color",obj.blackbackground);
+		$(".chess_square_light > div.chess_label").css("color",obj.whiteforeground);	
+		$(".chess_square_dark  > div.chess_label").css("color",obj.blackforeground);
+	}
+	}
+		
 				
 				board1.start();
 				board1.orientation('black');
