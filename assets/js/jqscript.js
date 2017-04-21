@@ -115,8 +115,8 @@ var soundVolume=5;
 							console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
 							if (GamePlaying.Player1Color=='White')
 							{
-							Gameplaying.PlayerIDOnTop=Gameplaying.Player1;
-							Gameplaying.Player1DOnBottom=Gameplaying.Player2;
+							GamePlaying.PlayerIDOnTop=GamePlaying.Player1;
+							GamePlaying.Player1DOnBottom=GamePlaying.Player2;
 							GamePlaying.PlayerOnBottom='Black';
 							}
 						
@@ -126,8 +126,8 @@ var soundVolume=5;
 							if (GamePlaying.Player1Color=='Black')
 							{
 							board1.flip();
-							Gameplaying.PlayerIDOnTop=Gameplaying.Player2;
-							Gameplaying.Player1DOnBottom=Gameplaying.Player1;
+							GamePlaying.PlayerIDOnTop=GamePlaying.Player2;
+							GamePlaying.Player1DOnBottom=GamePlaying.Player1;
 							GamePlaying.PlayerOnBottom='Black';
 							
 							}
