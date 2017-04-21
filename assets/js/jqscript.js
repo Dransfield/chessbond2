@@ -227,7 +227,7 @@ var soundVolume=5;
 		
 				
 				board1.start();
-				board1.orientation('black');
+				
 				
 			
 				 game = new Chess();
@@ -237,12 +237,29 @@ var soundVolume=5;
 					if (GamePlaying.Player1Color=='Black')
 					{
 					board1.setOrientation(ChessUtils.ORIENTATION.flip );
+					
+						for (iter in pieceNames)
+						{
+							//console.log(pieceNames[iter]+pieceNamesInitial[iter]);
+							//console.log(obj);
+						$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+						$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+						}
 					}
 				}			
 				if (GamePlaying.Player2==MyID){
 					if (GamePlaying.Player1Color=='White')
 					{
 					board1.setOrientation(ChessUtils.ORIENTATION.flip );
+					
+					for (iter in pieceNames)
+					{
+						//console.log(pieceNames[iter]+pieceNamesInitial[iter]);
+						//console.log(obj);
+					$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+					$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+					}
+					
 					}
 				}	
 				}
