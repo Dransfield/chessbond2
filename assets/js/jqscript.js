@@ -145,7 +145,6 @@ var soundVolume=5;
 				showFlag(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
-				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer");
 				
 				for (sIter in boardSizeValues)
 				{
@@ -157,6 +156,7 @@ var soundVolume=5;
 					boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
 					}
 				}
+				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer");
 				
 				
 				var sideBoard=addFlexDiv(horizontalDiv,"sideBoard","column");
