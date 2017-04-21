@@ -7,6 +7,9 @@ var squareClass = 'square-55d63';
 var game;
 
 var turnTakerNoticeDiv;
+var topPlayerMarque;
+var bottomPlayerMarque;
+
 var TopMinutes="0";
 var TopSeconds="0";
 var TopMilliseconds="000";
