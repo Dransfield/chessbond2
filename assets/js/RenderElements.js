@@ -583,7 +583,7 @@ function showBoardOptions(elem)
 		for (iter in pieceNames)
 		{
 			console.log(pieceNames[iter]+pieceNamesInitial[iter]);
-		$(".div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png');
+		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png');
 		}
 	});
 		boardThemeSel.change(function()
