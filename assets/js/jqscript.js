@@ -116,7 +116,7 @@ var soundVolume=5;
 							if (GamePlaying.Player1Color=='White')
 							{
 							GamePlaying.PlayerIDOnTop=GamePlaying.Player1;
-							GamePlaying.Player1DOnBottom=GamePlaying.Player2;
+							GamePlaying.PlayerIDOnBottom=GamePlaying.Player2;
 							GamePlaying.PlayerOnBottom='Black';
 							}
 						
@@ -127,7 +127,7 @@ var soundVolume=5;
 							{
 							board1.flip();
 							GamePlaying.PlayerIDOnTop=GamePlaying.Player2;
-							GamePlaying.Player1DOnBottom=GamePlaying.Player1;
+							GamePlaying.PlayerIDOnBottom=GamePlaying.Player1;
 							GamePlaying.PlayerOnBottom='Black';
 							
 							}
