@@ -224,13 +224,13 @@ var soundVolume=5;
 				if (GamePlaying.Player1==MyID){
 					if (GamePlaying.Player1Color=='Black')
 					{
-					board1.flip();
+					board1.setOrientation(ChessUtils.ORIENTATION.flip );
 					}
 				}			
 				if (GamePlaying.Player2==MyID){
 					if (GamePlaying.Player1Color=='White')
 					{
-					board1.flip();
+					board1.setOrientation(ChessUtils.ORIENTATION.flip );
 					}
 				}	
 				}
