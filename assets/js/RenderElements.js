@@ -577,7 +577,7 @@ function showBoardOptions(elem)
 		optionDiv.slideToggle();
 	});
 	
-	pieceThemeSel.change(funtion()
+	pieceThemeSel.change(function()
 	{
 		var obj=JSON.parse($(this).val());
 		for (iter in pieceNames)
