@@ -172,6 +172,9 @@ var soundVolume=5;
 				console.log("marque width "+topPlayerMarque.css("width"));
 				//console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				// board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
+				$(".div.chess_board div.chess_player_white").css("color","#DDDDDD");
+				$(".div.chess_board div.chess_player_black").css("color","#5555555");
+				
 				board1 = new Chessboard('boardcontainer', {
 		position: ChessUtils.FEN.startId,
 		eventHandlers: {
