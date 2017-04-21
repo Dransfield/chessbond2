@@ -439,3 +439,4 @@ function usersTurn(game,me)
 		}
 	return false;
 	}
+	
