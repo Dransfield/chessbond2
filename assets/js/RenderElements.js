@@ -582,9 +582,11 @@ function showBoardOptions(elem)
 		var obj=JSON.parse($(this).val());
 		for (iter in pieceNames)
 		{
-			console.log(pieceNames[iter]+pieceNamesInitial[iter]);
-			console.log(obj);
-		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png)');
+			//console.log(pieceNames[iter]+pieceNamesInitial[iter]);
+			//console.log(obj);
+		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+obj+'/b'+pieceNamesInitial[iter]+'.png)');
+		$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png)');
+		
 		}
 	});
 		boardThemeSel.change(function()
