@@ -95,6 +95,7 @@ div.chess_board div.chess_label {
 
 
 /* Chess pieces with unicode characters */
+/*
 div.chess_board div.chess_player_black.chess_piece_pawn:after {
 	content: '\265F';
 }
@@ -132,7 +133,7 @@ div.chess_board div.chess_player_white.chess_piece_king:after {
 	content: '\2654';
 }
 
-
+*/
 /* Chess pieces with images */
 
 /* Use this section if you prefer to use images to fonts */
