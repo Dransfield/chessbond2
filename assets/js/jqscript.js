@@ -153,7 +153,7 @@ var soundVolume=5;
 					
 					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
 					{
-					boardcontainer.css("width",boardSizeValues[sIter].value+"%");
+					$("#bdd").css("width",boardSizeValues[sIter].value+"%");
 					}
 				}
 				
