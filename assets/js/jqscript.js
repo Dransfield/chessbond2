@@ -133,7 +133,8 @@ var soundVolume=5;
 					
 					
 				var overall=$("#playervsplayer")
-				var boardDivDiv=addFlexDiv(overall,"bdd","column","nowrap");
+				var horizontalDiv=addFlexDiv(overall,"horizontal","row","wrap");
+				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap");
 				//showBoardOptions(boardDivDiv);
 				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
@@ -152,12 +153,12 @@ var soundVolume=5;
 					
 					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
 					{
-				boardcontainer.css("width",boardSizeValues[sIter].value+"%");
+					boardcontainer.css("width",boardSizeValues[sIter].value+"%");
 					}
 				}
 				
 				
-				var sideBoard=addFlexDiv(boardDivDiv,"sideBoard","column");
+				var sideBoard=addFlexDiv(horizontalDiv,"sideBoard","column");
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 		var resultDiv=sideBoard.append(" <div   >	 </div>");
