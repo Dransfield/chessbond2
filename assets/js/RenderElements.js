@@ -582,8 +582,8 @@ function showBoardOptions(elem)
 		var obj=JSON.parse($(this).val());
 		for (iter in pieceNames)
 		{
-		$(".chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png'
-		
+		$(".chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png');
+		}
 	});
 		boardThemeSel.change(function()
 		{
