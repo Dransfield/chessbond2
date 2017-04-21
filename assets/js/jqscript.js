@@ -157,7 +157,7 @@ var soundVolume=5;
 					}
 				}
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer");
-				
+				boardcontainer.css("width",boardDivDiv.css("width"));
 				
 				var sideBoard=addFlexDiv(horizontalDiv,"sideBoard","column");
 				
