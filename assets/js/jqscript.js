@@ -114,23 +114,26 @@ var soundVolume=5;
 							GamePlaying.PlayerIDOnBottom=GamePlaying.Player1;
 							
 						if (GamePlaying.Player2==MyID){
+							GamePlaying.PlayerIDOnBottom=GamePlaying.Player2;
+							GamePlaying.PlayerIDOnTop=GamePlaying.Player1;
 							console.log("im player2");
 							console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
 							if (GamePlaying.Player1Color=='White')
 							{
-							GamePlaying.PlayerIDOnTop=GamePlaying.Player1;
-							GamePlaying.PlayerIDOnBottom=GamePlaying.Player2;
 							GamePlaying.PlayerOnBottom='Black';
 							}
 						
 						}
 						
 						if (GamePlaying.Player1==MyID){
-							if (GamePlaying.Player1Color=='Black')
-							{
-							board1.flip();
+							console.log("im player1");
 							GamePlaying.PlayerIDOnTop=GamePlaying.Player2;
 							GamePlaying.PlayerIDOnBottom=GamePlaying.Player1;
+							if (GamePlaying.Player1Color=='Black')
+							{
+								console.log("im black");
+							
+							
 							GamePlaying.PlayerOnBottom='Black';
 							
 							}
