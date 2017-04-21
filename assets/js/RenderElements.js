@@ -562,7 +562,7 @@ function showBoardOptions(elem)
 	var boardSizeSel=showSelect(optionDiv,boardSizeNames,boardSizeValues,"Board Size");
 	var volumeSel=showSelect(optionDiv,volumeNames,volumeValues,"Sound Volume");
 	var volumeButton=showButton(optionDiv,"Sound Enabled","KregularButton KgreenElement");
-	
+	var pieceThemeSel=showSelect(optionDiv,piecethemeNames,piecethemeValues,"Piece Theme");
 	volumeButton.click(function()
 	{
 		console.log( $(this).text());
@@ -577,6 +577,14 @@ function showBoardOptions(elem)
 		optionDiv.slideToggle();
 	});
 	
+	pieceThemeSel.change(funtion()
+	{
+		var obj=JSON.parse($(this).val());
+		for (iter in pieceNames)
+		{
+		$(".chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png'
+		
+	});
 		boardThemeSel.change(function()
 		{
 			var obj=JSON.parse($(this).val());

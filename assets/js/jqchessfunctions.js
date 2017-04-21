@@ -40,11 +40,17 @@ var capturedBlackpieces=[];
 var WhiteInterval=0;
 var BlackInterval=0;
 
+var pieceNames=['pawn','rook','knight','bishop','queen','king'];
+var pieceNamesInitial=['P','R','N','B','Q','K'];
+
  var  boardorientations = [
         {id: '1', name: 'Left',value:'Left'},
 	  {id: '2', name: 'Right',value:'Right'}
           ];
-var   piecethemes = [
+var   piecethemeNames = [
+      'A','B','C','D','E','F','G','H'
+    ];
+var   piecethemeValues = [
       'A','B','C','D','E','F','G','H'
     ];
 var volumeValues=[0,1,2,3,4,5,6,7,8,9,10];
