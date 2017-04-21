@@ -162,7 +162,7 @@ var soundVolume=5;
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 		var resultDiv=sideBoard.append(" <div   >	 </div>");
          
-         var turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
+         turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 				
 				//console.log(boardcontainer.prop("width"));
 				console.log("bc width "+boardcontainer.css( "width" ));
