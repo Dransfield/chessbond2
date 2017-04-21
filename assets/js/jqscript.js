@@ -148,13 +148,6 @@ var soundVolume=5;
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
 				
-				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
-				var bottomMinutes=addSpan(bottomPlayerMarque,"topminutes");
-				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
-				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
-				showUsername(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
-				bottomPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnBottom].ELO);
-				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
 				
 				
 				for (sIter in boardSizeValues)
@@ -168,8 +161,20 @@ var soundVolume=5;
 					}
 				}
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
+				
+				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
+				var bottomMinutes=addSpan(bottomPlayerMarque,"topminutes");
+				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				showUsername(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				bottomPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnBottom].ELO);
+				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				
+				
 				boardcontainer.css("width",boardDivDiv.css("width"));
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
+				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
+				
 				var sideBoard=addFlexDiv(horizontalDiv,"sideBoard","column");
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
