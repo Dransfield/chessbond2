@@ -197,6 +197,11 @@ function changeOverallScore(piece,colour)
 		}
 	}
 	}
+	
+	function onChangedfunc(obj)
+	{
+		console.log(JSON.stringify(obj));
+	}
 	var onSnapEnd = function() {};
 	 function onDrop(mov) {
 		

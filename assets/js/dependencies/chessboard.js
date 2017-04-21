@@ -837,6 +837,10 @@ function Chessboard(containerId, config) {
 		}
 		if (getPieceElement(index).attr('class') !== className) {
 			getPieceElement(index).attr('class', className);
+			
+					
+			
+			
 		}
 		getPieceElement(index).css('opacity', isHidden ? 0 : 1);
 	};
@@ -873,15 +877,7 @@ function Chessboard(containerId, config) {
 				} else if (_position[i] === '0') {
 					// New piece on square
 					drawPiece(i, position[i], true);
-					$(getPieceElement(i)).animate({'opacity': '1'}, Chessboard.ANIMATION.fadeInTime).then(
-					function(){
-						for (iter in pieceNames)
-						{
-							
-						$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
-						$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
-						}
-					});
+					$(getPieceElement(i)).animate({'opacity': '1'}, Chessboard.ANIMATION.fadeInTime);
 				} else if (position[i] === '0') {
 					// Removing piece from square
 					drawPiece(i, position[i], true);

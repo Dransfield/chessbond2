@@ -199,7 +199,8 @@ var soundVolume=5;
 		position: ChessUtils.FEN.startId,
 		eventHandlers: {
 			onPieceSelected: pieceSelected,
-			onMove: onDrop
+			onMove: onDrop,
+			onChanged:onChangedfunc
 		}
 	});
 		//$(".chess_player_white").css("color","#DDDDDD");
@@ -246,6 +247,7 @@ var soundVolume=5;
 							
 						$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
 						$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+						
 						}
 					}
 				}			
