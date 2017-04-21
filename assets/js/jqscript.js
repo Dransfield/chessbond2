@@ -153,7 +153,8 @@ var soundVolume=5;
 					
 					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
 					{
-					$("#bdd").css("width",boardSizeValues[sIter].value+"%");
+						console.log("setting bdd to "+Accounts[MyID].BoardSize);
+					boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
 					}
 				}
 				
