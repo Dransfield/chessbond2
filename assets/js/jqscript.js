@@ -115,21 +115,23 @@ var soundVolume=5;
 							console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
 							if (GamePlaying.Player1Color=='White')
 							{
-							
+							Gameplaying.PlayerIDOnTop=Gameplaying.Player1;
+							Gameplaying.Player1DOnBottom=Gameplaying.Player2;
 							GamePlaying.PlayerOnBottom='Black';
 							}
 						
 						}
 						
-	if (GamePlaying.Player1==MyID){
-		if (GamePlaying.Player1Color=='Black')
-		{
-		board1.flip();
-	
-		GamePlaying.PlayerOnBottom='Black';
-		
-		}
-	}
+						if (GamePlaying.Player1==MyID){
+							if (GamePlaying.Player1Color=='Black')
+							{
+							board1.flip();
+							Gameplaying.PlayerIDOnTop=Gameplaying.Player2;
+							Gameplaying.Player1DOnBottom=Gameplaying.Player1;
+							GamePlaying.PlayerOnBottom='Black';
+							
+							}
+						}
 					
 					
 				var overall=$("#playervsplayer")
@@ -139,12 +141,21 @@ var soundVolume=5;
 				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
-				showsmallAvatar(topPlayerMarque,GamePlaying.Player1);
-				showUsername(topPlayerMarque,GamePlaying.Player1);
-				topPlayerMarque.append(Accounts[GamePlaying.Player1].ELO);
-				showFlag(topPlayerMarque,GamePlaying.Player1);
+				showsmallAvatar(topPlayerMarque,GamePlaying.PlayerIDOnTop);
+				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
+				topPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnTop].ELO);
+				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
+				
+				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
+				var bottomMinutes=addSpan(bottomPlayerMarque,"topminutes");
+				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				showUsername(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				bottomPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnBottom].ELO);
+				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				
 				
 				for (sIter in boardSizeValues)
 				{
@@ -172,9 +183,7 @@ var soundVolume=5;
 				console.log("marque width "+topPlayerMarque.css("width"));
 				//console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				// board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
-				$(".div.chess_board div.chess_player_white").css("color","#DDDDDD");
-				$(".div.chess_board div.chess_player_black").css("color","#5555555");
-				
+			
 				board1 = new Chessboard('boardcontainer', {
 		position: ChessUtils.FEN.startId,
 		eventHandlers: {
@@ -182,7 +191,9 @@ var soundVolume=5;
 			onMove: onDrop
 		}
 	});
-	
+		$(".div.chess_board div.chess_player_white").css("color","#DDDDDD");
+				$(".div.chess_board div.chess_player_black").css("color","#5555555");
+				
 	
 	for (btIter in boardThemeValues)
 	{
