@@ -215,6 +215,15 @@ var soundVolume=5;
 		$(".chess_square_dark  > div.chess_label").css("color",obj.blackforeground);
 	}
 	}
+	
+	
+		for (iter in pieceNames)
+		{
+			//console.log(pieceNames[iter]+pieceNamesInitial[iter]);
+			//console.log(obj);
+		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+		$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+		}
 		
 				
 				board1.start();

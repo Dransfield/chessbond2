@@ -580,12 +580,16 @@ function showBoardOptions(elem)
 	pieceThemeSel.change(function()
 	{
 		var obj=JSON.parse($(this).val());
+		Accounts[MyID].ChessPieceTheme=obj;	
+	
 		for (iter in pieceNames)
 		{
 			//console.log(pieceNames[iter]+pieceNamesInitial[iter]);
 			//console.log(obj);
-		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+obj+'/b'+pieceNamesInitial[iter]+'.png)');
-		$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+obj+'/w'+pieceNamesInitial[iter]+'.png)');
+		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+		$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+		
+		updateAccountInfo('ChessPieceTheme',MyID);
 		
 		}
 	});
@@ -601,6 +605,7 @@ function showBoardOptions(elem)
 		
 		Accounts[MyID].BoardTheme=obj.name;	
 		updateAccountInfo('BoardTheme',MyID);
+		
 		});
 		
 		boardSizeSel.change(function()
