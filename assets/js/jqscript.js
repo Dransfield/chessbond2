@@ -144,7 +144,7 @@ var soundVolume=5;
 				showFlag(topPlayerMarque,GamePlaying.Player1);
 				topPlayerMarque.append("ping");
 				topPlayerMarque.append("timer");
-				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row");
+				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer");
 				
 				for (sIter in boardSizeValues)
 				{
@@ -155,6 +155,15 @@ var soundVolume=5;
 				boardcontainer.css("width",boardSizeValues[sIter].value+"%");
 					}
 				}
+				
+				
+				var sideBoard=addFlexDiv(boardDivDiv,"sideBoard","column");
+				
+				sideBoard.append(" <div class='label label-default' >Result: </div>");
+		var resultDiv=sideBoard.append(" <div   >	 </div>");
+         
+         var turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
+				
 				//console.log(boardcontainer.prop("width"));
 				console.log("bc width "+boardcontainer.css( "width" ));
 				console.log("bdd width "+boardDivDiv.css("width"));

@@ -6,6 +6,7 @@ var squareClass = 'square-55d63';
   boardEl = $('#boardcontainer');
 var game;
 
+var turnTakerNoticeDiv;
 var TopMinutes="0";
 var TopSeconds="0";
 var TopMilliseconds="000";
@@ -313,6 +314,36 @@ changeOverallScore=function(piece,colour)
 					return game.fen();
 };
 
+
+function updateTurnTakerLabel(game)
+	{
+		if (game.turn()=='w')
+		{
+		if(	GamePlaying.Player1Color=='White')
+		{
+		GamePlaying.TurnTakerSentence="It's "+GamePlaying.Player1Name+"'s turn";
+		}
+		else
+		{
+		GamePlaying.TurnTakerSentence="It's "+GamePlaying.Player2Name+"'s turn";
+		}
+		
+		}
+		else
+		{
+		
+		if(	GamePlaying.Player1Color=='Black')
+		{
+		GamePlaying.TurnTakerSentence="It's "+GamePlaying.Player1Name+"'s turn";
+		}
+		else
+		{
+		GamePlaying.TurnTakerSentence="It's "+GamePlaying.Player2Name+"'s turn";
+		}
+		
+		}
+		
+
 function updateStatus(game,move)
 {
 	//console.log("update status");
@@ -320,7 +351,7 @@ GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 
 
-//updateTurnTakerLabel(game);
+updateTurnTakerLabel(game);
 //updatePlayersLabel(game);
 
 
