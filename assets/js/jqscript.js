@@ -199,8 +199,8 @@ var soundVolume=5;
 			onMove: onDrop
 		}
 	});
-		$(".div.chess_board div.chess_player_white").css("color","#DDDDDD");
-				$(".div.chess_board div.chess_player_black").css("color","#5555555");
+		$(".chess_player_white").css("color","#DDDDDD");
+				$(".chess_player_black").css("color","#5555555");
 				
 	
 	for (btIter in boardThemeValues)
