@@ -110,6 +110,9 @@ var soundVolume=5;
 				retrievePrivatesandFollows().then(function(){
 					
 						GamePlaying.PlayerOnBottom='White';
+						GamePlaying.PlayerIDOnTop=GamePlaying.Player2;
+							GamePlaying.PlayerIDOnBottom=GamePlaying.Player1;
+							
 						if (GamePlaying.Player2==MyID){
 							console.log("im player2");
 							console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
