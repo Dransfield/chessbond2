@@ -242,6 +242,12 @@ function changeOverallScore(piece,colour)
 					
 					  // illegal move
 					  
+						for (iter in pieceNames)
+						{
+							
+						$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+						$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+						}
 					 
 							GamePlaying.Move+=1;
 							//ChangeOverallScore(move.captured,move.color);
