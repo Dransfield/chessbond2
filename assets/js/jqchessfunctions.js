@@ -172,7 +172,7 @@ var boardThemeNames=['original','A1','A2',
 	
 };
 
-changeOverallScore=function(piece,colour)
+function changeOverallScore(piece,colour)
     {
     if (piece)
     
@@ -343,6 +343,7 @@ function updateTurnTakerLabel(game)
 		
 		}
 		
+}
 
 function updateStatus(game,move)
 {
