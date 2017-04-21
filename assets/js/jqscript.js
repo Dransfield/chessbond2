@@ -136,7 +136,7 @@ var soundVolume=5;
 				var horizontalDiv=addFlexDiv(overall,"horizontal","row","wrap","flex-start");
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
-				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-around","center");
+				var topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
 				var topMinutes=addSpan(topPlayerMarque,"topminutes");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(topPlayerMarque,GamePlaying.Player1);
@@ -158,7 +158,7 @@ var soundVolume=5;
 				}
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				boardcontainer.css("width",boardDivDiv.css("width"));
-				
+				topPlayerMarque.css("width",boardDivDiv.css("width"));
 				var sideBoard=addFlexDiv(horizontalDiv,"sideBoard","column");
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
