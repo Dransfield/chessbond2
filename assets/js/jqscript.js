@@ -234,6 +234,7 @@ var soundVolume=5;
 						}
 			
 				 game = new Chess();
+				init();
 				 if (GamePlaying.Player1!=GamePlaying.Player2)
 				{
 				if (GamePlaying.Player1==MyID){
