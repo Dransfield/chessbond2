@@ -232,14 +232,14 @@ function init(){
 io.socket.on('ping',function(data){
 		if (data){
 		console.log(data.player+" has ping of "+data.ping);
-		if (GamePlaying.Player1==GamePlaying.PlayerIDOnBottom)
+		if (data.player==GamePlaying.PlayerIDOnBottom)
 			{
 				console.log(BottomPingDisplay);
 			BottomPingDisplay.html("Ping:"+data.ping);
 			}
 			else
 			{
-				console.log(TopPingDisplay);
+				console.log(TopPingDisplay
 			TopPingDisplay.html("Ping:"+data.ping);
 			}
 		}
