@@ -151,8 +151,8 @@ var soundVolume=5;
 				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				topPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnTop].ELO);
 				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
-				topPlayerMarque.append("ping");
-				topPlayerMarque.append("timer");
+				var BottomPingDisplay=topPlayerMarque.append("ping");
+				var TopPingDisplay=topPlayerMarque.append("timer");
 				
 				
 				

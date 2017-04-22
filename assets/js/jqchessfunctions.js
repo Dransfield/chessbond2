@@ -228,11 +228,11 @@ io.socket.on('ping',function(data){
 		console.log(data.player+" has ping of "+data.ping);
 		if (GamePlaying.Player1==GamePlaying.PlayerIDOnBottom)
 			{
-			BottomPingDisplay=data.ping;
+			BottomPingDisplay.html("Ping:"+data.ping);
 			}
 			else
 			{
-			TopPingDisplay=data.ping;
+			TopPingDisplay.html("Ping:"+data.ping);
 			}
 		}
 		
