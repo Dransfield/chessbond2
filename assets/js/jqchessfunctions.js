@@ -277,6 +277,7 @@ function changeOverallScore(piece,colour)
 		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
 		$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
 		}
+		
 	}
 	var onSnapEnd = function() {};
 	 function onDrop(mov) {
@@ -439,7 +440,7 @@ function updateTurnTakerLabel(game)
 function updateStatus(game,move)
 {
 	//console.log("update status");
-GamePlaying.fen=board1.fen();
+GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 
 
