@@ -572,4 +572,4 @@ function usersTurn(game,me)
 			
 			
 			
-		}
+		

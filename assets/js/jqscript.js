@@ -227,7 +227,7 @@ var soundVolume=5;
 		
 				
 				board1.start();
-				
+				board1.position(GamePlaying.fen);
 				for (iter in pieceNames)
 						{
 							
