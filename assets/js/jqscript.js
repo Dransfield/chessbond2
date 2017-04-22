@@ -151,7 +151,8 @@ var soundVolume=5;
 				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				topPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnTop].ELO);
 				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
-				var TopPingDisplay=topPlayerMarque.append("timer");
+				var TopPingDisplay=$("<p>Ping</p>");
+				topPlayerMarque.append(TopPingDisplay);
 				
 				
 				
@@ -168,8 +169,7 @@ var soundVolume=5;
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				
 				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
-				var BottomPingDisplay=bottomPlayerMarque.append("ping");
-			
+				
 				var bottomMinutes=addSpan(bottomPlayerMarque,"topminutes");
 				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
@@ -177,6 +177,8 @@ var soundVolume=5;
 				bottomPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnBottom].ELO);
 				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
 				
+					var BottomPingDisplay=$("<p>Ping</p>");
+				bottomPlayerMarque.append(TopPingDisplay);
 				
 				boardcontainer.css("width",boardDivDiv.css("width"));
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
