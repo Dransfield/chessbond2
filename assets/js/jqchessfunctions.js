@@ -532,3 +532,44 @@ function usersTurn(game,me)
 	return false;
 	}
 	
+	function UpdateClocks(player1time,player2time)
+		{
+			var intp1minute=parseInt(player1time/60);
+			var p1minute=intp1minute.toString();
+			var intp2minute=parseInt(player2time/60);
+			var p2minute=intp2minute.toString();
+			var intp1second=parseInt(player1time % 60);
+			var p1second=intp1second.toString();
+			var intp2second=parseInt(player2time % 60);
+			var p2second=intp2second.toString();
+			
+			if (intp2second<10)
+			{p2second="0"+p2second;}
+			if (intp1second<10)
+			{p1second="0"+p1second;}
+			
+			
+			if (GamePlaying.PlayerIDOnBottom==GamePlaying.Player1)
+			{
+				
+				BottomSeconds=p1second;
+				BottomMinutes=p1minute;
+				BottomMilliseconds="000";
+				TopSeconds=p2second;
+				TopMinutes=p2minute;
+				}
+				else
+				{
+				BottomSeconds=p2second;
+				BottomMinutes=p2minute;
+				BottomMilliseconds="000";
+				TopSeconds=p1second;
+				TopMinutes=p2minute;
+				
+				}
+				
+			}
+			
+			
+			
+		}

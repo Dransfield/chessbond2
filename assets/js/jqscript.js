@@ -206,9 +206,9 @@ var soundVolume=5;
 			onChanged:onChangedfunc
 		}
 	});
-		//$(".chess_player_white").css("color","#DDDDDD");
-		//		$(".chess_player_black").css("color","#5555555");
-				
+	
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+	
 	
 	for (btIter in boardThemeValues)
 	{
