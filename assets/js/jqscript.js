@@ -202,10 +202,31 @@ var soundVolume=5;
 				console.log("marque width "+topPlayerMarque.css("width"));
 				//console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				// board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
+		
+		var myColor='w';
+				 if (GamePlaying.Player1!=GamePlaying.Player2)
+				{
+				if (GamePlaying.Player1==MyID){
+					if (GamePlaying.Player1Color=='Black')
+					{
+					
+					myColor='b';
+					
+					}
+				}			
+				if (GamePlaying.Player2==MyID){
+					if (GamePlaying.Player1Color=='White')
+					{
+				myColor='b';
+					}
+				}	
+				}
+		
 		game = new Chess();
 			game.load(GamePlaying.fen);
 				board1 = new Chessboard('boardcontainer', {
 		position: game.fen(),
+		orientation:myColor,
 		eventHandlers: {
 			onPieceSelected: pieceSelected,
 			onMove: onDrop,
@@ -226,7 +247,7 @@ var soundVolume=5;
 		$(".chess_square_dark").css("background-color",obj.blackbackground);
 		$(".chess_square_light > div.chess_label").css("color",obj.whiteforeground);	
 		$(".chess_square_dark  > div.chess_label").css("color",obj.blackforeground);
-	}
+		}
 	}
 	
 	
@@ -244,37 +265,7 @@ var soundVolume=5;
 			
 				 
 				init();
-				 if (GamePlaying.Player1!=GamePlaying.Player2)
-				{
-				if (GamePlaying.Player1==MyID){
-					if (GamePlaying.Player1Color=='Black')
-					{
-					board1.setOrientation(ChessUtils.ORIENTATION.flip );
-					
-						for (iter in pieceNames)
-						{
-							
-						$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
-						$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
-						
-						}
-					}
-				}			
-				if (GamePlaying.Player2==MyID){
-					if (GamePlaying.Player1Color=='White')
-					{
-					board1.setOrientation(ChessUtils.ORIENTATION.flip );
-					
-					for (iter in pieceNames)
-					{
-						
-					$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
-					$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
-					}
-					
-					}
-				}	
-				}
+				
 			
 				});
 			});
