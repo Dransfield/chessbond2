@@ -439,7 +439,7 @@ function updateTurnTakerLabel(game)
 function updateStatus(game,move)
 {
 	//console.log("update status");
-GamePlaying.fen=game.fen();
+GamePlaying.fen=board1.fen();
 GamePlaying.lastmove=move.from+move.to;
 
 
