@@ -232,7 +232,7 @@ var soundVolume=5;
 		
 				
 				board1.start();
-				board1.position(GamePlaying.fen);
+				board1.fen(GamePlaying.fen);
 				for (iter in pieceNames)
 						{
 							
