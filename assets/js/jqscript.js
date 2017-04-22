@@ -147,7 +147,7 @@ var soundVolume=5;
 				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
-				
+				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
@@ -174,6 +174,7 @@ var soundVolume=5;
 				
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
+				BottomMilliseconds=addSpan(bottomPlayerMarque,"bottommilliseconds");
 				
 				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
