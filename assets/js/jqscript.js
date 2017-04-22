@@ -151,7 +151,7 @@ var soundVolume=5;
 				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				topPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnTop].ELO);
 				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
-				var TopPingDisplay=$("<p>Ping</p>");
+				TopPingDisplay=$("<p>Ping</p>");
 				topPlayerMarque.append(TopPingDisplay);
 				
 				
@@ -177,7 +177,7 @@ var soundVolume=5;
 				bottomPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnBottom].ELO);
 				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
 				
-					var BottomPingDisplay=$("<p>Ping</p>");
+				BottomPingDisplay=$("<p>Ping</p>");
 				bottomPlayerMarque.append(TopPingDisplay);
 				
 				boardcontainer.css("width",boardDivDiv.css("width"));
