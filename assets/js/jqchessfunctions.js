@@ -448,7 +448,7 @@ updateTurnTakerLabel(game);
 
 
 io.socket.put('/Chessgame/'+GamePlaying.id,{
-      fen: game.fen(),
+      fen: GamePlaying.fen,
       pgn:game.pgn({max_width: 5, newline_char: '-' }),
       lastmove:move.from+move.to,
       Move:GamePlaying.Move,
