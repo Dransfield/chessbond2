@@ -10,6 +10,10 @@ var turnTakerNoticeDiv;
 var topPlayerMarque;
 var bottomPlayerMarque;
 
+var BottomPingDisplay;
+
+var TopPingDisplay;
+
 var TopMinutes="0";
 var TopSeconds="0";
 var TopMilliseconds="000";
@@ -180,6 +184,66 @@ var boardThemeNames=['original','A1','A2',
 	WithdrawSound.volume=.1;
 	
 };
+
+function init(){
+		
+	setInterval(function (){
+		DoPing(MyID);
+	},20000);
+	
+	
+	DoPing=function()
+	{
+	var PingStartTime=Date.now()
+		io.socket.put('/pingtest',{
+				gameid:GamePlaying.id,
+				playerid:MyID
+					  }  
+				  
+		,function(resData,jwres)
+			{
+				//console.log(resData);
+				//console.log(jwres);
+				//console.log("Ping:"+(Date.now()-$PingStartTime));
+				var Ping=(Date.now()-$PingStartTime);
+				io.socket.put('/BroadcastPing',{
+				gameid:GameID,
+				playerid:MyID,
+				ping:Ping
+					  }  
+					  	,function(resData,jwres)
+				{
+				}
+				);
+				//$//scope.PingDisplay=(Date.now()-$PingStartTime);
+				//console.log(Date.now());
+				//return (Date.now()-$PingStartTime)
+				}
+			);
+			
+	};
+
+io.socket.on('ping',function(data){
+		if (data){
+		console.log(data.player+" has ping of "+data.ping);
+		if (GamePlaying.Player1==GamePlaying.PlayerIDOnBottom)
+			{
+			BottomPingDisplay=data.ping;
+			}
+			else
+			{
+			TopPingDisplay=data.ping;
+			}
+		}
+		
+		});
+		
+			
+		
+	
+}
+
+
 
 function changeOverallScore(piece,colour)
     {

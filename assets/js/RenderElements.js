@@ -584,8 +584,6 @@ function showBoardOptions(elem)
 	
 		for (iter in pieceNames)
 		{
-			//console.log(pieceNames[iter]+pieceNamesInitial[iter]);
-			//console.log(obj);
 		$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
 		$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
 		
