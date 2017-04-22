@@ -178,7 +178,7 @@ var soundVolume=5;
 				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
 				
 				BottomPingDisplay=$("<p>Ping</p>");
-				bottomPlayerMarque.append(TopPingDisplay);
+				bottomPlayerMarque.append(BottomPingDisplay);
 				
 				boardcontainer.css("width",boardDivDiv.css("width"));
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
