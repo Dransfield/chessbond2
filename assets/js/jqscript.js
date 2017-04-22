@@ -205,7 +205,7 @@ var soundVolume=5;
 		game = new Chess();
 			game.load(GamePlaying.fen);
 				board1 = new Chessboard('boardcontainer', {
-		position: game.fen,
+		position: game.fen(),
 		eventHandlers: {
 			onPieceSelected: pieceSelected,
 			onMove: onDrop,
@@ -232,7 +232,7 @@ var soundVolume=5;
 	
 		
 				
-				board1.start();
+				
 				
 				for (iter in pieceNames)
 						{
