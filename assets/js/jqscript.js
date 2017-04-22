@@ -145,7 +145,9 @@ var soundVolume=5;
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
 				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
-				var topMinutes=addSpan(topPlayerMarque,"topminutes");
+				TopMinutes=addSpan(topPlayerMarque,"topminutes");
+				TopSeconds=addSpan(topPlayerMarque,"topseconds");
+				
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
@@ -170,7 +172,9 @@ var soundVolume=5;
 				
 				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
 				
-				var bottomMinutes=addSpan(bottomPlayerMarque,"topminutes");
+				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
+				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
+				
 				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
 				showUsername(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);

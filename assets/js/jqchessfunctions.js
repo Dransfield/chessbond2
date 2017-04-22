@@ -552,19 +552,19 @@ function usersTurn(game,me)
 			if (GamePlaying.PlayerIDOnBottom==GamePlaying.Player1)
 			{
 				
-				BottomSeconds=p1second;
-				BottomMinutes=p1minute;
-				BottomMilliseconds="000";
-				TopSeconds=p2second;
-				TopMinutes=p2minute;
+				BottomSeconds.html(p1second);
+				BottomMinutes.html(p1minute);
+				BottomMilliseconds.html("000");
+				TopSeconds.html(p2second);
+				TopMinutes.html(p2minute);
 				}
 				else
 				{
-				BottomSeconds=p2second;
-				BottomMinutes=p2minute;
-				BottomMilliseconds="000";
-				TopSeconds=p1second;
-				TopMinutes=p2minute;
+				BottomSeconds.html(p2second);
+				BottomMinutes.html(p2minute);
+				BottomMilliseconds.html("000");
+				TopSeconds.html(p1second);
+				TopMinutes.html(p2minute);
 				
 				}
 				
