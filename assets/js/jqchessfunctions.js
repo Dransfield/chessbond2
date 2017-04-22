@@ -234,12 +234,11 @@ io.socket.on('ping',function(data){
 		console.log(data.player+" has ping of "+data.ping);
 		if (data.player==GamePlaying.PlayerIDOnBottom)
 			{
-				console.log(BottomPingDisplay);
 			BottomPingDisplay.html("Ping:"+data.ping);
 			}
 			else
 			{
-				console.log(TopPingDisplay
+			
 			TopPingDisplay.html("Ping:"+data.ping);
 			}
 		}
