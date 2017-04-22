@@ -202,6 +202,7 @@ var soundVolume=5;
 				console.log("marque width "+topPlayerMarque.css("width"));
 				//console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				// board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
+		game = new Chess();
 			game.load(GamePlaying.fen);
 				board1 = new Chessboard('boardcontainer', {
 		position: game.fen,
@@ -241,7 +242,7 @@ var soundVolume=5;
 						
 						}
 			
-				 game = new Chess();
+				 
 				init();
 				 if (GamePlaying.Player1!=GamePlaying.Player2)
 				{
