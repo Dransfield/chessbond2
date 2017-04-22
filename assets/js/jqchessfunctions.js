@@ -13,7 +13,7 @@ var bottomPlayerMarque;
 var BottomPingDisplay;
 
 var TopPingDisplay;
-
+var PingStartTime=Date.now();
 var TopMinutes="0";
 var TopSeconds="0";
 var TopMilliseconds="000";
@@ -205,7 +205,7 @@ function init(){
 				//console.log(resData);
 				//console.log(jwres);
 				//console.log("Ping:"+(Date.now()-$PingStartTime));
-				var Ping=(Date.now()-$PingStartTime);
+				var Ping=(Date.now()-PingStartTime);
 				io.socket.put('/BroadcastPing',{
 				gameid:GameID,
 				playerid:MyID,
