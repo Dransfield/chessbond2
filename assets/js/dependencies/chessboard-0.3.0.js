@@ -1484,19 +1484,41 @@ function stopDefault(e) {
   e.preventDefault();
 }
 
+var greySquare = function(square) {
+  var squareEl = $('#board .square-' + square);
+  
+  var background = '#a9a9a9';
+  if (squareEl.hasClass('black-3c85d') === true) {
+    background = '#696969';
+  }
+
+  squareEl.css('background', background);
+};
+var removeGreySquares = function() {
+  $('#board .square-55d63').css('background', '');
+};
 function mousedownSquare(e) {
   // do nothing if we're not draggable
-  if (cfg.draggable !== true) return;
+ // if (cfg.draggable !== true) return;
 
   var square = $(this).attr('data-square');
-
+  var moves = game.moves({
+    square: square,
+    verbose: true
+  });
+  greySquare(square);
+  for (var i = 0; i < moves.length; i++) {
+    greySquare(moves[i].to);
+  }
   // no piece on this square
   if (validSquare(square) !== true ||
       CURRENT_POSITION.hasOwnProperty(square) !== true) {
+		  removeGreySquares();
     return;
   }
 
-  beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
+
+ // beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
 }
 
 function touchstartSquare(e) {
