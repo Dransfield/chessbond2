@@ -100,6 +100,13 @@ var soundVolume=5;
 	
 	function setupPlayervsPlayerPage()
 	{
+		var roomname='/humanvshuman/'+GameID;
+		
+			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+		
+		
 		io.socket.get("/privateconversation",{id:GameID},
 	function (resData,jwres){
 		console.log(JSON.stringify(resData));
