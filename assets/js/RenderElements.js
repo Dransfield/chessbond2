@@ -617,7 +617,7 @@ function showBoardOptions(elem)
 		console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
 		
-			$("#argh").css("height","100%");
+			//$("#argh").css("height","100%");
 			
 		});
 		
