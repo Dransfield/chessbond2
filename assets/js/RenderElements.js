@@ -622,7 +622,7 @@ function showBoardOptions(elem)
 		topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
 		$("#sideBoard").css("height",$("#bdd").css("height"));
-		$("#argh").css("height",$("#bdd").css("height"));
+		$("#argh").css("height","100%");
 			
 		});
 		
