@@ -621,13 +621,13 @@ function showBoardOptions(elem)
 		board1.resize();
 		topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
-		$("#sideBoard").css("height",$("#bdd").css("height"));
-		$("#argh").css("height","100%");
-		$("#chatdiv2").css("height","100%");
+		$("#sideBoard").css("height",topPlayerMarque.css("width"));
+		$("#chatDiv").css("height","100%");
+		$("#chatDiv2").css("height","100%");
 		
 		console.log("sideboard new height "+$("#sideBoard").css("height"));
 		console.log("chatdiv1 new height "+$("#argh").css("height"));
-		console.log("chatdiv2 new height "+$("#chatdiv").css("height"));
+		console.log("chatdiv2 new height "+$("#chatdiv2").css("height"));
 	
 		});
 		
