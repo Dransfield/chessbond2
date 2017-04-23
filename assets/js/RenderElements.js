@@ -609,12 +609,12 @@ function showBoardOptions(elem)
 		boardSizeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
-		$("#bdd").css("width",obj.value+"%");
-		$("#boardcontainer").css("width",$("#bdd").css("width"));
-		topPlayerMarque.css("width",$("#bdd").css("width"));
+		$("#horizontal").css("height",obj.value+"%");
+		/$("#horizontal").css("width",$("#bdd").css("width"));
+		//topPlayerMarque.css("width",$("#bdd").css("width"));
 		Accounts[MyID].BoardSize=obj.value;	
 		updateAccountInfo('BoardSize',MyID);
-		console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
+		//console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
 		
 			//$("#argh").css("height","100%");
