@@ -1484,7 +1484,7 @@ function stopDefault(e) {
   e.preventDefault();
 }
 
-var greySquare = function(square) {
+ function greySquare(square) {
   var squareEl = $('#board .square-' + square);
   
   var background = '#a9a9a9';
@@ -1493,10 +1493,11 @@ var greySquare = function(square) {
   }
 console.log("greysquare "+background);
   squareEl.css('background', background);
-};
-var removeGreySquares = function() {
+}
+  function removeGreySquares() {
+	console.log("clear grey squares");
   $('#board .square-55d63').css('background', '');
-};
+}
 function mousedownSquare(e) {
   // do nothing if we're not draggable
  // if (cfg.draggable !== true) return;
