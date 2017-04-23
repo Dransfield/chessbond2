@@ -772,7 +772,7 @@ function usersTurn(game,me)
 		
 	});
 
-};
+
 
 $scope.changeFavicon=function (src) {
 	if ($scope.currentFavicon!=src)
