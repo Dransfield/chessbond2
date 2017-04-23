@@ -1485,14 +1485,7 @@ function stopDefault(e) {
 }
 
  function greySquare(square) {
-  var squareEl = $('#board .square-' + square);
-  
-  var background = '#a9a9a9';
-  if (squareEl.hasClass('black-3c85d') === true) {
-    background = '#696969';
-  }
-console.log("greysquare "+background);
-  squareEl.css('background', background);
+ boardEl.find('.square-' + square).addClass('highlight-white');
 }
   function removeGreySquares() {
 	console.log("clear grey squares");
