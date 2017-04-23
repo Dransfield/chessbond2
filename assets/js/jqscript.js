@@ -148,7 +148,8 @@ var soundVolume=5;
 					
 					
 				var horizontalDiv=$("#playervsplayer")
-				//horizontalDiv=addF(overall,"horizontal","row","wrap","flex-start");
+				horizontalDiv.css("display","flex");
+				//=addF(overall,"horizontal","row","wrap","flex-start");
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
 				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
