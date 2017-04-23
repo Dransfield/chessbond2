@@ -616,6 +616,9 @@ function showBoardOptions(elem)
 		updateAccountInfo('BoardSize',MyID);
 		console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
+		
+			$("#argh").css("height",$("#bdd").css("width"));
+			
 		});
 		
 		volumeSel.change(function()

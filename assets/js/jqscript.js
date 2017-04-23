@@ -206,7 +206,7 @@ var soundVolume=5;
 				var chatDiv2=addFlexDiv(chatDiv,"dunni","column",'wrap');
 			chatDiv.css("overflow","auto");
 			
-			chatDiv.css("height",boardDivDiv.css("width"));
+			$("#argh").css("height",$("#bdd").css("width"));
 			
 			
 			chatDiv.css("overflow","auto");
