@@ -164,7 +164,7 @@ var soundVolume=5;
 				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				TopPingDisplay=$("<p>Ping</p>");
 				topPlayerMarque.append(TopPingDisplay);
-				
+				var sideBoard=addSpan(horizontalDiv,"sideBoard");
 				
 				
 				for (sIter in boardSizeValues)
@@ -175,6 +175,7 @@ var soundVolume=5;
 					{
 						console.log("setting bdd to "+Accounts[MyID].BoardSize);
 					boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
+					sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
 					}
 				}
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
@@ -198,7 +199,7 @@ var soundVolume=5;
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
-				var sideBoard=addSpan(horizontalDiv,"sideBoard");
+				
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 		var resultDiv=sideBoard.append(" <div   >	 </div>");

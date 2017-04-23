@@ -609,9 +609,8 @@ function showBoardOptions(elem)
 		boardSizeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
-		$("#playervsplayer").css("width",obj.value+"%");
-		$("#bdd").css("height",$("#horizontal").css("width"));
-		$("#boardcontainer").css("height",$("#bdd").css("width"));
+		$("#bdd").css("width",obj.value+"%");
+		$("#sideBoard").css("width",(100-obj.value)+"%");
 	
 		//topPlayerMarque.css("width",$("#bdd").css("width"));
 		Accounts[MyID].BoardSize=obj.value;	
