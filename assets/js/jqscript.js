@@ -177,7 +177,7 @@ var soundVolume=5;
 						console.log("setting bdd to "+Accounts[MyID].BoardSize);
 				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
 					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
-					resizeBoard(boardSizeValues[sIter].value);
+					//resizeBoard(boardSizeValues[sIter].value);
 					$("#bdd").css("width",boardSizeValues[sIter].value+"%");
 					$("#boardcontainer").css("width","100%");
 					$("#sideBoard").css("width",(100-boardSizeValues[sIter].value)+"%");
