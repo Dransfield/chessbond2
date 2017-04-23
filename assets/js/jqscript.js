@@ -204,8 +204,8 @@ var soundVolume=5;
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 				var chatDiv=addFlexDiv(sideBoard,"dunni","column",'wrap');
 			chatDiv.css("overflow","scroll");
-			chatDiv.css("max-height",sideBoard.css("height")/2);
-			console.log(JSON.stringify(WallPosts));
+			chatDiv.css("max-height",boardDivDiv.css("width")/2);
+			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
 					showChatMessage(chatDiv,WallPosts[iter]);
