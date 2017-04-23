@@ -69,6 +69,20 @@ module.exports = {
 			return res.ok();
 			}	
 			
+			if(req.param('messagetype')=="chesschat")
+			{
+				console.log("message type is chesschat");
+			sails.sockets.broadcast('/humanvshuman/'+req.param('grpid'),'WallPost', records);
+				Notification.create({reciever:req.param('grpid'),msg:"New Game Chat Message Recieved",adr:'/humanvshuman/'+req.param('grpid')}).exec
+				(
+					function (err, records1) 
+					{
+					sails.sockets.broadcast(records1.reciever,'notification', records1);
+					}
+				);
+					
+			return res.ok();
+			}	
 			
 			
 			

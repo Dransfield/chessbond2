@@ -11,8 +11,10 @@ var topPlayerMarque;
 var bottomPlayerMarque;
 
 var BottomPingDisplay;
-
 var TopPingDisplay;
+
+var currentFavicon;
+
 var PingStartTime=Date.now();
 var TopMinutes="0";
 var TopSeconds="0";
@@ -573,4 +575,228 @@ function usersTurn(game,me)
 			
 			
 			
+		 io.socket.on('chessgamemove', function (data){
+		console.log("recieved chess game move"+JSON.stringify(data));
+		if (document.visibilityState=='hidden')
+				{  $scope.changeFavicon('https://www.chessbond.com/favicon2.ico');
+					}
+			
+
+  			$http.get('/chessgame?id='+GameID)
+		.then(function (latest) {
+		   
+		   GamePlaying=latest.data;
+		//   console.log(latest.data);
+		   if (GamePlaying2.id)
+		   { 
+			   console.log("object2 "+JSON.stringify(GamePlaying2));
+			  GamePlaying= GamePlaying2;
+		  }
+		  if (GamePlaying.Result)
+			{
+			$scope.ShowOfferDrawButton=false;	
+			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
+			{PlayDraw();}
+			
+			if(GamePlaying.Result.indexOf("withdrew from the game")>-1)
+			{PlayWithdraw();
+				for (x = 0; x < 13; x++)  
+								
+				{
+					setTimeout(function(){PlayWithdraw();},x*500);
+				}				
+				}
+			StopClocks();
+			
+			}
 		
+		//board1.position(gameRecordnow .fen);
+		//.if(game.load(gameRecordnow .fen)==false)
+		//{
+		//alert('couldnt load game');
+	//	}
+	//console.log("last move"+$scope.ChessGameObject.lastmove);
+	if(!GamePlaying.Result)
+	{
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft)
+	}
+	var modified="";
+	var move;
+	if(GamePlaying.lastmove){
+	modified=(GamePlaying.lastmove.substr(0, 2) + "-" + GamePlaying.lastmove.substr(2));
+	console.log("with -"+modified);
+	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
+		
+		 move =game.move({ from: GamePlaying.lastmove.substr(0, 2), to: GamePlaying.lastmove.substr(2, 5) });
+	}
+		if(!GamePlaying.Result)
+	{
+		StartRightClock();
+	}	
+		if (move!=null){
+			
+		if(Accounts[MyID])
+			{	
+					
+			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+			{
+			
+			PlayMove();
+			}
+			}
+		
+			Showcapturedpiece(move.captured,move.color,false);
+			
+	
+			/*
+			if (game.turn()=='b')
+			{
+			clearInterval($scope.WhiteInterval);
+			clearInterval($scope.BlackInterval);
+			$scope.StartBlackClock();
+			}
+			else
+			{
+			clearInterval($scope.WhiteInterval);
+			clearInterval($scope.BlackInterval);
+			$scope.StartWhiteClock();
+			}
+			*/
+			
+		console.log("move returned from game "+JSON.stringify(move));
+		board1.move(modified);
+		
+		var square=   boardEl.find('.square-' + move.to);
+		var position =square .position();
+		$( "img[id='highlight']" ).detach();
+		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+		 square.each(function( index ) {
+		console.log( index + ": " + $( this ).text() );
+		});
+		 square=   boardEl.find('.square-' + move.from);
+		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+		
+			
+
+			 square=   $("b[id='lastpgn']");
+			$( "img[id='pgnhighlight']" ).detach();
+			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
+					
+		
+		//updateTurnTakerLabel(game);
+		//console.log(game.ascii());
+		Moves=game.pgn().split(".");
+		
+		if (game.fen()!=board1.fen())
+		{
+			board1.position(game.fen());
+			console.log("changed board position to match fen");
+		}
+		
+		if (game.in_stalemate())
+	{
+	toastr.success("Stalemate!");
+		
+	}
+		if (game.insufficient_material())
+	{
+		toastr.success("Insufficient material!");
+		
+		}
+		if (game.in_threefold_repetition())
+		{
+			toastr.success("Game in threefold repetition!");
+			//console.log("Game in threefold repetition!");
+		}
+		//else
+	//	{
+		//	console.log("Game not in threefold repetition!");
+		//}
+		if (game.in_checkmate())
+		{
+			if(Accounts[MyID])
+			{		
+			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+			{
+			PlayCheckMate();
+			toastr.success("CheckMate!");
+			}
+			}
+		}
+		
+		}
+		else
+		{
+			console.log("move is null updating game and board with");
+		board1.position(GamePlaying.fen);
+		
+		if (game.in_threefold_repetition())
+		{
+			toastr.success("Game in threefold repetition!");
+			//console.log("Game in threefold repetition2!");
+		}
+		//else
+	//	{
+		//	console.log("Game not in threefold repetition2!");
+		//}
+		
+		
+		if(!GamePlaying.Result)
+		{
+		
+		if(Accounts[MyID])
+		{		
+		if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+		{
+		PlayMove();
+		}
+		}
+		
+		
+		}
+		else
+		{
+		if(Accounts[MyID])
+		{		
+		if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+		{
+		PlayCheckMate();
+		}
+		}
+		}
+		//game.load(gameRecordnow.fen);
+		//console.log("after update "+game.ascii());
+		}
+		
+		});
+		
+	});
+
+};
+
+$scope.changeFavicon=function (src) {
+	if ($scope.currentFavicon!=src)
+	{
+ var link = document.createElement('link'),
+    oldLink = document.getElementById('dynamic-favicon');
+ link.id = 'dynamic-favicon';
+ link.rel = 'shortcut icon';
+ link.href = src;
+ if (oldLink) {
+  document.head.removeChild(oldLink);
+ }
+ document.head.appendChild(link);
+currentFavicon=src;
+}
+};
+	
+	
+	function updatePlayersLabel(game)
+	{
+		//console.log("hello");
+		Player1Name=GamePlaying.Player1Name;
+		Player2Name=GamePlaying.ChessGameObject.Player2Name;
+		//console.log("scopep2"+$scope.Player2Name);	
+	}
+	
+	

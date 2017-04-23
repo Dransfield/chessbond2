@@ -100,6 +100,11 @@ var soundVolume=5;
 	
 	function setupPlayervsPlayerPage()
 	{
+		io.socket.get("/privateconversation",{id:GameID},
+	function (resData,jwres){
+		console.log(JSON.stringify(resData));
+		AccountsToRetrieve[resData.Talker1]=resData.Talker1;
+		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
 		
 		retrieveGame(GameID).then(function()
 		{
@@ -195,7 +200,27 @@ var soundVolume=5;
 		var resultDiv=sideBoard.append(" <div   >	 </div>");
          
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
-				
+				var chatDiv=addFlexDiv(sideBoard,"dunni","column",'wrap');
+			
+			console.log(JSON.stringify(WallPosts));
+			for(iter in WallPosts)
+					{	
+					showChatMessage(chatDiv,WallPosts[iter]);
+					}
+					
+			showChatForm($("#chatinput"),GamePlaying.id,"chesschat");		
+					io.socket.on('WallPost', function (data)
+			{
+			console.log("recieved wall post socket"+JSON.stringify(data));
+		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
+			
+			WallPosts.push(data);
+			
+			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)]);
+		
+			//$("#favicon").attr("href","/favicon2.ico");
+				//	$("#privateconversationpage").append(data.content);
+			});
 				//console.log(boardcontainer.prop("width"));
 				console.log("bc width "+boardcontainer.css( "width" ));
 				console.log("bdd width "+boardDivDiv.css("width"));
@@ -270,6 +295,7 @@ var soundVolume=5;
 				});
 			});
 		});
+	});
 	}
 	
 	function pieceSelected(notationSquare) {
