@@ -1491,22 +1491,30 @@ function stopDefault(e) {
 	
   boardEl.find('.square-55d63').removeClass('highlight-white');
 }
+
+
+var squareSelected;
+
 function mousedownSquare(e) {
   // do nothing if we're not draggable
  // if (cfg.draggable !== true) return;
-
+removeGreySquares();
   var square = $(this).attr('data-square');
    // no piece on this square
   if (validSquare(square) !== true ||
       CURRENT_POSITION.hasOwnProperty(square) !== true) {
-		  console.log("no piece on this square");
-		  removeGreySquares();
-    return;
+	if(squareSelected)
+	{
+	onDrop({from:squareSelected,to:square});
+	squareSelected=null;
+	}
+   return;
   }
   var moves = game.moves({
     square: square,
     verbose: true
   });
+  squareSelected=square;
   console.log("mousedown  square"+square);
   console.log("moves length "+moves.length);
   greySquare(square);
