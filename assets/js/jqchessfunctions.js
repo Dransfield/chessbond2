@@ -774,8 +774,8 @@ function usersTurn(game,me)
 
 
 
-$scope.changeFavicon=function (src) {
-	if ($scope.currentFavicon!=src)
+changeFavicon=function (src) {
+	if (currentFavicon!=src)
 	{
  var link = document.createElement('link'),
     oldLink = document.getElementById('dynamic-favicon');
