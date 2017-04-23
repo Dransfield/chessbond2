@@ -1491,7 +1491,7 @@ var greySquare = function(square) {
   if (squareEl.hasClass('black-3c85d') === true) {
     background = '#696969';
   }
-
+console.log("greysquare "+background);
   squareEl.css('background', background);
 };
 var removeGreySquares = function() {
