@@ -624,7 +624,11 @@ function showBoardOptions(elem)
 		$("#sideBoard").css("height",$("#bdd").css("height"));
 		$("#argh").css("height","100%");
 		$("#chatdiv2").css("height","100%");
-			
+		
+		console.log("sideboard new height "+$("#sideBoard").css("height"));
+		console.log("chatdiv1 new height "+$("#argh").css("height"));
+		console.log("chatdiv2 new height "+$("#chatdiv").css("height"));
+	
 		});
 		
 		volumeSel.change(function()
