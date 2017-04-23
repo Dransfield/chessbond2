@@ -196,7 +196,7 @@ var soundVolume=5;
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
-				var sideBoard=addFlexDiv(horizontalDiv,"sideBoard","column");
+				var sideBoard=addSpan(horizontalDiv,"sideBoard");
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 		var resultDiv=sideBoard.append(" <div   >	 </div>");
