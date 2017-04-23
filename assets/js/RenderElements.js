@@ -619,7 +619,7 @@ function showBoardOptions(elem)
 		updateAccountInfo('BoardSize',MyID);
 		//console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
-		
+		topPlayerMarque.css("width","100%");
 			//$("#argh").css("height","100%");
 			
 		});
