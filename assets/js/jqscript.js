@@ -212,13 +212,7 @@ var soundVolume=5;
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 		var chatDiv=addSpan(sideBoard,"chatDiv");
 				var chatDiv2=addFlexDiv(chatDiv,"chatDiv2","column");
-			chatDiv.css("overflow","auto");
 			
-			//$("#argh").css("height",$("#bdd").css("width"));
-				$("#chatDiv").css("max-height","100%");
-		$("#chatDiv").css("overflow","auto");
-		$("#chatDiv2").css("max-height","85%");
-		$("#chatDiv2").css("overflow","auto");
 			
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
@@ -278,7 +272,13 @@ var soundVolume=5;
 	});
 	
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
-	
+	chatDiv.css("overflow","auto");
+			
+			//$("#argh").css("height",$("#bdd").css("width"));
+				$("#chatDiv").css("max-height","100%");
+		$("#chatDiv").css("overflow","auto");
+		$("#chatDiv2").css("max-height","85%");
+		$("#chatDiv2").css("overflow","auto");
 	
 	for (btIter in boardThemeValues)
 	{
