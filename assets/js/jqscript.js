@@ -203,7 +203,7 @@ var soundVolume=5;
          
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 		var chatDiv=addSpan(sideBoard,"argh");
-				var chatDiv2=addFlexDiv(chatDiv,"chatdiv2","column",'wrap');
+				var chatDiv2=addSpan(chatDiv,"chatdiv2");
 			chatDiv.css("overflow","scroll");
 			
 			$("#argh").css("height",$("#bdd").css("width"));

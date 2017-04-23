@@ -216,11 +216,11 @@ function showChatMessage(elem,msg)
 var newdiv;
 if(msg.sender==MyID)
 {
-	newdiv=$("<div  style='background-color:lightgrey;overflow:visible;padding:4px;'></div>");
+	newdiv=$("<div  style='background-color:lightgrey;padding:4px;'></div>");
 }
 else
 {
-	newdiv=$("<div style='background-color:lightgreen;overflow:visible;padding:4px;'></div>");
+	newdiv=$("<div style='background-color:lightgreen;padding:4px;'></div>");
 	
 }
 console.log("show chat message "+JSON.stringify(msg));
