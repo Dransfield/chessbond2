@@ -622,8 +622,8 @@ function showBoardOptions(elem)
 		topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
 		$("#sideBoard").css("height",topPlayerMarque.css("width"));
-		$("#chatDiv").css("height","100%");
-		$("#chatDiv2").css("height","100%");
+		$("#chatDiv").css("height",$("#sideBoard").css("height"));
+		$("#chatDiv2").css("height",$("#sideBoard").css("height"));
 		
 		console.log("sideboard new height "+$("#sideBoard").css("height"));
 		console.log("chatdiv1 new height "+$("#chatDiv").css("height"));
