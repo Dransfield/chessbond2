@@ -265,7 +265,7 @@ var soundVolume=5;
   draggable: false,
   position: GamePlaying.fen,
     orientation:myColor,
-    pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'
+    pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'}
 };
 				board1 = new Chessboard('boardcontainer', cfg);
 				//{
