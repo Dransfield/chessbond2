@@ -204,7 +204,7 @@ var soundVolume=5;
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 				var chatDiv=addFlexDiv(sideBoard,"dunni","column",'wrap');
 			chatDiv.css("overflow","auto");
-			chatDiv.css("height",boardDivDiv.css("width")/2);
+			chatDiv.css("height",boardDivDiv.css("width"));
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
