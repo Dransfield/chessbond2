@@ -623,6 +623,7 @@ function showBoardOptions(elem)
 		bottomPlayerMarque.css("width","100%");
 		$("#sideBoard").css("height",$("#bdd").css("height"));
 		$("#argh").css("height","100%");
+		$("#chatdiv2").css("height","100%");
 			
 		});
 		
