@@ -203,13 +203,12 @@ var soundVolume=5;
          
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 		var chatDiv=addSpan(sideBoard,"argh");
-				var chatDiv2=addFlexDiv(chatDiv,"dunni","column",'wrap');
-			chatDiv.css("overflow","auto");
+				var chatDiv2=addFlexDiv(chatDiv,"chatdiv2","column",'wrap');
+			chatDiv.css("overflow","scroll");
 			
 			$("#argh").css("height",$("#bdd").css("width"));
 			
 			
-			chatDiv.css("overflow","auto");
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
@@ -682,7 +681,7 @@ function setupProfilePage()
 			
 			var games=3;
 			showRecentGames(leftcol,ProfID);
-			var chatDiv=addFlexDiv(leftcol,"dunni","column",'wrap');
+			var chatDiv=addFlexDiv(leftcol,"chatdiv","column",'wrap');
 			showChatForm(chatDiv,ProfID,"wall");
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
