@@ -626,8 +626,8 @@ function showBoardOptions(elem)
 		$("#chatDiv2").css("height","100%");
 		
 		console.log("sideboard new height "+$("#sideBoard").css("height"));
-		console.log("chatdiv1 new height "+$("#argh").css("height"));
-		console.log("chatdiv2 new height "+$("#chatdiv2").css("height"));
+		console.log("chatdiv1 new height "+$("#chatDiv").css("height"));
+		console.log("chatdiv2 new height "+$("#chatDiv2").css("height"));
 	
 		});
 		
