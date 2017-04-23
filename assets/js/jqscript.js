@@ -107,12 +107,7 @@ var soundVolume=5;
 			});
 		
 		
-		io.socket.get("/privateconversation",{id:GameID},
-	function (resData,jwres){
-		console.log(JSON.stringify(resData));
-		AccountsToRetrieve[resData.Talker1]=resData.Talker1;
-		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
-		
+		getWallposts(convID).then(function(){
 		retrieveGame(GameID).then(function()
 		{
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
