@@ -107,7 +107,7 @@ var soundVolume=5;
 			});
 		
 		
-		getWallposts(convID).then(function(){
+		getWallposts(GameID).then(function(){
 		retrieveGame(GameID).then(function()
 		{
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
