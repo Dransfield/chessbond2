@@ -230,7 +230,7 @@ showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
 
-elem.append("<hr>");
+//elem.append("<hr>");
 
 }
 function CreateDropDown(usracc)
