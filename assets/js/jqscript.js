@@ -215,7 +215,10 @@ var soundVolume=5;
 			chatDiv.css("overflow","auto");
 			
 			//$("#argh").css("height",$("#bdd").css("width"));
-			
+				$("#chatDiv").css("max-height","100%");
+		$("#chatDiv").css("overflow","auto");
+		$("#chatDiv2").css("max-height","85%");
+		$("#chatDiv2").css("overflow","auto");
 			
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
