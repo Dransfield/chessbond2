@@ -172,7 +172,7 @@ var soundVolume=5;
 					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
 					{
 						console.log("setting bdd to "+Accounts[MyID].BoardSize);
-					horizontal.css("height",boardSizeValues[sIter].value+"%");
+					horizontalDiv.css("height",boardSizeValues[sIter].value+"%");
 					}
 				}
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
