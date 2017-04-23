@@ -610,7 +610,7 @@ function showBoardOptions(elem)
 		{
 		var obj=JSON.parse($(this).val());
 		$("#horizontal").css("height",obj.value+"%");
-		//$("#horizontal").css("width",$("#bdd").css("width"));
+		$("#bdd").css("height",$("#horizontal").css("width"));
 		//topPlayerMarque.css("width",$("#bdd").css("width"));
 		Accounts[MyID].BoardSize=obj.value;	
 		updateAccountInfo('BoardSize',MyID);
