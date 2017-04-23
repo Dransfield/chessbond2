@@ -1500,22 +1500,27 @@ var removeGreySquares = function() {
 function mousedownSquare(e) {
   // do nothing if we're not draggable
  // if (cfg.draggable !== true) return;
-console.log("mousedown  square"+square);
+
   var square = $(this).attr('data-square');
+   // no piece on this square
+  if (validSquare(square) !== true ||
+      CURRENT_POSITION.hasOwnProperty(square) !== true) {
+		  console.log("no piece on this square");
+		  removeGreySquares();
+    return;
+  }
   var moves = game.moves({
     square: square,
     verbose: true
   });
+  console.log("mousedown  square"+square);
+  console.log("moves length "+moves.length);
   greySquare(square);
   for (var i = 0; i < moves.length; i++) {
+	  console.log("greysquare "+moves[i].to);
     greySquare(moves[i].to);
   }
-  // no piece on this square
-  if (validSquare(square) !== true ||
-      CURRENT_POSITION.hasOwnProperty(square) !== true) {
-		  removeGreySquares();
-    return;
-  }
+ 
 
 
  // beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
