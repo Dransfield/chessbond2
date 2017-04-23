@@ -45,6 +45,8 @@ var capturedBlackpieces=[];
 
 var WhiteInterval=0;
 var BlackInterval=0;
+var BlackTime=0;
+var WhiteTime=0;
 
 var pieceNames=['pawn','rook','knight','bishop','queen','king'];
 var pieceNamesInitial=['P','R','N','B','Q','K'];
@@ -534,6 +536,166 @@ function usersTurn(game,me)
 		}
 	return false;
 	}
+	function StartRightClock()
+{
+	
+	if(game.turn()=='b')
+	{
+	clearInterval(BlackInterval);
+	clearInterval(WhiteInterval);
+	StartBlackClock();	
+	}
+	if(game.turn()=='w')
+	{
+	clearInterval(BlackInterval);
+	clearInterval(WhiteInterval);
+	StartWhiteClock();	
+	}
+	
+}
+
+function StartWhiteClock()
+	{
+		
+		if (GamePlaying.Player1Color=='White')
+		{
+		WhiteTime=GamePlaying.Player1TimeLeft*1000;
+		}
+		else
+		{
+		WhiteTime=GamePlaying.Player2TimeLeft*1000;
+		}
+	console.log("start white clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+	WhiteInterval=setInterval(function (){
+		
+		
+		if (WhiteTime>0)
+		{
+		WhiteTime-=121;
+		}
+		if (WhiteTime<0)
+		{
+			WhiteTime=0;
+			if(!GamePlaying.Result)
+			{
+				io.socket.put('/gametimedout',{
+				gameid:GamePlaying.id,
+				timedoutcolor:'White'
+					  }  
+				  
+		,function(resData,jwres)
+			{
+			}
+			);
+			}
+		}
+		var bythousand=WhiteTime/1000;
+		WhiteSeconds=(parseInt((bythousand % 60))).toString();
+		WhiteMinutes=(parseInt((bythousand/60))).toString();
+		var intmilli=parseInt(WhiteTime % 1000);
+		var milli=intmilli.toString();
+		if (WhiteSeconds<10)
+		{WhiteSeconds="0"+WhiteSeconds;}
+		if (intmilli<100 && intmilli>10)
+		{milli="0"+milli;}
+		if (intmilli<10 )
+		{milli="00"+milli;}
+		if(GamePlaying.PlayerOnBottom=='White')
+		{
+		
+		BottomMinutes.html(WhiteMinutes);
+		BottomSeconds.html(":"+WhiteSeconds);	
+		BottomMilliseconds.html(":"+milli);
+		
+		}
+		else
+		{
+	
+		TopMinutes.html(WhiteMinutes);	
+		TopSeconds.html(":"+WhiteSeconds);	
+		TopMilliseconds.html(":"+milli);	
+	
+		}
+		},121);	
+		
+	}
+
+function StartBlackClock()
+	{
+		
+	
+		if (GamePlaying.Player1Color=='Black')
+		{
+		
+		BlackTime=GamePlaying.Player1TimeLeft*1000;
+		}
+		else
+		{
+		
+			
+		BlackTime=GamePlaying.Player2TimeLeft*1000;
+			}
+	console.log("start black clock $scope.PlayerOnBottom "+GamePlaying.PlayerIDOnBottom);
+	BlackInterval=setInterval(function (){
+		
+		
+		if (BlackTime>0)
+		{
+		BlackTime-=121;
+		
+				
+		}
+		if (BlackTime<0)
+		{
+			BlackTime=0;
+			if(!GamePlaying.Result)
+			{
+				io.socket.put('/gametimedout',{
+				gameid:GamePlaying.id,
+				timedoutcolor:'Black'
+					  }  
+				  
+		,function(resData,jwres)
+			{
+			}
+			);
+			}
+		}
+		var bythousand=BlackTime/1000;
+		BlackSeconds=(parseInt((bythousand % 60))).toString();
+		BlackMinutes=(parseInt((bythousand/60))).toString();
+		var intmilli=parseInt(BlackTime % 1000);
+		var milli=intmilli.toString();
+		if (BlackSeconds<10)
+		{BlackSeconds="0"+BlackSeconds;}
+		if (intmilli<100 && intmilli>10)
+		{milli="0"+milli;}
+		if (intmilli<10 )
+		{milli="00"+milli;}
+		
+
+		if(PlayerOnBottom=='Black')
+		{
+		
+		
+		BottomMinutes.html(BlackMinutes);
+		BottomSeconds.html(":"+BlackSeconds);	
+		BottomMilliseconds.html(milli);
+		});
+		}
+		else
+		{
+	
+		
+		TopMinutes.html(BlackMinutes);	
+		TopSeconds.html(":"+BlackSeconds);	
+		TopMilliseconds.html(milli);
+		});	
+		
+		}
+		},121);	
+		
+	}
 	
 	function UpdateClocks(player1time,player2time)
 		{
@@ -555,19 +717,19 @@ function usersTurn(game,me)
 			if (GamePlaying.PlayerIDOnBottom==GamePlaying.Player1)
 			{
 				
-				BottomSeconds.html(p1second);
+				BottomSeconds.html(":"+p1second);
 				BottomMinutes.html(p1minute);
 				BottomMilliseconds.html("000");
-				TopSeconds.html(p2second);
+				TopSeconds.html(":"+p2second);
 				TopMinutes.html(p2minute);
 				}
 				else
 				{
-				BottomSeconds.html(p2second);
+				BottomSeconds.html(":"+p2second);
 				BottomMinutes.html(p2minute);
 				BottomMilliseconds.html("000");
-				TopSeconds.html(p1second);
-				TopMinutes.html(p2minute);
+				TopSeconds.html(":"+p1second);
+				TopMinutes.html(p1minute);
 				
 				}
 				
