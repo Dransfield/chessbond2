@@ -613,7 +613,7 @@ function showBoardOptions(elem)
 		$("#boardcontainer").css("width","100%");
 		
 		$("#sideBoard").css("width",(100-obj.value)+"%");
-		$("#sideBoard").css("height",$("#bdd").css("height"));
+		
 		//topPlayerMarque.css("width",$("#bdd").css("width"));
 		Accounts[MyID].BoardSize=obj.value;	
 		updateAccountInfo('BoardSize',MyID);
@@ -621,6 +621,7 @@ function showBoardOptions(elem)
 		board1.resize();
 		topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
+		$("#sideBoard").css("height",$("#bdd").css("height"));
 		$("#argh").css("height",$("#bdd").css("height"));
 			
 		});
