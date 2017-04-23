@@ -621,7 +621,7 @@ function showBoardOptions(elem)
 		board1.resize();
 		topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
-		$("#argh").css("height","100%");
+		$("#argh").css("height",$("#bdd").css("height");
 			
 		});
 		
