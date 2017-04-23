@@ -1488,8 +1488,8 @@ function stopDefault(e) {
  boardEl.find('.square-' + square).addClass('highlight-white');
 }
   function removeGreySquares() {
-	console.log("clear grey squares");
-  $('#board .square-55d63').css('background', '');
+	
+  boardEl.find('.square-55d63').removeClass('highlight-white');
 }
 function mousedownSquare(e) {
   // do nothing if we're not draggable
