@@ -202,17 +202,18 @@ var soundVolume=5;
 		var resultDiv=sideBoard.append(" <div   >	 </div>");
          
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
-				var chatDiv=addFlexDiv(sideBoard,"dunni","column",'wrap');
+		var chatDiv=addSpan(sideBoard,"argh");
+				var chatDiv2=addFlexDiv(sideBoard,"dunni","column",'wrap');
 			chatDiv.css("overflow","auto");
 			
-			chatDiv.css("width",boardDivDiv.css("width"));
+			chatDiv.css("height",boardDivDiv.css("width"));
 			
 			
 			chatDiv.css("overflow","auto");
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(chatDiv,WallPosts[iter]);
+					showChatMessage(chatDiv2,WallPosts[iter]);
 					}
 				var chatInput=addSpan(sideBoard,"chatinput");
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat");		
@@ -223,7 +224,7 @@ var soundVolume=5;
 			
 			WallPosts.push(data);
 			
-			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)]);
+			showChatMessage(chatDiv2,WallPosts[(WallPosts.length-1)]);
 		
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
