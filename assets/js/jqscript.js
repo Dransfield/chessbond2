@@ -185,7 +185,7 @@ var soundVolume=5;
 					}
 				}
 				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
-				
+				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
 				BottomMilliseconds=addSpan(bottomPlayerMarque,"bottommilliseconds");
