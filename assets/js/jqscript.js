@@ -261,15 +261,22 @@ var soundVolume=5;
 		
 		game = new Chess();
 			game.load(GamePlaying.fen);
-				board1 = new Chessboard('boardcontainer', {
-		position: game.fen(),
-		orientation:myColor,
-		eventHandlers: {
-			onPieceSelected: pieceSelected,
-			onMove: onDrop,
-			onChanged:onChangedfunc
-		}
-	});
+			var cfg = {
+  draggable: false,
+  position: GamePlaying.fen,
+    
+};
+				board1 = new Chessboard('boardcontainer', cfg);
+				//{
+	//	position: game.fen(),
+		//orientation:myColor,
+		//draggable:false,
+		//eventHandlers: {
+			//onPieceSelected: pieceSelected,
+			//onMove: onDrop,
+			//onChanged:onChangedfunc
+		//}
+	//});
 	
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 	chatDiv.css("overflow","auto");
