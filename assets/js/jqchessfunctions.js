@@ -681,7 +681,7 @@ function StartBlackClock()
 		BottomMinutes.html(BlackMinutes);
 		BottomSeconds.html(":"+BlackSeconds);	
 		BottomMilliseconds.html(milli);
-		});
+		
 		}
 		else
 		{
@@ -690,7 +690,7 @@ function StartBlackClock()
 		TopMinutes.html(BlackMinutes);	
 		TopSeconds.html(":"+BlackSeconds);	
 		TopMilliseconds.html(milli);
-		});	
+		
 		
 		}
 		},121);	
