@@ -206,6 +206,7 @@ var soundVolume=5;
 				
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
+			sideBoard.css("overflow","auto");
 		var resultDiv=sideBoard.append(" <div   >	 </div>");
          
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
