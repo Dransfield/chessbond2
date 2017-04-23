@@ -214,7 +214,7 @@ var soundVolume=5;
 					{	
 					showChatMessage(chatDiv,WallPosts[iter]);
 					}
-					
+				var chatInput=addSpan(sideboard,"chatinput");
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat");		
 					io.socket.on('WallPost', function (data)
 			{
