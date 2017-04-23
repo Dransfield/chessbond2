@@ -175,13 +175,12 @@ var soundVolume=5;
 					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
 					{
 						console.log("setting bdd to "+Accounts[MyID].BoardSize);
-					boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
-					sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
-					$("#bdd").css("width",obj.value+"%");
+				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
+					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
+					$("#bdd").css("width",boardSizeValues[sIter].value+"%");
 					$("#boardcontainer").css("width","100%");
-					$("#sideBoard").css("width",(100-obj.value)+"%");
+					$("#sideBoard").css("width",(100-boardSizeValues[sIter].value)+"%");
 					}
-				}
 			
 				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
 				
