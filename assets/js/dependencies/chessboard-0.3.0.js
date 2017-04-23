@@ -1500,7 +1500,7 @@ var removeGreySquares = function() {
 function mousedownSquare(e) {
   // do nothing if we're not draggable
  // if (cfg.draggable !== true) return;
-
+console.log("mousedown  square"+square);
   var square = $(this).attr('data-square');
   var moves = game.moves({
     square: square,
@@ -1523,8 +1523,8 @@ function mousedownSquare(e) {
 
 function touchstartSquare(e) {
   // do nothing if we're not draggable
-  if (cfg.draggable !== true) return;
-
+  //if (cfg.draggable !== true) return;
+console.log("touch start");
   var square = $(this).attr('data-square');
 
   // no piece on this square
