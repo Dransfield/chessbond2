@@ -154,6 +154,7 @@ var soundVolume=5;
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
 				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
+				topPlayerMarque.css("overflow","auto");
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
 				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
