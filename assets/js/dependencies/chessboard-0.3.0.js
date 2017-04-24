@@ -1501,7 +1501,7 @@ function mousedownSquare(e) {
 removeGreySquares();
   var square = $(this).attr('data-square');
   if (CURRENT_POSITION[square])
-  
+  {
   if(MyID==GamePlaying.PlayerIDOnBottom)
   {
 	  console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
@@ -1540,7 +1540,7 @@ removeGreySquares();
 	  }
 	  
 	}
-  
+  }s
 	  
   
   {console.log(CURRENT_POSITION[square]);}
