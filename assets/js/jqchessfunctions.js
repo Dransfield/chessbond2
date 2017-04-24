@@ -763,7 +763,7 @@ function StartBlackClock()
 		 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
 		if (document.visibilityState=='hidden')
-				{  $scope.changeFavicon('https://www.chessbond.com/favicon2.ico');
+				{  changeFavicon('https://www.chessbond.com/favicon2.ico');
 					}
 			
 
