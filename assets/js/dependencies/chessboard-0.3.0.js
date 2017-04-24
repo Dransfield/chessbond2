@@ -1549,14 +1549,14 @@ console.log("touch start");
   var square = $(this).attr('data-square');
 
   // no piece on this square
-  if (validSquare(square) !== true ||
-      CURRENT_POSITION.hasOwnProperty(square) !== true) {
-    return;
-  }
+ // if (validSquare(square) !== true ||
+   //   CURRENT_POSITION.hasOwnProperty(square) !== true) {
+    //return;
+  //}
 
-  e = e.originalEvent;
-  beginDraggingPiece(square, CURRENT_POSITION[square],
-    e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+  //e = e.originalEvent;
+  //beginDraggingPiece(square, CURRENT_POSITION[square],
+    //e.changedTouches[0].pageX, e.changedTouches[0].pageY);
 }
 
 function mousedownSparePiece(e) {
