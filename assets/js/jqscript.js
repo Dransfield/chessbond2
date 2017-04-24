@@ -260,7 +260,10 @@ var soundVolume=5;
 				}
 		
 		game = new Chess();
+		if(GamePlaying.fen)
+		{
 			game.load(GamePlaying.fen);
+		}
 			var cfg = {
   draggable: false,
   position: GamePlaying.fen,
