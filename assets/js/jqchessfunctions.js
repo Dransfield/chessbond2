@@ -744,7 +744,7 @@ function StartBlackClock()
 					}
 			
 
-  			$http.get('/chessgame?id='+GameID)
+  			io.socket.get('/chessgame?id='+GameID)
 		.then(function (latest) {
 		   
 		   GamePlaying=latest.data;
