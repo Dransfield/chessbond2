@@ -260,7 +260,7 @@ var soundVolume=5;
 				}
 		
 		game = new Chess();
-		var loadBoardWith=game.start();
+		var loadBoardWith=game.fen();
 		if(GamePlaying.fen)
 		{
 			game.load(GamePlaying.fen);
