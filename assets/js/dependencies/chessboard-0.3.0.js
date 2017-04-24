@@ -1509,12 +1509,12 @@ removeGreySquares();
 	
 	  if (GamePlaying.PlayerOnBottom=='Black')
 	  {
-		  if(game.turn()='b')
+		  if(game.turn()=='b')
 		  {console.log("its my turn");}
 	  }
 	  if (GamePlaying.PlayerOnBottom=='White')
 	  {
-		  if(game.turn()='w')
+		  if(game.turn()=='w')
 		  {console.log("its my turn");}
 	  }
 	  
@@ -1529,13 +1529,13 @@ removeGreySquares();
 	  
 	  if (GamePlaying.PlayerOnBottom=='Black')
 	  {
-		  if(game.turn()='w')
+		  if(game.turn()=='w')
 		  {console.log("its my turn");}
 	  }
 	  
 	  if (GamePlaying.PlayerOnBottom=='White')
 	  {
-		  if(game.turn()='b')
+		  if(game.turn()=='b')
 		  {console.log("its my turn");}
 	  }
 	  
