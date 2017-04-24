@@ -1500,6 +1500,8 @@ function mousedownSquare(e) {
  // if (cfg.draggable !== true) return;
 removeGreySquares();
   var square = $(this).attr('data-square');
+  if (CURRENT_POSITION[square])
+  {console.log(CURRENT_POSITION[square]);}
    // no piece on this square
   if (validSquare(square) !== true ||
       CURRENT_POSITION.hasOwnProperty(square) !== true) {
@@ -1521,6 +1523,7 @@ removeGreySquares();
    
    return;
   }
+  
   var moves = game.moves({
     square: square,
     verbose: true
