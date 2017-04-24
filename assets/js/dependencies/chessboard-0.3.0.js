@@ -1501,6 +1501,48 @@ function mousedownSquare(e) {
 removeGreySquares();
   var square = $(this).attr('data-square');
   if (CURRENT_POSITION[square])
+  
+  if(MyID==GamePlaying.PlayerIDOnBottom)
+  {
+	  console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
+	  console.log("turn "+game.turn());
+	
+	  if (GamePlaying.PlayerOnBottom=='Black')
+	  {
+		  if(game.turn()='b')
+		  {console.log("its my turn");}
+	  }
+	  if (GamePlaying.PlayerOnBottom=='White')
+	  {
+		  if(game.turn()='w')
+		  {console.log("its my turn");}
+	  }
+	  
+	
+	
+	}
+	  
+  if(MyID==GamePlaying.PlayerIDOnTop)
+  {
+	  console.log("im on top of color "+GamePlaying.PlayerOnBottom);
+	  console.log("turn "+game.turn());
+	  
+	  if (GamePlaying.PlayerOnBottom=='Black')
+	  {
+		  if(game.turn()='w')
+		  {console.log("its my turn");}
+	  }
+	  
+	  if (GamePlaying.PlayerOnBottom=='White')
+	  {
+		  if(game.turn()='b')
+		  {console.log("its my turn");}
+	  }
+	  
+	}
+  
+	  
+  
   {console.log(CURRENT_POSITION[square]);}
    // no piece on this square
   if (validSquare(square) !== true ||
