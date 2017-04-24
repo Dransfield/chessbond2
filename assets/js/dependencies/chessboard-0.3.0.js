@@ -1501,112 +1501,112 @@ function mousedownSquare(e) {
 
 var myColor;
 var myTurn;
-if(MyID==GamePlaying.PlayerIDOnBottom)
-  {
-	  console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
-	  console.log("turn "+game.turn());
+	if(MyID==GamePlaying.PlayerIDOnBottom)
+	{
+	console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
+	console.log("turn "+game.turn());
 	
-	  if (GamePlaying.PlayerOnBottom=='Black')
-	  {
-		  if(game.turn()=='b')
-		  {
-			  console.log("its my turn");
-			  myTurn=true;
-			  myColor='b';
-			  }
-	  }
-	  if (GamePlaying.PlayerOnBottom=='White')
-	  {
-		  if(game.turn()=='w')
-		  {
-			  console.log("its my turn");
-			  myTurn=true;
-			  myColor='w';
-			  }
-	  }
+		if (GamePlaying.PlayerOnBottom=='Black')
+		{
+			if(game.turn()=='b')
+			{
+			console.log("its my turn");
+			myTurn=true;
+			myColor='b';
+			}
+		}
+		
+		if (GamePlaying.PlayerOnBottom=='White')
+		{
+			if(game.turn()=='w')
+			{
+			console.log("its my turn");
+			myTurn=true;
+			myColor='w';
+			}
+		}
+	 }
 	  
-	
-	
-	}
+	if(MyID==GamePlaying.PlayerIDOnTop)
+	{
+	console.log("im on top of color "+GamePlaying.PlayerOnBottom);
+	console.log("turn "+game.turn());
+		if (GamePlaying.PlayerOnBottom=='Black')
+		{
+			if(game.turn()=='w')
+			{
+			console.log("its my turn");
+			myTurn=true;
+			myColor='w';
+			}
+		}
 	  
-if(MyID==GamePlaying.PlayerIDOnTop)
-  {
-	  console.log("im on top of color "+GamePlaying.PlayerOnBottom);
-	  console.log("turn "+game.turn());
-	  
-	  if (GamePlaying.PlayerOnBottom=='Black')
-	  {
-		  if(game.turn()=='w')
-		  {
-			  console.log("its my turn");
-			  myTurn=true;
-			  myColor='w';
-			  }
-	  }
-	  
-	  if (GamePlaying.PlayerOnBottom=='White')
-	  {
-		  if(game.turn()=='b')
-		  {
-			  console.log("its my turn");
-			  myTurn=true;
-			  myColor='b';
-			  }
-	  }
+		if (GamePlaying.PlayerOnBottom=='White')
+		{
+			if(game.turn()=='b')
+			{
+			console.log("its my turn");
+			myTurn=true;
+			myColor='b';
+			}
+		}
 	  
 	}
   
 
 
-removeGreySquares();
-  var square = $(this).attr('data-square');
+	removeGreySquares();
+	var square = $(this).attr('data-square');
 
- var clickedPieceColor=CURRENT_POSITION[square].charAt(0);
- var clickedPieceName=CURRENT_POSITION[square].charAt(1);
+	var clickedPieceColor=CURRENT_POSITION[square].charAt(0);
+	var clickedPieceName=CURRENT_POSITION[square].charAt(1);
   
   
   
 	  
   
-  {console.log(CURRENT_POSITION[square]);}
-   // no piece on this square
+  // no piece on this square
 	if(myTurn)
 	{
-	if(squareSelected)
-	{
+		if(squareSelected)
+		{
 		var moves = game.moves({
 		square: squareSelected,
 		verbose: true
 		});	
 		
-		 for (var i = 0; i < moves.length; i++) {
-			if (square==moves[i].to)
-			{
-			onDrop({from:squareSelected,to:square});
+			for (var i = 0; i < moves.length; i++) {
+				if (square==moves[i].to)
+				{
+				onDrop({from:squareSelected,to:square});
+				}
 			}
-		}
 		squareSelected=null;
 		return;
-	}
+		}
    }
    
-    if (clickedPieceColor=='w' || clickedPieceColor=='b') {
-    if(clickedPieceColor==myColor)
+    if (clickedPieceColor=='w' || clickedPieceColor=='b') 
     {
-  var moves = game.moves({
-    square: square,
-    verbose: true
-  });
-  squareSelected=square;
-  console.log("mousedown  square"+square);
-  console.log("moves length "+moves.length);
-  greySquare(square);
-  for (var i = 0; i < moves.length; i++) {
-	  console.log("greysquare "+moves[i].to);
-    greySquare(moves[i].to);
-  }
- }
+		if(clickedPieceColor==myColor)
+		{
 
+		var moves = game.moves({
+		square: square,
+		verbose: true
+		});
+		
+		squareSelected=square;
+		console.log("mousedown  square"+square);
+		console.log("moves length "+moves.length);
+		greySquare(square);
+			for (var i = 0; i < moves.length; i++) {
+			console.log("greysquare "+moves[i].to);
+			greySquare(moves[i].to);
+			}
+		
+		}
+	}
 
  // beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
 }
