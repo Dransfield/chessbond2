@@ -1558,18 +1558,22 @@ var myTurn;
 	removeGreySquares();
 	var square = $(this).attr('data-square');
 
-	var clickedPieceColor=CURRENT_POSITION[square].charAt(0);
-	var clickedPieceName=CURRENT_POSITION[square].charAt(1);
-  
-  
+	var clickedPieceColor;
+	var clickedPieceName;
+	
+	if (CURRENT_POSITION[square])
+	{
+	clickedPieceColor=CURRENT_POSITION[square].charAt(0);
+	clickedPieceName=CURRENT_POSITION[square].charAt(1);
+	}
   
 	  
   
-  // no piece on this square
-	if(myTurn)
+  if(myTurn)
 	{
 		if(squareSelected)
 		{
+			
 		var moves = game.moves({
 		square: squareSelected,
 		verbose: true
