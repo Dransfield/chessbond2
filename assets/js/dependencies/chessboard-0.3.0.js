@@ -1498,11 +1498,10 @@ var squareSelected;
 function mousedownSquare(e) {
   // do nothing if we're not draggable
  // if (cfg.draggable !== true) return;
-removeGreySquares();
-  var square = $(this).attr('data-square');
-  if (CURRENT_POSITION[square])
-  {
-  if(MyID==GamePlaying.PlayerIDOnBottom)
+
+var myColor;
+var myTurn;
+if(MyID==GamePlaying.PlayerIDOnBottom)
   {
 	  console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
 	  console.log("turn "+game.turn());
@@ -1510,19 +1509,27 @@ removeGreySquares();
 	  if (GamePlaying.PlayerOnBottom=='Black')
 	  {
 		  if(game.turn()=='b')
-		  {console.log("its my turn");}
+		  {
+			  console.log("its my turn");
+			  myTurn=true;
+			  myColor='b';
+			  }
 	  }
 	  if (GamePlaying.PlayerOnBottom=='White')
 	  {
 		  if(game.turn()=='w')
-		  {console.log("its my turn");}
+		  {
+			  console.log("its my turn");
+			  myTurn=true;
+			  myColor='w';
+			  }
 	  }
 	  
 	
 	
 	}
 	  
-  if(MyID==GamePlaying.PlayerIDOnTop)
+if(MyID==GamePlaying.PlayerIDOnTop)
   {
 	  console.log("im on top of color "+GamePlaying.PlayerOnBottom);
 	  console.log("turn "+game.turn());
@@ -1530,23 +1537,41 @@ removeGreySquares();
 	  if (GamePlaying.PlayerOnBottom=='Black')
 	  {
 		  if(game.turn()=='w')
-		  {console.log("its my turn");}
+		  {
+			  console.log("its my turn");
+			  myTurn=true;
+			  myColor='w';
+			  }
 	  }
 	  
 	  if (GamePlaying.PlayerOnBottom=='White')
 	  {
 		  if(game.turn()=='b')
-		  {console.log("its my turn");}
+		  {
+			  console.log("its my turn");
+			  myTurn=true;
+			  myColor='b';
+			  }
 	  }
 	  
 	}
-  }
+  
+
+
+removeGreySquares();
+  var square = $(this).attr('data-square');
+
+ var clickedPieceColor=CURRENT_POSITION[square].charAt(0);
+ var clickedPieceName=CURRENT_POSITION[square].charAt(1);
+  
+  
+  
 	  
   
   {console.log(CURRENT_POSITION[square]);}
    // no piece on this square
-  if (validSquare(square) !== true ||
-      CURRENT_POSITION.hasOwnProperty(square) !== true) {
+	if(myTurn)
+	{
 	if(squareSelected)
 	{
 		var moves = game.moves({
@@ -1561,11 +1586,13 @@ removeGreySquares();
 			}
 		}
 		squareSelected=null;
+		return;
 	}
+   }
    
-   return;
-  }
-  
+    if (clickedPieceColor=='w' || clickedPieceColor=='b') {
+    if(clickedPieceColor==myColor)
+    {
   var moves = game.moves({
     square: square,
     verbose: true
@@ -1578,7 +1605,7 @@ removeGreySquares();
 	  console.log("greysquare "+moves[i].to);
     greySquare(moves[i].to);
   }
- 
+ }
 
 
  // beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
