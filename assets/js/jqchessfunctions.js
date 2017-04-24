@@ -51,6 +51,29 @@ var WhiteTime=0;
 var pieceNames=['pawn','rook','knight','bishop','queen','king'];
 var pieceNamesInitial=['P','R','N','B','Q','K'];
 
+
+ function PlayBell()
+    {
+	BellSound.play();
+	}
+	function PlayMove()
+    {
+	MoveSound.play();
+	}
+	function PlayCheckMate()
+    {
+	CheckMateSound.play();
+	}
+	function PlayWithdraw()
+	{
+	WithdrawSound.play();
+	}
+	function PlayDraw()
+	{
+	DrawSound.play();
+	}
+
+
  var  boardorientations = [
         {id: '1', name: 'Left',value:'Left'},
 	  {id: '2', name: 'Right',value:'Right'}
@@ -150,11 +173,11 @@ var boardThemeNames=['original','A1','A2',
     var ShowAcceptDrawButton=false;
     
     var piecevalues={P:1,N:3,B:3,R:5,Q:9};
- //   BellSound= new Audio('/alert.mp3');
-//	MoveSound=new Audio('/move.mp3');
-//	CheckMateSound=new Audio("/checkmate.mp3");
+ var   BellSound= new Audio('/alert.mp3');
+var	MoveSound=new Audio('/move.mp3');
+	var CheckMateSound=new Audio("/checkmate.mp3");
 	var DrawSound=new Audio("/draw.mp3");
-//	WithdrawSound=new Audio("/withdraw.mp3");
+	var WithdrawSound=new Audio("/withdraw.mp3");
 	var SoundEnabled=false;
 	$("#SoundModal").modal()
 	var EnableSound=function()
