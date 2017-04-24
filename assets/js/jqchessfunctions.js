@@ -749,11 +749,11 @@ function StartBlackClock()
 		   
 		   GamePlaying=resData;
 		   console.log(GamePlaying);
-		   if (GamePlaying2.id)
-		   { 
-			   console.log("object2 "+JSON.stringify(GamePlaying2));
-			  GamePlaying= GamePlaying2;
-		  }
+		  // if (GamePlaying2.id)
+		//   { 
+		//	   console.log("object2 "+JSON.stringify(GamePlaying2));
+		//	  GamePlaying= GamePlaying2;
+		 // }
 		  if (GamePlaying.Result)
 			{
 			$scope.ShowOfferDrawButton=false;	
