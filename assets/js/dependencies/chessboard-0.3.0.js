@@ -1540,7 +1540,7 @@ removeGreySquares();
 	  }
 	  
 	}
-  }s
+  }
 	  
   
   {console.log(CURRENT_POSITION[square]);}
