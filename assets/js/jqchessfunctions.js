@@ -557,7 +557,7 @@ function usersTurn(game,me)
 function StartWhiteClock()
 	{
 		
-		if (GamePlaying.Player1Color=='White')
+		if (GamePlaying.PlayerOnBottom=='White')
 		{
 		WhiteTime=GamePlaying.Player1TimeLeft*1000;
 		}
@@ -565,7 +565,7 @@ function StartWhiteClock()
 		{
 		WhiteTime=GamePlaying.Player2TimeLeft*1000;
 		}
-	console.log("start white clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+	console.log("start white clock $scope.PlayerOnBottom "+GamePlaying.PlayerIDOnBottom);
 	WhiteInterval=setInterval(function (){
 		
 		
@@ -674,7 +674,7 @@ function StartBlackClock()
 		{milli="00"+milli;}
 		
 
-		if(PlayerOnBottom=='Black')
+		if(GamePlaying.PlayerOnBottom=='Black')
 		{
 		
 		
