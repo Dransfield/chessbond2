@@ -240,25 +240,25 @@ var soundVolume=5;
 				//console.log("Accounts[MyID].ChessPieceTheme[0] "+Accounts[MyID].ChessPieceTheme[0]);
 				// board1 = ChessBoard('boardcontainer',{draggable: true,onDrop: onDrop,onSnapEnd:onSnapEnd,pieceTheme: '/img/chesspieces/'+Accounts[MyID].ChessPieceTheme[0]+'/{piece}.png'} );
 		
-		var myColor='w';
+		var myColor='white';
 				 if (GamePlaying.Player1!=GamePlaying.Player2)
 				{
 				if (GamePlaying.Player1==MyID){
 					if (GamePlaying.Player1Color=='Black')
 					{
 					
-					myColor='b';
+					myColor='black';
 					
 					}
 				}			
 				if (GamePlaying.Player2==MyID){
 					if (GamePlaying.Player1Color=='White')
 					{
-				myColor='b';
+				myColor='black';
 					}
 				}	
 				}
-		
+		console.log("orientation "+myColor);
 		game = new Chess();
 		var loadBoardWith=game.fen();
 		if(GamePlaying.fen)
