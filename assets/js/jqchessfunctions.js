@@ -744,11 +744,11 @@ function StartBlackClock()
 					}
 			
 
-  			io.socket.get('/chessgame?id='+GameID)
-		.then(function (latest) {
+  			io.socket.get('/chessgame',{id:GameID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
 		   
-		   GamePlaying=latest.data;
-		//   console.log(latest.data);
+		   GamePlaying=resData;
+		   console.log(GamePlaying);
 		   if (GamePlaying2.id)
 		   { 
 			   console.log("object2 "+JSON.stringify(GamePlaying2));
