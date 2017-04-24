@@ -1505,9 +1505,20 @@ removeGreySquares();
       CURRENT_POSITION.hasOwnProperty(square) !== true) {
 	if(squareSelected)
 	{
-	onDrop({from:squareSelected,to:square});
-	squareSelected=null;
+		var moves = game.moves({
+		square: squareSelected,
+		verbose: true
+		});	
+		
+		 for (var i = 0; i < moves.length; i++) {
+			if (square==moves[i].to)
+			{
+			onDrop({from:squareSelected,to:square});
+			}
+		}
+		squareSelected=null;
 	}
+   
    return;
   }
   var moves = game.moves({
