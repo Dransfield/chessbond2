@@ -260,13 +260,15 @@ var soundVolume=5;
 				}
 		
 		game = new Chess();
+		var loadBoardWith=game.start();
 		if(GamePlaying.fen)
 		{
 			game.load(GamePlaying.fen);
+		loadBoardWith=GamePlaying.fen;
 		}
 			var cfg = {
   draggable: false,
-  position: GamePlaying.fen,
+  position: loadBoardWith,
     orientation:myColor,
     pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
 
