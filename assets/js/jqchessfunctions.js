@@ -787,7 +787,7 @@ function StartBlackClock()
 	if(GamePlaying.lastmove){
 	modified=(GamePlaying.lastmove.substr(0, 2) + "-" + GamePlaying.lastmove.substr(2));
 	console.log("with -"+modified);
-	console.log("from "+$scope.ChessGameObject.lastmove.substr(0, 2)+"-to-"+$scope.ChessGameObject.lastmove.substr(2, 5)+"-");
+	console.log("from "+GamePlaying.lastmove.substr(0, 2)+"-to-"+GamePlaying.lastmove.substr(2, 5)+"-");
 		
 		 move =game.move({ from: GamePlaying.lastmove.substr(0, 2), to: GamePlaying.lastmove.substr(2, 5) });
 	}
