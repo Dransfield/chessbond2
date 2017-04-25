@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-
+OverallScore:{type:'integer',defaultsTo:0}
   }
 };
 
