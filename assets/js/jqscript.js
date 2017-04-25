@@ -169,7 +169,7 @@ var soundVolume=5;
 				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
 				TopPingDisplay=$("<p>Ping</p>");
 				topPlayerMarque.append(TopPingDisplay);
-				var sideBoard=addSpan(horizontalDiv,"sideBoard");
+					var sideBoard=addSpan(horizontalDiv,"sideBoard");
 					var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				
 				
