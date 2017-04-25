@@ -628,7 +628,16 @@ function showBoardOptions(elem)
 		console.log("sideboard new height "+$("#sideBoard").css("height"));
 		console.log("chatdiv1 new height "+$("#chatDiv").css("height"));
 		console.log("chatdiv2 new height "+$("#chatDiv2").css("height"));
-	
+				for (btIter in boardThemeValues)
+			{
+				if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
+				{
+					
+					var obj=boardThemeValues[btIter];
+			$(".white-1e1d7").css("background-color",obj.whitebackground);	
+				$(".black-3c85d").css("background-color",obj.blackbackground);
+				}
+			}
 		});
 		
 		volumeSel.change(function()

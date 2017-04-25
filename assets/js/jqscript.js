@@ -307,8 +307,6 @@ var soundVolume=5;
 			var obj=boardThemeValues[btIter];
 	$(".white-1e1d7").css("background-color",obj.whitebackground);	
 		$(".black-3c85d").css("background-color",obj.blackbackground);
-	//	$(".chess_square_light > div.chess_label").css("color",obj.whiteforeground);	
-	//	$(".chess_square_dark  > div.chess_label").css("color",obj.blackforeground);
 		}
 	}
 	
