@@ -1505,6 +1505,10 @@ function mousedownSquare(e) {
 
 var myColor;
 var myTurn;
+console.log(MyID);
+console.log(GamePlaying.PlayerIDOnBottom);
+console.log(GamePlaying.PlayerIDOnTop);
+
 	if(MyID==GamePlaying.PlayerIDOnBottom)
 	{
 	console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
