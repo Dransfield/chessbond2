@@ -581,6 +581,9 @@ function showBoardOptions(elem)
 	{
 		var obj=JSON.parse($(this).val());
 		Accounts[MyID].ChessPieceTheme=obj;	
+		console.log(board1);
+		console.log(cfg);
+		console.log(board1.cfg);
 		board1.cfg.pieceTheme='/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'
 		board1.drawPositionInstant();
 		//for (iter in pieceNames)
