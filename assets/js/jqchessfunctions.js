@@ -593,7 +593,7 @@ function StartWhiteClock()
 		{
 		WhiteTime=GamePlaying.Player2TimeLeft*1000;
 		}
-	console.log("start white clock $scope.PlayerOnBottom "+GamePlaying.PlayerIDOnBottom);
+	console.log("start white clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
 	WhiteInterval=setInterval(function (){
 		
 		
@@ -628,7 +628,7 @@ function StartWhiteClock()
 		{milli="0"+milli;}
 		if (intmilli<10 )
 		{milli="00"+milli;}
-		if(GamePlaying.PlayerOnBottom=='White')
+		if(PlayerColorOnBottom=='White')
 		{
 		
 		BottomMinutes.html(WhiteMinutes);
@@ -654,16 +654,14 @@ function StartBlackClock()
 	
 		if (GamePlaying.Player1Color=='Black')
 		{
-		
 		BlackTime=GamePlaying.Player1TimeLeft*1000;
 		}
 		else
 		{
-		
-			
 		BlackTime=GamePlaying.Player2TimeLeft*1000;
-			}
-	console.log("start black clock $scope.PlayerOnBottom "+GamePlaying.PlayerIDOnBottom);
+		}
+		
+	console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
 	BlackInterval=setInterval(function (){
 		
 		
@@ -702,7 +700,7 @@ function StartBlackClock()
 		{milli="00"+milli;}
 		
 
-		if(GamePlaying.PlayerOnBottom=='Black')
+		if(PlayerColorOnBottom=='Black')
 		{
 		
 		
