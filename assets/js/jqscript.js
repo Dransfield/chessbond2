@@ -120,33 +120,35 @@ var soundVolume=5;
 			{
 				retrievePrivatesandFollows().then(function(){
 					
-						GamePlaying.PlayerOnBottom='White';
-						GamePlaying.PlayerIDOnTop=GamePlaying.Player2;
-							GamePlaying.PlayerIDOnBottom=GamePlaying.Player1;
+						PlayerColorOnTop='Black';
+						PlayerColorOnBottom='White';
+						PlayerIDOnTop=GamePlaying.Player2;
+						PlayerIDOnBottom=GamePlaying.Player1;
 							
 						if (GamePlaying.Player2==MyID){
-							GamePlaying.PlayerIDOnBottom=GamePlaying.Player2;
-							GamePlaying.PlayerIDOnTop=GamePlaying.Player1;
+							PlayerIDOnBottom=GamePlaying.Player2;
+							PlayerIDOnTop=GamePlaying.Player1;
 							console.log("im player2");
 							console.log("GamePlaying.Player1Color "+GamePlaying.Player1Color);
 							if (GamePlaying.Player1Color=='White')
 							{
-							GamePlaying.PlayerOnBottom='Black';
+							PlayerColorOnBottom='Black';
+							PlayerColorOnTop='White';
 							}
 						
 						}
 						
 						if (GamePlaying.Player1==MyID){
 							console.log("im player1");
-							GamePlaying.PlayerIDOnTop=GamePlaying.Player2;
-							GamePlaying.PlayerIDOnBottom=GamePlaying.Player1;
+							PlayerIDOnTop=GamePlaying.Player2;
+							PlayerIDOnBottom=GamePlaying.Player1;
 							if (GamePlaying.Player1Color=='Black')
 							{
 								console.log("im black");
 							
 							
-							GamePlaying.PlayerOnBottom='Black';
-							
+							PlayerColorOnBottom='Black';
+							PlayerColorOnTop='White';
 							}
 						}
 					
@@ -163,10 +165,10 @@ var soundVolume=5;
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
 				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
-				showsmallAvatar(topPlayerMarque,GamePlaying.PlayerIDOnTop);
-				showUsername(topPlayerMarque,GamePlaying.PlayerIDOnTop);
-				topPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnTop].ELO);
-				showFlag(topPlayerMarque,GamePlaying.PlayerIDOnTop);
+				showsmallAvatar(topPlayerMarque,PlayerIDOnTop);
+				showUsername(topPlayerMarque,PlayerIDOnTop);
+				topPlayerMarque.append(Accounts[PlayerIDOnTop].ELO);
+				showFlag(topPlayerMarque,PlayerIDOnTop);
 				TopPingDisplay=$("<p>Ping</p>");
 				topPlayerMarque.append(TopPingDisplay);
 					var sideBoard=addSpan(horizontalDiv,"sideBoard");
@@ -195,10 +197,10 @@ var soundVolume=5;
 				BottomMilliseconds=addSpan(bottomPlayerMarque,"bottommilliseconds");
 				
 				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
-				showsmallAvatar(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
-				showUsername(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
-				bottomPlayerMarque.append(Accounts[GamePlaying.PlayerIDOnBottom].ELO);
-				showFlag(bottomPlayerMarque,GamePlaying.PlayerIDOnBottom);
+				showsmallAvatar(bottomPlayerMarque,PlayerIDOnBottom);
+				showUsername(bottomPlayerMarque,PlayerIDOnBottom);
+				bottomPlayerMarque.append(Accounts[PlayerIDOnBottom].ELO);
+				showFlag(bottomPlayerMarque,PlayerIDOnBottom);
 				
 				BottomPingDisplay=$("<p>Ping</p>");
 				bottomPlayerMarque.append(BottomPingDisplay);

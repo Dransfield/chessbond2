@@ -1505,16 +1505,14 @@ function mousedownSquare(e) {
 
 var myColor;
 var myTurn;
-console.log(MyID);
-console.log(GamePlaying.PlayerIDOnBottom);
-console.log(GamePlaying.PlayerIDOnTop);
 
-	if(MyID==GamePlaying.PlayerIDOnBottom)
+
+	if(MyID==PlayerIDOnBottom)
 	{
-	console.log("im on bottom of color "+GamePlaying.PlayerOnBottom);
+	console.log("im on bottom of color "+PlayerColorOnBottom);
 	console.log("turn "+game.turn());
 	
-		if (GamePlaying.PlayerOnBottom=='Black')
+		if (PlayerColorOnBottom=='Black')
 		{
 			if(game.turn()=='b')
 			{
@@ -1524,7 +1522,7 @@ console.log(GamePlaying.PlayerIDOnTop);
 			}
 		}
 		
-		if (GamePlaying.PlayerOnBottom=='White')
+		if (PlayerColorOnBottom=='White')
 		{
 			if(game.turn()=='w')
 			{
@@ -1535,11 +1533,11 @@ console.log(GamePlaying.PlayerIDOnTop);
 		}
 	 }
 	  
-	if(MyID==GamePlaying.PlayerIDOnTop)
+	if(MyID==PlayerIDOnTop)
 	{
-	console.log("im on top of color "+GamePlaying.PlayerOnBottom);
+	console.log("im on top of color "+PlayerColorOnBottom);
 	console.log("turn "+game.turn());
-		if (GamePlaying.PlayerOnBottom=='Black')
+		if (PlayerOnColorBottom=='Black')
 		{
 			if(game.turn()=='w')
 			{
@@ -1549,7 +1547,7 @@ console.log(GamePlaying.PlayerIDOnTop);
 			}
 		}
 	  
-		if (GamePlaying.PlayerOnBottom=='White')
+		if (PlayerColorOnBottom=='White')
 		{
 			if(game.turn()=='b')
 			{

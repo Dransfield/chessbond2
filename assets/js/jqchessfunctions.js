@@ -13,6 +13,11 @@ var bottomPlayerMarque;
 var BottomPingDisplay;
 var TopPingDisplay;
 
+var PlayerIDOnTop;
+var PlayerIDOnBottom;
+var PlayerColorOnTop;
+var PlayerColorOnBottom;
+
 var currentFavicon;
 
 var PingStartTime=Date.now();
