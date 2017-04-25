@@ -636,7 +636,11 @@ function buildBoard(orientation) {
 
   return html;
 }
-
+function changePieceTheme(theme)
+{
+	cfg.pieceTheme=theme;
+	 drawPositionInstant();
+	}
 function buildPieceImgSrc(piece) {
   if (typeof cfg.pieceTheme === 'function') {
     return cfg.pieceTheme(piece);

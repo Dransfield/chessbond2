@@ -581,11 +581,8 @@ function showBoardOptions(elem)
 	{
 		var obj=JSON.parse($(this).val());
 		Accounts[MyID].ChessPieceTheme=obj;	
-		console.log(board1);
-		console.log(cfg);
-		console.log(board1.cfg);
-		board1.cfg.pieceTheme='/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'
-		board1.drawPositionInstant();
+		
+		board1.changePieceTheme('/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png');
 		//for (iter in pieceNames)
 		//{
 		//$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
@@ -600,10 +597,8 @@ function showBoardOptions(elem)
 			var obj=JSON.parse($(this).val());
 		//	console.log(obj.whitebackground);
 		//console.log(JSON.stringify($(this).val()['whitebackground']));
-		$(".chess_square_light").css("background-color",obj.whitebackground);	
-		$(".chess_square_dark").css("background-color",obj.blackbackground);
-		$(".chess_square_light > div.chess_label").css("color",obj.whiteforeground);	
-		$(".chess_square_dark  > div.chess_label").css("color",obj.blackforeground);
+		$(".white-1e1d7").css("background-color",obj.whitebackground);	
+		$(".black-3c85d").css("background-color",obj.blackbackground);
 		
 		Accounts[MyID].BoardTheme=obj.name;	
 		updateAccountInfo('BoardTheme',MyID);
