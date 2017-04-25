@@ -777,6 +777,7 @@ function StartBlackClock()
 			console.log(JSON.stringify(resData));
 		   
 		   GamePlaying=resData;
+		   $("overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
 		   console.log(GamePlaying);
 		   console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
 		  // if (GamePlaying2.id)
