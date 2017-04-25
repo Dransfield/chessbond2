@@ -523,7 +523,7 @@ io.socket.put('/Chessgame/'+GamePlaying.id,{
 	if (game.in_stalemate())
 	{descriptor='stalemate';}
 	
-	io.socket.put('/chessgamemove',{GameState:state,GameDescriptor:descriptor,GameOver:gameover,GameID:GamePlaying.id,ColorToMove:game.turn()},function(resData,jwres)
+	io.socket.put('/chessgamemove',{OverallScore:GamePlaying.OverallScore,GameState:state,GameDescriptor:descriptor,GameOver:gameover,GameID:GamePlaying.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
 	//console.log(jwres);
 	});
@@ -769,7 +769,7 @@ function StartBlackClock()
 		 io.socket.on('chessgamemove', function (data){
 		console.log("recieved chess game move"+JSON.stringify(data));
 		if (document.visibilityState=='hidden')
-				{  changeFavicon('https://www.chessbond.com/favicon2.ico');
+				{  changeFavicon('/favicon2.ico');
 					}
 			
 
@@ -778,6 +778,7 @@ function StartBlackClock()
 		   
 		   GamePlaying=resData;
 		   console.log(GamePlaying);
+		   console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
 		  // if (GamePlaying2.id)
 		//   { 
 		//	   console.log("object2 "+JSON.stringify(GamePlaying2));
