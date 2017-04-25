@@ -299,6 +299,9 @@ function changeOverallScore(piece,colour)
 		GamePlaying.OverallScore+=piecevalues[piece];	
 		}
 	}
+	
+	$("#overallscore").html("Score:"+GamePlaying.OverallScore);
+	
 	}
 	
 	function onChangedfunc(obj)
