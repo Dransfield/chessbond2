@@ -1573,11 +1573,13 @@ var myTurn;
 	{
 		if(squareSelected)
 		{
-			
-		var moves = game.moves({
-		square: squareSelected,
-		verbose: true
-		});	
+			if(myColor==CURRENT_POSITION[squareSelected].charAt(0))
+			{
+	
+				var moves = game.moves({
+				square: squareSelected,
+				verbose: true
+				});	
 		
 			for (var i = 0; i < moves.length; i++) {
 				if (square==moves[i].to)
@@ -1587,13 +1589,19 @@ var myTurn;
 			}
 		squareSelected=null;
 		return;
+			}
 		}
+		
+   }
+   else
+   {
+	   
+	toastr.info("It's not your turn");   
    }
    
     if (clickedPieceColor=='w' || clickedPieceColor=='b') 
     {
-		if(clickedPieceColor==myColor)
-		{
+		
 
 		var moves = game.moves({
 		square: square,
@@ -1609,8 +1617,8 @@ var myTurn;
 			greySquare(moves[i].to);
 			}
 		
-		}
 	}
+	
 
  // beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
 }

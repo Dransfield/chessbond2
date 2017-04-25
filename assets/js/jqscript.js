@@ -106,7 +106,11 @@ var soundVolume=5;
 			console.log(JSON.stringify(resData));
 			});
 		
+		$("#mousemove").mousemove(function()
+	{
 		
+		$("#favicon").attr("href","/favicon.ico");
+	});
 		getWallposts(GameID).then(function(){
 		retrieveGame(GameID).then(function()
 		{
