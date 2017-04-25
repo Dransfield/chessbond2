@@ -300,7 +300,7 @@ function changeOverallScore(piece,colour)
 		}
 	}
 	
-	$("#overallscore").html("Score:"+GamePlaying.OverallScore);
+	$("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
 	
 	}
 	
