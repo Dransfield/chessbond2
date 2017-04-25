@@ -359,7 +359,7 @@ function changeOverallScore(piece,colour)
 						
 					 
 							GamePlaying.Move+=1;
-							//ChangeOverallScore(move.captured,move.color);
+							ChangeOverallScore(move.captured,move.color);
 							//Showcapturedpiece(move.captured,move.color,true);
 							
 							
@@ -410,7 +410,7 @@ function changeOverallScore(piece,colour)
 							 
 	 
 						//	console.log("move from ondrop "+JSON.stringify(move));
-							var square=   boardEl.find('.square-' + move.to);
+							var square=   $('.square-' + move.to);
 							var position =square .position();
 							 $( "img[id='highlight']" ).detach();
 						  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
