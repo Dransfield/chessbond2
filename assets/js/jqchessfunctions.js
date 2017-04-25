@@ -362,7 +362,7 @@ function changeOverallScore(piece,colour)
 						
 					 
 							GamePlaying.Move+=1;
-							ChangeOverallScore(move.captured,move.color);
+							changeOverallScore(move.captured,move.color);
 							//Showcapturedpiece(move.captured,move.color,true);
 							
 							
