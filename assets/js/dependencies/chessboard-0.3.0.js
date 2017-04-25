@@ -1602,7 +1602,7 @@ var myTurn;
    else
    {
 	   
-	toastr.info("It's not your turn "+myTurn+" "+myColor);   
+	toastr.info("It's not your turn ");   
    }
    
     if (clickedPieceColor=='w' || clickedPieceColor=='b') 
