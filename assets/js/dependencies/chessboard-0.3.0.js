@@ -636,11 +636,7 @@ function buildBoard(orientation) {
 
   return html;
 }
-function changePieceTheme(theme)
-{
-	cfg.pieceTheme=theme;
-	 drawPositionInstant();
-	}
+
 function buildPieceImgSrc(piece) {
   if (typeof cfg.pieceTheme === 'function') {
     return cfg.pieceTheme(piece);
@@ -1297,7 +1293,11 @@ function stopDraggedPiece(location) {
 widget.clear = function(useAnimation) {
   widget.position({}, useAnimation);
 };
-
+widget.changePieceTheme=function (theme)
+{
+	cfg.pieceTheme=theme;
+	 drawPositionInstant();
+	};
 /*
 // get or set config properties
 // TODO: write this, GitHub Issue #1
