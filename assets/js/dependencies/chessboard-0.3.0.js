@@ -1600,7 +1600,7 @@ var myTurn;
    else
    {
 	   
-	toastr.info("It's not your turn");   
+	toastr.info("It's not your turn "+myTurn+" "+myColor);   
    }
    
     if (clickedPieceColor=='w' || clickedPieceColor=='b') 
