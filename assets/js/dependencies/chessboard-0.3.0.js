@@ -1532,7 +1532,7 @@ var myTurn;
 			}
 		}
 	 }
-	  
+	  alert("mouse down on square");
 	if(MyID==PlayerIDOnTop)
 	{
 	console.log("im on top of color "+PlayerColorOnBottom);
@@ -1675,13 +1675,13 @@ function mousemoveWindow(e) {
 
 function touchmoveWindow(e) {
   // do nothing if we are not dragging a piece
-  if (DRAGGING_A_PIECE !== true) return;
+  //if (DRAGGING_A_PIECE !== true) return;
 
   // prevent screen from scrolling
-  e.preventDefault();
+  //e.preventDefault();
 
-  updateDraggedPiece(e.originalEvent.changedTouches[0].pageX,
-    e.originalEvent.changedTouches[0].pageY);
+  //updateDraggedPiece(e.originalEvent.changedTouches[0].pageX,
+//    e.originalEvent.changedTouches[0].pageY);
 }
 
 function mouseupWindow(e) {
@@ -1726,8 +1726,8 @@ function mouseenterSquare(e) {
   }
 
   // execute their function
-  cfg.onMouseoverSquare(square, piece, deepCopy(CURRENT_POSITION),
-    CURRENT_ORIENTATION);
+  //cfg.onMouseoverSquare(square, piece, deepCopy(CURRENT_POSITION),
+   // CURRENT_ORIENTATION);
 }
 
 function mouseleaveSquare(e) {
