@@ -1785,16 +1785,16 @@ function addEvents() {
     $(window).on('mousemove', mousemoveWindow);
     $(window).on('mouseup', mouseupWindow);
   }
-/*
+
   // touch drag pieces
   if (isTouchDevice() === true) {
-    boardEl.on('touchstart', '.' + CSS.square, touchstartSquare);
+    boardEl.on('touchstart', '.' + CSS.square, mousedownSquare);
     containerEl.on('touchstart', '.' + CSS.sparePieces + ' .' + CSS.piece,
       touchstartSparePiece);
     $(window).on('touchmove', touchmoveWindow);
     $(window).on('touchend', touchendWindow);
   }
-*/
+
 }
 
 function initDom() {
