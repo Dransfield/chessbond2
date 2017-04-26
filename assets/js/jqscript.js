@@ -289,7 +289,7 @@ var soundVolume=5;
 			//onChanged:onChangedfunc
 		//}
 	//});
-	
+	$(".square-55d63").css();
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 	chatDiv.css("overflow","auto");
 			
