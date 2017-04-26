@@ -1532,7 +1532,7 @@ var myTurn;
 			}
 		}
 	 }
-	  alert("mouse down on square");
+	  
 	if(MyID==PlayerIDOnTop)
 	{
 	console.log("im on top of color "+PlayerColorOnBottom);
