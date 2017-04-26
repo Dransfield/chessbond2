@@ -1634,7 +1634,7 @@ function touchstartSquare(e) {
   //if (cfg.draggable !== true) return;
 console.log("touch start");
   var square = $(this).attr('data-square');
-
+mousedownSquare(e);
   // no piece on this square
  // if (validSquare(square) !== true ||
    //   CURRENT_POSITION.hasOwnProperty(square) !== true) {
