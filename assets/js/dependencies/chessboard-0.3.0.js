@@ -1769,8 +1769,8 @@ function addEvents() {
     mousedownSparePiece);
 
   // mouse enter / leave square
-  boardEl.on('mouseenter', '.' + CSS.square, mouseenterSquare);
-  boardEl.on('mouseleave', '.' + CSS.square, mouseleaveSquare);
+ // boardEl.on('mouseenter', '.' + CSS.square, mouseenterSquare);
+ // boardEl.on('mouseleave', '.' + CSS.square, mouseleaveSquare);
 
   // IE doesn't like the events on the window object, but other browsers
   // perform better that way
@@ -1785,7 +1785,7 @@ function addEvents() {
     $(window).on('mousemove', mousemoveWindow);
     $(window).on('mouseup', mouseupWindow);
   }
-
+/*
   // touch drag pieces
   if (isTouchDevice() === true) {
     boardEl.on('touchstart', '.' + CSS.square, touchstartSquare);
@@ -1794,6 +1794,7 @@ function addEvents() {
     $(window).on('touchmove', touchmoveWindow);
     $(window).on('touchend', touchendWindow);
   }
+*/
 }
 
 function initDom() {
