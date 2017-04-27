@@ -291,7 +291,7 @@ function showCapturedPieces()
 	for (x in blackcap)
 	{
 		console.log(blackcap[x]);
-		if(! "undefined" === typeof blackcap[x])
+		if(blackcap[x])
 		{
 			console.log("showing "+blackcap[x]);
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
