@@ -282,6 +282,38 @@ io.socket.on('ping',function(data){
 	
 }
 
+function showCapturedPieces()
+{
+	$("#capturedPieces").empty();
+	if (GamePlaying.capturedBlackpieces)
+	{
+	var blackcap=GamePlaying.capturedBlackpieces.split(",");
+	for (x in blackcap)
+	{
+		console.log(blackcap[x]);
+		if(! "undefined" === typeof blackcap[x])
+		{
+	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
+	}
+	}
+	}
+	if (GamePlaying.capturedWhitepieces)
+	{
+	
+	var whitecap=GamePlaying.capturedWhitepieces.split(",");
+	console.log(GamePlaying.capturedWhitepieces);
+	for (x in whitecap)
+	{
+		console.log(whitecap[x]);
+	if(! "undefined" === typeof whitecap[x])
+	{
+	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
+	}
+	}
+	}
+	
+	
+}
 
 function showCapturedPiece(cap,colour,updaterecord)
 	{
@@ -327,38 +359,11 @@ function showCapturedPiece(cap,colour,updaterecord)
 		}
 	}
 	
-	$("#capturedPieces").empty();
-	if (GamePlaying.capturedBlackpieces)
-	{
-	var blackcap=GamePlaying.capturedBlackpieces.split(",");
-	for (x in blackcap)
-	{
-		console.log(blackcap[x]);
-		if(! "undefined" === typeof blackcap[x])
-		{
-	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
-	}
-	}
-	}
-	if (GamePlaying.capturedWhitepieces)
-	{
-	
-	var whitecap=GamePlaying.capturedWhitepieces.split(",");
-	console.log(GamePlaying.capturedWhitepieces);
-	for (x in whitecap)
-	{
-		console.log(whitecap[x]);
-	if(! "undefined" === typeof whitecap[x])
-	{
-	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
-	}
-	}
-	}
 }
 function changeOverallScore(piece,colour)
     {
     if (piece){
-    console.log(piece);
+   // console.log(piece);
     
     piece=piece.toUpperCase();
   
@@ -366,11 +371,11 @@ function changeOverallScore(piece,colour)
     if (colour=='b')
 		{
 
-		GamePlaying.OverallScore-=piecevalues[piece];
+		GamePlaying.OverallScore+=piecevalues[piece];
 		}
 		else
 		{
-		GamePlaying.OverallScore+=piecevalues[piece];	
+		GamePlaying.OverallScore-=piecevalues[piece];	
 		}
 	}
 	
@@ -751,7 +756,7 @@ function StartBlackClock()
 		BlackTime=GamePlaying.Player2TimeLeft*1000;
 		}
 		
-	console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+	//console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
 	BlackInterval=setInterval(function (){
 		
 		
@@ -864,9 +869,9 @@ function StartBlackClock()
 			console.log(JSON.stringify(resData));
 		   
 		   GamePlaying=resData;
-		   GamePlaying.OverallScore
-		 console.log(GamePlaying);
-		   console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
+		  // GamePlaying.OverallScore
+		// console.log(GamePlaying);
+		  // console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
 		  // if (GamePlaying2.id)
 		//   { 
 		//	   console.log("object2 "+JSON.stringify(GamePlaying2));
@@ -904,14 +909,14 @@ function StartBlackClock()
 	var move;
 	if(GamePlaying.lastmove){
 	modified=(GamePlaying.lastmove.substr(0, 2) + "-" + GamePlaying.lastmove.substr(2));
-	console.log("with -"+modified);
-	console.log("from "+GamePlaying.lastmove.substr(0, 2)+"-to-"+GamePlaying.lastmove.substr(2, 5)+"-");
+//	console.log("with -"+modified);
+	//console.log("from "+GamePlaying.lastmove.substr(0, 2)+"-to-"+GamePlaying.lastmove.substr(2, 5)+"-");
 		
 		 move =game.move({ from: GamePlaying.lastmove.substr(0, 2), to: GamePlaying.lastmove.substr(2, 5) });
 	//changeOverallScore(move.captured,move.color);
 	   $("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
 		  //showCapturedPiece(move.captured,move.color,false);
-		  
+		  showCapturedPieces();
 	}
 		if(!GamePlaying.Result)
 	{
