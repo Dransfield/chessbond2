@@ -327,17 +327,24 @@ function showCapturedPiece(cap,colour,updaterecord)
 	}
 	
 	$("#capturedPieces").empty();
+	if (GamePlaying.capturedBlackpieces)
+	{
 	var blackcap=GamePlaying.capturedBlackpieces.split(",");
 	for (x in blackcap)
 	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
+	}
+	if (GamePlaying.capturedWhitepieces)
+	{
+	
 	var whitecap=GamePlaying.capturedWhitepieces.split(",");
 	for (x in whitecap)
 	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
 	}
 	}
+}
 function changeOverallScore(piece,colour)
     {
     if (piece)
