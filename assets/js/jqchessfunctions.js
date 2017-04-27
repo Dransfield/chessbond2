@@ -320,11 +320,11 @@ function changeOverallScore(piece,colour)
 		
 				
 						
-		
+		/*
 							if (usersTurn(game,MyID)===false)
 						{ 
 							toastr.warning("It's not your turn");
-							return game.fen();}
+							return;}
 						// see if the move is legal
 					
 					
@@ -363,7 +363,7 @@ function changeOverallScore(piece,colour)
 					 
 							GamePlaying.Move+=1;
 							changeOverallScore(move.captured,move.color);
-							//Showcapturedpiece(move.captured,move.color,true);
+							Showcapturedpiece(move.captured,move.color,true);
 							
 							
 							
@@ -437,8 +437,9 @@ function changeOverallScore(piece,colour)
 					
 					 // console.log('move'+JSON.stringify(move));
 					//console.log("result: "+GamePlaying.Result);
+					 */
 					updateStatus(game,mov);
-					return game.fen();
+					//return game.fen();
 };
 
 
@@ -839,7 +840,7 @@ function StartBlackClock()
 			}
 			}
 		
-			//Showcapturedpiece(move.captured,move.color,false);
+			Showcapturedpiece(move.captured,move.color,false);
 			
 	
 			/*
