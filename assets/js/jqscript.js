@@ -328,7 +328,7 @@ var soundVolume=5;
 				 
 				init();
 				var scoreDiv=addSpan($("#underboard"),"overallscore");
-			
+				var capturedPiecesDiv=addSpan($("#underboard"),"capturedPieces");
 			
 				});
 			});

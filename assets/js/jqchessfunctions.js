@@ -283,7 +283,61 @@ io.socket.on('ping',function(data){
 }
 
 
-
+function Showcapturedpiece(cap,colour,updaterecord)
+	{
+	if (cap)
+	{
+		var str=cap;
+		var pieceUpper=str.toUpperCase();
+		if (colour=='w')
+		{colour='b';}
+		else
+		{colour='w';}
+		if (colour=='w')
+		{
+		capturedWhitepieces.push(pieceUpper);
+		if (updaterecord)
+		{
+		if(GamePlaying.capturedWhitepieces)
+		{
+		GamePlaying.capturedWhitepieces+=","+(pieceUpper);
+		
+		}
+		else
+		{
+		GamePlaying.capturedWhitepieces=(pieceUpper);
+		}
+		}
+		}
+		else
+		{
+		capturedBlackpieces.push(pieceUpper);
+		if (updaterecord)
+		{
+		if(GamePlaying.capturedBlackpieces)
+		{
+		GamePlaying.capturedBlackpieces+=","+(pieceUpper);
+		}
+		else
+		{
+		GamePlaying.capturedBlackpieces=(pieceUpper);
+		}
+		}
+		}
+	}
+	
+	$("#capturedPieces").empty();
+	var blackcap=capturedBlackpieces.split(",");
+	for (x in blackcap)
+	{
+	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'">);	
+	}
+	var whitecap=capturedWhitepieces.split(",");
+	for (x in whitecap)
+	{
+	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'">);	
+	}
+	}
 function changeOverallScore(piece,colour)
     {
     if (piece)
@@ -779,8 +833,7 @@ function StartBlackClock()
 		   
 		   GamePlaying=resData;
 		   GamePlaying.OverallScore
-		   $("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
-		   console.log(GamePlaying);
+		 console.log(GamePlaying);
 		   console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
 		  // if (GamePlaying2.id)
 		//   { 
@@ -823,6 +876,10 @@ function StartBlackClock()
 	console.log("from "+GamePlaying.lastmove.substr(0, 2)+"-to-"+GamePlaying.lastmove.substr(2, 5)+"-");
 		
 		 move =game.move({ from: GamePlaying.lastmove.substr(0, 2), to: GamePlaying.lastmove.substr(2, 5) });
+	changeOverallScore(move.captured,move.color);
+	   $("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
+		  showcapturedpiece(move.captured,move.color,false);
+		  
 	}
 		if(!GamePlaying.Result)
 	{
