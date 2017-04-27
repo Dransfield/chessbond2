@@ -334,7 +334,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 	for (x in blackcap)
 	{
 		console.log(blackcap[x]);
-		if(blackcap[x])
+		if(! "undefined" === typeof blackcap[x])
 		{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
@@ -347,7 +347,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 	for (x in whitecap)
 	{
 		console.log(whitecap[x]);
-	if (whitecap[x])
+	if(! "undefined" === typeof whitecap[x])
 	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
 	}
