@@ -314,7 +314,9 @@ function showCapturedPieces()
 	{
 			whitecap[x]=whitecap[x].replace("undefined", "");
 			whitecap[x]=whitecap[x].toUpperCase();
-	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
+		var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>")
+	img.css("width","10%");
+	$("#capturedPieces").append(img);
 	}
 	}
 	}
