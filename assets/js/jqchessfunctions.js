@@ -44,9 +44,9 @@ var BlackMilliSeconds="string";
 
 var PingStartTime=0;
 
-var capturedWhitepieces=[];
+//var capturedWhitepieces=[];
 
-var capturedBlackpieces=[];
+//var capturedBlackpieces=[];
 
 var WhiteInterval=0;
 var BlackInterval=0;
@@ -295,7 +295,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 		{colour='w';}
 		if (colour=='w')
 		{
-		capturedWhitepieces.push(pieceUpper);
+		//capturedWhitepieces.push(pieceUpper);
 		if (updaterecord)
 		{
 		if(GamePlaying.capturedWhitepieces)
@@ -311,7 +311,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 		}
 		else
 		{
-		capturedBlackpieces.push(pieceUpper);
+		//capturedBlackpieces.push(pieceUpper);
 		if (updaterecord)
 		{
 		if(GamePlaying.capturedBlackpieces)
@@ -327,12 +327,12 @@ function showCapturedPiece(cap,colour,updaterecord)
 	}
 	
 	$("#capturedPieces").empty();
-	var blackcap=capturedBlackpieces.split(",");
+	var blackcap=GamePlaying.capturedBlackpieces.split(",");
 	for (x in blackcap)
 	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
-	var whitecap=capturedWhitepieces.split(",");
+	var whitecap=GamePlaying.capturedWhitepieces.split(",");
 	for (x in whitecap)
 	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
