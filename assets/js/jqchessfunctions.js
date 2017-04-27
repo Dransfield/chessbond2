@@ -359,7 +359,12 @@ function changeOverallScore(piece,colour)
     {
     if (piece){
     console.log(piece);
+    
     piece=piece.toUpperCase();
+    console.log("upper case piece "+piece);
+    console.log("value: "+piecevalues.piece);
+    console.log("value2: "+piecevalues[piece]);
+    
     if (colour=='b')
 		{
 
