@@ -363,11 +363,11 @@ function changeOverallScore(piece,colour)
     if (colour=='b')
 		{
 
-		GamePlaying.OverallScore-=piecevalues[piece];
+		GamePlaying.OverallScore-=piecevalues.piece;
 		}
 		else
 		{
-		GamePlaying.OverallScore+=piecevalues[piece];	
+		GamePlaying.OverallScore+=piecevalues.piece;	
 		}
 	}
 	
