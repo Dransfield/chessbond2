@@ -542,9 +542,9 @@ function updateStatus(game,move)
 GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 
-console.log("chess.get(move.to)"+chess.get(move.to));
+console.log("chess.get(move.to)"+game.get(move.to));
 
-var pieceTaken=chess.get(move.to);
+var pieceTaken=game.get(move.to);
 if(pieceTaken)
 {
 	changeOverallScore(pieceTaken,game.turn());
