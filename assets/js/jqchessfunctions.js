@@ -361,18 +361,16 @@ function changeOverallScore(piece,colour)
     console.log(piece);
     
     piece=piece.toUpperCase();
-    console.log("upper case piece "+piece);
-    console.log("value: "+piecevalues.piece);
-    console.log("value2: "+piecevalues[piece]);
+  
     
     if (colour=='b')
 		{
 
-		GamePlaying.OverallScore-=piecevalues.piece;
+		GamePlaying.OverallScore-=piecevalues[piece];
 		}
 		else
 		{
-		GamePlaying.OverallScore+=piecevalues.piece;	
+		GamePlaying.OverallScore+=piecevalues[piece];	
 		}
 	}
 	
