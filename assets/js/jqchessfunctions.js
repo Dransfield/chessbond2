@@ -300,7 +300,7 @@ function showCapturedPieces()
 			blackcap[x]=blackcap[x].replace("undefined", "");
 			blackcap[x]=blackcap[x].toUpperCase();
 			var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>")
-	img.css("width","10%");
+	img.css("width","5%");
 	$("#blackdiv").append(img);	
 	}
 	}
@@ -318,7 +318,7 @@ function showCapturedPieces()
 			whitecap[x]=whitecap[x].replace("undefined", "");
 			whitecap[x]=whitecap[x].toUpperCase();
 		var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>")
-	img.css("width","10%");
+	img.css("width","5%");
 	$("#whitediv").append(img);
 	}
 	}
