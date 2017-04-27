@@ -295,7 +295,7 @@ function showCapturedPieces()
 		{
 			console.log("showing "+blackcap[x]);
 			blackcap[x]=blackcap[x].replace("undefined", "");
-			blackcap[x]=blackcap[x].toUpper();
+			blackcap[x]=blackcap[x].toUpperCase();
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
 	}
@@ -311,7 +311,7 @@ function showCapturedPieces()
 	if( whitecap[x])
 	{
 			whitecap[x]=whitecap[x].replace("undefined", "");
-			whitecap[x]=whitecap[x].toUpper();
+			whitecap[x]=whitecap[x].toUpperCase();
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
 	}
 	}
