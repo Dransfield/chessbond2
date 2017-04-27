@@ -306,7 +306,7 @@ function showCapturedPieces()
 	for (x in whitecap)
 	{
 		console.log(whitecap[x]);
-	if(! "undefined" === typeof whitecap[x])
+	if( whitecap[x])
 	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
 	}
