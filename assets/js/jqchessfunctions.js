@@ -283,7 +283,7 @@ io.socket.on('ping',function(data){
 }
 
 
-function Showcapturedpiece(cap,colour,updaterecord)
+function showCapturedPiece(cap,colour,updaterecord)
 	{
 	if (cap)
 	{
@@ -878,7 +878,7 @@ function StartBlackClock()
 		 move =game.move({ from: GamePlaying.lastmove.substr(0, 2), to: GamePlaying.lastmove.substr(2, 5) });
 	changeOverallScore(move.captured,move.color);
 	   $("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
-		  showcapturedpiece(move.captured,move.color,false);
+		  showCapturedPiece(move.captured,move.color,false);
 		  
 	}
 		if(!GamePlaying.Result)
