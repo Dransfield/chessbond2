@@ -214,6 +214,7 @@ var soundVolume=5;
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 			//sideBoard.css("overflow","auto");
 		var resultDiv=addDiv(sideBoard,"results");
+		resultDiv.css("padding","4px");
          if(GamePlaying.Result)
          {resultDiv.html(GamePlaying.Result);}
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
