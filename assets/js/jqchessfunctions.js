@@ -884,7 +884,8 @@ function StartBlackClock()
 		 // }
 		  if (GamePlaying.Result)
 			{
-			$scope.ShowOfferDrawButton=false;	
+			$("#resultsdiv").html(GamePlaying.Result);
+			ShowOfferDrawButton=false;	
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();}
 			
