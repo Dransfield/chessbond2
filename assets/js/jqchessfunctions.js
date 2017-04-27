@@ -330,12 +330,12 @@ function Showcapturedpiece(cap,colour,updaterecord)
 	var blackcap=capturedBlackpieces.split(",");
 	for (x in blackcap)
 	{
-	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'">);	
+	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
 	var whitecap=capturedWhitepieces.split(",");
 	for (x in whitecap)
 	{
-	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'">);	
+	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
 	}
 	}
 function changeOverallScore(piece,colour)
