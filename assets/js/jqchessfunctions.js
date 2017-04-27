@@ -293,6 +293,7 @@ function showCapturedPieces()
 		console.log(blackcap[x]);
 		if(! "undefined" === typeof blackcap[x])
 		{
+			console.log("showing "+blackcap[x]);
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
 	}
