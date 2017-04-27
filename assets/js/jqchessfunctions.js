@@ -296,7 +296,9 @@ function showCapturedPieces()
 			console.log("showing "+blackcap[x]);
 			blackcap[x]=blackcap[x].replace("undefined", "");
 			blackcap[x]=blackcap[x].toUpperCase();
-	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
+			var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>")
+	img.css("width","10%");
+	$("#capturedPieces").append(img);	
 	}
 	}
 	}
@@ -930,7 +932,7 @@ function StartBlackClock()
 	{
 		StartRightClock();
 	}	
-		if (move!=null){
+		
 			
 		if(Accounts[MyID])
 			{	
@@ -1021,49 +1023,7 @@ function StartBlackClock()
 			}
 		}
 		
-		}
-		else
-		{
-			console.log("move is null updating game and board with");
-		board1.position(GamePlaying.fen);
 		
-		if (game.in_threefold_repetition())
-		{
-			toastr.success("Game in threefold repetition!");
-			//console.log("Game in threefold repetition2!");
-		}
-		//else
-	//	{
-		//	console.log("Game not in threefold repetition2!");
-		//}
-		
-		
-		if(!GamePlaying.Result)
-		{
-		
-		if(Accounts[MyID])
-		{		
-		if(Accounts[MyID].SoundEnabled=='Sound Enabled')
-		{
-		PlayMove();
-		}
-		}
-		
-		
-		}
-		else
-		{
-		if(Accounts[MyID])
-		{		
-		if(Accounts[MyID].SoundEnabled=='Sound Enabled')
-		{
-		PlayCheckMate();
-		}
-		}
-		}
-		//game.load(gameRecordnow.fen);
-		//console.log("after update "+game.ascii());
-		}
 		
 		});
 		
