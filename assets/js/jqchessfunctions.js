@@ -350,7 +350,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 function changeOverallScore(piece,colour)
     {
     if (piece)
-    
+    console.log(piece);
     {piece=piece.toUpperCase();
     if (colour=='b')
 		{
