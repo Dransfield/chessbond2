@@ -328,6 +328,7 @@ var soundVolume=5;
 				 
 				init();
 				var scoreDiv=addSpan($("#underboard"),"overallscore");
+				$("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
 				var capturedPiecesDiv=addSpan($("#underboard"),"capturedPieces");
 				showCapturedPiece(false,false,false);
 				});
