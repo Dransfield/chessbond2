@@ -840,7 +840,7 @@ function StartBlackClock()
 			}
 			}
 		
-			Showcapturedpiece(move.captured,move.color,false);
+			//Showcapturedpiece(move.captured,move.color,false);
 			
 	
 			/*
