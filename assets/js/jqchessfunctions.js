@@ -285,6 +285,9 @@ io.socket.on('ping',function(data){
 function showCapturedPieces()
 {
 	$("#capturedPieces").empty();
+	var blackspan=addSpan($("#capturedPieces"),"blackspan");
+	var whitespan=addSpan($("#capturedPieces"),"whitespan");
+	
 	if (GamePlaying.capturedBlackpieces)
 	{
 	var blackcap=GamePlaying.capturedBlackpieces.split(",");
@@ -298,7 +301,7 @@ function showCapturedPieces()
 			blackcap[x]=blackcap[x].toUpperCase();
 			var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>")
 	img.css("width","10%");
-	$("#capturedPieces").append(img);	
+	$("#blackdiv").append(img);	
 	}
 	}
 	}
@@ -316,7 +319,7 @@ function showCapturedPieces()
 			whitecap[x]=whitecap[x].toUpperCase();
 		var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>")
 	img.css("width","10%");
-	$("#capturedPieces").append(img);
+	$("#whitediv").append(img);
 	}
 	}
 	}
