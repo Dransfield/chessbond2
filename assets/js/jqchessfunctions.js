@@ -344,6 +344,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 	{
 	
 	var whitecap=GamePlaying.capturedWhitepieces.split(",");
+	console.log(GamePlaying.capturedWhitepieces);
 	for (x in whitecap)
 	{
 		console.log(whitecap[x]);
@@ -555,11 +556,11 @@ var pieceTaken=game.get(move.to);
 if(pieceTaken)
 {
 	changeOverallScore(pieceTaken.type,pieceTaken.color);
-	if(game.turn()=='w')
-	{GamePlaying.capturedWhitepieces+=pieceTaken+",";
+	if(pieceTaken.color=='w')
+	{GamePlaying.capturedWhitepieces+=pieceTaken.type+",";
 	}
-	if(game.turn()=='b')
-	{GamePlaying.capturedBlackpieces+=pieceTaken+",";
+	if(pieceTaken.color=='b')
+	{GamePlaying.capturedBlackpieces+=pieceTaken.type+",";
 	}
 	
 	}
