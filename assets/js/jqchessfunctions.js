@@ -886,6 +886,7 @@ function StartBlackClock()
 			{
 			$("#resultsdiv").html(GamePlaying.Result);
 			$("#resultsdiv").css("padding","4px");
+			$("#resultsdiv").css("margin-left","8px");
 			ShowOfferDrawButton=false;	
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();}
