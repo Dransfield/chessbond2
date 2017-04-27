@@ -214,7 +214,8 @@ var soundVolume=5;
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 			//sideBoard.css("overflow","auto");
 		var resultDiv=addDiv(sideBoard,"results");
-         
+         if(GamePlaying.Result)
+         {resultDiv.html(GamePlaying.Result);}
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 		var chatDiv=addSpan(sideBoard,"chatDiv");
 				var chatDiv2=addFlexDiv(chatDiv,"chatDiv2","column");
