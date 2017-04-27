@@ -285,6 +285,7 @@ io.socket.on('ping',function(data){
 
 function showCapturedPiece(cap,colour,updaterecord)
 	{
+		console.log(cap);
 	if (cap)
 	{
 		var str=cap;
@@ -541,7 +542,20 @@ function updateStatus(game,move)
 GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 
+console.log("chess.get(move.to)"+chess.get(move.to));
 
+var pieceTaken=chess.get(move.to);
+if(pieceTaken)
+{
+	changeOverallScore(pieceTaken,game.turn());
+	if(game.turn()=='w')
+	{GamePlaying.capturedWhitepieces+=pieceTaken+",";
+	}
+	if(game.turn()=='b')
+	{GamePlaying.capturedBlackpieces+=pieceTaken+",";
+	}
+	
+	}
 updateTurnTakerLabel(game);
 //updatePlayersLabel(game);
 
