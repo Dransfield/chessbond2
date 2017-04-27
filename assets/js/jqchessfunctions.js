@@ -334,7 +334,10 @@ function showCapturedPiece(cap,colour,updaterecord)
 	for (x in blackcap)
 	{
 		console.log(blackcap[x]);
+		if(blackcap[x])
+		{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
+	}
 	}
 	}
 	if (GamePlaying.capturedWhitepieces)
@@ -343,7 +346,11 @@ function showCapturedPiece(cap,colour,updaterecord)
 	var whitecap=GamePlaying.capturedWhitepieces.split(",");
 	for (x in whitecap)
 	{
+		console.log(whitecap[x]);
+	if (whitecap[x])
+	{
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>");	
+	}
 	}
 	}
 }
