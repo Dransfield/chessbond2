@@ -1574,14 +1574,14 @@ var myTurn;
 	}
   
 	  
-  
+   if (!GamePlaying.Result){
   if(myTurn)
 	{
 		if(squareSelected)
 		{
 			if(myColor==CURRENT_POSITION[squareSelected].charAt(0))
 			{
-	
+			
 				var moves = game.moves({
 				square: squareSelected,
 				verbose: true
@@ -1604,7 +1604,12 @@ var myTurn;
 	   
 	toastr.info("It's not your turn ");   
    }
-   
+	}
+	else
+	{
+	toastr.info("The game is over ");   
+   	
+	}
     if (clickedPieceColor=='w' || clickedPieceColor=='b') 
     {
 		
