@@ -332,6 +332,7 @@ function showCapturedPiece(cap,colour,updaterecord)
 	var blackcap=GamePlaying.capturedBlackpieces.split(",");
 	for (x in blackcap)
 	{
+		console.log(blackcap[x]);
 	$("#capturedPieces").append("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>");	
 	}
 	}
