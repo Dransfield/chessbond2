@@ -547,7 +547,7 @@ console.log("chess.get(move.to)"+game.get(move.to));
 var pieceTaken=game.get(move.to);
 if(pieceTaken)
 {
-	changeOverallScore(pieceTaken,game.turn());
+	changeOverallScore(pieceTaken.type,pieceTaken.color);
 	if(game.turn()=='w')
 	{GamePlaying.capturedWhitepieces+=pieceTaken+",";
 	}
