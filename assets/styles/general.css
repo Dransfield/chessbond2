@@ -37,7 +37,7 @@ bottom: -4px;
     justify-content:space-between;
     align-content:space-around;
     align-items:center;
-    
+  
   }
  spacer{
  min-height:40px;
@@ -76,7 +76,9 @@ background-color: #5bc0de;
 
   /* Small screens */
 @media all and (max-width: 500px) {
-
+ .mynavbar {
+   flex-direction:column;
+ }
 @media only screen and (max-width: 480px) {
        h1 { font-size: 3em !important; }
        h2 { font-size: 2em !important; }
