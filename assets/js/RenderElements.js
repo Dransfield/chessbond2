@@ -949,7 +949,7 @@ titleFlex.append("<p>White</p><p>Black</p><p>Result</p><p>Time</p><p>Used</p>");
 	
 	}
 }
-
+}
 function addGamesToRecentGames(usracc)
 {
 	var padding ="10px"
