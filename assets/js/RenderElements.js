@@ -1256,7 +1256,7 @@ io.socket.on('connect',function(){
 			//console.log("games "+JSON.stringify(games));
 			var openFlex=addFlexDiv(elem,"opengamez","column","wrap");
 			var openTitleFlex=addFlexDiv(openFlex,"openGameTitles","row","wrap");
-			openTitleFlex.append("<p>Player</p><p>Date</p><p>Join</p>");
+			//openTitleFlex.append("<p>Player</p><p>Date</p><p>Join</p>");
 			var openGameListDiv=addFlexDiv(openFlex,"OpenGameListDiv","row","wrap");
 	
 				for (iter in games)
