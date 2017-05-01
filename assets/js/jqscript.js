@@ -1480,7 +1480,7 @@ function renderHomePage()
 		
 	//showOpenGameList($("#usr"),OpenGames);
 	//showRecentGames($("#usr"),MyID);
-	showJoinedGameList($("#usr"),JoinedGames);
+	//showJoinedGameList($("#usr"),JoinedGames);
 	$("#newGameControls").css("text-align","center");
 	showWebsiteNameJumbo($("#newGameControls"))
 	
