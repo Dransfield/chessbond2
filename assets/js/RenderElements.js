@@ -948,6 +948,16 @@ titleFlex.append("<p>White</p><p>Black</p><p>Result</p><p>Time</p><p>Used</p>");
 	showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
 	
 	}
+	
+	newFlex.append("<p>"+JoinedGames[usracc][iter].GameCategory+"</p>");
+	newFlex.append("<p>"+JoinedGames[usracc][iter].Move+"</p>");
+	newFlex.append("<p>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
+	newFlex.append("<span class='KregularButton KgreenElement'>Go To Game</span>");
+	newFlex.css('cursor', 'pointer');
+	newFlex.click(function(){
+		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
+	});
+	
 }
 }
 function addGamesToRecentGames(usracc)
