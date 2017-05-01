@@ -39,10 +39,10 @@ bottom: -4px;
     align-items:center;
     
   }
-  .mynavbar > * {
-  
-  margin-bottom: 20px;
-  }
+ spacer{
+ min-height:20px;
+ min-width:20px;
+ }
   Kdropdown{
   
   

@@ -673,7 +673,7 @@ elem.append(`
 				<img style="background-color:white;width:50px;height:50px; "
 						src="/knight50.png">
 				</img> 
-						
+			<span class="spacer"></span>
 				
 						
 						
@@ -681,11 +681,13 @@ elem.append(`
 						
 				</a>
 			</span>	
+            
+            <span class="spacer"></span>
               
 			<a href="/opentournament"> <img style="background-color:white; "
 			src="/tournyred1.gif">
 			</a>
-				
+				<span class="spacer"></span>
 			<span id="attachnavdropdown" style="color:white;" >
 			Welcome `+plyrName+`<span  class='caret'></span>
 			</span>
