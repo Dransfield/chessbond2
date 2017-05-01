@@ -37,7 +37,11 @@ bottom: -4px;
     justify-content:space-between;
     align-content:space-around;
     align-items:center;
-    margin-bottom: 10px;
+    
+  }
+  .mynavbar > * {
+  
+  margin-bottom: 20px;
   }
   Kdropdown{
   
