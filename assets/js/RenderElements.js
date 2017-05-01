@@ -1254,35 +1254,14 @@ io.socket.on('connect',function(){
 			}
 		});
 			//console.log("games "+JSON.stringify(games));
-			
+			var openFlex=addFlexDiv(elem,"opengamez","column","wrap");
+			var openTitleFlex=addFlexDiv(openFlex,"openGameTitles","row","wrap");
+			openTitleFlex.append("<p>Player</p><p>Date</p><p>Join</p>");
+			var openGameListDiv=addFlexDiv(openFlex,"OpenGameListDiv","row","wrap");
 	
-		 elem.append(`<h2 class='sub-header'>Open Games</h2>
-          <div class='table-responsive' style='overflow:visible;'>
-            <table class='table table-striped'>
-              
-		
-			<thead >
-                <tr>
-	              <th>Player</th>
-                  <th>Date</th>
-                  <th>Join</th>
-				<!--HEADERS OF TABLE-->
-                </tr>
-           </thead>
-           <tbody id='OpenGameListDiv'>
-           
-           </tbody>
-           </table>
-           </div>
-           
-           `).hide().slideDown();
-           
-				var myelem=$("#OpenGameListDiv");
-				
-				
 				for (iter in games)
 				{
-				addOpenGame(myelem,games,iter);
+				addOpenGame2(openGameListDiv,games,iter);
 
 				}
             /*
@@ -1306,8 +1285,56 @@ io.socket.on('connect',function(){
 		*/
 }
 
-	
+	function addOpenGame2(myelem,games,iter)
+{
+	showUsername(myelem,games[iter].Player1);
+			games[iter].phrase=phrasefordate(games[iter].createdAt);
+			myelem.append(games[iter].phrase);
+			var but=showButton(myelem,"Join Game");
+	but.click(function()
+	{
+				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
+		io.socket.put('/joingame',
+		{
 				
+			GameID:games[iter].id,
+			PlayerID:games[iter].Player1,
+			//PlayerName:PlayerName,
+			PlayerColor:games[iter].Player1Color,
+			MyID:MyID,
+			//MyName:MyName,
+			GameType:games[iter].GameType,
+			GameCategory:games[iter].GameCategory,
+			Player1TimeLimit:games[iter].TimeLimit*60,
+			Player2TimeLimit:games[iter].TimeLimit*60
+		}  
+				  
+		,function(resData,jwres)
+		{
+				
+			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
+			{
+			});
+			
+		}
+		);
+					
+				
+			
+			
+					
+	});
+					
+					
+			var but2=	showButton(myelem,"Delete Game");
+					but2.click(function() {
+				 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
+				});
+			
+				});
+			
+
+}
 function addOpenGame(myelem,games,iter)
 {
 	myelem.append("<tr id='opengameiter"+games[iter].id+"'></tr>");
