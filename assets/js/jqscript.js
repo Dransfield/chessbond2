@@ -1478,8 +1478,8 @@ function renderChatPage()
 function renderHomePage()
 	{
 		
-	//showOpenGameList($("#usr"),OpenGames);
-	showRecentGames($("#usr"),MyID);
+	showOpenGameList($("#usr"),OpenGames);
+	//showRecentGames($("#usr"),MyID);
 	//showJoinedGameList($("#usr"),JoinedGames);
 	$("#newGameControls").css("text-align","center");
 	showWebsiteNameJumbo($("#newGameControls"))
