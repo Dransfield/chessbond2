@@ -39,11 +39,11 @@ bottom: -4px;
     align-items:center;
   
   }
- spacer{
- height:400px;
- width:400px;
+ .spacer{
+ height:200px;
+ width:200px;
  }
-  Kdropdown{
+  .Kdropdown{
   
   
   }
