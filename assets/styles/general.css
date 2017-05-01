@@ -35,7 +35,13 @@ bottom: -4px;
     flex-wrap:wrap ;
    background-color:black;
     justify-content:space-between;
-    align-items:center
+    align-content:space-around;
+    align-items:center;
+    margin-bottom: 10px;
+  }
+  Kdropdown{
+  
+  
   }
   
 .KbigButton{
@@ -66,9 +72,7 @@ background-color: #5bc0de;
 
   /* Small screens */
 @media all and (max-width: 500px) {
-  .mynavbar {
-  flex-direction: column;
-}
+
 @media only screen and (max-width: 480px) {
        h1 { font-size: 3em !important; }
        h2 { font-size: 2em !important; }
