@@ -1478,7 +1478,7 @@ function renderChatPage()
 function renderHomePage()
 	{
 		
-	showOpenGameList($("#usr"),OpenGames);
+	//showOpenGameList($("#usr"),OpenGames);
 	//showRecentGames($("#usr"),MyID);
 	//showJoinedGameList($("#usr"),JoinedGames);
 	$("#newGameControls").css("text-align","center");
