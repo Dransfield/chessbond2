@@ -920,7 +920,7 @@ function showRecentGames(elem,usracc)
           </div>
           </span>
           */	
-          addGamesToRecentGames(usracc);
+          addGamesToRecentGames2(usracc);
 }
 
 function addGamesToRecentGames2(usracc)
