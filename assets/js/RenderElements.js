@@ -923,6 +923,33 @@ function showRecentGames(elem,usracc)
           addGamesToRecentGames(usracc);
 }
 
+function addGamesToRecentGames2(usracc)
+{
+	var flexy=$("#recentgamesflexy");
+var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
+titleFlex.append("<p>White</p><p>Black</p><p>Result</p><p>Time</p><p>Used</p>");
+	for (iter in JoinedGames[usracc])
+   {
+	   var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
+	  // console.log(iter);
+	 // console.log(JSON.stringify(JoinedGames[usracc][iter]));
+	if(JoinedGames[usracc][iter].Player1Color=='White')
+	{
+		
+	showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+		
+	showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	
+	}
+	else
+	{
+	showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+		
+	showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+	
+	}
+}
+
 function addGamesToRecentGames(usracc)
 {
 	var padding ="10px"
