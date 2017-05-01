@@ -190,7 +190,7 @@ elem.append("<h"+num+">"+content+"</h"+num+">");
 }
 function showWebsiteNameJumbo(elem)
 {
-	 var header=$("<h3></h3>");
+	 var header=$("<h1></h1>");
       elem.append(header);
 	header.append("Chessbond");
 }
