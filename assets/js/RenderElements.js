@@ -313,13 +313,17 @@ function showUsername(elem,usracc)
 	{
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
-elem.append("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div>");	
+		var usr=$("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div>");
+elem.append(usr);
+return usr;	
  //href='/profile/"+usracc+"'
  }
  else
  {
 	 console.log(Accounts[usracc]);
-elem.append("<div>Deleted Account</div>");	
+var usr=$("<div>Deleted Account</div>");
+elem.append(usr);
+return usr;	
  	 
 	}
 	
