@@ -1311,7 +1311,7 @@ io.socket.on('connect',function(){
 			phr.attr("class","ChartCell");
 			overall.css("border-style","solid");
 			var but=showButton(overall,"Join Game");
-	but.attr("class","ChartCell KgreenElement");
+	but.attr("class","ChartCell KgreenElement KregularButton");
 	but.click(function()
 	{
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
