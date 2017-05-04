@@ -1298,10 +1298,15 @@ io.socket.on('connect',function(){
 
 	function addOpenGame2(myelem,games,iter)
 {
-	showUsername(myelem,games[iter].Player1);
+	var usr=showUsername(myelem,games[iter].Player1);
+	usr.attr("class","ChartCell");
 			games[iter].phrase=phrasefordate(games[iter].createdAt);
-			myelem.append(games[iter].phrase);
+			var phr=$(games[iter].phrase);
+			myelem.append(phr);
+			phr.attr("class","ChartCell");
+			
 			var but=showButton(myelem,"Join Game");
+	but.attr("class","ChartCell");
 	but.click(function()
 	{
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
