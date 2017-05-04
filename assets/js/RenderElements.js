@@ -1246,7 +1246,7 @@ io.socket.on('connect',function(){
 			{
 			games.push(data);
 			var myelem=$("#OpenGameListDiv");
-			addOpenGame(myelem,games,games.length-1);
+			addOpenGame2(myelem,games,games.length-1);
 			}
 			else
 			{
@@ -1261,7 +1261,7 @@ io.socket.on('connect',function(){
 							retrievePrivate(data.Player1).then
 							(
 								function(){
-								addOpenGame($("#OpenGameListDiv"),games,games.length-1);
+								addOpenGame2($("#OpenGameListDiv"),games,games.length-1);
 								}
 							)
 						}
