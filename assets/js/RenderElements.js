@@ -945,13 +945,16 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
 	
 	usr1.attr("class","ChartCell");
-	
+	usr2.attr("class","ChartCell");
 	}
 	else
 	{
-	showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
 		
-	showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+	
+	usr1.attr("class","ChartCell");
+	usr2.attr("class","ChartCell");
 	
 	}
 	
@@ -1306,7 +1309,7 @@ io.socket.on('connect',function(){
 			var phr=$(games[iter].phrase);
 			overall.append(phr);
 			phr.attr("class","ChartCell");
-			
+			overall.css("border-style","solid");
 			var but=showButton(overall,"Join Game");
 	but.attr("class","ChartCell");
 	but.click(function()
