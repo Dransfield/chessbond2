@@ -1100,7 +1100,7 @@ io.socket.on('newmygameevent', function (data)
 			
 			data.phrase=phrasefordate(data.createdAt);
 			games.push(data);
-			addJoinedGame(games.length-1,games,myelem);
+			addJoinedGame2(games.length-1,games,myelem);
 			});
           /*
             <tr ng-repeat="game in joinedgames track by $index">
