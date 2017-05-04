@@ -568,6 +568,7 @@ function updateStatus(game,move)
 	//console.log("update status");
 GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
+GamePlaying.Move+=1;
 
 console.log("chess.get(move.to)"+game.get(move.to));
 
@@ -602,7 +603,7 @@ io.socket.put('/Chessgame/'+GamePlaying.id,{
       }  
     ,function(resData,jwres)
 	{
-		
+		game.move(move);
 	var state="playing";
 	var descriptor="playing";
 	var gameover='false';
@@ -629,9 +630,9 @@ io.socket.put('/Chessgame/'+GamePlaying.id,{
 	
 	io.socket.put('/chessgamemove',{OverallScore:GamePlaying.OverallScore,GameState:state,GameDescriptor:descriptor,GameOver:gameover,GameID:GamePlaying.id,ColorToMove:game.turn()},function(resData,jwres)
 	{
-	//console.log(jwres);
-	});
 	
+	});
+	game.undo();
 	}
 );
 //console.log('about to putsocket');
