@@ -1298,11 +1298,13 @@ io.socket.on('connect',function(){
 
 	function addOpenGame2(myelem,games,iter)
 {
-	var usr=showUsername(myelem,games[iter].Player1);
+	var overall=$("<span style='border:2px'></span>");
+	myelem.append(overall);
+	var usr=showUsername(overall,games[iter].Player1);
 	usr.attr("class","ChartCell");
 			games[iter].phrase=phrasefordate(games[iter].createdAt);
 			var phr=$(games[iter].phrase);
-			myelem.append(phr);
+			overall.append(phr);
 			phr.attr("class","ChartCell");
 			
 			var but=showButton(myelem,"Join Game");
