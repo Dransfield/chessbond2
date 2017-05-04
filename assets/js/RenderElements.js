@@ -960,9 +960,9 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 	
 	}
 	
-	newFlex.append("<p class='ChartCell'>"+JoinedGames[usracc][iter].GameCategory+"</p>");
-	newFlex.append("<p class='ChartCell'>"+JoinedGames[usracc][iter].Move+"</p>");
-	newFlex.append("<p class='ChartCell'>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
+	newFlex.append("<p class='ChartCell'>Type:"+JoinedGames[usracc][iter].GameCategory+"</p>");
+	newFlex.append("<p class='ChartCell'>Move:"+JoinedGames[usracc][iter].Move+"</p>");
+	newFlex.append("<p class='ChartCell'>Created:"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
 	newFlex.append("<span class='ChartCell'><span class='KregularButton KgreenElement'>Go To Game</span></span>");
 	newFlex.css('cursor', 'pointer');
 	newFlex.click(function(){
