@@ -1,4 +1,4 @@
-var ButtonNumber=0;
+class='ChartCell'var ButtonNumber=0;
 var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
@@ -934,7 +934,8 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 //titleFlex.append("<p>White</p><p>Black</p><p>Result</p><p>Time</p><p>Used</p>");
 	for (iter in JoinedGames[usracc])
    {
-	   var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
+	  // var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
+	  var newFlex=$("<span class='overall'></span>");
 	  // console.log(iter);
 	 // console.log(JSON.stringify(JoinedGames[usracc][iter]));
 	if(JoinedGames[usracc][iter].Player1Color=='White')
