@@ -949,10 +949,10 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 	
 	}
 	
-	newFlex.append("<p>"+JoinedGames[usracc][iter].GameCategory+"</p>");
-	newFlex.append("<p>"+JoinedGames[usracc][iter].Move+"</p>");
-	newFlex.append("<p>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
-	newFlex.append("<span class='KregularButton KgreenElement'>Go To Game</span>");
+	newFlex.append("<p class='ChartCell'>"+JoinedGames[usracc][iter].GameCategory+"</p>");
+	newFlex.append("<p class='ChartCell'>"+JoinedGames[usracc][iter].Move+"</p>");
+	newFlex.append("<p class='ChartCell'>"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
+	newFlex.append("<span class='ChartCell'><span class='KregularButton KgreenElement'>Go To Game</span></span>");
 	newFlex.css('cursor', 'pointer');
 	newFlex.click(function(){
 		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);

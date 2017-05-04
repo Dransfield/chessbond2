@@ -39,6 +39,11 @@ bottom: -4px;
     align-items:center;
   
   }
+  .ChartCell
+  {
+  margin:5px;
+  border-right:2px;
+  }
  .spacer{
  height:20px;
  width:20px;
