@@ -1307,7 +1307,7 @@ io.socket.on('connect',function(){
 			overall.append(phr);
 			phr.attr("class","ChartCell");
 			
-			var but=showButton(myelem,"Join Game");
+			var but=showButton(overall,"Join Game");
 	but.attr("class","ChartCell");
 	but.click(function()
 	{
