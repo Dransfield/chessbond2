@@ -213,7 +213,7 @@ var soundVolume=5;
 				
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 			//sideBoard.css("overflow","auto");
-		var resultDiv=addDiv(sideBoard,"resultsdiv");
+		resultDiv=addDiv(sideBoard,"resultsdiv");
 		
          if(GamePlaying.Result)
          {resultDiv.html(GamePlaying.Result);}

@@ -56,6 +56,7 @@ var WhiteTime=0;
 var pieceNames=['pawn','rook','knight','bishop','queen','king'];
 var pieceNamesInitial=['P','R','N','B','Q','K'];
 
+var resultDiv;
 
  function PlayBell()
     {
@@ -898,9 +899,10 @@ function StartBlackClock()
 		 // }
 		  if (GamePlaying.Result)
 			{
-			$("#resultsdiv").html(GamePlaying.Result);
-			$("#resultsdiv").css("padding","4px");
-			$("#resultsdiv").css("margin-left","8px");
+				console.log("recieved chessmove with result"+GamePlaying.Result);
+			resultdiv.html(GamePlaying.Result);
+			resultdiv.css("padding","4px");
+			resultsdiv.css("margin-left","8px");
 			ShowOfferDrawButton=false;	
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();}
@@ -947,14 +949,14 @@ function StartBlackClock()
 		
 			
 		if(Accounts[MyID])
-			{	
+		{	
 					
 			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
 			{
 			
 			PlayMove();
 			}
-			}
+		}
 		
 			//Showcapturedpiece(move.captured,move.color,false);
 			
