@@ -1,4 +1,4 @@
-class='ChartCell'var ButtonNumber=0;
+var ButtonNumber=0;
 var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
