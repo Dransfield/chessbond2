@@ -1186,7 +1186,7 @@ elem.append(`
 		if( window.location.pathname.indexOf('/profile')>-1)
 		{
 			
-			window.location.pathname.replace('/');
+			window.location.replace('/');
 		}
     });
 	
