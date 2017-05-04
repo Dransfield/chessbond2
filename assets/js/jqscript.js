@@ -1484,7 +1484,7 @@ function renderHomePage()
 	$("#newGameControls").css("text-align","center");
 	showWebsiteNameJumbo($("#newGameControls"))
 	
-	//showNewGameControls($("#newGameControls"));
+	showNewGameControls($("#newGameControls"));
 	
 	io.socket.on('newmygameevent', function (data)
 			{
