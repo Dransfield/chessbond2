@@ -930,7 +930,7 @@ function showRecentGames(elem,usracc)
 function addGamesToRecentGames2(usracc)
 {
 	var flexy=$("#recentgamesflexy");
-'var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
+//var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 //titleFlex.append("<p>White</p><p>Black</p><p>Result</p><p>Time</p><p>Used</p>");
 	for (iter in JoinedGames[usracc])
    {
