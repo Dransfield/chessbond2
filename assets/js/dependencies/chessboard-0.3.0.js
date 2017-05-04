@@ -1537,7 +1537,7 @@ var myTurn;
 	{
 	console.log("im on top of color "+PlayerColorOnBottom);
 	console.log("turn "+game.turn());
-		if (PlayerOnColorBottom=='Black')
+		if (PlayerColorOnBottom=='Black')
 		{
 			if(game.turn()=='w')
 			{
