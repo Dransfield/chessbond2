@@ -1347,7 +1347,7 @@ io.socket.on('connect',function(){
 	});
 					
 					
-			var but2=	showButton(overall,"Delete Game");
+			var but2=	showButton(overall,"Delete Game","KgreenElement KregularButton");
 					but2.click(function() {
 				 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
 				});
