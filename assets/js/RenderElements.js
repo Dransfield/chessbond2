@@ -1305,7 +1305,7 @@ io.socket.on('connect',function(){
 
 	function addOpenGame2(myelem,games,iter)
 {
-	var overall=$("<span id='addopengameiter"+iter+"' class='overall'></span>");
+	var overall=$("<span id='addopengameiter"+games[iter].id+"' class='overall'></span>");
 	myelem.append(overall);
 	var usr=showUsername(overall,games[iter].Player1);
 	usr.attr("class","ChartCell");
