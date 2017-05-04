@@ -1493,7 +1493,7 @@ function renderHomePage()
 			data.phrase=phrasefordate(data.createdAt);
 			JoinedGames[MyID].push(data);
 			//addJoinedGame(games.length-1,games,myelem);
-			addGamesToRecentGames(MyID);
+			addGamesToRecentGames2(MyID);
 			});
 	
 	}
