@@ -42,7 +42,8 @@ bottom: -4px;
   .ChartCell
   {
   margin:5px;
-  border-right:2px;
+     border-style: solid;
+    border-right: thick double #AAAAAA;
   }
  .spacer{
  height:20px;
