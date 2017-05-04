@@ -940,7 +940,7 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 		
 	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
 	
-	isr1.attr("class","ChartCell");
+	usr1.attr("class","ChartCell");
 	
 	}
 	else
