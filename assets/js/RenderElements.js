@@ -1183,8 +1183,11 @@ elem.append(`
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
 		toastr.success('Created New Game');
-		toastr.info( window.location.pathname );
-		
+		if( window.location.pathname.indexOf('/profile')>-1)
+		{
+			
+			window.location.pathname.replace('/');
+		}
     });
 	
 	
