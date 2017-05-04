@@ -900,9 +900,9 @@ function StartBlackClock()
 		  if (GamePlaying.Result)
 			{
 				console.log("recieved chessmove with result"+GamePlaying.Result);
-			resultdiv.html(GamePlaying.Result);
-			resultdiv.css("padding","4px");
-			resultsdiv.css("margin-left","8px");
+			resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
 			ShowOfferDrawButton=false;	
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();}
