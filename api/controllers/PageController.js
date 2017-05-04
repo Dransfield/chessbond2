@@ -785,7 +785,7 @@ deleteopengame:function(req,res){
 
     chessgamemove:function(req,res){
 	var td=0;
-	//console.log("req.param('GameOver')"+req.param('GameOver'));
+	console.log("req.param('GameOver')"+req.param('GameOver'));
 	
 	if (req.param('GameOver')=='true')
 	{
@@ -811,7 +811,7 @@ deleteopengame:function(req,res){
 			
 			
 			
-			
+			console.log("do draw");
 			DoDraw(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,GameDescriptor);
 		
 			
@@ -819,6 +819,9 @@ deleteopengame:function(req,res){
 		
 		if (GameState=='checkmate')
 		{
+			console.log("game state is check mate");
+			console.log("req.param('ColorToMove') "+req.param('ColorToMove'));
+			console.log("cg.Player1Color "+cg.Player1Color);
 			var clrtomove;
 			if (req.param('ColorToMove')=='w')
 			{clrtomove='White';}
