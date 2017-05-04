@@ -1116,8 +1116,9 @@ io.socket.on('newmygameevent', function (data)
 
 function addJoinedGame(iter,games,myelem){
 				console.log(JSON.stringify(games[iter]));
-				myelem.append("<tr id='joinedgamerow"+games[iter].id+"'></tr>");
-				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep1td"+iter+"'></td>");
+				var overall=$("<span class='overall'></span>");
+				overall.append("<span class='ChartCell' id='joinedgamerow"+games[iter].id+"'></span>");
+				$("#joinedgamerow"+games[iter].id).append("<span id='joinedgamep1td"+iter+"'></span>");
 				console.log("show user name in join div "+games[iter].Player1);
 				showUsername($("#joinedgamep1td"+iter),games[iter].Player1);
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep2td"+iter+"'></td>");
@@ -1302,7 +1303,7 @@ io.socket.on('connect',function(){
 
 	function addOpenGame2(myelem,games,iter)
 {
-	var overall=$("<span style='border-color:AAAAAA;border:2px'></span>");
+	var overall=$("<span class='overall'></span>");
 	myelem.append(overall);
 	var usr=showUsername(overall,games[iter].Player1);
 	usr.attr("class","ChartCell");
