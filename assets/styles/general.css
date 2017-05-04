@@ -43,7 +43,7 @@ bottom: -4px;
   {
   margin:10px;
     
-    border-right:  #AAAAAA;
+    border-right: solid #AAAAAA;
   }
  .spacer{
  height:20px;
