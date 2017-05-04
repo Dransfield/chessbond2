@@ -936,9 +936,11 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 		
-	showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
 		
-	showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	
+	isr1.attr("class","ChartCell");
 	
 	}
 	else
