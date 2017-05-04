@@ -642,6 +642,12 @@ io.socket.put('/Chessgame/'+GamePlaying.id,{
 
 }
 
+function StopClocks()
+	{
+	clearInterval(BlackInterval);
+	clearInterval(WhiteInterval);
+	}
+
 function usersTurn(game,me)
 		{
 		if (game.turn()=='w')
