@@ -936,6 +936,7 @@ var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
    {
 	  // var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
 	  var newFlex=$("<span class='overall'></span>");
+	  flexy.append(newFlex);
 	  // console.log(iter);
 	 // console.log(JSON.stringify(JoinedGames[usracc][iter]));
 	if(JoinedGames[usracc][iter].Player1Color=='White')
