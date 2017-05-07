@@ -682,8 +682,6 @@ deleteopengame:function(req,res){
 			{
 			  sails.sockets.broadcast(MyID,'newmygameevent', records);
 			}
-			});
-			
 			
 			if(sentresponse==false)
 			{
@@ -691,6 +689,11 @@ deleteopengame:function(req,res){
 			
 			return res.json(JSON.stringify(records));
 			}
+			
+			});
+			
+			
+			
 			
 			
 			
