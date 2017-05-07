@@ -719,7 +719,7 @@ deleteopengame:function(req,res){
 		if (sentresponse==false)
 		{
 		sentresponse=true;
-		return res.json(JSON.stringify(records));
+		//return res.json(JSON.stringify(records));
 		}
 		 });
     
