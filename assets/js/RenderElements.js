@@ -1336,7 +1336,12 @@ io.socket.on('connect',function(){
 		,function(resData,jwres)
 		{
 			console.log(resData);
+			console.log(resData[0]);
+			
 			console.log(resData.id);
+			console.log(JSON.stringify(resData));
+			console.log(JSON.stringify(resData[0]));
+			
 			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
 			
