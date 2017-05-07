@@ -1335,9 +1335,8 @@ io.socket.on('connect',function(){
 				  
 		,function(resData,jwres)
 		{
-			console.log(jwres);
-			console.log(JSON.stringify(jwres));
-			console.log(JSON.parse(resData).id);
+			
+			//console.log(JSON.parse(resData).id);
 			
 			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
@@ -1346,7 +1345,7 @@ io.socket.on('connect',function(){
 			
 			
 			});
-				//$(location).attr('href', '/humanvshumannew/'+resData[0].id);
+				$(location).attr('href', '/humanvshumannew/'+JSON.parse(resData).id);
 			
 		}
 		);
