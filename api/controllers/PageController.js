@@ -716,11 +716,12 @@ deleteopengame:function(req,res){
        
        
       // Either send a 200 OK or redirect to the home page
-		if (sentresponse==false)
-		{
-		sentresponse=true;
+		//if (sentresponse==false)
+	//	{
+		//sentresponse=true;
+		//return res.ok();
 		//return res.json(JSON.stringify(records));
-		}
+		//}
 		 });
     
     },
