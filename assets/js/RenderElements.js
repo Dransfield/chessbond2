@@ -1340,7 +1340,7 @@ io.socket.on('connect',function(){
 			{
 			
 				
-				//$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
+				$(location).attr('href', '/humanvshumannew/'+resData.id);
 			
 			});
 			
