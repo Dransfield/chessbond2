@@ -1335,11 +1335,11 @@ io.socket.on('connect',function(){
 				  
 		,function(resData,jwres)
 		{
-				
+				console.log(resData);
 			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
 			
-				console.log(resData);
+				
 				//$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
 			
 			});
