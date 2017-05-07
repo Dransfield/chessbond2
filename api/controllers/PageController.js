@@ -595,7 +595,7 @@ deleteopengame:function(req,res){
 	Joingame: function(req,res)  {
 	   var sentresponse=false;
 		User.find({
-  id : [req.param('MyID'),req.param('PlayerID')]
+	id : [req.param('MyID'),req.param('PlayerID')]
 	}).exec(function (err, players){
 		
 		if (err) return res.negotiate(err);
@@ -620,11 +620,13 @@ deleteopengame:function(req,res){
 		myRecord=players[1];
 		oppoRecord=players[0];
 		}
+		
 		if (req.param('PlayerID')==req.param('MyID'))
-	{
+		{
 		myRecord=players[0];
 		oppoRecord=players[0];
-	}
+		}
+		
 		OppoName=oppoRecord.name;
 		OppoID=oppoRecord.id;
 		OppoColor=req.param('PlayerColor');
@@ -687,7 +689,7 @@ deleteopengame:function(req,res){
 			{
 			sentresponse=true;
 			
-			return res.ok();
+			return res.json(JSON.stringify(records));
 			}
 			
 			
@@ -717,7 +719,7 @@ deleteopengame:function(req,res){
 		if (sentresponse==false)
 		{
 		sentresponse=true;
-		return res.ok();
+		return res.json(JSON.stringify(records));
 		}
 		 });
     

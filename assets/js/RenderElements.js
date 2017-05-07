@@ -1320,8 +1320,7 @@ io.socket.on('connect',function(){
 		console.log("clicked button");
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
 		io.socket.put('/joingame',
-		{
-				
+		{		
 			GameID:games[iter].id,
 			PlayerID:games[iter].Player1,
 			//PlayerName:PlayerName,
@@ -1336,7 +1335,7 @@ io.socket.on('connect',function(){
 				  
 		,function(resData,jwres)
 		{
-				console.log(resData);
+			console.log(resData);
 			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
 			
