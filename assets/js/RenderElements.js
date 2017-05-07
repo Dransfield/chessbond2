@@ -943,16 +943,15 @@ function addGamesToRecentGames2(usracc)
 	{
 		
 	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
-		
 	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
 	
 	usr1.attr("class","ChartCell");
 	usr2.attr("class","ChartCell");
+	
 	}
 	else
 	{
 	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
-		
 	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
 	
 	usr1.attr("class","ChartCell");
@@ -1339,6 +1338,10 @@ io.socket.on('connect',function(){
 				
 			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
+			
+				console.log(resData);
+				//$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
+			
 			});
 			
 		}

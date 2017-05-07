@@ -217,6 +217,7 @@ var soundVolume=5;
 		
          if(GamePlaying.Result)
          {resultDiv.html(GamePlaying.Result);}
+         
          resultDiv.css("padding","4px");
          resultDiv.css("margin-left","8px");
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
