@@ -1343,7 +1343,7 @@ io.socket.on('connect',function(){
 			
 			
 			});
-				$(location).attr('href', '/humanvshumannew/'+resData.id);
+				$(location).attr('href', '/humanvshumannew/'+resData[0].id);
 			
 		}
 		);
