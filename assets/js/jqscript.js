@@ -164,11 +164,12 @@ var soundVolume=5;
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
 				
-					coverall=$("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'><p>Ready to begin? (this enables sound)</p></div>");
+					coverall=$("<div style='background-color:white;position:fixed;height: 20%;width: 30%;top:30px'><p>Ready to begin? (this enables sound)</p></div>");
 					horizontalDiv.append(coverall);
 				coverall.css("z-order",9999);
 				coverall.click(function(){
 					EnableSound();
+					coverall.detach();
 					});
 				
 				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
