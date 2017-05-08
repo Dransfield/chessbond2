@@ -164,7 +164,7 @@ var soundVolume=5;
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
 				
-					coverall=$("<div style='background-color:white;position:fixed;height: 20%;width: 30%;top:30px;right:0px'><p>Ready to begin? (Click here to enable sound)</p></div>");
+					coverall=$("<div style='background-color:white;position:fixed;height: 20%;width: 30%;top:30px;right:0px;border-style:solid;border-color:black;border-width:2;'><p>Ready to begin? (Click here to enable sound)</p></div>");
 					horizontalDiv.append(coverall);
 				coverall.css("z-order",9999);
 				coverall.click(function(){
