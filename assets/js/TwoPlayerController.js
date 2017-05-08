@@ -1817,7 +1817,7 @@ $scope.currentFavicon=src;
 							 else
 							 {console.log("not over");
 							 }
-						console.log("is it a draw?");
+							console.log("is it a draw?");
 							  if (game.in_draw())
 								{
 							  toastr.success("It's a draw");

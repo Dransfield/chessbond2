@@ -120,6 +120,9 @@ var soundVolume=5;
 			{
 				retrievePrivatesandFollows().then(function(){
 					
+					
+		
+					
 						PlayerColorOnTop='Black';
 						PlayerColorOnBottom='White';
 						PlayerIDOnTop=GamePlaying.Player2;
@@ -154,6 +157,28 @@ var soundVolume=5;
 					
 					
 				var horizontalDiv=$("#playervsplayer")
+					horizontalDiv.append(`
+						 <!-- Modal -->
+							<div id="SoundModal" class="modal fade" role="dialog">
+							  <div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+								  <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Chessbond</h4>
+								  </div>
+								  <div class="modal-body">
+									<p>Ready to begin? (this enables sound)</p>
+								  </div>
+								  <div class="modal-footer">
+									<button type="button" ng-click="EnableSound()" class="btn btn-default" data-dismiss="modal">Yes</button>
+								  </div>
+								</div>
+
+							  </div>
+							</div>`);
+			
 				horizontalDiv.css("display","flex");
 				horizontalDiv.css("align-items","flex-start");
 				//=addF(overall,"horizontal","row","wrap","flex-start");
