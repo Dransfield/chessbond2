@@ -154,30 +154,14 @@ var soundVolume=5;
 							PlayerColorOnTop='White';
 							}
 						}
-					
-					
-				var horizontalDiv=$("#playervsplayer")
-					horizontalDiv.append(`
-						 <!-- Modal -->
-							<div id="SoundModal" class="modal fade" role="dialog">
-							  <div class="modal-dialog">
-
-								<!-- Modal content-->
-								<div class="modal-content">
-								  <div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Chessbond</h4>
-								  </div>
-								  <div class="modal-body">
-									<p>Ready to begin? (this enables sound)</p>
-								  </div>
-								  <div class="modal-footer">
-									<button type="button" ng-click="EnableSound()" class="btn btn-default" data-dismiss="modal">Yes</button>
-								  </div>
-								</div>
-
-							  </div>
-							</div>`);
+						
+					var horizontalDiv=$("#playervsplayer")
+					coverall=$("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'><p>Ready to begin? (this enables sound)</p></div>");
+					horizontalDiv.append(coverall);
+				
+				coverall.click(function(){
+					EnableSound();
+					});
 			
 				horizontalDiv.css("display","flex");
 				horizontalDiv.css("align-items","flex-start");
