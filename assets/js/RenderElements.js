@@ -964,12 +964,18 @@ function addGamesToRecentGames2(usracc)
 	newFlex.append("<p class='ChartCell'>Created:"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
 	newFlex.append("<span class='ChartCell'><span class='KregularButton KgreenElement'>Go To Game</span></span>");
 	newFlex.css('cursor', 'pointer');
-	$("#overall"+iter).click(function(){
-		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
-	});
+	$("#overall"+iter).click({gam:iter,acc:usracc},GoToGame);
 	
 }
 }
+
+function GoToGame(event)
+{
+	
+		$(location).attr('href', '/humanvshumannew/'+JoinedGames[event.data.acc][event.data.gam].id);
+	
+}
+
 function addGamesToRecentGames(usracc)
 {
 	var padding ="10px"
