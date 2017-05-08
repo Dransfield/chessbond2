@@ -964,7 +964,7 @@ function addGamesToRecentGames2(usracc)
 	newFlex.append("<p class='ChartCell'>Created:"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
 	newFlex.append("<span class='ChartCell'><span class='KregularButton KgreenElement'>Go To Game</span></span>");
 	newFlex.css('cursor', 'pointer');
-	newFlex.click(function(){
+	$("#overall"+iter).click(function(){
 		$(location).attr('href', '/humanvshumannew/'+JoinedGames[usracc][iter].id);
 	});
 	
