@@ -158,7 +158,7 @@ var soundVolume=5;
 					var horizontalDiv=$("#playervsplayer")
 					coverall=$("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'><p>Ready to begin? (this enables sound)</p></div>");
 					horizontalDiv.append(coverall);
-				
+				coverall.css("z-order",9999);
 				coverall.click(function(){
 					EnableSound();
 					});
