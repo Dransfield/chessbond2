@@ -273,6 +273,7 @@ function showsmallAvatar(elem,usracc)
 	
 	if(!Accounts[usracc])
 	{console.log(usracc+"is null account");}
+	else{
 	elem.append(`
 	<div class="userdropdown">
 
@@ -284,7 +285,7 @@ function showsmallAvatar(elem,usracc)
 </div>
 `);	
 }
-
+}
 function showAvatar(elem,usracc)
 
 {
