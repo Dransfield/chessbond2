@@ -171,7 +171,8 @@ function addSpan(elem,id)
 }
 function showFlag(elem,usracc)
 {
-	
+if(Accounts[usracc])
+{	
 			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
 		
 			if(Accounts[usracc]['Country'])
@@ -181,7 +182,7 @@ function showFlag(elem,usracc)
 				
 			}
 			elem.append(flagimage);
-			
+}			
 	}
 function showHeader(elem,num,content)
 {

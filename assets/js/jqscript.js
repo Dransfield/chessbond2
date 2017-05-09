@@ -180,7 +180,10 @@ var soundVolume=5;
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(topPlayerMarque,PlayerIDOnTop);
 				showUsername(topPlayerMarque,PlayerIDOnTop);
+				if (Accounts[PlayerIDOnTop])
+				{
 				topPlayerMarque.append(Accounts[PlayerIDOnTop].ELO);
+				}
 				showFlag(topPlayerMarque,PlayerIDOnTop);
 				TopPingDisplay=$("<p>Ping</p>");
 				topPlayerMarque.append(TopPingDisplay);
@@ -212,7 +215,10 @@ var soundVolume=5;
 				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
 				showsmallAvatar(bottomPlayerMarque,PlayerIDOnBottom);
 				showUsername(bottomPlayerMarque,PlayerIDOnBottom);
+				if (Accounts[PlayerIDOnBottom])
+				{
 				bottomPlayerMarque.append(Accounts[PlayerIDOnBottom].ELO);
+				}
 				showFlag(bottomPlayerMarque,PlayerIDOnBottom);
 				
 				BottomPingDisplay=$("<p>Ping</p>");
