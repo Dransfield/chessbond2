@@ -403,7 +403,7 @@ function changeOverallScore(piece,colour)
 	}
 	function myMoveEndFunc(mov)
 	{
-			square=   $('.square' + mov.to);
+			square=   $('.square-' + mov.to);
 	
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
