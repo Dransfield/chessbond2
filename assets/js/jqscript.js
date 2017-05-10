@@ -341,7 +341,8 @@ var soundVolume=5;
 		$("#chatDiv").css("overflow","auto");
 		$("#chatDiv2").css("max-height","85%");
 		$("#chatDiv2").css("overflow","auto");
-	
+	if(Accounts[MyID])
+	{
 	for (btIter in boardThemeValues)
 	{
 		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
@@ -352,7 +353,7 @@ var soundVolume=5;
 		$(".black-3c85d").css("background-color",obj.blackbackground);
 		}
 	}
-	
+	}
 	
 		
 				
