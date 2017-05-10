@@ -300,13 +300,26 @@ var soundVolume=5;
 			game.load(GamePlaying.fen);
 		loadBoardWith=GamePlaying.fen;
 		}
-			var cfg = {
-  draggable: false,
-  position: loadBoardWith,
-    orientation:myColor,
-    pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
-
+		
+		var cfg;
+		if(Accounts[MyID])
+		{
+		 cfg = {
+			draggable: false,
+			position: loadBoardWith,
+			orientation:myColor,
+			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
+		}
+		else
+		{
+		 cfg = {
+			draggable: false,
+			position: loadBoardWith,
+			orientation:myColor};
+			
+		}
 				board1 = new ChessBoard('boardcontainer', cfg);
+		
 				//{
 	//	position: game.fen(),
 		//orientation:myColor,
