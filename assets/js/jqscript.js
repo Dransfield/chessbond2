@@ -116,6 +116,7 @@ var soundVolume=5;
 		{
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
 			AccountsToRetrieve[GamePlaying.Player2]=GamePlaying.Player2;
+			AccountsToRetrieve[MyID]=MyID;
 			retrieveAccounts(true).then(function()
 			{
 				retrievePrivatesandFollows().then(function(){
