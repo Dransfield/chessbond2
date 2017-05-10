@@ -1049,7 +1049,8 @@ function StartBlackClock()
 		console.log(square);
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
-		boardEl.find('.square-' + square).addClass('highlight-white');
+		boardEl.find('.square-' +move.to).addClass('highlight-white');
+		square.css("background-image", "url('/images/square.png')");
 		});
 		
 	});
