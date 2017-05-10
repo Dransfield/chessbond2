@@ -409,6 +409,7 @@ function changeOverallScore(piece,colour)
 		//square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 		//square.append("<b>HELLO</b>");
+		$('.square-' +chessmove.to).addClass('highlight-white');
 		boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
 	//	square.css("background-image", "url('/images/square.png')");
 		
