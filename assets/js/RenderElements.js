@@ -331,19 +331,19 @@ return usr;
 	
 	$("#usernamedropdown"+usracc+"-"+thisuserprinted).click(function()
 	{
-		//console.log("clicked on username");
+		console.log("clicked on username");
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 		
 			});
 	
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
-		{//console.log("MOUSE ENTER");
+		{console.log("MOUSE ENTER");
 			//console.log(DropDowns[usracc]);
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
 		
 			});
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseleave(function()
-		{//console.log("MOUSE LEAVE");
+		{console.log("MOUSE LEAVE");
 			//console.log(DropDowns[usracc]);
 			DropDowns[usracc].detach();
 			});
