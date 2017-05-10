@@ -1492,7 +1492,7 @@ function stopDefault(e) {
  boardEl.find('.square-' + square).addClass('highlight-white');
 }
   function removeGreySquares() {
-	
+	console.log("remove grey squares");
   boardEl.find('.square-55d63').removeClass('highlight-white');
 }
 
