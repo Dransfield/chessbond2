@@ -1018,11 +1018,11 @@ function StartBlackClock()
 		//console.log(game.ascii());
 		Moves=game.pgn().split(".");
 		
-		if (game.fen()!=board1.fen())
-		{
-			board1.position(game.fen());
-			console.log("changed board position to match fen");
-		}
+	//	if (game.fen()!=board1.fen())
+	//	{
+		//	board1.position(game.fen());
+			//console.log("changed board position to match fen");
+	//	}
 		
 		if (game.in_stalemate())
 	{
