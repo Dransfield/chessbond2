@@ -501,8 +501,8 @@ passport.use(new GoogleStrategy({
                     twitterId: profile.id, // set the users facebook id                   
                     twittertoken : token, // we will save the token that facebook provides to the user                    
                     name:profile._json.screen_name,
-                    picture:profile._json.profile_image_url,
-                    socialpicture:profile._json.profile_image_url,
+                    picture:profile._json.profile_image_url_https,
+                    socialpicture:profile._json.profile_image_url_https,
                     Country:countr
                     }).exec( // look at the passport user profile to see how names are returned
                     
