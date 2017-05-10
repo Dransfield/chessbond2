@@ -404,7 +404,7 @@ function changeOverallScore(piece,colour)
 	function myMoveEndFunc(mov)
 	{
 			square=   $('.square-' + mov.to);
-	
+	console.log("FUCK");
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
 		boardEl.find('.square-' +mov.to).addClass('highlight-white');
