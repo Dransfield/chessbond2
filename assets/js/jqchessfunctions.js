@@ -400,6 +400,16 @@ function changeOverallScore(piece,colour)
 	
 	
 	}
+	function myMoveEndFunc(mov)
+	{
+			square=   boardEl.find('.square-' + mov.to);
+	
+		square.append("<img id='highlight'  src='/images/square.png'>");
+		square.append("<b>HELLO</b>");
+		boardEl.find('.square-' +move.to).addClass('highlight-white');
+		square.css("background-image", "url('/images/square.png')");
+		
+		}
 	
 	function onChangedfunc(obj)
 	{
@@ -986,7 +996,7 @@ function StartBlackClock()
 		board1.move(modified);
 		
 		var square=   boardEl.find('.square-' + move.to);
-		console.log(square);
+		
 		var position =square .position();
 		$( "img[id='highlight']" ).detach();
 		square.append("<img id='highlight'  src='/images/square.png'>");
@@ -1046,7 +1056,7 @@ function StartBlackClock()
 		
 		
 		square=   boardEl.find('.square-' + move.to);
-		console.log(square);
+	
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
 		boardEl.find('.square-' +move.to).addClass('highlight-white');

@@ -309,6 +309,7 @@ var soundVolume=5;
 			draggable: false,
 			position: loadBoardWith,
 			orientation:myColor,
+			onMoveEnd:myMoveEndFunc,
 			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
 		}
 		else
@@ -317,6 +318,7 @@ var soundVolume=5;
 			draggable: false,
 			position: loadBoardWith,
 			orientation:myColor,
+			onMoveEnd:myMoveEndFunc,
 			pieceTheme:'/img/chesspieces/A/{piece}.png'};
 		}
 				board1 = new ChessBoard('boardcontainer', cfg);
