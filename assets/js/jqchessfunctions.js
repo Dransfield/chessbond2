@@ -406,7 +406,7 @@ function changeOverallScore(piece,colour)
 	
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
-		boardEl.find('.square-' +move.to).addClass('highlight-white');
+		boardEl.find('.square-' +mov.to).addClass('highlight-white');
 		square.css("background-image", "url('/images/square.png')");
 		
 		}
