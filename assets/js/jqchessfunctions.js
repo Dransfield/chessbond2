@@ -4,7 +4,7 @@ var boardEl;
 var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#boardcontainer');
-  
+  var chessmove;
 var game;
 
 var turnTakerNoticeDiv;
@@ -401,15 +401,14 @@ function changeOverallScore(piece,colour)
 	
 	
 	}
-	function myMoveEndFunc(mov,mov2)
+	function myMoveEndFunc(old,newpos)
 	{
-		console.log(mov);
-		console.log(mov2);
-			square=   $('.square-' + mov.to);
+		console.log(chessmove);
+			square=   $('.square-' + chessmove.to);
 	console.log("FUCK");
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
-		boardEl.find('.square-' +mov.to).addClass('highlight-white');
+		boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
 		square.css("background-image", "url('/images/square.png')");
 		
 		}
@@ -956,6 +955,7 @@ function StartBlackClock()
 	//console.log("from "+GamePlaying.lastmove.substr(0, 2)+"-to-"+GamePlaying.lastmove.substr(2, 5)+"-");
 		
 		 move =game.move({ from: GamePlaying.lastmove.substr(0, 2), to: GamePlaying.lastmove.substr(2, 5) });
+	chessmove=move;
 	//changeOverallScore(move.captured,move.color);
 	   $("#overallscore").html("<h2>Overall Score:"+GamePlaying.OverallScore+"</h2>");
 		  //showCapturedPiece(move.captured,move.color,false);
