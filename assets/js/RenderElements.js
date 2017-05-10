@@ -317,6 +317,12 @@ function showUsername(elem,usracc)
 		//"+showDropDown(usracc)+"
 		var usr=$("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div>");
 elem.append(usr);
+
+usr.click(function()
+	{
+		console.log("clicked on username");
+	};
+
 return usr;	
  //href='/profile/"+usracc+"'
  }
