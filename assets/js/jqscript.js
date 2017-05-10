@@ -316,7 +316,7 @@ var soundVolume=5;
 			draggable: false,
 			position: loadBoardWith,
 			orientation:myColor};
-			
+			pieceTheme:'/img/chesspieces/A/{piece}.png'};
 		}
 				board1 = new ChessBoard('boardcontainer', cfg);
 		
