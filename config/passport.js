@@ -456,6 +456,7 @@ passport.use(new GoogleStrategy({
 					{
 					user.Country=GetCountry(profile._json.location);
 					user.picture=profile._json.profile_image_url_https;
+					console.log(profile._json.profile_image_url_https);
                     user.socialpicture=profile._json.profile_image_url_https;
 					user.save();
 					}
