@@ -986,6 +986,7 @@ function StartBlackClock()
 		board1.move(modified);
 		
 		var square=   boardEl.find('.square-' + move.to);
+		console.log(square);
 		var position =square .position();
 		$( "img[id='highlight']" ).detach();
 		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
