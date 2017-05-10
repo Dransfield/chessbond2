@@ -315,7 +315,7 @@ var soundVolume=5;
 		 cfg = {
 			draggable: false,
 			position: loadBoardWith,
-			orientation:myColor};
+			orientation:myColor,
 			pieceTheme:'/img/chesspieces/A/{piece}.png'};
 		}
 				board1 = new ChessBoard('boardcontainer', cfg);
