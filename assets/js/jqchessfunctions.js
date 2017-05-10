@@ -289,6 +289,12 @@ function showCapturedPieces()
 	var blackspan=addSpan($("#capturedPieces"),"blackspan");
 	var whitespan=addSpan($("#capturedPieces"),"whitespan");
 	
+	var pieceTheme='A';
+	if(Accounts[MyID])
+	{
+		pieceTheme=Accounts[MyID].ChessPieceTheme;
+	}
+	
 	if (GamePlaying.capturedBlackpieces)
 	{
 	var blackcap=GamePlaying.capturedBlackpieces.split(",");
@@ -300,7 +306,7 @@ function showCapturedPieces()
 			console.log("showing "+blackcap[x]);
 			blackcap[x]=blackcap[x].replace("undefined", "");
 			blackcap[x]=blackcap[x].toUpperCase();
-			var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/b"+blackcap[x]+".png'>")
+			var img=$("<img src='/img/chesspieces/"+pieceTheme+"/b"+blackcap[x]+".png'>")
 	img.css("width","5%");
 	$("#blackspan").append(img);	
 	}
@@ -318,7 +324,7 @@ function showCapturedPieces()
 	{
 			whitecap[x]=whitecap[x].replace("undefined", "");
 			whitecap[x]=whitecap[x].toUpperCase();
-		var img=$("<img src='/img/chesspieces/"+Accounts[MyID].ChessPieceTheme+"/w"+whitecap[x]+".png'>")
+		var img=$("<img src='/img/chesspieces/"+pieceTheme+"/w"+whitecap[x]+".png'>")
 	img.css("width","5%");
 	$("#whitespan").append(img);
 	}
