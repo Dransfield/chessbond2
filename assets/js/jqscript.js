@@ -190,6 +190,8 @@ var soundVolume=5;
 					var sideBoard=addSpan(horizontalDiv,"sideBoard");
 					var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				
+				if(Accounts[MyID])
+				{
 				
 				for (sIter in boardSizeValues)
 				{
@@ -206,6 +208,8 @@ var soundVolume=5;
 					$("#sideBoard").css("width",(100-boardSizeValues[sIter].value)+"%");
 					}
 				}
+				}
+				
 				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
