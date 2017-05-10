@@ -405,11 +405,12 @@ function changeOverallScore(piece,colour)
 	{
 		console.log(chessmove);
 			square=   $('.square-' + chessmove.to);
-	console.log("FUCK");
-		square.append("<img id='highlight'  src='/images/square.png'>");
-		square.append("<b>HELLO</b>");
-		boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
-		square.css("background-image", "url('/images/square.png')");
+	//console.log("FUCK");
+		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+		
+		//square.append("<b>HELLO</b>");
+		//boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
+		//square.css("background-image", "url('/images/square.png')");
 		
 		}
 	
@@ -995,19 +996,19 @@ function StartBlackClock()
 			}
 			*/
 			
-		console.log("move returned from game "+JSON.stringify(move));
+		//console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
 		
 		var square=   boardEl.find('.square-' + move.to);
 		
 		var position =square .position();
-		$( "img[id='highlight']" ).detach();
-		square.append("<img id='highlight'  src='/images/square.png'>");
-		 square.each(function( index ) {
-		console.log( index + ": " + $( this ).text() );
-		});
-		 square=   boardEl.find('.square-' + move.from);
-		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+		//$( "img[id='highlight']" ).detach();
+		//square.append("<img id='highlight'  src='/images/square.png'>");
+	//	 square.each(function( index ) {
+	//	console.log( index + ": " + $( this ).text() );
+	//	});
+	//	 square=   boardEl.find('.square-' + move.from);
+	//	square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 			
 
@@ -1058,12 +1059,12 @@ function StartBlackClock()
 		}
 		
 		
-		square=   boardEl.find('.square-' + move.to);
+		//square=   boardEl.find('.square-' + move.to);
 	
-		square.append("<img id='highlight'  src='/images/square.png'>");
-		square.append("<b>HELLO</b>");
-		boardEl.find('.square-' +move.to).addClass('highlight-white');
-		square.css("background-image", "url('/images/square.png')");
+		//square.append("<img id='highlight'  src='/images/square.png'>");
+		//square.append("<b>HELLO</b>");
+		//boardEl.find('.square-' +move.to).addClass('highlight-white');
+		//square.css("background-image", "url('/images/square.png')");
 		});
 		
 	});
