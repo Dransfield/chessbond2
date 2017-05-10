@@ -989,7 +989,7 @@ function StartBlackClock()
 		console.log(square);
 		var position =square .position();
 		$( "img[id='highlight']" ).detach();
-		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+		square.append("<img id='highlight'  src='/images/square.png'>");
 		 square.each(function( index ) {
 		console.log( index + ": " + $( this ).text() );
 		});
