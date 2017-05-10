@@ -321,7 +321,7 @@ elem.append(usr);
 usr.click(function()
 	{
 		console.log("clicked on username");
-	};
+	});
 
 return usr;	
  //href='/profile/"+usracc+"'
