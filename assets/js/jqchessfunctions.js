@@ -1049,7 +1049,7 @@ function StartBlackClock()
 		console.log(square);
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
-		greySquare(square);
+		boardEl.find('.square-' + square).addClass('highlight-white');
 		});
 		
 	});
