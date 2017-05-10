@@ -320,9 +320,17 @@ elem.append(usr);
 
 usr.click(function()
 	{
-		console.log("clicked on username");
+			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
+		
 	});
-
+usr.mouseenter(function(){
+	$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
+		
+});
+usr.mouseleave(function()
+		{
+		DropDowns[usracc].detach();
+		});
 return usr;	
  //href='/profile/"+usracc+"'
  }
