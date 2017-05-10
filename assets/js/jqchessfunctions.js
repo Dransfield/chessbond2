@@ -404,13 +404,13 @@ function changeOverallScore(piece,colour)
 	function myMoveEndFunc(old,newpos)
 	{
 		console.log(chessmove);
-			square=   $('.square-' + chessmove.to);
+			//square=   $('.square-' + chessmove.to);
 	//console.log("FUCK");
-		square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
+		//square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 		//square.append("<b>HELLO</b>");
-		//boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
-		//square.css("background-image", "url('/images/square.png')");
+		boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
+	//	square.css("background-image", "url('/images/square.png')");
 		
 		}
 	
