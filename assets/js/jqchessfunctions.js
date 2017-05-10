@@ -401,8 +401,10 @@ function changeOverallScore(piece,colour)
 	
 	
 	}
-	function myMoveEndFunc(mov)
+	function myMoveEndFunc(mov,mov2)
 	{
+		console.log(mov);
+		console.log(mov2);
 			square=   $('.square-' + mov.to);
 	console.log("FUCK");
 		square.append("<img id='highlight'  src='/images/square.png'>");
