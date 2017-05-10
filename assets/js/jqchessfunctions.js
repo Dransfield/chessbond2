@@ -1046,6 +1046,7 @@ function StartBlackClock()
 		
 		
 		square=   boardEl.find('.square-' + move.to);
+		console.log(square);
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		
 		
