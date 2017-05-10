@@ -412,7 +412,7 @@ function changeOverallScore(piece,colour)
 		$('.square-' +chessmove.to).addClass('highlight-white');
 		$('.square-' +chessmove.to).css("background-size","contain");
 		boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
-	//	square.css("background-image", "url('/images/square.png')");
+	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
 		
 		}
 	
