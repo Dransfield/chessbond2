@@ -1045,6 +1045,9 @@ function StartBlackClock()
 		}
 		
 		
+		square=   boardEl.find('.square-' + move.to);
+		square.append("<img id='highlight'  src='/images/square.png'>");
+		
 		
 		});
 		
