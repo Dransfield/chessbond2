@@ -4,6 +4,7 @@ var boardEl;
 var squareClass = 'square-55d63';
   var squareToHighlight;
   boardEl = $('#boardcontainer');
+  
 var game;
 
 var turnTakerNoticeDiv;
@@ -402,7 +403,7 @@ function changeOverallScore(piece,colour)
 	}
 	function myMoveEndFunc(mov)
 	{
-			square=   boardEl.find('.square-' + mov.to);
+			square=   $('.square' + mov.to);
 	
 		square.append("<img id='highlight'  src='/images/square.png'>");
 		square.append("<b>HELLO</b>");
@@ -425,7 +426,7 @@ function changeOverallScore(piece,colour)
 	 function onDrop(mov) {
 		
 		
-				
+			
 						
 		/*
 							if (usersTurn(game,MyID)===false)
