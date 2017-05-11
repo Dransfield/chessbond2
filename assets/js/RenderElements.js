@@ -293,9 +293,7 @@ function showAvatar(elem,usracc)
 	elem.append(`
 	<div class="userdropdown">
 
-<!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" src="/images/orangecirclesml.png"></img>-->
-<!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>-->
-<!--<img class="onlinecircle"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>-->
+
 <span class='onlinecircle' id='circlediv`+Accounts[usracc].name+`'</span>
 <img class="profilepic" src="`+Accounts[usracc].picture+`"></img>
 
