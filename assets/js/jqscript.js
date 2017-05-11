@@ -21,7 +21,7 @@ var soundVolume=5;
 				InteractedWithPage=0;
 			},4000);
 			
-			$('document.body').mousemove(function()
+			$('div').mousemove(function()
 			{
 				console.log("mousemove");
 				InteractedWithPage=1;
