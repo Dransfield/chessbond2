@@ -15,7 +15,7 @@ var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
 			var myStatus;
-			var idleTimer=5;
+			var idleTimer=60*5;
 			
 			setInterval(function(){
 				
