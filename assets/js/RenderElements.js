@@ -316,7 +316,7 @@ function showUsername(elem,usracc)
 	{
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
-		var usr=$("<div ><div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div><span class='idlesquare' id='circlediv"+Accounts[usracc].name+"'</span></div>");
+		var usr=$("<div style='display:flex'><span class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </span><span class='idlesquare' id='circlediv"+Accounts[usracc].name+"'</span></div>");
 elem.append(usr);
 
 
