@@ -15,7 +15,7 @@ var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
 			var myStatus;
-			var idleTimer=5;
+			var idleTimer=5*60;
 			
 			setInterval(function(){
 				
@@ -41,7 +41,7 @@ var soundVolume=5;
 			
 			$('div').mousemove(function()
 			{
-				idleTimer=5;
+				idleTimer=5*60;
 			if(myStatus!='active')
 			{
 			myStatus='active';
