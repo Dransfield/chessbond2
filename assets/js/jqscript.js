@@ -19,11 +19,11 @@ var soundVolume=5;
 			
 			setTimeout(function(){
 				InteractedWithPage=0;
+				console.log('interacted with page set to zero');
 			},4000);
 			
 			$('div').mousemove(function()
 			{
-				console.log("mousemove");
 				InteractedWithPage=1;
 			});
 			
