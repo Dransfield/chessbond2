@@ -15,47 +15,42 @@ var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
 			var myStatus;
-			var InteractedWithPage;
+			var idleTimer=5;
 			
 			setInterval(function(){
 				
-				InteractedWithPage=0;
+				idleTimer=idleTimer-1;
+				if(idleTimer<1)
+				{
+				idleTimer=5;
+				
+				if(myStatus!='idle')
+				{
+				myStatus='idle';	
+				io.socket.put('/imidle',{user:MyID,idlestatus:'idle'},
+					function(data){});
+					}
+					
+					
+				}
+					
+				}
 				
 				console.log('interacted with page set to zero');
-			},6000);
+			},1000);
 			
 			$('div').mousemove(function()
 			{
-				InteractedWithPage=1;
+				idleTimer=5;
 			if(myStatus!='active')
-			{myStatusChanged=true;}
-			myStatus='active';
-			});
-			
-			setInterval(function()
 			{
-				if(InteractedWithPage==0)
-				{
-					if(myStatusChanged==true)
-					{
-					myStatusChanged=false;
-					
-					io.socket.put('/imidle',{user:MyID,idlestatus:'idle'},
-					function(data){});
-					}
-				}
-				if (InteractedWithPage==1)
-				{
-					if(myStatusChanged==true)
-					{
-					myStatusChanged=false;
+			myStatus='active';
 					io.socket.put('/imidle',{user:MyID,idlestatus:'active'},
 					function(data){});
-					}
-				}
-				
-				
-			},4000);
+			
+			}
+			});
+			
 			
 		io.socket.on('IdleNotification',function (data)
 			{
