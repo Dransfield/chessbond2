@@ -17,7 +17,7 @@ var soundVolume=5;
 			
 			var InteractedWithPage;
 			
-			setTimeout(function(){
+			setInterval(function(){
 				InteractedWithPage=0;
 				console.log('interacted with page set to zero');
 			},4000);
@@ -25,9 +25,10 @@ var soundVolume=5;
 			$('div').mousemove(function()
 			{
 				InteractedWithPage=1;
+				console.log('mousemove');
 			});
 			
-			setTimeout(function()
+			setInterval(function()
 			{
 				if(InteractedWithPage==0)
 				{
