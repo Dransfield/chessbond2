@@ -63,7 +63,7 @@ var soundVolume=5;
 			}
 			});
 			
-			$("div").on("taphold",function(){
+			$("div").on("scrollstart",function(){
   	idleTimer=5*60;
 			if(myStatus!='active')
 			{
