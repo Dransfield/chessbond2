@@ -39,38 +39,15 @@ var soundVolume=5;
 				
 			},1000);
 			
-			$('div').mousemove(function()
-			{
-				idleTimer=5*60;
-			if(myStatus!='active')
-			{
-			myStatus='active';
-					io.socket.put('/imidle',{user:MyID,idlestatus:'active'},
-					function(data){});
-			
-			}
-			});
-			
-				$('div').mousedown(function()
-			{
-				idleTimer=5*60;
-			if(myStatus!='active')
-			{
-			myStatus='active';
-					io.socket.put('/imidle',{user:MyID,idlestatus:'active'},
-					function(data){});
-			
-			}
-			});
+			$('div').mousemove(usrInteracted);
+			$('div').mousedown(usrInteracted);
 			
 			var el = document.getElementsByTagName("body")[0];
-  el.addEventListener("touchstart", handleStart, false);
+			el.addEventListener("touchstart", usrInteracted, false);
 			
-			function handleStart()
-			{console.log("hi");}
-			
-			$("div").on("swipe",function(){
-  	idleTimer=5*60;
+			function usrInteracted()
+			{
+				idleTimer=5*60;
 			if(myStatus!='active')
 			{
 			myStatus='active';
@@ -78,7 +55,7 @@ var soundVolume=5;
 					function(data){});
 			
 			}
-			});
+		}
 			
 		io.socket.on('IdleNotification',function (data)
 			{
