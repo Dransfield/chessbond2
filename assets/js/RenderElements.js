@@ -290,15 +290,11 @@ function showsmallAvatar(elem,usracc)
 function showAvatar(elem,usracc)
 
 {
-	elem.append(`
-	<div class="userdropdown">
-
-
-<span class='onlinecircle' id='circlediv`+Accounts[usracc].name+`'</span>
-<img class="profilepic" src="`+Accounts[usracc].picture+`"></img>
-
-</div>
-`);	
+	var d=addDiv(elem,"");
+	d.addClass("userdropdown");
+var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
+var im=$("<img class='profilepic' src='"+Accounts[usracc].picture+"'></img>");
+d.append(im);
 }
 
 function showUsername(elem,usracc)
