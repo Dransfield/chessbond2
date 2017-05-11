@@ -63,6 +63,12 @@ var soundVolume=5;
 			}
 			});
 			
+			var el = document.getElementsByTagName("body")[0];
+  el.addEventListener("touchstart", handleStart, false);
+			
+			function handleStart()
+			{console.log("hi");}
+			
 			$("div").on("swipe",function(){
   	idleTimer=5*60;
 			if(myStatus!='active')
