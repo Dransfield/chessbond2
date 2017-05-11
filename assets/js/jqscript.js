@@ -63,6 +63,17 @@ var soundVolume=5;
 			}
 			});
 			
+			$("div").on("taphold",function(){
+  	idleTimer=5*60;
+			if(myStatus!='active')
+			{
+			myStatus='active';
+					io.socket.put('/imidle',{user:MyID,idlestatus:'active'},
+					function(data){});
+			
+			}
+			});
+			
 		io.socket.on('IdleNotification',function (data)
 			{
 				console.log(JSON.stringify(data));
