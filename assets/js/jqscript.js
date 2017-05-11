@@ -34,9 +34,9 @@ var soundVolume=5;
 					
 				}
 					
-				}
 				
-				console.log('interacted with page set to zero');
+				
+				
 			},1000);
 			
 			$('div').mousemove(function()
