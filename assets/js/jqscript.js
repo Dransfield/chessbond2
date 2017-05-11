@@ -15,6 +15,33 @@ var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
 			
+			var InteractedWithPage;
+			
+			setTimeOut(function(){
+				InteractedWithPage=0;
+			},4000);
+			
+			$('document.body').mousemove(function()
+			{
+				InteractedWithPage=1;
+			});
+			
+			setTimeOut(function()
+			{
+				if(InteractedWithPage==0)
+				{
+					io.socket.put('/imidle',{user:MyID,idlestatus:'idle'},
+					function(data){});
+				}
+				if (InteractedWithPage==1)
+				{
+					io.socket.put('/imidle',{user:MyID,idlestatus:'active'},
+					function(data){});
+				}
+				
+				
+			},6000);
+			
 		io.socket.on('IdleNotification',function (data)
 			{
 				console.log(JSON.stringify(data));
@@ -22,7 +49,14 @@ var soundVolume=5;
 					{
 			Accounts[data.user].idle=data.idlestatus;
 			console.log(data.idlestatus);
+			if(data.idlestatus=='active')
+			{
 			$("#circlediv"+Accounts[data.user].name).css("background-color","green");
+			}
+			if(data.idlestatus=='idle')
+			{
+			$("#circlediv"+Accounts[data.user].name).css("background-color","orange");
+			}
 			
 			}
 		});
