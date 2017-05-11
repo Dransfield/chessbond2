@@ -66,7 +66,7 @@ module.exports.routes = {
 	'/forgot':{view:'forgot'},
 	
 	
-	//'GET /profilealbum': {view: 'myfile'},
+	'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
 	'GET /registerpage':{view:'register'},

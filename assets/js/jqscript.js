@@ -14,35 +14,48 @@ var WallPosts=[];
 var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
-			
+			var myStatus;
 			var InteractedWithPage;
 			
 			setInterval(function(){
+				
 				InteractedWithPage=0;
+				
 				console.log('interacted with page set to zero');
-			},4000);
+			},6000);
 			
 			$('div').mousemove(function()
 			{
 				InteractedWithPage=1;
-				console.log('mousemove');
+			if(myStatus!='active')
+			{myStatusChanged=true;}
+			myStatus='active';
 			});
 			
 			setInterval(function()
 			{
 				if(InteractedWithPage==0)
 				{
+					if(myStatusChanged==true)
+					{
+					myStatusChanged=false;
+					
 					io.socket.put('/imidle',{user:MyID,idlestatus:'idle'},
 					function(data){});
+					}
 				}
 				if (InteractedWithPage==1)
 				{
+					if(myStatusChanged==true)
+					{
+					myStatusChanged=false;
 					io.socket.put('/imidle',{user:MyID,idlestatus:'active'},
 					function(data){});
+					}
 				}
 				
 				
-			},6000);
+			},4000);
 			
 		io.socket.on('IdleNotification',function (data)
 			{
