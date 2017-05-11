@@ -271,24 +271,25 @@ else
 function showsmallAvatar(elem,usracc)
 
 {
-	
 	if(!Accounts[usracc])
-	{console.log(usracc+"is null account");}
-	else{
-	elem.append(`
-	<div class="userdropdown">
-
-<!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle" src="/images/orangecirclesml.png"></img>-->
-<!--<img class="onlinecircle"  ng-show="Accounts[<%- userid %>].online && Accounts[<%- userid %>].idle"  src="/images/greencirclesml.png"></img>-->
-<!--<img class="onlinecircle"  ng-show="!Accounts[<%- userid %>].online" src="/images/greycirclesml.png"></img>-->
-<img class="smallprofilepic" src="`+Accounts[usracc].picture+`"></img>
-
-</div>
-`);	
+	{}
+	else
+	{
+		var d=addDiv(elem,"");
+	d.addClass("userdropdown");
+var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
+sp.addClass("smallonlinecircle");
+var im=$("<img class='smallprofilepic' src='"+Accounts[usracc].picture+"'></img>");
+d.append(im);
 }
+
 }
 function showAvatar(elem,usracc)
 
+{
+if(!Accounts[usracc])
+{}
+else
 {
 	var d=addDiv(elem,"");
 	d.addClass("userdropdown");
@@ -296,6 +297,8 @@ var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
 var im=$("<img class='profilepic' src='"+Accounts[usracc].picture+"'></img>");
 d.append(im);
+}
+
 }
 
 function showUsername(elem,usracc)
