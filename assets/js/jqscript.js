@@ -23,6 +23,7 @@ var soundVolume=5;
 			
 			$('document.body').mousemove(function()
 			{
+				console.log("mousemove");
 				InteractedWithPage=1;
 			});
 			
