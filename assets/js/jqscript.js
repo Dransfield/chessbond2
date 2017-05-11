@@ -17,7 +17,7 @@ var soundVolume=5;
 			
 			var InteractedWithPage;
 			
-			setTimeOut(function(){
+			setTimeout(function(){
 				InteractedWithPage=0;
 			},4000);
 			
@@ -26,7 +26,7 @@ var soundVolume=5;
 				InteractedWithPage=1;
 			});
 			
-			setTimeOut(function()
+			setTimeout(function()
 			{
 				if(InteractedWithPage==0)
 				{
