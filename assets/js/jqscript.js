@@ -15,7 +15,7 @@ var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
 			var myStatus;
-			var idleTimer=60*5;
+			var idleTimer=5;
 			
 			setInterval(function(){
 				
@@ -61,11 +61,16 @@ var soundVolume=5;
 			console.log(data.idlestatus);
 			if(data.idlestatus=='active')
 			{
-			$("#circlediv"+Accounts[data.user].name).css("background-color","green");
+//			$("#circlediv"+Accounts[data.user].name).css("background-color","green");
+			$("[id='circlediv"+Accounts[data.user].name+"']").css("background-color","green");
+			
 			}
 			if(data.idlestatus=='idle')
 			{
-			$("#circlediv"+Accounts[data.user].name).css("background-color","orange");
+//			$("#circlediv"+Accounts[data.user].name).css("background-color","orange");
+			
+			$("[id='circlediv"+Accounts[data.user].name+"']").css("background-color","orange");
+			
 			}
 			
 			}
