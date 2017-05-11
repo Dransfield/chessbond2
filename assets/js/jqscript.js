@@ -15,6 +15,18 @@ var GamePlaying={};
 var soundVolume=5;
 		subscribeToMandatoryRooms()
 			
+		io.socket.on('IdleNotification',function (data)
+			{
+				console.log(JSON.stringify(data));
+				if(Accounts[data.user])
+					{
+			Accounts[data.user].idle=data.idlestatus;
+			console.log(data.idlestatus);
+			$("#circlediv"+Accounts[data.user].name).css("background-color","green");
+			
+			}
+		});
+		
 		io.socket.on
 		('connect',function()
 		{

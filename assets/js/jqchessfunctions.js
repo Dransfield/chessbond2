@@ -405,7 +405,7 @@ function changeOverallScore(piece,colour)
 	{
 		console.log(chessmove);
 			//square=   $('.square-' + chessmove.to);
-	//console.log("FUCK");
+	
 		//square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
 		
 		//square.append("<b>HELLO</b>");

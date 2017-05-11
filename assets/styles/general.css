@@ -58,6 +58,11 @@ bottom: -4px;
   border-color:AAAAAA;
   border:1px
 }
+.idlesquare{
+ height:20px;
+ width:20px;
+background-color:red;
+}
 
 .KbigButton{
 color:white;

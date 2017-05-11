@@ -315,8 +315,10 @@ function showUsername(elem,usracc)
 	{
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
-		var usr=$("<div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div>");
+		var usr=$("<div ><div class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </div><div class='idlesquare' id='circlediv"+Accounts[usracc].name+"'</div></div>");
 elem.append(usr);
+
+
 
 usr.click(function()
 	{
