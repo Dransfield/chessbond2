@@ -907,7 +907,7 @@ function setupChatPage()
 			console.log("recieved wall post socket");
 		
 			showChatMessage($("#privateconversationpage"),data);
-			
+			console.log("document.visibilityState "+document.visibilityState);
 			if (document.visibilityState=='hidden')
 			{
 				console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
