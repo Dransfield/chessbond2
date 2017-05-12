@@ -910,6 +910,7 @@ function setupChatPage()
 			
 			if (document.visibilityState=='hidden')
 			{
+				console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
 			if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
 			{
 			PlayBell();
