@@ -907,7 +907,7 @@ function setupChatPage()
 			console.log("recieved wall post socket");
 		
 			showChatMessage($("#privateconversationpage"),data);
-			console.log("document.visibilityState "+document.visibilityState);
+			//console.log("document.visibilityState "+document.visibilityState);
 			if (document.visibilityState=='hidden')
 			{
 				console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
@@ -916,7 +916,7 @@ function setupChatPage()
 			PlayBell();
 			}
 			$("#favicon").attr("href","/favicon2.ico");
-			console.log('recieved chat message'+document.visibilityState);
+			//console.log('recieved chat message'+document.visibilityState);
 			}
 			
 			
