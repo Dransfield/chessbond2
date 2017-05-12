@@ -326,7 +326,16 @@ var soundVolume=5;
 			{
 			console.log("recieved wall post socket"+JSON.stringify(data));
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
-			
+				if (document.visibilityState=='hidden')
+			{
+				console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
+			if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
+			{
+			PlayBell();
+			}
+			$("#favicon").attr("href","/favicon2.ico");
+			//console.log('recieved chat message'+document.visibilityState);
+			}
 			WallPosts.push(data);
 			
 			showChatMessage(chatDiv2,WallPosts[(WallPosts.length-1)]);
@@ -840,7 +849,16 @@ function setupProfilePage()
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
 			
 			WallPosts.push(data);
-			
+				if (document.visibilityState=='hidden')
+			{
+				console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
+			if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
+			{
+			PlayBell();
+			}
+			$("#favicon").attr("href","/favicon2.ico");
+			//console.log('recieved chat message'+document.visibilityState);
+			}
 			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)]);
 		
 			//$("#favicon").attr("href","/favicon2.ico");
