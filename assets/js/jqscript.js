@@ -907,7 +907,18 @@ function setupChatPage()
 			console.log("recieved wall post socket");
 		
 			showChatMessage($("#privateconversationpage"),data);
+			
+			if (document.visibilityState=='hidden')
+			{
+			if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
+			{
+			PlayBell();
+			}
 			$("#favicon").attr("href","/favicon2.ico");
+			console.log('recieved chat message'+document.visibilityState);
+			}
+			
+			
 		$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"));
 				//	$("#privateconversationpage").append(data.content);
 			});
