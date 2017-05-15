@@ -6,6 +6,7 @@ var squareClass = 'square-55d63';
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
+var withdrawButton;
 
 var turnTakerNoticeDiv;
 var topPlayerMarque;
@@ -927,7 +928,9 @@ function StartBlackClock()
 			resultDiv.css("margin-left","8px");
 			ShowOfferDrawButton=false;	
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
-			{PlayDraw();}
+			{PlayDraw();
+				withdrawButton.slideUp();
+				}
 			
 			if(GamePlaying.Result.indexOf("withdrew from the game")>-1)
 			{PlayWithdraw();
@@ -1090,7 +1093,22 @@ currentFavicon=src;
 }
 };
 	
+	function withdrawFromGame()
+{
 	
+//$scope.ShowWithdrawButton=false;	
+if (!GamePlaying.Result)
+	{
+	io.socket.put('/Withdraw', {
+		gameid:$scope.ChessGameObject.id,
+			withdrawer:$scope.User.name
+			})
+			.then(function onSuccess(sailsResponse){
+		
+		
+		});
+	}
+}
 	function updatePlayersLabel(game)
 	{
 		//console.log("hello");
