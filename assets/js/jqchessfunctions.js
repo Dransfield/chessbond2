@@ -1,8 +1,11 @@
 
 var boardEl;
-		var board1 ;
+var board1 ;
 var squareClass = 'square-55d63';
   var squareToHighlight;
+
+var withdrawDiv;
+
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
@@ -952,7 +955,13 @@ function StartBlackClock()
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
 	if(!GamePlaying.Result)
 	{
-	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft)
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+	if(!withdrawButton)
+	{
+		withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
+		withdrawButton.click(withdrawFromGame);
+		withdrawDiv.css("padding","10px");
+	}
 	}
 	var modified="";
 	var move;

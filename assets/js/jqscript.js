@@ -299,11 +299,14 @@ var soundVolume=5;
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
-				var withdrawDiv=addDiv(sideBoard);
+				withdrawDiv=addDiv(sideBoard);
+				if (GamePlaying.Move>1)
+				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawButton.click(withdrawFromGame);
 				withdrawDiv.css("padding","10px");
+				}
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
 				sideBoard.css("padding-left","10px");
