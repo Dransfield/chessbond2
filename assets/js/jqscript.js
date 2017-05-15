@@ -299,11 +299,11 @@ var soundVolume=5;
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
-				
-				withdrawButton=showButton(sideBoard,"Withdraw","KgreenElement KregularButton");
+				var withdrawDiv=addDiv(sideBoard);
+				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawButton.click(withdrawFromGame);
-				withdrawButton.css("padding","15px");
+				withdrawDiv.css("padding","15px");
 				sideBoard.append(" <div class='label label-default' >Result: </div>");
 			//sideBoard.css("overflow","auto");
 		resultDiv=addDiv(sideBoard,"resultsdiv");
