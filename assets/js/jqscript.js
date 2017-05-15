@@ -299,7 +299,7 @@ var soundVolume=5;
 				topPlayerMarque.css("width",boardDivDiv.css("width"));
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
-				var withdrawDiv=addDiv(sideBoard);
+				var withdrawDiv=addSpan(sideBoard);
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawButton.click(withdrawFromGame);
