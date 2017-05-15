@@ -307,7 +307,7 @@ var soundVolume=5;
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
 				sideBoard.css("padding-left","8px");
-				resultTitle.css("padding-left","15px");
+				//resultTitle.css("padding-left","15px");
 			//sideBoard.css("overflow","auto");
 		resultDiv=addDiv(sideBoard,"resultsdiv");
 		
