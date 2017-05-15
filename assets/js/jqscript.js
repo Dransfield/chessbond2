@@ -303,7 +303,7 @@ var soundVolume=5;
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawButton.click(withdrawFromGame);
-				withdrawDiv.css("padding-top","10px");
+				withdrawDiv.css("padding","10px");
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
 				sideBoard.css("padding-left","10px");
