@@ -300,7 +300,7 @@ var soundVolume=5;
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
 				withdrawDiv=addDiv(sideBoard);
-				if (GamePlaying.Move>1 && GamePlaying.Result)
+				if (GamePlaying.Move>1 && !GamePlaying.Result)
 				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
