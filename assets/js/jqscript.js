@@ -304,7 +304,9 @@ var soundVolume=5;
 				
 				withdrawButton.click(withdrawFromGame);
 				withdrawDiv.css("padding","15px");
-				sideBoard.append(" <div class='label label-default' >Result: </div>");
+				var resulttitleDiv=addDiv(sideBoard,"resulttitlediv");
+				resulttitle.append(" <div class='label label-default' >Result: </div>");
+				resulttitle.css("padding","10px");
 			//sideBoard.css("overflow","auto");
 		resultDiv=addDiv(sideBoard,"resultsdiv");
 		
