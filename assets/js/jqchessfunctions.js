@@ -1100,8 +1100,8 @@ currentFavicon=src;
 if (!GamePlaying.Result)
 	{
 	io.socket.put('/Withdraw', {
-		gameid:$scope.ChessGameObject.id,
-			withdrawer:$scope.User.name
+		gameid:GamePlaying.id,
+			withdrawer:Accounts[MyID].name
 			})
 			.then(function onSuccess(sailsResponse){
 		
