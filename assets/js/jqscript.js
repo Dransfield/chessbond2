@@ -303,10 +303,10 @@ var soundVolume=5;
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawButton.click(withdrawFromGame);
-				withdrawDiv.css("padding","15px");
+				withdrawDiv.css("padding-top","10px");
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
-				sideBoard.css("padding-left","8px");
+				sideBoard.css("padding-left","10px");
 				//resultTitle.css("padding-left","15px");
 			//sideBoard.css("overflow","auto");
 		resultDiv=addDiv(sideBoard,"resultsdiv");
