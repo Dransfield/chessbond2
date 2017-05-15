@@ -1102,8 +1102,7 @@ if (!GamePlaying.Result)
 	io.socket.put('/Withdraw', {
 		gameid:GamePlaying.id,
 			withdrawer:Accounts[MyID].name
-			})
-			.then(function onSuccess(sailsResponse){
+			},function onSuccess(sailsResponse){
 		
 		
 		});
