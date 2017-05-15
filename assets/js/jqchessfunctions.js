@@ -597,8 +597,8 @@ GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 GamePlaying.Move+=1;
 
-console.log("chess.get(move.to)"+game.get(move.to));
-
+console.log("piece taken "+game.get(move.to));
+console.log("move.to "+move.to);
 var pieceTaken=game.get(move.to);
 if(pieceTaken)
 {
