@@ -3,6 +3,14 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 
+function showRematchButton()
+{
+	
+	var but=showButton($("body"),"Rematch?","KgreenElement KregularButton");
+	but.css("position","fixed");
+	but.css("top","50%");
+}
+
 function phraseforloggedindate(dat)
 		{
 			//console.log("nu "+nu);

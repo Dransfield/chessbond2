@@ -930,6 +930,7 @@ function StartBlackClock()
 			resultDiv.css("padding","4px");
 			resultDiv.css("margin-left","8px");
 			ShowOfferDrawButton=false;	
+			showRematchButton();
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();
 				withdrawButton.slideUp();
