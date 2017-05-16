@@ -65,22 +65,27 @@ var resultDiv;
 
  function PlayBell()
     {
+	BellSound.volume=Accounts[MyID].SoundVolume/10;
 	BellSound.play();
 	}
 	function PlayMove()
     {
+	MoveSound.volume=Accounts[MyID].SoundVolume/10;
 	MoveSound.play();
 	}
 	function PlayCheckMate()
     {
+	CheckMateSound.volume=Accounts[MyID].SoundVolume/10;
 	CheckMateSound.play();
 	}
 	function PlayWithdraw()
 	{
+	WithdrawSound.volume=Accounts[MyID].SoundVolume/10;
 	WithdrawSound.play();
 	}
 	function PlayDraw()
 	{
+	DrawSound.volume=Accounts[MyID].SoundVolume/10;
 	DrawSound.play();
 	}
 
