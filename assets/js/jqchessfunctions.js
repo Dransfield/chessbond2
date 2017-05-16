@@ -217,7 +217,7 @@ var boardThemeNames=['original','A1','A2',
 	WithdrawSound.pause();
 	BellSound.volume=.1;
 	MoveSound.volume=.1;
-	//CheckMateSound.volume=.1;
+	CheckMateSound.volume=.1;
 	DrawSound.volume=.1;
 	WithdrawSound.volume=.1;
 	
