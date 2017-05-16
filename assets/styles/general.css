@@ -79,7 +79,15 @@ border-style:solid;
 background-color:red;
 border-style:solid;
 }
+.KhugeButton{
+color:white;
+font-size:4em;
+border-radius: 9px;
+text-align:center;
+padding:5px;
+ cursor:pointer;
 
+}
 .KbigButton{
 color:white;
 font-size:2em;

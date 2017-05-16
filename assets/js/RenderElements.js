@@ -6,9 +6,10 @@ var Navbar={};
 function showRematchButton()
 {
 	
-	var but=showButton($("body"),"Rematch?","KgreenElement KregularButton");
+	var but=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
 	but.css("position","fixed");
 	but.css("top","50%");
+	
 }
 
 function phraseforloggedindate(dat)

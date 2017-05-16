@@ -184,8 +184,8 @@ var boardThemeNames=['original','A1','A2',
     var ShowAcceptDrawButton=false;
     
     var piecevalues={P:1,N:3,B:3,R:5,Q:9};
- var   BellSound= new Audio('/alert.mp3');
-var	MoveSound=new Audio('/move.mp3');
+	var BellSound= new Audio('/alert.mp3');
+	var	MoveSound=new Audio('/move.mp3');
 	var CheckMateSound=new Audio("/checkmate.mp3");
 	var DrawSound=new Audio("/draw.mp3");
 	var WithdrawSound=new Audio("/withdraw.mp3");
@@ -989,43 +989,16 @@ function StartBlackClock()
 					
 			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
 			{
-			
 			PlayMove();
 			}
 		}
 		
-			//Showcapturedpiece(move.captured,move.color,false);
-			
 	
-			/*
-			if (game.turn()=='b')
-			{
-			clearInterval($scope.WhiteInterval);
-			clearInterval($scope.BlackInterval);
-			$scope.StartBlackClock();
-			}
-			else
-			{
-			clearInterval($scope.WhiteInterval);
-			clearInterval($scope.BlackInterval);
-			$scope.StartWhiteClock();
-			}
-			*/
-			
-		//console.log("move returned from game "+JSON.stringify(move));
 		board1.move(modified);
 		
 		var square=   boardEl.find('.square-' + move.to);
 		
 		var position =square .position();
-		//$( "img[id='highlight']" ).detach();
-		//square.append("<img id='highlight'  src='/images/square.png'>");
-	//	 square.each(function( index ) {
-	//	console.log( index + ": " + $( this ).text() );
-	//	});
-	//	 square=   boardEl.find('.square-' + move.from);
-	//	square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
-		
 			
 
 			 square=   $("b[id='lastpgn']");
@@ -1033,15 +1006,8 @@ function StartBlackClock()
 			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
 					
 		
-		//updateTurnTakerLabel(game);
-		//console.log(game.ascii());
 		Moves=game.pgn().split(".");
 		
-	//	if (game.fen()!=board1.fen())
-	//	{
-		//	board1.position(game.fen());
-			//console.log("changed board position to match fen");
-	//	}
 		
 		if (game.in_stalemate())
 	{
@@ -1069,9 +1035,10 @@ function StartBlackClock()
 			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
 			{
 			PlayCheckMate();
+			
+			}
+			}
 			toastr.success("CheckMate!");
-			}
-			}
 		}
 		
 		
