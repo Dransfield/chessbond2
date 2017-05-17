@@ -1064,7 +1064,7 @@ function retrieveGames(persons)
 		console.log("persons[x] "+persons[x]);
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000,sort:"createdAt%20DESC"},
+		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000,sort:"createdAt%20ASC"},
 		function (resData,jwres){
 			JoinedGames[persons[x]]=[];
 			//console.log(JSON.stringify(resData));
