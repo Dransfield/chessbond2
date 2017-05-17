@@ -11,12 +11,20 @@ function showRematchButton()
 	but.css("position","fixed");
 	but.css("top","50%");
 	rematchSeconds=30;
+	
+	but.click(function(){
+		if(GamePlaying.Player1==GamePlaying.Player)
+		{}
+		
+	});
+	
 	setInterval(function(){
 		rematchSeconds=rematchSeconds-1;
 		$("#rematchTimer").html(rematchSeconds);
 		if(rematchSeconds==0)
 		{but.slideUp();}
 	},1000);
+	
 }
 
 function phraseforloggedindate(dat)
