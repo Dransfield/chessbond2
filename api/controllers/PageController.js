@@ -569,7 +569,7 @@ deleteopengame:function(req,res){
 
   
   sails.sockets.broadcast('openchessgameroom','newopengameevent', newgam);
-  return res.ok();
+  return JSON.stringify(newgam);
 });
 	
 	
