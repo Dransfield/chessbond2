@@ -18,7 +18,7 @@ function showRematchButton()
 		io.socket.put('/newopengame', { GameType:GamePlaying.GameType,GameCategory:GamePlaying.GameCategory,TimeLimit:GamePlaying.GameCategory.split("|")[0],ExtraTimeLimit:GamePlaying.GameCategory.split("|")[1],Player1Color:GamePlaying.Player1Color,Player1:GamePlaying.Player1,Player1Name:Accounts[GamePlaying.Player1].name },
     function (resData, jwr) {
 		console.log(resData);
-		var data=JSON.parse(resData);
+		var data=(resData);
 		console.log(data);
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
