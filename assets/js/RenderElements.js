@@ -968,8 +968,10 @@ function addGamesToRecentGames2(usracc)
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 		
-	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player1);  
+	showAvatar(newFlex,JoinedGames[usracc][iter].Player1); 
 	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	showAvatar(newFlex,JoinedGames[usracc][iter].Player2);
 	
 	usr1.attr("class","ChartCell");
 	usr2.attr("class","ChartCell");
@@ -978,7 +980,10 @@ function addGamesToRecentGames2(usracc)
 	else
 	{
 	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	showAvatar(newFlex,JoinedGames[usracc][iter].Player2);
+	
 	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+	showAvatar(newFlex,JoinedGames[usracc][iter].Player1);
 	
 	usr1.attr("class","ChartCell");
 	usr2.attr("class","ChartCell");
