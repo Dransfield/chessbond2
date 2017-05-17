@@ -10,8 +10,9 @@ function showRematchButton()
 	var timerspan=addSpan(but,"rematchTimer");
 	but.css("position","fixed");
 	but.css("top","50%");
+	rematchSeconds=30;
 	setInterval(function(){
-		rematchSeconds-=1;
+		rematchSeconds=rematchSeconds-1;
 		$("#rematchTimer").html(rematchSeconds);
 	},1000);
 }
