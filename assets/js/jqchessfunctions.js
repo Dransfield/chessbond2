@@ -1000,7 +1000,7 @@ function StartBlackClock()
 		
 	
 		board1.move(modified);
-		
+		if(move.to){
 		var square=   boardEl.find('.square-' + move.to);
 		
 		var position =square .position();
@@ -1010,7 +1010,7 @@ function StartBlackClock()
 			$( "img[id='pgnhighlight']" ).detach();
 			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
 					
-		
+		}
 		Moves=game.pgn().split(".");
 		
 		
