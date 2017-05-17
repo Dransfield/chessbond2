@@ -20,12 +20,38 @@ function showRematchButton()
 
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
-		toastr.success('Created New Game');
-		if( window.location.pathname.indexOf('/profile')>-1)
+      var iter=0;
+		io.socket.put('/joingame',
+		{		
+			GameID:resData[iter].id,
+			PlayerID:resData[iter].Player1,
+			//PlayerName:PlayerName,
+			PlayerColor:resData[iter].Player1Color,
+			MyID:MyID,
+			//MyName:MyName,
+			GameType:resData[iter].GameType,
+			GameCategory:resData[iter].GameCategory,
+			Player1TimeLimit:resData[iter].TimeLimit*60,
+			Player2TimeLimit:resData[iter].TimeLimit*60
+		}  
+				  
+		,function(resData2,jwres2)
 		{
 			
-			window.location.replace('/');
+			//console.log(JSON.parse(resData).id);
+			
+			io.socket.put('/deleteopengame', { gameid:resData[iter].id},function  (data,jwres)
+			{
+			
+				
+			
+			
+			});
+				$(location).attr('href', '/humanvshumannew/'+JSON.parse(resData2).id);
+			
 		}
+		);
+		
     });
     
 		}
