@@ -1068,7 +1068,8 @@ var cg = new Promise
 		function (resData,jwres){
 			resData.sort(function(a,b)
 			{
-				return Date(a.createdAt)-Date(b.createdAt);
+				console.log(Date(a.createdAt).getTime());
+				return Date(a.createdAt).getTime()-Date(b.createdAt).getTime();
 				}
 			
 			);
