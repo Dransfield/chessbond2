@@ -19,6 +19,7 @@ function showRematchButton()
     function (resData, jwr) {
 		console.log(resData);
 		var data=JSON.parse(resData);
+		console.log(data);
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
       var iter=0;
