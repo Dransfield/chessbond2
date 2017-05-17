@@ -1066,6 +1066,7 @@ var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000,sort:"createdAt"},
 		function (resData,jwres){
+			resData.sort("createdAt%20DESC");
 			JoinedGames[persons[x]]=[];
 			//console.log(JSON.stringify(resData));
 		//	console.log(resData);
