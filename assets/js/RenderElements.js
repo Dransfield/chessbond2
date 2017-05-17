@@ -6,7 +6,8 @@ var rematchSeconds;
 function showRematchButton()
 {
 	
-	var but=showButton($("body"),"Rematch?<span id='rematchTimer'></span>","KgreenElement KhugeButton");
+	var but=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
+	var timerspan=addSpan(but,"rematchTimer");
 	but.css("position","fixed");
 	but.css("top","50%");
 	setInterval(function(){
