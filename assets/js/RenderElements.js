@@ -15,7 +15,7 @@ function showRematchButton()
 		rematchSeconds=rematchSeconds-1;
 		$("#rematchTimer").html(rematchSeconds);
 		if(rematchSeconds==0)
-		{but.Slideup();}
+		{but.slideUp();}
 	},1000);
 }
 
