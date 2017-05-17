@@ -2,14 +2,17 @@ var ButtonNumber=0;
 var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
-
+var rematchSeconds;
 function showRematchButton()
 {
 	
-	var but=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
+	var but=showButton($("body"),"Rematch?<span id='rematchTimer'></span>","KgreenElement KhugeButton");
 	but.css("position","fixed");
 	but.css("top","50%");
-	
+	setInterval(function(){
+		rematchSeconds-=1;
+		$("#rematchTimer").html(rematchSeconds);
+	},1000);
 }
 
 function phraseforloggedindate(dat)
