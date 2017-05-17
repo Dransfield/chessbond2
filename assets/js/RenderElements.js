@@ -17,22 +17,23 @@ function showRematchButton()
 		{
 		io.socket.put('/newopengame', { GameType:GamePlaying.GameType,GameCategory:GamePlaying.GameCategory,TimeLimit:GamePlaying.GameCategory.split("|")[0],ExtraTimeLimit:GamePlaying.GameCategory.split("|")[1],Player1Color:GamePlaying.Player1Color,Player1:GamePlaying.Player1,Player1Name:Accounts[GamePlaying.Player1].name },
     function (resData, jwr) {
-
+		console.log(JSON.parse(resData));
+		var data=JSON.parse(resData));
       // Refresh the page now that we've been logged in.
       //window.location.reload(true); 
       var iter=0;
 		io.socket.put('/joingame',
 		{		
-			GameID:resData[iter].id,
-			PlayerID:resData[iter].Player1,
+			GameID:data.id,
+			PlayerID:data.Player1,
 			//PlayerName:PlayerName,
-			PlayerColor:resData[iter].Player1Color,
+			PlayerColor:data.Player1Color,
 			MyID:MyID,
 			//MyName:MyName,
-			GameType:resData[iter].GameType,
-			GameCategory:resData[iter].GameCategory,
-			Player1TimeLimit:resData[iter].TimeLimit*60,
-			Player2TimeLimit:resData[iter].TimeLimit*60
+			GameType:data.GameType,
+			GameCategory:data.GameCategory,
+			Player1TimeLimit:data.TimeLimit*60,
+			Player2TimeLimit:data.TimeLimit*60
 		}  
 				  
 		,function(resData2,jwres2)
@@ -40,7 +41,7 @@ function showRematchButton()
 			
 			//console.log(JSON.parse(resData).id);
 			
-			io.socket.put('/deleteopengame', { gameid:resData[iter].id},function  (data,jwres)
+			io.socket.put('/deleteopengame', { gameid:data[iter].id},function  (data2,jwres)
 			{
 			
 				
