@@ -1066,10 +1066,14 @@ var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000,sort:"createdAt"},
 		function (resData,jwres){
+			
+			
+			
 			resData.sort(function(a,b)
 			{
-				console.log(Date(a.createdAt).getTime());
-				return new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime();
+				console.log(a.createdAt);
+				console.log(new Date(a.createdAt).getTime());
+				return (new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime());
 				}
 			
 			);
