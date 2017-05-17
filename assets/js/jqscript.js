@@ -1061,7 +1061,7 @@ function retrieveGames(persons)
 	var PromiseArray=[];
 	for (x in persons)
 	{
-		console.log("persons[x] "+persons[x]);
+	//	console.log("persons[x] "+persons[x]);
 var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000,sort:"createdAt"},
@@ -1069,10 +1069,10 @@ var cg = new Promise
 			
 			
 			
-			resData.sort(function(a,b)
+			resData.sort(function(b,a)
 			{
-				console.log(a.createdAt);
-				console.log(new Date(a.createdAt).getTime());
+			//	console.log(a.createdAt);
+			//	console.log(new Date(a.createdAt).getTime());
 				return (new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime());
 				}
 			
