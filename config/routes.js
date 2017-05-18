@@ -82,7 +82,7 @@ module.exports.routes = {
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
 	'PUT /imidle':'PageController.AnnounceIdle',
-	
+	'PUT /wantrematch':'RematchController.WantRematch',
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /deleteavatar':'AvatarController.deletepic',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',

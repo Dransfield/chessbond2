@@ -13,6 +13,29 @@ function showRematchButton()
 	rematchSeconds=30;
 	
 	but.click(function(){
+		
+		if(GamePlaying.Player!=GamePlaying.Player2)
+		{
+			io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id},
+			function (resData, jwr) {
+				$(this).slideUp();
+			
+			if (resData.opponentWantsRematch==false)
+			{
+			var but=showButton($("body"),"Waiting for response","KgreenElement KhugeButton");}
+			but.css("position","fixed");
+			but.css("top","50%");
+			var waitingspan=addSpan(but,"waitingTimer");
+			setInterval(function(){
+				rematchSeconds=rematchSeconds-1;
+				$("#waitingTimer").html(rematchSeconds);
+				if(rematchSeconds==0)
+				{but.slideUp();}
+			},1000);
+			});
+			
+		}
+		
 		if(GamePlaying.Player1==GamePlaying.Player2)
 		{
 		io.socket.put('/newopengame', { GameType:GamePlaying.GameType,GameCategory:GamePlaying.GameCategory,TimeLimit:GamePlaying.GameCategory.split("|")[0],ExtraTimeLimit:GamePlaying.GameCategory.split("|")[1],Player1Color:GamePlaying.Player1Color,Player1:GamePlaying.Player1,Player1Name:Accounts[GamePlaying.Player1].name },
