@@ -42,7 +42,7 @@ function showRematchButton()
 			
 			//console.log(JSON.parse(resData).id);
 			
-			io.socket.put('/deleteopengame', { gameid:data[iter].id},function  (data2,jwres)
+			io.socket.put('/deleteopengame', { gameid:data.id},function  (data2,jwres)
 			{
 			
 				
