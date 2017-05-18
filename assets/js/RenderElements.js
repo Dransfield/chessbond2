@@ -5,6 +5,18 @@ var Navbar={};
 var rematchSeconds;
 function showRematchButton()
 {
+	io.socket.on('rematch',function (data)
+			{
+				var nam="";
+				if (GamePlaying.Player1=data.content)
+				{nam=GamePlayer.Player1Name;}
+				if (GamePlaying.Player2=data.content)
+				{nam=GamePlayer.Player2Name;}
+				
+			var but=showButton($("body"),nam+" wants a rematch","KgreenElement KhugeButton");
+			but.css("position","fixed");
+			but.css("top","10%");
+			});
 	
 	var but=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
 	var timerspan=addSpan(but,"rematchTimer");
