@@ -31,8 +31,8 @@ function showRematchButton()
 			io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id},
 			function (resData, jwr) {
 			Rematchbutton.slideUp();
-			
-			if (resData.opponentWantsRematch==false)
+			/*
+			if (!resData.opponentWantsRematch)
 			{
 			var Waitingbutton=showButton($("body"),"Waiting for response","KgreenElement KhugeButton");
 			Waitingbutton.css("position","fixed");
@@ -45,6 +45,7 @@ function showRematchButton()
 				{Waitingbutton.slideUp();}
 			},1000);
 			}
+			*/
 			});
 			
 		}
