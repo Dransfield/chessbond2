@@ -34,7 +34,7 @@ function showRematchButton()
 			
 			if (resData.opponentWantsRematch==false)
 			{
-			var but=showButton($("body"),"Waiting for response","KgreenElement KhugeButton");}
+			var but=showButton($("body"),"Waiting for response","KgreenElement KhugeButton");
 			but.css("position","fixed");
 			but.css("top","50%");
 			var waitingspan=addSpan(but,"waitingTimer");
