@@ -18,10 +18,10 @@ function showRematchButton()
 			but.css("top","10%");
 			});
 	
-	var but=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
-	var timerspan=addSpan(but,"rematchTimer");
-	but.css("position","fixed");
-	but.css("top","50%");
+	var Rematchbutton=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
+	var timerspan=addSpan(Rematchbutton,"rematchTimer");
+	Rematchbutton.css("position","fixed");
+	Rematchbutton.css("top","50%");
 	rematchSeconds=30;
 	
 	but.click(function(){
@@ -30,19 +30,19 @@ function showRematchButton()
 		{
 			io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id},
 			function (resData, jwr) {
-				$(this).slideUp();
+			Rematchbutton.slideUp();
 			
 			if (resData.opponentWantsRematch==false)
 			{
-			var but=showButton($("body"),"Waiting for response","KgreenElement KhugeButton");
-			but.css("position","fixed");
-			but.css("top","50%");
-			var waitingspan=addSpan(but,"waitingTimer");
+			var Waitingbutton=showButton($("body"),"Waiting for response","KgreenElement KhugeButton");
+			Waitingbutton.css("position","fixed");
+			Waitingbutton.css("top","50%");
+			var waitingspan=addSpan(Waitingbutton,"waitingTimer");
 			setInterval(function(){
 				rematchSeconds=rematchSeconds-1;
 				$("#waitingTimer").html(rematchSeconds);
 				if(rematchSeconds==0)
-				{but.slideUp();}
+				{Waitingbutton.slideUp();}
 			},1000);
 			}
 			});
