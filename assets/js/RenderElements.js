@@ -44,6 +44,7 @@ function showRematchButton()
 				if(rematchSeconds==0)
 				{but.slideUp();}
 			},1000);
+			}
 			});
 			
 		}
