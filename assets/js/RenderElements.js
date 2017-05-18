@@ -24,7 +24,7 @@ function showRematchButton()
 	Rematchbutton.css("top","50%");
 	rematchSeconds=30;
 	
-	but.click(function(){
+	Rematchbutton.click(function(){
 		
 		if(GamePlaying.Player!=GamePlaying.Player2)
 		{
