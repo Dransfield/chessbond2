@@ -7,6 +7,7 @@ function showRematchButton()
 {
 	io.socket.on('rematch',function (data)
 			{
+				console.log("recieved rematch");
 				var nam="";
 				if (GamePlaying.Player1=data.content)
 				{nam=GamePlayer.Player1Name;}

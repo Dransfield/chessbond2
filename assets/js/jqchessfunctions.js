@@ -917,7 +917,7 @@ function StartBlackClock()
 			
 
   			io.socket.get('/chessgame',{id:GameID},function (resData,jwres){
-			console.log(JSON.stringify(resData));
+			//console.log(JSON.stringify(resData));
 		   
 		   GamePlaying=resData;
 		  // GamePlaying.OverallScore
@@ -930,7 +930,7 @@ function StartBlackClock()
 		 // }
 		  if (GamePlaying.Result)
 			{
-				console.log("recieved chessmove with result"+GamePlaying.Result);
+				//console.log("recieved chessmove with result"+GamePlaying.Result);
 			resultDiv.html(GamePlaying.Result);
 			resultDiv.css("padding","4px");
 			resultDiv.css("margin-left","8px");
