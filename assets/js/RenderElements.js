@@ -29,7 +29,7 @@ function showRematchButton()
 		
 		if(GamePlaying.Player!=GamePlaying.Player2)
 		{
-			io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id},
+			io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id,p1color:GamePlaying.Player1Color,gametype:GamePlaying.GameType,gamecat:GamePlaying.GameCategory,gametime:GamePlaying.Player1TimeLimit},
 			function (resData, jwr) {
 			Rematchbutton.slideUp();
 			/*

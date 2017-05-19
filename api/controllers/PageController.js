@@ -11,7 +11,7 @@
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 
- function MakeGame(p1,p2,p1color,gamecat,gametype)
+ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
  {
 	User.find({
 	id : [p1,p2]
@@ -62,17 +62,7 @@
 		else
 		{p2color='White';}
 		
-		//GameID=req.param('GameID');
-		
-		
-		num1=req.param("Player1TimeLimit");
-		num2=req.param("Player2TimeLimit");
-		
-		//console.log("ThisGameCat "+ThisGameCat);
-		
-	
-		
-			Chessgame.create({Player1ELO:p1RELO,Player1CategoryELO:OppoCategoryELO,Player2ELO:MyELO,Player2CategoryELO:MyCategoryELO,GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:p1color,Player1:OppoID,Player2:MyID,Player1Name:OppoName,Player2Name:MyName}).exec(
+		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -692,7 +682,7 @@ deleteopengame:function(req,res){
 	Joingame: function(req,res)  {
 	   var sentresponse=false;
 	   
-	   	Openchessgame.findOne(GameID, function foundUser(err, game) {
+	   	Openchessgame.findOne(req.param('GameID'), function foundUser(err, game) {
 	
 		
 			if (!game) {
@@ -704,7 +694,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 			//	game.Player2=MyID;
-	   MakeGame(req.param('MyID'),req.param('PlayerID'));
+	   MakeGame(req.param('MyID'),req.param('PlayerID'),req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player2TimeLimit'));
 	   
 		
 			}
