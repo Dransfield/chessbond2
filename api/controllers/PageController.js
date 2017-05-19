@@ -11,6 +11,103 @@
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 
+ function MakeGame(p1,p2,p1color,gamecat,gametype)
+ {
+	User.find({
+	id : [p1,p2]
+	}).exec(function (err, players){
+		
+		if (err) return res.negotiate(err);
+		
+		// If session refers to a user who no longer exists, still allow logout.
+			if (!players) {
+			console.log('Session refers to a user who no longer exists.');
+			sentresponse=true;
+			return res.notFound();
+			}
+		
+		var p1Record;
+		var p2Record;
+		
+		if (players[0].id==p1)
+		{
+		p1Record=players[0];
+		p2Record=players[1];
+		}
+		else
+		{
+		p1Record=players[1];
+		p2Record=players[0];
+		}
+		
+		if (p1==p2)
+		{
+		p1Record=players[0];
+		p2Record=players[0];
+		}
+		
+		p1Name=p1Record.name;
+		p1ID=p1Record.id;
+		p1ELO=p1Record.ELO;
+		p1CategoryELO=p1Record['rating'+OppoColor+ThisGameCat];
+		
+		p2Name=p2Record.name;
+		p2ID=p2Record.id;
+		p2ELO=myRecord.ELO;
+		p2CategoryELO=p2Record['rating'+MyColor+ThisGameCat];
+		
+		var p2color;
+		if(p1color=='White')
+		{p2color='Black';}
+		else
+		{p2color='White';}
+		
+		//GameID=req.param('GameID');
+		
+		
+		num1=req.param("Player1TimeLimit");
+		num2=req.param("Player2TimeLimit");
+		
+		//console.log("ThisGameCat "+ThisGameCat);
+		
+	
+		
+			Chessgame.create({Player1ELO:p1RELO,Player1CategoryELO:OppoCategoryELO,Player2ELO:MyELO,Player2CategoryELO:MyCategoryELO,GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:p1color,Player1:OppoID,Player2:MyID,Player1Name:OppoName,Player2Name:MyName}).exec(
+			
+			function (err, records) {
+				if(err){
+			console.log('Cant create joined game.');
+			//console.log(JSON.stringify(err));
+			}
+			console.log("records"+JSON.stringify(records));
+			//console.log(records);
+			console.log("broadcasting to "+OppoID);
+			  sails.sockets.broadcast(OppoID,'newmygameevent', records);
+			  if (OppoID!=MyID)
+			{
+			  sails.sockets.broadcast(MyID,'newmygameevent', records);
+			}
+			
+			if(sentresponse==false)
+			{
+			sentresponse=true;
+			
+			return res.json(JSON.stringify(records));
+			}
+			
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+			//game.destroy();
+			}); 
+	 
+	}
  
  var TimerList=[];
  function DoWithdraw(withdrawer,GameID)
@@ -594,68 +691,8 @@ deleteopengame:function(req,res){
 	*/
 	Joingame: function(req,res)  {
 	   var sentresponse=false;
-		User.find({
-	id : [req.param('MyID'),req.param('PlayerID')]
-	}).exec(function (err, players){
-		
-		if (err) return res.negotiate(err);
-		
-		// If session refers to a user who no longer exists, still allow logout.
-			if (!players) {
-			console.log('Session refers to a user who no longer exists.');
-			sentresponse=true;
-			return res.notFound();
-			}
-		
-		var myRecord;
-		var oppoRecord;
-		
-		if (players[0].id==req.param('MyID'))
-		{
-		myRecord=players[0];
-		oppoRecord=players[1];
-		}
-		else
-		{
-		myRecord=players[1];
-		oppoRecord=players[0];
-		}
-		
-		if (req.param('PlayerID')==req.param('MyID'))
-		{
-		myRecord=players[0];
-		oppoRecord=players[0];
-		}
-		
-		OppoName=oppoRecord.name;
-		OppoID=oppoRecord.id;
-		OppoColor=req.param('PlayerColor');
-		OppoELO=oppoRecord.ELO;
-		ThisGameCat=req.param('GameCategory');
-		
-		OppoCategoryELO=oppoRecord['rating'+OppoColor+ThisGameCat];
-		
-		GameID=req.param('GameID');
-		
-		MyID=myRecord.id;
-		MyELO=myRecord.ELO;
-		var MyColor;
-		if(OppoColor=='White')
-		{MyColor='Black';}
-		else
-		{MyColor='White';}
-		
-		MyCategoryELO=myRecord['rating'+MyColor+ThisGameCat];
-		MyName=myRecord.name;
-		GameTypeID=req.param('GameType');
-		num1=req.param("Player1TimeLimit");
-		num2=req.param("Player2TimeLimit");
-		
-		console.log("ThisGameCat "+ThisGameCat);
-		
-		Openchessgame.findOne(GameID, function foundUser(err, game) {
-	
-		// If session refers to a user who no longer exists, still allow logout.
+	   
+	   	Openchessgame.findOne(GameID, function foundUser(err, game) {
 	
 		
 			if (!game) {
@@ -663,41 +700,13 @@ deleteopengame:function(req,res){
 			return res.notFound();
 			}	
 			
-			console.log("game.Player2 "+game.Player2);
+			
 			if (!game.Player2)
 			{
-				game.Player2=MyID;
-			Chessgame.create({Player1ELO:OppoELO,Player1CategoryELO:OppoCategoryELO,Player2ELO:MyELO,Player2CategoryELO:MyCategoryELO,GameCategory:ThisGameCat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num1,GameType:GameTypeID,Move:1,Player1Color:OppoColor,Player1:OppoID,Player2:MyID,Player1Name:OppoName,Player2Name:MyName}).exec(
-			
-			function (err, records) {
-				if(err){
-			console.log('Cant create joined game.');
-			//console.log(JSON.stringify(err));
-			}
-			console.log("records"+JSON.stringify(records));
-			//console.log(records);
-			console.log("broadcasting to "+OppoID);
-			  sails.sockets.broadcast(OppoID,'newmygameevent', records);
-			  if (OppoID!=MyID)
-			{
-			  sails.sockets.broadcast(MyID,'newmygameevent', records);
-			}
-			
-			if(sentresponse==false)
-			{
-			sentresponse=true;
-			
-			return res.json(JSON.stringify(records));
-			}
-			
-			});
-			
-			
-			
-			
-			
-			
-			
+			//	game.Player2=MyID;
+	   MakeGame(req.param('MyID'),req.param('PlayerID'));
+	   
+		
 			}
 			else
 			{
@@ -708,23 +717,9 @@ deleteopengame:function(req,res){
 			return res.forbidden();
 			}	
 			}
-			//game.destroy();
-			});
 			
-			
-		// Wipe out the session (log out)
 		
-		
-		sails.log.verbose('joining.'+GameID+' with '+OppoID);
        
-       
-      // Either send a 200 OK or redirect to the home page
-		//if (sentresponse==false)
-	//	{
-		//sentresponse=true;
-		//return res.ok();
-		//return res.json(JSON.stringify(records));
-		//}
 		 });
     
     },
