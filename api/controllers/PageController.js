@@ -46,21 +46,23 @@
 		p2Record=players[0];
 		}
 		
-		p1Name=p1Record.name;
-		p1ID=p1Record.id;
-		p1ELO=p1Record.ELO;
-		p1CategoryELO=p1Record['rating'+OppoColor+ThisGameCat];
-		
-		p2Name=p2Record.name;
-		p2ID=p2Record.id;
-		p2ELO=myRecord.ELO;
-		p2CategoryELO=p2Record['rating'+MyColor+ThisGameCat];
-		
 		var p2color;
 		if(p1color=='White')
 		{p2color='Black';}
 		else
 		{p2color='White';}
+		
+		p1Name=p1Record.name;
+		p1ID=p1Record.id;
+		p1ELO=p1Record.ELO;
+		p1CategoryELO=p1Record['rating'+p1color+ThisGameCat];
+		
+		p2Name=p2Record.name;
+		p2ID=p2Record.id;
+		p2ELO=myRecord.ELO;
+		p2CategoryELO=p2Record['rating'+p2color+ThisGameCat];
+		
+		
 		
 		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
 			
@@ -72,17 +74,17 @@
 			console.log("records"+JSON.stringify(records));
 			//console.log(records);
 			console.log("broadcasting to "+OppoID);
-			  sails.sockets.broadcast(OppoID,'newmygameevent', records);
-			  if (OppoID!=MyID)
+			  sails.sockets.broadcast(p1ID,'newmygameevent', records);
+			  if (p1ID!=p2ID)
 			{
-			  sails.sockets.broadcast(MyID,'newmygameevent', records);
+			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
 			}
 			
 			if(sentresponse==false)
 			{
 			sentresponse=true;
 			
-			return res.json(JSON.stringify(records));
+			return res.json(records);
 			}
 			
 			});
