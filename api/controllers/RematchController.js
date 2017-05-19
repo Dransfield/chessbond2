@@ -34,7 +34,7 @@ module.exports = {
 			else
 			{
 			
-			Rematch.create({Player1:req.param('me'),game:req.param('gam'),gametype:req.param('gametype'),gamecat:req.param('gamecat'),gametime('gametime')}).exec(function (err, records) {
+			Rematch.create({Player1:req.param('me'),game:req.param('gam'),gametype:req.param('gametype'),gamecat:req.param('gamecat'),gametime:req.param('gametime')}).exec(function (err, records) {
 			console.log("sending socket broadcast");
 			sails.sockets.broadcast(req.param('gam'),'rematch', {content:req.param('me')});
 		
