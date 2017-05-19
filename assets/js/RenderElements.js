@@ -10,9 +10,9 @@ function showRematchButton()
 				console.log("recieved rematch");
 				var nam="";
 				if (GamePlaying.Player1=data.content)
-				{nam=GamePlayer.Player1Name;}
+				{nam=GamePlaying.Player1Name;}
 				if (GamePlaying.Player2=data.content)
-				{nam=GamePlayer.Player2Name;}
+				{nam=GamePlaying.Player2Name;}
 				
 			var but=showButton($("body"),nam+" wants a rematch","KgreenElement KhugeButton");
 			but.css("position","fixed");
