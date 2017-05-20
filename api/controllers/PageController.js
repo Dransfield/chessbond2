@@ -55,12 +55,12 @@
 		p1Name=p1Record.name;
 		p1ID=p1Record.id;
 		p1ELO=p1Record.ELO;
-		p1CategoryELO=p1Record['rating'+p1color+ThisGameCat];
+		p1CategoryELO=p1Record['rating'+p1color+gamecat];
 		
 		p2Name=p2Record.name;
 		p2ID=p2Record.id;
 		p2ELO=myRecord.ELO;
-		p2CategoryELO=p2Record['rating'+p2color+ThisGameCat];
+		p2CategoryELO=p2Record['rating'+p2color+gamecat];
 		
 		
 		
