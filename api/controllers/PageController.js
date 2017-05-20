@@ -81,7 +81,7 @@
 			}
 			
 		
-			return res.json(records);
+			
 			
 			
 			});
@@ -695,7 +695,7 @@ deleteopengame:function(req,res){
 			//	game.Player2=MyID;
 	   MakeGame(req.param('MyID'),req.param('PlayerID'),req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player2TimeLimit'));
 	   
-		
+		return res.ok();
 			}
 			else
 			{
