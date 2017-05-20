@@ -87,7 +87,7 @@ function showRematchButton()
 			
 			
 			});
-				$(location).attr('href', '/humanvshumannew/'+JSON.parse(resData2).id);
+				$(location).attr('href', '/humanvshumannew/'+resData2.id);
 			
 		}
 		);

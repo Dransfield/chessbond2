@@ -693,7 +693,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 			//	game.Player2=MyID;
-	   MakeGame(req.param('MyID'),req.param('PlayerID'),req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player2TimeLimit'));
+	   MakeGame(req.param('MyID'),req.param('PlayerID'),game.Player1Color,req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player2TimeLimit'));
 	   
 		return res.ok();
 			}
