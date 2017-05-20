@@ -59,7 +59,7 @@
 		
 		p2Name=p2Record.name;
 		p2ID=p2Record.id;
-		p2ELO=myRecord.ELO;
+		p2ELO=p2Record.ELO;
 		p2CategoryELO=p2Record['rating'+p2color+gamecat];
 		
 		
