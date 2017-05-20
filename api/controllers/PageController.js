@@ -73,7 +73,7 @@
 			}
 			console.log("records"+JSON.stringify(records));
 			//console.log(records);
-			console.log("broadcasting to "+OppoID);
+			console.log("broadcasting to "+p1ID);
 			  sails.sockets.broadcast(p1ID,'newmygameevent', records);
 			  if (p1ID!=p2ID)
 			{
