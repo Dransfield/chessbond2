@@ -5,11 +5,11 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-function makeGame(rem)
+function makeGame(rem,res)
 
 {
 		
-				MakeGame(rem.Player1,rem.Player2,p1color,gamecat,gametype,num1,num2)
+				MakeGame(rem.Player1,rem.Player2,p1color,gamecat,gametype,num1,num2,res)
 				
 		
 	
@@ -27,7 +27,7 @@ module.exports = {
 					if(rem.Player1!=req.param('me'))
 					{
 					rem.Player2=req.param('me');
-					makeGame(rem);
+					makeGame(rem,res);
 					}
 				}
 			}

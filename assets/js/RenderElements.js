@@ -1474,7 +1474,7 @@ io.socket.on('connect',function(){
 			{
 			
 			});
-		$(location).attr('href', '/humanvshumannew/'+JSON.parse(resData).id);
+		$(location).attr('href', '/humanvshumannew/'+resData.id);
 			
 		}
 		);
