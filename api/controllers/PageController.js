@@ -80,12 +80,9 @@
 			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
 			}
 			
-			if(sentresponse==false)
-			{
-			sentresponse=true;
-			
+		
 			return res.json(records);
-			}
+			
 			
 			});
 			
