@@ -1470,12 +1470,11 @@ io.socket.on('connect',function(){
 			
 			//console.log(JSON.parse(resData).id);
 			
-			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
+				io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
 			
 			});
-		$(location).attr('href', '/humanvshumannew/'+resData.id);
-			
+		
 		}
 		);
 			

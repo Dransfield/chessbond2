@@ -1655,6 +1655,8 @@ function renderHomePage()
 			JoinedGames[MyID].push(data);
 			//addJoinedGame(games.length-1,games,myelem);
 			addGamesToRecentGames2(MyID);
+		$(location).attr('href', '/humanvshumannew/'+data.id);
+			
 			});
 	
 	}
