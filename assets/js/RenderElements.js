@@ -5,6 +5,13 @@ var Navbar={};
 var rematchSeconds;
 function showRematchButton()
 {
+	
+	io.socket.on('newmygameevent', function (data)
+			{
+		$(location).attr('href', '/humanvshumannew/'+data.id);
+			
+			});
+	
 	io.socket.on('rematch',function (data)
 			{
 				console.log("recieved rematch");
@@ -1196,56 +1203,6 @@ function addGamesToRecentGames(usracc)
 }
 }
 
-function showJoinedGameList(elem,games)
-{
-	console.log(JSON.stringify(games));
-	elem.append(`
-<h2 class='sub-header'>Your Games</h2>
-          <div class='table-responsive' style='overflow:visible;'>
-            <table class='table table-striped'>
-              
-		
-			<thead>
-                <tr>
-	              <th>Player1</th>
-                  <th>Player2</th>
-                  
-				<!--HEADERS OF TABLE-->
-                </tr>
-           </thead>
-           <tbody id='JoinedGameListDiv'>
-				  
-            </tbody>
-            </table>
-          </div>`).hide().slideDown();;
-          
-          var myelem=$("#JoinedGameListDiv");
-				for (iter in games)
-				{
-					addJoinedGame(iter,games,myelem);
-				}
-				
-io.socket.on('newmygameevent', function (data)
-			{
-			console.log('recieved new game event '+data);
-			
-			data.phrase=phrasefordate(data.createdAt);
-			games.push(data);
-			addJoinedGame2(games.length-1,games,myelem);
-			});
-          /*
-            <tr ng-repeat="game in joinedgames track by $index">
-			<td><%- include('partials/username', {userid: "game.Player1",Myid:Myid}); %></td>
-			<td><%- include('partials/username', {userid: "game.Player2",Myid:Myid}); %></td>
-			
-			<td>
-				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
-				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
-			</td>
-			
-			</tr>retri
-          */
-}
 
 function addJoinedGame(iter,games,myelem){
 				console.log(JSON.stringify(games[iter]));
