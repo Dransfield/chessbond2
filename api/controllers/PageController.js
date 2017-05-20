@@ -11,7 +11,7 @@
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 
- function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2,res)
+ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
  {
 	User.find({
 	id : [p1,p2]
@@ -81,7 +81,7 @@
 			}
 			
 		
-			return res.json(records);
+			//return res.json(records);
 			
 			
 			});
@@ -693,7 +693,7 @@ deleteopengame:function(req,res){
 			if (!game.Player2)
 			{
 			//	game.Player2=MyID;
-	   MakeGame(req.param('MyID'),req.param('PlayerID'),req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player2TimeLimit'),res);
+	   MakeGame(req.param('MyID'),req.param('PlayerID'),req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player2TimeLimit'));
 	   
 		//return res.ok();
 			}

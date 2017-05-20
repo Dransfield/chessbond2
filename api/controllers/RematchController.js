@@ -9,7 +9,7 @@ function makeGame(rem,res)
 
 {
 		
-				MakeGame(rem.Player1,rem.Player2,p1color,gamecat,gametype,num1,num2,res)
+				MakeGame(rem.Player1,rem.Player2,p1color,gamecat,gametype,num1,num2);
 				
 		
 	
