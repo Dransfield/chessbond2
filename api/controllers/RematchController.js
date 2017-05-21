@@ -103,14 +103,14 @@ module.exports = {
 					if(rem.Player1!=req.param('me'))
 					{
 					rem.Player2=req.param('me');
-					MakeGame(rem.Player1,rem.Player2,p1color,gamecat,gametype,num1,num2);
+					MakeGame(rem.Player1,rem.Player2,rem.p1color,rem.gamecat,rem.gametype,rem.gametime,rem.gametime);
 					}
 				}
 			}
 			else
 			{
 			
-			Rematch.create({Player1:req.param('me'),game:req.param('gam'),gametype:req.param('gametype'),gamecat:req.param('gamecat'),gametime:req.param('gametime')}).exec(function (err, records) {
+			Rematch.create({Player1:req.param('me'),p1color:req.param('p1color'),game:req.param('gam'),gametype:req.param('gametype'),gamecat:req.param('gamecat'),gametime:req.param('gametime')}).exec(function (err, records) {
 			console.log("sending socket broadcast");
 			sails.sockets.broadcast(req.param('gam'),'rematch', {content:req.param('me')});
 		
