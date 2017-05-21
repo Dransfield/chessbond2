@@ -109,7 +109,7 @@ function showRematchButton()
 		rematchSeconds=rematchSeconds-1;
 		$("#rematchTimer").html(rematchSeconds);
 		if(rematchSeconds==0)
-		{but.slideUp();}
+		{Rematchbutton.slideUp();}
 	},1000);
 	
 }
