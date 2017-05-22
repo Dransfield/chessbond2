@@ -103,7 +103,7 @@ module.exports = {
 				else
 				{rem.p1color='White';}
 				
-					
+					console.log("make game "+rem.Player1+" "+rem.Player2);
 				MakeGame(rem.Player1,rem.Player2,rem.p1color,rem.gamecat,rem.gametype,rem.gametime,rem.gametime);
 			}
 			else
