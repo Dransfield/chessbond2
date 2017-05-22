@@ -116,7 +116,7 @@ module.exports = {
 			else
 			{
 			
-			Chessgame.findOne({id:req.param('gam')},function(foundGame(err2,gam){
+			Chessgame.findOne({id:req.param('gam')},function foundGame(err2,gam){
 			Rematch.create({Player1:gam.Player1,Player2:gam.Player2,p1color:gam.p1color,game:gam.id,gametype:gam.GameType,gamecat:gam.GameCategory,gametime:gam.Player1TimeLimit,sentence:gam.Result}).exec(function (err, records) {
 			console.log("sending socket broadcast");
 			
