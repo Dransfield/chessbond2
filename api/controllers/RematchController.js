@@ -96,28 +96,44 @@ module.exports = {
 	
 	WantRematch: function(req,res)  {
 		Rematch.findOne({game:req.param('gam')}, function foundRematch(err, rem) {
+			
+				
 			if(rem)
 			{
-				if(rem.Player1)	
-				{
-					if(rem.Player1!=req.param('me'))
-					{
-					rem.Player2=req.param('me');
+					
+				
+				if(rem.p1color=='White')
+				{rem.p1color='Black';}
+				else
+				{rem.p1color='White';}
+				
+					
 					MakeGame(rem.Player1,rem.Player2,rem.p1color,rem.gamecat,rem.gametype,rem.gametime,rem.gametime);
-					}
-				}
+					
+				
+				
 			}
 			else
 			{
 			
-			Rematch.create({Player1:req.param('me'),p1color:req.param('p1color'),game:req.param('gam'),gametype:req.param('gametype'),gamecat:req.param('gamecat'),gametime:req.param('gametime')}).exec(function (err, records) {
+			Chessgame.findOne({req.param('gam')},function(foundGame(err2,gam){
+			Rematch.create({Player1:gam.Player1,Player2:gam.Player2,p1color:gam.p1color,game:gam.id,gametype:gam.GameType,gamecat:gam.GameCategory,gametime:gam.Player1TimeLimit,sentence:gam.Result}).exec(function (err, records) {
 			console.log("sending socket broadcast");
+			
+			if (req.param('me')==gam.Player1)
+			{records.Player1WantsRematch=true;}
+			if (req.param('me')==gam.Player2)
+			{records.Player2WantsRematch=true;}
+			
+			records.save();
 			sails.sockets.broadcast(req.param('gam'),'rematch', {content:req.param('me')});
+			});
 		
 			return res.ok();
 			});
 				
 			}
+		}	});
 		});
 		
 	}
