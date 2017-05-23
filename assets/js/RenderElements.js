@@ -328,7 +328,7 @@ function showImageUploadForm(elem,usracc)
     </form>`);
 	
 }
-function showChatMessage(elem,msg,Replyto)
+function showChatMessage(elem,msg,Replyto,allowreplies)
 {
 	if (msg.replyto==Replyto){
 var newdiv;
@@ -347,10 +347,12 @@ elem.append(newdiv);
 showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
+if(allowreplies){
 showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
+}
 	for(iter in WallPosts)
 					{	
-					showChatMessage(newdiv,WallPosts[iter],msg.id);
+					showChatMessage(newdiv,WallPosts[iter],msg.id,false);
 					}
 
 //elem.append("<hr>");

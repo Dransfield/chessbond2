@@ -851,7 +851,7 @@ function setupProfilePage()
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(chatDiv,WallPosts[iter],"none");
+					showChatMessage(chatDiv,WallPosts[iter],"none",true);
 					}
 					
 					
@@ -871,7 +871,7 @@ function setupProfilePage()
 			$("#favicon").attr("href","/favicon2.ico");
 			//console.log('recieved chat message'+document.visibilityState);
 			}
-			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none");
+			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none",true);
 		
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
@@ -936,7 +936,7 @@ function setupChatPage()
 			{
 			console.log("recieved wall post socket");
 		
-			showChatMessage($("#privateconversationpage"),data);
+			showChatMessage($("#privateconversationpage"),data,"none",false);
 			//console.log("document.visibilityState "+document.visibilityState);
 			if (document.visibilityState=='hidden')
 			{
@@ -971,7 +971,7 @@ io.socket.get("/privateconversation",{id:convID},
 				
 					for(iter in WallPosts)
 					{	
-					showChatMessage($("#privateconversationpage"),WallPosts[iter]);
+					showChatMessage($("#privateconversationpage"),WallPosts[iter],"none",false);
 					}
 					$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"));
 		
