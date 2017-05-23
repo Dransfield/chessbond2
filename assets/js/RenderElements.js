@@ -348,6 +348,11 @@ showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
 showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
+	for(iter in WallPosts)
+					{	
+					showChatMessage(newdiv,WallPosts[iter],msg.id);
+					}
+
 //elem.append("<hr>");
 }
 
