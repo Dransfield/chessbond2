@@ -871,13 +871,13 @@ function setupProfilePage()
 			$("#favicon").attr("href","/favicon2.ico");
 			//console.log('recieved chat message'+document.visibilityState);
 			}
-			if(msg.replyto=='none')
+			if(WallPosts[(WallPosts.length-1)].replyto=='none')
 			{
 			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none",true);
 			}
 			else
 			{
-			showChatMessage($("#"+msg.replyto),WallPosts[(WallPosts.length-1)],msg.replyto,false);
+			showChatMessage($("#"+WallPosts[(WallPosts.length-1)].replyto),WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,false);
 			}
 			
 			//$("#favicon").attr("href","/favicon2.ico");
