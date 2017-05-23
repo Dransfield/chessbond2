@@ -330,33 +330,36 @@ function showImageUploadForm(elem,usracc)
 }
 function showChatMessage(elem,msg,Replyto,allowreplies)
 {
-	if (msg.replyto==Replyto){
-var newdiv;
-if(msg.sender==MyID)
-{
-	newdiv=$("<div  style='background-color:lightgrey;padding:4px;'></div>");
-}
-else
-{
-	newdiv=$("<div style='background-color:lightgreen;padding:4px;'></div>");
-	
-}
-console.log("show chat message "+JSON.stringify(msg));
-console.log("sender "+msg.sender);
-elem.append(newdiv);
-showsmallAvatar(newdiv,msg.sender);
-showUsername(newdiv,msg.sender);
-newdiv.append(":"+msg.content);	
-if(allowreplies){
-showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
-}
-	for(iter in WallPosts)
-					{	
-					showChatMessage(newdiv,WallPosts[iter],msg.id,false);
-					}
+	if (msg.replyto==Replyto)
+	{
+		
+	var newdiv;
+	if(msg.sender==MyID)
+	{
+		newdiv=$("<div id='"+msg.id+"' style='background-color:lightgrey;padding:4px;'></div>");
+	}
+	else
+	{
+		newdiv=$("<div id='"+msg.id+"' style='background-color:lightgreen;padding:4px;'></div>");
+		
+	}
+	console.log("show chat message "+JSON.stringify(msg));
+	console.log("sender "+msg.sender);
+	elem.append(newdiv);
+	showsmallAvatar(newdiv,msg.sender);
+	showUsername(newdiv,msg.sender);
+	newdiv.append(":"+msg.content);	
+		if(allowreplies){
+		showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
+		}
+		for(iter in WallPosts)
+						{	
+						showChatMessage(newdiv,WallPosts[iter],msg.id,false);
+						}
 
 //elem.append("<hr>");
-}
+
+	}
 
 }
 function CreateDropDown(usracc)

@@ -871,8 +871,15 @@ function setupProfilePage()
 			$("#favicon").attr("href","/favicon2.ico");
 			//console.log('recieved chat message'+document.visibilityState);
 			}
+			if(msg.replyto=='none')
+			{
 			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none",true);
-		
+			}
+			else
+			{
+			showChatMessage($("#"+msg.replyto),WallPosts[(WallPosts.length-1)],msg.replyto,false);
+			}
+			
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
