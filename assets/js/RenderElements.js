@@ -358,6 +358,10 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		{form.slideToggle();});
 		
 		}
+		else
+		{
+		chatDiv.css("align-self","flex-end");	
+		}
 		for(iter in WallPosts)
 						{	
 						showChatMessage(newdiv,WallPosts[iter],msg.id,false);
