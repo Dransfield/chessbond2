@@ -360,7 +360,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		}
 		else
 		{
-		chatDiv.css("align-self","flex-end");	
+		newdiv.css("align-self","flex-end");	
 		}
 		for(iter in WallPosts)
 						{	
