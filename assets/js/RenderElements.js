@@ -350,7 +350,13 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	showUsername(newdiv,msg.sender);
 	newdiv.append(":"+msg.content);	
 		if(allowreplies){
-		showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
+			var but=showButton(newdiv,"Reply","KgreenElement KregularButton");
+		
+		var form=showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
+		form.hide();
+		but.click(function()
+		{form.toggle();});
+		
 		}
 		for(iter in WallPosts)
 						{	
