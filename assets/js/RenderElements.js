@@ -328,8 +328,9 @@ function showImageUploadForm(elem,usracc)
     </form>`);
 	
 }
-function showChatMessage(elem,msg)
+function showChatMessage(elem,msg,Replyto)
 {
+	if (msg.replyto==Replyto){
 var newdiv;
 if(msg.sender==MyID)
 {
@@ -346,8 +347,9 @@ elem.append(newdiv);
 showsmallAvatar(newdiv,msg.sender);
 showUsername(newdiv,msg.sender);
 newdiv.append(":"+msg.content);	
-
+showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
 //elem.append("<hr>");
+}
 
 }
 function CreateDropDown(usracc)
@@ -625,7 +627,7 @@ function UpdateTypedText(words,elemTochange)
 				updateAccountInfo(words,MyID);
 		
 }
-function showChatForm(elem,chatID,msgtype)
+function showChatForm(elem,chatID,msgtype,ReplyTo="")
 {
 	var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
@@ -637,12 +639,12 @@ function showChatForm(elem,chatID,msgtype)
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
-		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val());
+		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 		 	chatform.val("");
 		}
 		 });
 		chatbutton.click(function(){
-			SendWallPost(MyID,chatID,msgtype,"",chatform.val());
+			SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 			chatform.val("");
 			});
 	

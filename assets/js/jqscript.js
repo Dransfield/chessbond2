@@ -516,7 +516,7 @@ function setupProfilePage()
 				console.log("add flexdiv");
 				console.log("joined games");
 				console.log(JSON.stringify(JoinedGames));
-			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
+				var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 			leftright.css("align-items","flex-start");
 			var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
 			leftcol.css("width","50%");
@@ -847,11 +847,11 @@ function setupProfilePage()
 			var games=3;
 			showRecentGames(leftcol,ProfID);
 			var chatDiv=addFlexDiv(leftcol,"chatdiv","column",'wrap');
-			showChatForm(chatDiv,ProfID,"wall");
+			showChatForm(chatDiv,ProfID,"wall","none");
 			console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(chatDiv,WallPosts[iter]);
+					showChatMessage(chatDiv,WallPosts[iter],"none");
 					}
 					
 					
@@ -871,7 +871,7 @@ function setupProfilePage()
 			$("#favicon").attr("href","/favicon2.ico");
 			//console.log('recieved chat message'+document.visibilityState);
 			}
-			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)]);
+			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none");
 		
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
@@ -995,11 +995,11 @@ io.socket.get("/privateconversation",{id:convID},
 }
 
 
-function SendWallPost(Myid,groupid,msgtype,address,msg)
+function SendWallPost(Myid,groupid,msgtype,address,msg,replyto)
 		{
 			var none='none';
 			
-			io.socket.post("/newwallpost",{ReplyTo:'none',content:msg,sender:Myid,grpid:groupid,messagetype:msgtype},
+			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype},
 			function onSuccess (){
 			//$scope.chatInput = null;
 			
