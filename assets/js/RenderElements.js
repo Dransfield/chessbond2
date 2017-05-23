@@ -3,6 +3,7 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 var rematchSeconds;
+
 function showRematchButton()
 {
 	
@@ -14,8 +15,9 @@ function showRematchButton()
 	
 	io.socket.on('rematch',function (data)
 			{
-				console.log("recieved rematch");
-				var nam="";
+				
+			console.log("recieved rematch");
+			var nam="";
 				if (GamePlaying.Player1=data.content)
 				{nam=GamePlaying.Player1Name;}
 				if (GamePlaying.Player2=data.content)

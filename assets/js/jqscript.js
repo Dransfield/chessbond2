@@ -517,7 +517,7 @@ function setupProfilePage()
 				console.log("joined games");
 				console.log(JSON.stringify(JoinedGames));
 			var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
-			
+			leftright.css("align-items","flex-start");
 			var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
 			leftcol.css("width","50%");
 			showUsernameJumbo(leftcol,ProfID);
