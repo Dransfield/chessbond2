@@ -356,7 +356,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		form.hide();
 		but.click(function()
 		{form.slideToggle();});
-		newdiv.css("border-bottom","1px");
+		newdiv.css("border-bottom-style","solid");
 		}
 		else
 		{
