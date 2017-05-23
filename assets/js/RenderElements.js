@@ -355,7 +355,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		var form=showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
 		form.hide();
 		but.click(function()
-		{form.toggle();});
+		{form.slideToggle();});
 		
 		}
 		for(iter in WallPosts)
@@ -663,7 +663,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 			SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 			chatform.val("");
 			});
-	
+	return chatform;
 }
 function showInput(elem)
 {
