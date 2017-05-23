@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
- function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
+ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2,msg)
  {
 	 console.log("makegame function");
 	User.find({
@@ -60,7 +60,7 @@
 		console.log(p1Name+" "+p2Name);
 		
 		
-		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name,message:msg}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -106,13 +106,13 @@ module.exports = {
 				{rem.p1color='White';}
 				
 					console.log("make game "+rem.Player1+" "+rem.Player2);
-				MakeGame(rem.Player1,rem.Player2,rem.p1color,rem.gamecat,rem.gametype,rem.gametime,rem.gametime);
+				MakeGame(rem.Player1,rem.Player2,rem.p1color,rem.gamecat,rem.gametype,rem.gametime,rem.gametime,rem.msg);
 			}
 			else
 			{
 			
 				Chessgame.findOne({id:req.param('gam')},function foundGame(err2,gam){
-					Rematch.create({Player1:gam.Player1,Player2:gam.Player2,p1color:gam.p1color,game:gam.id,gametype:gam.GameType,gamecat:gam.GameCategory,gametime:gam.Player1TimeLimit,sentence:gam.Result}).exec(function (err, records) {
+					Rematch.create({Player1:gam.Player1,Player2:gam.Player2,p1color:gam.p1color,game:gam.id,gametype:gam.GameType,gamecat:gam.GameCategory,gametime:gam.Player1TimeLimit,sentence:gam.Result,msg:req.param('msg')}).exec(function (err, records) {
 						console.log("sending socket broadcast");
 			
 						if (req.param('me')==gam.Player1)
