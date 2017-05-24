@@ -353,7 +353,8 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 			var year = dateObj.getUTCFullYear();
 			var hour=dateObj.getUTCHours();
 			var minute=dateObj.getUTCMinutes();
-			
+	if(minute<10)
+	{minute="0"+minute;}		
 	showsmallAvatar(newdiv,msg.sender);
 	
 	newdiv.append("<span style='border-style:solid'>");
@@ -362,6 +363,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	newdiv.append("<span style='width:20px'></span>");
 	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
 	newdiv.append("<span style='width:30px'></span>");
+	
 			newdiv.append("<span>"+hour+":"+minute+"</span>");
 	newdiv.append("</span>");
 	
