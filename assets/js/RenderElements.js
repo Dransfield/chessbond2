@@ -330,10 +330,11 @@ function showImageUploadForm(elem,usracc)
 }
 function showChatMessage(elem,msg,Replyto,allowreplies)
 {
+	
 	console.log("msg.replyto "+msg.replyto);
 	if (msg.replyto==Replyto)
 	{
-		
+		var overallDiv=addFlexDiv(elem,34,"column");
 	var newdiv;
 	if(msg.sender==MyID)
 	{
@@ -346,7 +347,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	}
 	console.log("show chat message "+JSON.stringify(msg));
 	console.log("sender "+msg.sender);
-	elem.append(newdiv);
+	overallDiv.append(newdiv);
 	var dateObj=new Date(msg.createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
@@ -390,7 +391,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		}
 		for(iter in WallPosts)
 						{	
-						showChatMessage(newdiv,WallPosts[iter],msg.id,false);
+						showChatMessage(overalldiv,WallPosts[iter],msg.id,false);
 						}
 
 //elem.append("<hr>");
