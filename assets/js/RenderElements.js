@@ -371,7 +371,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	postHeaderDiv.append("<span>"+hour+":"+minute+"</span>");
 	
 	if(deletebutton)
-	{showButton(postHeaderDiv,"X","KgreenElement KregularButton");}
+	{showButton(postHeaderDiv,"X","KredElement KregularButton");}
 	
 	postHeaderDiv.append("</span>");
 	
