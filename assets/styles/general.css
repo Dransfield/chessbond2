@@ -115,7 +115,11 @@ background: #5cb85c;
 background-color: #5bc0de;
 
 }
+.KredElement
+{
+background-color:red;
 
+}
   /* Small screens */
 @media all and (max-width: 500px) {
  .mynavbar {
