@@ -337,11 +337,11 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	var newdiv;
 	if(msg.sender==MyID)
 	{
-		newdiv=$("<div id='"+msg.id+"' style='background-color:lightgrey;padding:4px;'></div>");
+		newdiv=$("<div id='"+msg.id+"' style='display:flex;background-color:lightgrey;padding:4px;'></div>");
 	}
 	else
 	{
-		newdiv=$("<div id='"+msg.id+"' style='background-color:lightgreen;padding:4px;'></div>");
+		newdiv=$("<div id='"+msg.id+"' style='display:flex;background-color:lightgreen;padding:4px;'></div>");
 		
 	}
 	console.log("show chat message "+JSON.stringify(msg));
@@ -364,10 +364,11 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 			newdiv.append("<span>"+hour+":"+minute+"</span>");
 	newdiv.append("</span>");
 	
-	
-	newdiv.append(":"+msg.content);	
+	var nextdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
+	nextdiv.css("border-style","solid");
+	nextdiv.append(":"+msg.content);	
 		if(allowreplies){
-			var but=showButton(newdiv,"Reply","KgreenElement KregularButton");
+			var but=showButton(nextdiv,"Reply","KgreenElement KregularButton");
 		
 		var form=showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
 		form.hide();
