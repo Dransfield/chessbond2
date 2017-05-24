@@ -881,9 +881,9 @@ function setupProfilePage()
 			}
 			else
 			{
-				var thisDiv=addFlexDiv(chatDiv,WallPosts[iter].id,"column");
-				thisDiv.css("padding-left","20%");
-			showChatMessage($("#"+WallPosts[(WallPosts.length-1)].replyto),WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,false);
+					var replydiv=addFlexDiv($("#"+WallPosts[(WallPosts.length-1)].replyto),43,"column");
+						replydiv.css("padding-left","20%");
+			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,false);
 			}
 			
 			//$("#favicon").attr("href","/favicon2.ico");
