@@ -374,7 +374,21 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	{var delbut=showButton(postHeaderDiv,"X","KredElement KregularButton");
 		delbut.click(function(){
 		
-		$("#"+msg.id).hide();
+		//io.socket.put('/wallpost/destroy',{id:msg.id},
+		//function  (data){
+		//});
+		
+		for(iter in WallPosts)
+			{
+			
+			if(WallPosts[iter].replyto==msg.id)	
+			{
+			$("#"+WallPosts[iter].id).hide();
+	
+			}
+			
+			}
+		
 		});
 		
 		}
