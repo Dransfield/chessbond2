@@ -328,7 +328,8 @@ var soundVolume=5;
 			//chatDiv.css("overflow","scroll");
 			chatDiv2.css("overflow","auto");
 			chatDiv.css("height",boardDivDiv.css("width"));
-			console.log(boardDivDiv.css("width"));
+			chatDiv2.css("height",boardDivDiv.css("width"));
+			console.log("boardDivDiv.css('width')"+boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
 					showChatMessage(chatDiv2,WallPosts[iter],"none",false);
