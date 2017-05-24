@@ -391,8 +391,8 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		}
 		else
 		{
-		postHeaderDiv.css("align-items","flex-end");
-		nextdiv.css("align-items","flex-end");
+		//postHeaderDiv.css("align-items","flex-end");
+		//nextdiv.css("align-items","flex-end");
 		
 		}
 		
