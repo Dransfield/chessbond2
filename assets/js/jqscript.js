@@ -333,7 +333,7 @@ var soundVolume=5;
 					showChatMessage(chatDiv2,WallPosts[iter]);
 					}
 				
-			showChatForm($("#chatinput"),GamePlaying.id,"chesschat");		
+			showChatForm($("#chatinput"),GamePlaying.id,"chesschat","none");		
 					io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket"+JSON.stringify(data));
