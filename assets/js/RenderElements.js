@@ -391,8 +391,8 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		}
 		for(iter in WallPosts)
 						{	
-							var replydiv=addFlexDiv(overallDiv,43,"column");
-						showChatMessage(replydiv,WallPosts[iter],msg.id,false);
+							
+						showChatMessage(elem,WallPosts[iter],msg.id,false);
 						}
 
 //elem.append("<hr>");
