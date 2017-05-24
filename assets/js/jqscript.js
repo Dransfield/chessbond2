@@ -876,10 +876,13 @@ function setupProfilePage()
 			}
 			if(WallPosts[(WallPosts.length-1)].replyto=='none')
 			{
-			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none",true);
+				var thisDiv=addFlexDiv(chatDiv,WallPosts[iter].id,"column");
+			showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true);
 			}
 			else
 			{
+				var thisDiv=addFlexDiv(chatDiv,WallPosts[iter].id,"column");
+				thisDiv.css("padding-left","20%");
 			showChatMessage($("#"+WallPosts[(WallPosts.length-1)].replyto),WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,false);
 			}
 			
