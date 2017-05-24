@@ -391,7 +391,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		}
 		for(iter in WallPosts)
 						{	
-						showChatMessage(overalldiv,WallPosts[iter],msg.id,false);
+						showChatMessage(overallDiv,WallPosts[iter],msg.id,false);
 						}
 
 //elem.append("<hr>");
