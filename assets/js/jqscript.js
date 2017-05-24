@@ -850,10 +850,11 @@ function setupProfilePage()
 			var chatDiv=addFlexDiv(leftcol,"chatdiv","column",'wrap');
 			chatDiv.css("align-items","flex-start");
 			showChatForm(chatDiv,ProfID,"wall","none");
-			console.log(JSON.stringify(WallPosts));
+			//console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(chatDiv,WallPosts[iter],"none",true);
+					var thisDiv=addFlexDiv(chatDiv,WallPosts[iter].id,"column");
+					showChatMessage(thisDiv,WallPosts[iter],"none",true);
 					}
 					
 					

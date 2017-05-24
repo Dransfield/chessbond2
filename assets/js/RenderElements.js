@@ -334,21 +334,21 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	console.log("msg.replyto "+msg.replyto);
 	if (msg.replyto==Replyto)
 	{
-		var overallDiv=addFlexDiv(elem,34,"column");
-		overallDiv.attr("id",msg.id);
-	var newdiv;
+		
+	var postHeaderDiv;
+	
 	if(msg.sender==MyID)
 	{
-		newdiv=$("<div  style='display:flex;background-color:lightgrey;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;background-color:lightgrey;padding:4px;'></div>");
 	}
 	else
 	{
-		newdiv=$("<div  style='display:flex;background-color:lightgreen;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;background-color:lightgreen;padding:4px;'></div>");
 		
 	}
-	console.log("show chat message "+JSON.stringify(msg));
-	console.log("sender "+msg.sender);
-	overallDiv.append(newdiv);
+	//console.log("show chat message "+JSON.stringify(msg));
+	//console.log("sender "+msg.sender);
+	//overallDiv.append(newdiv);
 	var dateObj=new Date(msg.createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
@@ -357,24 +357,26 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 			var minute=dateObj.getUTCMinutes();
 	if(minute<10)
 	{minute="0"+minute;}		
-	showsmallAvatar(newdiv,msg.sender);
+	showsmallAvatar(postHeaderDiv,msg.sender);
 	
-	newdiv.append("<span style='border-style:solid'>");
-	newdiv.append("<span style='width:5px'></span>");
-	showUsername(newdiv,msg.sender);
-	newdiv.append("<span style='width:20px'></span>");
-	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
-	newdiv.append("<span style='width:30px'></span>");
+	postHeaderDiv.append("<span style='border-style:solid'>");
+	postHeaderDiv.append("<span style='width:5px'></span>");
+	showUsername(postHeaderDiv,msg.sender);
+	postHeaderDiv.append("<span style='width:20px'></span>");
+	postHeaderDiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
+	postHeaderDiv.append("<span style='width:30px'></span>");
 	
-	newdiv.append("<span>"+hour+":"+minute+"</span>");
-	newdiv.append("</span>");
+	postHeaderDiv.append("<span>"+hour+":"+minute+"</span>");
+	postHeaderDiv.append("</span>");
 	
-	var nextdiv=addFlexDiv(overallDiv,34,"row","wrap","space-around","center");
-	var padDiv=addDiv(nextdiv);
+	elem.append(postHeaderDiv);
+	
+	var nextdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
+	
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
 	nextdiv.append(msg.content);
-	nextdiv.css("width",newdiv.width());
+	nextdiv.css("width",postHeaderDiv.width());
 		if(allowreplies){
 			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
 	
@@ -384,17 +386,18 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		form.hide();
 		but.click(function()
 		{form.slideToggle();});
-		newdiv.css("border-bottom-style","solid");
+		elem.css("border-bottom-style","solid");
 		}
 		else
 		{
-		newdiv.css("align-self","flex-end");
-		newdiv.css("padding-left","20%");	
-		padDiv.css("padding-left","20%");
+		postHeaderDiv.css("align-items","flex-end");
+		nextdiv.css("align-items","flex-end");
+		
 		}
+		
 		for(iter in WallPosts)
 						{	
-							var replydiv=addFlexDiv(overallDiv,43,"column");
+							var replydiv=addFlexDiv(elem,43,"column");
 						showChatMessage(replydiv,WallPosts[iter],msg.id,false);
 						}
 
