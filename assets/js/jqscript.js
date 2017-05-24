@@ -325,7 +325,7 @@ var soundVolume=5;
 		var chatInput=addSpan(chatDiv,"chatinput");
 		
 				var chatDiv2=addFlexDiv(chatDiv,"chatDiv2","column");
-			
+			chatDiv.css("overflow","scroll");
 			
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
