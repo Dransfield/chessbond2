@@ -356,10 +356,15 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 			
 	showsmallAvatar(newdiv,msg.sender);
 	
-	newdiv.append(month+"/"+day+"/"+year);
-			newdiv.append("<div>"+hour+":"+minute+"/div>");
-	
+	newdiv.append("<span style='border-style:solid'>");
+	newdiv.append("<span style='width:30px'></span>");
 	showUsername(newdiv,msg.sender);
+	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year);
+	newdiv.append("<span style='width:30px'></span>");
+			newdiv.append("<span>"+hour+":"+minute+"</span>");
+	newdiv.append("</span>");
+	
+	
 	newdiv.append(":"+msg.content);	
 		if(allowreplies){
 			var but=showButton(newdiv,"Reply","KgreenElement KregularButton");
