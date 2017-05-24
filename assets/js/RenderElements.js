@@ -347,6 +347,11 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	console.log("show chat message "+JSON.stringify(msg));
 	console.log("sender "+msg.sender);
 	elem.append(newdiv);
+	var dateObj=new Date(msg.createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+			newdiv.append(month+"/"+day+"/"+year);
 	showsmallAvatar(newdiv,msg.sender);
 	showUsername(newdiv,msg.sender);
 	newdiv.append(":"+msg.content);	
