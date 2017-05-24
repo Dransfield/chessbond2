@@ -331,6 +331,7 @@ function showImageUploadForm(elem,usracc)
 function showChatMessage(elem,msg,Replyto,allowreplies)
 {
 	
+	var myColumn=addFlexDiv(elem,msg.id,"column");
 	console.log("msg.replyto "+msg.replyto);
 	if (msg.replyto==Replyto)
 	{
@@ -369,9 +370,9 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	postHeaderDiv.append("<span>"+hour+":"+minute+"</span>");
 	postHeaderDiv.append("</span>");
 	
-	elem.append(postHeaderDiv);
+	myColumn.append(postHeaderDiv);
 	
-	var nextdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
+	var nextdiv=addFlexDiv(myColumn,34,"row","wrap","space-around","center");
 	
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
@@ -398,6 +399,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		for(iter in WallPosts)
 						{	
 							var replydiv=addFlexDiv(elem,43,"column");
+						replydiv.css("padding-left","20%");
 						showChatMessage(replydiv,WallPosts[iter],msg.id,false);
 						}
 
