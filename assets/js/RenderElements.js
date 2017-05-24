@@ -353,9 +353,12 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 			var year = dateObj.getUTCFullYear();
 			var hour=dateObj.getUTCHours();
 			var minute=dateObj.getUTCMinutes();
-			newdiv.append(month+"/"+day+"/"+year);
-			newdiv.append(hour+":"+minute);
+			
 	showsmallAvatar(newdiv,msg.sender);
+	
+	newdiv.append(month+"/"+day+"/"+year);
+			newdiv.append("<div>"+hour+":"+minute+"/div>");
+	
 	showUsername(newdiv,msg.sender);
 	newdiv.append(":"+msg.content);	
 		if(allowreplies){
