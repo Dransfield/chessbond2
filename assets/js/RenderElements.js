@@ -390,7 +390,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		{
 		newdiv.css("align-self","flex-end");
 		newdiv.css("padding-left","20%");	
-		paddiv.css("padding-left","20%");
+		padDiv.css("padding-left","20%");
 		}
 		for(iter in WallPosts)
 						{	
