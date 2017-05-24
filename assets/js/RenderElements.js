@@ -359,7 +359,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	newdiv.append("<span style='border-style:solid'>");
 	newdiv.append("<span style='width:30px'></span>");
 	showUsername(newdiv,msg.sender);
-	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year);
+	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
 	newdiv.append("<span style='width:30px'></span>");
 			newdiv.append("<span>"+hour+":"+minute+"</span>");
 	newdiv.append("</span>");
