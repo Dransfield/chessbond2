@@ -350,7 +350,7 @@ var soundVolume=5;
 			}
 			WallPosts.push(data);
 			
-			showChatMessage(chatDiv2,WallPosts[(WallPosts.length-1)]);
+			showChatMessage(chatDiv2,WallPosts[(WallPosts.length-1)],"none",false);
 		
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
