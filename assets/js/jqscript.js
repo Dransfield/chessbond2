@@ -330,7 +330,7 @@ var soundVolume=5;
 			console.log(boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(chatDiv2,WallPosts[iter]);
+					showChatMessage(chatDiv2,WallPosts[iter],"none",false);
 					}
 				
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat","none");		
