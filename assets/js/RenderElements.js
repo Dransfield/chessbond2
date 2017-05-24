@@ -374,9 +374,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	{var delbut=showButton(postHeaderDiv,"X","KredElement KregularButton");
 		delbut.click(function(){
 		
-		//io.socket.put('/wallpost/destroy',{id:msg.id},
-		//function  (data){
-		//});
+		
 		
 		for(iter in WallPosts)
 			{
@@ -385,7 +383,9 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 			{
 				console.log("should hide "+WallPosts[iter].id);
 			$("#"+WallPosts[iter].id).hide();
-	
+			io.socket.put('/wallpost/destroy',{id:WallPosts[iter].id},
+				function  (data){
+				});
 			}
 			
 			}
