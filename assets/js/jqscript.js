@@ -422,15 +422,15 @@ var soundVolume=5;
 	//});
 	//$(".square-55d63").css();
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
-	chatDiv.css("overflow","auto");
+	//chatDiv.css("overflow","auto");
 			
 					topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
 		$("#sideBoard").css("height",$("#bdd").css("height"));
 				$("#chatDiv").css("max-height","100%");
-		$("#chatDiv").css("overflow","auto");
+		$("#chatDiv").css("overflow","scroll");
 		$("#chatDiv2").css("max-height","85%");
-		$("#chatDiv2").css("overflow","auto");
+		$("#chatDiv2").css("overflow","scroll");
 	if(Accounts[MyID])
 	{
 	for (btIter in boardThemeValues)
