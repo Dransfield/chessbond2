@@ -331,7 +331,7 @@ function showImageUploadForm(elem,usracc)
 function showChatMessage(elem,msg,Replyto,allowreplies)
 {
 	
-	var myColumn=addFlexDiv(elem,msg.id,"column");
+	var myColumn=addFlexDiv(elem,45,"column");
 	console.log("msg.replyto "+msg.replyto);
 	if (msg.replyto==Replyto)
 	{
