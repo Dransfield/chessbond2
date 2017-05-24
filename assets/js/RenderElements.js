@@ -357,8 +357,9 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	showsmallAvatar(newdiv,msg.sender);
 	
 	newdiv.append("<span style='border-style:solid'>");
-	newdiv.append("<span style='width:30px'></span>");
+	newdiv.append("<span style='width:5px'></span>");
 	showUsername(newdiv,msg.sender);
+	newdiv.append("<span style='width:20px'></span>");
 	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
 	newdiv.append("<span style='width:30px'></span>");
 			newdiv.append("<span>"+hour+":"+minute+"</span>");
@@ -368,7 +369,9 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	nextdiv.css("border-style","solid");
 	nextdiv.append(":"+msg.content);	
 		if(allowreplies){
-			var but=showButton(nextdiv,"Reply","KgreenElement KregularButton");
+			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
+	
+			var but=showButton(butdiv,"Reply","KgreenElement KregularButton");
 		
 		var form=showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
 		form.hide();
