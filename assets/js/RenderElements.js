@@ -351,8 +351,8 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
 			var year = dateObj.getUTCFullYear();
-			var hour=dataObj.getUTCHours();
-			var minute=dataObj.getUTCMinutes();
+			var hour=dateObj.getUTCHours();
+			var minute=dateObj.getUTCMinutes();
 			newdiv.append(month+"/"+day+"/"+year);
 			newdiv.append(hour+":"+minute);
 	showsmallAvatar(newdiv,msg.sender);
