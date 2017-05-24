@@ -324,15 +324,16 @@ var soundVolume=5;
 		chatDiv.css("padding-left","5px");
 		var chatInput=addSpan(chatDiv,"chatinput");
 		
-				var chatDiv2=addFlexDiv(chatDiv,"chatDiv2","column");
-			//chatDiv.css("overflow","scroll");
-			chatDiv2.css("overflow","auto");
+			//	var chatDiv2=addFlexDiv(chatDiv,"chatDiv2","column");
+		//	chatDiv2.css("overflow","auto");
 			chatDiv.css("height",boardDivDiv.css("width"));
-			chatDiv2.css("height",boardDivDiv.css("width"));
+			chatDiv.css("overflow","auto");
+	
+		//	chatDiv2.css("height",boardDivDiv.css("width"));
 			console.log("boardDivDiv.css('width')"+boardDivDiv.css("width"));
 			for(iter in WallPosts)
 					{	
-					showChatMessage(chatDiv2,WallPosts[iter],"none",false);
+					showChatMessage(chatDiv,WallPosts[iter],"none",false);
 					}
 				
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat","none");		
@@ -352,7 +353,7 @@ var soundVolume=5;
 			}
 			WallPosts.push(data);
 			
-			showChatMessage(chatDiv2,WallPosts[(WallPosts.length-1)],"none",false);
+			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none",false);
 		
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
