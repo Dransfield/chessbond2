@@ -369,7 +369,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	newdiv.append("<span>"+hour+":"+minute+"</span>");
 	newdiv.append("</span>");
 	
-	var nextdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
+	var nextdiv=addFlexDiv(overallDiv,34,"row","wrap","space-around","center");
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
 	nextdiv.append(msg.content);
