@@ -876,7 +876,7 @@ function setupProfilePage()
 			}
 			if(WallPosts[(WallPosts.length-1)].replyto=='none')
 			{
-				var thisDiv=addFlexDiv(chatDiv,WallPosts[iter].id,"column");
+				var thisDiv=addFlexDiv(chatDiv,WallPosts[(WallPosts.length-1)].id,"column");
 			showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true);
 			}
 			else
