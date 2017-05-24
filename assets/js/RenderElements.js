@@ -426,9 +426,12 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 		
 		for(iter in WallPosts)
 						{	
+							if(WallPosts[iter].replyto==msg.id)
+							{
 							var replydiv=addFlexDiv(elem,WallPosts[iter].id,"column");
 						replydiv.css("padding-left","20%");
 						showChatMessage(replydiv,WallPosts[iter],msg.id,false);
+					}
 						}
 
 //elem.append("<hr>");
