@@ -330,6 +330,7 @@ function showImageUploadForm(elem,usracc)
 }
 function showChatMessage(elem,msg,Replyto,allowreplies)
 {
+	console.log("msg.replyto "+msg.replyto);
 	if (msg.replyto==Replyto)
 	{
 		
