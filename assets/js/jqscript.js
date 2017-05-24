@@ -427,9 +427,9 @@ var soundVolume=5;
 					topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
 		$("#sideBoard").css("height",$("#bdd").css("height"));
-				$("#chatDiv").css("max-height","100%");
+				//$("#chatDiv").css("max-height","100%");
 		$("#chatDiv").css("overflow","scroll");
-		$("#chatDiv2").css("max-height","85%");
+		//$("#chatDiv2").css("max-height","85%");
 		$("#chatDiv2").css("overflow","scroll");
 	if(Accounts[MyID])
 	{
