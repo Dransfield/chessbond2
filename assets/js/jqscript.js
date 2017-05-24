@@ -1645,7 +1645,7 @@ function addFollowPromises()
 function renderChatPage()
 	{
 	console.log("renderchatpage");
-		showChatForm($("#chatinput"),convID,"Private Conversation");
+		showChatForm($("#chatinput"),convID,"Private Conversation","none");
 		
 	}
 	
