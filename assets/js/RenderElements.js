@@ -383,6 +383,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 			
 			if(WallPosts[iter].replyto==msg.id)	
 			{
+				console.log("should hide "+WallPosts[iter].id);
 			$("#"+WallPosts[iter].id).hide();
 	
 			}
