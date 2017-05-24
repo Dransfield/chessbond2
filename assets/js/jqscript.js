@@ -320,7 +320,7 @@ var soundVolume=5;
          resultDiv.css("padding","4px");
          resultDiv.css("margin-left","8px");
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
-		var chatDiv=addSpan(sideBoard,"chatDiv");
+		var chatDiv=addDiv(sideBoard,"chatDiv");
 		chatDiv.css("padding-left","5px");
 		var chatInput=addSpan(chatDiv,"chatinput");
 		
