@@ -328,7 +328,7 @@ function showImageUploadForm(elem,usracc)
     </form>`);
 	
 }
-function showChatMessage(elem,msg,Replyto,allowreplies)
+function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 {
 	
 	var myColumn=addFlexDiv(elem,45,"column");
@@ -369,6 +369,10 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	postHeaderDiv.append("<span style='width:30px'></span>");
 	
 	postHeaderDiv.append("<span>"+hour+":"+minute+"</span>");
+	
+	if(deletebutton)
+	{showButton(postHeaderDiv,"X","KgreenElement KregularButton");}
+	
 	postHeaderDiv.append("</span>");
 	
 	myColumn.append(postHeaderDiv);

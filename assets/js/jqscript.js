@@ -859,7 +859,10 @@ function setupProfilePage()
 			for(iter in WallPosts)
 					{	
 					var thisDiv=addFlexDiv(chatDiv,WallPosts[iter].id,"column");
-					showChatMessage(thisDiv,WallPosts[iter],"none",true);
+					var del=false;
+					if(MyID==ProfID)
+					{del=true;}
+					showChatMessage(thisDiv,WallPosts[iter],"none",true,del);
 					}
 					
 					
