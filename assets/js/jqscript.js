@@ -335,7 +335,8 @@ var soundVolume=5;
 					{	
 					showChatMessage(chatDiv,WallPosts[iter],"none",false);
 					}
-				
+				chatDiv.scrollTop(chatDiv.prop("scrollHeight"));
+	
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat","none");		
 					io.socket.on('WallPost', function (data)
 			{
