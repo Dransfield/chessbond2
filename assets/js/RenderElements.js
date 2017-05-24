@@ -335,14 +335,15 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	if (msg.replyto==Replyto)
 	{
 		var overallDiv=addFlexDiv(elem,34,"column");
+		overallDiv.attr("id",msg.id);
 	var newdiv;
 	if(msg.sender==MyID)
 	{
-		newdiv=$("<div id='"+msg.id+"' style='display:flex;background-color:lightgrey;padding:4px;'></div>");
+		newdiv=$("<div  style='display:flex;background-color:lightgrey;padding:4px;'></div>");
 	}
 	else
 	{
-		newdiv=$("<div id='"+msg.id+"' style='display:flex;background-color:lightgreen;padding:4px;'></div>");
+		newdiv=$("<div  style='display:flex;background-color:lightgreen;padding:4px;'></div>");
 		
 	}
 	console.log("show chat message "+JSON.stringify(msg));
@@ -391,8 +392,8 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		}
 		for(iter in WallPosts)
 						{	
-							
-						showChatMessage(elem,WallPosts[iter],msg.id,false);
+							var replydiv=addFlexDiv(overallDiv,43,"column");
+						showChatMessage(replydiv,WallPosts[iter],msg.id,false);
 						}
 
 //elem.append("<hr>");
