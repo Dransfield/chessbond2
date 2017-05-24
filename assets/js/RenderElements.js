@@ -370,6 +370,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	newdiv.append("</span>");
 	
 	var nextdiv=addFlexDiv(overallDiv,34,"row","wrap","space-around","center");
+	var padDiv=addDiv(nextdiv);
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
 	nextdiv.append(msg.content);
@@ -389,7 +390,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 		{
 		newdiv.css("align-self","flex-end");
 		newdiv.css("padding-left","20%");	
-		nextdiv.css("padding-left","20%");
+		paddiv.css("padding-left","20%");
 		}
 		for(iter in WallPosts)
 						{	
