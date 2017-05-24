@@ -364,12 +364,14 @@ function showChatMessage(elem,msg,Replyto,allowreplies)
 	newdiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
 	newdiv.append("<span style='width:30px'></span>");
 	
-			newdiv.append("<span>"+hour+":"+minute+"</span>");
+	newdiv.append("<span>"+hour+":"+minute+"</span>");
 	newdiv.append("</span>");
 	
 	var nextdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
 	nextdiv.css("border-style","solid");
-	nextdiv.append(":"+msg.content);	
+	nextdiv.css("padding","5px");
+	nextdiv.append(msg.content);
+	nextdiv.css("width",newdiv.width());
 		if(allowreplies){
 			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
 	
