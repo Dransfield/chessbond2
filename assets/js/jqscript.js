@@ -354,7 +354,8 @@ var soundVolume=5;
 			WallPosts.push(data);
 			
 			showChatMessage(chatDiv,WallPosts[(WallPosts.length-1)],"none",false);
-		
+				chatDiv.scrollTop(chatDiv.prop("scrollHeight"));
+	
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
