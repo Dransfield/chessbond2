@@ -322,7 +322,7 @@ var soundVolume=5;
          turnTakerNoticeDiv=sideBoard.append("<div class='label label-default'></div>");
 		var chatDiv=addDiv(sideBoard,"chatDiv");
 		chatDiv.css("padding-left","5px");
-		var chatInput=addSpan(chatDiv,"chatinput");
+		var chatInput=addSpan(sideBoard,"chatinput");
 		
 			//	var chatDiv2=addFlexDiv(chatDiv,"chatDiv2","column");
 		//	chatDiv2.css("overflow","auto");
