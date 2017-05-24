@@ -373,8 +373,10 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	if(deletebutton)
 	{var delbut=showButton(postHeaderDiv,"X","KredElement KregularButton");
 		delbut.click(function(){
-		
-		
+		$("#"+msg.id).hide();
+		io.socket.put('/wallpost/destroy',{id:msg.id},
+				function  (data){
+				});
 		
 		for(iter in WallPosts)
 			{
