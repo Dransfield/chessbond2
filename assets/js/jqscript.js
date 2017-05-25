@@ -1422,7 +1422,9 @@ function clickBlock(event)
 					
 						io.socket.post('/block/destroy',{blocker:MyID,blocked:usracc},
 							function (resData2, jwRes2) {
-							//	console.log("resData[0].id "+resData2.id);
+								console.log(jwRes2);
+							
+								console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=null;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
