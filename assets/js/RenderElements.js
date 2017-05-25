@@ -454,7 +454,7 @@ function CreateDropDown(usracc)
 	
 	
 	DropDowns[usracc]['block']=$("<li></li>");
-	
+	DropDowns[usracc].append(DropDowns[usracc]['block']);
 	//DropDowns[usracc].append(DropDowns[usracc]['block']);
 	
 	
