@@ -7,12 +7,15 @@ var AccountsToRetrieve={};
 var AccountPromises=[];
 var PrivatePromises=[];
 var FollowPromises=[];
+var BlockPromises=[];
 var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
+var Blocks={};
 var WallPosts=[];
 var GamePlaying={};
 var soundVolume=5;
+
 		subscribeToMandatoryRooms()
 			var myStatus;
 			var idleTimer=5*60;
@@ -914,7 +917,8 @@ function retrievePrivatesandFollows()
 	{
 	addPrivatePromises();
 	addFollowPromises();
-	return Promise.all(FollowPromises,PrivatePromises);
+	addBlockPromises();
+	return Promise.all(FollowPromises,PrivatePromises,BlockPromises);
 	}
 	
 function setupChatPage()
@@ -1367,7 +1371,15 @@ return Promise.all(AccountPromises)
 
 	
 }
+
+function addBlocked(usracc)
+{
+	PrivateconText="<a >Unblock</a>";
+					
+	DropDowns[usracc]['block'].append(PrivateconText);
 	
+	
+}
 
 
 function addFollowed(usracc)
@@ -1384,6 +1396,31 @@ function addSeeChat(usracc)
 					
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }
+
+
+function addBeginBlock(usracc)
+{
+	
+DropDowns[usracc]['BeginBlock']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Block</a>");
+				DropDowns[usracc]['Priv'].append(DropDowns[usracc]['BeginBlock']);
+				DropDowns[usracc]['BeginBlock'].click(function(){
+					$("#BlockDD"+usracc).empty();
+					$("#BlockDD"+usracc).append("<a>Processing..</a>");
+					io.socket.post('/block',{blocker:MyID,blocked:usracc},
+							function (resData, jwRes) {
+								console.log("resData[0].id "+resData.id);
+								Blocks[MyID][usracc]=resData;
+
+					
+								});
+					
+					
+					});
+	
+
+
+}
+
 function addBeginChat(usracc)
 {
 	
@@ -1587,6 +1624,67 @@ io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function addBlockPromises()
+{
+	//console.log("addprivatepromises func");
+	
+	for (x in Accounts)
+	{
+		if(Accounts[x])
+		{
+			if(Accounts[x].id)
+			{
+		BlockPromises.push(new Promise((resolve,reject)=>{
+					var thisguy=Accounts[x].id;
+					var thisguysname=Accounts[x].name;
+				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
+					io.socket.get("/block",{blocker:MyID,blocked:thisguy},
+						function (pc) {
+						//console.log("recieved private conversation"+JSON.stringify(pc));
+						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
+						if(pc)
+						{
+							if (pc.length==0)
+							{
+							addBeginBlock(thisguy);
+							}	
+						}	
+						
+						if(!pc)
+						{
+						addBeginBlock(thisguy);
+						}
+						
+							for (y in pc)
+							{
+					
+							//console.log("Talker1"+pc[x].Talker1);
+							//console.log("Talker2"+pc[x].Talker2);
+							
+							var otherPerson=pc[y].blocked;
+							console.log("pc "+JSON.stringify(pc));
+								if(Accounts[otherPerson])
+								{
+							
+								console.log("about to add blocked");
+									Blocks[otherPerson]=pc[y];
+									addBlocked(otherPerson);
+									
+									
+					
+								}
+							
+							
+							
+							
+							}
+						resolve(pc);
+					});
+				}));
+	}}}
+	
 }
 
 function addFollowPromises()

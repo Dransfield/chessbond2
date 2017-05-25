@@ -451,6 +451,7 @@ function CreateDropDown(usracc)
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
    	DropDowns[usracc]['Foll']=$("<li id='FollowDD"+usracc+"'></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
+	DropDowns[usracc].append(DropDowns[usracc]['block']);
 	DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
 	DropDowns[usracc]['Priv']=$("<li id='PrivateConversationDD"+usracc+"'></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Priv']);
@@ -605,6 +606,10 @@ function showDropDown(usracc)
     <a href="#">Follow	</a>
    </li>
    <li>
+    <a href="#">Block	</a>
+   </li>
+   
+   <li>
     <a href="#">Challenge to a Game</a>	
    </li>
    <li>
@@ -615,11 +620,7 @@ function showDropDown(usracc)
     <a href="#">Add to Friend List	</a>
   </li>
    <li>
-   <div ng-controller="BlockedAccountController" ng-init="setShouldGetBlockedAccounts('<%- Myid %>')">
-    <div  ng-show="BlockedAccounts[<%- userid%>]" ng-click="UnBlockUser('<%- Myid %>',<%- userid %>)">UnBlock Member</div>
-	  <div  ng-show="!BlockedAccounts[<%- userid%>]" ng-click="BlockUser('<%- Myid %>',<%- userid %>)">Block Member</div>
-	
-	</div>
+ 
   </li>
   </ul>`);
   
@@ -1105,65 +1106,19 @@ function showRecentGames(elem,usracc)
 	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
 	
 	
-	
-	
-   //console.log(JSON.stringify(JoinedGames[ProfID]));
-   
-	//console.log(JoinedGames[ProfID][iter].Player1);
-	
-   /*
-	
-		
-				  
-            <tr ng-repeat="game in GameInfo track by $index">
-		
-		<td >
-		<%- include('partials/avatar', {userid: "game.WhitePlayerID",Myid:Myid}); %>
-    	<%- include('partials/username', {userid: "game.WhitePlayerID",Myid:Myid}); %>
-		({{game.WhiteELO}})
-		</td>
-			
-
-		
-		<td>
-		<%- include('partials/avatar', {userid: "game.BlackPlayerID",Myid:Myid}); %>
-    	<%- include('partials/username', {userid: "game.BlackPlayerID",Myid:Myid}); %>	
-		({{game.BlackELO}})
-		
-		</td>
-		
-			<td>{{game.res}}</td>
-			<td>{{game.GameCategory}}</td>
-			<td>{{game.moves}}</td>
-			<td>{{game.date}}</td>
-			<td><a href="/humanvshuman/{{game.id}}" target="_blank">Link</a></td>
-			
-			
-			<tr>
-			</tr>
-            </tbody>
-            </table>
-            	<div class="btn btn-lg btn-success" ng-show="chessgameskip>0" ng-click="GetOlderChessGames(LookedatUser.id)"><</div>
-				<div class="btn btn-lg btn-success" ng-click="GetMoreChessGames(LookedatUser.id)">></div>
-
-          </div>
-          </span>
-          */	
-          addGamesToRecentGames2(usracc);
+	addGamesToRecentGames2(usracc);
 }
 
 function addGamesToRecentGames2(usracc)
 {
 	var flexy=$("#recentgamesflexy");
-//var titleFlex=addFlexDiv(flexy,"titles","row",'wrap');
-//titleFlex.append("<p>White</p><p>Black</p><p>Result</p><p>Time</p><p>Used</p>");
+
 	for (iter in JoinedGames[usracc])
    {
 	  // var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
 	  var newFlex=$("<span class='overall' id='overall"+iter+"'></span>");
 	  flexy.append(newFlex);
-	  // console.log(iter);
-	 // console.log(JSON.stringify(JoinedGames[usracc][iter]));
+
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 		
@@ -1192,9 +1147,9 @@ function addGamesToRecentGames2(usracc)
 	newFlex.append("<p class='ChartCell'>Type:"+JoinedGames[usracc][iter].GameCategory+"</p>");
 	newFlex.append("<p class='ChartCell'>Move:"+JoinedGames[usracc][iter].Move+"</p>");
 	newFlex.append("<p class='ChartCell'>Created:"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
-	newFlex.append("<span class='ChartCell'><span class='KregularButton KgreenElement'>Go To Game</span></span>");
+	var gotobut=showButton(newFlex,"Go To Game","KregularButton KgreenElement");
 	newFlex.css('cursor', 'pointer');
-	$("#overall"+iter).click({gam:iter,acc:usracc},GoToGame);
+	gotobut.click({gam:iter,acc:usracc},GoToGame);
 	
 }
 }
