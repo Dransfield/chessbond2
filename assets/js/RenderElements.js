@@ -411,6 +411,10 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	nextdiv.css("padding","5px");
 	nextdiv.append(msg.content);
 	nextdiv.css("width",postHeaderDiv.width());
+	
+	if(Blocks[usracc])
+	{nextdiv.slideUp();}
+	
 		if(allowreplies){
 			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
 	
