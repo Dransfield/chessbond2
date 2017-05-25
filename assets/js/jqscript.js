@@ -1377,7 +1377,7 @@ function addBlocked(usracc)
 
 	DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>UnBlock</a>");
 				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
-				DropDowns[usracc]['block'].click(clickblock(usracc));
+				DropDowns[usracc]['block'].click(clickBlock(usracc));
 	
 }
 
@@ -1438,7 +1438,7 @@ function addBeginBlock(usracc)
 	
 DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
 				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
-				DropDowns[usracc]['block'].click(clickblock(usracc));
+				DropDowns[usracc]['block'].click(clickBlock(usracc));
 				
 }
 
