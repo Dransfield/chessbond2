@@ -451,9 +451,11 @@ function CreateDropDown(usracc)
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
    	DropDowns[usracc]['Foll']=$("<li id='FollowDD"+usracc+"'></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
-	DropDowns[usracc]['block']=$("<li></li>");
 	
-	DropDowns[usracc].append(DropDowns[usracc]['block']);
+	
+	DropDowns[usracc]['block']=addSpan(DropDowns[usracc],0);
+	
+	//DropDowns[usracc].append(DropDowns[usracc]['block']);
 	
 	
 	DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
