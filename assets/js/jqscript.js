@@ -1374,10 +1374,10 @@ return Promise.all(AccountPromises)
 
 function addBlocked(usracc)
 {
-	PrivateconText="<a >Unblock</a>";
-					
-	DropDowns[usracc]['block'].append(PrivateconText);
-	
+
+	DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>UnBlock</a>");
+				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
+				DropDowns[usracc]['block'].click(clickblock(usracc));
 	
 }
 
@@ -1397,13 +1397,8 @@ function addSeeChat(usracc)
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }
 
-
-function addBeginBlock(usracc)
+function clickBlock(usracc)
 {
-	
-DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
-				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
-				DropDowns[usracc]['BeginBlock'].click(function(){
 					$("#BlockDD"+usracc).empty();
 					$("#BlockDD"+usracc).append("<a>Processing..</a>");
 				io.socket.get('/block',{blocker:MyID,blocked:usracc},
@@ -1435,10 +1430,16 @@ DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
 						
 					}
 					
-					});
-				});
+	}
+}
 
-
+function addBeginBlock(usracc)
+{
+	
+DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
+				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
+				DropDowns[usracc]['block'].click(clickblock(usracc));
+				
 }
 
 function addBeginChat(usracc)
