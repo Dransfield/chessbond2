@@ -412,7 +412,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	nextdiv.append(msg.content);
 	nextdiv.css("width",postHeaderDiv.width());
 	
-	if(Blocks[usracc])
+	if(Blocks[msg.sender])
 	{nextdiv.slideUp();}
 	
 		if(allowreplies){
