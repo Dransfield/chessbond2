@@ -1435,7 +1435,7 @@ function clickBlock(usracc)
 function addBeginBlock(usracc)
 {
 	
-DropDowns[usracc]['block'].html("<a>Block</a>");
+DropDowns[usracc]['block'].html("<a>Begin Block</a>");
 				DropDowns[usracc]['block'].click(clickBlock(usracc));
 				
 }
