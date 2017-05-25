@@ -1397,7 +1397,7 @@ function addSeeChat(usracc)
 }
 
 function clickBlock(event)
-{
+{console.log(event);
 	var usracc=event.usracc;
 					console.log("clicked");
 					DropDowns[usracc]['block'].empty();
