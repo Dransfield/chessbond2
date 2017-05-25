@@ -1401,7 +1401,7 @@ function addSeeChat(usracc)
 function addBeginBlock(usracc)
 {
 	
-DropDowns[usracc]['BeginBlock']=$("<a id='StartPrivateDiv"+usracc+"'>Block</a>");
+DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
 				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
 				DropDowns[usracc]['BeginBlock'].click(function(){
 					$("#BlockDD"+usracc).empty();
