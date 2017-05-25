@@ -1412,7 +1412,7 @@ function clickBlock(event)
 					io.socket.post('/block',{blocker:MyID,blocked:usracc},
 							function (resData2, jwRes2) {
 							//	console.log("resData[0].id "+resData2.id);
-								Blocks[MyID][usracc]=resData2;
+								Blocks[usracc]=usracc;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>UnBlock</a>");
 								});
@@ -1425,7 +1425,7 @@ function clickBlock(event)
 								console.log(jwRes2);
 							console.log("lets delete "+resData[0].id);
 								//console.log("resData[0].id "+resData2[0].id);
-								Blocks[MyID][usracc]=null;
+								Blocks[usracc]=null;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
 								});
