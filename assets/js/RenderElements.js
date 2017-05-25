@@ -424,7 +424,9 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	nextdiv.css("width",postHeaderDiv.width());
 	
 	if(Blocks[msg.sender])
-	{nextdiv.slideUp();}
+	{nextdiv.slideUp();
+		blockbut.text("UnBlock");
+		}
 	
 		if(allowreplies){
 			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");

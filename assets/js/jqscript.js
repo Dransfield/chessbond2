@@ -1376,7 +1376,7 @@ function addBlocked(usracc)
 {
 				DropDowns[usracc]['block'].empty();
 				DropDowns[usracc]['block'].append("<a>UnBlock</a>");
-				$("[id='blockbutton"+usracc+"']").text("UnBlock");
+				
 				DropDowns[usracc]['block'].click({usracc:usracc},clickBlock);
 	
 }
