@@ -839,15 +839,16 @@ function setupProfilePage()
 			flagsel.css("height","25%");
 			flagSpan.css("width","100%");
 			
-			showFlag(flagSpan,ProfID)
+			showFlag(flagSpan,ProfID);
 			flagsel.change(
 			function()
 			{
 				console.log(countryToFilename(flagsel.val()));
 				console.log(flagsel.val());
-			flagimage.attr("src","/images/flatflags/"+countryToFilename(flagsel.val())+".png");
+			
 				Accounts[ProfID]['Country']=flagsel.val();
 				updateAccountInfo('Country',MyID);
+					showFlag(flagSpan,ProfID);
 			}
 			
 			)
