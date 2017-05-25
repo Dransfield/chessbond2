@@ -1374,8 +1374,8 @@ return Promise.all(AccountPromises)
 
 function addBlocked(usracc)
 {
-
-				DropDowns[usracc]['block'].html("<a>UnBlock</a>");
+				DropDowns[usracc]['block'].empty();
+				DropDowns[usracc]['block'].append("<a>UnBlock</a>");
 				DropDowns[usracc]['block'].click(clickBlock(usracc));
 	
 }
@@ -1435,8 +1435,8 @@ function clickBlock(usracc)
 
 function addBeginBlock(usracc)
 {
-	
-DropDowns[usracc]['block'].html("<a>Begin Block</a>");
+	DropDowns[usracc]['block'].empty();
+DropDowns[usracc]['block'].append("<a>Begin Block</a>");
 				DropDowns[usracc]['block'].click(clickBlock(usracc));
 				
 }
