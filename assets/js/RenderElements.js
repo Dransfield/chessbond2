@@ -746,8 +746,8 @@ function showReportForm(elem,msgid)
 	var  reportDiv=addSpan(elem);
 	var reportform=$("<input type='text' autocomplete='off' class='form-control' placeholder='report' name='name' >");
 		var reportbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Send Report</button>");
-		reportDiv.append(chatform);
-		reportDiv.append(chatbutton);
+		reportDiv.append(reportform);
+		reportDiv.append(reportbutton);
 		 reportform.keypress(function (e) {
  var key = e.which;
  //console.log("key "+key);
