@@ -1419,12 +1419,12 @@ function clickBlock(event)
 					}
 					else
 					{
-					console.log("lets delete "+resData.id);
-						io.socket.post('/block/destroy/'+resData.id,{id:resData.id},
+					console.log("lets delete "+resData[0].id);
+						io.socket.post('/block/destroy/'+resData[0].id,{id:resData.id},
 							function (resData2, jwRes2) {
 								console.log(jwRes2);
-							console.log("lets delete "+resData.id);
-								console.log("resData[0].id "+resData2.id);
+							console.log("lets delete "+resData[0].id);
+								console.log("resData[0].id "+resData2[0].id);
 								Blocks[MyID][usracc]=null;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
