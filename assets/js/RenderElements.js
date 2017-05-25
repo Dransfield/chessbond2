@@ -572,7 +572,7 @@ return usr;
  }
  else
  {
-	 console.log(Accounts[usracc]);
+	// console.log(Accounts[usracc]);
 var usr=$("<div>Deleted Account</div>");
 elem.append(usr);
 return usr;	
@@ -1842,6 +1842,7 @@ var countries=[
 {
 	if (country){
 	//return country.replace(/ /gi, "_");
+	country=country.replace(/"/g,""); 
 	return country.replace(/ /gi, "-");
 	}
 }
