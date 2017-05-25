@@ -453,7 +453,7 @@ function CreateDropDown(usracc)
 	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
 	
 	
-	DropDowns[usracc]['block']=addSpan(DropDowns[usracc],0);
+	DropDowns[usracc]['block'].append("<li></li>");
 	
 	//DropDowns[usracc].append(DropDowns[usracc]['block']);
 	
