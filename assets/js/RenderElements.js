@@ -401,6 +401,17 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	blockbut.attr("id","blockbutton"+msg.sender);
 	blockbut.click({usracc:msg.sender},clickBlock);
 		
+		
+	var reportbut=showButton(postHeaderDiv,"Report","KredElement KregularButton");
+	reportbut.attr("id","reportbutton"+msg.sender);
+	reportbut.click(
+	function(){
+		rform.toggleSlide();
+		});
+	
+		var rform=showReportForm(elem,msg.id);
+		rform.hide();
+	
 	postHeaderDiv.append("</span>");
 	
 	myColumn.append(postHeaderDiv);
@@ -730,6 +741,30 @@ function UpdateTypedText(words,elemTochange)
 				updateAccountInfo(words,MyID);
 		
 }
+function showReportForm(elem,msgid)
+{
+	var  reportDiv=addSpan(elem);
+	var reportform=$("<input type='text' autocomplete='off' class='form-control' placeholder='report' name='name' >");
+		var reportbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Send Report</button>");
+		reporttDiv.append(chatform);
+		reportDiv.append(chatbutton);
+		 reportform.keypress(function (e) {
+ var key = e.which;
+ //console.log("key "+key);
+ if(key == 13)  // the enter key code
+  { e.preventDefault();
+	 // console.log("send wall post"+chatform.val());
+		 	Sendreport(MyID,msgid,reportform.val());
+		 	reportform.val("");
+		}
+		 });
+		reportbutton.click(function(){
+			Sendreport(MyID,msgid,reportform.val());
+			reportform.val("");
+			});
+	return reportDiv;
+}
+
 function showChatForm(elem,chatID,msgtype,ReplyTo="")
 {
 	var  chatDiv=addSpan(elem);
