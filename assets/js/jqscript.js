@@ -1421,7 +1421,14 @@ function clickBlock(event)
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>UnBlock</a>");
 								$( "[id='blockbutton"+usracc+"']").text("UnBlock");
-							//	$( "[id='blockbutton"+usracc+"']").html("UnBlock");
+								
+								for(iter in WallPosts)
+								{		
+								if (WallPosts[iter].sender==usracc)
+								{
+								$("[id='msgcontent"+WallPosts[iter].id+"']").slideUp();	
+								}
+								}
 								
 								});
 					}
@@ -1437,6 +1444,15 @@ function clickBlock(event)
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
 								$( "[id='blockbutton"+usracc+"']").text("Block");
+								
+								for(iter in WallPosts)
+								{		
+								if (WallPosts[iter].sender==usracc)
+								{
+								$("[id='msgcontent"+WallPosts[iter].id+"']").slideDown();	
+								}
+								}
+								
 								});
 					
 						

@@ -406,7 +406,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	myColumn.append(postHeaderDiv);
 	
 	var nextdiv=addFlexDiv(myColumn,34,"row","wrap","space-around","center");
-	
+	nextdiv.attr("id","msgcontent"+msg.id);
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
 	nextdiv.append(msg.content);
