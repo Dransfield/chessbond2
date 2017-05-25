@@ -1404,7 +1404,7 @@ function clickBlock(usracc)
 				io.socket.get('/block',{blocker:MyID,blocked:usracc},
 							function (resData, jwRes) {
 								console.log(usracc);
-				console.log(JSON.stringify(resData);
+				console.log(JSON.stringify(resData));
 				if(!resData)
 					{
 					io.socket.post('/block',{blocker:MyID,blocked:usracc},
