@@ -1421,7 +1421,7 @@ function clickBlock(event)
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>UnBlock</a>");
 								$( "[id='blockbutton"+usracc+"']").text("UnBlock");
-								$( "[id='blockbutton"+usracc+"']").html("UnBlock");
+							//	$( "[id='blockbutton"+usracc+"']").html("UnBlock");
 								
 								});
 					}
@@ -1436,6 +1436,7 @@ function clickBlock(event)
 								Blocks[usracc]=null;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
+								$( "[id='blockbutton"+usracc+"']").text("Block");
 								});
 					
 						
