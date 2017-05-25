@@ -1405,7 +1405,7 @@ function clickBlock(event)
 							function (resData, jwRes) {
 				//				console.log(usracc);
 				//console.log(event.usracc);
-				//console.log(JSON.stringify(resData));
+				console.log(JSON.stringify(resData));
 				if(!resData || resData.length==0)
 					{
 						
