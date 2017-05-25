@@ -853,8 +853,8 @@ function setupProfilePage()
 			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
 			
 			}
-			}
-			)
+			
+			);
 			
 			var games=3;
 			showRecentGames(leftcol,ProfID);
