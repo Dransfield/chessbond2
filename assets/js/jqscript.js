@@ -855,7 +855,7 @@ function setupProfilePage()
 			}
 			
 			);
-			
+		}
 			var games=3;
 			showRecentGames(leftcol,ProfID);
 			leftcol.css("align-items","flex-start");
