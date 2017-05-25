@@ -1406,17 +1406,37 @@ DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
 				DropDowns[usracc]['BeginBlock'].click(function(){
 					$("#BlockDD"+usracc).empty();
 					$("#BlockDD"+usracc).append("<a>Processing..</a>");
-					io.socket.post('/block',{blocker:MyID,blocked:usracc},
+				io.socket.get('/block',{blocker:MyID,blocked:usracc},
 							function (resData, jwRes) {
-								console.log("resData[0].id "+resData.id);
-								Blocks[MyID][usracc]=resData;
+				
+				if(!resData)
+					{
+					io.socket.post('/block',{blocker:MyID,blocked:usracc},
+							function (resData2, jwRes2) {
+								console.log("resData[0].id "+resData2.id);
+								Blocks[MyID][usracc]=resData2;
 
+								$("#BlockDD"+usracc).empty();
+								$("#BlockDD"+usracc).append("<a>UnBlock</a>");
+								});
+					}
+					else
+					{
 					
+						io.socket.post('/block/destroy',{blocker:MyID,blocked:usracc},
+							function (resData2, jwRes2) {
+								console.log("resData[0].id "+resData2.id);
+								Blocks[MyID][usracc]=resData2;
+
+								$("#BlockDD"+usracc).empty();
+								$("#BlockDD"+usracc).append("<a>Block</a>");
 								});
 					
+						
+					}
 					
 					});
-	
+				});
 
 
 }
