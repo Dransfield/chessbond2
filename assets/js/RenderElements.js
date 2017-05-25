@@ -449,7 +449,7 @@ function CreateDropDown(usracc)
 	DropDowns[usracc].append("<li><a>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
 	DropDowns[usracc].append("<li><a href='#'>View Game Archive</a></li>");
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
-   	DropDowns[usracc]['Foll']=$("<li id='FollowDD"+usracc+"'></li>");
+   	DropDowns[usracc]['Foll']=$("<li></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
 	
 	

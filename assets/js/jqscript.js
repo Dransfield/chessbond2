@@ -1383,10 +1383,15 @@ function addBlocked(usracc)
 
 function addFollowed(usracc)
 {
+	/*
 	console.log("add followed "+usracc);
 	PrivateconText="<a >Following</a>";
 					
 	DropDowns[usracc]['Foll'].append(PrivateconText);
+	*/
+		DropDowns[usracc]['Foll'].empty();
+				DropDowns[usracc]['Foll'].append("<a>UnFollow</a>");
+				DropDowns[usracc]['Foll'].click({usracc:usracc},clickFollow);
 }
 function addSeeChat(usracc)
 {
@@ -1436,6 +1441,47 @@ function clickBlock(event)
 	});
 }
 
+
+function clickFollow(event)
+{
+	var usracc=event.data.usracc;
+					DropDowns[usracc]['Foll'].empty();
+					DropDowns[usracc]['Foll'].append("<a>Processing..</a>");
+				io.socket.get('/follow',{follower:MyID,followed:usracc},
+							function (resData, jwRes) {
+				//				console.log(usracc);
+				//console.log(event.usracc);
+				console.log(JSON.stringify(resData));
+				if(!resData || resData.length==0)
+					{
+						
+					io.socket.post('/follow',{follower:MyID,followed:usracc},
+							function (resData2, jwRes2) {
+							//	console.log("resData[0].id "+resData2.id);
+								Blocks[usracc]=usracc;
+								DropDowns[usracc]['Foll'].empty();
+								DropDowns[usracc]['Foll'].append("<a>UnFollow</a>");
+								});
+					}
+					else
+					{
+					console.log("lets delete "+resData[0].id);
+						io.socket.post('/follow/destroy/'+resData[0].id,{id:resData.id},
+							function (resData2, jwRes2) {
+								console.log(jwRes2);
+							console.log("lets delete "+resData[0].id);
+								//console.log("resData[0].id "+resData2[0].id);
+								Blocks[usracc]=null;
+								DropDowns[usracc]['Foll'].empty();
+								DropDowns[usracc]['Foll'].append("<a>Follow</a>");
+								});
+					
+						
+					}
+					
+	});
+}
+
 function addBeginBlock(usracc)
 {
 	DropDowns[usracc]['block'].empty();
@@ -1472,7 +1518,10 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 }
 function addBeginFollow(usracc)
 {
-	
+		DropDowns[usracc]['Foll'].empty();
+DropDowns[usracc]['Foll'].append("<a>Follow</a>");
+				DropDowns[usracc]['Foll'].click({usracc:usracc},clickFollow);
+				/*
 DropDowns[usracc]['BeginFoll']=$("<a id='StartFollowDiv"+usracc+"'>Follow</a>");
 				DropDowns[usracc]['Foll'].append(DropDowns[usracc]['BeginFoll']);
 				DropDowns[usracc]['BeginFoll'].click(function(){
@@ -1495,7 +1544,7 @@ DropDowns[usracc]['BeginFoll']=$("<a id='StartFollowDiv"+usracc+"'>Follow</a>");
 	
 	
 	
-	
+	*/
 }
 function addAccountPromise(usracc,boardscreen=false)
 {
