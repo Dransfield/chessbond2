@@ -1420,7 +1420,7 @@ function clickBlock(event)
 					else
 					{
 					
-						io.socket.post('/block/destroy',{id:resData.id},
+						io.socket.post('/block/destroy/'+resData.id,{id:resData.id},
 							function (resData2, jwRes2) {
 								console.log(jwRes2);
 							
