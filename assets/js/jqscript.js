@@ -835,11 +835,13 @@ function setupProfilePage()
 			}
 			
 			var flagSpan=addSpan(leftright);
+			flagSpan.css("width","100%");
+			var flagimage=showFlag(flagSpan,ProfID);
+			if(ProfID==MyID)
+			{
 			var flagsel=showSelect(flagSpan,countries,countries,"Choose your country");
 			flagsel.css("height","25%");
-			flagSpan.css("width","100%");
 			
-			showFlag(flagSpan,ProfID);
 			flagsel.change(
 			function()
 			{
@@ -848,9 +850,10 @@ function setupProfilePage()
 			
 				Accounts[ProfID]['Country']=flagsel.val();
 				updateAccountInfo('Country',MyID);
-					showFlag(flagSpan,ProfID);
-			}
+			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
 			
+			}
+			}
 			)
 			
 			var games=3;

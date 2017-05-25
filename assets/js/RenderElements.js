@@ -298,6 +298,7 @@ if(Accounts[usracc])
 				
 			}
 			elem.append(flagimage);
+			return flagimage;
 }			
 	}
 function showHeader(elem,num,content)
