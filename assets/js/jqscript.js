@@ -1376,7 +1376,7 @@ function addBlocked(usracc)
 {
 				DropDowns[usracc]['block'].empty();
 				DropDowns[usracc]['block'].append("<a>UnBlock</a>");
-				DropDowns[usracc]['block'].click(clickBlock(usracc));
+				DropDowns[usracc]['block'].click({usracc:usracc},clickBlock);
 	
 }
 
@@ -1396,8 +1396,9 @@ function addSeeChat(usracc)
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }
 
-function clickBlock(usracc)
+function clickBlock(event)
 {
+	var usracc=event.usracc;
 					console.log("clicked");
 					DropDowns[usracc]['block'].empty();
 					DropDowns[usracc]['block'].append("<a>Processing..</a>");
@@ -1437,7 +1438,7 @@ function addBeginBlock(usracc)
 {
 	DropDowns[usracc]['block'].empty();
 DropDowns[usracc]['block'].append("<a>Begin Block</a>");
-				DropDowns[usracc]['block'].click(clickBlock(usracc));
+				DropDowns[usracc]['block'].click({usracc:usracc},clickBlock);
 				
 }
 
