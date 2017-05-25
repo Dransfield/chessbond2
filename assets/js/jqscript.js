@@ -1419,11 +1419,11 @@ function clickBlock(event)
 					}
 					else
 					{
-					
+					console.log("lets delete "+resData.id);
 						io.socket.post('/block/destroy/'+resData.id,{id:resData.id},
 							function (resData2, jwRes2) {
 								console.log(jwRes2);
-							
+							console.log("lets delete "+resData.id);
 								console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=null;
 								DropDowns[usracc]['block'].empty();
