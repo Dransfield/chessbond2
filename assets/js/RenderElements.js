@@ -406,7 +406,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	reportbut.attr("id","reportbutton"+msg.sender);
 	reportbut.click(
 	function(){
-		rform.toggleSlide();
+		rform.slideToggle();
 		});
 	
 		var rform=showReportForm(elem,msg.id);
