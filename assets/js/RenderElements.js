@@ -451,7 +451,8 @@ function CreateDropDown(usracc)
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
    	DropDowns[usracc]['Foll']=$("<li id='FollowDD"+usracc+"'></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
-	DropDowns[usracc]['block']=$("<li id='BlockDD"+usracc+"'></li>");
+	DropDowns[usracc]['block']=$("<li></li>");
+	
 	DropDowns[usracc].append(DropDowns[usracc]['block']);
 	
 	

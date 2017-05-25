@@ -1375,8 +1375,7 @@ return Promise.all(AccountPromises)
 function addBlocked(usracc)
 {
 
-	DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>UnBlock</a>");
-				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
+				DropDowns[usracc]['block'].html("<a>UnBlock</a>");
 				DropDowns[usracc]['block'].click(clickBlock(usracc));
 	
 }
@@ -1399,8 +1398,8 @@ function addSeeChat(usracc)
 
 function clickBlock(usracc)
 {
-					$("#BlockDD"+usracc).empty();
-					$("#BlockDD"+usracc).append("<a>Processing..</a>");
+					
+					DropDowns[usracc]['block'].html("<a>Processing..</a>");
 				io.socket.get('/block',{blocker:MyID,blocked:usracc},
 							function (resData, jwRes) {
 								console.log(usracc);
@@ -1413,8 +1412,7 @@ function clickBlock(usracc)
 								console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=resData2;
 
-								$("#BlockDD"+usracc).empty();
-								$("#BlockDD"+usracc).append("<a>UnBlock</a>");
+								DropDowns[usracc]['block'].html("<a>UnBlock</a>");
 								});
 					}
 					else
@@ -1423,10 +1421,9 @@ function clickBlock(usracc)
 						io.socket.post('/block/destroy',{blocker:MyID,blocked:usracc},
 							function (resData2, jwRes2) {
 								console.log("resData[0].id "+resData2.id);
-								Blocks[MyID][usracc]=resData2;
+								Blocks[MyID][usracc]=null;
 
-								$("#BlockDD"+usracc).empty();
-								$("#BlockDD"+usracc).append("<a>Block</a>");
+								DropDowns[usracc]['block'].html("<a>Block</a>");
 								});
 					
 						
@@ -1438,8 +1435,7 @@ function clickBlock(usracc)
 function addBeginBlock(usracc)
 {
 	
-DropDowns[usracc]['BeginBlock']=$("<a id='BlockDiv"+usracc+"'>Block</a>");
-				DropDowns[usracc]['block'].append(DropDowns[usracc]['BeginBlock']);
+DropDowns[usracc]['block'].html("<a>Block</a>");
 				DropDowns[usracc]['block'].click(clickBlock(usracc));
 				
 }
