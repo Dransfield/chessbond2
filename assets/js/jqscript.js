@@ -1398,7 +1398,7 @@ function addSeeChat(usracc)
 
 function clickBlock(usracc)
 {
-					
+					console.log("clicked");
 					DropDowns[usracc]['block'].html("<a>Processing..</a>");
 				io.socket.get('/block',{blocker:MyID,blocked:usracc},
 							function (resData, jwRes) {
