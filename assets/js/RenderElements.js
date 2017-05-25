@@ -397,7 +397,9 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 		}
 	
 	
-	
+	var blockbut=showButton(postHeaderDiv,"Block","KredElement KregularButton");
+	blockbut.click({usracc:msg.sender},clickBlock);
+		
 	postHeaderDiv.append("</span>");
 	
 	myColumn.append(postHeaderDiv);
