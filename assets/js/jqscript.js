@@ -1430,7 +1430,7 @@ function clickBlock(usracc)
 						
 					}
 					
-	}
+	});
 }
 
 function addBeginBlock(usracc)
