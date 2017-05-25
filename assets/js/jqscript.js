@@ -1397,22 +1397,21 @@ function addSeeChat(usracc)
 }
 
 function clickBlock(event)
-{console.log(event);
-	var usracc=event.usracc;
-					console.log("clicked");
+{
+	var usracc=event.data.usracc;
 					DropDowns[usracc]['block'].empty();
 					DropDowns[usracc]['block'].append("<a>Processing..</a>");
 				io.socket.get('/block',{blocker:MyID,blocked:usracc},
 							function (resData, jwRes) {
-								console.log(usracc);
-				console.log(event.usracc);
-				console.log(JSON.stringify(resData));
+				//				console.log(usracc);
+				//console.log(event.usracc);
+				//console.log(JSON.stringify(resData));
 				if(!resData || resData.length==0)
 					{
 						
 					io.socket.post('/block',{blocker:MyID,blocked:usracc},
 							function (resData2, jwRes2) {
-								console.log("resData[0].id "+resData2.id);
+							//	console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=resData2;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>UnBlock</a>");
@@ -1423,7 +1422,7 @@ function clickBlock(event)
 					
 						io.socket.post('/block/destroy',{blocker:MyID,blocked:usracc},
 							function (resData2, jwRes2) {
-								console.log("resData[0].id "+resData2.id);
+							//	console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=null;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
