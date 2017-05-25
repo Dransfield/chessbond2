@@ -1399,7 +1399,8 @@ function addSeeChat(usracc)
 function clickBlock(usracc)
 {
 					console.log("clicked");
-					DropDowns[usracc]['block'].html("<a>Processing..</a>");
+					DropDowns[usracc]['block'].empty();
+					DropDowns[usracc]['block'].append("<a>Processing..</a>");
 				io.socket.get('/block',{blocker:MyID,blocked:usracc},
 							function (resData, jwRes) {
 								console.log(usracc);
@@ -1411,8 +1412,8 @@ function clickBlock(usracc)
 							function (resData2, jwRes2) {
 								console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=resData2;
-
-								DropDowns[usracc]['block'].html("<a>UnBlock</a>");
+								DropDowns[usracc]['block'].empty();
+								DropDowns[usracc]['block'].append("<a>UnBlock</a>");
 								});
 					}
 					else
@@ -1422,8 +1423,8 @@ function clickBlock(usracc)
 							function (resData2, jwRes2) {
 								console.log("resData[0].id "+resData2.id);
 								Blocks[MyID][usracc]=null;
-
-								DropDowns[usracc]['block'].html("<a>Block</a>");
+								DropDowns[usracc]['block'].empty();
+								DropDowns[usracc]['block'].append("<a>Block</a>");
 								});
 					
 						
