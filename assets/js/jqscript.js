@@ -1424,7 +1424,7 @@ function clickBlock(event)
 							function (resData2, jwRes2) {
 								console.log(jwRes2);
 							console.log("lets delete "+resData[0].id);
-								console.log("resData[0].id "+resData2[0].id);
+								//console.log("resData[0].id "+resData2[0].id);
 								Blocks[MyID][usracc]=null;
 								DropDowns[usracc]['block'].empty();
 								DropDowns[usracc]['block'].append("<a>Block</a>");
