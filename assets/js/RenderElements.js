@@ -1175,11 +1175,11 @@ function showRecentGames(elem,usracc)
 		var span=addFlexDiv(overallFlex,'id',"row","nowrap");
 	var leftbut=showButton(span,"<","KgreenElement KbigButton");
 	
-	showHeader(span,2,"Recent Games ("+JoinedGames.length+")");
+	showHeader(span,2,"Recent Games ("+JoinedGames[usracc].length+")");
 	var rightbut=showButton(span,">","KgreenElement KbigButton");
 	
 	rightbut.click(function(){
-		if (JoinedGames.length>(recentGameIndex+recentGamesToShow))
+		if (JoinedGames[usracc].length>(recentGameIndex+recentGamesToShow))
 		{
 		recentGameIndex=recentGameIndex+recentGamesToShow;
 		}
