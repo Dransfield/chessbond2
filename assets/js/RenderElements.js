@@ -1186,7 +1186,7 @@ function showRecentGames(elem,usracc)
 		
 			for (iter in JoinedGames[usracc])
 	{
-	$("#overall"+iter+"').hide();
+	$("#overall"+iter).hide();
 	} 
    });
 	
