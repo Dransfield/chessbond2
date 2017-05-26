@@ -1178,6 +1178,18 @@ function showRecentGames(elem,usracc)
 	showHeader(span,2,"Recent Games");
 	var rightbut=showButton(span,">","KgreenElement KbigButton");
 	
+	rightbut.click(function(){
+		if (JoinedGames.length>recentGameIndex+recentGamesToShow)
+		{
+		recentGameIndex=recentGameIndex+recentGamesToShow;
+		}
+		
+			for (iter in JoinedGames[usracc])
+	{
+	$("#overall"+iter+"').hide();
+	} 
+   });
+	
 	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
 	
 	
