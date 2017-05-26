@@ -1188,6 +1188,14 @@ function showRecentGames(elem,usracc)
 	{
 	$("#overall"+iter).hide();
 	} 
+			for (iter in JoinedGames[usracc])
+	{
+	if(iter>recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
+	{
+	$("#overall"+iter).show();
+	}
+	} 
+	
    });
 	
 	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
