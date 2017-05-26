@@ -772,7 +772,7 @@ function showReportForm(elem,msgid)
 
 function Sendreport(sender,msgid,content)
 {
-io.socket.put("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
+io.socket.post("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
 	 function (resData, jwr) {
 	 toastr.success("Report Sent!");
 	 });
