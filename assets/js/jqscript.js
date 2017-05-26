@@ -859,6 +859,7 @@ function setupProfilePage()
 			var games=3;
 			showRecentGames(leftcol,ProfID);
 			leftcol.css("align-items","flex-start");
+			showHeader(tblRight,2,"Comment Wall");
 			var chatDiv=addFlexDiv(tblRight,"chatdiv","column",'wrap');
 			chatDiv.css("align-items","flex-start");
 			showChatForm(chatDiv,ProfID,"wall","none");
