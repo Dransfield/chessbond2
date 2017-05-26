@@ -3,6 +3,8 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 var rematchSeconds;
+var recentGameIndex=0;
+var recentGamesToShow=20;
 
 function showRematchButton()
 {
@@ -768,6 +770,24 @@ function showReportForm(elem,msgid)
 	return reportDiv;
 }
 
+function Sendreport(sender,msgid,content)
+{
+io.socket.put("/SendMail",{address:"slenkar@gmail.com"})
+			.then(function onSuccess (resData, jwr){
+			
+					
+					if (resData.status==200)
+					{	toastr.success("Email Sent!");	}
+				
+			},function(response) {
+          if (response.status==404)
+					{	toastr.warning("Email Not found");	}
+     
+		}
+			);	
+	
+}
+
 function showChatForm(elem,chatID,msgtype,ReplyTo="")
 {
 	var  chatDiv=addSpan(elem);
@@ -1166,6 +1186,7 @@ function addGamesToRecentGames2(usracc)
 
 	for (iter in JoinedGames[usracc])
    {
+	  
 	  // var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
 	  var newFlex=$("<span class='overall' id='overall"+iter+"'></span>");
 	  flexy.append(newFlex);
@@ -1201,7 +1222,10 @@ function addGamesToRecentGames2(usracc)
 	var gotobut=showButton(newFlex,"Go To Game","KregularButton KgreenElement");
 	newFlex.css('cursor', 'pointer');
 	gotobut.click({gam:iter,acc:usracc},GoToGame);
-	
+	 if (iter<recentGameIndex || iter>(recentGameIndex+recentGamesToShow))
+	   {
+		newFlex.hide();   
+		}
 }
 }
 
