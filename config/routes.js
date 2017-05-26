@@ -60,6 +60,7 @@ module.exports.routes = {
 	
 	'GET /DeleteAccount':'UserController.DeleteAccount',
 	'/DeletedAccount':{view:'accountdeleted'},
+	'/admin':{view:'adminjq'},
 	'GET /UndeleteAccount':'UserController.UndeleteAccount',
 	'/UndeletedAccount':{view:'accountundeleted'},
 	'/playvsai':{view:'humanvsai'},

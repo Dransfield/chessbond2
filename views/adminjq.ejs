@@ -23,29 +23,25 @@
   <body>
  <div id="navbar"></div>
 		
-
+ <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+				<script>var MyID='<%- req.session.passport.user %>'</script>
+				
 	<div id="adminpage"></div>
 	
-	 <% if (req.session.passport) { %>
-			<% if (req.session.passport.user) { %>
-			<script>var MyID='<%- req.session.passport.user %>'</script>
+			
+			
 			<% }else{ %>
 			<script>var MyID=''</script>
-	
+			<h1>Sorry, you are not an admin.</h1>
 			<%}%>
 			<% }else{ %>
     <script>var MyID=''</script>
+			<h1>Sorry, you are not an admin.</h1>
 			
     <%}%>
     
-     <% if (req.param('ID')) { %>
-	
-    <script>var ProfID='<%-req.param('ID')%>'</script>
-    <% }else{ %>
-	<script>var ProfID=MyID</script>
-    	
-			
-    <%}%>
+   
     
 		
     

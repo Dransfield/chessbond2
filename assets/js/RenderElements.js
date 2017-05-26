@@ -777,6 +777,18 @@ io.socket.post("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
 	 toastr.success("Report Sent!");
 	 });
 }
+function showLoginForm(elem)
+{
+	var overallDiv=addFlexDiv(elem,"myloginform","column","wrap","space-around","flex-start");
+       showHeader(overallDiv,2,"Email");
+       showHeader(overallDiv,2,"Password");
+        
+        
+        elem.append("<a href='/registerpage' class='KgreenElement'>Register</a>");
+            elem.append("<a href='/forgot' class='KgreenElement'>Forgot Password</a>");
+    
+	
+}
 
 function showChatForm(elem,chatID,msgtype,ReplyTo="")
 {

@@ -1858,7 +1858,7 @@ function renderHomePage()
 		
 	showOpenGameList($("#usr"),OpenGames);
 	showRecentGames($("#usr"),MyID);
-	
+	showLoginForm($("#loginform"));
 	$("#newGameControls").css("text-align","center");
 	showWebsiteNameJumbo($("#newGameControls"))
 	
