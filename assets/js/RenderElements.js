@@ -1176,8 +1176,26 @@ function showRecentGames(elem,usracc)
 	var leftbut=showButton(span,"<","KgreenElement KbigButton");
 	
 	showHeader(span,2,"Recent Games ("+JoinedGames[usracc].length+")");
+	
 	var rightbut=showButton(span,">","KgreenElement KbigButton");
 	
+	leftbut.click(function(){
+		if(recentGameIndex>0)
+		{recentGameIndex=recentGameIndex-recentGamesToShow;}
+			for (iter in JoinedGames[usracc])
+			{
+			$("#overall"+iter).hide();
+			} 
+			for (iter in JoinedGames[usracc])
+	{
+	if(iter>recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
+	{
+	$("#overall"+iter).show();
+	}
+	} 
+	
+	
+	});
 	rightbut.click(function(){
 		if (JoinedGames[usracc].length>(recentGameIndex+recentGamesToShow))
 		{
