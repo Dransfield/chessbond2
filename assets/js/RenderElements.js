@@ -1193,7 +1193,7 @@ function showRecentGames(elem,usracc)
 		
 		for (iter in JoinedGames[usracc])
 		{
-			if(iter>recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
+			if(iter>=recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
 			{
 			$("#overall"+iter).show();
 			}
@@ -1214,7 +1214,7 @@ function showRecentGames(elem,usracc)
 		
 		for (iter in JoinedGames[usracc])
 		{
-			if(iter>recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
+			if(iter>=recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
 			{
 			$("#overall"+iter).show();
 			}
