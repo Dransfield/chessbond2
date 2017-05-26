@@ -1172,7 +1172,7 @@ function showRecentGames(elem,usracc)
 {
 	//console.log("showrecent games");
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
-		var span=addSpan(overallFlex,'id');
+		var span=addFlexDiv(overallFlex,'id',"row","nowrap");
 	var leftbut=showButton(span,"<","KgreenElement KbigButton");
 	
 	showHeader(span,2,"Recent Games");
