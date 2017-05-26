@@ -772,20 +772,10 @@ function showReportForm(elem,msgid)
 
 function Sendreport(sender,msgid,content)
 {
-io.socket.put("/SendMail",{address:"slenkar@gmail.com"})
-			.then(function onSuccess (resData, jwr){
-			
-					
-					if (resData.status==200)
-					{	toastr.success("Email Sent!");	}
-				
-			},function(response) {
-          if (response.status==404)
-					{	toastr.warning("Email Not found");	}
-     
-		}
-			);	
-	
+io.socket.put("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
+	 function (resData, jwr) {
+	 toastr.success("Report Sent!");
+	 });
 }
 
 function showChatForm(elem,chatID,msgtype,ReplyTo="")
