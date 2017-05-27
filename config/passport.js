@@ -408,18 +408,42 @@ passport.use(new GoogleStrategy({
                 // if the user is found, then log them in
                 if (user) {
 					console.log(profile.emails);
-					console.log("first email is "+profile.emails[0].value);
+					   var emailadr="none";
+                    if(profile.emails)
+                    {
+						if(profile.emails[0])
+						{
+							if(profile.emails[0].value)
+							{
+							emailadr=profile.emails[0].value;
+							}
+						}
+					}
+					user.email=emailadr;
+					user.save();
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
                     //var newUser            = new User();
                     console.log(profile);
-                    
+                    var emailadr="none";
+                    if(profile.emails)
+                    {
+						if(profile.emails[0])
+						{
+							if(profile.emails[0].value)
+							{
+							emailadr=profile.emails[0].value;
+							}
+						}
+					}
+					
 					User.create({
                     // set all of the facebook information in our user model
                     googleId: profile.id, // set the users facebook id                   
                     googletoken : refreshToken, // we will save the token that facebook provides to the user                    
                     name:profile.displayName,
+                    email:emailadr,
                     picture:profile.photos[0].value,
                     socialpicture:profile.photos[0].value
                                         }).exec( // look at the passport user profile to see how names are returned
