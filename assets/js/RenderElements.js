@@ -796,13 +796,13 @@ function showLoginForm(elem)
 			io.socket.put("/login",{email:emailform.val(),password:passwordform.val()},
 			function (resData, jwr){
 			console.log(resData);
-				if (resData[0].data.message!="Logged In Successfully")
+				if (resData.message!="Logged In Successfully")
 				{
-			toastr.info(resData[0].data.message);
+			toastr.info(resData.message);
 			}
 			else
 			{
-			toastr.success(resData[0].data.message);
+			toastr.success(resData.message);
 				$window.location.href = '/justloggedin';
 			}
 			
