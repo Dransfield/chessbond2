@@ -102,7 +102,8 @@ register: function (req, res) {
             }
             else
             {
-				
+				console.log(user);
+				console.log(info.message);
 				return res.send({
                     message: info.message,
                     user: user
