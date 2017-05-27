@@ -106,7 +106,7 @@ register: function (req, res) {
              //       message: info.message,
               //      user: user
                // });
-            });
+           // });
 
         })(req, res);
     },
