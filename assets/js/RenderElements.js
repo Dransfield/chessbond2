@@ -781,11 +781,14 @@ function showLoginForm(elem)
 {
 	var overallDiv=addFlexDiv(elem,"myloginform","column","wrap","space-around","flex-start");
        showHeader(overallDiv,2,"Email");
+     var emailform=$("<input type='text' autocomplete='on' placeholder='email' name='name' >");
+	overallDiv.append(emailform);
        showHeader(overallDiv,2,"Password");
-        
-        
-        elem.append("<a href='/registerpage' class='KgreenElement'>Register</a>");
-            elem.append("<a href='/forgot' class='KgreenElement'>Forgot Password</a>");
+         var passwordform=$("<input type='text' autocomplete='on' placeholder='password' name='name' >");
+	overallDiv.append(passwordform);
+        var loginbut=showButton(elem,"Login","KgreenElement KregularButton");
+        elem.append("<a href='/registerpage' class='KgreenElement KregularButton'>Register</a>");
+            elem.append("<a href='/forgot' class='KgreenElement KregularButton'>Forgot Password</a>");
     
 	
 }
