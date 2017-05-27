@@ -468,7 +468,7 @@ function CreateDropDown(usracc)
 {
 
 	DropDowns[usracc]=$("<ul id='droplist"+usracc+"' class='userdropdown-content' ></ul>");
-	
+	DropDowns[usracc].append("<li><a href='/profile/"+usracc+"'>Go to Profile</a></li>");
 	DropDowns[usracc].append("<li><a>Cumulative Rating "+Accounts[usracc].ELO+"</a></li>");
 	DropDowns[usracc].append("<li><a href='#'>View Game Archive</a></li>");
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
