@@ -99,13 +99,14 @@ register: function (req, res) {
                     user: user
                 });
             }
-            req.logIn(user, function(err) {
-                if (err) res.send(err);
+           // req.logIn(user, function(err) {
+               // if (err) res.send(err);
+                req.session.user=user;
                 return res.send({
                     message: info.message,
                     user: user
                 });
-            });
+            //});
 
         })(req, res);
     },
