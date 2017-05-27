@@ -344,11 +344,11 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	
 	if(msg.sender==MyID)
 	{
-		postHeaderDiv=$("<div  style='display:flex;background-color:lightgrey;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;background-color:lightgrey;padding:4px;'></div>");
 	}
 	else
 	{
-		postHeaderDiv=$("<div  style='display:flex;background-color:lightgreen;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;background-color:lightgreen;padding:4px;'></div>");
 		
 	}
 	//console.log("show chat message "+JSON.stringify(msg));
