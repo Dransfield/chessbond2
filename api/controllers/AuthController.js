@@ -99,9 +99,10 @@ register: function (req, res) {
                     user: user
                 });
             }
+            req.session.passport.user=user;
            // req.logIn(user, function(err) {
                // if (err) res.send(err);
-                req.session.user=user;
+               // req.session.user=user;
                 return res.send({
                     message: info.message,
                     user: user
