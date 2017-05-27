@@ -99,7 +99,7 @@ register: function (req, res) {
                     user: user
                 });
             }
-            req.logIn(user, function(err) {
+            req.login(user, function(err) {
                 if (err) res.send(err);
                 return res.send({
                     message: info.message,
