@@ -795,14 +795,14 @@ function showLoginForm(elem)
 			
 			io.socket.put("/login",{email:emailform.val(),password:passwordform.val()},
 			function (resData, jwr){
-			
-				if (resData.data.message!="Logged In Successfully")
+			console.log(resData);
+				if (resData[0].data.message!="Logged In Successfully")
 				{
-			toastr.info(resData.data.message);
+			toastr.info(resData[0].data.message);
 			}
 			else
 			{
-			toastr.success(resData.data.message);
+			toastr.success(resData[0].data.message);
 				$window.location.href = '/justloggedin';
 			}
 			
