@@ -96,15 +96,16 @@ register: function (req, res) {
             if ((err) || (!user)) {
                 return res.send({
                     message: info.message,
-                    user: user
+                    user: user,
+				 successRedirect : '/justloggedin'
                 });
             }
-            req.login(user, function(err) {
-                if (err) res.send(err);
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
+           // req.login(user, function(err) {
+           //     if (err) res.send(err);
+            //    return res.send({
+             //       message: info.message,
+              //      user: user
+               // });
             });
 
         })(req, res);
