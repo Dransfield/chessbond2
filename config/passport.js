@@ -408,6 +408,7 @@ passport.use(new GoogleStrategy({
                 // if the user is found, then log them in
                 if (user) {
 					console.log(profile.emails);
+					console.log("first email is "+profile.emails[0].value);
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
