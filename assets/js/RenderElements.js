@@ -803,7 +803,7 @@ function showLoginForm(elem)
 			else
 			{
 			toastr.success(resData.message);
-				$window.location.href = '/justloggedin';
+				 $(location).attr("href", '/justloggedin');
 			}
 			
 			});
