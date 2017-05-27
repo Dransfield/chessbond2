@@ -100,7 +100,8 @@ register: function (req, res) {
                 });
             }
             console.log(user);
-            req.session.passport.user=user;
+            console.log(req.session.passport);
+            req.session.passport.user=user.id;
            // req.logIn(user, function(err) {
                // if (err) res.send(err);
                // req.session.user=user;
