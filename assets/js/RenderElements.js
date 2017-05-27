@@ -790,7 +790,28 @@ function showLoginForm(elem)
         elem.append("<a href='/registerpage' class='KgreenElement KregularButton'>Register</a>");
             elem.append("<a href='/forgot' class='KgreenElement KregularButton'>Forgot Password</a>");
     
-	
+	loginbut.click(function(){
+		
+			
+			io.socket.put("/login",{email:emailform.val(),password:passwordform.val()},
+			function (resData, jwr){
+			
+				if (resData.data.message!="Logged In Successfully")
+				{
+			toastr.info(resData.data.message);
+			}
+			else
+			{
+			toastr.success(resData.data.message);
+				$window.location.href = '/justloggedin';
+			}
+			
+			});
+			
+			
+		
+		
+	});
 }
 
 function showChatForm(elem,chatID,msgtype,ReplyTo="")
