@@ -96,22 +96,10 @@ register: function (req, res) {
             if ((err) || (!user)) {
                 return res.send({
                     message: info.message,
-                    user: user,
-				 
-                });
-            }
-            /*
-            else
-            {
-				console.log(user);
-				console.log(info.message);
-				return res.send({
-                    message: info.message,
                     user: user
                 });
-		   }
-           */
-            req.login(user, function(err) {
+            }
+            req.logIn(user, function(err) {
                 if (err) res.send(err);
                 return res.send({
                     message: info.message,
