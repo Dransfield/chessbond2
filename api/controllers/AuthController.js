@@ -97,9 +97,17 @@ register: function (req, res) {
                 return res.send({
                     message: info.message,
                     user: user,
-				 successRedirect : '/justloggedin'
+				 
                 });
             }
+            else
+            {
+				
+				return res.send({
+                    message: info.message,
+                    user: user
+                });
+		   }
            // req.login(user, function(err) {
            //     if (err) res.send(err);
             //    return res.send({
