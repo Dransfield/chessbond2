@@ -473,7 +473,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 
 }
 
-function showReportForm(elem)
+function showAdminReportForm(elem)
 {
 	var	reportDiv=addDiv(elem,"id");
 	reportDiv.attr("class","reportGrid");

@@ -1914,7 +1914,7 @@ function addFollowPromises()
 function renderAdminPage()
 	{
 	console.log("renderchatpage");
-		showReportForm($("#adminpage"));
+		showAdminReportForm($("#adminpage"));
 		
 	}
 	
