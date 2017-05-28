@@ -865,7 +865,7 @@ function setupProfilePage()
 			leftcol.css("align-items","flex-start");
 			showHeader(tblRight,2,"Comment Wall");
 			var chatDiv=addFlexDiv(tblRight,"chatdiv","column",'wrap');
-			//chatDiv.css("align-items","flex-start");
+			chatDiv.css("align-items","flex-start");
 			showChatForm(chatDiv,ProfID,"wall","none");
 			//console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)

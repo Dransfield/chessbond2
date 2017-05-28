@@ -105,6 +105,22 @@ padding:5px;
  cursor:pointer;
 }
 
+.reportGrid
+{
+  display:grid;
+  grid-auto-flow:row;
+  grid-row-gap: 2px;
+}
+.greyGridCell {
+  
+ background-color:grey;
+}
+.gridTitle {
+  grid-row:1;
+  border-bottom-style:solid;
+  background-color:teal;
+  font-weight:bold;
+}
 .KgreenElement
 {
 background: #5cb85c;
