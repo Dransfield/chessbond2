@@ -123,6 +123,10 @@ var soundVolume=5;
 		{
 		setupHomePage();
 		}
+		if($("#adminpage").length)
+		{
+		setupAdminPage();
+		}
 		if($("#privateconversationpage").length)
 		{
 		setupChatPage();
@@ -925,6 +929,34 @@ function retrievePrivatesandFollows()
 	addBlockPromises();
 	return Promise.all(FollowPromises,PrivatePromises,BlockPromises);
 	}
+	
+
+function setupChatPage()
+{
+	
+			
+			
+				
+			AccountsToRetrieve[MyID]=MyID;
+		
+			
+
+		retrieveAccounts().then(function()
+		{
+		
+	});
+	
+
+		
+		
+		
+	
+	
+	
+	
+
+	
+}
 	
 function setupChatPage()
 {
