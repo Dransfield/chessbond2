@@ -25,8 +25,8 @@
 		
  <% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
-				<span> Admin? <%- req.session.passport.user.admin %> </span>
-				<span> Email? <%- req.session.passport.user.email %> </span>
+				<span> Admin? <%- req.session.passport.admin %> </span>
+				<span> Email? <%- req.session.passport.email %> </span>
 				<script>var MyID='<%- req.session.passport.user %>'</script>
 				<% if (req.session.passport.user.admin=='true') { %>
 	<div id="adminpage"></div>

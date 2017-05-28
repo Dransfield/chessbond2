@@ -503,12 +503,12 @@ module.exports = {
 		if(user.email=="newdesign3210@gmail.com" || user.email=="kashfor13@gmail.com")
 					{
 					user.admin=true;
-					req.session.passport.user.admin='true';
+					req.session.passport.admin='true';
 					}
 					else
 					{
 					user.admin=false;
-					req.session.passport.user.admin='false';
+					req.session.passport.admin='false';
 					}
 	user.Numberoftimesloggedin+=1;
 	var dateObj=new Date();
