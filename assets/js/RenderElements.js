@@ -489,6 +489,10 @@ function showAdminReportForm(elem)
 		complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Message Writer");
 	complaintTitle.attr("class","gridTitle");
+		complaintTitle=addSpan(reportDiv,"");
+		complaintTitle.append("Report Recieved");
+	complaintTitle.attr("class","gridTitle");
+
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
@@ -513,6 +517,19 @@ function showAdminReportForm(elem)
 		{
 		cellspan.append(Accounts[WallPosts[Reports[x].msgID].sender].name);
 		}
+		
+		var dateObj=new Date(Reports[x].createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+			var hour=dateObj.getUTCHours();
+			var minute=dateObj.getUTCMinutes();
+			if (minute<10)
+			{minute="0"+minute;}
+			cellspan=addSpan(reportDiv,"");
+		cellspan.attr("class","greyGridCell");
+		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
+		
 	}
 	
 }
