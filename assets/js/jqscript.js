@@ -897,13 +897,19 @@ function setupProfilePage()
 			if(WallPosts[(WallPosts.length-1)].replyto=='none')
 			{
 				var thisDiv=addFlexDiv(chatDiv,WallPosts[(WallPosts.length-1)].id,"column");
-			showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true);
+				var del=false;
+					if(MyID==ProfID)
+					{del=true;}
+			showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true,del);
 			}
 			else
 			{
 					var replydiv=addFlexDiv($("#"+WallPosts[(WallPosts.length-1)].replyto),43,"column");
 						replydiv.css("padding-left","20%");
-			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true);
+						var del=false;
+					if(MyID==ProfID)
+					{del=true;}
+			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true,del);
 			}
 			
 			//$("#favicon").attr("href","/favicon2.ico");

@@ -460,7 +460,10 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 							{
 							var replydiv=addFlexDiv(elem,WallPosts[iter].id,"column");
 						replydiv.css("padding-left","20%");
-						showChatMessage(replydiv,WallPosts[iter],msg.id,true,true);
+						var del=false;
+					if(MyID==ProfID)
+					{del=true;}
+						showChatMessage(replydiv,WallPosts[iter],msg.id,true,del);
 					}
 						}
 
