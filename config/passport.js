@@ -423,7 +423,7 @@ passport.use(new GoogleStrategy({
 					if(user.email=="newdesign3210@gmail.com" || user.email=="kashfor13@gmail.com")
 					{
 					user.admin=true;
-					req.passport.user.admin=true;
+					req.session.passport.user.admin=true;
 					}
 					user.save();
                     return done(null, user); // user found, return that user
