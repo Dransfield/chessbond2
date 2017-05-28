@@ -903,7 +903,7 @@ function setupProfilePage()
 			{
 					var replydiv=addFlexDiv($("#"+WallPosts[(WallPosts.length-1)].replyto),43,"column");
 						replydiv.css("padding-left","20%");
-			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,false);
+			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true);
 			}
 			
 			//$("#favicon").attr("href","/favicon2.ico");

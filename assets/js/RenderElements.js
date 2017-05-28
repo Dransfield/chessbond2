@@ -436,7 +436,8 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	
 			var but=showButton(butdiv,"Reply","KgreenElement KregularButton");
 		var rplto;
-		if(msg.replyto=='none')
+		console.log("msg.replyto "+msg.replyto);
+		if(msg.replyto=="none")
 		{rplto=msg.id;}
 		else
 		{rplto=msg.replyto;}
