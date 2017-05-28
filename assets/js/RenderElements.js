@@ -485,9 +485,12 @@ function showAdminReportForm(elem)
 		var cellspan=addSpan(reportDiv,"");
 		cellspan.append(Reports[x].complaint);
 		cellspan.attr("class","greyGridCell");
+		cellspan=addSpan(reportDiv,"");
+		cellspan.append(Accounts[Reports[x].reporter].name);
+		cellspan.attr("class","greyGridCell");
 		}
 	
-	}
+}
 
 function CreateDropDown(usracc)
 {

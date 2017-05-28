@@ -1433,6 +1433,7 @@ var cg = new Promise
 		{
 		
 		Reports.push(resData[x]);	
+		AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 		}
 			resolve(resData);
 		});
