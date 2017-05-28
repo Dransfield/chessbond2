@@ -435,8 +435,12 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
 	
 			var but=showButton(butdiv,"Reply","KgreenElement KregularButton");
-		
-		var form=showChatForm(elem,msg.groupid,msg.messagetype,msg.id);
+		var rplto;
+		if(msg.replyto=='none')
+		{rplto=msg.id;}
+		else
+		{rplto=msg.replyto;}
+		var form=showChatForm(elem,msg.groupid,msg.messagetype,rplto);
 		form.hide();
 		but.click(function()
 		{form.slideToggle();});
