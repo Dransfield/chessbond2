@@ -505,6 +505,11 @@ module.exports = {
 					user.admin=true;
 					req.session.passport.user.admin=true;
 					}
+					else
+					{
+					user.admin=false;
+					req.session.passport.user.admin=false;
+					}
 	user.Numberoftimesloggedin+=1;
 	var dateObj=new Date();
 	console.log(JSON.stringify(dateObj));
