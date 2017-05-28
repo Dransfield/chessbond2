@@ -494,11 +494,13 @@ function showAdminReportForm(elem)
 		cellspan=addSpan(reportDiv,"");
 		cellspan.append(Accounts[Reports[x].reporter].name);
 		cellspan.attr("class","greyGridCell");
-		
+		if(WallPosts[Reports[x].msgID])
+		{
 		cellspan=addSpan(reportDiv,"");
 		cellspan.append(WallPosts[Reports[x].msgID].content);
 		cellspan.attr("class","greyGridCell");
 		}
+	}
 	
 }
 
