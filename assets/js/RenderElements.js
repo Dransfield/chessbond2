@@ -480,7 +480,7 @@ function showAdminReportForm(elem)
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
-		cellspan.append(Reports[x].complaint;
+		cellspan.append(Reports[x].complaint);
 		cellspan.attr("class","greyGridCell");
 		}
 	
