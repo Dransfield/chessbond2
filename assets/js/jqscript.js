@@ -909,6 +909,8 @@ function setupProfilePage()
 						var del=false;
 					if(MyID==ProfID)
 					{del=true;}
+					replydiv.attr("id",WallPosts[(WallPosts.length-1)].id);
+						//showChatMessage(replydiv,WallPosts[iter],msg.id,true,del);
 			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true,del);
 			}
 			
