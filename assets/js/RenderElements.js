@@ -477,6 +477,9 @@ function showAdminReportForm(elem)
 {
 	var	reportDiv=addDiv(elem);
 	reportDiv.attr("class","reportGrid");
+	var complaintTitle=addSpan(reportDiv,"");
+	complaintTitle.append("Complaint");
+	complaintTitle.attr("class","gridTitle");
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
