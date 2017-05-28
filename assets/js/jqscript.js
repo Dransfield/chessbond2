@@ -13,6 +13,7 @@ var PrivateMessages={};
 var Follows={};
 var Blocks={};
 var WallPosts=[];
+var Reports=[];
 var GamePlaying={};
 var soundVolume=5;
 
@@ -948,11 +949,15 @@ function setupAdminPage()
 			AccountsToRetrieve[MyID]=MyID;
 		
 			
-
+		retrieveReports().then(function()
+		{
 		retrieveAccounts().then(function()
 		{
+				renderAdminPage();
 		
 	});
+	});
+	
 	
 
 		
@@ -1415,6 +1420,25 @@ function retrieveAccounts(boardscreen=false)
 return Promise.all(AccountPromises)
 
 	
+}
+
+function retrieveReports(boardscreen=false)
+
+{
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/commentreport",{},
+		function (resData,jwres){
+			for (x in resData)
+		{
+		
+		Reports.push(resData[x]);	
+		}
+			resolve(resData);
+		});
+
+});
+return cg;	
 }
 
 function addBlocked(usracc)
@@ -1886,6 +1910,14 @@ function addFollowPromises()
 	}}}
 }
 
+
+function renderAdminPage()
+	{
+	console.log("renderchatpage");
+		showReportForm($("#adminpage"));
+		
+	}
+	
 function renderChatPage()
 	{
 	console.log("renderchatpage");

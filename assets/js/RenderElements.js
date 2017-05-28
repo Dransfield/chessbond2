@@ -472,6 +472,16 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	}
 
 }
+
+function showReportForm(elem)
+{
+	var	reportDiv=addDiv(elem,"id");
+	reportDiv.attr("class","reportGrid");
+	for (x in Reports)
+	{reportDiv.append(Reports[x].complaint);}
+	
+	}
+
 function CreateDropDown(usracc)
 {
 
