@@ -475,10 +475,14 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 
 function showAdminReportForm(elem)
 {
-	var	reportDiv=addDiv(elem,"id");
+	var	reportDiv=addDiv(elem);
 	reportDiv.attr("class","reportGrid");
 	for (x in Reports)
-	{reportDiv.append(Reports[x].complaint);}
+		{
+		var cellspan=addSpan(reportDiv,"");
+		cellspan.append(Reports[x].complaint;
+		cellspan.attr("class","greyGridCell");
+		}
 	
 	}
 
