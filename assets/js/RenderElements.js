@@ -486,6 +486,9 @@ function showAdminReportForm(elem)
 		complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Message");
 	complaintTitle.attr("class","gridTitle");
+		complaintTitle=addSpan(reportDiv,"");
+		complaintTitle.append("Message Writer");
+	complaintTitle.attr("class","gridTitle");
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
@@ -502,6 +505,13 @@ function showAdminReportForm(elem)
 		{
 		
 		cellspan.append(WallPosts[Reports[x].msgID].content);
+		}
+		cellspan=addSpan(reportDiv,"");
+		cellspan.attr("class","greyGridCell");
+		
+		if(WallPosts[Reports[x].msgID])
+		{
+		cellspan.append(Accounts[WallPosts[Reports[x].msgID].sender].name);
 		}
 	}
 	
