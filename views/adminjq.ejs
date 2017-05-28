@@ -26,11 +26,13 @@
  <% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
 				<script>var MyID='<%- req.session.passport.user %>'</script>
-				
+				<% if (req.session.passport.user.admin=true) { %>
 	<div id="adminpage"></div>
 	
 			
-			
+			<% }else{ %>
+			<h1>Sorry, you are not an admin.</h1>
+			<%}%>
 			<% }else{ %>
 			<script>var MyID=''</script>
 			<h1>Sorry, you are not an admin.</h1>
