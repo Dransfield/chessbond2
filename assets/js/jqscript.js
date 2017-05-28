@@ -931,7 +931,7 @@ function retrievePrivatesandFollows()
 	}
 	
 
-function setupChatPage()
+function setupAdminPage()
 {
 	
 			
