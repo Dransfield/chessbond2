@@ -500,7 +500,11 @@ module.exports = {
 	},function foundUser(err,user){
 		if (!err){
 		
-	
+		if(user.email=="newdesign3210@gmail.com" || user.email=="kashfor13@gmail.com")
+					{
+					user.admin=true;
+					req.session.passport.user.admin=true;
+					}
 	user.Numberoftimesloggedin+=1;
 	var dateObj=new Date();
 	console.log(JSON.stringify(dateObj));
