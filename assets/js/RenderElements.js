@@ -480,6 +480,7 @@ function showAdminReportForm(elem)
 	var complaintTitle=addSpan(reportDiv,"");
 	complaintTitle.append("Complaint");
 	complaintTitle.attr("class","gridTitle");
+	complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Reporter");
 	complaintTitle.attr("class","gridTitle");
 	for (x in Reports)
