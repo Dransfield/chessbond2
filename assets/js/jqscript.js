@@ -8,11 +8,13 @@ var AccountPromises=[];
 var PrivatePromises=[];
 var FollowPromises=[];
 var BlockPromises=[];
+var WallPostPromises=[];
 var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
 var Blocks={};
 var WallPosts=[];
+var WallPostsToRetrieve=[];
 var Reports=[];
 var GamePlaying={};
 var soundVolume=5;
@@ -943,32 +945,18 @@ function retrievePrivatesandFollows()
 function setupAdminPage()
 {
 	
-			
-			
-				
-			AccountsToRetrieve[MyID]=MyID;
-		
+		AccountsToRetrieve[MyID]=MyID;
 			
 		retrieveReports().then(function()
 		{
-		retrieveAccounts().then(function()
-		{
+			RetrieveWallPostsFromList().then(function()
+			{
+				retrieveAccounts().then(function()
+				{
 				renderAdminPage();
-		
-	});
-	});
-	
-	
-
-		
-		
-		
-	
-	
-	
-	
-
-	
+				});
+			});
+		});
 }
 	
 function setupChatPage()
@@ -1107,6 +1095,21 @@ resolve();
 });
 return cg;
 }
+
+function RetrieveWallPostsFromList()
+
+{
+	for (x in WallPostsToRetrieve)
+	{
+	addWallPostPromise(WallPostsToRetrieve[x]);
+	}
+	
+	
+return Promise.all(WallPostPromises)
+
+	
+}
+
 
 function retrieveGame(gameid)
 {
@@ -1430,11 +1433,11 @@ var cg = new Promise
 		io.socket.get("/commentreport",{},
 		function (resData,jwres){
 			for (x in resData)
-		{
-		
-		Reports.push(resData[x]);	
-		AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
-		}
+			{
+			Reports.push(resData[x]);	
+			AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
 			resolve(resData);
 		});
 
@@ -1666,6 +1669,27 @@ AccountPromises.push(new Promise((resolve, reject) => {
 		);
 	}));
 }
+
+
+function addWallPostPromise(pID)
+{
+WallPostPromises.push(new Promise((resolve, reject) => {
+	 io.socket.get('/Wallpost/'+pID,
+		function(usr)
+		{
+			
+			//console.log(JSON.stringify(myuser));
+			WallPosts[usr.id]=usr;
+			
+		
+			AccountsToRetrieve[usr.sender]=usr.sender;
+				 
+				resolve(usr);
+		}
+		);
+	}));
+}
+
 
 function addPrivatePromises()
 {
