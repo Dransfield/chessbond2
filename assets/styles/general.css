@@ -114,7 +114,7 @@ padding:5px;
 }
 .greyGridCell {
  background-color:grey;
- border-style-right:solid;
+ border-right-style:solid;
 }
 
 .gridTitle {
