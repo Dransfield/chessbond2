@@ -492,7 +492,10 @@ function showAdminReportForm(elem)
 		complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Report Recieved");
 	complaintTitle.attr("class","gridTitle");
-
+complaintTitle=addSpan(reportDiv,"");
+		complaintTitle.append("your banning buttons Sir");
+	complaintTitle.attr("class","gridTitle");
+	
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
@@ -509,6 +512,7 @@ function showAdminReportForm(elem)
 		{
 		cellspan.append(WallPosts[Reports[x].msgID].content);
 		}
+		
 		cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		
