@@ -533,10 +533,10 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		
-		cellspan=addSpan(reportDiv,"");
-		cellspan.attr("class","greyGridCell");
+		//cellspan=addSpan(reportDiv,"");
+		//cellspan.attr("class","greyGridCell");
 		
-		var banBut=showButton(cellspan,"Temporary ban","KcyanElement KregularButton");
+		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		
 		
 		}
