@@ -535,7 +535,7 @@ complaintTitle=addSpan(reportDiv,"");
 		
 		//cellspan=addSpan(reportDiv,"");
 		//cellspan.attr("class","greyGridCell");
-		if(WallPosts[Reports[x].msgID].sender){
+		if(WallPosts[Reports[x].msgID]){
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
