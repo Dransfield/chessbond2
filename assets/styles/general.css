@@ -113,9 +113,10 @@ padding:5px;
   grid-row-gap: 2px;
 }
 .greyGridCell {
-  
  background-color:grey;
+ border-style-right:solid;
 }
+
 .gridTitle {
   grid-row:1;
   border-bottom-style:solid;
@@ -130,12 +131,10 @@ background: #5cb85c;
 .KcyanElement
 {
 background-color: #5bc0de;
-
 }
 .KredElement
 {
 background-color:#b85c5c;
-
 }
   /* Small screens */
 @media all and (max-width: 500px) {
