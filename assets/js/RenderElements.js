@@ -537,16 +537,18 @@ complaintTitle=addSpan(reportDiv,"");
 		//cellspan.attr("class","greyGridCell");
 		
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
-		banBut.click(function(){
-			io.socket.put('/banuser',{banneduser:WallPosts[Reports[x].msgID].sender}
-			,function (resData, jwRes) {
-				toastr.success("user banned");
-				});
-			});
+		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
 		
 		}
 	
 }
+
+function banUser(event){
+			io.socket.put('/banuser',{banneduser:event.data.usr}
+			,function (resData, jwRes) {
+				toastr.success("user banned");
+				});
+			}
 
 function CreateDropDown(usracc)
 {
