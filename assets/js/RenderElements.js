@@ -507,7 +507,6 @@ function showAdminReportForm(elem)
 		
 		if(WallPosts[Reports[x].msgID])
 		{
-		
 		cellspan.append(WallPosts[Reports[x].msgID].content);
 		}
 		cellspan=addSpan(reportDiv,"");
@@ -530,7 +529,13 @@ function showAdminReportForm(elem)
 		cellspan.attr("class","greyGridCell");
 		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		
-	}
+		cellspan=addSpan(reportDiv,"");
+		cellspan.attr("class","greyGridCell");
+		
+		var banBut=showButton(cellspan,"Temporary ban","KcyanElement KregularButton");
+		
+		
+		}
 	
 }
 
