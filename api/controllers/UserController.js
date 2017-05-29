@@ -9,6 +9,8 @@ module.exports = {
 	banUser:function(req,res){
 		 User.update({id:req.param('banneduser')},{tempBan:true}).
 		 exec(function afterwards(err, updated){
+			 console.log(updated);
+						 console.log(req.param('banneduser');
 						 res.ok();
 						 });
 						
