@@ -493,7 +493,7 @@ function showAdminReportForm(elem)
 		complaintTitle.append("Report Recieved");
 	complaintTitle.attr("class","gridTitle");
 complaintTitle=addSpan(reportDiv,"");
-		complaintTitle.append("your banning buttons Sir");
+		complaintTitle.append("Your banning buttons Sir");
 	complaintTitle.attr("class","gridTitle");
 	
 	for (x in Reports)
@@ -537,7 +537,12 @@ complaintTitle=addSpan(reportDiv,"");
 		//cellspan.attr("class","greyGridCell");
 		
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
-		
+		banBut.click(function(){
+			io.socket.put('/banuser',{banneduser:WallPosts[Reports[x].msgID].sender}
+			,function (resData, jwRes) {
+				toastr.success("user banned");
+				});
+			});
 		
 		}
 	

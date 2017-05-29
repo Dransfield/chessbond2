@@ -6,6 +6,13 @@
  */
 
 module.exports = {
+	banUser:function(req,res){
+		 User.update({id:req.param('banneduser')},{tempBan:true}).
+		 exec(function afterwards(err, updated){
+						 res.ok();
+						 });
+						
+	},
 	UndeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){
