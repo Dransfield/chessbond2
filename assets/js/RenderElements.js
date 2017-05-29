@@ -533,8 +533,7 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		
-		//cellspan=addSpan(reportDiv,"");
-		//cellspan.attr("class","greyGridCell");
+		
 		if(WallPosts[Reports[x].msgID]){
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
@@ -542,6 +541,12 @@ complaintTitle=addSpan(reportDiv,"");
 		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
 		
 		}
+		else
+		{
+		cellspan=addSpan(reportDiv,"");
+		cellspan.attr("class","greyGridCell");
+		}
+		
 		}
 }
 
