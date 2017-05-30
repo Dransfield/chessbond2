@@ -541,14 +541,14 @@ complaintTitle=addSpan(reportDiv,"");
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
+		banBut.click({usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		else
 		{
 		var banBut=showButton(reportDiv,"Unban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
+		banBut.click({usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		
 		
@@ -571,7 +571,7 @@ function banUser(event){
 				toastr.success("user banned");
 				Accounts[event.data.usr].tempBan=true;
 				//$(this).context.html('unban');
-				$("#"+$(this).attr("id")).html('unban');
+				event.data.but.html('unban');
 				});
 	}
 	else
@@ -581,7 +581,7 @@ function banUser(event){
 			,function (resData, jwRes) {
 				toastr.success("user unbanned");
 				Accounts[event.data.usr].tempBan=false;
-				$("#"+$(this).attr("id")).html('ban');
+				event.data.but.html('ban');
 				//$(this).context.html('unban');
 			
 				
