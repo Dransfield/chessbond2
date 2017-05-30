@@ -563,14 +563,14 @@ complaintTitle=addSpan(reportDiv,"");
 }
 
 function banUser(event){
-	console.log($(this));
+	console.log($(this)[0]);
 	if (!Accounts[event.data.usr].tempBan)
 	{
 			io.socket.put('/banuser',{banneduser:event.data.usr}
 			,function (resData, jwRes) {
 				toastr.success("user banned");
 				Accounts[event.data.usr].tempBan=true;
-				$(this).find('span').text('unban');
+				$(this)[0].text('unban');
 				});
 	}
 	else
@@ -580,7 +580,13 @@ function banUser(event){
 			,function (resData, jwRes) {
 				toastr.success("user unbanned");
 				Accounts[event.data.usr].tempBan=false;
-				$(this).find('span').text('unban');
+				$(this)[0].text('unban');
+				$(this)[0].val('unban');
+				$(this)[0].html('unban');
+				$(this).text('unban');
+				$(this).val('unban');
+				$(this).html('unban');
+				
 				});
 	
 		
