@@ -545,7 +545,7 @@ complaintTitle=addSpan(reportDiv,"");
 		}
 		else
 		{
-		var banBut=showButton(reportDiv,"unban","KcyanElement KregularButton");
+		var banBut=showButton(reportDiv,"Unban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
 		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
