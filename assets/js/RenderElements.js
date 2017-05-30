@@ -581,7 +581,7 @@ function banUser(event){
 			,function (resData, jwRes) {
 				toastr.success("user unbanned");
 				Accounts[event.data.usr].tempBan=false;
-				
+				$("#"+$(this).attr("id")).html('ban');
 				//$(this).context.html('unban');
 			
 				
