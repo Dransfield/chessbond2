@@ -570,6 +570,7 @@ function banUser(event){
 			,function (resData, jwRes) {
 				toastr.success("user banned");
 				Accounts[event.data.usr].tempBan=true;
+				event.currentTarget.text("unban");
 				});
 	}
 	else
@@ -579,6 +580,7 @@ function banUser(event){
 			,function (resData, jwRes) {
 				toastr.success("user unbanned");
 				Accounts[event.data.usr].tempBan=false;
+				event.currentTarget.text("temporary ban");
 				});
 	
 		
