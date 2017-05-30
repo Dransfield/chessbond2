@@ -570,7 +570,8 @@ function banUser(event){
 			,function (resData, jwRes) {
 				toastr.success("user banned");
 				Accounts[event.data.usr].tempBan=true;
-				$(this).context.html('unban');
+				//$(this).context.html('unban');
+				$("#"+$(this).attr("id")).html('unban');
 				});
 	}
 	else
@@ -581,7 +582,7 @@ function banUser(event){
 				toastr.success("user unbanned");
 				Accounts[event.data.usr].tempBan=false;
 				
-				$(this).context.html('unban');
+				//$(this).context.html('unban');
 			
 				
 				});
