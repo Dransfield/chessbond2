@@ -563,7 +563,7 @@ complaintTitle=addSpan(reportDiv,"");
 }
 
 function banUser(event){
-	console.log($(this)[0]);
+	console.log($(this));
 	if (!Accounts[event.data.usr].tempBan)
 	{
 			io.socket.put('/banuser',{banneduser:event.data.usr}
