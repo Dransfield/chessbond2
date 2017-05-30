@@ -1949,7 +1949,11 @@ function addFollowPromises()
 function renderAdminPage()
 	{
 	console.log("renderchatpage");
-		showAdminReportForm($("#adminpage"));
+	var horiFlex=addFlexDiv($("#adminpage"),"adminflex","row","wrap");
+	var sideBoard=addDiv(horiFlex);
+	sideBoard.css("width","20%");
+	
+	showAdminReportForm(horiFlex);
 		
 	}
 	
