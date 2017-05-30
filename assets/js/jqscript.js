@@ -1665,10 +1665,11 @@ AccountPromises.push(new Promise((resolve, reject) => {
 				if(usr.tempBan)
 				
 				{
-				
-				coverall=$("<div style='background-color:white;position:fixed;height: 20%;width: 30%;top:30px;right:0px;border-style:solid;border-color:black;border-width:2;z-index:9999;'><p>You Have been temporarily banned.</p></div>");
+				if (!$("#adminpage"))
+				{
+				coverall=$("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px;right:0px;border-style:solid;border-color:black;border-width:2;z-index:9999;'><p>You Have been temporarily banned.</p></div>");
 				$("#navbar").append(coverall);	
-					
+				}	
 				}
 				
 				}

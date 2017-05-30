@@ -15,6 +15,15 @@ module.exports = {
 						 });
 						
 	},
+	unbanUser:function(req,res){
+		 User.update({id:req.param('banneduser')},{tempBan:false}).
+		 exec(function afterwards(err, updated){
+			 console.log(updated);
+						 console.log("banned user "+req.param('banneduser'));
+						 res.ok();
+						 });
+						
+	},
 	UndeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){

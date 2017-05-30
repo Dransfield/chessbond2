@@ -535,10 +535,21 @@ complaintTitle=addSpan(reportDiv,"");
 		
 		
 		if(WallPosts[Reports[x].msgID]){
+			
+		if(!Accounts[WallPosts[Reports[x].msgID].sender].tempBan)
+		{
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
 		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
+		}
+		else
+		var banBut=showButton(reportDiv,"unban","KcyanElement KregularButton");
+		console.log(WallPosts[Reports[x].msgID].sender);
+		console.log(WallPosts[Reports[x].msgID].content);
+		banBut.click({usr:WallPosts[Reports[x].msgID].sender},banUser);
+		}
+		
 		
 		}
 		else
@@ -551,11 +562,24 @@ complaintTitle=addSpan(reportDiv,"");
 }
 
 function banUser(event){
+	if (!Accounts[event.data.usr].tempBan)
+	{
 			io.socket.put('/banuser',{banneduser:event.data.usr}
 			,function (resData, jwRes) {
 				toastr.success("user banned");
 				});
-			}
+	}
+	else
+	{
+		
+			io.socket.put('/unbanuser',{banneduser:event.data.usr}
+			,function (resData, jwRes) {
+				toastr.success("user unbanned");
+				});
+	
+		
+	}
+}
 
 function CreateDropDown(usracc)
 {

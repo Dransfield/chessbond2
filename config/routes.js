@@ -84,6 +84,8 @@ module.exports.routes = {
 	'PUT /joingame':'PageController.Joingame',
 	'PUT /imidle':'PageController.AnnounceIdle',
 	'PUT /banuser':'UserController.banUser',
+	'PUT /unbanuser':'UserController.unbanUser',
+	
 	'PUT /wantrematch':'RematchController.WantRematch',
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /deleteavatar':'AvatarController.deletepic',
