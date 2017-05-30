@@ -563,11 +563,13 @@ complaintTitle=addSpan(reportDiv,"");
 }
 
 function banUser(event){
+	console.log(event);
 	if (!Accounts[event.data.usr].tempBan)
 	{
 			io.socket.put('/banuser',{banneduser:event.data.usr}
 			,function (resData, jwRes) {
 				toastr.success("user banned");
+				Accounts[event.data.usr].tempBan=true;
 				});
 	}
 	else
@@ -576,6 +578,7 @@ function banUser(event){
 			io.socket.put('/unbanuser',{banneduser:event.data.usr}
 			,function (resData, jwRes) {
 				toastr.success("user unbanned");
+				Accounts[event.data.usr].tempBan=false;
 				});
 	
 		
