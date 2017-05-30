@@ -1952,7 +1952,9 @@ function renderAdminPage()
 	var horiFlex=addFlexDiv($("#adminpage"),"adminflex","row","wrap");
 	var sideBoard=addDiv(horiFlex);
 	sideBoard.css("width","20%");
-	
+	var banbutton=showButton(sideBoard,"Banning","KgreenElement KregularButton");
+	var imagesbutton=showButton(sideBoard,"Uploaded Images","KgreenElement KregularButton");
+
 	showAdminReportForm(horiFlex);
 		
 	}
