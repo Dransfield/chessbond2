@@ -489,9 +489,10 @@ function showLatestImagesForm(elem)
 	
 		for (iter in UploadedImages)
 		{
-		var img=imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
+		var img=$("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
 		img.attr("class","greyGridCell");
 		img.css("width","100px");
+		imageDiv.append(img);
 		var cellspan=addSpan(imageDiv,"");
 		
 		cellspan.attr("class","greyGridCell");
