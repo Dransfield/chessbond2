@@ -532,8 +532,8 @@ complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Your banning buttons Sir");
 	complaintTitle.attr("class","gridTitle");
 	complaintTitle=addSpan(reportDiv,"");
+		complaintTitle.append("Ban Duration");
 	complaintTitle.attr("class","gridTitle");
-	conplaintTitle.append("Ban Duration");
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
