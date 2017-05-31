@@ -1969,7 +1969,7 @@ function renderAdminPage()
 	banbutton.click(function()
 	{
 		for(s in forms)
-		{s.slideUp();}
+		{forms[s].slideUp();}
 		adminscreen.slideDown();
 			});
 		imagesbutton.click(function()
