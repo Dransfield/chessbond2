@@ -1954,9 +1954,19 @@ function renderAdminPage()
 	//sideBoard.css("width","20%");
 	var banbutton=showButton(sideBoard,"Banning","KgreenElement KregularButton");
 	var imagesbutton=showButton(sideBoard,"Uploaded Images","KgreenElement KregularButton");
-
-	showAdminReportForm(horiFlex);
-		
+	var forms=[];
+	
+	
+	var adminscreen=showAdminReportForm(horiFlex)
+	forms.push(adminscreen);
+	
+	banbutton.click(function()
+	{
+		for(s in forms)
+		{slideUp();}
+		adminscreen.slideDown();
+			});
+	
 	}
 	
 function renderChatPage()
