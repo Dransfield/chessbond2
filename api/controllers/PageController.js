@@ -424,6 +424,43 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 
 	 sails.on("lifted", deleteAllSubs);
 sails.on("lifted",UpdateAccountsMarkedForDeletion);
+sails.on("lifted",UpdateBannedAccounts);
+
+ function UpdateBannedAccounts()
+ {
+	 	 var schedule = require('node-schedule');
+							//var date = new Date(2012, 11, 21, 5, 30, 0);
+								var rule = new schedule.RecurrenceRule();
+								//rulehour = 17;
+							rule.hour=10;
+							rule.minute=41;
+							rule.second=1;
+							var j = schedule.scheduleJob
+							(rule,function(){
+								console.log("cron job is working");
+						User.find({tempBan:true}).
+					exec(function afterwards(err, nowupdated){
+						for (x in nowupdated)
+						{
+						console.log(JSON.stringify(nowupdated[x]));
+						if(Date.now()>(nowupdated[x].banTime+nowupdated[x].banStartedAt))
+						{
+							nowupdated[x].tempBan=false;
+							console.log(nowupdated[x].name+" is no longer banned");
+						}
+						
+						//	nowupdated[0].DaysToDelete=nowupdated[x].DaysToDelete-1;
+							//	console.log(nowupdated[x].name+"has "+nowupdated[x].DaysToDelete+"days left");
+								nowupdated[x].save();
+								
+								
+							}
+								});
+								});
+							 
+ }
+
+
  function UpdateAccountsMarkedForDeletion()
  {
 	 	 var schedule = require('node-schedule');
