@@ -1958,7 +1958,7 @@ function renderAdminPage()
 	
 	
 	var adminscreen=showAdminReportForm(horiFlex);
-	var imagescreen=showLatestImageForm(horiFlex);
+	var imagescreen=showLatestImagesForm(horiFlex);
 	forms.push(imagescreen);
 	forms.push(adminscreen);
 	
