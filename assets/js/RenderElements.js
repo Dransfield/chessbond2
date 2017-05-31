@@ -478,7 +478,7 @@ function showLatestImagesForm(elem)
 	
 	var	imageDiv=addDiv(elem);
 	imageDiv.attr("class","reportGrid");
-	io.socket.get("/avatar",{},function(res,resData){
+	io.socket.get("/avatar",{},function(resData,res){
 		for (iter in resData)
 		{
 		imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+resData[iter].id+"'>");
