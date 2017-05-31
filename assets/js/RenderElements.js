@@ -494,6 +494,8 @@ function showLatestImagesForm(elem)
 			{
 			imageDiv.append(Accounts[UploadedImages[iter].user].name);
 			}
+			else
+			{imageDiv.append("deleted account");}
 		}
 	
 		return imageDiv;
