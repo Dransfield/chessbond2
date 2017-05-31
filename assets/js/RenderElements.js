@@ -560,7 +560,7 @@ complaintTitle=addSpan(reportDiv,"");
 		}
 		
 		}
-		return reportdiv;
+		return reportDiv;
 }
 
 function banUser(event){
