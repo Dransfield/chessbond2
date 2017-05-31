@@ -481,7 +481,7 @@ function showLatestImagesForm(elem)
 	io.socket.get("/avatar",{},function(res,resData){
 		for (iter in resData)
 		{
-		imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+resData[x].id+"'>");
+		imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+resData[iter].id+"'>");
 		}
 	});
 		return imageDiv;
