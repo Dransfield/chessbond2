@@ -1957,16 +1957,27 @@ function renderAdminPage()
 	var forms=[];
 	
 	
-	var adminscreen=showAdminReportForm(horiFlex)
+	var adminscreen=showAdminReportForm(horiFlex);
+	var imagescreen=showLatestImageForm(horiFlex);
+	forms.push(imagescreen);
 	forms.push(adminscreen);
+	
+	for (s in forms)
+	{forms[s].hide();}
+	adminscreen.show();
 	
 	banbutton.click(function()
 	{
 		for(s in forms)
-		{slideUp();}
+		{s.slideUp();}
 		adminscreen.slideDown();
 			});
-	
+		imagesbutton.click(function()
+	{
+		for(s in forms)
+		{s.slideUp();}
+		imagescreen.slideDown();
+			});
 	}
 	
 function renderChatPage()

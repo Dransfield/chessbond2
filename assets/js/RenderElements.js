@@ -473,6 +473,19 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 
 }
 
+function showLatestImagesForm(elem)
+{
+	
+	var	imageDiv=addDiv(elem);
+	imageDiv.attr("class","reportGrid");
+	io.socket.get("/avatar",{},function(res,resData){
+		for (iter in resData)
+		{
+		imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+resData[x].id+"'>");
+		}
+		return imageDiv;
+}
+
 function showAdminReportForm(elem)
 {
 	var	reportDiv=addDiv(elem);
