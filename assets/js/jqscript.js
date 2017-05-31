@@ -1975,7 +1975,7 @@ function renderAdminPage()
 		imagesbutton.click(function()
 	{
 		for(s in forms)
-		{s.slideUp();}
+		{forms[s].slideUp();}
 		imagescreen.slideDown();
 			});
 	}
