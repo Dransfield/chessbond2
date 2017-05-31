@@ -947,7 +947,7 @@ function setupAdminPage()
 {
 	
 		AccountsToRetrieve[MyID]=MyID;
-	io.socket.get("/avatar?sort=createdAt%20ASC",{},function(resData,res){
+	io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData,res){
 		for (iter in resData)
 		{
 			AccountsToRetrieve[MyID]=resData[iter].user;
