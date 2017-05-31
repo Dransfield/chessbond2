@@ -574,11 +574,7 @@ complaintTitle=addSpan(reportDiv,"");
 		
 		if(WallPosts[Reports[x].msgID]){
 			
-			var optionnames=["Day","Week","Month"];
-			var oneDay = 24*60*60*1000;
-			var optionvalues=[oneDay,oneDay*7,oneDay*30];
-			
-			showSelect(reportDiv,optionnames,optionvalues,"Duration")
+		
 		if(!Accounts[WallPosts[Reports[x].msgID].sender].tempBan)
 		{
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
@@ -601,7 +597,11 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		}
-		
+			var optionnames=["Day","Week","Month"];
+			var oneDay = 24*60*60*1000;
+			var optionvalues=[oneDay,oneDay*7,oneDay*30];
+			
+			showSelect(reportDiv,optionnames,optionvalues,"Duration")
 		}
 		
 		return reportDiv;
