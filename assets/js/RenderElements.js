@@ -614,7 +614,8 @@ complaintTitle=addSpan(reportDiv,"");
 
 function banUser(event){
 	console.log(event.data.dur.val());
-	
+	if(event.data.dur.val())
+	{
 	if (!Accounts[event.data.usr].tempBan)
 	{
 			io.socket.put('/banuser',{banneduser:event.data.usr,bantime:event.data.dur.val()}
@@ -639,6 +640,12 @@ function banUser(event){
 				});
 	
 		
+	}
+	
+	}
+	else
+	{
+					toastr.info("Please choose a duration");
 	}
 }
 
