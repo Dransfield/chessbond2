@@ -528,12 +528,13 @@ function showAdminReportForm(elem)
 		complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Report Recieved");
 	complaintTitle.attr("class","gridTitle");
-complaintTitle=addSpan(reportDiv,"");
-		complaintTitle.append("Your banning buttons Sir");
-	complaintTitle.attr("class","gridTitle");
 	complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Ban Duration");
 	complaintTitle.attr("class","gridTitle");
+complaintTitle=addSpan(reportDiv,"");
+		complaintTitle.append("Your banning buttons Sir");
+	complaintTitle.attr("class","gridTitle");
+	
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
@@ -609,7 +610,8 @@ complaintTitle=addSpan(reportDiv,"");
 }
 
 function banUser(event){
-	console.log($(this));
+	console.log(event.data.dur);
+	
 	if (!Accounts[event.data.usr].tempBan)
 	{
 			io.socket.put('/banuser',{banneduser:event.data.usr,bantime:event.data.dur}
