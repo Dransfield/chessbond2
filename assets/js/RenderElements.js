@@ -477,7 +477,7 @@ function showLatestImagesForm(elem)
 {
 	
 	var	imageDiv=addDiv(elem);
-	imageDiv.attr("class","reportGrid");
+	imageDiv.attr("class","imageGrid");
 	
 	var complaintTitle=addSpan(imageDiv,"");
 	complaintTitle.append("Image");
