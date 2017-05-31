@@ -490,12 +490,18 @@ function showLatestImagesForm(elem)
 		for (iter in UploadedImages)
 		{
 		var img=imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
+		img.attr("class","greyGridCell");
+		var cellspan=addSpan(reportDiv,"");
+		
+		cellspan.attr("class","greyGridCell");
 		if(Accounts[UploadedImages[iter].user])
 			{
-			imageDiv.append(Accounts[UploadedImages[iter].user].name);
+			cellspan.append(Accounts[UploadedImages[iter].user].name);
 			}
 			else
-			{imageDiv.append("deleted account");}
+			{
+			cellspan.append("deleted account");
+			}
 		}
 	
 		return imageDiv;
