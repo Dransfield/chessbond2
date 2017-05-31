@@ -585,14 +585,16 @@ complaintTitle=addSpan(reportDiv,"");
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		banBut.click({dur:dursel.val(),usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
+	
+		banBut.click({dur:dursel,usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		else
 		{
 		var banBut=showButton(reportDiv,"Unban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		banBut.click({dur:dursel.val(),usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
+		
+		banBut.click({dur:dursel,usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		
 		
@@ -611,11 +613,11 @@ complaintTitle=addSpan(reportDiv,"");
 }
 
 function banUser(event){
-	console.log(event.data.dur);
+	console.log(event.data.dur.val());
 	
 	if (!Accounts[event.data.usr].tempBan)
 	{
-			io.socket.put('/banuser',{banneduser:event.data.usr,bantime:event.data.dur}
+			io.socket.put('/banuser',{banneduser:event.data.usr,bantime:event.data.dur.val()}
 			,function (resData, jwRes) {
 				toastr.success("user banned");
 				Accounts[event.data.usr].tempBan=true;
