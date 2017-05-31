@@ -483,6 +483,7 @@ function showLatestImagesForm(elem)
 		{
 		imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+resData[x].id+"'>");
 		}
+	});
 		return imageDiv;
 }
 
