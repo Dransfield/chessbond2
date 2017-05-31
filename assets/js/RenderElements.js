@@ -574,7 +574,7 @@ complaintTitle=addSpan(reportDiv,"");
 		
 		if(WallPosts[Reports[x].msgID]){
 			
-			var optionnames=["Day","Week","Month");
+			var optionnames=["Day","Week","Month"];
 			var oneDay = 24*60*60*1000;
 			var optionvalues=[oneDay,oneDay*7,oneDay*30];
 			
