@@ -496,7 +496,10 @@ function showLatestImagesForm(elem)
 	
 		for (iter in UploadedImages)
 		{
-		Accounts[UploadedImages[iter].user].name;
+			if(Accounts[UploadedImages[iter].user])
+			{
+			Accounts[UploadedImages[iter].user].name;
+			}
 		}
 	
 		return imageDiv;
