@@ -483,24 +483,18 @@ function showLatestImagesForm(elem)
 	complaintTitle.append("Image");
 	complaintTitle.attr("class","gridTitle");
 	
-		for (iter in UploadedImages)
-		{
-		var img=imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
-	
-		}
-	
-		var complaintTitle=addSpan(imageDiv,"");
+	complaintTitle=addSpan(imageDiv,"");
 	complaintTitle.append("Uploader");
 	complaintTitle.attr("class","gridTitle");
 	
-	
 		for (iter in UploadedImages)
 		{
-			if(Accounts[UploadedImages[iter].user])
-			{
-			Accounts[UploadedImages[iter].user].name;
-			}
+		var img=imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
+		imageDiv.append(Accounts[UploadedImages[iter].user].name);
 		}
+	
+	
+
 	
 		return imageDiv;
 }
