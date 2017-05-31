@@ -1970,12 +1970,12 @@ function renderAdminPage()
 	var imagescreen=showLatestImagesForm(horiFlex);
 	forms.push(imagescreen);
 	forms.push(adminscreen);
-	/*
+	
 	for (s in forms)
 	{forms[s].hide();}
 	adminscreen.show();
-	*/
-	/*
+	
+	
 	banbutton.click(function()
 	{
 		for(s in forms)
@@ -1989,7 +1989,7 @@ function renderAdminPage()
 		imagescreen.slideDown();
 			});
 	
-	*/
+	
 	}
 	
 function renderChatPage()
