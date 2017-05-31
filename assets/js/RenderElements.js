@@ -490,11 +490,11 @@ function showLatestImagesForm(elem)
 		for (iter in UploadedImages)
 		{
 		var img=imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
-		imageDiv.append(Accounts[UploadedImages[iter].user].name);
+		if(Accounts[UploadedImages[iter].user])
+			{
+			imageDiv.append(Accounts[UploadedImages[iter].user].name);
+			}
 		}
-	
-	
-
 	
 		return imageDiv;
 }
