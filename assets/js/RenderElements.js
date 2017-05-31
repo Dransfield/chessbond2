@@ -491,7 +491,7 @@ function showLatestImagesForm(elem)
 		{
 		var img=$("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
 		img.attr("class","greyGridCell");
-		img.css("width","100px");
+		img.css("width","100%");
 		imageDiv.append(img);
 		var cellspan=addSpan(imageDiv,"");
 		
