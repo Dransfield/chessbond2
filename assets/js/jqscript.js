@@ -18,6 +18,7 @@ var WallPostsToRetrieve=[];
 var Reports=[];
 var GamePlaying={};
 var soundVolume=5;
+var UploadedImages=[];
 
 		subscribeToMandatoryRooms()
 			var myStatus;
@@ -946,7 +947,14 @@ function setupAdminPage()
 {
 	
 		AccountsToRetrieve[MyID]=MyID;
-			
+	io.socket.get("/avatar",{},function(resData,res){
+		for (iter in resData)
+		{
+			AccountsToRetrieve[MyID]=resData[iter].user;
+			UploadedImages.push(resData[iter]);
+		}
+		
+		
 		retrieveReports().then(function()
 		{
 			RetrieveWallPostsFromList().then(function()
@@ -957,6 +965,7 @@ function setupAdminPage()
 				});
 			});
 		});
+	});
 }
 	
 function setupChatPage()

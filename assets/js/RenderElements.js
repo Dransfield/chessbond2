@@ -478,12 +478,27 @@ function showLatestImagesForm(elem)
 	
 	var	imageDiv=addDiv(elem);
 	imageDiv.attr("class","reportGrid");
-	io.socket.get("/avatar",{},function(resData,res){
-		for (iter in resData)
+	
+	var complaintTitle=addSpan(imageDiv,"");
+	complaintTitle.append("Image");
+	complaintTitle.attr("class","gridTitle");
+	
+		for (iter in UploadedImages)
 		{
-		imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+resData[iter].id+"'>");
+		var img=imageDiv.append("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
+	
 		}
-	});
+	
+		var complaintTitle=addSpan(imageDiv,"");
+	complaintTitle.append("Uploader");
+	complaintTitle.attr("class","gridTitle");
+	
+	
+		for (iter in UploadedImages)
+		{
+		Accounts[UploadedImages[iter].user].name;
+		}
+	
 		return imageDiv;
 }
 
