@@ -571,7 +571,8 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		
-		
+		var dursel=showSelect(reportDiv,optionnames,optionvalues,"Duration");
+			
 		if(WallPosts[Reports[x].msgID]){
 			
 		
@@ -580,14 +581,14 @@ complaintTitle=addSpan(reportDiv,"");
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		banBut.click({usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
+		banBut.click({dur:dursel.val(),usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		else
 		{
 		var banBut=showButton(reportDiv,"Unban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		banBut.click({usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
+		banBut.click({dur:dursel.val(),usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		
 		
@@ -601,7 +602,7 @@ complaintTitle=addSpan(reportDiv,"");
 			var oneDay = 24*60*60*1000;
 			var optionvalues=[oneDay,oneDay*7,oneDay*30];
 			
-			showSelect(reportDiv,optionnames,optionvalues,"Duration")
+			
 		}
 		
 		return reportDiv;
@@ -611,7 +612,7 @@ function banUser(event){
 	console.log($(this));
 	if (!Accounts[event.data.usr].tempBan)
 	{
-			io.socket.put('/banuser',{banneduser:event.data.usr}
+			io.socket.put('/banuser',{banneduser:event.data.usr,bantime:event.data.dur}
 			,function (resData, jwRes) {
 				toastr.success("user banned");
 				Accounts[event.data.usr].tempBan=true;
