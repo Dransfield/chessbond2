@@ -572,6 +572,9 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		
+		var optionnames=["Day","Week","Month"];
+			var oneDay = 24*60*60*1000;
+			var optionvalues=[oneDay,oneDay*7,oneDay*30];
 		var dursel=showSelect(reportDiv,optionnames,optionvalues,"Duration");
 			
 		if(WallPosts[Reports[x].msgID]){
@@ -599,9 +602,7 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		}
-			var optionnames=["Day","Week","Month"];
-			var oneDay = 24*60*60*1000;
-			var optionvalues=[oneDay,oneDay*7,oneDay*30];
+			
 			
 			
 		}
