@@ -6,6 +6,21 @@
  */
 
 module.exports = {
+	blockpic:function(req,res)
+	{
+			Avatar.update(req.param('picid'),{blocked:true}).exec
+	(function(err,deletedRecords){
+		if (err) {
+  console.log(err);
+		}
+		else
+		{console.log(deletedRecords);}
+		}
+		);
+	
+		return res.json({id:req.param('picid')});
+		
+	},
 	deletepic:function(req,res)
 	{
 	fs=require('fs');

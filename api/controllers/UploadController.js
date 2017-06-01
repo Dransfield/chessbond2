@@ -124,7 +124,11 @@ avatar: function (req, res){
     if (!user.avatarFd) {
       return res.notFound();
     }
-
+	if(user.blocked==true)
+	{
+		return res.notFound();
+	}
+	
     var SkipperDisk = require('skipper-disk');
     var fileAdapter = SkipperDisk(/* optional opts */);
 

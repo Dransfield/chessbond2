@@ -89,6 +89,7 @@ module.exports.routes = {
 	'PUT /wantrematch':'RematchController.WantRematch',
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /deleteavatar':'AvatarController.deletepic',
+	'PUT /blockavatar':'AvatarController.blockpic',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
 	'GET /forgot/password/:code':{view:'newpassword'},
 	'PUT /Withdraw':'PageController.Withdraw',
