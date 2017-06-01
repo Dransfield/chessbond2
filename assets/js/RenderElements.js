@@ -504,13 +504,16 @@ function showLatestImagesForm(elem)
 			{
 			spa.append("deleted account");
 			}
-		}
+			
 		var delbut=showButton(columnFlex,"Delete","KgreenElement KregularButton");
 		delbut.click(function(){
 			io.socket.put('/deleteavatar',{picid:UploadedImages[iter].id,adr:UploadedImages[iter].avatarFD},	function  (data){
 				
 				});
 		});
+		
+		}
+		
 		return imageDiv;
 }
 
