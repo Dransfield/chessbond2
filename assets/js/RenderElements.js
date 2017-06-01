@@ -616,36 +616,34 @@ function banUser(event){
 	console.log(event.data.dur.val());
 	if(event.data.dur.val())
 	{
-	if (!Accounts[event.data.usr].tempBan)
-	{
+		if (!Accounts[event.data.usr].tempBan)
+		{
 			io.socket.put('/banuser',{banneduser:event.data.usr,bantime:event.data.dur.val()}
 			,function (resData, jwRes) {
-				toastr.success("user banned");
-				Accounts[event.data.usr].tempBan=true;
-				//$(this).context.html('unban');
-				event.data.but.html('Unban');
-				});
-	}
+			toastr.success("user banned");
+			Accounts[event.data.usr].tempBan=true;
+			//$(this).context.html('unban');
+			event.data.but.html('Unban');
+			});
+		}
 	else
-	{
-		
+		{
+			
 			io.socket.put('/unbanuser',{banneduser:event.data.usr}
 			,function (resData, jwRes) {
-				toastr.success("user unbanned");
-				Accounts[event.data.usr].tempBan=false;
-				event.data.but.html('Temporary Ban');
-				//$(this).context.html('unban');
-			
-				
-				});
-	
+			toastr.success("user unbanned");
+			Accounts[event.data.usr].tempBan=false;
+			event.data.but.html('Temporary Ban');
+			//$(this).context.html('unban');
+			});
 		
-	}
+			
+		}
 	
 	}
 	else
 	{
-					toastr.info("Please choose a duration");
+		toastr.info("Please choose a duration");
 	}
 }
 
