@@ -506,7 +506,7 @@ function showLatestImagesForm(elem)
 			}
 			
 		var delbut=showButton(columnFlex,"Delete","KgreenElement KregularButton");
-		delbut.click({imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
+		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
 			
 		}
 		
@@ -623,7 +623,8 @@ function deleteAvatar(event)
 io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				});
-		
+		event.data.coll1.slideUp();
+		event.data.coll2.slideUp();
 }
 		
 
