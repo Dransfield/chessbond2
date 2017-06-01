@@ -513,8 +513,8 @@ function showLatestImagesForm(elem)
 			if (minute<10)
 			{minute="0"+minute;}
 			cellspan=addSpan(columnFlex,"");
-		cellspan.attr("class","greyGridCell");
-		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
+		
+		cellspan.append("Uploaded:"+day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		var delbut=showButton(columnFlex,"Delete","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
 			
