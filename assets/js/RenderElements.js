@@ -519,12 +519,13 @@ function showLatestImagesForm(elem)
 		var blocbut=showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
 		blocbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
 			
-		}
-		
 		var delbut=showButton(columnFlex,"Delete Image and Database Record","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
 			
 		}
+		
+		
+		
 		
 		return imageDiv;
 }
