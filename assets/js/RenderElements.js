@@ -493,6 +493,10 @@ function showLatestImagesForm(elem)
 		img.attr("class","greyGridCell");
 		img.css("width","100%");
 		imageDiv.append(img);
+		if (UploadedImages[iter].blocked==true)
+		{
+		img.append("Blocked");	
+		}
 		var columnFlex=addFlexDiv(imageDiv,"","column");
 		var spa=addSpan(columnFlex);
 		spa.append("User:");
@@ -516,10 +520,19 @@ function showLatestImagesForm(elem)
 		
 		cellspan.append("Uploaded:"+day+"/"+month+"/"+year+"   "+hour+":"+minute);
 		
-		var blocbut=showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
-		blocbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
+		var blocbut;
+		if(UploadedImages[iter].blocked==true)
+		{
+		showButton(columnFlex,"UnBlock Image From Website","KgreenElement KregularButton");
+		}
+		else
+		{
+		showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
+		}
+		
+		blocbut.click({button:blocbut,coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
 			
-		var delbut=showButton(columnFlex,"Delete Image and Database Record","KgreenElement KregularButton");
+		var delbut=showButton(columnFlex,"Delete Image and Delete Database Record","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
 			
 		}
@@ -647,6 +660,7 @@ io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	fun
 
 function deleteAvatar(event)
 {
+	if(W
 io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				});
