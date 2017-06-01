@@ -523,11 +523,11 @@ function showLatestImagesForm(elem)
 		var blocbut;
 		if(UploadedImages[iter].blocked==true)
 		{
-		showButton(columnFlex,"UnBlock Image From Website","KgreenElement KregularButton");
+		blocbut=showButton(columnFlex,"UnBlock Image From Website","KgreenElement KregularButton");
 		}
 		else
 		{
-		showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
+		blocbut=showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
 		}
 		
 		blocbut.click({button:blocbut,coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
