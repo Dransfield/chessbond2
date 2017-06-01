@@ -134,7 +134,7 @@ avatar: function (req, res){
     // Stream the file down
     fileAdapter.read(user.avatarFd)
     .on('error', function (err){
-      return res.serverError(err);
+      return res.serverError();
     })
     .pipe(res);
   });
