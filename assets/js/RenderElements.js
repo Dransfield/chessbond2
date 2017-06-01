@@ -660,7 +660,7 @@ io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	fun
 
 function deleteAvatar(event)
 {
-	if(W
+	
 io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				});
