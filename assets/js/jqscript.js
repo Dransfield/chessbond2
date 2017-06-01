@@ -1959,7 +1959,7 @@ function renderAdminPage()
 	{
 	console.log("renderchatpage");
 	var horiFlex=addFlexDiv($("#adminpage"),"adminflex","row","wrap");
-	var sideBoard=addFlexDiv(horiFlex,"sideboard","column","wrap");
+	var sideBoard=addFlexDiv(horiFlex,"sideboard","row","wrap");
 	//sideBoard.css("width","20%");
 	var banbutton=showButton(sideBoard,"Banning","KgreenElement KregularButton");
 	var imagesbutton=showButton(sideBoard,"Uploaded Images","KgreenElement KregularButton");
