@@ -515,7 +515,13 @@ function showLatestImagesForm(elem)
 			cellspan=addSpan(columnFlex,"");
 		
 		cellspan.append("Uploaded:"+day+"/"+month+"/"+year+"   "+hour+":"+minute);
-		var delbut=showButton(columnFlex,"Delete","KgreenElement KregularButton");
+		
+		var blocbut=showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
+		blocbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
+			
+		}
+		
+		var delbut=showButton(columnFlex,"Delete Image and Database Record","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
 			
 		}
@@ -628,6 +634,16 @@ complaintTitle=addSpan(reportDiv,"");
 		return reportDiv;
 }
 
+function blocAvatar(event)
+{
+io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
+				console.log(data);
+				toastr.success("Image Blocked");
+				});
+	//	event.data.coll1.slideUp();
+		//event.data.coll2.slideUp();
+}
+
 function deleteAvatar(event)
 {
 io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
@@ -725,7 +741,7 @@ function showsmallAvatar(elem,usracc)
 	d.addClass("userdropdown");
 var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("smallonlinecircle");
-var im=$("<img class='smallprofilepic' src='"+Accounts[usracc].picture+"'></img>");
+var im=$("<img class='smallprofilepic' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
 d.append(im);
 }
 
