@@ -506,14 +506,8 @@ function showLatestImagesForm(elem)
 			}
 			
 		var delbut=showButton(columnFlex,"Delete","KgreenElement KregularButton");
-		delbut.click(function(){
-			console.log(UploadedImages[iter].id);
-			console.log(UploadedImages[iter].avatarFd);
-			io.socket.put('/deleteavatar',{picid:UploadedImages[iter].id,adr:UploadedImages[iter].avatarFd},	function  (data){
-				console.log(data);
-				});
-		});
-		
+		delbut.click({imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
+			
 		}
 		
 		return imageDiv;
@@ -624,6 +618,15 @@ complaintTitle=addSpan(reportDiv,"");
 		return reportDiv;
 }
 
+function deleteAvatar(event)
+{
+io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
+				console.log(data);
+				});
+		
+}
+		
+}
 function banUser(event){
 	console.log(event.data.dur.val());
 	if(event.data.dur.val())
