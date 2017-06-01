@@ -510,7 +510,7 @@ function showLatestImagesForm(elem)
 			console.log(UploadedImages[iter].id);
 			console.log(UploadedImages[iter].avatarFd);
 			io.socket.put('/deleteavatar',{picid:UploadedImages[iter].id,adr:UploadedImages[iter].avatarFd},	function  (data){
-				
+				console.log(data);
 				});
 		});
 		
