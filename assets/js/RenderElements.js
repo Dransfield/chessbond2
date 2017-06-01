@@ -507,6 +507,8 @@ function showLatestImagesForm(elem)
 			
 		var delbut=showButton(columnFlex,"Delete","KgreenElement KregularButton");
 		delbut.click(function(){
+			console.log(UploadedImages[iter].id);
+			console.log(UploadedImages[iter].avatarFD);
 			io.socket.put('/deleteavatar',{picid:UploadedImages[iter].id,adr:UploadedImages[iter].avatarFD},	function  (data){
 				
 				});
