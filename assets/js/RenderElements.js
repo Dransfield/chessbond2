@@ -635,7 +635,7 @@ complaintTitle=addSpan(reportDiv,"");
 		return reportDiv;
 }
 
-function blocAvatar(event)
+function blockAvatar(event)
 {
 io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
