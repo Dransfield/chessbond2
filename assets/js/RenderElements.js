@@ -626,7 +626,7 @@ io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	fu
 		
 }
 		
-}
+
 function banUser(event){
 	console.log(event.data.dur.val());
 	if(event.data.dur.val())
