@@ -493,16 +493,16 @@ function showLatestImagesForm(elem)
 		img.attr("class","greyGridCell");
 		img.css("width","100%");
 		imageDiv.append(img);
-		var cellspan=addSpan(imageDiv,"");
-		
-		cellspan.attr("class","greyGridCell");
+		var columnFlex=addFlexDiv(imageDiv,"","column");
+		var spa=addSpan(columnFlex);
+		spa.append("User:");
 		if(Accounts[UploadedImages[iter].user])
 			{
-			cellspan.append(Accounts[UploadedImages[iter].user].name);
+			spa.append(Accounts[UploadedImages[iter].user].name);
 			}
 			else
 			{
-			cellspan.append("deleted account");
+			spa.append("deleted account");
 			}
 		}
 	
@@ -582,6 +582,7 @@ complaintTitle=addSpan(reportDiv,"");
 		
 		if(!Accounts[WallPosts[Reports[x].msgID].sender].tempBan)
 		{
+		
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
@@ -590,6 +591,7 @@ complaintTitle=addSpan(reportDiv,"");
 		}
 		else
 		{
+		
 		var banBut=showButton(reportDiv,"Unban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
