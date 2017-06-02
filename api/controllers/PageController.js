@@ -433,7 +433,7 @@ sails.on("lifted",UpdateBannedAccounts);
 								var rule = new schedule.RecurrenceRule();
 								//rulehour = 17;
 							//rule.hour=10;
-						//	rule.minute=41;
+							rule.minute=41;
 							rule.second=1;
 							var j = schedule.scheduleJob
 							(rule,function(){
