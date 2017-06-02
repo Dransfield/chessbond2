@@ -655,6 +655,7 @@ function blockAvatar(event)
 io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				toastr.success("Image Blocked");
+				UploadedImages[event.data.imgid].blocked=true;
 				});
 	}
 	else
@@ -662,6 +663,7 @@ io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	fun
 io.socket.put('/unblockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				toastr.success("Image UnBlocked");
+				UploadedImages[event.data.imgid].blocked=false;
 				});
 	}
 	
