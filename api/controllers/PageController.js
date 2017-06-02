@@ -444,7 +444,8 @@ sails.on("lifted",UpdateBannedAccounts);
 						{
 						//console.log(JSON.stringify(nowupdated[x]));
 						console.log("now "+Date.now());
-						console.log(nowupdated[x].banTime+nowupdated[x].banStartedAt);
+						console.log(parseInt(parseInt(nowupdated[x].banTime)+parseInt(nowupdated[x].banStartedAt)));
+						
 						if(Date.now()>(nowupdated[x].banTime+nowupdated[x].banStartedAt))
 						{
 							nowupdated[x].tempBan=false;
