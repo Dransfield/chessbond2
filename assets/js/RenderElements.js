@@ -530,7 +530,7 @@ function showLatestImagesForm(elem)
 		blocbut=showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
 		}
 		
-		blocbut.click({button:blocbut,coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
+		blocbut.click({but:blocbut,coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
 			
 		var delbut=showButton(columnFlex,"Delete Image and Delete Database Record","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
@@ -666,6 +666,8 @@ io.socket.put('/unblockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	f
 				toastr.success("Image UnBlocked");
 				UploadedImages[event.data.imgid].blocked=false;
 				event.data.but.html('Block Image');
+				event.data.but.text('Block Image');
+				console.log(event.data.but);
 				});
 	}
 	
