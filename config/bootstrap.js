@@ -14,8 +14,9 @@ module.exports.bootstrap = function(cb) {
  var express = require("express"),
          app = express();
  
+ 
   
-  
+
  _.extend(sails.hooks.http.app.locals, sails.config.http.locals); 
   
  // add the lines from here 
