@@ -951,7 +951,7 @@ function setupAdminPage()
 		for (iter in resData)
 		{
 			AccountsToRetrieve[MyID]=resData[iter].user;
-			UploadedImages.push(resData[iter]);
+			UploadedImages[resData[iter].id]=(resData[iter]);
 		}
 		
 		
