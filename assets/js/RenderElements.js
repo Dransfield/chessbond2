@@ -650,10 +650,21 @@ complaintTitle=addSpan(reportDiv,"");
 
 function blockAvatar(event)
 {
+	if(UploadedImages[event.data.imgid].blocked==false)
+	{
 io.socket.put('/blockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				toastr.success("Image Blocked");
 				});
+	}
+	else
+	{
+io.socket.put('/unblockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
+				console.log(data);
+				toastr.success("Image UnBlocked");
+				});
+	}
+	
 	//	event.data.coll1.slideUp();
 		//event.data.coll2.slideUp();
 }

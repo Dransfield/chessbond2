@@ -448,6 +448,10 @@ sails.on("lifted",UpdateBannedAccounts);
 							nowupdated[x].tempBan=false;
 							console.log(nowupdated[x].name+" is no longer banned");
 						}
+						else
+						{
+							console.log(nowupdated[x].name+" is still banned");
+						}
 						
 						//	nowupdated[0].DaysToDelete=nowupdated[x].DaysToDelete-1;
 							//	console.log(nowupdated[x].name+"has "+nowupdated[x].DaysToDelete+"days left");

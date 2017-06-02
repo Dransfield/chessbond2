@@ -90,6 +90,7 @@ module.exports.routes = {
 	'PUT /SendMail':'ForgotBackController.SendMail',
 	'PUT /deleteavatar':'AvatarController.deletepic',
 	'PUT /blockavatar':'AvatarController.blockpic',
+	'PUT /unblockavatar':'AvatarController.unblockpic',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
 	'GET /forgot/password/:code':{view:'newpassword'},
 	'PUT /Withdraw':'PageController.Withdraw',
