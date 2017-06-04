@@ -1005,7 +1005,7 @@ function UpdateTypedText(words,elemTochange)
 function showReportForm(elem,msgid)
 {
 	var  reportDiv=addSpan(elem);
-	var reportform=$("<input type='text' autocomplete='off' class='form-control' placeholder='report' name='name' >");
+	var reportform=$("<input type='text' autocomplete='off' class='form-control' placeholder='reason for reporting' name='name' >");
 		var reportbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Send Report</button>");
 		reportDiv.append(reportform);
 		reportDiv.append(reportbutton);
