@@ -1712,24 +1712,10 @@ WallPostPromises.push(new Promise((resolve, reject) => {
 
 function addPrivatePromises()
 {
-	//console.log("addprivatepromises func");
-	/*
-	for (x in Accounts)
-	{
-		if(Accounts[x])
-		{
-			if(Accounts[x].id)
-			{
-				*/
+	
 		PrivatePromises.push(new Promise((resolve,reject)=>{
-					//var thisguy=Accounts[x].id;
-					//var thisguysname=Accounts[x].name;
-					
-					//console.log("requesting private conversations for "+thisguy+" "+thisguysname);
 					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:30000},
 						function (pc) {
-						//console.log("recieved private conversation"+JSON.stringify(pc));
-						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
 						if(!PrivateConversations[MyID])
 							{
 							PrivateConversations[MyID]={};
@@ -1738,10 +1724,7 @@ function addPrivatePromises()
 							for (y in pc)
 							{
 					
-							//console.log("Talker1"+pc[x].Talker1);
-							//console.log("Talker2"+pc[x].Talker2);
-							
-							
+	
 					
 							var otherPerson;
 							var otherPersonsName;
@@ -1805,6 +1788,31 @@ function addPrivatePromises()
 	
 }
 
+
+
+function addNotificationPromises()
+{
+	
+		PrivatePromises.push(new Promise((resolve,reject)=>{
+					io.socket.get("/notification",{reciever:MyID},
+						function (pc) {
+						if(!Notifications)
+							{
+							Notifications={};
+							}
+						
+							for (y in pc)
+							{
+							Notifications.push(pc[y]);
+							}
+							
+						
+						resolve(pc);
+					});
+				}));
+	
+}
+
 function getCities(TypedCity)
 {
 	console.log("TypedCity "+TypedCity);
@@ -1827,6 +1835,7 @@ io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
 		});	
 		return cg;
 }
+
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

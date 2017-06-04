@@ -1273,6 +1273,7 @@ elem.append(`
 				<span class="spacer"></span>
 			<span id="attachnavdropdown" style="color:white;" >
 			Welcome `+plyrName+`<span  class='caret'></span>
+			<span class="badge" id="NumberofNotificationsSpan"></span>
 			</span>
 		  
 		</div>
@@ -1287,6 +1288,11 @@ if (boardscreen)
 }
 
 var coverall;
+
+if(Notifications.length>0)
+{
+$("#NumberofNotificationsSpan").html(Notifications.length);
+}
 if(Accounts[MyID].Invisible)
 {
 $("#navbarfirstspan").after("Days Left To Account Deletion:"+Accounts[MyID].DaysToDelete);
