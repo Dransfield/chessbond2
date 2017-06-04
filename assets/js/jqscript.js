@@ -19,6 +19,7 @@ var Reports=[];
 var GamePlaying={};
 var soundVolume=5;
 var UploadedImages=[];
+var Notifications=[];
 
 		subscribeToMandatoryRooms()
 			var myStatus;
