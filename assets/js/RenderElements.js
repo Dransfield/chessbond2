@@ -580,7 +580,7 @@ function showBanWordsForm(elem)
 	
 		for (iter in BannedWords)
 		{
-		var wrd=$("<span>"+BannedWords.word+"</span>");
+		var wrd=$("<span>"+BannedWords[iter].word+"</span>");
 		wrd.attr("class","greyGridCell");
 		
 		imageDiv.append(wrd);
