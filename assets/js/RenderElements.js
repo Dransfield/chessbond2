@@ -580,7 +580,7 @@ function showBanWordsForm(elem)
 	
 		for (iter in BannedWords)
 		{
-		addBannedWord(BannedWords[iter]);
+		addBannedWord(BannedWords[iter],imageDiv);
 		}
 		
 		
@@ -590,14 +590,14 @@ function showBanWordsForm(elem)
 	
 }
 
-function addBannedWord(theWord)
+function addBannedWord(theWord,elem)
 {
 var wrd=$("<span>"+theWord.word+"</span>");
 		wrd.attr("class","greyGridCell");
 		
-		imageDiv.append(wrd);
+		elem.append(wrd);
 		
-		var columnFlex=addFlexDiv(imageDiv,"","column");
+		var columnFlex=addFlexDiv(elem,"","column");
 		var spa=addSpan(columnFlex);
 		
 				var dateObj=new Date(theWord.createdAt);
