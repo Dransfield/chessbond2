@@ -588,7 +588,7 @@ function showBanWordsForm(elem)
 		var columnFlex=addFlexDiv(imageDiv,"","column");
 		var spa=addSpan(columnFlex);
 		
-				var dateObj=new Date(BannedImages[iter].createdAt);
+				var dateObj=new Date(BannedWords[iter].createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
 			var year = dateObj.getUTCFullYear();
