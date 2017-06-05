@@ -1978,7 +1978,7 @@ function addFollowPromises()
 function renderAdminPage()
 	{
 	console.log("renderchatpage");
-	var horiFlex=addFlexDiv($("#adminpage"),"adminflex","row","wrap");
+	var horiFlex=addFlexDiv($("#adminpage"),"adminflex","column","wrap");
 	var sideBoard=addFlexDiv(horiFlex,"sideboard","row","wrap");
 	//sideBoard.css("width","20%");
 	var banbutton=showButton(sideBoard,"Manage Members","KgreenElement KregularButton");
