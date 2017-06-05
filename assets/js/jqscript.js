@@ -1971,9 +1971,9 @@ function renderAdminPage()
 	var horiFlex=addFlexDiv($("#adminpage"),"adminflex","row","wrap");
 	var sideBoard=addFlexDiv(horiFlex,"sideboard","row","wrap");
 	//sideBoard.css("width","20%");
-	var banbutton=showButton(sideBoard,"Banning","KgreenElement KregularButton");
-	var imagesbutton=showButton(sideBoard,"Uploaded Images","KgreenElement KregularButton");
-	var banwordsbutton=showButton(sideBoard,"Ban Words","KgreenElement KregularButton");
+	var banbutton=showButton(sideBoard,"Manage Members","KgreenElement KregularButton");
+	var imagesbutton=showButton(sideBoard,"Manage Images","KgreenElement KregularButton");
+	var banwordsbutton=showButton(sideBoard,"Manage Words","KgreenElement KregularButton");
 	
 	var forms=[];
 	
