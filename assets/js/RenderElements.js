@@ -557,12 +557,12 @@ function showBanWordsForm(elem)
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
-		 	sendBannedWord(banwordform.val());
+		 	sendBannedWord(banwordform.val(),imageDiv);
 		 	banwordform.val("");
 		}
 		 });
 		banwordbutton.click(function(){
-			sendBannedWord(banwordform.val());
+			sendBannedWord(banwordform.val(),imageDiv);
 			banwordform.val("");
 			});
 			
@@ -629,12 +629,12 @@ io.socket.put('/bannedword/destroy/'+event.data.wrdid,{},	function  (data){
 		event.data.coll2.slideUp();
 }
 
-function sendBannedWord(wrd)
+function sendBannedWord(wrd,elem)
 {
 	io.socket.post("/bannedword",{word:wrd},
 	 function (resData, jwr) {
 	 toastr.success("Added Banned Word!");
-	 addBannedWord(resData);
+	 addBannedWord(resData,elem);
 	 });
 }
 
