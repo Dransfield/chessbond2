@@ -583,7 +583,7 @@ function showBanWordsForm(elem)
 		var wrd=$("<span>"+BannedWords.word+"</span>");
 		wrd.attr("class","greyGridCell");
 		
-		imageDiv.append(img);
+		imageDiv.append(wrd);
 		
 		var columnFlex=addFlexDiv(imageDiv,"","column");
 		var spa=addSpan(columnFlex);
