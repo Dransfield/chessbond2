@@ -580,7 +580,19 @@ function showBanWordsForm(elem)
 	
 		for (iter in BannedWords)
 		{
-		var wrd=$("<span>"+BannedWords[iter].word+"</span>");
+		addBannedWord(BannedWords[iter]);
+		}
+		
+		
+		
+		
+	return banwordDiv;
+	
+}
+
+function addBannedWord(theWord)
+{
+var wrd=$("<span>"+theWord.word+"</span>");
 		wrd.attr("class","greyGridCell");
 		
 		imageDiv.append(wrd);
@@ -588,7 +600,7 @@ function showBanWordsForm(elem)
 		var columnFlex=addFlexDiv(imageDiv,"","column");
 		var spa=addSpan(columnFlex);
 		
-				var dateObj=new Date(BannedWords[iter].createdAt);
+				var dateObj=new Date(theWord.createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
 			var year = dateObj.getUTCFullYear();
@@ -603,15 +615,8 @@ function showBanWordsForm(elem)
 		
 		
 		var delbut=showButton(columnFlex,"Delete Banned Word","KgreenElement KregularButton");
-		delbut.click({coll1:columnFlex,coll2:wrd,wrdid:BannedWords[iter].id},deleteBannedWord);
+		delbut.click({coll1:columnFlex,coll2:wrd,wrdid:theWord.id},deleteBannedWord);
 			
-		}
-		
-		
-		
-		
-	return banwordDiv;
-	
 }
 
 function deleteBannedWord(event)
@@ -629,6 +634,7 @@ function sendBannedWord(wrd)
 	io.socket.post("/bannedword",{word:wrd},
 	 function (resData, jwr) {
 	 toastr.success("Added Banned Word!");
+	 addBannedWord(resData[0]);
 	 });
 }
 
