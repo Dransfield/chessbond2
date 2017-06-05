@@ -543,6 +543,40 @@ function showLatestImagesForm(elem)
 		return imageDiv;
 }
 
+function showBannedWordInputForm(elem)
+{
+
+	var  banwordDiv=addSpan(elem);
+	var banwordform=$("<input type='text' autocomplete='off' class='form-control' placeholder='enter a banned word' name='name' >");
+		var banwordbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Submit Banned Word</button>");
+		banwordDiv.append(banwordform);
+		banwordDiv.append(banwordbutton);
+		banwordform.keypress(function (e) {
+ var key = e.which;
+ //console.log("key "+key);
+ if(key == 13)  // the enter key code
+  { e.preventDefault();
+	 // console.log("send wall post"+chatform.val());
+		 	sendBannedWord(reportform.val());
+		 	banwordform.val("");
+		}
+		 });
+		banwordbutton.click(function(){
+			sendBannedWord(reportform.val());
+			banwordform.val("");
+			});
+	return banwordDiv;
+	
+}
+
+function sendBannedWord(wrd)
+{
+	io.socket.post("/bannedword",{word:wrd},
+	 function (resData, jwr) {
+	 toastr.success("Added Banned Word!");
+	 });
+}
+
 function showAdminReportForm(elem)
 {
 	var	reportDiv=addDiv(elem);
@@ -1026,7 +1060,7 @@ function showReportForm(elem,msgid)
 	return reportDiv;
 }
 
-function Sendreport(sender,msgid,content)
+function Sendreport(sender,msgid,content)sendb
 {
 io.socket.post("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
 	 function (resData, jwr) {

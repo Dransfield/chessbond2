@@ -1973,13 +1973,18 @@ function renderAdminPage()
 	//sideBoard.css("width","20%");
 	var banbutton=showButton(sideBoard,"Banning","KgreenElement KregularButton");
 	var imagesbutton=showButton(sideBoard,"Uploaded Images","KgreenElement KregularButton");
+	var banwordsbutton=showButton(sideBoard,"Ban Words","KgreenElement KregularButton");
+	
 	var forms=[];
 	
 	
 	var adminscreen=showAdminReportForm(horiFlex);
 	var imagescreen=showLatestImagesForm(horiFlex);
+	var banwordscreen=showBanWordsForm(horiFlex);
+	
 	forms.push(imagescreen);
 	forms.push(adminscreen);
+	forms.push(banwordscreen);
 	
 	for (s in forms)
 	{forms[s].hide();}
@@ -1987,17 +1992,25 @@ function renderAdminPage()
 	
 	
 	banbutton.click(function()
-	{
+		{
 		for(s in forms)
 		{forms[s].slideUp();}
 		adminscreen.slideDown();
-			});
-		imagesbutton.click(function()
-	{
+		});
+			
+	imagesbutton.click(function()
+		{
 		for(s in forms)
 		{forms[s].slideUp();}
 		imagescreen.slideDown();
-			});
+		});
+	
+	banwordsbutton.click(function()
+		{
+		for(s in forms)
+		{forms[s].slideUp();}
+		banwordscreen.slideDown();
+		});
 	
 	
 	}
