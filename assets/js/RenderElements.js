@@ -543,7 +543,7 @@ function showLatestImagesForm(elem)
 		return imageDiv;
 }
 
-function showBannedWordInputForm(elem)
+function showBanWordsForm(elem)
 {
 
 	var  banwordDiv=addSpan(elem);
