@@ -557,12 +557,12 @@ function showBanWordsForm(elem)
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
-		 	sendBannedWord(reportform.val());
+		 	sendBannedWord(banwordform.val());
 		 	banwordform.val("");
 		}
 		 });
 		banwordbutton.click(function(){
-			sendBannedWord(reportform.val());
+			sendBannedWord(banwordform.val());
 			banwordform.val("");
 			});
 	return banwordDiv;
