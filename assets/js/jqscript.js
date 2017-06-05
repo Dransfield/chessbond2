@@ -19,6 +19,7 @@ var Reports=[];
 var GamePlaying={};
 var soundVolume=5;
 var UploadedImages=[];
+var BannedWords=[];
 var Notifications=[];
 
 		subscribeToMandatoryRooms()
@@ -948,11 +949,19 @@ function setupAdminPage()
 {
 	
 		AccountsToRetrieve[MyID]=MyID;
-	io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData,res){
-		for (iter in resData)
+		io.socket.get("/bannedword?sort=createdAt%20DESC",{},function(resData1,res1){
+		
+		for (iter1 in resData1)
 		{
-			AccountsToRetrieve[MyID]=resData[iter].user;
-			UploadedImages[resData[iter].id]=(resData[iter]);
+			
+			BannedWords[resData1[iter1].id]=(resData1[iter1]);
+		}
+		
+	io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData2,res2){
+		for (iter2 in resData2)
+		{
+			AccountsToRetrieve[MyID]=resData2[iter2].user;
+			UploadedImages[resData2[iter2].id]=(resData[iter2]);
 		}
 		
 		
@@ -967,6 +976,7 @@ function setupAdminPage()
 			});
 		});
 	});
+});
 }
 	
 function setupChatPage()

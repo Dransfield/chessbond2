@@ -565,8 +565,63 @@ function showBanWordsForm(elem)
 			sendBannedWord(banwordform.val());
 			banwordform.val("");
 			});
+			
+			
+			var	imageDiv=addDiv(banwordDiv);
+	imageDiv.attr("class","imageGrid");
+	
+	var complaintTitle=addSpan(imageDiv,"");
+	complaintTitle.append("Word");
+	complaintTitle.attr("class","gridTitle");
+	
+	complaintTitle=addSpan(imageDiv,"");
+	complaintTitle.append("Buttons");
+	complaintTitle.attr("class","gridTitle");
+	
+		for (iter in BannedWords)
+		{
+		var wrd=$("<span>"+BannedWords.word+"</span>");
+		wrd.attr("class","greyGridCell");
+		
+		imageDiv.append(img);
+		
+		var columnFlex=addFlexDiv(imageDiv,"","column");
+		var spa=addSpan(columnFlex);
+		
+				var dateObj=new Date(BannedImages[iter].createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+			var hour=dateObj.getUTCHours();
+			var minute=dateObj.getUTCMinutes();
+			if (minute<10)
+			{minute="0"+minute;}
+			cellspan=addSpan(columnFlex,"");
+		
+		cellspan.append("Created:"+day+"/"+month+"/"+year+"   "+hour+":"+minute);
+		
+		
+		
+		var delbut=showButton(columnFlex,"Delete Banned Word","KgreenElement KregularButton");
+		delbut.click({coll1:columnFlex,coll2:wrd,wrdid:BannedWords[iter].id},deleteBannedWord);
+			
+		}
+		
+		
+		
+		
 	return banwordDiv;
 	
+}
+
+function deleteBannedWord(event)
+{
+	
+io.socket.put('/bannedword/destroy/'+event.data.wrdid,{},	function  (data){
+				console.log(data);
+				});
+		event.data.coll1.slideUp();
+		event.data.coll2.slideUp();
 }
 
 function sendBannedWord(wrd)
