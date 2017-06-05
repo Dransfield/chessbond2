@@ -634,7 +634,7 @@ function sendBannedWord(wrd)
 	io.socket.post("/bannedword",{word:wrd},
 	 function (resData, jwr) {
 	 toastr.success("Added Banned Word!");
-	 addBannedWord(resData[0]);
+	 addBannedWord(resData);
 	 });
 }
 
