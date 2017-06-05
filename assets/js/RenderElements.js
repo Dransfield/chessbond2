@@ -546,7 +546,7 @@ function showLatestImagesForm(elem)
 function showBanWordsForm(elem)
 {
 
-	var  banwordDiv=addSpan(elem);
+	var  banwordDiv=addDiv(elem);
 	var banwordform=$("<input type='text' autocomplete='off' class='form-control' placeholder='enter a banned word' name='name' >");
 		var banwordbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Submit Banned Word</button>");
 		banwordDiv.append(banwordform);
