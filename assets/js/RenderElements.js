@@ -1357,6 +1357,10 @@ NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' 
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
 
+if (Accounts[MyID].admin)
+{
+NDDlinks['AdminLink']=$("<a href='/admin'><li style='list-style-position:inside;color:black'>Admin Panel</li></a>");
+}
 if (!Accounts[MyID].Invisible)
 {
 NDDlinks['DeleteLink']=$("<a href='/DeleteAccount'><li style='list-style-position: inside;color:black'>Delete Account</li></a>");
