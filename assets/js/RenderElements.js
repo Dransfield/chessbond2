@@ -1060,7 +1060,7 @@ function showReportForm(elem,msgid)
 	return reportDiv;
 }
 
-function Sendreport(sender,msgid,content)sendb
+function Sendreport(sender,msgid,content)
 {
 io.socket.post("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
 	 function (resData, jwr) {
