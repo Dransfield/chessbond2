@@ -1474,6 +1474,7 @@ var cg = new Promise
 			for (x in resData)
 			{
 			BannedWords.push(resData[x]);	
+			console.log(BannedWords[x].word);
 			}
 			resolve(resData);
 		});
