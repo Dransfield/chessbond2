@@ -1194,10 +1194,10 @@ function censor(wrds)
 {
 	for (iter in BannedWords)
 	{
-		if(wrds.indexOf(BannedWords[iter]>-1)	
+		if(wrds.indexOf(BannedWords[iter].word)>-1)	
 		{
 			
-		wrds=wrds.replace(BannedWords[iter],"***");
+		wrds=wrds.replace(BannedWords[iter].word,"***");
 		}
 	}
 	return wrds;
