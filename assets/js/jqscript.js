@@ -190,6 +190,7 @@ var Notifications=[];
 		
 		$("#favicon").attr("href","/favicon.ico");
 	});
+	retrieveBannedWords().then(function(){
 		getWallposts(GameID).then(function(){
 		retrieveGame(GameID).then(function()
 		{
@@ -486,7 +487,8 @@ var Notifications=[];
 			});
 		});
 	});
-	}
+});
+}
 	
 	function pieceSelected(notationSquare) {
 	var i,
@@ -520,7 +522,7 @@ function setupProfilePage()
 		});
 	
 			
-	
+	retrieveBannedWords.then()(function(){
 				retrieveGames([ProfID]).then(function(){
 					retrieveAccounts().then(function()
 					{
@@ -932,7 +934,7 @@ function setupProfilePage()
 		});
 		});
 		});
-		
+		});
 		
 }
 
@@ -949,13 +951,8 @@ function setupAdminPage()
 {
 	
 		AccountsToRetrieve[MyID]=MyID;
-		io.socket.get("/bannedword?sort=createdAt%20DESC",{},function(resData1,res1){
-		
-		for (iter1 in resData1)
-		{
-			
-			BannedWords[resData1[iter1].id]=(resData1[iter1]);
-		}
+		 retrieveBannedWords().then(function()
+		 {
 		
 	io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData2,res2){
 		for (iter2 in resData2)
@@ -976,6 +973,7 @@ function setupAdminPage()
 			});
 		});
 	});
+});
 });
 }
 	
@@ -1039,7 +1037,8 @@ function setupChatPage()
 				
 			
 			
-
+retrieveBannedWords().then(function()
+{
 io.socket.get("/privateconversation",{id:convID},
 	function (resData,jwres){
 		console.log(JSON.stringify(resData));
@@ -1064,7 +1063,7 @@ io.socket.get("/privateconversation",{id:convID},
 			})
 		})	
 	});
-	
+	});
 
 		
 		
@@ -1457,6 +1456,24 @@ var cg = new Promise
 			Reports.push(resData[x]);	
 			AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
+
+function retrieveBannedWords()
+
+{
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/bannedwords",{},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			BannedWords.push(resData[x]);	
 			}
 			resolve(resData);
 		});

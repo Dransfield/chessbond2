@@ -1178,6 +1178,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
+	 chatform.val(censor(chatform.val()));
 		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 		 	chatform.val("");
 		}
@@ -1188,6 +1189,20 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 			});
 	return chatDiv;
 }
+
+function censor(wrds)
+{
+	for (iter in BannedWords)
+	{
+		if(wrds.indexOf(BannedWords[iter]>-1)	
+		{
+			
+		wrds=wrds.replace(BannedWords[iter],"***");
+		}
+	}
+	return wrds;
+}
+
 function showInput(elem)
 {
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
