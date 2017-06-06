@@ -1181,9 +1181,11 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
-	
+	setTimeout(function(){
+		chatform.val(censor(chatform.val()));
 		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 		 	chatform.val("");
+		},100);
 		}
 		 });
 		chatbutton.click(function(){
