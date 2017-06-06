@@ -1192,15 +1192,16 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 }
 
 function censor(wrds)
-{console.log("censor "+wrds);
+{
+	//console.log("censor "+wrds);
 	for (iter in BannedWords)
 	{
 		console.log(BannedWords[iter].word);
 		if(wrds.indexOf(BannedWords[iter].word)>-1)	
 		{
-			console.log("found "+BannedWords[iter].word);
+			//console.log("found "+BannedWords[iter].word);
 		wrds=wrds.replace(BannedWords[iter].word,"***");
-		console.log("after replace "+wrds);
+		//console.log("after replace "+wrds);
 		}
 	}
 	return wrds;
