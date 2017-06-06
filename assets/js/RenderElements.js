@@ -1196,8 +1196,9 @@ function censor(wrds)
 	{
 		if(wrds.indexOf(BannedWords[iter].word)>-1)	
 		{
-			
+			console.log("found "+BannedWords[iter].word);
 		wrds=wrds.replace(BannedWords[iter].word,"***");
+		console.log("after replace "+wrds);
 		}
 	}
 	return wrds;
