@@ -522,7 +522,7 @@ function setupProfilePage()
 		});
 	
 			
-	retrieveBannedWords.then(function(){
+	retrieveBannedWords().then(function(){
 				retrieveGames([ProfID]).then(function(){
 					retrieveAccounts().then(function()
 					{
