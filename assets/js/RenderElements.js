@@ -1175,10 +1175,11 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		 chatform.keypress(function (e) {
  var key = e.which;
  //console.log("key "+key);
+  chatform.val(censor(chatform.val()));
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
-	 chatform.val(censor(chatform.val()));
+	
 		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 		 	chatform.val("");
 		}
