@@ -1469,7 +1469,7 @@ function retrieveBannedWords()
 {
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/bannedword",{},
+		io.socket.get("/bannedword",{limit:8888},
 		function (resData,jwres){
 			//console.log(resData);
 			//console.log(jwres);
