@@ -1471,6 +1471,8 @@ var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/bannedwords",{},
 		function (resData,jwres){
+			console.log(resData);
+			console.log(jwres);
 			for (x in resData)
 			{
 			BannedWords.push(resData[x]);	
