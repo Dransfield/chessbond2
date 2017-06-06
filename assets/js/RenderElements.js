@@ -1200,7 +1200,7 @@ function censor(wrds)
 		if(wrds.toLowerCase().indexOf(BannedWords[iter].word.toLowerCase())>-1)	
 		{
 			//console.log("found "+BannedWords[iter].word);
-		wrds=wrdstoLowerCase().replace(BannedWords[iter].word.toLowerCase(),"***");
+		wrds=wrds.toLowerCase().replace(BannedWords[iter].word.toLowerCase(),"***");
 		//console.log("after replace "+wrds);
 		}
 	}
