@@ -1175,7 +1175,9 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		 chatform.keypress(function (e) {
  var key = e.which;
  //console.log("key "+key);
+ setTimeout(function(){
   chatform.val(censor(chatform.val()));
+ },100);
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
