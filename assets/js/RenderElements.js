@@ -1191,7 +1191,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 }
 
 function censor(wrds)
-{
+{console.log("censor "+wrds);
 	for (iter in BannedWords)
 	{
 		if(wrds.indexOf(BannedWords[iter].word)>-1)	
