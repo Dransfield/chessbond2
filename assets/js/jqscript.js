@@ -974,7 +974,7 @@ function setupAdminPage()
 		});
 	});
 });
-});
+
 }
 	
 function setupChatPage()
