@@ -1197,10 +1197,10 @@ function censor(wrds)
 	for (iter in BannedWords)
 	{
 		console.log(BannedWords[iter].word);
-		if(wrds.indexOf(BannedWords[iter].word)>-1)	
+		if(wrds.toLowerCase().indexOf(BannedWords[iter].word.toLowerCase())>-1)	
 		{
 			//console.log("found "+BannedWords[iter].word);
-		wrds=wrds.replace(BannedWords[iter].word,"***");
+		wrds=wrdstoLowerCase().replace(BannedWords[iter].word.toLowerCase(),"***");
 		//console.log("after replace "+wrds);
 		}
 	}
