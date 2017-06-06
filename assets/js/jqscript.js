@@ -1469,14 +1469,14 @@ function retrieveBannedWords()
 {
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/bannedwords",{},
+		io.socket.get("/bannedword",{},
 		function (resData,jwres){
-			console.log(resData);
-			console.log(jwres);
+			//console.log(resData);
+			//console.log(jwres);
 			for (x in resData)
 			{
 			BannedWords.push(resData[x]);	
-			console.log(BannedWords[x].word);
+		//	console.log(BannedWords[x].word);
 			}
 			resolve(resData);
 		});
