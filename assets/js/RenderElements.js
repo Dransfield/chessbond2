@@ -1188,7 +1188,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 	setTimeout(function(){
 		
 		var addition;
-		
+		var striter=0;
 		for (striter=0;striter!=(chatform.val().length-1);striter++)
 		{
 		addition=addition+chatform.val().charCodeAt(striter)+","; 	
