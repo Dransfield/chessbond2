@@ -1106,7 +1106,8 @@ function showReportForm(elem,msgid)
 		reportDiv.append(reportbutton);
 		 reportform.keypress(function (e) {
  var key = e.which;
- //console.log("key "+key);
+ console.log("key "+keyCode);
+ console.log("keycode "+key);
  if(key == 13)  // the enter key code
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
@@ -1237,6 +1238,7 @@ function showTextwithInput(elem,words,elemTochange)
 		if(event.key.length==1)
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
+		//Accounts[ProfID][words]=censor(
 		UpdateTypedText(words,elemTochange);
 		
 	}
