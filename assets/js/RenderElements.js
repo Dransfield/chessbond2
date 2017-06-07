@@ -1197,7 +1197,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		chatform.val(censor(chatform.val()));
 		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val()+addition,ReplyTo);
 		 	chatform.val("");
-		},100);
+		},200);
 		}
 		 });
 		chatbutton.click(function(){
