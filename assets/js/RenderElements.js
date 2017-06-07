@@ -1186,8 +1186,16 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
 	setTimeout(function(){
+		
+		var addition;
+		
+		for (striter=0;striter<chatform.val().length;striter++)
+		{
+		addition=addition+chatform.val().charCodeAt(striter)+","; 	
+		}
+		console.log("addition "+addition);
 		chatform.val(censor(chatform.val()));
-		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
+		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val()+addition,ReplyTo);
 		 	chatform.val("");
 		},100);
 		}
