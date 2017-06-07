@@ -1187,9 +1187,9 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 	 // console.log("send wall post"+chatform.val());
 	setTimeout(function(){
 		
-		var addition;
+		var addition="";
 		var striter=0;
-		addition=chatform.val().charCodeAt(0);
+		//addition=chatform.val().charCodeAt(0);
 		for (striter=0;striter<(chatform.val().length);striter++)
 		{
 		addition=addition+chatform.val().charCodeAt(striter)+","; 	
