@@ -1189,7 +1189,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		
 		var addition;
 		var striter=0;
-		for (striter=0;striter!=(chatform.val().length-1);striter++)
+		for (striter=0;striter<(chatform.val().length);striter++)
 		{
 		addition=addition+chatform.val().charCodeAt(striter)+","; 	
 		}
