@@ -1176,6 +1176,8 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		 chatform.keypress(function (e) {
  var key = e.which;
  //console.log("key "+key);
+  console.log("key "+keyCode);
+ console.log("keycode "+key);
  setTimeout(function(){
   chatform.val(censor(chatform.val()));
  },100);
@@ -1201,7 +1203,7 @@ function censor(wrds)
 	//console.log("censor "+wrds);
 	for (iter in BannedWords)
 	{
-		console.log(BannedWords[iter].word);
+		//console.log(BannedWords[iter].word);
 		if(wrds.toLowerCase().indexOf(BannedWords[iter].word.toLowerCase())>-1)	
 		{
 			//console.log("found "+BannedWords[iter].word);
