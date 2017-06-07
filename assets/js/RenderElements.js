@@ -1177,6 +1177,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
  var key = e.which;
  //console.log("key "+key);
   console.log("key "+key);
+  console.log("actual character "+String.fromCharCode(key));
  //console.log("event "+JSON.stringify(e.originalEvent));
  setTimeout(function(){
   chatform.val(censor(chatform.val()));
