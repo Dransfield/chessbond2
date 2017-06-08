@@ -1509,7 +1509,7 @@ if(Notifications.length>0)
 {
 	for (notIter in Notifications)
 	{
-		NDDlinks['NotificationsLink'+notIter]=$("<a href='/UndeleteAccount'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></a>");
+		NDDlinks['NotificationsLink'+notIter]=$("<a href='"+Notifications[notIter].adr+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></a>");
 	}
 }
 console.log("sosedred");
