@@ -1104,7 +1104,7 @@ var cg = new Promise
 ((resolve, reject) => {
 io.socket.get("/wallpost?limit=39999",{groupid:grpID},
 	function (resData,jwres){
-		console.log("got wall posts"+JSON.stringify(resData));
+		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
 		{
 		WallPosts.push(resData[iter]);
