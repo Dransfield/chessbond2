@@ -1513,6 +1513,8 @@ if(Notifications.length>0)
 	}
 }
 console.console.log(¨sos¨);
+
+console.console.log(¨sos2¨);
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
