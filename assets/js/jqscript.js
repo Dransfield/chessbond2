@@ -9,6 +9,7 @@ var PrivatePromises=[];
 var FollowPromises=[];
 var BlockPromises=[];
 var WallPostPromises=[];
+var NotificationPromises=[];
 var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
@@ -1444,6 +1445,14 @@ return Promise.all(AccountPromises)
 	
 }
 
+function retrieveNotifications()
+
+{
+	addNotificationPromises();
+return NotificationPromises;
+	
+}
+
 function retrieveReports(boardscreen=false)
 
 {
@@ -1824,7 +1833,7 @@ function addPrivatePromises()
 function addNotificationPromises()
 {
 	
-		PrivatePromises.push(new Promise((resolve,reject)=>{
+		NotificationPromises.push(new Promise((resolve,reject)=>{
 					io.socket.get("/notification",{reciever:MyID},
 						function (pc) {
 						if(!Notifications)

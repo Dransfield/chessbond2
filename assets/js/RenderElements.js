@@ -1379,6 +1379,8 @@ function showButton(elem,words,btnstyle="btn-success"){
 
 function showNavbar(elem,usracc,boardscreen=false)
 {
+	
+	retrieveNotifications().then(function(){
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
@@ -1541,7 +1543,7 @@ if(coverall)
 }
 );
 
-
+});
 
 				//		<li id="NotificationsList"></li>
 			//				
