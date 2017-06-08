@@ -1704,7 +1704,9 @@ AccountPromises.push(new Promise((resolve, reject) => {
 			console.log("do navbar? "+MyID+" "+usr.id);
 				if (MyID==usr.id)
 				{
+					retrieveNotifications().then(function(){
 				showNavbar($("#navbar"),MyID,boardscreen);
+				});
 				}
 				
 				if(usr)
