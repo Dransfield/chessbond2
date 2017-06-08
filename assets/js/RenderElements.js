@@ -1510,7 +1510,7 @@ if(Notifications.length>0)
 	for (notIter in Notifications)
 	{
 		NDDlinks['NotificationsLink'+notIter]=$("<span><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
-		NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification;
+		NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification);
 	}
 }
 console.log("sosedred");
