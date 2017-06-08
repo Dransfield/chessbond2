@@ -1509,7 +1509,7 @@ if(Notifications.length>0)
 {
 	for (notIter in Notifications)
 	{
-		NDDlinks['NotificationsLink']+=Notifications[notIter].sender;
+		NDDlinks['NotificationsLink']+=Notifications[notIter].msg;
 	}
 }
 console.log("sosedred");
