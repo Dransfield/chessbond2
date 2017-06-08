@@ -1510,7 +1510,7 @@ if(Notifications.length>0)
 	for (notIter in Notifications)
 	{
 		NDDlinks['NotificationsLink'+notIter]=$("<span><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
-		NDDlinks['NotificationsLink'+notIter].click(visitNotification(Notifications[notIter].adr));
+		NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification;
 	}
 }
 console.log("sosedred");
@@ -1605,11 +1605,11 @@ if(coverall)
 	}
 	*/
 }
-function visitNotification(thisadr)
+function visitNotification(event)
 {
 	for (notIter in Notifications)
 	{
-		if(Notifications[notIter].adr==thisadr)
+		if(Notifications[notIter].adr==event.data.thisadr)
 		{
 			io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
 			{
@@ -1619,7 +1619,7 @@ function visitNotification(thisadr)
 		}
 
 	}
-	window.location.replace(thisadr);
+	window.location.replace(event.data.thisadr);
 }
 
 function showRecentGames(elem,usracc)
