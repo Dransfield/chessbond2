@@ -1420,10 +1420,10 @@ if (boardscreen)
 }
 
 var coverall;
-
+console.log("Notifications.length "+Notifications.length);
 if(Notifications.length>0)
 {
-	console.log("Notifications.length "+Notifications.length);
+	
 $("#NumberofNotificationsSpan").html(Notifications.length);
 }
 if(Accounts[MyID].Invisible)
