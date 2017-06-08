@@ -8,41 +8,41 @@ var recentGamesToShow=20;
 
 function showRematchButton()
 {
-	
+
 	io.socket.on('newmygameevent', function (data)
 			{
 		$(location).attr('href', '/humanvshumannew/'+data.id);
-			
+
 			});
-	
+
 	io.socket.on('rematch',function (data)
 			{
-				
+
 			console.log("recieved rematch");
 			var nam="";
 				if (GamePlaying.Player1=data.content)
 				{nam=GamePlaying.Player1Name;}
 				if (GamePlaying.Player2=data.content)
 				{nam=GamePlaying.Player2Name;}
-				
+
 			var but=showButton($("body"),nam+" wants a rematch","KgreenElement KhugeButton");
 			but.css("position","fixed");
 			but.css("top","10%");
 			});
-	
+
 	var Rematchbutton=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
 	var timerspan=addSpan(Rematchbutton,"rematchTimer");
 	Rematchbutton.css("position","fixed");
 	Rematchbutton.css("top","50%");
 	rematchSeconds=30;
-	
+
 	Rematchbutton.click(function(){
-		
+
 		if(GamePlaying.Player!=GamePlaying.Player2)
 		{
 			//io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id,p1color:GamePlaying.Player1Color,gametype:GamePlaying.GameType,gamecat:GamePlaying.GameCategory,gametime:GamePlaying.Player1TimeLimit},
 			io.socket.put('/WantRematch',{me:MyID,msg:GamePlaying.Result,gam:GamePlaying.id},
-			
+
 			function (resData, jwr) {
 			Rematchbutton.slideUp();
 			/*
@@ -61,9 +61,9 @@ function showRematchButton()
 			}
 			*/
 			});
-			
+
 		}
-		
+
 		if(GamePlaying.Player1==GamePlaying.Player2)
 		{
 			console.log("player 1 is player 2");
@@ -73,10 +73,10 @@ function showRematchButton()
 		var data=(resData);
 		console.log(data);
       // Refresh the page now that we've been logged in.
-      //window.location.reload(true); 
+      //window.location.reload(true);
       var iter=0;
 		io.socket.put('/joingame',
-		{		
+		{
 			GameID:data.id,
 			PlayerID:data.Player1,
 			//PlayerName:PlayerName,
@@ -87,38 +87,38 @@ function showRematchButton()
 			GameCategory:data.GameCategory,
 			Player1TimeLimit:data.TimeLimit*60,
 			Player2TimeLimit:data.TimeLimit*60
-		}  
-				  
+		}
+
 		,function(resData2,jwres2)
 		{
-			
+
 			//console.log(JSON.parse(resData).id);
-			
+
 			io.socket.put('/deleteopengame', { gameid:data.id},function  (data2,jwres)
 			{
-			
-				
-			
-			
+
+
+
+
 			});
 				$(location).attr('href', '/humanvshumannew/'+resData2.id);
-			
+
 		}
 		);
-		
+
     });*/
-    
+
 		}
-		
+
 	});
-	
+
 	setInterval(function(){
 		rematchSeconds=rematchSeconds-1;
 		$("#rematchTimer").html(rematchSeconds);
 		if(rematchSeconds==0)
 		{Rematchbutton.slideUp();}
 	},1000);
-	
+
 }
 
 function phraseforloggedindate(dat)
@@ -127,7 +127,7 @@ function phraseforloggedindate(dat)
 			var nu=Date.parse(dat);
 			console.log(nu);
 			//console.log(console.log(nu));
-			
+
 			var n = Date.now();
 			var newnum=n-nu;
 			console.log('newnum '+newnum);
@@ -135,7 +135,7 @@ function phraseforloggedindate(dat)
 			console.log("millisecondsinaday "+millisecondsinaday);
 			if (newnum<millisecondsinaday)
 			{
-				
+
 				newnum=newnum/1000;
 				console.log("newnum after 1000 "+newnum);
 		if (newnum<60)
@@ -164,13 +164,13 @@ function phraseforloggedindate(dat)
 		{
 			console.log("newnum after  24 "+newnum);
 		newnum=newnum/24;
-		
+
 		phrase=parseInt(newnum)+" days ago";
-		
+
 		}
-		
+
 		}
-		
+
 		}
 		return phrase;
 			}
@@ -185,14 +185,14 @@ function phraseforloggedindate(dat)
 			return newdate;
 			}
 		}
-		
+
 
 	function phrasefordate(dat)
 			{
 			var nu=Date.parse(dat);
 			//console.log("nu "+nu);
 		var n = Date.now();
-		
+
 		var newnum=n-nu;
 		newnum=newnum/1000;
 		if (newnum<60)
@@ -218,17 +218,17 @@ function phraseforloggedindate(dat)
 		else
 		{
 		newnum=newnum/24;
-		
+
 		phrase=parseInt(newnum)+" days ago";
-		
+
 		}
-		
+
 		}
-		
+
 		}
 		return phrase;
 	}
-	
+
 
 var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
@@ -255,7 +255,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showPersonLeft(elem,prsn)
 {
-	
+
 	newdiv=$("<div style='background-color:red;overflow:visible;padding:4px;'></div>");
 	elem.append(newdiv);
 	showUsername(newdiv,prsn);
@@ -269,44 +269,44 @@ function addFlexDiv(elem,id,direction,wrap='nowrap',jcontent='space-around',aIte
 	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";justify-content:"+jcontent+";align-items:"+aItems+";'></div>")
 	elem.append(flex);
 	return flex;
-	
+
 }
 function addDiv(elem)
 {
 	var flex=$("<div></div>")
 	elem.append(flex);
 	return flex;
-	
-	
+
+
 }
 function addSpan(elem,id)
 {
 	var flex=$("<span id='"+id+"'></span>")
 	elem.append(flex);
 	return flex;
-	
-	
+
+
 }
 function showFlag(elem,usracc)
 {
 if(Accounts[usracc])
-{	
+{
 			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
-		
+
 			if(Accounts[usracc]['Country'])
 			{
 			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[usracc]['Country'])+".png");
-			
-				
+
+
 			}
 			elem.append(flagimage);
 			return flagimage;
-}			
+}
 	}
 function showHeader(elem,num,content)
 {
-elem.append("<h"+num+">"+content+"</h"+num+">");	
-	
+elem.append("<h"+num+">"+content+"</h"+num+">");
+
 }
 function showWebsiteNameJumbo(elem)
 {
@@ -329,19 +329,19 @@ function showImageUploadForm(elem,usracc)
     <input type="file" name="avatar" multiple="multiple"><br>
     <input type="submit" value="Upload">
     </form>`);
-	
+
 }
 function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 {
-	
+
 	var myColumn=addFlexDiv(elem,45,"column");
 	//console.log("msg.replyto "+msg.replyto);
-	
+
 	if (msg.replyto==Replyto)
 	{
-		
+
 	var postHeaderDiv;
-	
+
 	if(msg.sender==MyID)
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;background-color:lightgrey;padding:4px;'></div>");
@@ -349,7 +349,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 	else
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;background-color:lightgreen;padding:4px;'></div>");
-		
+
 	}
 	//console.log("show chat message "+JSON.stringify(msg));
 	//console.log("sender "+msg.sender);
@@ -361,18 +361,18 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 			var hour=dateObj.getUTCHours();
 			var minute=dateObj.getUTCMinutes();
 	if(minute<10)
-	{minute="0"+minute;}		
+	{minute="0"+minute;}
 	showsmallAvatar(postHeaderDiv,msg.sender);
-	
+
 	postHeaderDiv.append("<span style='border-style:solid'>");
 	postHeaderDiv.append("<span style='width:5px'></span>");
 	showUsername(postHeaderDiv,msg.sender);
 	postHeaderDiv.append("<span style='width:20px'></span>");
 	postHeaderDiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
 	postHeaderDiv.append("<span style='width:30px'></span>");
-	
+
 	postHeaderDiv.append("<span>"+hour+":"+minute+"</span>");
-	
+
 	if(deletebutton)
 	{var delbut=showButton(postHeaderDiv,"X","KredElement KregularButton");
 		delbut.click(function(){
@@ -380,11 +380,11 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 		io.socket.put('/wallpost/destroy',{id:msg.id},
 				function  (data){
 				});
-		
+
 		for(iter in WallPosts)
 			{
-			
-			if(WallPosts[iter].replyto==msg.id)	
+
+			if(WallPosts[iter].replyto==msg.id)
 			{
 				console.log("should hide "+WallPosts[iter].id);
 			$("#"+WallPosts[iter].id).hide();
@@ -392,48 +392,48 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 				function  (data){
 				});
 			}
-			
+
 			}
-		
+
 		});
-		
+
 		}
-	
-	
+
+
 	var blockbut=showButton(postHeaderDiv,"Block","KredElement KregularButton");
 	blockbut.attr("id","blockbutton"+msg.sender);
 	blockbut.click({usracc:msg.sender},clickBlock);
-		
-		
+
+
 	var reportbut=showButton(postHeaderDiv,"Report","KredElement KregularButton");
 	reportbut.attr("id","reportbutton"+msg.sender);
 	reportbut.click(
 	function(){
 		rform.slideToggle();
 		});
-	
+
 		var rform=showReportForm(elem,msg.id);
 		rform.hide();
-	
+
 	postHeaderDiv.append("</span>");
-	
+
 	myColumn.append(postHeaderDiv);
-	
+
 	var nextdiv=addFlexDiv(myColumn,34,"row","wrap","space-around","center");
 	nextdiv.attr("id","msgcontent"+msg.id);
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
 	nextdiv.append(msg.content);
 	nextdiv.css("width",postHeaderDiv.width());
-	
+
 	if(Blocks[msg.sender])
 	{nextdiv.slideUp();
 		blockbut.text("UnBlock");
 		}
-	
+
 		if(allowreplies){
 			var butdiv=addFlexDiv(elem,34,"row","wrap","space-around","center");
-	
+
 			var but=showButton(butdiv,"Reply","KgreenElement KregularButton");
 		var rplto;
 		console.log("msg.replyto "+msg.replyto);
@@ -451,11 +451,11 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 		{
 		//postHeaderDiv.css("align-items","flex-end");
 		//nextdiv.css("align-items","flex-end");
-		
+
 		}
-		
+
 		for(iter in WallPosts)
-						{	
+						{
 							if(WallPosts[iter].replyto==msg.id)
 							{
 							var replydiv=addFlexDiv(elem,WallPosts[iter].id,"column");
@@ -475,18 +475,18 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 
 function showLatestImagesForm(elem)
 {
-	
+
 	var	imageDiv=addDiv(elem);
 	imageDiv.attr("class","imageGrid");
-	
+
 	var complaintTitle=addSpan(imageDiv,"");
 	complaintTitle.append("Image");
 	complaintTitle.attr("class","gridTitle");
-	
+
 	complaintTitle=addSpan(imageDiv,"");
 	complaintTitle.append("Uploader");
 	complaintTitle.attr("class","gridTitle");
-	
+
 		for (iter in UploadedImages)
 		{
 		var img=$("<img src='https://www.chessbond.com/user/avatar/"+UploadedImages[iter].id+"'>");
@@ -495,7 +495,7 @@ function showLatestImagesForm(elem)
 		imageDiv.append(img);
 		if (UploadedImages[iter].blocked==true)
 		{
-		img.append("Blocked");	
+		img.append("Blocked");
 		}
 		var columnFlex=addFlexDiv(imageDiv,"","column");
 		var spa=addSpan(columnFlex);
@@ -517,9 +517,9 @@ function showLatestImagesForm(elem)
 			if (minute<10)
 			{minute="0"+minute;}
 			cellspan=addSpan(columnFlex,"");
-		
+
 		cellspan.append("Uploaded:"+day+"/"+month+"/"+year+"   "+hour+":"+minute);
-		
+
 		var blocbut;
 		if(UploadedImages[iter].blocked==true)
 		{
@@ -529,17 +529,17 @@ function showLatestImagesForm(elem)
 		{
 		blocbut=showButton(columnFlex,"Block Image From Website","KgreenElement KregularButton");
 		}
-		
+
 		blocbut.click({but:blocbut,coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},blockAvatar);
-			
+
 		var delbut=showButton(columnFlex,"Delete Image and Delete Database Record","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:img,imgid:UploadedImages[iter].id,imgloc:UploadedImages[iter].avatarFd},deleteAvatar);
-			
+
 		}
-		
-		
-		
-		
+
+
+
+
 		return imageDiv;
 }
 
@@ -565,41 +565,41 @@ function showBanWordsForm(elem)
 			sendBannedWord(banwordform.val(),imageDiv);
 			banwordform.val("");
 			});
-			
-			
+
+
 			var	imageDiv=addDiv(banwordDiv);
 	imageDiv.attr("class","imageGrid");
-	
+
 	var complaintTitle=addSpan(imageDiv,"");
 	complaintTitle.append("Word");
 	complaintTitle.attr("class","gridTitle");
-	
+
 	complaintTitle=addSpan(imageDiv,"");
 	complaintTitle.append("Buttons");
 	complaintTitle.attr("class","gridTitle");
-	
+
 		for (iter in BannedWords)
 		{
 		addBannedWord(BannedWords[iter],imageDiv);
 		}
-		
-		
-		
-		
+
+
+
+
 	return banwordDiv;
-	
+
 }
 
 function addBannedWord(theWord,elem)
 {
 var wrd=$("<span>"+theWord.word+"</span>");
 		wrd.attr("class","greyGridCell");
-		
+
 		elem.append(wrd);
-		
+
 		var columnFlex=addFlexDiv(elem,"","column");
 		var spa=addSpan(columnFlex);
-		
+
 				var dateObj=new Date(theWord.createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
@@ -609,19 +609,19 @@ var wrd=$("<span>"+theWord.word+"</span>");
 			if (minute<10)
 			{minute="0"+minute;}
 			cellspan=addSpan(columnFlex,"");
-		
+
 		cellspan.append("Created:"+day+"/"+month+"/"+year+"   "+hour+":"+minute);
-		
-		
-		
+
+
+
 		var delbut=showButton(columnFlex,"Delete Banned Word","KgreenElement KregularButton");
 		delbut.click({coll1:columnFlex,coll2:wrd,wrdid:theWord.id},deleteBannedWord);
-			
+
 }
 
 function deleteBannedWord(event)
 {
-	
+
 io.socket.put('/bannedword/destroy/'+event.data.wrdid,{},	function  (data){
 				console.log(data);
 				});
@@ -663,7 +663,7 @@ function showAdminReportForm(elem)
 complaintTitle=addSpan(reportDiv,"");
 		complaintTitle.append("Your banning buttons Sir");
 	complaintTitle.attr("class","gridTitle");
-	
+
 	for (x in Reports)
 		{
 		var cellspan=addSpan(reportDiv,"");
@@ -672,23 +672,23 @@ complaintTitle=addSpan(reportDiv,"");
 		cellspan=addSpan(reportDiv,"");
 		cellspan.append(Accounts[Reports[x].reporter].name);
 		cellspan.attr("class","greyGridCell");
-		
+
 		cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
-		
+
 		if(WallPosts[Reports[x].msgID])
 		{
 		cellspan.append(WallPosts[Reports[x].msgID].content);
 		}
-		
+
 		cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
-		
+
 		if(WallPosts[Reports[x].msgID])
 		{
 		cellspan.append(Accounts[WallPosts[Reports[x].msgID].sender].name);
 		}
-		
+
 		var dateObj=new Date(Reports[x].createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
@@ -700,46 +700,46 @@ complaintTitle=addSpan(reportDiv,"");
 			cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		cellspan.append(day+"/"+month+"/"+year+"   "+hour+":"+minute);
-		
+
 		var optionnames=["Day","Week","Month"];
 			var oneDay = 24*60*60*1000;
 			var optionvalues=[oneDay,oneDay*7,oneDay*30];
 		var dursel=showSelect(reportDiv,optionnames,optionvalues,"Duration");
-			
+
 		if(WallPosts[Reports[x].msgID]){
-			
-		
+
+
 		if(!Accounts[WallPosts[Reports[x].msgID].sender].tempBan)
 		{
-		
+
 		var banBut=showButton(reportDiv,"Temporary ban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-	
+
 		banBut.click({dur:dursel,usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
 		else
 		{
-		
+
 		var banBut=showButton(reportDiv,"Unban","KcyanElement KregularButton");
 		console.log(WallPosts[Reports[x].msgID].sender);
 		console.log(WallPosts[Reports[x].msgID].content);
-		
+
 		banBut.click({dur:dursel,usr:WallPosts[Reports[x].msgID].sender,but:banBut},banUser);
 		}
-		
-		
+
+
 		}
 		else
 		{
 		cellspan=addSpan(reportDiv,"");
 		cellspan.attr("class","greyGridCell");
 		}
-			
-			
-			
+
+
+
 		}
-		
+
 		return reportDiv;
 }
 
@@ -761,24 +761,24 @@ io.socket.put('/unblockavatar',{picid:event.data.imgid,adr:event.data.imgloc},	f
 				toastr.success("Image UnBlocked");
 				UploadedImages[event.data.imgid].blocked=false;
 				event.data.but.html('Block Image');
-				
+
 				});
 	}
-	
+
 	//	event.data.coll1.slideUp();
 		//event.data.coll2.slideUp();
 }
 
 function deleteAvatar(event)
 {
-	
+
 io.socket.put('/deleteavatar',{picid:event.data.imgid,adr:event.data.imgloc},	function  (data){
 				console.log(data);
 				});
 		event.data.coll1.slideUp();
 		event.data.coll2.slideUp();
 }
-		
+
 
 function banUser(event){
 	console.log(event.data.dur.val());
@@ -796,7 +796,7 @@ function banUser(event){
 		}
 	else
 		{
-			
+
 			io.socket.put('/unbanuser',{banneduser:event.data.usr}
 			,function (resData, jwRes) {
 			toastr.success("user unbanned");
@@ -804,10 +804,10 @@ function banUser(event){
 			event.data.but.html('Temporary Ban');
 			//$(this).context.html('unban');
 			});
-		
-			
+
+
 		}
-	
+
 	}
 	else
 	{
@@ -825,13 +825,13 @@ function CreateDropDown(usracc)
    	DropDowns[usracc].append("<li><a href='#'>View Game	</a></li>");
    	DropDowns[usracc]['Foll']=$("<li></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Foll']);
-	
-	
+
+
 	DropDowns[usracc]['block']=$("<li></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['block']);
 	//DropDowns[usracc].append(DropDowns[usracc]['block']);
-	
-	
+
+
 	DropDowns[usracc].append("<li><a href='#'>Challenge to a Game</a></li>");
 	DropDowns[usracc]['Priv']=$("<li id='PrivateConversationDD"+usracc+"'></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['Priv']);
@@ -895,9 +895,9 @@ function showUsername(elem,usracc)
 	{UserNamesPrinted[usracc]=1;}
 	else
 	{UserNamesPrinted[usracc]=UserNamesPrinted[usracc]+1;}
-	
+
 	var thisuserprinted=UserNamesPrinted[usracc];
-	
+
 	if(Accounts[usracc])
 	{
 		//class ='userdropdown'
@@ -910,17 +910,17 @@ elem.append(usr);
 usr.click(function()
 	{
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
-		
+
 	});
 usr.mouseenter(function(){
 	$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
-		
+
 });
 usr.mouseleave(function()
 		{
 		DropDowns[usracc].detach();
 		});
-return usr;	
+return usr;
  //href='/profile/"+usracc+"'
  }
  else
@@ -928,33 +928,33 @@ return usr;
 	// console.log(Accounts[usracc]);
 var usr=$("<div>Deleted Account</div>");
 elem.append(usr);
-return usr;	
- 	 
+return usr;
+
 	}
-	
+
 	$("#usernamedropdown"+usracc+"-"+thisuserprinted).click(function()
 	{
 		console.log("clicked on username");
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
-		
+
 			});
-	
+
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseenter(function()
 		{console.log("MOUSE ENTER");
 			//console.log(DropDowns[usracc]);
 			$("#usernamedropdown"+usracc+"-"+thisuserprinted).append(DropDowns[usracc]);
-		
+
 			});
 		$("#usernamedropdown"+usracc+"-"+thisuserprinted).mouseleave(function()
 		{console.log("MOUSE LEAVE");
 			//console.log(DropDowns[usracc]);
 			DropDowns[usracc].detach();
 			});
-	
+
 /*
- * 
+ *
  function handlerIn()
- 
+
   {console.log("handler in!");
 
   function handlerOut()
@@ -970,8 +970,8 @@ handlerOut);
 
 function showDropDown(usracc)
 {
-	
-	
+
+
 	return(`  <ul class="userdropdown-content2" >
   <li>
     <a href="#">Cumulative Rating `+Accounts[usracc].ELO+`</a>
@@ -988,9 +988,9 @@ function showDropDown(usracc)
    <li>
     <a href="#">Block	</a>
    </li>
-   
+
    <li>
-    <a href="#">Challenge to a Game</a>	
+    <a href="#">Challenge to a Game</a>
    </li>
    <li>
     <div id="PrivateConversation`+usracc+`">
@@ -1000,29 +1000,29 @@ function showDropDown(usracc)
     <a href="#">Add to Friend List	</a>
   </li>
    <li>
- 
+
   </li>
   </ul>`);
-  
+
 	$("#StartPrivateDiv"+usracc).click(function(){
-	
-	
+
+
 	io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
 			function (resData, jwRes) {
 				console.log("resData[0].id "+resData.id);
 				PrivateConversations[MyID][usracc]=resData;
-			
+
 				});
-	
+
 	io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
 			function (resData, jwRes) {
 				console.log("resData[0].id "+resData.id);
 				PrivateConversations[MyID][usracc]=resData;
-			
+
 				});
 	});
-  
-  
+
+
 }
 
 function showSelect(elem,optionnames,optionvalues,defaulttext)
@@ -1031,7 +1031,7 @@ function showSelect(elem,optionnames,optionvalues,defaulttext)
 	selectbloke.append("<option selected disabled>"+defaulttext+"</option>");
 	for (iter in optionnames)
 	{
-	selectbloke.append("<option value='"+JSON.stringify(optionvalues[iter])+"'>"+optionnames[iter]+"</option>");	
+	selectbloke.append("<option value='"+JSON.stringify(optionvalues[iter])+"'>"+optionnames[iter]+"</option>");
 	}
 	elem.append(selectbloke);
 	return selectbloke;
@@ -1045,12 +1045,12 @@ function showStripedTable(elem)
 	var table=$("<table></table>");
 	//table.append(head);
 	//table.append(body);
-	
-	
+
+
 	elem.append(table);
 	//return body;
 	return table;
-	
+
 }
 
 function updateAccountInfo(words,usracc)
@@ -1058,44 +1058,44 @@ function updateAccountInfo(words,usracc)
 	console.log("words "+words);
 	console.log("Accounts[ProfID][words] "+Accounts[usracc][words]);
 		Accounts[usracc]['ProfileUpdated']=new Date();
-	
+
 	io.socket.put('/user/'+usracc+"?ProfileUpdated="+Accounts[usracc]['ProfileUpdated'],{
-				
-					  }  
-				  
+
+					  }
+
 				,function(resData,jwres)
 			{
-				
+
 					Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(Accounts[usracc]['ProfileUpdated']);
-					
+
 					$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
-			
+
 			if(Accounts[usracc]['Profupdatedspan'])
 			{
 				Accounts[usracc]['Profupdatedspan'].html("Profile Updated:");
-			}	
-			
+			}
+
 			}
 			);
-		
+
 		io.socket.put('/user/'+usracc+"?"+words+"="+Accounts[usracc][words],{
-				
-					  }  
-				  
+
+					  }
+
 				,function(resData,jwres)
 			{
-				
-				
+
+
 				}
-			);	
-	
+			);
+
 }
 
 function UpdateTypedText(words,elemTochange)
 {
 	elemTochange.html(Accounts[ProfID][words]);
 				updateAccountInfo(words,MyID);
-		
+
 }
 function showReportForm(elem,msgid)
 {
@@ -1141,10 +1141,10 @@ function showLoginForm(elem)
         var loginbut=showButton(elem,"Login","KgreenElement KregularButton");
         elem.append("<a href='/registerpage' class='KgreenElement KregularButton'>Register</a>");
             elem.append("<a href='/forgot' class='KgreenElement KregularButton'>Forgot Password</a>");
-    
+
 	loginbut.click(function(){
-		
-			
+
+
 			io.socket.put("/login",{email:emailform.val(),password:passwordform.val()},
 			function (resData, jwr){
 			console.log(resData);
@@ -1157,12 +1157,12 @@ function showLoginForm(elem)
 			toastr.success(resData.message);
 				 $(location).attr("href", '/justloggedin');
 			}
-			
+
 			});
-			
-			
-		
-		
+
+
+
+
 	});
 }
 
@@ -1186,13 +1186,13 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
   { e.preventDefault();
 	 // console.log("send wall post"+chatform.val());
 	setTimeout(function(){
-		
+
 		var addition="";
 		var striter=0;
 		//addition=chatform.val().charCodeAt(0);
 		for (striter=0;striter<(chatform.val().length);striter++)
 		{
-		addition=addition+chatform.val().charCodeAt(striter)+","; 	
+		addition=addition+chatform.val().charCodeAt(striter)+",";
 		}
 		console.log("addition "+addition);
 		chatform.val(censor(chatform.val()));
@@ -1214,7 +1214,7 @@ function censor(wrds)
 	for (iter in BannedWords)
 	{
 		//console.log(BannedWords[iter].word);
-		if(wrds.toLowerCase().indexOf(BannedWords[iter].word.toLowerCase())>-1)	
+		if(wrds.toLowerCase().indexOf(BannedWords[iter].word.toLowerCase())>-1)
 		{
 			//console.log("found "+BannedWords[iter].word);
 		wrds=wrds.toLowerCase().replace(BannedWords[iter].word.toLowerCase(),"***");
@@ -1228,7 +1228,7 @@ function showInput(elem)
 {
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
-return myinput;	
+return myinput;
 }
 
 function showTextwithInput(elem,words,elemTochange)
@@ -1238,7 +1238,7 @@ function showTextwithInput(elem,words,elemTochange)
 	myinput.keydown(function(event){
 		if(!Accounts[ProfID][words])
 		{
-		Accounts[ProfID][words]="";	
+		Accounts[ProfID][words]="";
 		}
 		//console.log(event);
 		if (event.keyCode==8)
@@ -1252,7 +1252,7 @@ function showTextwithInput(elem,words,elemTochange)
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//Accounts[ProfID][words]=censor(
 		UpdateTypedText(words,elemTochange);
-		
+
 	}
 		});
 }
@@ -1261,11 +1261,11 @@ function showAnchorButton(elem,words,linkto,btnstyle){
 	//console.log("ButtonNumber"+ButtonNumber);
 	//elem.append("<a href='"+linkto+"' style='width:100%' class='btn btn-lg "+btnstyle+"'  id='button"+ButtonNumber+"'>"+words+"</a>");
 	elem.append("<a href='"+linkto+"' class='"+btnstyle+"'  id='button"+ButtonNumber+"'>"+words+"</a>");
-	
+
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
 //});
-	
+
 }
 
 
@@ -1286,25 +1286,25 @@ function showBoardOptions(elem)
 			else
 		{$(this).text("Sound Enabled");}
 		});
-	
+
 	optionDiv.hide();
 	vbb.click(function(){
 		optionDiv.slideToggle();
 	});
-	
+
 	pieceThemeSel.change(function()
 	{
 		var obj=JSON.parse($(this).val());
-		Accounts[MyID].ChessPieceTheme=obj;	
-		
+		Accounts[MyID].ChessPieceTheme=obj;
+
 		board1.changePieceTheme('/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png');
 		//for (iter in pieceNames)
 		//{
 		//$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
 		//$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
-		
+
 		updateAccountInfo('ChessPieceTheme',MyID);
-		
+
 		//}
 	});
 		boardThemeSel.change(function()
@@ -1312,24 +1312,24 @@ function showBoardOptions(elem)
 			var obj=JSON.parse($(this).val());
 		//	console.log(obj.whitebackground);
 		//console.log(JSON.stringify($(this).val()['whitebackground']));
-		$(".white-1e1d7").css("background-color",obj.whitebackground);	
+		$(".white-1e1d7").css("background-color",obj.whitebackground);
 		$(".black-3c85d").css("background-color",obj.blackbackground);
-		
-		Accounts[MyID].BoardTheme=obj.name;	
+
+		Accounts[MyID].BoardTheme=obj.name;
 		updateAccountInfo('BoardTheme',MyID);
-		
+
 		});
-		
+
 		boardSizeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
 		$("#bdd").css("width",obj.value+"%");
 		$("#boardcontainer").css("width","100%");
-		
+
 		$("#sideBoard").css("width",(100-obj.value)+"%");
-		
+
 		//topPlayerMarque.css("width",$("#bdd").css("width"));
-		Accounts[MyID].BoardSize=obj.value;	
+		Accounts[MyID].BoardSize=obj.value;
 		updateAccountInfo('BoardSize',MyID);
 		//console.log("Accounts[MyID].BoardSize "+Accounts[MyID].BoardSize);
 		board1.resize();
@@ -1347,14 +1347,14 @@ function showBoardOptions(elem)
 			{
 				if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
 				{
-					
+
 					var obj=boardThemeValues[btIter];
-			$(".white-1e1d7").css("background-color",obj.whitebackground);	
+			$(".white-1e1d7").css("background-color",obj.whitebackground);
 				$(".black-3c85d").css("background-color",obj.blackbackground);
 				}
 			}
 		});
-		
+
 		volumeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
@@ -1362,7 +1362,7 @@ function showBoardOptions(elem)
 		Accounts[MyID].SoundVolume=obj;
 		updateAccountInfo('SoundVolume',MyID);
 		});
-		
+
 }
 
 function showButton(elem,words,btnstyle="btn-success"){
@@ -1374,33 +1374,33 @@ function showButton(elem,words,btnstyle="btn-success"){
 	//$("#button"+ButtonNumber).click(function() {
  // alert( "Handler for .click() called." );
 //});
-	
+
 }
 
 function showNavbar(elem,usracc,boardscreen=false)
 {
-	
-	
+
+
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
 		<div class="mynavbar">
-		
+
 			<span id="navbarfirstspan">
 				<img style="background-color:white;width:50px;height:50px; "
 						src="/knight50.png">
-				</img> 
+				</img>
 			<span class="spacer"></span>
-				
-						
-						
+
+
+
 				<a  href="/#" >Chessbond
-						
+
 				</a>
-			</span>	
-            
+			</span>
+
             <span class="spacer"></span>
-              
+
 			<a href="/opentournament"> <img style="background-color:white; "
 			src="/tournyred1.gif">
 			</a>
@@ -1409,23 +1409,23 @@ elem.append(`
 			Welcome `+plyrName+`<span  class='caret'></span>
 			<span class="badge" id="NumberofNotificationsSpan"></span>
 			</span>
-		  
+
 		</div>
-			
+
 `);
 
 if (boardscreen)
 {
 	var optionspan=$("#navbarfirstspan").append("<span></span>");
 	showBoardOptions(optionspan);
-	
+
 }
 
 var coverall;
-console.log("Notifications.length "+Notifications.length);
+//console.log("Notifications.length "+Notifications.length);
 if(Notifications.length>0)
 {
-	
+
 $("#NumberofNotificationsSpan").html(Notifications.length);
 }
 if(Accounts[MyID].Invisible)
@@ -1434,7 +1434,7 @@ $("#navbarfirstspan").after("Days Left To Account Deletion:"+Accounts[MyID].Days
 coverall=$("<div style='background-color:white;position:fixed;height: 90%;width: 100%;top:30px'>Account Disabled</div>");
 $('body').append(coverall);
 }
-/*	
+/*
 elem.append(`<nav class="navbar navbar-default navbar-inverse">
 
 	<div class="container-fluid"   >
@@ -1450,16 +1450,16 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			<span style='display:flex'>
 			<img style="background-color:white;max-width:50px;height:50px; "
              src="/knight50.png">
-             
+
               <div  style="color:white;" id="InvisibleMessage">
 			</div>
 			<a class="navbar-brand" href="/#" >Chessbond
-			
+
 			</a>
-			
-			</span>	  
+
+			</span>
 		</div>
-              
+
      		 <ul class="navbar-nav" style="padding-top:10px;padding-left:200px;">
 			<li  class="nav-item">
 			<a href="/opentournament"> <img style="background-color:white; "
@@ -1467,19 +1467,19 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 			</li>
 			</ul>
 		   <div id="navbarNav" >
-	
+
 			<ul class="nav navbar-right">
-			
-					
+
+
 				  <div id="attachnavdropdown"  class="nav navbar-nav navbar-brand navbar-right">
 				Welcome `+plyrName+`<span  class='caret'></span>
 				  </div>
-				  
-				
-			
+
+
+
 			</ul>
 		</div>
-		
+
    </div>
 </nav>
 `);
@@ -1505,14 +1505,21 @@ else
 NDDlinks['DeleteLink']=$("<a href='/UndeleteAccount'><li style='list-style-position: inside;color:black'>UnDelete Account</li></a>");
 }
 
-
+if(Notifications.length>0)
+{
+	for (notIter in Notifications)
+	{
+		NDDlinks['NotificationsLink']+=Notifications[notIter].sender;
+	}
+}
+console.console.log(¨sos¨);
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
-	
+
 	NavbarDropDown.append("<hr>");
-	
-	
+
+
 	}
 
 $("#attachnavdropdown").mouseenter(function()
@@ -1531,7 +1538,7 @@ $("#attachnavdropdown").click(function()
 	coverall.hide();
 	}
 }
-	
+
 });
 
 $("#attachnavdropdown").mouseleave(function()
@@ -1546,7 +1553,7 @@ if(coverall)
 
 
 				//		<li id="NotificationsList"></li>
-			//				
+			//
 		//				<li id="UndeleteAccount"></li>
 	//					<li id="DeleteAccount"></li>
 //						`);
@@ -1554,14 +1561,14 @@ if(coverall)
 	//<%- include options.ejs %>
 	//<li ng-show="Accounts['<%- Myid %>'].Invisible==true"><a href="/UndeleteAccount">Undelete Account</a></li>
 					//<li ng-show="!Accounts['<%- Myid %>'].Invisible"><a href="/DeleteAccount">Delete Account</a></li>
-					
+
 	//do NumberofNotificationsSpan
 	//NotificationsList<li ng-click="DestroyNotifications(n.adr)" ng-repeat="n in Notifications track by $index" value="{{n.msg}}">
 						  //<a href="{{n.adr}}">{{n.msg}}</a></li>
-	
+
 	/*
 	 <li>
-				 
+
 				 <span class="badge" id="NumberofNotificationsSpan" ></span>
 				 </li>
 				  <li  class="dropdown">
@@ -1570,23 +1577,23 @@ if(coverall)
 						<li><a id="profilelink" href="/profile/<%- req.session.passport.user%>" >My Profile</a></li>
 						<li><a id="albumlink" href="/albums/<%- req.session.passport.user%>" >My Albums</a></li>
 						<li><a id="statslink" href="/stats/<%- req.session.passport.user%>" >My Stats</a></li>
-						
+
 						<li><a href="/MyLogout">Logout</a></li>
 						<li id="NotificationsList"></li>
-							
+
 						<li id="UndeleteAccount"></li>
 						<li id="DeleteAccount"></li>
-					
+
 					</ul>
 				  </li>*/
-	
+
 	/*if(Accounts[usracc])
 	{
 		console.log("Welcome "+Accounts[usracc].name);
 		$("#albumlink").attr('href','/albums/'+usracc);
 		$("#profilelink").attr('href','/profile/'+usracc);
 		$("#statslink").attr('href','/stats/'+usracc);
-		
+
 		$("#NameDiv").html("Welcome "+Accounts[usracc].name);
 	if(Accounts[usracc].Invisible)
              {
@@ -1601,57 +1608,57 @@ function showRecentGames(elem,usracc)
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
 		var span=addFlexDiv(overallFlex,'id',"row","nowrap");
 	var leftbut=showButton(span,"<","KgreenElement KbigButton");
-	
+
 	showHeader(span,2,"Recent Games ("+JoinedGames[usracc].length+")");
-	
+
 	var rightbut=showButton(span,">","KgreenElement KbigButton");
-	
+
 	leftbut.click(function()
 	{
 		if(recentGameIndex>0)
 		{
 		recentGameIndex=recentGameIndex-recentGamesToShow;
 		}
-			
+
 		for (iter in JoinedGames[usracc])
 		{
 		$("#overall"+iter).hide();
-		} 
-		
+		}
+
 		for (iter in JoinedGames[usracc])
 		{
 			if(iter>=recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
 			{
 			$("#overall"+iter).show();
 			}
-		} 
+		}
 	});
-	
+
 	rightbut.click(function()
 	{
 		if (JoinedGames[usracc].length>(recentGameIndex+recentGamesToShow))
 		{
 		recentGameIndex=recentGameIndex+recentGamesToShow;
 		}
-		
+
 		for (iter in JoinedGames[usracc])
 		{
 		$("#overall"+iter).hide();
 		}
-		
+
 		for (iter in JoinedGames[usracc])
 		{
 			if(iter>=recentGameIndex && iter<(recentGameIndex+recentGamesToShow))
 			{
 			$("#overall"+iter).show();
 			}
-		} 
-	
+		}
+
    });
-	
+
 	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
-	
-	
+
+
 	addGamesToRecentGames2(usracc);
 }
 
@@ -1661,36 +1668,36 @@ function addGamesToRecentGames2(usracc)
 
 	for (iter in JoinedGames[usracc])
    {
-	  
+
 	  // var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
 	  var newFlex=$("<span class='overall' id='overall"+iter+"'></span>");
 	  flexy.append(newFlex);
 
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
-		
-	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player1);  
-	showAvatar(newFlex,JoinedGames[usracc][iter].Player1); 
-	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+
+	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player1);
+	showAvatar(newFlex,JoinedGames[usracc][iter].Player1);
+	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player2);
 	showAvatar(newFlex,JoinedGames[usracc][iter].Player2);
-	
+
 	usr1.attr("class","ChartCell");
 	usr2.attr("class","ChartCell");
-	
+
 	}
 	else
 	{
-	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player2);   
+	var usr1=showUsername(newFlex,JoinedGames[usracc][iter].Player2);
 	showAvatar(newFlex,JoinedGames[usracc][iter].Player2);
-	
-	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player1);   
+
+	var usr2=showUsername(newFlex,JoinedGames[usracc][iter].Player1);
 	showAvatar(newFlex,JoinedGames[usracc][iter].Player1);
-	
+
 	usr1.attr("class","ChartCell");
 	usr2.attr("class","ChartCell");
-	
+
 	}
-	
+
 	newFlex.append("<p class='ChartCell'>Type:"+JoinedGames[usracc][iter].GameCategory+"</p>");
 	newFlex.append("<p class='ChartCell'>Move:"+JoinedGames[usracc][iter].Move+"</p>");
 	newFlex.append("<p class='ChartCell'>Created:"+phrasefordate(JoinedGames[usracc][iter].createdAt)+"</p>");
@@ -1699,16 +1706,16 @@ function addGamesToRecentGames2(usracc)
 	gotobut.click({gam:iter,acc:usracc},GoToGame);
 	 if (iter<recentGameIndex || iter>(recentGameIndex+recentGamesToShow))
 	   {
-		newFlex.hide();   
+		newFlex.hide();
 		}
 }
 }
 
 function GoToGame(event)
 {
-	
+
 		$(location).attr('href', '/humanvshumannew/'+JoinedGames[event.data.acc][event.data.gam].id);
-	
+
 }
 
 function addGamesToRecentGames(usracc)
@@ -1727,52 +1734,52 @@ function addGamesToRecentGames(usracc)
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
+
 	var blackFlex=addFlexDiv(flexy,"blackName","column",'nowrap');
 	var span=addSpan(blackFlex,'id');
-	span.append("<p>Black</p>");		
+	span.append("<p>Black</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
-	
+
+
 
 	var resultFlex=addFlexDiv(flexy,"resultFlex","column",'nowrap');
 	var span=addSpan(resultFlex,'id');
-	
-	span.append("<p>Result</p>");  
+
+	span.append("<p>Result</p>");
 	span.css("padding",padding);
    	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
+
    var timeFlex=addFlexDiv(flexy,"timeFlex","column",'nowrap');
 	var span=addSpan(timeFlex,'id');
-	span.append("<p>Time</p>");  
+	span.append("<p>Time</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
+
    var movesFlex=addFlexDiv(flexy,"movesFlex","column",'nowrap');
    var span=addSpan(movesFlex,'id');
-	span.append("<p>Moves</p>");  
+	span.append("<p>Moves</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
+
    var dateFlex=addFlexDiv(flexy,"dateFlex","column",'nowrap');
    var span=addSpan(dateFlex,'id');
-	span.append("<p>Date</p>");  
+	span.append("<p>Date</p>");
 	span.css("padding",padding);
 	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
+
    var actionFlex=addFlexDiv(flexy,"actionFlex","column",'nowrap');
 	var span=addSpan(actionFlex,'id');
-	span.append("<p>Action</p>");  
+	span.append("<p>Action</p>");
 	span.css("padding",padding);
    	span.css(borderpos1,bordersize1);
 	span.css(borderpos2,bordersize2);
-	
+
 	for (iter in JoinedGames[usracc])
    {
 	  // console.log(iter);
@@ -1780,17 +1787,17 @@ function addGamesToRecentGames(usracc)
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 		var par1=$("#whiteName").append("<p></p>");
-	showUsername(par1,JoinedGames[usracc][iter].Player1);   
+	showUsername(par1,JoinedGames[usracc][iter].Player1);
 		var par2=$("#blackName").append("<p></p>");
-	
-	showUsername(par2,JoinedGames[usracc][iter].Player2);   
-	
+
+	showUsername(par2,JoinedGames[usracc][iter].Player2);
+
 	}
 	else
 	{
-	showUsername(blackFlex,JoinedGames[usracc][iter].Player1);   
-	showUsername(whiteFlex,JoinedGames[usracc][iter].Player2);   
-	
+	showUsername(blackFlex,JoinedGames[usracc][iter].Player1);
+	showUsername(whiteFlex,JoinedGames[usracc][iter].Player2);
+
 	}
 	//console.log("JoinedGames[ProfID][iter][0].id "+JoinedGames[ProfID][iter][0].id);
 	//console.log("JoinedGames[ProfID][iter][0].GameCategory "+JoinedGames[ProfID][iter][0].GameCategory);
@@ -1816,7 +1823,7 @@ function addJoinedGame(iter,games,myelem){
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgamep2td"+iter+"'></td>");
 				showUsername($("#joinedgamep2td"+iter),games[iter].Player2);
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
-				
+
 				showAnchorButton($("#joinedgameButtd"+iter),"Go to Game");
 				$("#button"+ButtonNumber).attr('href',"/humanvshuman/"+games[iter].id);
 				}
@@ -1824,11 +1831,11 @@ function addJoinedGame(iter,games,myelem){
 function showNewGameControls(elem){
 	elem.append(`
 		<div id="newgamecontrols">
-			
-		
+
+
 				<h2>Choose a Time Limit:</h2>
 				<select id="addGameCategories" class="form-control bg-success" >
-		
+
 		</select>
 		<h2>Which Color would you like to be?:</h2>
 		<select  id="colorpicker" class="form-control bg-success" data-style="btn-success">
@@ -1836,37 +1843,37 @@ function showNewGameControls(elem){
 		  <option value='Black'>Black</option>
 		</select>
 		<button id="gobutton" type="submit" class="btn btn-success">Go</button>
-		
-			
+
+
 			</div>
 	`);
-	
+
 	for (giter in gamecategories)
 	{
 	$("#addGameCategories").append("<option value='"+giter+"'>"+gamecategories[giter].time+" | "+gamecategories[giter].extratime+"</option>");
 	}
-	
-	
-elem.append(`	
-			
+
+
+elem.append(`
+
 			<span  id="playAgainstAIButton" href="/playvsai" class="KbigButton KgreenElement">Play Chess against the AI!</span>
-		
+
 			<span id="playAgainstPersonButton" type="submit" class="KbigButton KgreenElement">Create a New vs Human Game</span>
-			
+
 		`);
-		
+
 		$("#newgamecontrols").hide();
-		
+
 		$("#playAgainstAIButton").click(function()
 		{
 		$(location).attr('href', '/playvsai');
 		});
-		
+
 		$("#playAgainstPersonButton").click(function()
 		{
 			$("#newgamecontrols").slideToggle();
 		});
-	
+
 		$("#gobutton").click(function()
 		{
 		var type='Timed';
@@ -1878,44 +1885,44 @@ elem.append(`
 		console.log("GameForm2"+gamecategories[timecat].extratime);
 		console.log("chosen color "+chosencolor);
 		var gamecat=gamecategories[timecat].time+"|"+gamecategories[timecat].extratime;
-			
+
 	io.socket.put('/newopengame', { GameType:type,GameCategory:gamecat,TimeLimit:gamecategories[timecat].time,ExtraTimeLimit:gamecategories[timecat].extratime,Player1Color:chosencolor,Player1:id,Player1Name:Username },
     function (resData, jwr) {
 
       // Refresh the page now that we've been logged in.
-      //window.location.reload(true); 
+      //window.location.reload(true);
 		toastr.success('Created New Game');
 		if( window.location.pathname.indexOf('/profile')>-1)
 		{
-			
+
 			window.location.replace('/');
 		}
     });
-	
-	
+
+
 	});
-		
+
 }
 
 function showOpenGameList(elem,games)
 {
 	elem.append("<h1>Open Games</h1>");
-	
+
 	var roomname='openchessgameroom';
-		
+
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-			
+
 io.socket.on('connect',function(){
-			
-						
+
+
 		var roomname='openchessgameroom';
-		
+
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-			
+
 		});
 			io.socket.on('deleteopengameevent', function (data)
 			{
@@ -1925,13 +1932,13 @@ io.socket.on('connect',function(){
 			{
 				$("#opengameiter"+data.gameid).detach();
 			});
-			
+
 			io.socket.on('newopengameevent', function (data)
 			{
 			console.log('newopengameevent'+JSON.stringify(data));
-			
+
 			data.phrase=phrasefordate(data.createdAt);
-			
+
 			if(Accounts[data.Player1])
 			{
 			games.push(data);
@@ -1940,7 +1947,7 @@ io.socket.on('connect',function(){
 			}
 			else
 			{
-			
+
 			games.push(data);
 			retrieveAccount(data.Player1).then
 			(
@@ -1958,7 +1965,7 @@ io.socket.on('connect',function(){
 					)
 				}
 			);
-			
+
 			}
 		});
 			//console.log("games "+JSON.stringify(games));
@@ -1966,7 +1973,7 @@ io.socket.on('connect',function(){
 			var openTitleFlex=addFlexDiv(openFlex,"openGameTitles","row","wrap");
 			//openTitleFlex.append("<p>Player</p><p>Date</p><p>Join</p>");
 			var openGameListDiv=addFlexDiv(openFlex,"OpenGameListDiv","row","wrap");
-	
+
 				for (iter in games)
 				{
 				addOpenGame2(openGameListDiv,games,iter);
@@ -1976,20 +1983,20 @@ io.socket.on('connect',function(){
             <tr ng-repeat="opengame in opg track by $index">
 			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
 			<td>{{opengame.phrase}}</td>
-		
+
 			<% if (req.session.passport) { %>
-    		
-			<td>		
+
+			<td>
 				<button ng-click="">Join Game</button>
 					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
-    		
+
 				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
-				
+
 			</td>
-			
+
 			<% } %>
 			</tr>
-            	
+
 		*/
 }
 
@@ -2011,7 +2018,7 @@ io.socket.on('connect',function(){
 		console.log("clicked button");
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
 		io.socket.put('/joingame',
-		{		
+		{
 			GameID:games[iter].id,
 			PlayerID:games[iter].Player1,
 			//PlayerName:PlayerName,
@@ -2022,32 +2029,32 @@ io.socket.on('connect',function(){
 			GameCategory:games[iter].GameCategory,
 			Player1TimeLimit:games[iter].TimeLimit*60,
 			Player2TimeLimit:games[iter].TimeLimit*60
-		}  
-				  
+		}
+
 		,function(resData,jwres)
 		{
-			
+
 			//console.log(JSON.parse(resData).id);
-			
+
 				io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
-			
+
 			});
-		
+
 		}
 		);
-			
-					
+
+
 	});
-					
-					
+
+
 			var but2=	showButton(overall,"Delete Game","KgreenElement KregularButton");
 					but2.click(function() {
 				 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
 				});
-			
+
 				});
-			
+
 
 }
 function addOpenGame(myelem,games,iter)
@@ -2065,7 +2072,7 @@ function addOpenGame(myelem,games,iter)
 				//	joingame(games[iter].id,games[iter].Player1,games[iter].Player1Name,games[iter].Player1Color,MyID,Account[MyID].name,games[iter].GameType,games[iter].GameCategory,games[iter].TimeLimit);
 		io.socket.put('/joingame',
 		{
-				
+
 			GameID:games[iter].id,
 			PlayerID:games[iter].Player1,
 			//PlayerName:PlayerName,
@@ -2076,36 +2083,36 @@ function addOpenGame(myelem,games,iter)
 			GameCategory:games[iter].GameCategory,
 			Player1TimeLimit:games[iter].TimeLimit*60,
 			Player2TimeLimit:games[iter].TimeLimit*60
-		}  
-				  
+		}
+
 		,function(resData,jwres)
 		{
-				
+
 			io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres)
 			{
 			});
-			
+
 		}
 		);
-					
-				
-			
-			
-					
+
+
+
+
+
 	});
-					
-					
+
+
 			$("#opengameiter"+games[iter].id).append("<td id='opengamedeletetdbuttoniter"+iter+"'></td>");
 				showButton($("#opengamedeletetdbuttoniter"+iter),"Delete Game");
 					$("#button"+ButtonNumber).click(function() {
 				 io.socket.put('/deleteopengame', { gameid:games[iter].id},function  (data,jwres){
 				});
-			
+
 				});
-			
-				
+
+
 				}
-		
+
 var countries=[
 	,'Afghanistan'
 	,'Albania'
@@ -2158,7 +2165,7 @@ var countries=[
 	,'Cuba'
 	,'Cyprus'
 	,'Czech Republic'
-	
+
 	,'Democratic Republic of the Congo'
 	,'Denmark'
 	,'Djibouti'
@@ -2239,9 +2246,9 @@ var countries=[
 	,'Moldova'
 	,'Monaco'
 	,'Mongolia'
-	
+
 	,'Montenegro'
-	
+
 	,'Montserrat'
 	,'Morocco'
 	,'Mozambique'
@@ -2294,7 +2301,7 @@ var countries=[
 	,'Solomon Islands'
 	,'Somalia'
 	,'South Africa'
-	
+
 	,'South Korea'
 
 	,'Spain'
@@ -2310,7 +2317,7 @@ var countries=[
 	,'Tanzania'
 	,'Thailand'
 	,'Tibet'
-	
+
 	,'Togo'
 	,'Tonga'
 	,'Trinidad and Tobago'
@@ -2341,7 +2348,7 @@ var countries=[
 {
 	if (country){
 	//return country.replace(/ /gi, "_");
-	country=country.replace(/"/g,""); 
+	country=country.replace(/"/g,"");
 	return country.replace(/ /gi, "-");
 	}
 }
