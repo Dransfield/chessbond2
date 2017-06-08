@@ -1509,7 +1509,8 @@ if(Notifications.length>0)
 {
 	for (notIter in Notifications)
 	{
-		NDDlinks['NotificationsLink'+notIter]=$("<a href='"+Notifications[notIter].adr+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></a>");
+		NDDlinks['NotificationsLink'+notIter]=$("<span><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
+		NDDlinks['NotificationsLink'+notIter].click(visitNotification(thisadr));
 	}
 }
 console.log("sosedred");
@@ -1604,6 +1605,23 @@ if(coverall)
 	}
 	*/
 }
+function visitNotification(thisadr)
+{
+	for (notIter in Notifications)
+	{
+		if(Notifications[notIter].adr==thisadr)
+		{
+			io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
+			{
+
+
+			});
+		}
+
+	}
+	window.location.replace(thisadr);
+}
+
 function showRecentGames(elem,usracc)
 {
 	//console.log("showrecent games");
