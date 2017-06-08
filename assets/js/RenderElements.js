@@ -1423,6 +1423,7 @@ var coverall;
 
 if(Notifications.length>0)
 {
+	console.log("Notifications.length "+Notifications.length);
 $("#NumberofNotificationsSpan").html(Notifications.length);
 }
 if(Accounts[MyID].Invisible)
