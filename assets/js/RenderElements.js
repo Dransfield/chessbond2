@@ -1512,9 +1512,9 @@ if(Notifications.length>0)
 		NDDlinks['NotificationsLink']+=Notifications[notIter].sender;
 	}
 }
-console.log("sose");
+console.log("sosed");
 
-console.log("sose2");
+console.log("sosed2");
 for (iter in NDDlinks()
 {
 	NavbarDropDown.append(NDDlinks[iter]);
