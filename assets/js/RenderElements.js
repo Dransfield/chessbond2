@@ -1515,7 +1515,7 @@ if(Notifications.length>0)
 console.log("sosedred");
 
 console.log("sosed2red");
-for (iter in NDDlinks()
+for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);
 
