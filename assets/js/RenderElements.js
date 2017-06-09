@@ -1183,8 +1183,8 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		 chatform.keypress(function (e) {
  var key = e.which;
  //console.log("key "+key);
-  console.log("key "+key);
-  console.log("actual character "+String.fromCharCode(key));
+  //console.log("key "+key);
+ // console.log("actual character "+String.fromCharCode(key));
  //console.log("event "+JSON.stringify(e.originalEvent));
  setTimeout(function(){
   chatform.val(censor(chatform.val()));
@@ -1197,11 +1197,11 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		var addition="";
 		var striter=0;
 		//addition=chatform.val().charCodeAt(0);
-		for (striter=0;striter<(chatform.val().length);striter++)
-		{
-		addition=addition+chatform.val().charCodeAt(striter)+",";
-		}
-		console.log("addition "+addition);
+		//for (striter=0;striter<(chatform.val().length);striter++)
+		//{
+		//addition=addition+chatform.val().charCodeAt(striter)+",";
+		//}
+		//console.log("addition "+addition);
 		var msgToSend=chatform.val();
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
