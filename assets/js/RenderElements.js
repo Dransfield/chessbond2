@@ -1187,7 +1187,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
  // console.log("actual character "+String.fromCharCode(key));
  //console.log("event "+JSON.stringify(e.originalEvent));
  setTimeout(function(){
-  chatform.val(censor(chatform.val()));
+  //chatform.val(censor(chatform.val()));
  },100);
  if(key == 13)  // the enter key code
   { e.preventDefault();
