@@ -1202,14 +1202,18 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		addition=addition+chatform.val().charCodeAt(striter)+",";
 		}
 		console.log("addition "+addition);
-		chatform.val(censor(chatform.val()));
-		 	SendWallPost(MyID,chatID,msgtype,"",chatform.val()+addition,ReplyTo);
+		var msgToSend=chatform.val();
+		msgToSend=(censor(msgToSend));
+		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
 		 	chatform.val("");
 		},200);
-		}
+	}
 		 });
 		chatbutton.click(function(){
-			SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
+				var msgToSend=chatform.val();
+		msgToSend=(censor(msgToSend));
+		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
+			//SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 			chatform.val("");
 			});
 	return chatDiv;
