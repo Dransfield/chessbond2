@@ -5,6 +5,7 @@ var Navbar={};
 var rematchSeconds;
 var recentGameIndex=0;
 var recentGamesToShow=20;
+var lastChatMessagePostedBy="";
 
 function showRematchButton()
 {
@@ -362,12 +363,18 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
 			var minute=dateObj.getUTCMinutes();
 	if(minute<10)
 	{minute="0"+minute;}
+	
+	if (lastChatMessagePostedBy!=msg.sender)
+	{
+	
 	showsmallAvatar(postHeaderDiv,msg.sender);
 
 	postHeaderDiv.append("<span style='border-style:solid'>");
 	postHeaderDiv.append("<span style='width:5px'></span>");
 	showUsername(postHeaderDiv,msg.sender);
 	postHeaderDiv.append("<span style='width:20px'></span>");
+	}
+	lastChatMessagePostedBy=msg.sender;
 	postHeaderDiv.append("<span>Posted On:"+month+"/"+day+"/"+year+"</span>");
 	postHeaderDiv.append("<span style='width:30px'></span>");
 
