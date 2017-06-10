@@ -1230,11 +1230,13 @@ function censor(wrds)
 	{
 		//console.log(BannedWords[iter].word);
 		lowerWord=BannedWords[iter].word.toLowerCase();
-		
-		if(newWords.toLowerCase().indexOf(lowerWord)>-1)
+		console.log("lower bad word "+lowerWord);
+		var lowerWords=newWords.toLowerCase();
+		console.log("lower val "+lowerWords);
+		if(lowerWords.indexOf(lowerWord)>-1)
 		{
 		//console.log("found "+BannedWords[iter].word);
-		newWords=newWords.toLowerCase().replace(lowerWord,"****");
+		newWords=lowerWords.replace(lowerWord,"****");
 		//console.log("after replace "+wrds);
 		}
 	}
