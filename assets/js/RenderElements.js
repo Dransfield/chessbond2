@@ -590,9 +590,6 @@ function showBanWordsForm(elem)
 		addBannedWord(BannedWords[iter],imageDiv);
 		}
 
-
-
-
 	return banwordDiv;
 
 }
@@ -1203,6 +1200,9 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		//}
 		//console.log("addition "+addition);
 		var msgToSend=chatform.val();
+		msgToSend=msgToSend+" lower case version:"+msgToSend.toLowerCase();
+		msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
+		
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
 		 	chatform.val("");
@@ -1211,6 +1211,9 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		 });
 		chatbutton.click(function(){
 				var msgToSend=chatform.val();
+		msgToSend=msgToSend+" lower case version:"+msgToSend.toLowerCase();
+		msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
+		
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
 			//SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
@@ -1221,18 +1224,21 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 
 function censor(wrds)
 {
+	var newWords=wrds;
 	//console.log("censor "+wrds);
 	for (iter in BannedWords)
 	{
 		//console.log(BannedWords[iter].word);
-		if(wrds.toLowerCase().indexOf(BannedWords[iter].word.toLowerCase())>-1)
+		lowerWord=BannedWords[iter].word.toLowerCase();
+		
+		if(newWords.toLowerCase().indexOf(lowerWord)>-1)
 		{
-			//console.log("found "+BannedWords[iter].word);
-		wrds=wrds.toLowerCase().replace(BannedWords[iter].word.toLowerCase(),"***");
+		//console.log("found "+BannedWords[iter].word);
+		newWords=newWords.toLowerCase().replace(lowerWord,"****");
 		//console.log("after replace "+wrds);
 		}
 	}
-	return wrds;
+	return newWords;
 }
 
 function showInput(elem)
