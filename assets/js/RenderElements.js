@@ -1224,19 +1224,20 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 function censor(wrds)
 {
 	var newWords=wrds;
-	//console.log("censor "+wrds);
+	
 	for (iter in BannedWords)
 	{
-		//console.log(BannedWords[iter].word);
+		
 		lowerBadWord=BannedWords[iter].word.toLowerCase();
-		//console.log("lower bad word "+lowerWord);
+
 		var lowerWords=newWords.toLowerCase();
-		//console.log("lower val "+lowerWords);
+		
 		if(lowerWords.indexOf(lowerBadWord)>-1)
 		{
-		//console.log("found "+BannedWords[iter].word);
-		var strarr=lowerWords.split(lowerBadWord);
 		
+		var strarr=lowerWords.split(lowerBadWord);
+		var editedWord=strarr.join();
+		console.log("editedWord "+editedWord);
 		for (s in strarr)
 		{
 		console.log(s);
@@ -1244,7 +1245,7 @@ function censor(wrds)
 		}
 		
 		newWords=lowerWords.replace(lowerBadWord,"****");
-		//console.log("after replace "+wrds);
+	
 		}
 	}
 	return newWords;
