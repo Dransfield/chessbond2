@@ -1106,6 +1106,7 @@ function updateAccountInfo(words,usracc)
 function UpdateTypedText(words,elemTochange)
 {
 	words=censor(words);
+	Accounts[ProfID][words]=censor(Accounts[ProfID][words]);
 	elemTochange.html(Accounts[ProfID][words]);
 				updateAccountInfo(words,MyID);
 
