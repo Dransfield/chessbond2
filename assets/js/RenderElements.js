@@ -1241,8 +1241,9 @@ function censor(wrds)
 		for (starIter=0;starIter++;starIter<lowerBadWord.length)
 		{
 		star=star+"*";
+		console.log("star "+star);
 		}
-		
+		console.log("star "+star);
 		var strarr=lowerWords.split(lowerBadWord);
 		lowerWords="";
 		for(badIter in strarr)
