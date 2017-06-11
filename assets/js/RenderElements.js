@@ -550,6 +550,15 @@ function showLatestImagesForm(elem)
 		return imageDiv;
 }
 
+function inputKeypress(e)
+{
+	 var key = e.which;
+	 if(key == 13)  // the enter key code
+  { e.preventDefault();
+	  return 1;
+  }
+}
+
 function showBanWordsForm(elem)
 {
 
@@ -558,16 +567,15 @@ function showBanWordsForm(elem)
 		var banwordbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Submit Banned Word</button>");
 		banwordDiv.append(banwordform);
 		banwordDiv.append(banwordbutton);
-		banwordform.keypress(function (e) {
- var key = e.which;
- //console.log("key "+key);
- if(key == 13)  // the enter key code
-  { e.preventDefault();
-	 // console.log("send wall post"+chatform.val());
+		banwordform.keypress(
+		function (e) {
+		if (inputKeypress(e)==1)
+		{
+	 
 		 	sendBannedWord(banwordform.val(),imageDiv);
 		 	banwordform.val("");
 		}
-		 });
+		});
 		banwordbutton.click(function(){
 			sendBannedWord(banwordform.val(),imageDiv);
 			banwordform.val("");
@@ -1178,17 +1186,8 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		chatDiv.append(chatform);
 		chatDiv.append(chatbutton);
 		 chatform.keypress(function (e) {
- var key = e.which;
- //console.log("key "+key);
-  //console.log("key "+key);
- // console.log("actual character "+String.fromCharCode(key));
- //console.log("event "+JSON.stringify(e.originalEvent));
- setTimeout(function(){
-  //chatform.val(censor(chatform.val()));
- },100);
- if(key == 13)  // the enter key code
-  { e.preventDefault();
-	 // console.log("send wall post"+chatform.val());
+	if (inputKeypress(e)==1)
+	{
 	setTimeout(function(){
 
 		var addition="";
@@ -1229,13 +1228,21 @@ function censor(wrds)
 	for (iter in BannedWords)
 	{
 		//console.log(BannedWords[iter].word);
-		lowerWord=BannedWords[iter].word.toLowerCase();
-		console.log("lower bad word "+lowerWord);
+		lowerBadWord=BannedWords[iter].word.toLowerCase();
+		//console.log("lower bad word "+lowerWord);
 		var lowerWords=newWords.toLowerCase();
-		console.log("lower val "+lowerWords);
-		if(lowerWords.indexOf(lowerWord)>-1)
+		//console.log("lower val "+lowerWords);
+		if(lowerWords.indexOf(lowerBadWord)>-1)
 		{
 		//console.log("found "+BannedWords[iter].word);
+		var strarr=lowerWords.split(lowerBadWord);
+		
+		for (s in strarr)
+		{
+		console.log(s);
+		console.log(strarr[s]);	
+		}
+		
 		newWords=lowerWords.replace(lowerWord,"****");
 		//console.log("after replace "+wrds);
 		}
