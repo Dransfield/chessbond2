@@ -1224,7 +1224,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 function censor(wrds)
 {
 	var newWords=wrds;
-	
+	console.log("original: "+wrds);
 	for (iter in BannedWords)
 	{
 		
@@ -1232,19 +1232,26 @@ function censor(wrds)
 
 		var lowerWords=newWords.toLowerCase();
 		
-		if(lowerWords.indexOf(lowerBadWord)>-1)
+		while(lowerWords.indexOf(lowerBadWord)>-1)
 		{
+		var star="";
 		
-		var strarr=lowerWords.split(lowerBadWord);
-		var editedWord=strarr.join();
-		console.log("editedWord "+editedWord);
-		for (s in strarr)
+		for (starIter=0;starIter++;starIter<lowerBadWord.length)
 		{
-		console.log(s);
-		console.log(strarr[s]);	
+		star=star+"*";
 		}
 		
-		newWords=lowerWords.replace(lowerBadWord,"****");
+		var strarr=lowerWords.split(lowerBadWord);
+		lowerWords="";
+		for(badIter in strarr)
+		{
+			if(badIter<strarr.length)
+			{
+			lowerWords=lowerWords+strarr[badIter]+" "+star;
+			}
+		}
+		
+		//newWords=lowerWords.replace(lowerBadWord,"****");
 	
 		}
 	}
