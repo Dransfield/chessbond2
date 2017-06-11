@@ -1243,7 +1243,7 @@ function censor(wrds)
 		console.log(strarr[s]);	
 		}
 		
-		newWords=lowerWords.replace(lowerWord,"****");
+		newWords=lowerWords.replace(lowerBadWord,"****");
 		//console.log("after replace "+wrds);
 		}
 	}
