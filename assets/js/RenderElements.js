@@ -1250,7 +1250,7 @@ function censor(wrds)
 			lowerWords=lowerWords+strarr[badIter]+" "+star;
 			}
 		}
-		
+		newWords=lowerWords;
 		//newWords=lowerWords.replace(lowerBadWord,"****");
 	
 		}
