@@ -1248,9 +1248,13 @@ function censor(wrds)
 		lowerWords="";
 		for(badIter in strarr)
 		{
-			if(badIter<strarr.length)
+			if(badIter<strarr.length-1)
 			{
 			lowerWords=lowerWords+strarr[badIter]+" "+star;
+			}
+			else
+			{
+				lowerWords=lowerWords+strarr[badIter];
 			}
 		}
 		newWords=lowerWords;
