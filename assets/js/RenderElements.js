@@ -1105,6 +1105,7 @@ function updateAccountInfo(words,usracc)
 
 function UpdateTypedText(words,elemTochange)
 {
+	words=censor(words);
 	elemTochange.html(Accounts[ProfID][words]);
 				updateAccountInfo(words,MyID);
 
@@ -1254,7 +1255,7 @@ function censor(wrds)
 			}
 			else
 			{
-				lowerWords=lowerWords+strarr[badIter];
+			lowerWords=lowerWords+strarr[badIter];
 			}
 		}
 		newWords=lowerWords;
