@@ -1210,8 +1210,8 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		 });
 		chatbutton.click(function(){
 				var msgToSend=chatform.val();
-		msgToSend=msgToSend+" lower case version:"+msgToSend.toLowerCase();
-		msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
+		//msgToSend=msgToSend+" lower case version:"+msgToSend.toLowerCase();
+		//msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
 		
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
