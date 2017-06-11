@@ -1190,8 +1190,8 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 	{
 	setTimeout(function(){
 
-		var addition="";
-		var striter=0;
+		//var addition="";
+		//var striter=0;
 		//addition=chatform.val().charCodeAt(0);
 		//for (striter=0;striter<(chatform.val().length);striter++)
 		//{
@@ -1199,8 +1199,8 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 		//}
 		//console.log("addition "+addition);
 		var msgToSend=chatform.val();
-		msgToSend=msgToSend+" lower case version:"+msgToSend.toLowerCase();
-		msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
+		//msgToSend=msgToSend+" lower case version:"+msgToSend.toLowerCase();
+		//msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
 		
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
