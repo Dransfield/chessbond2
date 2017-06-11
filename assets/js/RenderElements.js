@@ -1238,7 +1238,7 @@ function censor(wrds)
 		//console.log("lowerBadWord "+lowerBadWord);
 		//console.log("lowerBadWord.length "+lowerBadWord.length);
 		
-		for (starIter=0;starIter<lowerBadWord.length;)
+		for (starIter=0;starIter<lowerBadWord.length;starIter++)
 		{
 		star=star+"*";
 		//console.log("star "+star);
