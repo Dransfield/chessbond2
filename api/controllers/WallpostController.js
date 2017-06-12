@@ -42,7 +42,7 @@ module.exports = {
 									function (err, records) 
 									{
 
-									sails.sockets.broadcast(records.reciever,'notification', records);
+									//sails.sockets.broadcast(records.reciever,'notification', records);
 	
 									
 									}
