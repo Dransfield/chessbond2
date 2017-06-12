@@ -72,7 +72,14 @@ var Notifications=[];
 				console.log(JSON.stringify(data));
 				Notifications.push(data);
 				$("#NumberofNotificationsSpan").html(Notifications.length);
-
+					for (notIter in Notifications)
+				{
+				NDDlinks['NotificationsLink'+notIter]=$("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
+				NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification);
+				$("#notification"+notIter).detach();
+				$("#navbardropdown").append(NDDlinks['NotificationsLink'+notIter]);
+				}
+				
 			});
 		io.socket.on('IdleNotification',function (data)
 			{
