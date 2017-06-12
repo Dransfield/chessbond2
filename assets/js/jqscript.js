@@ -66,7 +66,14 @@ var Notifications=[];
 			
 			}
 		}
-			
+		
+		io.socket.on('notification',function(data)
+			{
+				console.log(JSON.stringify(data));
+				Notifications.push(data);
+				$("#NumberofNotificationsSpan").html(Notifications.length);
+
+			}	
 		io.socket.on('IdleNotification',function (data)
 			{
 				console.log(JSON.stringify(data));

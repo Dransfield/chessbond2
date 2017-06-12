@@ -8,7 +8,11 @@
 module.exports = {
 
   attributes: {
-
+	
+  },
+  afterCreate: function(noti, cb) {
+    sails.sockets.broadcast(noti.reciever,'notification', noti);
+    cb();
   }
 };
 
