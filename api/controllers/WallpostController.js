@@ -62,7 +62,7 @@ module.exports = {
 				(
 					function (err, records1) 
 					{
-					sails.sockets.broadcast(records1.reciever,'notification', records1);
+				//	sails.sockets.broadcast(records1.reciever,'notification', records1);
 					}
 				);
 					
@@ -77,7 +77,7 @@ module.exports = {
 				(
 					function (err, records1) 
 					{
-					sails.sockets.broadcast(records1.reciever,'notification', records1);
+					//sails.sockets.broadcast(records1.reciever,'notification', records1);
 					}
 				);
 					
