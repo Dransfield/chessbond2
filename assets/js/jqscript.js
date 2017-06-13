@@ -80,7 +80,8 @@ var Notifications=[];
 					//$("#notification"+notIter).remove();
 					//console.log(NDDlinks['NotificationsLink'+notIter]);
 					//console.log($("#navbardropdown"));
-					$("#navbardropdown").append("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
+					$("#NavBarDropDown").append("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
+					
 					}
 				
 			});
