@@ -72,8 +72,11 @@ var NavbarDropDown;
 				console.log(JSON.stringify(data));
 				Notifications.push(data);
 				$("#NumberofNotificationsSpan").html(Notifications.length);
-					NavbarDropDown.append("<span ><li style='list-style-position: inside; cursor:pointer;color:black'>"+data.msg+"</li></span>");
-					NavbarDropDown.append("<hr>");
+				
+				var noti=$("<span ><li style='list-style-position: inside; cursor:pointer;color:black'>"+data.msg+"</li></span>");
+				noti.click({thisadr:data.adr},visitNotification);
+				NavbarDropDown.append(noti);
+				NavbarDropDown.append("<hr>");
 				
 			});
 		io.socket.on('IdleNotification',function (data)
