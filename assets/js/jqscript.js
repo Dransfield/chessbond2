@@ -77,10 +77,10 @@ var Notifications=[];
 						console.log(Notifications[notIter].msg);
 					//NDDlinks['NotificationsLink'+notIter]=$("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
 				//	NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification);
-					$("#notification"+notIter).remove();
+					//$("#notification"+notIter).remove();
 					//console.log(NDDlinks['NotificationsLink'+notIter]);
 					//console.log($("#navbardropdown"));
-					//$("#navbardropdown").append(NDDlinks['NotificationsLink'+notIter]);
+					$("#navbardropdown").append("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
 					}
 				
 			});
