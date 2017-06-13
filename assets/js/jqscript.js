@@ -78,6 +78,8 @@ var Notifications=[];
 					NDDlinks['NotificationsLink'+notIter]=$("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
 					NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification);
 					$("#notification"+notIter).detach();
+					console.log(NDDlinks['NotificationsLink'+notIter]);
+					console.log($("#navbardropdown"));
 					$("#navbardropdown").append(NDDlinks['NotificationsLink'+notIter]);
 					}
 				
