@@ -22,7 +22,7 @@ var soundVolume=5;
 var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
-
+var NavbarDropDown;
 		subscribeToMandatoryRooms()
 			var myStatus;
 			var idleTimer=5*60;
@@ -80,7 +80,7 @@ var Notifications=[];
 					//$("#notification"+notIter).remove();
 					//console.log(NDDlinks['NotificationsLink'+notIter]);
 					//console.log($("#navbardropdown"));
-					$("#NavBarDropDown").append("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
+					NavbarDropDown.append("<span id='notification"+notIter+"'><li style='list-style-position: inside;color:black'>"+Notifications[notIter].msg+"</li></span>");
 					
 					}
 				
