@@ -72,7 +72,7 @@ var NavbarDropDown;
 				console.log(JSON.stringify(data));
 				Notifications.push(data);
 				$("#NumberofNotificationsSpan").html(Notifications.length);
-					NavbarDropDown.append("<span ><li style='list-style-position: inside;color:black'>"+data.msg+"</li></span>");
+					NavbarDropDown.append("<span ><li style='list-style-position: inside; cursor:pointer;color:black'>"+data.msg+"</li></span>");
 					NavbarDropDown.append("<hr>");
 				
 			});
