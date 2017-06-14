@@ -1236,11 +1236,11 @@ function censor(wrds)
 		var goes=0;
 		var keepGoing=true;
 		
-		for(goes=0;goes<4;goes++)
-		{
+		//for(goes=0;goes<4;goes++)
+		//{
 			
-			if(newWords.indexOf(lowerBadWord)==-1)
-			{keepGoing=false;}
+			//if(newWords.indexOf(lowerBadWord)==-1)
+			//{keepGoing=false;}
 			
 			if(newWords.indexOf(lowerBadWord)!=(-1))
 		//while(lowerWords.indexOf(lowerBadWord)>-1)
@@ -1273,7 +1273,7 @@ function censor(wrds)
 		newWords=lowerWords;
 		//newWords=lowerWords.replace(lowerBadWord,"****");
 	
-		}
+		//}
 	}
 	}
 	return newWords;
