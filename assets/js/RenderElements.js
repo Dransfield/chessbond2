@@ -1225,6 +1225,16 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 
 function censor(wrds)
 {
+	for (iter in BannedWords)
+	{
+	
+	wrds=  wrds.replace("/"+BannedWords[iter]+"/i", 'Christmas');
+	}
+return wrds;
+}
+/*
+function censor(wrds)
+{
 	var newWords=wrds;
 	console.log("original: "+wrds);
 	for (iter in BannedWords)
@@ -1262,7 +1272,7 @@ function censor(wrds)
 		console.log("lowerWords "+lowerWords);
 		
 		
-		 var reg = new RegExp("^[" + lowerbadWord +"]+$");
+		 var reg = new RegExp("^[" + lowerBadWord +"]+$");
 		console.log( reg.test(lowerWord));
     
     
@@ -1297,7 +1307,7 @@ function censor(wrds)
 	}
 	return newWords;
 }
-
+*/
 function showInput(elem)
 {
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
