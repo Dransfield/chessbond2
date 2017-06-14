@@ -142,6 +142,10 @@ var NavbarDropDown;
 		{
 		setupHomePage();
 		}
+		if($("#statspage").length)
+		{
+		setupStatsPage();
+		}
 		if($("#adminpage").length)
 		{
 		setupAdminPage();
