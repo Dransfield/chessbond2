@@ -1238,7 +1238,7 @@ function censor(wrds)
 		
 		var lowerWords=newWords.toLowerCase();
 		
-		console.log("lowerWords "+lowerWord);
+		console.log("lowerWords "+lowerWords);
 		
 		
 		var goes=0;
@@ -1258,6 +1258,12 @@ function censor(wrds)
 		console.log("lowerBadWord "+lowerBadWord);
 			console.log("lowerBadWord length "+lowerBadWord.length);
 		console.log("lowerWords "+lowerWords);
+		
+		
+		 var reg = new RegExp("^[" + lowerbadWord +"]+$");
+		console.log( reg.test(lowerWord));
+    
+    
 		var star="";
 		//console.log("lowerBadWord "+lowerBadWord);
 		//console.log("lowerBadWord.length "+lowerBadWord.length);
