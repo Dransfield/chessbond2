@@ -1246,7 +1246,7 @@ function censor(wrds)
 		//while(lowerWords.indexOf(lowerBadWord)>-1)
 		{
 			console.log("keepGoing "+keepGoing);
-			console.log(lowerBadWord);
+			console.log("lowerBadWord "+lowerBadWord);
 		console.log("lowerWords "+lowerWords);
 		var star="";
 		//console.log("lowerBadWord "+lowerBadWord);
