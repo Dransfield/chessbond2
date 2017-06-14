@@ -1234,13 +1234,18 @@ function censor(wrds)
 
 		var lowerWords=newWords.toLowerCase();
 		var goes=0;
+		var keepGoing=true;
 		
 		for(goes=0;goes<4;goes++)
 		{
+			
+			if(lowerWords.indexOf(lowerBadWord)==-1)
+			{keepGoing=false;}
+			
 			if(lowerWords.indexOf(lowerBadWord)!=(-1))
 		//while(lowerWords.indexOf(lowerBadWord)>-1)
 		{
-			console.log("lowerWords.indexOf(lowerBadWord)>-1 "+lowerWords.indexOf(lowerBadWord)!=(-1));
+			console.log("keepGoing "+keepGoing);
 		console.log("lowerWords "+lowerWords);
 		var star="";
 		//console.log("lowerBadWord "+lowerBadWord);
