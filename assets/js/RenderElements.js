@@ -1232,7 +1232,7 @@ function censor(wrds)
 console.log(moddedWord);
 console.log(new RegExp(moddedWord,'i'));
 console.log(new RegExp("/"+moddedWord+"/",'i'));
-	wrds=  wrds.replace(new RegExp("/"+moddedWord+"/i"), 'Christmas');
+	wrds=  wrds.replace(new RegExp("/"+moddedWord+"/",'i'), 'Christmas');
 	}
 return wrds;
 }
