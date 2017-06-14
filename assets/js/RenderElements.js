@@ -1239,10 +1239,10 @@ function censor(wrds)
 		for(goes=0;goes<4;goes++)
 		{
 			
-			if(lowerWords.indexOf(lowerBadWord)==-1)
+			if(newWords.indexOf(lowerBadWord)==-1)
 			{keepGoing=false;}
 			
-			if(lowerWords.indexOf(lowerBadWord)!=(-1))
+			if(newWords.indexOf(lowerBadWord)!=(-1))
 		//while(lowerWords.indexOf(lowerBadWord)>-1)
 		{
 			console.log("keepGoing "+keepGoing);
