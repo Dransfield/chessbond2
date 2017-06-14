@@ -1241,6 +1241,8 @@ function censor(wrds)
 		console.log("lowerWords "+lowerWords);
 		
 		
+		 var reg = new RegExp("^[" + lowerbadWord +"]+$");
+		console.log( reg.test(lowerWord));
 		var goes=0;
 		var keepGoing=true;
 		
