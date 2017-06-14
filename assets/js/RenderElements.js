@@ -1230,7 +1230,7 @@ function censor(wrds)
 	
 	console.log(new RegExp("/"+BannedWords[iter].word+"/i"));
 	
-	wrds=  wrds.replace(new RegExp("/"+BannedWords[iter].word+"/i"), 'Christmas');
+	wrds=  wrds.replace(new RegExp("//"+BannedWords[iter].word+"/i"), 'Christmas');
 	}
 return wrds;
 }
