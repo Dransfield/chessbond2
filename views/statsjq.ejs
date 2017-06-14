@@ -23,16 +23,29 @@
   <body>
  <div id="navbar"></div>
 		
- <% if (req.session.passport) { %>
-			<% if (req.session.passport.user) { %>
-				
-				
-				<script>var MyID='<%- req.session.passport.user %>'</script>
-				<%}%>
-			<%}%>
+
 	<div id="statspage"></div>
 	
+ <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<script>var MyID='<%- req.session.passport.user %>'</script>
+			<% }else{ %>
+			<script>var MyID=''</script>
 	
+			<%}%>
+			<% }else{ %>
+    <script>var MyID=''</script>
+			
+    <%}%>
+    
+     <% if (req.param('ID')) { %>
+	
+    <script>var ProfID='<%-req.param('ID')%>'</script>
+    <% }else{ %>
+	<script>var ProfID=MyID</script>
+    	
+			
+    <%}%>	
    
     
 		

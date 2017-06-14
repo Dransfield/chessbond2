@@ -993,7 +993,21 @@ function setupAdminPage()
 });
 
 }
-	
+
+function setupStatsPage()
+{
+	AccountsToRetrieve[MyID]=MyID;
+	AccountsToRetrieve[ProfID]=ProfID;
+	retrieveGames([ProfID]).then(function(){
+					retrieveAccounts().then(function()
+					{
+						retrievePrivatesandFollows().then(function()
+						{			
+						});
+					});
+				});
+}
+
 function setupChatPage()
 {
 	$("#closechat").click(function()
