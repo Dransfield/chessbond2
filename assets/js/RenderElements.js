@@ -1231,7 +1231,8 @@ function censor(wrds)
 	{
 		
 		lowerBadWord=BannedWords[iter].word.toLowerCase();
-
+		console.log("BannedWords[iter] "+BannedWords[iter]);
+		console.log("lowerBadWord "+lowerBadWord);
 		var lowerWords=newWords.toLowerCase();
 		var goes=0;
 		var keepGoing=true;
