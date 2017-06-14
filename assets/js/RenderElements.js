@@ -1242,7 +1242,7 @@ function censor(wrds)
 			//if(newWords.indexOf(lowerBadWord)==-1)
 			//{keepGoing=false;}
 			
-			if(newWords.indexOf(lowerBadWord)!=(-1))
+			if(newWords.indexOf(lowerBadWord)!=(-1) && lowerBadWord.length>0)
 		//while(lowerWords.indexOf(lowerBadWord)>-1)
 		{
 			
