@@ -1237,6 +1237,10 @@ function censor(wrds)
 		
 		
 		var lowerWords=newWords.toLowerCase();
+		
+		console.log("lowerWords "+lowerWord);
+		
+		
 		var goes=0;
 		var keepGoing=true;
 		
