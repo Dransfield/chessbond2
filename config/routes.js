@@ -39,7 +39,7 @@ module.exports.routes = {
 	'POST /leftprivateconversation':'PrivateConversationController.Left',
 	'GET /opentournament':{view:'opentournamentjq'},
 	'GET /stats/:userID':{view:'statsjq'},
-	'GET /stats':{view:'stats'},
+	'GET /stats':{view:'statsjq'},
 	'GET /aboutus':{view:'aboutus'},
 	'GET /termsofservice':{view:'termsos'},
 	'GET /privacypolicy':{view:'privacypolicy'},
