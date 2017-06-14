@@ -1228,9 +1228,8 @@ function censor(wrds)
 	for (iter in BannedWords)
 	{
 	
-	console.log(new RegExp("/"+BannedWords[iter].word+"/i"));
-	
-	wrds=  wrds.replace(new RegExp("//"+BannedWords[iter].word+"/i"), 'Christmas');
+	var moddedWord=BannedWords[iter].word.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+	wrds=  wrds.replace(new RegExp("/"+moddedWord+"/i"), 'Christmas');
 	}
 return wrds;
 }
