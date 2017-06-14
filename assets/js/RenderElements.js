@@ -1231,8 +1231,7 @@ function censor(wrds)
 	{
 		
 		lowerBadWord=BannedWords[iter].word.toLowerCase();
-		console.log("BannedWords[iter] "+BannedWords[iter]);
-		console.log("lowerBadWord "+lowerBadWord);
+		
 		var lowerWords=newWords.toLowerCase();
 		var goes=0;
 		var keepGoing=true;
@@ -1246,8 +1245,10 @@ function censor(wrds)
 			if(newWords.indexOf(lowerBadWord)!=(-1))
 		//while(lowerWords.indexOf(lowerBadWord)>-1)
 		{
-			console.log("keepGoing "+keepGoing);
-			console.log("lowerBadWord "+lowerBadWord);
+			
+			console.log("BannedWords[iter] "+BannedWords[iter].word);
+		console.log("lowerBadWord "+lowerBadWord);
+			console.log("lowerBadWord length "+lowerBadWord.length);
 		console.log("lowerWords "+lowerWords);
 		var star="";
 		//console.log("lowerBadWord "+lowerBadWord);
