@@ -1228,7 +1228,7 @@ function censor(wrds)
 	for (iter in BannedWords)
 	{
 	
-	wrds=  wrds.replace("/"+BannedWords[iter]+"/i", 'Christmas');
+	wrds=  wrds.replace(new RegExp("/"+BannedWords[iter]+"/i"), 'Christmas');
 	}
 return wrds;
 }
