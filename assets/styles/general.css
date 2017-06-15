@@ -130,7 +130,10 @@ padding:5px;
  background-color:grey;
  border-right-style:solid;
 }
-
+.lightgreyGridCell{
+background-color:Gainsboro;
+border-right-style:solid;
+}
 .gridTitle {
   grid-row:1;
   border-bottom-style:solid;

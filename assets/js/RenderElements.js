@@ -268,7 +268,7 @@ function showStatGraph(elem)
 		{
 		var cellspan=addSpan(reportDiv,"");
 		cellspan.append(gamecategories[x].time);
-		cellspan.attr("class","greyGridCell");
+		cellspan.attr("class","lightgreyGridCell");
 	}
 }
 
