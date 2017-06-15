@@ -342,6 +342,12 @@ function showStatGraph(elem)
 			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"black");
 			
 			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(Accounts[ProfID]['ratingWhite'+gamecategories[x].time+'|'+gamecategories[x].extratime]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","currentratings");
+			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
+		
+			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(Accounts[ProfID]['ratingBlack'+gamecategories[x].time+'|'+gamecategories[x].extratime]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
