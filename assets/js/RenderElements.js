@@ -316,7 +316,7 @@ function showStatGraph(elem)
 		
 		cellSpan=addSpan(reportDiv,"");
 		cellSpan.append(currentcolor);
-		cellSpan.attr("class","lightgreyGridCell");
+		cellSpan.attr("class","lightgreyGridCell category");
 		if (currentcolor=='White')
 		{currentcolor='Black';}
 		else
