@@ -1231,17 +1231,10 @@ function censor(wrds)
 	{
 	var moddedWord=BannedWords[iter].word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 	var patt=new RegExp(moddedWord,"ig");
-	
-	wrds=  wrds.replace
-	(
-	patt, function myFunction(x)
-		{
-			var star="";
+	var star="";
 	for(starIter=0;starIter<x.length;starIter++)
 	{star=star+"*";}
-		return star;
-		}
-	);
+	wrds=  wrds.replace(patt,star);
 	}
 	}
 return wrds;
