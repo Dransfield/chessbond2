@@ -302,12 +302,27 @@ function showStatGraph(elem)
 	titleSpan.append("Average Move/Game");
 	titleSpan.attr("class","gridTitle");
 	
+	var currentcolor='White';
+	var cellSpan;
 	for (x in gamecategories)
 		{
-		var cellspan=addSpan(reportDiv,"");
-		cellspan.append(gamecategories[x].time);
-		cellspan.attr("class","lightgreyGridCell");
+		cellSpan=addSpan(reportDiv,"");
+		cellSpan.append(gamecategories[x].time);
+		cellSpan.attr("class","lightgreyGridCell");
+	
 	}
+	for (x in gamecategories)
+		{
+		
+		cellSpan=addSpan(reportDiv,"");
+		cellSpan.append(currentcolor);
+		cellSpan.attr("class","lightgreyGridCell");
+		if (currentcolor=='White')
+		{currentcolor='Black';}
+		else
+		{currentcolor='White';}
+		
+		}
 }
 
 function showPersonLeft(elem,prsn)
