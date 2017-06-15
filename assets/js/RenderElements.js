@@ -309,7 +309,7 @@ function showStatGraph(elem)
 		cellSpan=addSpan(reportDiv,"");
 		cellSpan.append(gamecategories[x].time);
 		cellSpan.attr("class","lightgreyGridCell");
-	
+	cellSpan.attr("grid-column","category");
 	}
 	for (x in gamecategories)
 		{
@@ -317,7 +317,7 @@ function showStatGraph(elem)
 		cellSpan=addSpan(reportDiv,"");
 		cellSpan.append(currentcolor);
 		cellSpan.attr("class","lightgreyGridCell");
-		cellSpan.attr("grid-column","category");
+		cellSpan.attr("grid-column","color");
 		if (currentcolor=='White')
 		{currentcolor='Black';}
 		else
