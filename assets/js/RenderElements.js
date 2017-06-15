@@ -1227,10 +1227,12 @@ function censor(wrds)
 {
 	for (iter in BannedWords)
 	{
-	
+	if(BannedWords[iter].word.length>0)
+	{
 	var moddedWord=BannedWords[iter].word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 	var patt=new RegExp(moddedWord,"i");
 	wrds=  wrds.replace(patt, "Christmas");
+	}
 	}
 return wrds;
 }
