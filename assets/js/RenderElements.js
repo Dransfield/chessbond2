@@ -327,20 +327,28 @@ function showStatGraph(elem)
 	
 	var currentcolor='White';
 	var cellSpan;
+	
 	for (x in gamecategories)
 		{
-		cellSpan=addSpan(reportDiv,"");
-		cellSpan.append(gamecategories[x].time+":"+gamecategories[x].extratime);
-		cellSpan.attr("class","lightgreyGridCell");
-	cellSpan.css("grid-column","category");
-	cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
-		cellSpan=addSpan(reportDiv,"");
-		cellSpan.append(gamecategories[x].time+":"+gamecategories[x].extratime);
-		cellSpan.attr("class","lightgreyGridCell");
-	cellSpan.css("grid-column","category");
-	cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"black");
-
-	}
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(gamecategories[x].time+":"+gamecategories[x].extratime);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","category");
+			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(gamecategories[x].time+":"+gamecategories[x].extratime);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","category");
+			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"black");
+			
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(Accounts[ProfID]['ratingWhite1|0']);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","currentratings");
+			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"black");
+		
+		}
+	
 	for (x in gamecategories)
 		{
 		
