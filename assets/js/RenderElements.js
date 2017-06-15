@@ -341,7 +341,20 @@ function showStatGraph(elem)
 		cellSpan=addSpan(reportDiv,"");
 		cellSpan.append(currentcolor);
 		cellSpan.attr("class","lightgreyGridCell");
-		cellSpan.attr("grid-column","color");
+		cellSpan.css("grid-column","color");
+		if (currentcolor=='White')
+		{currentcolor='Black';}
+		else
+		{currentcolor='White';}
+		
+		}
+			for (x in gamecategories)
+		{
+		
+		cellSpan=addSpan(reportDiv,"");
+		cellSpan.append(currentcolor);
+		cellSpan.attr("class","lightgreyGridCell");
+		cellSpan.css("grid-column","color");
 		if (currentcolor=='White')
 		{currentcolor='Black';}
 		else
