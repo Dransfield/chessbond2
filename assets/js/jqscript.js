@@ -994,6 +994,13 @@ function setupAdminPage()
 
 }
 
+function renderStatsPage()
+{
+	
+	showStatGraph($("#statspage"));
+	
+}
+
 function setupStatsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
@@ -1002,7 +1009,9 @@ function setupStatsPage()
 					retrieveAccounts().then(function()
 					{
 						retrievePrivatesandFollows().then(function()
-						{			
+						{	
+							
+							renderStatsPage();		
 						});
 					});
 				});

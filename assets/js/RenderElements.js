@@ -254,6 +254,24 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+function showStatGraph(elem)
+{
+	
+	var	reportDiv=addDiv(elem);
+	reportDiv.attr("class","statsGrid");
+	var complaintTitle=addSpan(reportDiv,"");
+	complaintTitle.append("Game Category");
+	complaintTitle.attr("class","gridTitle");
+	complaintTitle=addSpan(reportDiv,"");
+	
+	for (x in gamecategories)
+		{
+		var cellspan=addSpan(reportDiv,"");
+		cellspan.append(gamecategories[x].time);
+		cellspan.attr("class","greyGridCell");
+	}
+}
+
 function showPersonLeft(elem,prsn)
 {
 
