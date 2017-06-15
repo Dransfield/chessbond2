@@ -1230,7 +1230,7 @@ function censor(wrds)
 	if(BannedWords[iter].word.length>0)
 	{
 	var moddedWord=BannedWords[iter].word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-	var patt=new RegExp(moddedWord,"i");
+	var patt=new RegExp(moddedWord,"ig");
 	var star="";
 	for(starIter=0;starIter<BannedWords[iter].word.length;starIter++)
 	{star=star+"*";}
