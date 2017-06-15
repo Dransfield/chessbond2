@@ -1139,6 +1139,7 @@ io.socket.get("/wallpost?limit=39999",{groupid:grpID},
 		for (iter in resData)
 		{
 		WallPosts.push(resData[iter]);
+		WallPosts[iter].content=censor(WallPosts[iter].content);
 		}
 resolve();
 });
