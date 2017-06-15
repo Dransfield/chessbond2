@@ -259,10 +259,48 @@ function showStatGraph(elem)
 	
 	var	reportDiv=addDiv(elem);
 	reportDiv.attr("class","statsGrid");
-	var complaintTitle=addSpan(reportDiv,"");
-	complaintTitle.append("Game Category");
-	complaintTitle.attr("class","gridTitle");
-	complaintTitle=addSpan(reportDiv,"");
+	var titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Game Category");
+	titleSpan.attr("class","gridTitle");
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Color");
+	titleSpan.attr("class","gridTitle");
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Current Ratings");
+	titleSpan.attr("class","gridTitle");
+			titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Win%");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Loss%");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Draws%");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Highest Ratings Scored");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Lowest Ratings Scored");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Average Opposition Ratings");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Best Win");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Lowest Loss");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Total Games");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Total Moves");
+	titleSpan.attr("class","gridTitle");
+		titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Average Move/Game");
+	titleSpan.attr("class","gridTitle");
 	
 	for (x in gamecategories)
 		{
