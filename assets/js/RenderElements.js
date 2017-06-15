@@ -28,7 +28,7 @@ var gamecategories=[{time:1,extratime:0},
 					{time:15,extratime:5},
 					{time:20,extratime:10},
 					{time:30,extratime:10},
-					{time:60,extratime:10}]
+					{time:60,extratime:10}];
 
 function showRematchButton()
 {
@@ -333,7 +333,7 @@ function showStatGraph(elem)
 		cellSpan.append(gamecategories[x].time);
 		cellSpan.attr("class","lightgreyGridCell");
 	cellSpan.attr("grid-column","category");
-	cellSpan.attr("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white"
+	cellSpan.attr("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
 	}
 	for (x in gamecategories)
 		{
