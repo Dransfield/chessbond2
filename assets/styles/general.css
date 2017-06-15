@@ -134,7 +134,18 @@ padding:5px;
 {
   display:grid;
   
-  grid-template-columns:[category] 1fr [color] 1fr [currentratings] 1fr [winpercent] 1fr [losspercent] 1fr [drawpercent] 1fr [highestratingsscored] 1fr [lowestratingsscored] 1fr [averageoppositionratings] 1fr [bestwin] 1fr [lowestloss] 1fr [totalgames] 1fr [totalmoves] 1fr [averagemovesperday] 1fr;
+  grid-template-columns:
+  [category] 1fr
+   [color] 1fr 
+   [currentratings] 1fr 
+   [winpercent] 1fr 
+   [losspercent] 1fr 
+   [drawpercent] 1fr 
+   [highestratingsscored] 1fr 
+   [lowestratingsscored] 1fr 
+   [averageoppositionratings] 1fr 
+   [bestwin] 1fr [lowestloss] 1fr 
+   [totalgames] 1fr [totalmoves] 1fr [averagemovesperday] 1fr;
  grid-template-rows:[titlerow]   1fr
 					[t1ex0white] 1fr
 					[t1ex0black] 1fr

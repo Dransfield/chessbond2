@@ -332,8 +332,8 @@ function showStatGraph(elem)
 		cellSpan=addSpan(reportDiv,"");
 		cellSpan.append(gamecategories[x].time);
 		cellSpan.attr("class","lightgreyGridCell");
-	cellSpan.attr("grid-column","category");
-	cellSpan.attr("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
+	cellSpan.css("grid-column","category");
+	cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
 	}
 	for (x in gamecategories)
 		{
