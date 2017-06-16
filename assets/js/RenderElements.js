@@ -331,15 +331,16 @@ function showStatGraph(elem)
 		
 	for (x in gamecategories)
 	{
-		var categoryString=gamecategories[x].time+"|"+gamecategories[x].extratime;
-			totalGamesPlayed[categoryString]=0;
+		
+		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+		totalGamesPlayed[categoryShowString]=0;
 			
 		for (gIter in JoinedGames)
 		{
-			if (JoinedGames[gIter].GameCategory==categoryString)	
-				{
-				totalGamesPlayed[categoryString]=totalGamesPlayed[categoryString]+1;
-				}
+			if (JoinedGames[gIter].GameCategory==categoryShowString)	
+			{
+				totalGamesPlayed[categoryShowString]=totalGamesPlayed[categoryShowString]+1;
+			}
 		
 		}
 	}
@@ -347,7 +348,7 @@ function showStatGraph(elem)
 	for (x in gamecategories)
 		{
 		var categoryString=gamecategories[x].time+"x"+gamecategories[x].extratime;
-	var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime
+		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(categoryShowString);
 			cellSpan.attr("class","lightgreyGridCell");
@@ -361,13 +362,13 @@ function showStatGraph(elem)
 			cellSpan.css("grid-row","c"+categoryString+"black");
 			
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[ProfID]['ratingWhite'+categoryString]);
+			cellSpan.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[ProfID]['ratingBlack'+categoryString]);
+			cellSpan.append(Accounts[ProfID]['ratingBlack'+categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
 			cellSpan.css("grid-row","c"+categoryString+"black");
