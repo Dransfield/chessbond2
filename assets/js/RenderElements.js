@@ -331,7 +331,7 @@ function showStatGraph(elem)
 		
 	for (x in gamecategories)
 	{
-		var categoryString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+		var categoryString=gamecategories[x].time+"x"+gamecategories[x].extratime;
 			totalGamesPlayed[categoryString]=0;
 			
 		for (gIter in JoinedGames)
@@ -348,15 +348,15 @@ function showStatGraph(elem)
 	for (x in gamecategories)
 		{
 		var categoryString=gamecategories[x].time+"x"+gamecategories[x].extratime;
-	
+	var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(categoryString);
+			cellSpan.append(categoryShowString);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","category");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 			
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(categoryString);
+			cellSpan.append(categoryShowString);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","category");
 			cellSpan.css("grid-row","c"+categoryString+"black");
