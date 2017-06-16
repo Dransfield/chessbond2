@@ -396,6 +396,20 @@ function showStatGraph(elem)
 			cellSpan.css("grid-column","totalgames");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(totalMovesPlayed[categoryShowString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","totalmoves");
+			cellSpan.css("grid-row","c"+categoryString+"black");
+		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(totalMovesPlayed[categoryShowString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","totalmoves");
+			cellSpan.css("grid-row","c"+categoryString+"white");
+		
 		}
 	
 	for (x in gamecategories)
