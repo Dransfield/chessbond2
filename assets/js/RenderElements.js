@@ -353,39 +353,39 @@ function showStatGraph(elem)
 			cellSpan.append(categoryString);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","category");
-			cellSpan.css("grid-row",categoryString+"white");
+			cellSpan.css("grid-row","c"+categoryString+"white");
 			
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(categoryString);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","category");
-			cellSpan.css("grid-row",categoryString+"black");
+			cellSpan.css("grid-row","c"+categoryString+"black");
 			
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(Accounts[ProfID]['ratingWhite'+categoryString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
-			cellSpan.css("grid-row",categoryString+"white");
+			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(Accounts[ProfID]['ratingBlack'+categoryString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
-			cellSpan.css("grid-row",categoryString+"black");
+			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(totalGamesPlayed[categoryString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalgames");
-			cellSpan.css("grid-row",categoryString+"black");
+			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(totalGamesPlayed[categoryString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalgames");
-			cellSpan.css("grid-row",categoryString+"white");
+			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		}
 	
@@ -397,14 +397,14 @@ function showStatGraph(elem)
 		cellSpan.append("White");
 		cellSpan.attr("class","lightgreyGridCell");
 		cellSpan.css("grid-column","color");
-		cellSpan.css("grid-row",categoryString+"white");
+		cellSpan.css("grid-row","c"+categoryString+"white");
 	
 		
 		cellSpan=addSpan(reportDiv,"");
 		cellSpan.append("Black");
 		cellSpan.attr("class","lightgreyGridCell");
 		cellSpan.css("grid-column","color");
-		cellSpan.css("grid-row",categoryString+"black");
+		cellSpan.css("grid-row","c"+categoryString+"black");
 	
 		
 		}
