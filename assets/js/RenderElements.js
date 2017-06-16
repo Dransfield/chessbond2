@@ -328,12 +328,14 @@ function showStatGraph(elem)
 	var currentcolor='White';
 	var cellSpan;
 	var totalGamesPlayed=[];
-		
+	var totalMovesPlayed=[];
+	
 	for (x in gamecategories)
 	{
 		
 		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
 		totalGamesPlayed[categoryShowString]=0;
+		totalMovesPlayed[categoryShowString]=0;
 			
 		for (gIter in JoinedGames)
 		{
@@ -346,6 +348,7 @@ function showStatGraph(elem)
 			{
 				//console.log("found "+JoinedGames[gIter].GameCategory);
 				totalGamesPlayed[categoryShowString]=totalGamesPlayed[categoryShowString]+1;
+				totalMovesPlayed[categoryShowString]=totalMovesPlayed[categoryShowString]+JoinedGames[gIter][0].Move;
 			}
 		
 		}
