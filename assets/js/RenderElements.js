@@ -391,28 +391,21 @@ function showStatGraph(elem)
 	
 	for (x in gamecategories)
 		{
-		
+		var categoryString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+	
 		cellSpan=addSpan(reportDiv,"");
-		cellSpan.append(currentcolor);
+		cellSpan.append("White");
 		cellSpan.attr("class","lightgreyGridCell");
 		cellSpan.css("grid-column","color");
-		if (currentcolor=='White')
-		{currentcolor='Black';}
-		else
-		{currentcolor='White';}
-		
-		}
-			for (x in gamecategories)
-		{
+		cellSpan.css("grid-row",categoryString+"white");
+	
 		
 		cellSpan=addSpan(reportDiv,"");
-		cellSpan.append(currentcolor);
+		cellSpan.append("Black");
 		cellSpan.attr("class","lightgreyGridCell");
 		cellSpan.css("grid-column","color");
-		if (currentcolor=='White')
-		{currentcolor='Black';}
-		else
-		{currentcolor='White';}
+		cellSpan.css("grid-row",categoryString+"black");
+	
 		
 		}
 }
