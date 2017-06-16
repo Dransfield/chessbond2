@@ -339,6 +339,7 @@ function showStatGraph(elem)
 		{
 			console.log("looking for "+categoryShowString);
 			console.log("got "+JoinedGames[gIter]['GameCategory']);
+			console.log(JSON.stringify(JoinedGames[gIter]));
 			if (categoryShowString.indexOf(JoinedGames[gIter].GameCategory)>-1)	
 			{
 				console.log("found "+JoinedGames[gIter].GameCategory);
