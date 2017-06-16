@@ -327,31 +327,65 @@ function showStatGraph(elem)
 	
 	var currentcolor='White';
 	var cellSpan;
+	var totalGamesPlayed=[];
+		
+	for (x in gamecategories)
+	{
+		var categoryString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+			totalGamesPlayed[categoryString]=0;
+			
+		for (gIter in JoinedGames)
+		{
+			if (JoinedGames[gIter].GameCategory==categoryString)	
+				{
+				
+				totalGamesPlayed[categoryString]=totalGamesPlayed[categoryString]+1;
+				}
+		
+		}
+	}
 	
 	for (x in gamecategories)
 		{
+		var categoryString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+	
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(gamecategories[x].time+":"+gamecategories[x].extratime);
+			cellSpan.append(categoryString);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","category");
-			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(gamecategories[x].time+":"+gamecategories[x].extratime);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","category");
-			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"black");
+			cellSpan.css("grid-row",categoryString+"white");
 			
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[ProfID]['ratingWhite'+gamecategories[x].time+'|'+gamecategories[x].extratime]);
+			cellSpan.append(categoryString);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","category");
+			cellSpan.css("grid-row",categoryString+"black");
+			
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(Accounts[ProfID]['ratingWhite'+categoryString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
-			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"white");
+			cellSpan.css("grid-row",categoryString+"white");
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[ProfID]['ratingBlack'+gamecategories[x].time+'|'+gamecategories[x].extratime]);
+			cellSpan.append(Accounts[ProfID]['ratingBlack'+categoryString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","currentratings");
-			cellSpan.css("grid-row","t"+gamecategories[x].time+"ex"+gamecategories[x].extratime+"black");
+			cellSpan.css("grid-row",categoryString+"black");
+		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(totalGamesPlayed[categoryString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","totalgames");
+			cellSpan.css("grid-row",categoryString+"black");
+		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(totalGamesPlayed[categoryString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","totalgames");
+			cellSpan.css("grid-row",categoryString+"white");
 		
 		}
 	
