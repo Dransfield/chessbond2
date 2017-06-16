@@ -1513,6 +1513,7 @@ function showTextwithInput(elem,words,elemTochange)
 		{});
 		}
 		finally {
+			console.log("finally");
     io.socket.put("/recenterror",{msg:"finally"},function(res1,res2)
 		{});
 		}
