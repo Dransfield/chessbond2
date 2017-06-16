@@ -337,14 +337,14 @@ function showStatGraph(elem)
 			
 		for (gIter in JoinedGames)
 		{
-			console.log("looking for "+categoryShowString);
-			console.log("got "+JoinedGames[gIter]['GameCategory']);
-			console.log(JSON.stringify(JoinedGames[gIter][0].GameCategory));
-			console.log(JSON.stringify(JoinedGames[gIter].GameCategory));
-			console.log(JSON.stringify(JoinedGames[gIter].Player2Name));
-			if (categoryShowString.indexOf(JoinedGames[gIter].GameCategory)>-1)	
+			//console.log("looking for "+categoryShowString);
+			//console.log("got "+JoinedGames[gIter]['GameCategory']);
+			//console.log(JSON.stringify(JoinedGames[gIter][0].GameCategory));
+			//console.log(JSON.stringify(JoinedGames[gIter].GameCategory));
+			//console.log(JSON.stringify(JoinedGames[gIter].Player2Name));
+			if (categoryShowString.indexOf(JoinedGames[gIter][0].GameCategory)>-1)	
 			{
-				console.log("found "+JoinedGames[gIter].GameCategory);
+				//console.log("found "+JoinedGames[gIter].GameCategory);
 				totalGamesPlayed[categoryShowString]=totalGamesPlayed[categoryShowString]+1;
 			}
 		
