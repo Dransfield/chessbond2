@@ -1512,6 +1512,10 @@ function showTextwithInput(elem,words,elemTochange)
 		io.socket.put("/recenterror",{msg:err.message},function(res1,res2)
 		{});
 		}
+		finally {
+    io.socket.put("/recenterror",{msg:"finally"},function(res1,res2)
+		{});
+		}
 		
 	}
 		});
