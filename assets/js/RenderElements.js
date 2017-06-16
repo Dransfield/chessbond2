@@ -339,6 +339,7 @@ function showStatGraph(elem)
 		{
 			if (JoinedGames[gIter].GameCategory==categoryShowString)	
 			{
+				console.log("found "+JoinedGames[gIter].GameCategory);
 				totalGamesPlayed[categoryShowString]=totalGamesPlayed[categoryShowString]+1;
 			}
 		
