@@ -1504,8 +1504,15 @@ function showTextwithInput(elem,words,elemTochange)
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//Accounts[ProfID][words]=censor(
+		try{
 		UpdateTypedText(words,elemTochange);
-
+		}
+		catch(err)
+		{
+		io.socket.put("/recenterror",{msg:err.message},function(res1,res2)
+		{});
+		}
+		
 	}
 		});
 }
