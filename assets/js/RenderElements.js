@@ -1489,6 +1489,8 @@ function showTextwithInput(elem,words,elemTochange)
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
 	myinput.keydown(function(event){
+		try{
+		
 		if(!Accounts[ProfID][words])
 		{
 		Accounts[ProfID][words]="";
@@ -1504,21 +1506,23 @@ function showTextwithInput(elem,words,elemTochange)
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//Accounts[ProfID][words]=censor(
-		try{
+		
 		UpdateTypedText(words,elemTochange);
+		
+		//	console.log("finally");
+   //io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
+	//	{});
 		}
+		
+	}
+	}
 		catch(err)
 		{
 		io.socket.post("/recenterror",{msg:err.message},function(res1,res2)
 		{});
 		}
 		finally {
-			console.log("finally");
-    io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
-		{});
 		}
-		
-	}
 		});
 }
 function showAnchorButton(elem,words,linkto,btnstyle){
