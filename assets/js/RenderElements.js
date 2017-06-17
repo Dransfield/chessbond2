@@ -280,7 +280,7 @@ var gamecategories=[{time:1,extratime:0},
 function showStatGraph(elem)
 {
 	var countGames=0;
-	for (gIter in JoinedGames)
+	for (gIter in JoinedGames[MyID])
 	{countGames=countGames+1;}
 	elem.append("<div>"+countGames+" games found</div>");
 	var	reportDiv=addDiv(elem);
@@ -345,22 +345,22 @@ function showStatGraph(elem)
 		totalBlackGamesPlayed[categoryShowString]=0;
 		totalBlackMovesPlayed[categoryShowString]=0;
 			
-		for (gIter in JoinedGames)
+		for (gIter in JoinedGames[MyID])
 		{
 			
 				var imWhite;
-		if(JoinedGames[gIter][0].Player1==MyID && JoinedGames[gIter][0].Player1Color=='White')
+		if(JoinedGames[MyID][gIter].Player1==MyID && JoinedGames[MyID][gIter].Player1Color=='White')
 		{imWhite=true;}
 		else
 		{imWhite=false;}
 			
-			if (categoryShowString.indexOf(JoinedGames[gIter][0].GameCategory)>-1)	
+			if (categoryShowString.indexOf(JoinedGames[MyID][gIter].GameCategory)>-1)	
 			{
 				//console.log("found "+JoinedGames[gIter].GameCategory);
 			if(imWhite==true)
 			{	
 				totalWhiteGamesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString]+1;
-				totalWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]+JoinedGames[gIter][0].Move;
+				totalWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]+JoinedGames[MyID][gIter].Move;
 			}
 			else
 			{	
