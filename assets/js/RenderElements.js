@@ -1526,6 +1526,7 @@ return myinput;
 
 function showTextwithInput(elem,words,elemTochange)
 {
+	console.log("words "+words);
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
 	myinput.keydown(function(event){
@@ -1558,7 +1559,7 @@ function showTextwithInput(elem,words,elemTochange)
 	
 		catch(err)
 		{
-		io.socket.post("/recenterror",{msg:err.message},function(res1,res2)
+		io.socket.post("/recenterror",{msg:err.message,line:err.lineNumber,thefile:err.fileName},function(res1,res2)
 		{});
 		}
 		finally {
