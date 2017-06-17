@@ -365,7 +365,7 @@ function showStatGraph(elem)
 			else
 			{	
 				totalBlackGamesPlayed[categoryShowString]=totalBlackGamesPlayed[categoryShowString]+1;
-				totalBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]+JoinedGames[gIter][0].Move;
+				totalBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]+JoinedGames[MyID][gIter].Move;
 			}
 			
 			}
