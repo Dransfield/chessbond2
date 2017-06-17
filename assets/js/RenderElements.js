@@ -1531,7 +1531,9 @@ function showTextwithInput(elem,words,elemTochange)
 	elem.append(myinput);
 	myinput.keydown(function(event){
 		try{
-		
+		io.socket.post("/recenterror",{msg:JSON.stringify(event),line:err.lineNumber,thefile:err.fileName},function(res1,res2)
+		{});
+		console.log(JSON.stringify(event));
 		if(!Accounts[ProfID][words])
 		{
 		Accounts[ProfID][words]="";
