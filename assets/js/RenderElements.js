@@ -342,27 +342,31 @@ function showStatGraph(elem)
 		totalBlackGamesPlayed[categoryShowString]=0;
 		totalBlackMovesPlayed[categoryShowString]=0;
 			
-		for (gIter in JoinedGames[MyID])
+		for (gIter in JoinedGames[ProfID])
 		{
 			
 				var imWhite;
-		if(JoinedGames[ProfID][gIter].Player1==MyID && JoinedGames[ProfID][gIter].Player1Color=='White')
+		if(JoinedGames[ProfID][gIter].Player1==ProfID && JoinedGames[ProfID][gIter].Player1Color=='White')
+		{imWhite=true;}
+		else
+		{imWhite=false;}
+		if(JoinedGames[ProfID][gIter].Player2==ProfID && JoinedGames[ProfID][gIter].Player1Color=='Black')
 		{imWhite=true;}
 		else
 		{imWhite=false;}
 			
-			if (categoryShowString.indexOf(JoinedGames[MyID][gIter].GameCategory)>-1)	
+			if (categoryShowString.indexOf(JoinedGames[ProfID][gIter].GameCategory)>-1)	
 			{
 				//console.log("found "+JoinedGames[gIter].GameCategory);
 			if(imWhite==true)
 			{	
 				totalWhiteGamesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString]+1;
-				totalWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]+JoinedGames[MyID][gIter].Move;
+				totalWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]+JoinedGames[ProfID][gIter].Move;
 			}
 			else
 			{	
 				totalBlackGamesPlayed[categoryShowString]=totalBlackGamesPlayed[categoryShowString]+1;
-				totalBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]+JoinedGames[MyID][gIter].Move;
+				totalBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]+JoinedGames[ProfID][gIter].Move;
 			}
 			
 			}
