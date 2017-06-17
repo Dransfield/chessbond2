@@ -281,7 +281,7 @@ function showStatGraph(elem)
 {
 	var countGames=0;
 	for (gIter in JoinedGames)
-	{countGames++;}
+	{countGames=countGames+1;}
 	elem.append("<div>"+countGames+" games found</div>");
 	var	reportDiv=addDiv(elem);
 	reportDiv.attr("class","statsGrid");
