@@ -1526,7 +1526,7 @@ return myinput;
 
 function showTextwithInput(elem,words,elemTochange)
 {
-	console.log("words "+words);
+	//console.log("words "+words);
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
 	myinput.keydown(function(event){
