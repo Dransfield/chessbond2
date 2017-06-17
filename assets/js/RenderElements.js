@@ -279,7 +279,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showStatGraph(elem)
 {
-	elem.append(JoinedGames.length+" games found");
+	elem.append("<div>"+JoinedGames.length+" games found</div>");
 	var	reportDiv=addDiv(elem);
 	reportDiv.attr("class","statsGrid");
 	var titleSpan=addSpan(reportDiv,"");
