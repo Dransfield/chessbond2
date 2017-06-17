@@ -334,21 +334,35 @@ function showStatGraph(elem)
 	{
 		
 		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
-		totalGamesPlayed[categoryShowString]=0;
-		totalMovesPlayed[categoryShowString]=0;
+		totalWhiteGamesPlayed[categoryShowString]=0;
+		totalWhiteMovesPlayed[categoryShowString]=0;
+	
+		totalBlackGamesPlayed[categoryShowString]=0;
+		totalBlackMovesPlayed[categoryShowString]=0;
 			
 		for (gIter in JoinedGames)
 		{
-			//console.log("looking for "+categoryShowString);
-			//console.log("got "+JoinedGames[gIter]['GameCategory']);
-			//console.log(JSON.stringify(JoinedGames[gIter][0].GameCategory));
-			//console.log(JSON.stringify(JoinedGames[gIter].GameCategory));
-			//console.log(JSON.stringify(JoinedGames[gIter].Player2Name));
+			
+				var imWhite;
+		if(JoinedGames[gIter][0].Player1==MyID && JoinedGames[gIter][0].Player1Color=='White')
+		{imWhite=true;}
+		else
+		{imWhite=false;}
+			
 			if (categoryShowString.indexOf(JoinedGames[gIter][0].GameCategory)>-1)	
 			{
 				//console.log("found "+JoinedGames[gIter].GameCategory);
-				totalGamesPlayed[categoryShowString]=totalGamesPlayed[categoryShowString]+1;
-				totalMovesPlayed[categoryShowString]=totalMovesPlayed[categoryShowString]+JoinedGames[gIter][0].Move;
+			if(imWhite==true)
+			{	
+				totalWhiteGamesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString]+1;
+				totalWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]+JoinedGames[gIter][0].Move;
+			}
+			else
+			{	
+				totalBlackGamesPlayed[categoryShowString]=totalBlackGamesPlayed[categoryShowString]+1;
+				totalBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]+JoinedGames[gIter][0].Move;
+			}
+			
 			}
 		
 		}
@@ -358,6 +372,9 @@ function showStatGraph(elem)
 		{
 		var categoryString=gamecategories[x].time+"x"+gamecategories[x].extratime;
 		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+		
+	
+		
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(categoryShowString);
 			cellSpan.attr("class","lightgreyGridCell");
@@ -384,28 +401,28 @@ function showStatGraph(elem)
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalGamesPlayed[categoryShowString]);
+			cellSpan.append(totalBlackGamesPlayed[categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalgames");
 			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalGamesPlayed[categoryShowString]);
+			cellSpan.append(totalWhiteGamesPlayed[categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalgames");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalMovesPlayed[categoryShowString]);
+			cellSpan.append(totalBlackMovesPlayed[categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalmoves");
 			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalMovesPlayed[categoryShowString]);
+			cellSpan.append(totalWhiteMovesPlayed[categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalmoves");
 			cellSpan.css("grid-row","c"+categoryString+"white");
