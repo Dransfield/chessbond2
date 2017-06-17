@@ -1543,7 +1543,7 @@ function showTextwithInput(elem,words,elemTochange)
 		Accounts[ProfID][words]=Accounts[ProfID][words].substring(0, Accounts[ProfID][words].length - 1);
 			UpdateTypedText(words,elemTochange);
 		}
-		if(event.key.length==1)
+		if(String.fromCharCode(event.keyCode).match(/(\w|\s)/g)) {
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//Accounts[ProfID][words]=censor(
