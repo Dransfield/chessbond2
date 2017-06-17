@@ -279,7 +279,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showStatGraph(elem)
 {
-	var countGames;
+	var countGames=0;
 	for (gIter in JoinedGames)
 	{countGames++;}
 	elem.append("<div>"+countGames+" games found</div>");
