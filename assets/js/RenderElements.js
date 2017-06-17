@@ -327,8 +327,10 @@ function showStatGraph(elem)
 	
 	var currentcolor='White';
 	var cellSpan;
-	var totalGamesPlayed=[];
-	var totalMovesPlayed=[];
+	var totalWhiteGamesPlayed=[];
+	var totalWhiteMovesPlayed=[];
+	var totalBlackGamesPlayed=[];
+	var totalBlackMovesPlayed=[];
 	
 	for (x in gamecategories)
 	{
