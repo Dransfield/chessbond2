@@ -38,7 +38,7 @@ module.exports.routes = {
 	'POST /startfollow':'FollowController.New',
 	'POST /leftprivateconversation':'PrivateConversationController.Left',
 	'GET /opentournament':{view:'opentournamentjq'},
-	'GET /stats/:userID':{view:'statsjq'},
+	'GET /stats/:ID':{view:'statsjq'},
 	'GET /stats':{view:'statsjq'},
 	'GET /aboutus':{view:'aboutus'},
 	'GET /termsofservice':{view:'termsos'},

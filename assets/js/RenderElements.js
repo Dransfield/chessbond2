@@ -346,7 +346,7 @@ function showStatGraph(elem)
 		{
 			
 				var imWhite;
-		if(JoinedGames[MyID][gIter].Player1==MyID && JoinedGames[MyID][gIter].Player1Color=='White')
+		if(JoinedGames[ProfID][gIter].Player1==MyID && JoinedGames[ProfID][gIter].Player1Color=='White')
 		{imWhite=true;}
 		else
 		{imWhite=false;}
