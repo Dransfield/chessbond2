@@ -378,8 +378,8 @@ function showStatGraph(elem)
 		
 		}
 		
-		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString];
-		averageWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString];
+		averageBlackMovesPlayed[categoryShowString]=parseInt(totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString]);
+		averageWhiteMovesPlayed[categoryShowString]=parseInt(totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString]);
 		
 	}
 	
