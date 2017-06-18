@@ -1532,7 +1532,7 @@ function showTextwithInput(elem,words,elemTochange)
 	elem.append($("<span>Edit:</span>"));
 	elem.append(myinput);
 	myinput.val(Accounts[ProfID][words]);
-	myinput.keydown(function(event){
+	myinput.keydown({inny:myinput,function(event){
 		try{
 		setTimeout(function(){
 		//console.log(JSON.stringify(event));
@@ -1541,7 +1541,7 @@ function showTextwithInput(elem,words,elemTochange)
 		Accounts[ProfID][words]="";
 		}
 	
-		Accounts[ProfID][words]=$(this).val();
+		Accounts[ProfID][words]=event.data.inny.val();
 		//Accounts[ProfID][words]=censor(
 		
 		UpdateTypedText(words,elemTochange);
