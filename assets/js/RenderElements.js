@@ -1527,9 +1527,11 @@ return myinput;
 function showTextwithInput(elem,words,elemTochange)
 {
 	//console.log("words "+words);
-	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	
+	elem.append($("<span>Edit:</span>"));
 	elem.append(myinput);
-	myinput.value(Accounts[ProfID][words]);
+	myinput.val(Accounts[ProfID][words]);
 	myinput.keydown(function(event){
 		try{
 	
