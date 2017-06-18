@@ -1527,10 +1527,18 @@ return myinput;
 function showTextwithInput(elem,words,elemTochange)
 {
 	//console.log("words "+words);
+	var editbut=var vbb=showButton(elem,"Edit","KregularButton KgreenElement");
+	
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	
 	elem.append($("<span>Edit:</span>"));
 	elem.append(myinput);
+	
+	myinput.hide();
+	editbut.click(function(){
+		myinput.slideToggle();
+	});
+	
 	myinput.val(Accounts[ProfID][words]);
 	myinput.keydown({inny:myinput},function(event){
 		try{
