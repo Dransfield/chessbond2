@@ -1549,7 +1549,7 @@ function showTextwithInput(elem,words,elemTochange)
 		}
 		if(event.keyCode!=8) 
 		{
-		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
+		Accounts[ProfID][words]=($this).val();
 		//Accounts[ProfID][words]=censor(
 		
 		UpdateTypedText(words,elemTochange);
