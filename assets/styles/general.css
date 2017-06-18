@@ -145,7 +145,7 @@ padding:5px;
    [lowestratingsscored] 1fr 
    [averageoppositionratings] 1fr 
    [bestwin] 1fr [lowestloss] 1fr 
-   [totalgames] 1fr [totalmoves] 1fr [averagemovesperday] 1fr;
+   [totalgames] 1fr [totalmoves] 1fr [averagemoves] 1fr;
  grid-template-rows:[titlerow]   1fr
 					[c1x0white] 1fr
 					[c1x0black] 1fr
