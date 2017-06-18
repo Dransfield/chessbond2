@@ -336,6 +336,41 @@ function showStatGraph(elem)
 	var drewWhiteGames=[];
 	var drewBlackGames=[];
 		
+		function playerIsWhite(player,game)
+		{
+		var imWhite;
+		if(game.Player1==player && game.Player1Color=='White')
+		{imWhite=true;}
+		else
+		{imWhite=false;}
+		if(game.Player2==player && game.Player1Color=='Black')
+		{imWhite=true;}
+		else
+		{imWhite=false;}
+		return imWhite;
+		}
+		
+		function gameIsADraw(game)
+		{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Drew by")
+						{
+							return true;
+						}
+					}
+		}
+		
+		function gameMatchesCategory(game,cat)
+		{
+			if (cat.indexOf(game.GameCategory)>-1)	
+			{
+			return true;
+			}	
+			return false;
+		}
+		
 	for (x in gamecategories)
 	{
 		
@@ -349,16 +384,23 @@ function showStatGraph(elem)
 		averageBlackMovesPlayed[categoryShowString]=0;
 		averageWhiteMovesPlayed[categoryShowString]=0;
 		
-		drewWhiteGames[categoryShowString]=0;
+		drewWhiteGames[categoryShowString]=JoinedGames[ProfID].map(
+		function(d,i)
+		{
+		console.log(categoryShowString);
+		if (gameMatchesCategory(d,categoryShowString)
+		{return d;}
+		
+		});
+		
+		console.log(drewWhiteGames[categoryShowString]);
+		
+		
 		drewBlackGames[categoryShowString]=0;
 		
 		for (gIter in JoinedGames[ProfID])
 		{
 			
-				var splitted=JoinedGames[ProfID][gIter].Result.split(">");
-					for (y in splitted)
-					{
-						if(splitted[y].indexOf("Drew by")
 			
 				var imWhite;
 		if(JoinedGames[ProfID][gIter].Player1==ProfID && JoinedGames[ProfID][gIter].Player1Color=='White')
