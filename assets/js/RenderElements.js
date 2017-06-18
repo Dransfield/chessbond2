@@ -333,7 +333,9 @@ function showStatGraph(elem)
 	var totalBlackMovesPlayed=[];
 	var averageBlackMovesPlayed=[];
 	var averageWhiteMovesPlayed=[];
-	
+	var drewWhiteGames=[];
+	var drewBlackGames=[];
+		
 	for (x in gamecategories)
 	{
 		
@@ -347,8 +349,16 @@ function showStatGraph(elem)
 		averageBlackMovesPlayed[categoryShowString]=0;
 		averageWhiteMovesPlayed[categoryShowString]=0;
 		
+		drewWhiteGames[categoryShowString]=0;
+		drewBlackGames[categoryShowString]=0;
+		
 		for (gIter in JoinedGames[ProfID])
 		{
+			
+				var splitted=JoinedGames[ProfID][gIter].Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Drew by")
 			
 				var imWhite;
 		if(JoinedGames[ProfID][gIter].Player1==ProfID && JoinedGames[ProfID][gIter].Player1Color=='White')
