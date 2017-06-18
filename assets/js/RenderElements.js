@@ -1534,7 +1534,7 @@ function showTextwithInput(elem,words,elemTochange)
 	myinput.val(Accounts[ProfID][words]);
 	myinput.keydown(function(event){
 		try{
-	
+		setTimeout(function(){
 		//console.log(JSON.stringify(event));
 		if(!Accounts[ProfID][words])
 		{
@@ -1550,7 +1550,7 @@ function showTextwithInput(elem,words,elemTochange)
    //io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
 	//	{});
 		
-		
+	},300);
 	}
 	
 		catch(err)
