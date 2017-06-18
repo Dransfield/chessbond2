@@ -1549,7 +1549,7 @@ function showTextwithInput(elem,words,elemTochange)
 		//	console.log("finally");
    //io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
 	//	{});
-		}
+		
 		
 	}
 	
