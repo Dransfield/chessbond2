@@ -331,6 +331,8 @@ function showStatGraph(elem)
 	var totalWhiteMovesPlayed=[];
 	var totalBlackGamesPlayed=[];
 	var totalBlackMovesPlayed=[];
+	var averageBlackGamesPlayed=[];
+	var averageWhiteMovesPlayed=[];
 	
 	for (x in gamecategories)
 	{
