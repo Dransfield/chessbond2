@@ -1527,7 +1527,7 @@ return myinput;
 function showTextwithInput(elem,words,elemTochange)
 {
 	//console.log("words "+words);
-	var editbut=var vbb=showButton(elem,"Edit","KregularButton KgreenElement");
+	var editbut=showButton(elem,"Edit","KregularButton KgreenElement");
 	
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	
