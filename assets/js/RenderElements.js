@@ -1532,7 +1532,7 @@ function showTextwithInput(elem,words,elemTochange)
 	elem.append($("<span>Edit:</span>"));
 	elem.append(myinput);
 	myinput.val(Accounts[ProfID][words]);
-	myinput.keydown({inny:myinput,function(event){
+	myinput.keydown({inny:myinput},function(event){
 		try{
 		setTimeout(function(){
 		//console.log(JSON.stringify(event));
