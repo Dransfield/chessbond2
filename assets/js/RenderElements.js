@@ -1531,7 +1531,7 @@ function showTextwithInput(elem,words,elemTochange)
 	
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	
-	elem.append($("<span>Edit:</span>"));
+	
 	elem.append(myinput);
 	
 	myinput.hide();
