@@ -1529,6 +1529,7 @@ function showTextwithInput(elem,words,elemTochange)
 	//console.log("words "+words);
 	var myinput=$("<span>Edit:</span><input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	elem.append(myinput);
+	myinput.value(Accounts[ProfID][words]);
 	myinput.keydown(function(event){
 		try{
 	
@@ -1544,7 +1545,7 @@ function showTextwithInput(elem,words,elemTochange)
 		Accounts[ProfID][words]=Accounts[ProfID][words].substring(0, Accounts[ProfID][words].length - 1);
 			UpdateTypedText(words,elemTochange);
 		}
-		if(String.fromCharCode(event.keyCode).match(/(\w|\s)/g)) 
+		if(event.keyCode!=8) 
 		{
 		Accounts[ProfID][words]=Accounts[ProfID][words]+event.key;
 		//Accounts[ProfID][words]=censor(
