@@ -355,7 +355,7 @@ function showStatGraph(elem)
 				var splitted=game.Result.split(">");
 					for (y in splitted)
 					{
-						if(splitted[y].indexOf("Drew by")
+						if(splitted[y].indexOf("Drew by"))
 						{
 							return true;
 						}
