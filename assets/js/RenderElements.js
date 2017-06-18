@@ -1550,7 +1550,7 @@ function showTextwithInput(elem,words,elemTochange)
    //io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
 	//	{});
 		
-	},300);
+	},70);
 	}
 	
 		catch(err)
