@@ -341,7 +341,10 @@ function showStatGraph(elem)
 	
 		totalBlackGamesPlayed[categoryShowString]=0;
 		totalBlackMovesPlayed[categoryShowString]=0;
-			
+		
+		averageBlackMovesPlayed[categoryShowString]=0;
+		averageWhiteMovesPlayed[categoryShowString]=0;
+		
 		for (gIter in JoinedGames[ProfID])
 		{
 			
@@ -372,6 +375,10 @@ function showStatGraph(elem)
 			}
 		
 		}
+		
+		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString];
+		averageWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString];
+		
 	}
 	
 	for (x in gamecategories)
@@ -431,6 +438,19 @@ function showStatGraph(elem)
 			cellSpan.append(totalWhiteMovesPlayed[categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalmoves");
+			cellSpan.css("grid-row","c"+categoryString+"white");
+		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(averageBlackMovesPlayed[categoryShowString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","averagemoves");
+			cellSpan.css("grid-row","c"+categoryString+"black");
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(averageWhiteMovesPlayed[categoryShowString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","averagemoves");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		}
