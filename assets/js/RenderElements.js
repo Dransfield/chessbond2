@@ -1628,12 +1628,12 @@ function censor(wrds)
 		{
 		console.log(foundBadWord);
 		
-		foundBadWord=foundBadWord.toLower();
-		BannedWords[iter]=BannedWords[iter].toLower();
-		console.log(foundBadWord);
+		//foundBadWord=foundBadWord.toLower();
+		//BannedWords[iter]=BannedWords[iter].toLower();
+		//console.log(foundBadWord);
 		
-		if(foundBadWord==BannedWords[iter])
-		{console.log(foundBadWord);}
+		//if(foundBadWord==BannedWords[iter])
+		//{console.log(foundBadWord);}
 		}
 		}
 	}
