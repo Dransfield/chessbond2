@@ -1632,7 +1632,7 @@ function censor(wrds)
 		
 		var starString="";
 		var starIter=0;
-		for(starIter=0;starIter<typedWordArray[thisWord].length)
+		for(starIter=0;starIter<typedWordArray[thisWord].length;starIter++)
 		{
 		starString=starString+"*";
 		}
