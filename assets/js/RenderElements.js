@@ -429,7 +429,7 @@ function showStatGraph(elem)
 			return i+d.Move;
 		},0);
 		
-		
+		console.log(totalBlackMovesPlayed[categoryShowString]);
 		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
