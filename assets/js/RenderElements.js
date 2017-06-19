@@ -1613,13 +1613,17 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 
 function censor(wrds)
 {
+	var patt=new RegExp("[A-Za-z]","i");
+		
 	for (iter in BannedWords)
 	{
 	if(BannedWords[iter].word.length>0)
 	{
 	var typedWordArray=wrds.split(" ");
-	var patt=new RegExp("[A-Za-z]","i");
-	console.log(patt);
+		for (thisWord in typedWordArray)
+		{
+		console.log(patt.test(typedWordArray[thisWord]));
+		}
 	}
 	}
 return wrds;
