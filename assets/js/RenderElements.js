@@ -1633,7 +1633,7 @@ function censor(wrds)
 		},"");
 		
 		
-		var lowerTypedWord=foundBadWord.toLower();
+		var lowerTypedWord=typedWord.toLower();
 		var lowerBadWord=BannedWords[iter].toLower();
 		
 		if( lowerTypedWord==lowerBadWord)
