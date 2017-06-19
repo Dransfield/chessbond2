@@ -388,7 +388,7 @@ function showStatGraph(elem)
 		function(d,i)
 		{
 		console.log(categoryShowString);
-		if (gameMatchesCategory(d,categoryShowString)
+		if (gameMatchesCategory(d,categoryShowString))
 		{return d;}
 		
 		});
