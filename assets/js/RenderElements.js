@@ -1613,7 +1613,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 
 function censor(wrds)
 {
-/*
+
 	var patt=new RegExp("[A-Za-z]","i");
 	var typedWordArray=wrds.split(" ");
 		
@@ -1631,7 +1631,7 @@ function censor(wrds)
 		}
 	}
 	}
-	*/ 
+	 
 return wrds;
 }
 
