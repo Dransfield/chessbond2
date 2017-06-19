@@ -1623,11 +1623,18 @@ function censor(wrds)
 	{
 		for (thisWord in typedWordArray)
 		{
-		var foundBadWord=patt.exec(typedWordArray[thisWord]).reduce(function(d)
+		var foundBadWordRegex=patt.exec(typedWordArray[thisWord])
+		var foundBadWord;
+		
+		if(foundBadWordRegex)
+		{
+		foundBadWord=foundBadWordRegex.reduce(function(d)
 		{
 		return typedWordArray[thisWord].charAt(d.index);
 		},"");
 		console.log(foundBadWord);
+		}
+		
 		if(foundBadWord && foundBadWord==BannedWords[iter])
 		{
 		console.log(foundBadWord);
