@@ -580,26 +580,26 @@ function showStatGraph(elem)
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100);
+			cellSpan.append(parseInt((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","drawpercent");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100);
+			cellSpan.append(parseInt((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","drawpercent");
 			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append((lostWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100);
+			cellSpan.append(parseInt((lostWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","losspercent");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		cellSpan=addSpan(reportDiv,"");
-			cellSpan.append((lostBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100);
+			cellSpan.append(parseInt((lostBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","losspercent");
 			cellSpan.css("grid-row","c"+categoryString+"black");
