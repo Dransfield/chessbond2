@@ -387,10 +387,10 @@ function showStatGraph(elem)
 		drewWhiteGames[categoryShowString]=JoinedGames[ProfID].map(
 		function(d,i)
 		{
-		console.log(categoryShowString);
+		
 		if (gameMatchesCategory(d,categoryShowString))
 		{return d;}
-		
+		return null;
 		});
 		
 		console.log(drewWhiteGames[categoryShowString]);
