@@ -1624,7 +1624,7 @@ function censor(wrds)
 		for (thisWord in typedWordArray)
 		{
 		var foundBadWord=patt.exec(typedWordArray[thisWord]);
-		
+		console.log(foundBadWord);
 		if(foundBadWord && foundBadWord==BannedWords[iter])
 		{
 		console.log(foundBadWord);
