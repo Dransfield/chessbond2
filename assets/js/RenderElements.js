@@ -1623,7 +1623,7 @@ function censor(wrds)
 	{
 		for (thisWord in typedWordArray)
 		{
-		var foundBadWordRegex=patt.exec(typedWordArray[thisWord])
+		var foundBadWordRegex=typedWordArray[thisWord].match(patt);
 		var foundBadWord;
 		
 		if(foundBadWordRegex)
