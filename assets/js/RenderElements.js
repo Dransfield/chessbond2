@@ -1614,7 +1614,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 function censor(wrds)
 {
 
-	var patt=\[A-Za-z]\g;
+	var patt=/[A-Za-z]/g;
 	var typedWordArray=wrds.split(" ");
 		
 	for (iter in BannedWords)
