@@ -1618,7 +1618,7 @@ function censor(wrds)
 	if(BannedWords[iter].word.length>0)
 	{
 	var typedWordArray=wrds.split(" ");
-	var patt=new RegExp([A-Za-z],"i");
+	var patt=new RegExp("[A-Za-z]","i");
 	console.log(patt);
 	}
 	}
