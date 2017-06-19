@@ -1634,7 +1634,7 @@ function censor(wrds)
 		
 		
 		var lowerTypedWord=typedWord.toLowerCase();
-		var lowerBadWord=BannedWords[iter].toLowerCase();
+		var lowerBadWord=BannedWords[iter].word.toLowerCase();
 		
 		if( lowerTypedWord==lowerBadWord)
 		{
