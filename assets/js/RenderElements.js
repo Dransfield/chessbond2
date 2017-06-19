@@ -335,7 +335,11 @@ function showStatGraph(elem)
 	var averageWhiteMovesPlayed=[];
 	var drewWhiteGames=[];
 	var drewBlackGames=[];
-		
+	var wonWhiteGames=[];
+	var wonBlackGames=[];
+	var lostWhiteGames=[];
+	var lostBlackGames=[];
+					
 		function playerIsWhite(player,game)
 		{
 		var imWhite;
@@ -352,7 +356,7 @@ function showStatGraph(elem)
 		
 		function gameIsADraw(game)
 		{
-			console.log(game);
+			//console.log(game);
 			if(game.Result)
 			{
 				var splitted=game.Result.split(">");
@@ -379,25 +383,61 @@ function showStatGraph(elem)
 	{
 		
 		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
-		totalWhiteGamesPlayed[categoryShowString]=0;
-		totalWhiteMovesPlayed[categoryShowString]=0;
-	
-		totalBlackGamesPlayed[categoryShowString]=0;
-		totalBlackMovesPlayed[categoryShowString]=0;
 		
-		averageBlackMovesPlayed[categoryShowString]=0;
-		averageWhiteMovesPlayed[categoryShowString]=0;
-		
-		drewWhiteGames[categoryShowString]=JoinedGames[ProfID].filter(
+		totalBlackGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
-		return (gameMatchesCategory(d,categoryShowString) && gameIsADraw(d) && playerIsWhite(ProfID,d))
+		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d);
 		});
 		
-		console.log(drewWhiteGames[categoryShowString]);
+		totalWhiteGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
+		function(d)
+		{
+		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d);
+		});
 		
 		
-		drewBlackGames[categoryShowString]=0;
+		
+		totalWhiteMovesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
+		function(d,i){
+			return i+d.Move;
+		},0);
+		
+		totalBlackMovesPlayed[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
+		function(d,i){
+			return i+d.Move;
+		},0);
+		
+		
+		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
+		function(d)
+		{
+		return (gameIsAWin(ProfID,d) )
+		});
+		
+		
+		wonBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
+		function(d)
+		{
+		return (gameIsAWin(ProfID,d) )
+		});
+		
+		drewBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
+		function(d)
+		{
+		return (gameIsADraw(ProfID,d) )
+		});
+		
+		drewWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
+		function(d)
+		{
+		return (gameIsADraw(ProfID,d) )
+		});
+		
+		
+		
+		
+		
 		
 		for (gIter in JoinedGames[ProfID])
 		{
@@ -469,14 +509,14 @@ function showStatGraph(elem)
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalBlackGamesPlayed[categoryShowString]);
+			cellSpan.append(totalBlackGamesPlayed[categoryShowString].length);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalgames");
 			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalWhiteGamesPlayed[categoryShowString]);
+			cellSpan.append(totalWhiteGamesPlayed[categoryShowString].length);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalgames");
 			cellSpan.css("grid-row","c"+categoryString+"white");
@@ -497,15 +537,15 @@ function showStatGraph(elem)
 		
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(averageBlackMovesPlayed[categoryShowString]);
+			cellSpan.append((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100);
 			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","averagemoves");
+			cellSpan.css("grid-column","drawpercent");
 			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(averageWhiteMovesPlayed[categoryShowString]);
+			cellSpan.append((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100);
 			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","averagemoves");
+			cellSpan.css("grid-column","drawpercent");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		}
