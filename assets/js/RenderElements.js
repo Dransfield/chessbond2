@@ -1628,11 +1628,11 @@ function censor(wrds)
 		console.log(foundBadWordRegex);
 		if(foundBadWordRegex)
 		{
-		foundBadWord=foundBadWordRegex.reduce(function(d,acc)
+		foundBadWord=foundBadWordRegex.reduce(function(total,d)
 		{
-		return acc+typedWordArray[thisWord].charAt(d.index);
+		return total+d;
 		},"");
-		
+		console.log(foundBadWord);
 		}
 		
 		if(foundBadWord && foundBadWord==BannedWords[iter])
