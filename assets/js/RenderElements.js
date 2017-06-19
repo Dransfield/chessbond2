@@ -327,18 +327,7 @@ function showStatGraph(elem)
 	
 	var currentcolor='White';
 	var cellSpan;
-	var totalWhiteGamesPlayed=[];
-	var totalWhiteMovesPlayed=[];
-	var totalBlackGamesPlayed=[];
-	var totalBlackMovesPlayed=[];
-	var averageBlackMovesPlayed=[];
-	var averageWhiteMovesPlayed=[];
-	var drewWhiteGames=[];
-	var drewBlackGames=[];
-	var wonWhiteGames=[];
-	var wonBlackGames=[];
-	var lostWhiteGames=[];
-	var lostBlackGames=[];
+
 					
 		function playerIsWhite(player,game)
 		{
@@ -400,6 +389,20 @@ function showStatGraph(elem)
 			return false;
 		}
 		
+		
+			var totalWhiteGamesPlayed=[];
+	var totalWhiteMovesPlayed=[];
+	var totalBlackGamesPlayed=[];
+	var totalBlackMovesPlayed=[];
+	var averageBlackMovesPlayed=[];
+	var averageWhiteMovesPlayed=[];
+	var drewWhiteGames=[];
+	var drewBlackGames=[];
+	var wonWhiteGames=[];
+	var wonBlackGames=[];
+	var lostWhiteGames=[];
+	var lostBlackGames=[];
+	
 	for (x in gamecategories)
 	{
 		
@@ -428,6 +431,9 @@ function showStatGraph(elem)
 		function(i,d){
 			return i+d.Move;
 		},0);
+		
+		averageWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString].length;
+		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString].length;
 		
 		console.log(JSON.stringify(totalBlackMovesPlayed[categoryShowString]));
 		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
@@ -519,6 +525,21 @@ function showStatGraph(elem)
 			cellSpan.append(totalWhiteMovesPlayed[categoryShowString]);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","totalmoves");
+			cellSpan.css("grid-row","c"+categoryString+"white");
+		
+		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(averageBlackMovesPlayed[categoryShowString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","averagemoves");
+			cellSpan.css("grid-row","c"+categoryString+"black");
+		
+		
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(averageWhiteMovesPlayed[categoryShowString]);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","averagemoves");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		
