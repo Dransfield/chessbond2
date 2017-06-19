@@ -1623,19 +1623,20 @@ function censor(wrds)
 	{
 		for (thisWord in typedWordArray)
 		{
-		var foundBadWordRegex=typedWordArray[thisWord].match(patt);
-		var foundBadWord;
-		console.log(foundBadWordRegex);
-		if(foundBadWordRegex)
+		var typedWordRegex=typedWordArray[thisWord].match(patt);
+		var typedWord;
+		if(typedWordRegex)
 		{
-		foundBadWord=foundBadWordRegex.reduce(function(total,d)
+		typedWord=typedWordRegex.reduce(function(total,d)
 		{
 		return total+d;
 		},"");
-		console.log(foundBadWord);
-		}
 		
-		if(foundBadWord && foundBadWord==BannedWords[iter])
+		
+		var lowerTypedWord=foundBadWord.toLower();
+		var lowerBadWord=BannedWords[iter].toLower();
+		
+		if( lowerTypedWord==lowerBadWord)
 		{
 		console.log(foundBadWord);
 		
@@ -1656,7 +1657,7 @@ function censor(wrds)
 		}
 		}
 	}
-	}
+	}}
 	 
 return typedWordArray.join(" ");
 }
