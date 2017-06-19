@@ -1628,9 +1628,9 @@ function censor(wrds)
 		
 		if(foundBadWordRegex)
 		{
-		foundBadWord=foundBadWordRegex.reduce(function(d)
+		foundBadWord=foundBadWordRegex.reduce(function(d,acc)
 		{
-		return typedWordArray[thisWord].charAt(d.index);
+		return acc+typedWordArray[thisWord].charAt(d.index);
 		},"");
 		console.log(foundBadWord);
 		}
