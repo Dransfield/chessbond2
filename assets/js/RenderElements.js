@@ -1624,6 +1624,8 @@ function censor(wrds)
 		for (thisWord in typedWordArray)
 		{
 		var foundBadWord=patt.exec(typedWordArray[thisWord]);
+		if(foundBadWord)
+		{
 		console.log(foundBadWord);
 		
 		foundBadWord=foundBadWord.toLower();
@@ -1632,7 +1634,7 @@ function censor(wrds)
 		
 		if(foundBadWord==BannedWords[iter])
 		{console.log(foundBadWord);}
-		
+		}
 		}
 	}
 	}
