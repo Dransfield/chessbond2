@@ -1614,7 +1614,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 function censor(wrds)
 {
 
-	var patt=new RegExp("[A-Za-z]","i");
+	var patt=new RegExp("[A-Za-z]","ig");
 	var typedWordArray=wrds.split(" ");
 		
 	for (iter in BannedWords)
@@ -1624,10 +1624,19 @@ function censor(wrds)
 		for (thisWord in typedWordArray)
 		{
 		var foundBadWord=patt.exec(typedWordArray[thisWord]);
-		if(foundBadWord)
+		
+		if(foundBadWord && foundBadWord==BannedWords[iter])
 		{
 		console.log(foundBadWord);
 		
+		
+		var starString="";
+		var starIter=0;
+		for(starIter=0;starIter<typedWordArray[thisWord].length)
+		{
+		starString=starString+"*";
+		}
+		typedWordArray[thisWord]=starString;
 		//foundBadWord=foundBadWord.toLower();
 		//BannedWords[iter]=BannedWords[iter].toLower();
 		//console.log(foundBadWord);
@@ -1639,7 +1648,7 @@ function censor(wrds)
 	}
 	}
 	 
-return wrds;
+return typedWordArray.join(" ");
 }
 
 /*
