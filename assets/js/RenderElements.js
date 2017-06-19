@@ -1623,7 +1623,10 @@ function censor(wrds)
 	{
 		for (thisWord in typedWordArray)
 		{
-		var foundBadWord=patt.exec(typedWordArray[thisWord]);
+		var foundBadWord=patt.exec(typedWordArray[thisWord]).reduce(function(d)
+		{
+		return typedWordArray[thisWord].charAt(d.index);
+		},"");
 		console.log(foundBadWord);
 		if(foundBadWord && foundBadWord==BannedWords[iter])
 		{
