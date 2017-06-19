@@ -1614,15 +1614,19 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 function censor(wrds)
 {
 	var patt=new RegExp("[A-Za-z]","i");
+	var typedWordArray=wrds.split(" ");
 		
 	for (iter in BannedWords)
 	{
 	if(BannedWords[iter].word.length>0)
 	{
-	var typedWordArray=wrds.split(" ");
 		for (thisWord in typedWordArray)
 		{
-		console.log(patt.test(typedWordArray[thisWord]));
+		var foundBadWord=patt.exec(typedWordArray[thisWord]);
+		
+		if(foundBadWord==BannedWords[iter])
+		{console.log(foundBadWord);}
+		
 		}
 	}
 	}
