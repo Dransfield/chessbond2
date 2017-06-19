@@ -353,6 +353,8 @@ function showStatGraph(elem)
 		function gameIsADraw(game)
 		{
 			console.log(game);
+			if(game.Result)
+			{
 				var splitted=game.Result.split(">");
 					for (y in splitted)
 					{
@@ -361,6 +363,7 @@ function showStatGraph(elem)
 							return true;
 						}
 					}
+			}
 		}
 		
 		function gameMatchesCategory(game,cat)
