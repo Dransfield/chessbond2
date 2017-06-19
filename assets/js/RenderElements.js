@@ -457,7 +457,7 @@ function showStatGraph(elem)
 		
 		
 		
-		
+	}
 		
 		
 	
