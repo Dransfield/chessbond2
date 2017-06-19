@@ -352,6 +352,7 @@ function showStatGraph(elem)
 		
 		function gameIsADraw(game)
 		{
+			console.log(game);
 				var splitted=game.Result.split(">");
 					for (y in splitted)
 					{
