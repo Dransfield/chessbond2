@@ -1625,14 +1625,14 @@ function censor(wrds)
 		{
 		var foundBadWordRegex=typedWordArray[thisWord].match(patt);
 		var foundBadWord;
-		
+		console.log(foundBadWordRegex);
 		if(foundBadWordRegex)
 		{
 		foundBadWord=foundBadWordRegex.reduce(function(d,acc)
 		{
 		return acc+typedWordArray[thisWord].charAt(d.index);
 		},"");
-		console.log(foundBadWord);
+		
 		}
 		
 		if(foundBadWord && foundBadWord==BannedWords[iter])
