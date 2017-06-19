@@ -1633,8 +1633,8 @@ function censor(wrds)
 		},"");
 		
 		
-		var lowerTypedWord=typedWord.toLower();
-		var lowerBadWord=BannedWords[iter].toLower();
+		var lowerTypedWord=typedWord.toLowerCase();
+		var lowerBadWord=BannedWords[iter].toLowerCase();
 		
 		if( lowerTypedWord==lowerBadWord)
 		{
