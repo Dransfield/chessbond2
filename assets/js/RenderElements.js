@@ -384,13 +384,10 @@ function showStatGraph(elem)
 		averageBlackMovesPlayed[categoryShowString]=0;
 		averageWhiteMovesPlayed[categoryShowString]=0;
 		
-		drewWhiteGames[categoryShowString]=JoinedGames[ProfID].map(
-		function(d,i)
+		drewWhiteGames[categoryShowString]=JoinedGames[ProfID].filter(
+		function(d)
 		{
-		
-		if (gameMatchesCategory(d,categoryShowString))
-		{return d;}
-		return null;
+		return (gameMatchesCategory(d,categoryShowString) && gameIsADraw(d) && playerIsWhite(ProfID,d))
 		});
 		
 		console.log(drewWhiteGames[categoryShowString]);
