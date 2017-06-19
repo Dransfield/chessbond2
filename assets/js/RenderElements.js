@@ -608,13 +608,13 @@ function showStatGraph(elem)
 		cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(parseInt((wonWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
 			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","wonpercent");
+			cellSpan.css("grid-column","winpercent");
 			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(parseInt((wonBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","wonpercent");
+			cellSpan.css("grid-column","winpercent");
 			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
