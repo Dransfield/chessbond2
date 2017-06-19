@@ -433,26 +433,26 @@ function showStatGraph(elem)
 		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsAWin(ProfID,d) )
+		return (gameIsAWin(ProfID,d));
 		});
 		
 		
 		wonBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsAWin(ProfID,d) )
+		return (gameIsAWin(ProfID,d));
 		});
 		
 		drewBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsADraw(ProfID,d) )
+		return (gameIsADraw(ProfID,d));
 		});
 		
 		drewWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsADraw(ProfID,d) )
+		return (gameIsADraw(ProfID,d));
 		});
 		
 		
