@@ -420,12 +420,12 @@ function showStatGraph(elem)
 		
 		
 		totalWhiteMovesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
-		function(d,i){
+		function(i,d){
 			return i+d.Move;
 		},0);
 		
 		totalBlackMovesPlayed[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
-		function(d,i){
+		function(i,d){
 			return i+d.Move;
 		},0);
 		
