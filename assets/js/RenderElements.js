@@ -362,9 +362,30 @@ function showStatGraph(elem)
 				var splitted=game.Result.split(">");
 					for (y in splitted)
 					{
-						if(splitted[y].indexOf("Drew by"))
+						if(splitted[y].indexOf("Drew by")>-1)
 						{
 							return true;
+						}
+					}
+			}
+		}
+		
+		function gameIsAWin(player,game)
+		{
+			//console.log(game);
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Won by")>-1)
+						{
+							var name=splitted[y-1].split("<")[0];
+								if(Accounts[ProfID].name==name)
+								{
+										return true;
+								}
+							
 						}
 					}
 			}
@@ -439,42 +460,7 @@ function showStatGraph(elem)
 		
 		
 		
-		for (gIter in JoinedGames[ProfID])
-		{
-			
-			
-				var imWhite;
-		if(JoinedGames[ProfID][gIter].Player1==ProfID && JoinedGames[ProfID][gIter].Player1Color=='White')
-		{imWhite=true;}
-		else
-		{imWhite=false;}
-		if(JoinedGames[ProfID][gIter].Player2==ProfID && JoinedGames[ProfID][gIter].Player1Color=='Black')
-		{imWhite=true;}
-		else
-		{imWhite=false;}
-			
-			if (categoryShowString.indexOf(JoinedGames[ProfID][gIter].GameCategory)>-1)	
-			{
-				//console.log("found "+JoinedGames[gIter].GameCategory);
-			if(imWhite==true)
-			{	
-				totalWhiteGamesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString]+1;
-				totalWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]+JoinedGames[ProfID][gIter].Move;
-			}
-			else
-			{	
-				totalBlackGamesPlayed[categoryShowString]=totalBlackGamesPlayed[categoryShowString]+1;
-				totalBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]+JoinedGames[ProfID][gIter].Move;
-			}
-			
-			}
-		
-		}
-		
-		averageBlackMovesPlayed[categoryShowString]=parseInt(totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString]);
-		averageWhiteMovesPlayed[categoryShowString]=parseInt(totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString]);
-		
-	}
+	
 	
 	for (x in gamecategories)
 		{
