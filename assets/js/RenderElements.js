@@ -1610,6 +1610,22 @@ function showChatForm(elem,chatID,msgtype,ReplyTo="")
 	return chatDiv;
 }
 
+
+function censor(wrds)
+{
+	for (iter in BannedWords)
+	{
+	if(BannedWords[iter].word.length>0)
+	{
+	var typedWordArray=wrds.split(" ");
+	var patt=new RegExp([A-Za-z],"i");
+	console.log(patt);
+	}
+	}
+return wrds;
+}
+
+/*
 function censor(wrds)
 {
 	for (iter in BannedWords)
@@ -1626,6 +1642,7 @@ function censor(wrds)
 	}
 return wrds;
 }
+*/
 /*
 function censor(wrds)
 {
