@@ -82,7 +82,7 @@
 			
 			setTimeout(function()
 			{
-				Chessgame.findOne(id:records.id}).exec(function(
+				Chessgame.findOne({id:records.id}).exec(function(
 				myerr,myRecords)
 				{
 					console.log("Move "+myRecords.Move);
