@@ -454,6 +454,11 @@ function timeOutNonMovedGames()
 					{
 					setTimeout(function()
 					{
+						
+						
+						records[iter].Result="Both Players Timed Out";
+						records[iter].save();
+						/*
 						Chessgame.update({id:records[iter].id},{Result:"Both Players Timed Out"},function after2(err2,records2)
 						{
 							for (thisIter in records2)
@@ -462,7 +467,7 @@ function timeOutNonMovedGames()
 							console.log("result is "+records2[thisIter].Result);
 							}
 						});
-					
+						*/
 					},30);	
 					}
 				}
