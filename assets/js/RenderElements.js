@@ -1638,7 +1638,7 @@ function censor(wrds)
 		
 		if( lowerTypedWord==lowerBadWord)
 		{
-		console.log(lowerBadWord);
+		//console.log(lowerBadWord);
 		
 		
 		var starString="";

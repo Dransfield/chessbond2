@@ -80,6 +80,14 @@
 			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
 			}
 			
+			setTimeout(function()
+			{
+				Chessgame.findOne(id:records.id}).exec(function(
+				myerr,myRecords)
+				{
+					console.log("Move "+myRecords.Move);
+					});
+					,30000);
 		
 			//return res.json(records);
 			
