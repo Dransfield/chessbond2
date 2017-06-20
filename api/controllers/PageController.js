@@ -446,7 +446,7 @@ sails.on("lifted",timeOutNonMovedGames);
 
 function timeOutNonMovedGames()
 {
-						User.find({Move:1}).
+						Chessgame.find({Move:1}).
 					exec(function afterwards(err, records){
 				for(iter in records)
 				{
@@ -454,7 +454,7 @@ function timeOutNonMovedGames()
 					{
 					setTimeout(function()
 					{
-					User.update({id:records[iter].id},{Result:"Both Players Timed Out"}).exec(function after2(err2,records2)
+					Chessgame.update({id:records[iter].id},{Result:"Both Players Timed Out"}).exec(function after2(err2,records2)
 					{});
 					
 					});	
