@@ -458,6 +458,7 @@ function timeOutNonMovedGames()
 						
 						records[iter].Result="Both Players Timed Out";
 						records[iter].save();
+						console.log("timeout "+records[iter].id);
 						/*
 						Chessgame.update({id:records[iter].id},{Result:"Both Players Timed Out"},function after2(err2,records2)
 						{
