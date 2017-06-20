@@ -442,6 +442,27 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	 sails.on("lifted", deleteAllSubs);
 sails.on("lifted",UpdateAccountsMarkedForDeletion);
 sails.on("lifted",UpdateBannedAccounts);
+sails.on("lifted",timeOutNonMovedGames);
+
+function timeOutNonMovedGames()
+{
+						User.find({Move:1}).
+					exec(function afterwards(err, records){
+				for(iter in records)
+				{
+					if (!records[iter].Result)	
+					{
+					setTimeout(function()
+					{
+					User.update({id:records[iter].id},{Result:"Both Players Timed Out"}).exec(function after2(err2,records2)
+					{});
+					
+					});	
+					}
+				}
+				});
+	
+}
 
  function UpdateBannedAccounts()
  {
