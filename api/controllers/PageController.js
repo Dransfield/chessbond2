@@ -85,7 +85,16 @@
 				Chessgame.findOne({id:records.id}).exec(function(
 				myerr,myRecords)
 				{
-					console.log("Move "+myRecords.Move);
+					//console.log("Move "+myRecords.Move);
+					if (Move==1)
+					{
+					Chessgame.update({id:myRecords.id},{Result:"Both Players Timed Out"},function(
+					timeOuterr,timeOutRecords)
+					{
+					
+					});
+						
+					}
 					});
 					},30000);
 		
