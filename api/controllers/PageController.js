@@ -87,7 +87,7 @@
 				{
 					console.log("Move "+myRecords.Move);
 					});
-					,30000);
+					},30000);
 		
 			//return res.json(records);
 			
