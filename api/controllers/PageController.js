@@ -452,13 +452,13 @@ function timeOutNonMovedGames()
 				{
 					if (!records[iter].Result)	
 					{
-					//setTimeout(function()
-					//{
+					setTimeout(function(gam)
+					{
 						
 						
-						records[iter].Result="Both Players Timed Out";
-						records[iter].save();
-						console.log("timeout "+records[iter].id);
+						gam.Result="Both Players Timed Out";
+						gam.save();
+						console.log("timeout "+gam.id);
 						/*
 						Chessgame.update({id:records[iter].id},{Result:"Both Players Timed Out"},function after2(err2,records2)
 						{
@@ -469,7 +469,7 @@ function timeOutNonMovedGames()
 							}
 						});
 						*/
-				//	},30);	
+					},30,records[iter]);	
 					}
 				}
 				});
