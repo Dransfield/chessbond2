@@ -80,7 +80,7 @@
 			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
 			}
 			
-			initialTimeouts[records[iter].id]=setTimeout(function(gamID)
+			initialTimeouts[records.id]=setTimeout(function(gamID)
 			{
 				console.log("inaction timeout"+gamID);
 				Chessgame.findOne({id:gamID}).exec(function(
