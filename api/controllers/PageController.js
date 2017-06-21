@@ -450,8 +450,8 @@ function timeOutNonMovedGames()
 					exec(function afterwards(err, records){
 				for(iter in records)
 				{
-					if (!records[iter].Result)	
-					{
+					//if (!records[iter].Result)	
+					//{
 					setTimeout(function(gam)
 					{
 						
@@ -470,7 +470,7 @@ function timeOutNonMovedGames()
 						});
 						*/
 					},30,records[iter]);	
-					}
+					//}
 				}
 				});
 	
