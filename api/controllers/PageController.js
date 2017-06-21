@@ -444,6 +444,8 @@ sails.on("lifted",UpdateAccountsMarkedForDeletion);
 sails.on("lifted",UpdateBannedAccounts);
 sails.on("lifted",timeOutNonMovedGames);
 
+var initialTimeouts=[];
+
 function timeOutNonMovedGames()
 {
 						Chessgame.find({Move:1}).
@@ -452,7 +454,7 @@ function timeOutNonMovedGames()
 				{
 					//if (!records[iter].Result)	
 					//{
-					setTimeout(function(gam)
+				initialTimeouts[records[iter].id]=setTimeout(function(gam)
 					{
 						
 						
@@ -880,7 +882,7 @@ deleteopengame:function(req,res){
     chessgamemove:function(req,res){
 	var td=0;
 	console.log("req.param('GameOver')"+req.param('GameOver'));
-	
+	clearTimeout(initialTimeouts[req.param('GameID')]);
 	if (req.param('GameOver')=='true')
 	{
 		
