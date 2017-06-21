@@ -452,8 +452,8 @@ function timeOutNonMovedGames()
 				{
 					if (!records[iter].Result)	
 					{
-					setTimeout(function()
-					{
+					//setTimeout(function()
+					//{
 						
 						
 						records[iter].Result="Both Players Timed Out";
@@ -469,7 +469,7 @@ function timeOutNonMovedGames()
 							}
 						});
 						*/
-					},30);	
+				//	},30);	
 					}
 				}
 				});
