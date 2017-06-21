@@ -469,7 +469,7 @@ function timeOutNonMovedGames()
 							}
 						});
 						*/
-					},30,records[iter]);	
+					},30000,records[iter]);	
 					//}
 				}
 				});
