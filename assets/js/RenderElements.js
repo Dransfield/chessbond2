@@ -1926,7 +1926,7 @@ function showBoardOptions(elem)
 
 }
 
-function showButton(elem,words,btnstyle="btn-success"){
+function showButton(elem,words,btnstyle){
 	
 if(btnstyle === undefined) { btnstyle = "btn-success"; }
 	
