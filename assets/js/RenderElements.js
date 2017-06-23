@@ -1941,10 +1941,12 @@ if(btnstyle === undefined) { btnstyle = "btn-success"; }
 
 }
 
-function showNavbar(elem,usracc,boardscreen=false)
+function showNavbar(elem,usracc,boardscreen)
 {
 
 
+if(boardscreen === undefined) { boardscreen = false; }
+	
 	var plyrName=Accounts[usracc].name;
 
 elem.append(`
