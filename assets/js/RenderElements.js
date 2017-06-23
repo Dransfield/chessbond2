@@ -1927,6 +1927,9 @@ function showBoardOptions(elem)
 }
 
 function showButton(elem,words,btnstyle="btn-success"){
+	
+if(btnstyle === undefined) { btnstyle = "btn-success"; }
+	
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);
 	var btn=$("<span class='"+btnstyle+"' id='button"+ButtonNumber+"'>"+words+"</span>");
