@@ -1293,8 +1293,10 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 }
 
 
-function retrieveAccount(usracc,func,boardscreen=false)
+function retrieveAccount(usracc,func,boardscreen)
 {
+	if(boardscreen === undefined) { boardscreen = false; }
+	
 	var acctPromise = new Promise(function(resolve, reject) {
   io.socket.get('/user/'+usracc,
 		function(usr)

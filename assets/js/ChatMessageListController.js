@@ -3,6 +3,7 @@ angular.module('HomepageModule').controller('ChatMessageListController', ['$scop
 $scope.WallPosts=[];
 
 	$scope.getChatMessages=function(id,skip=0){
+	if(skip === undefined) { skip = 0; }
 	
 	var room="/privateconversation/"+id
 	

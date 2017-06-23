@@ -652,8 +652,12 @@ function showPersonLeft(elem,prsn)
 	elem.scrollTop(elem[0].scrollHeight);
 
 }
-function addFlexDiv(elem,id,direction,wrap='nowrap',jcontent='space-around',aItems='center')
+function addFlexDiv(elem,id,direction,wrap,jcontent='space-around',aItems='center')
 {
+	if(wrap === undefined) { wrap = 'nowrap'; }
+	if(jcontent === undefined) { jcontent = 'space-around'; }
+	if(aitems === undefined) { aItems = 'center'; }
+	
 	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";justify-content:"+jcontent+";align-items:"+aItems+";'></div>")
 	elem.append(flex);
 	return flex;
