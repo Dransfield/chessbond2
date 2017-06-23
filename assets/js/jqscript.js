@@ -1497,9 +1497,11 @@ return NotificationPromise;
 	
 }
 
-function retrieveReports(boardscreen=false)
-
+function retrieveReports(boardscreen)
 {
+	
+if(boardscreen === undefined) { boardscreen = false; }
+	
 var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/commentreport",{},
