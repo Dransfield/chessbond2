@@ -723,9 +723,10 @@ function showImageUploadForm(elem,usracc)
     </form>`);
 
 }
-function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton=false)
+function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton)
 {
-
+if(deletebutton === undefined) { deletebutton = false; }
+	
 	var myColumn=addFlexDiv(elem,45,"column");
 	//console.log("msg.replyto "+msg.replyto);
 
