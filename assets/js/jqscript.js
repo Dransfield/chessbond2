@@ -1735,8 +1735,11 @@ DropDowns[usracc]['BeginFoll']=$("<a id='StartFollowDiv"+usracc+"'>Follow</a>");
 	
 	*/
 }
-function addAccountPromise(usracc,boardscreen=false)
+function addAccountPromise(usracc,boardscreen)
 {
+	
+if(boardscreen === undefined) { boardscreen = false; }
+	
 AccountPromises.push(new Promise((resolve, reject) => {
 	 io.socket.get('/user/'+usracc,
 		function(usr)
