@@ -652,7 +652,7 @@ function showPersonLeft(elem,prsn)
 	elem.scrollTop(elem[0].scrollHeight);
 
 }
-function addFlexDiv(elem,id,direction,wrap,jcontent='space-around',aItems='center')
+function addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 {
 	if(wrap === undefined) { wrap = 'nowrap'; }
 	if(jcontent === undefined) { jcontent = 'space-around'; }

@@ -1472,9 +1472,11 @@ function retrievePrivate()
 	
 }
 
-function retrieveAccounts(boardscreen=false)
+function retrieveAccounts(boardscreen)
 
 {
+	if(boardscreen === undefined) { boardscreen = false; }
+	
 	for (x in AccountsToRetrieve)
 	{
 	console.log("account to retrieve "+AccountsToRetrieve[x]);
