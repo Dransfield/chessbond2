@@ -656,7 +656,7 @@ function addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 {
 	if(wrap === undefined) { wrap = 'nowrap'; }
 	if(jcontent === undefined) { jcontent = 'space-around'; }
-	if(aitems === undefined) { aItems = 'center'; }
+	if(aItems === undefined) { aItems = 'center'; }
 	
 	var flex=$("<div id='"+id+"' style='display:flex;flex-direction:"+direction+";flex-wrap:"+wrap+";justify-content:"+jcontent+";align-items:"+aItems+";'></div>")
 	elem.append(flex);
