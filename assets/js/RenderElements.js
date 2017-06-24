@@ -458,7 +458,9 @@ function showStatGraph(elem)
 		function(i,d){
 			return i+d.Move;
 		},0);
-	
+		
+		console.log("totalWhiteGamesPlayed "+categoryShowString+" "+totalWhiteGamesPlayed[categoryShowString]);
+		
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		{
 			console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
