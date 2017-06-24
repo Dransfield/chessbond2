@@ -461,7 +461,7 @@ function showStatGraph(elem)
 	
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		{
-			console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]);
+			console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
 			if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
 			
