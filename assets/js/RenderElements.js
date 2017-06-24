@@ -486,6 +486,10 @@ function showStatGraph(elem)
 			{
 			return i+d.Player1CategoryELO;	
 			}	
+			else
+			{
+			return i+0;
+			}
 		},0);
 			console.log(totalBlackOppositionRatings[categoryShowString]);
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
@@ -499,8 +503,8 @@ function showStatGraph(elem)
 				}
 				else
 				{
-					totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
-				console.log(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO);
+				totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
+				//console.log(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO);
 				//console.log(JSON.stringify(totalBlackGamesPlayed[categoryShowString][vIter]));
 			
 				}
