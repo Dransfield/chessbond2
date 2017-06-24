@@ -461,16 +461,16 @@ function showStatGraph(elem)
 	
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		
-			if(d.Player1CategoryELO)
+			if(totalWhiteGamesPlayed[categoryShowString].Player1CategoryELO)
 			{
 			
 				if(d.Player1Color=="White")
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player2CategoryELO;
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalWhiteGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
 				}
 				else
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player1CategoryELO;
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
 				}
 			}
 		
@@ -478,16 +478,16 @@ function showStatGraph(elem)
 		
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
 		
-			if(d.Player1CategoryELO)
+			if(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
 			
 				if(d.Player1Color=="Black")
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player2CategoryELO;
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalBlackGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
 				}
 				else
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player1CategoryELO;
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
 				}
 			}
 		
