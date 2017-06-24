@@ -480,10 +480,13 @@ function showStatGraph(elem)
 		
 		console.log("totalBlackGamesPlayed "+categoryShowString+" "+totalBlackGamesPlayed[categoryShowString].length);
 		
-		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(function(i,d)
-		{
-		return i+d.Player1CategoryELO;	
-		});
+		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
+		function(i,d){
+			if(d.Player1CategoryELO)
+			{
+			return i+d.Player1CategoryELO;	
+			}	
+		},0);
 			console.log(totalBlackOppositionRatings[categoryShowString]);
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
 		{
