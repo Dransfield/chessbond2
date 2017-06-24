@@ -493,8 +493,8 @@ function showStatGraph(elem)
 				{
 					totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
 				console.log(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO);
-				console.log(JSON.stringify(totalBlackGamesPlayed[categoryShowString][vIter]));
-				
+				//console.log(JSON.stringify(totalBlackGamesPlayed[categoryShowString][vIter]));
+				console.log(totalBlackOppositionRatings[categoryShowString]);
 				}
 			}
 		
