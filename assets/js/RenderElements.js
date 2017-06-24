@@ -460,7 +460,7 @@ function showStatGraph(elem)
 		},0);
 	
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
-		
+		{
 			if(totalWhiteGamesPlayed[categoryShowString].Player1CategoryELO)
 			{
 			
@@ -477,7 +477,7 @@ function showStatGraph(elem)
 		}
 		
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
-		
+		{
 			if(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
 			
