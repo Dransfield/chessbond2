@@ -465,6 +465,8 @@ function showStatGraph(elem)
 			console.log(i);
 			if(!d.Player1CategoryELO)
 			{return i+0;}
+			if(d.Player1CategoryELO==null)
+			{return i+0;}
 			
 		if(d.Player1Color=="White")
 		{
@@ -481,6 +483,8 @@ function showStatGraph(elem)
 		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 				if(!d.Player1CategoryELO)
+			{return i+0;}
+				if(d.Player1CategoryELO==null)
 			{return i+0;}
 			
 		if(d.Player1Color=="Black")
