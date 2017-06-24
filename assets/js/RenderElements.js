@@ -463,6 +463,7 @@ function showStatGraph(elem)
 		function(i,d){
 		if(d.Player1Color=="White")
 		{
+			console.log(i);
 			return i+d.Player1CategoryELO;
 		}
 		else
