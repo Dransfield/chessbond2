@@ -491,7 +491,7 @@ function showStatGraph(elem)
 		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString].length;
 		
 		averageWhiteOppositionRatings[categoryShowString]=totalWhiteOppositionRatings[categoryShowString]/totalWhiteOppositionRatings[categoryShowString].length;
-		averageBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]/totalBlackGameOppositionRatings[categoryShowString].length;
+		averageBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]/totalBlackOppositionRatings[categoryShowString].length;
 		
 		
 		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
