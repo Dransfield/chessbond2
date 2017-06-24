@@ -459,11 +459,10 @@ function showStatGraph(elem)
 			return i+d.Move;
 		},0);
 		
-		console.log("totalWhiteGamesPlayed "+categoryShowString+" "+totalWhiteGamesPlayed[categoryShowString].length);
 		
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		{
-			console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
+			//console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
 			if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
 			
@@ -479,6 +478,8 @@ function showStatGraph(elem)
 		
 		}
 		
+		console.log("totalBlackGamesPlayed "+categoryShowString+" "+totalBlackGamesPlayed[categoryShowString].length);
+		
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
 		{
 			if(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
@@ -491,6 +492,9 @@ function showStatGraph(elem)
 				else
 				{
 					totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
+				console.log(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO);
+				console.log(JSON.stringify(totalBlackGamesPlayed[categoryShowString][vIter]));
+				
 				}
 			}
 		
