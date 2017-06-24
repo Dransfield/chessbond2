@@ -424,7 +424,9 @@ function showStatGraph(elem)
 	var wonBlackGames=[];
 	var lostWhiteGames=[];
 	var lostBlackGames=[];
-	var averageOppositionRatings=[];
+	var averageWhiteOppositionRatings=[];
+	var averageBlackOppositionRatings=[];
+	
 	var totalWhiteOppositionRatings=[];
 	var totalBlackOppositionRatings=[];
 	
