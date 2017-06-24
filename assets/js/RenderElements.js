@@ -461,16 +461,16 @@ function showStatGraph(elem)
 	
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		{
-			if(totalWhiteGamesPlayed[categoryShowString].Player1CategoryELO)
+			if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
 			
-				if(totalBlackGamesPlayed[categoryShowString][vIter].Player1Color=="White")
+				if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1Color=="White")
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalWhiteGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
+					totalWhiteOppositionRatings[categoryShowString]=totalWhiteOppositionRatings[categoryShowString]+totalWhiteGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
 				}
 				else
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
+					totalWhiteOppositionRatings[categoryShowString]=totalWhiteOppositionRatings[categoryShowString]+totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
 				}
 			}
 		
@@ -483,11 +483,11 @@ function showStatGraph(elem)
 			
 				if(totalBlackGamesPlayed[categoryShowString][vIter].Player1Color=="Black")
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalBlackGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
+					totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
 				}
 				else
 				{
-					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
+					totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO;
 				}
 			}
 		
