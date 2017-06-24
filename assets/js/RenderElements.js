@@ -459,53 +459,40 @@ function showStatGraph(elem)
 			return i+d.Move;
 		},0);
 	
-		totalWhiteOppositionRatings[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
-		function(i,d){
-		console.log("why1"+d.id);
-			console.log(i);
-			if(!d.Player1CategoryELO)
+		for (vIter in totalWhiteGamesPlayed[categoryShowString])
+		
+			if(d.Player1CategoryELO)
 			{
-			console.log("return 1");
 			
-				return i+0;}
-			if(d.Player1CategoryELO==null)
-			{
-				
-			console.log("return 2");
-			
-				return i+0;
+				if(d.Player1Color=="White")
+				{
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player2CategoryELO;
 				}
-			
-		if(d.Player1Color=="White")
-		{
-			console.log(i);
-			return i+d.Player1CategoryELO;
-		}
-		else
-		{
-			return i+d.Player2CategoryELO;
-		}
-		console.log("why2");
-		},0);
+				else
+				{
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player1CategoryELO;
+				}
+			}
 		
-		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
-		function(i,d){
-				if(!d.Player1CategoryELO)
-			{return i+0;}
-				if(d.Player1CategoryELO==null)
-			{return i+0;}
-			
-		if(d.Player1Color=="Black")
-		{
-			return i+d.Player2CategoryELO;
-		}
-		else
-		{
-			return i+d.Player1CategoryELO;
 		}
 		
-		},0);
-	
+		for (vIter in totalBlackGamesPlayed[categoryShowString])
+		
+			if(d.Player1CategoryELO)
+			{
+			
+				if(d.Player1Color=="Black")
+				{
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player2CategoryELO;
+				}
+				else
+				{
+					totalWhiteOppositionRatings[categoryShowString][vIter]=totalWhiteOppositionRatings[categoryShowString][vIter]+d.Player1CategoryELO;
+				}
+			}
+		
+		}
+		
 		
 		averageWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString].length;
 		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString].length;
