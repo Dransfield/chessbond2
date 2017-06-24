@@ -480,7 +480,7 @@ function showStatGraph(elem)
 		
 		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
-				if(!d.d.Player1CategoryELO)
+				if(!d.Player1CategoryELO)
 			{return i+0;}
 			
 		if(d.Player1Color=="Black")
