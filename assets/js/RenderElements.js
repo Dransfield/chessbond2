@@ -461,7 +461,7 @@ function showStatGraph(elem)
 	
 		totalWhiteOppositionRatings[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
 		function(i,d){
-		console.log("why");
+		console.log("why"+d.id);
 			console.log(i);
 		if(d.Player1Color=="White")
 		{
