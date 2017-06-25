@@ -582,8 +582,8 @@ module.exports = {
 
 			newdate = day+ "/"+month+"/"+year ;
 		   
-		    console.log("req.connection.remoteAddress"+req.connection.remoteAddress);
-		   console.log("req.ips"+req.ips);
+		    console.log("req.connection"+req.connection);
+		   console.log("req.header('x-forwarded-for') "+req.header('x-forwarded-for') );
 		   Sitevisit.findOrCreate({visitorIP:req.ip,visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitorIP:req.ip,visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},function(res,data)
 		   {
 			   console.log(data.visitorIP);
