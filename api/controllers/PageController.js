@@ -584,7 +584,7 @@ module.exports = {
 		   
 		   
 		   
-		   Sitevisit.findOrCreate({visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('UserID')},function(res,data)
+		   Sitevisit.findOrCreate({visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},function(res,data)
 		   {
 			   console.log(data);
 			});
