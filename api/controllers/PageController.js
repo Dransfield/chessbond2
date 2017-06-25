@@ -583,7 +583,7 @@ module.exports = {
 			newdate = day+ "/"+month+"/"+year ;
 		   
 		    console.log("req.ip"+req.ip);
-		   
+		   console.log("req.ips"+req.ips);
 		   Sitevisit.findOrCreate({visitorIP:req.ip,visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitorIP:req.ip,visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},function(res,data)
 		   {
 			   console.log(data.visitorIP);
