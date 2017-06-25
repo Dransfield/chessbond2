@@ -1337,6 +1337,16 @@ else
 
 }
 
+function showVisitorsGraph(elem)
+{
+	
+	var	reportDiv=addDiv(elem);
+	reportDiv.attr("class","statsGrid");
+	var titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Game Category");
+	titleSpan.attr("class","statsGridTitle");
+	
+}
 
 function showsmallAvatar(elem,usracc)
 
