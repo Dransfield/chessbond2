@@ -581,11 +581,10 @@ module.exports = {
 			var year = dateObj.getUTCFullYear();
 
 			newdate = day+ "/"+month+"/"+year ;
-		   console.log(newdate);
 		   
 		   
 		   
-		   Sitevisit.findOrCreate({visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('UserID')},{visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('UserID')},function(res,data)
+		   Sitevisit.findOrCreate({visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('UserID')},function(res,data)
 		   {
 			   console.log(data);
 			});
