@@ -202,6 +202,8 @@ var NavbarDropDown;
 			console.log(JSON.stringify(resData));
 			});
 		
+			
+		
 		$("#mousemove").mousemove(function()
 	{
 		
@@ -533,7 +535,7 @@ function setupProfilePage()
 			console.log(JSON.stringify(resData));
 			});
 	
-	io.socket.put('/LookedAtProfile',{userID:ProfID},
+	io.socket.put('/LookedAtProfile',{userID:ProfID,visitor:MyID},
 		function  (data){
 		
 		});

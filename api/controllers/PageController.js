@@ -574,6 +574,22 @@ module.exports = {
 	LookedAtProfile:function(req,res){
 	   if (req.param('userID'))
 	   {
+		   
+		   	var dateObj=new Date(Date.now());
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+
+			newdate = day+ "/"+month+"/"+year ;
+		   console.log(newdate);
+		   
+		   
+		   
+		   Sitevisit.findOrCreate({visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('UserID')},{visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('UserID')},function(res,data)
+		   {
+			   console.log(data);
+			});
+		   
 	    User.findOne({
       id: req.param('userID')
 	},function foundUser(err,user){
