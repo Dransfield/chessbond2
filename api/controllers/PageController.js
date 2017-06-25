@@ -582,7 +582,7 @@ module.exports = {
 
 			newdate = day+ "/"+month+"/"+year ;
 		   
-		   
+		    console.log("req.ip"+req.ip);
 		   
 		   Sitevisit.findOrCreate({visitorIP:req.ip,visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitorIP:req.ip,visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},function(res,data)
 		   {
