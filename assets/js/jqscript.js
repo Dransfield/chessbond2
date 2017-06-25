@@ -535,7 +535,7 @@ function setupProfilePage()
 			console.log(JSON.stringify(resData));
 			});
 	
-	io.socket.put('/LookedAtProfile',{userID:ProfID,visitor:MyID},
+	io.socket.put('/LookedAtProfile',{userID:ProfID,visitor:MyID,myip:ipadd},
 		function  (data){
 		
 		});
