@@ -145,9 +145,9 @@ grid-template-columns:
 [loggedintime] 1fr;
 grid-template-rows:
 [titlerow]   1fr
-[1] 1fr
-[2] 1fr
-[3] 1fr
+[one] 1fr
+[two] 1fr
+[three] 1fr
 [4] 1fr
 [5] 1fr
 [6] 1fr

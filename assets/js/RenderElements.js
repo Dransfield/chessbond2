@@ -1382,14 +1382,25 @@ function showVisitorsGraph(elem)
 	titleSpan.attr("class","statsGridTitle");
 	titleSpan.css("grid-column","loggedintime");
 	
-for(rankIter=1;rankIter<26;rankIter++)
-	{
+
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(rankIter.toString());
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
-			cellSpan.css("grid-row",rankIter);
-	}
+			cellSpan.css("grid-row","one");
+	
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(rankIter.toString());
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","position");
+			cellSpan.css("grid-row","two");
+	
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(rankIter.toString());
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","position");
+			cellSpan.css("grid-row","three");
+	
 
 }
 
