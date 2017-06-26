@@ -1509,7 +1509,7 @@ function retrieveVisits()
 	
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/sitevisit",{limit:25,orderBy:"createdAt DESC"},
+		io.socket.get("/sitevisit",{limit:25,order:"createdAt DESC"},
 		function (resData,jwres){
 			for (x in resData)
 			{
