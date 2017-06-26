@@ -1424,7 +1424,7 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-column","visitor");
 			cellSpan.css("grid-row","r"+rowIter);
 			
-			$.Get( "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,function(){
+			jQuery.Get( "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,function(){
 		console.log(data);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
