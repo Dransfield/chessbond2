@@ -134,6 +134,7 @@ padding:5px;
 .visitorsGrid
 {
 display:grid;
+ grid-row-gap: 2px;
 grid-template-columns:
 [position] 1fr
 [visitor] 1fr
