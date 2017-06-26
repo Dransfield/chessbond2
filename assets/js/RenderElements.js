@@ -1384,19 +1384,19 @@ function showVisitorsGraph(elem)
 	
 
 			var cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(rankIter.toString());
+			cellSpan.append("1");
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","one");
 	
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(rankIter.toString());
+			cellSpan.append("2");
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","two");
 	
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(rankIter.toString());
+			cellSpan.append("3");
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","three");
