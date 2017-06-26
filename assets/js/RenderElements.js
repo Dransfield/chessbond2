@@ -1343,9 +1343,38 @@ function showVisitorsGraph(elem)
 	var	reportDiv=addDiv(elem);
 	reportDiv.attr("class","statsGrid");
 	var titleSpan=addSpan(reportDiv,"");
-	titleSpan.append("Game Category");
+	titleSpan.append("Order of Visit");
 	titleSpan.attr("class","statsGridTitle");
 	
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Visitor");
+	titleSpan.attr("class","statsGridTitle");
+	
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Date");
+	titleSpan.attr("class","statsGridTitle");
+	
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("IP Address");
+	titleSpan.attr("class","statsGridTitle");
+	
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Location");
+	titleSpan.attr("class","statsGridTitle");
+
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Time of Login");
+	titleSpan.attr("class","statsGridTitle");
+
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Time of Logout");
+	titleSpan.attr("class","statsGridTitle");
+
+
+	titleSpan=addSpan(reportDiv,"");
+	titleSpan.append("Length of Time Loggedin");
+	titleSpan.attr("class","statsGridTitle");
+
 }
 
 function showsmallAvatar(elem,usracc)
