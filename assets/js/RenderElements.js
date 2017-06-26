@@ -1387,16 +1387,19 @@ function showVisitorsGraph(elem,data)
 		if(data[rowIter])
 		{
 			var cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(rowIter+data[rowIter].visitorIP);
+			cellSpan.append(rowIter);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+rowIter);
 			
+			if(data[rowIter].visitorIP)
+			{
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data[rowIter].visitorIP);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","ipaddress");
 			cellSpan.css("grid-row","r"+rowIter);
+			}
 		}
 	}
 		
