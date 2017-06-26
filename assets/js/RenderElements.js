@@ -1341,7 +1341,7 @@ function showVisitorsGraph(elem)
 {
 	
 	var	reportDiv=addDiv(elem);
-	reportDiv.attr("class","statsGrid");
+	reportDiv.attr("class","visitorsGrid");
 	var titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Order of Visit");
 	titleSpan.attr("class","statsGridTitle");
