@@ -1418,10 +1418,10 @@ function showVisitorsGraph(elem,data)
 			cellSpan.append("anonymous");
 			}
 			
-			io.socket.get("https://freegeoip.net/json/"+Visits[rowIter].visitorIP,function(res,data)
-			{
-			console.log(data);
-			});
+			var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "https://freegeoip.net/json/"+Visits[rowIter].visitorIP, false);
+  xhttp.send();
+  console.log(xhttp.responseText);
 			
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
