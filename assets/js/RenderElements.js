@@ -1432,7 +1432,8 @@ function showVisitorsGraph(elem,data)
 				}).done(function(data){
 				if(data)
 				{
-					console.log($(this));
+					console.log($(this[0]));
+					console.log($(this)[0]);
 		console.log(data.country_name);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
