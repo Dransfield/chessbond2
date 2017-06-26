@@ -887,7 +887,10 @@ function setupProfilePage()
 			
 			);
 		}
-		showVisitorsGraph(leftright);
+		io.socket.get("/sitevisit?limit=25&?sort=createdAt%20ASC",,
+	function (resData,jwres){
+		showVisitorsGraph(leftright,resData);
+		});
 			var games=3;
 			showRecentGames(leftcol,ProfID);
 			leftcol.css("align-items","flex-start");
