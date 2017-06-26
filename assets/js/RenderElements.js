@@ -1381,7 +1381,7 @@ for(rankIter=0;rankIter<26;rankIter++)
 			cellSpan.append(rankIter);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
-			cellSpan.css("grid-row",rankIter);
+			//cellSpan.css("grid-row",rankIter);
 	}
 
 }
