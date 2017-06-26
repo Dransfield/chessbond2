@@ -1425,7 +1425,7 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-row","r"+rowIter);
 			
 			$.ajax({url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP}).done(function(data){
-		console.log(data);
+		console.log(data.country_name);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
 			cellSpan.attr("class","lightgreyGridCell");
