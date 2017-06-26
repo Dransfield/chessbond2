@@ -1426,16 +1426,16 @@ function showVisitorsGraph(elem,data)
 			if(Visits[rowIter].visitorIP)
 			{
 				console.log(Visits[rowIter].visitorIP);
-			$.ajax({url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP}).done(function(data){
+			$.ajax({url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP},context:rowIter).done(function(data){
 				if(data)
 				{
-					console.log(rowIter);
+					console.log($(this));
 		console.log(data.country_name);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","location");
-			cellSpan.css("grid-row","r"+rowIter);
+			cellSpan.css("grid-row","r"+$(this));
 		}
 		});
 		}
