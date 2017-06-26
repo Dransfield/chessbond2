@@ -1391,6 +1391,12 @@ function showVisitorsGraph(elem,data)
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+rowIter);
+			
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(data[rowIter].visitorIP);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","ipaddress");
+			cellSpan.css("grid-row","r"+rowIter);
 		}
 	}
 		
