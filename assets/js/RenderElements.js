@@ -1411,7 +1411,7 @@ function showVisitorsGraph(elem,data)
 			if(Visits[rowIter].visitor)
 			{
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[Visits[rowIter].visitor]);
+			cellSpan.append(Accounts[Visits[rowIter].visitor].name);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
 			cellSpan.css("grid-row","r"+rowIter);
