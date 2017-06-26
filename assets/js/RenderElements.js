@@ -1345,6 +1345,7 @@ function showVisitorsGraph(elem)
 	var titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Order of Visit");
 	titleSpan.attr("class","statsGridTitle");
+	titleSpan.css("grid-column","position");
 	
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Visitor");
@@ -1375,7 +1376,7 @@ function showVisitorsGraph(elem)
 	titleSpan.append("Length of Time Loggedin");
 	titleSpan.attr("class","statsGridTitle");
 
-for(rankIter=0;rankIter<26;rankIter++)
+for(rankIter=1;rankIter<26;rankIter++)
 	{
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(rankIter);
