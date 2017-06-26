@@ -1350,32 +1350,38 @@ function showVisitorsGraph(elem)
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Visitor");
 	titleSpan.attr("class","statsGridTitle");
+	titleSpan.css("grid-column","visitor");
 	
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Date");
 	titleSpan.attr("class","statsGridTitle");
+	titleSpan.css("grid-column","date");
 	
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("IP Address");
 	titleSpan.attr("class","statsGridTitle");
+	titleSpan.css("grid-column","ipaddress");
 	
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Location");
 	titleSpan.attr("class","statsGridTitle");
-
+	titleSpan.css("grid-column","location");
+	
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Time of Login");
 	titleSpan.attr("class","statsGridTitle");
+	titleSpan.css("grid-column","logintime");
 
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Time of Logout");
 	titleSpan.attr("class","statsGridTitle");
-
+	titleSpan.css("grid-column","logouttime");
 
 	titleSpan=addSpan(reportDiv,"");
 	titleSpan.append("Length of Time Loggedin");
 	titleSpan.attr("class","statsGridTitle");
-
+	titleSpan.css("grid-column","loggedintime");
+	
 for(rankIter=1;rankIter<26;rankIter++)
 	{
 			cellSpan=addSpan(reportDiv,"");
