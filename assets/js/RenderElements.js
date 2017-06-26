@@ -1418,13 +1418,22 @@ function showVisitorsGraph(elem,data)
 			cellSpan.append("anonymous");
 			}
 			
-	$.Get( "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,function(){
-		console.log(data);
-		});
+	
   
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
 			cellSpan.css("grid-row","r"+rowIter);
+			
+			$.Get( "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,function(){
+		console.log(data);
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(data.country_name+":"+data.city);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","location");
+			cellSpan.css("grid-row","r"+rowIter);
+		
+		});
+			
 		}
 	}
 		
