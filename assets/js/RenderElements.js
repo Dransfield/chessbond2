@@ -1384,12 +1384,14 @@ function showVisitorsGraph(elem,data)
 	
 	for(rowIter=1;rowIter<26;rowIter++)
 	{
+		if(data[rowIter])
+		{
 			var cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(rowIter+data[rowIter].ipaddress);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+rowIter);
-	
+		}
 	}
 		
 	
