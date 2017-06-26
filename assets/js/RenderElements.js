@@ -1375,6 +1375,15 @@ function showVisitorsGraph(elem)
 	titleSpan.append("Length of Time Loggedin");
 	titleSpan.attr("class","statsGridTitle");
 
+for(rankIter=0;rankIter<26;rankIter++)
+	{
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(rankIter);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","position");
+			cellSpan.css("grid-row",rankIter);
+	}
+
 }
 
 function showsmallAvatar(elem,usracc)
