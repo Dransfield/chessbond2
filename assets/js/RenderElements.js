@@ -1423,7 +1423,8 @@ function showVisitorsGraph(elem,data)
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
 			cellSpan.css("grid-row","r"+rowIter);
-			
+			if(Visits[rowIter].visitorIP)
+			{
 			$.ajax({url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP}).done(function(data){
 				if(data)
 				{
@@ -1435,6 +1436,7 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-row","r"+rowIter);
 		}
 		});
+		}
 			
 		}
 	}
