@@ -1432,14 +1432,14 @@ function showVisitorsGraph(elem,data)
 				}).done(function(data){
 				if(data)
 				{
-					console.log($(this[0]));
+					
 					console.log($(this)[0]);
 		console.log(data.country_name);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","location");
-			cellSpan.css("grid-row","r"+$(this));
+			cellSpan.css("grid-row","r"+$(this)[0]);
 		}
 		});
 		}
