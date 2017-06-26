@@ -1385,7 +1385,7 @@ function showVisitorsGraph(elem)
 for(rankIter=1;rankIter<26;rankIter++)
 	{
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(rankIter);
+			cellSpan.append(rankIter.toString());
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			//cellSpan.css("grid-row",rankIter);
