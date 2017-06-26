@@ -1425,13 +1425,15 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-row","r"+rowIter);
 			
 			$.ajax({url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP}).done(function(data){
+				if(data)
+				{
 		console.log(data.country_name);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","location");
 			cellSpan.css("grid-row","r"+rowIter);
-		
+		}
 		});
 			
 		}
