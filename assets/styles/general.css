@@ -145,7 +145,32 @@ grid-template-columns:
 [loggedintime] 1fr;
 grid-template-rows:
 [titlerow]   1fr
-repeat(25,1fr);
+[1] 1fr
+[2] 1fr
+[3] 1fr
+[4] 1fr
+[5] 1fr
+[6] 1fr
+[7] 1fr
+[8] 1fr
+[9] 1fr
+[10] 1fr
+[11] 1fr
+[12] 1fr
+[13] 1fr
+[14] 1fr
+[15] 1fr
+[16] 1fr
+[17] 1fr
+[18] 1fr
+[19] 1fr
+[20] 1fr
+[21] 1fr
+[22] 1fr
+[23] 1fr
+[24] 1fr
+[25] 1fr
+
 
 }
 .statsGrid
