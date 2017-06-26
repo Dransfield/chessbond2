@@ -152,24 +152,24 @@ grid-template-rows:
 [r5] 1fr
 [r6] 1fr
 [r7] 1fr
-[8] 1fr
-[9] 1fr
-[10] 1fr
-[11] 1fr
-[12] 1fr
-[13] 1fr
-[14] 1fr
-[15] 1fr
-[16] 1fr
-[17] 1fr
-[18] 1fr
-[19] 1fr
-[20] 1fr
-[21] 1fr
-[22] 1fr
-[23] 1fr
-[24] 1fr
-[25] 1fr;
+[r8] 1fr
+[r9] 1fr
+[r10] 1fr
+[r11] 1fr
+[r12] 1fr
+[r13] 1fr
+[r14] 1fr
+[r15] 1fr
+[r16] 1fr
+[r17] 1fr
+[r18] 1fr
+[r19] 1fr
+[r20] 1fr
+[r21] 1fr
+[r22] 1fr
+[r23] 1fr
+[r24] 1fr
+[r25] 1fr;
 
 }
 .statsGrid
