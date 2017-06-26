@@ -127,8 +127,26 @@ padding:5px;
   border-right-style:solid;
   //border-radius: 15px;
   text-align:center;
-  box-shadow: 10px 10px lightblue;
+  //box-shadow: 10px 10px lightblue;
   color:white;
+}
+
+.visitorsGrid
+{
+display:grid;
+grid-template-columns:
+[position] 1fr
+[visitor] 1fr
+[date] 1fr
+[ipaddress] 1fr
+[location] 1fr
+[logintime] 1fr
+[logouttime] 1fr
+[loggedintime] 1fr;
+grid-template-rows:
+[titlerow]   1fr
+repeat(25,1fr);
+;
 }
 .statsGrid
 {
