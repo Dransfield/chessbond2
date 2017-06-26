@@ -1426,7 +1426,10 @@ function showVisitorsGraph(elem,data)
 			if(Visits[rowIter].visitorIP)
 			{
 				console.log(Visits[rowIter].visitorIP);
-			$.ajax({url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,context:rowIter}).done(function(data){
+			$.ajax({
+				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
+				context:rowIter
+				}).done(function(data){
 				if(data)
 				{
 					console.log($(this));
