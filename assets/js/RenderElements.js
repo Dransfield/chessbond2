@@ -1384,7 +1384,7 @@ function showVisitorsGraph(elem,data)
 	
 	for(rowIter=1;rowIter<26;rowIter++)
 	{
-		if(data[rowIter])
+		if(Visits[rowIter])
 		{
 			var cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(rowIter);
@@ -1392,12 +1392,20 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+rowIter);
 			
-			if(data[rowIter].visitorIP)
+			if(Visits[rowIter].visitorIP)
 			{
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(data[rowIter].visitorIP);
+			cellSpan.append(Visits[rowIter].visitorIP);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","ipaddress");
+			cellSpan.css("grid-row","r"+rowIter);
+			}
+			if(Visits[rowIter].visitDate)
+			{
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(Visits[rowIter].visitDate);
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","date");
 			cellSpan.css("grid-row","r"+rowIter);
 			}
 		}

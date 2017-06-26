@@ -22,6 +22,7 @@ var soundVolume=5;
 var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
+var Visits=[];
 var NavbarDropDown;
 		subscribeToMandatoryRooms()
 			var myStatus;
@@ -540,7 +541,7 @@ function setupProfilePage()
 		
 		});
 	
-			
+			retrieveVisits().then(function(){
 	retrieveBannedWords().then(function(){
 				retrieveGames([ProfID]).then(function(){
 					retrieveAccounts().then(function()
@@ -887,11 +888,11 @@ function setupProfilePage()
 			
 			);
 		}
-		io.socket.get("/sitevisit?limit=25&sort=createdAt%20DESC",
-	function (resData,jwres){
-		console.log(resData);
-		showVisitorsGraph(leftright,resData);
-		});
+	//	io.socket.get("/sitevisit?limit=25&sort=createdAt%20DESC",
+//	function (resData,jwres){
+	//	console.log(resData);
+		showVisitorsGraph(leftright);//,resData);
+		//});
 			var games=3;
 			showRecentGames(leftcol,ProfID);
 			leftcol.css("align-items","flex-start");
@@ -953,13 +954,12 @@ function setupProfilePage()
 		{
 			console.log("IM INVISIBLE");
 		}
+						});
+					});
+				});
 			});
-			
 		});
-		});
-		});
-		});
-		
+	});
 }
 
 function retrievePrivatesandFollows()
@@ -1502,6 +1502,27 @@ function retrieveNotifications()
 	addNotificationPromises();
 return NotificationPromise;
 	
+}
+
+function retrieveVisits()
+{
+	
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/sitevisit",{limit:25,orderBy:"createdAt DESC"},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			Visits.push(resData[x]);	
+			AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
+			AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
+			
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
 }
 
 function retrieveReports(boardscreen)
