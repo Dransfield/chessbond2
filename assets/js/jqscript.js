@@ -887,7 +887,7 @@ function setupProfilePage()
 			
 			);
 		}
-		io.socket.get("/sitevisit?limit=25&?sort=createdAt%20ASC",,
+		io.socket.get("/sitevisit?limit=25&?sort=createdAt%20ASC",
 	function (resData,jwres){
 		showVisitorsGraph(leftright,resData);
 		});
