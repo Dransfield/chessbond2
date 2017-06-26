@@ -1408,14 +1408,19 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-column","date");
 			cellSpan.css("grid-row","r"+rowIter);
 			}
-			if(Visits[rowIter].visitor)
-			{
 			cellSpan=addSpan(reportDiv,"");
+			if(Visits[rowIter].visitor)
+			{	
 			cellSpan.append(Accounts[Visits[rowIter].visitor].name);
+			}
+			else
+			{	
+			cellSpan.append("anonymous");
+			}
+			
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
 			cellSpan.css("grid-row","r"+rowIter);
-			}
 		}
 	}
 		
