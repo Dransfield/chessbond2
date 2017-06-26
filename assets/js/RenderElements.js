@@ -1383,7 +1383,7 @@ function showVisitorsGraph(elem)
 	titleSpan.css("grid-column","loggedintime");
 	
 
-			cellSpan=addSpan(reportDiv,"");
+			var cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(rankIter.toString());
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
