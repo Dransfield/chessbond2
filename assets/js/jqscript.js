@@ -780,39 +780,51 @@ function setupProfilePage()
 			
 				var block2=addFlexDiv(tbl,two+"city","row","wrap","space-between");
 				
-				if (bckgrd==0)
-				{block2.css("background-color","#e0e0eb");}
+					if (bckgrd==0)
+					{
+					block2.css("background-color","#e0e0eb");
+					}
+					
 				var resultSpan=addSpan(block2);
 				var inp=showInput(block2);	
-				inp.keydown(function(event)
-				{
-				console.log("changed text input"+$(this).val()+event.key);
-				getCities($(this).val()+event.key).then(values=>{
-					console.log("promise resolved");
-				console.log(JSON.stringify(values));
+					inp.keydown({inny:myinput},function(event)
+					{
+						try{
+							setTimeout(function(){
+							console.log("changed text input"+event.data.inny.val());
+								getCities(event.data.inny.val()).then(values=>{
+								
+								console.log("promise resolved");
+								console.log(JSON.stringify(values));
 				
-				var cityarr=[];
-				for (myiter in values)
-				{
-				cityarr.push(values[myiter].city);
-				}
-				resultSpan.empty();
-				var citysel=showSelect(resultSpan,cityarr,cityarr,"matched cities")
-				
-				
-				citysel.change(function(){
-				myspan.html(JSON.parse(citysel.val()));	
-				Accounts[ProfID]['CurrentCity']=JSON.parse(citysel.val());
-				updateAccountInfo('CurrentCity',MyID);
-				});
-				
-				
-				});
-				
-				});
+								var cityarr=[];
+									for (myiter in values)
+									{
+									cityarr.push(values[myiter].city);
+									}
+										
+								resultSpan.empty();
+								var citysel=showSelect(resultSpan,cityarr,cityarr,"matched cities")
+									citysel.change(function(){
+											
+									myspan.html(JSON.parse(citysel.val()));	
+									Accounts[ProfID]['CurrentCity']=JSON.parse(citysel.val());
+									updateAccountInfo('CurrentCity',MyID);
+									});
+								});
+							
+							},70);
+						}
 					
+						catch(err)
+						{
+						io.socket.post("/recenterror",{msg:err.message,line:err.lineNumber,thefile:err.fileName},function(res1,res2)
+						{});
+						}
+						finally {
+						}
+					});
 				}
-			
 			if (texteditable==1)
 			{
 			
