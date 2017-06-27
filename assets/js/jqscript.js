@@ -786,7 +786,9 @@ function setupProfilePage()
 					}
 					
 				var resultSpan=addSpan(block2);
-				var inp=showInput(block2);	
+			//	var inp=showInput(block2);	
+			var inp=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+				block2.append(inp);
 					inp.keydown({inny:inp},function(event)
 					{
 						try{
@@ -1951,7 +1953,7 @@ function getCities(TypedCity)
 ((resolve, reject) => {
 io.socket.get("/city",{where:{'city':{'startsWith':TypedCity}}},
 	function (resData,jwres){
-		console.log(resData);
+		//console.log(resData);
 		//console.log($scope.TypedCity);
 		for (x in resData)
 		{
