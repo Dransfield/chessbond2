@@ -787,7 +787,7 @@ function setupProfilePage()
 					
 				var resultSpan=addSpan(block2);
 				var inp=showInput(block2);	
-					inp.keydown({inny:myinput},function(event)
+					inp.keydown({inny:inp},function(event)
 					{
 						try{
 							setTimeout(function(){
