@@ -152,7 +152,7 @@ function timeOfDayForDate(dat)
 			var hour = nu.getUTCHours() + 1; //months from 1-12
 			var minute = nu.getUTCMinutes();
 			var second = nu.getUTCSeconds();
-	return hour+":"+minute+":"+second;
+	return hour+":"+minute+":"+second+" UTC (London Time)";
 }
 
 function phraseforloggedindate(dat)
