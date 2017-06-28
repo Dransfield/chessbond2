@@ -2366,11 +2366,12 @@ function visitNotification(event)
 {
 	for (notIter in Notifications)
 	{
-		console.log(Notifications[notIter].adr);
-		console.log(event.data.thisadr);
+		console.log("1"+Notifications[notIter].adr);
+		console.log("2"+event.data.thisadr);
 		
 		if(Notifications[notIter].adr==event.data.thisadr)
 		{
+			console.log("ITS A MATCH "+event.data.thisadr);
 			io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
 			{
 
