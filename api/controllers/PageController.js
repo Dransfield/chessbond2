@@ -587,7 +587,9 @@ module.exports = {
 		   Sitevisit.findOrCreate({visitorIP:req.param('myip'),visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},{visitorIP:req.param('myip'),visitDate:newdate,visitor:req.param('visitor'),profileOwner:req.param('userID')},function(res,data)
 		   {
 			   console.log(data.visitorIP);
-			   data.update({lastvisit:Date.now()});
+			   Sitevisit.update({id:data.id},{lastvisit:Date.now()},function(res,data)
+			   {
+			   });
 			   console.log(req.param('myip'));
 			});
 		   
