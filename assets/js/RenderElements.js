@@ -174,7 +174,7 @@ function differenceBetweenTwoDates(dat1,dat2)
 			{
 
 				newnum=newnum/1000;
-			//	console.log("newnum after 1000 "+newnum);
+				console.log("newnum after 1000 "+newnum);
 		if (newnum<60)
 		{
 		if (newnum<0)
@@ -184,7 +184,7 @@ function differenceBetweenTwoDates(dat1,dat2)
 		else
 		{
 		newnum=newnum/60;
-		//console.log("newnum after  60"+newnum);
+		console.log("newnum after  60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" minutes";
@@ -192,14 +192,14 @@ function differenceBetweenTwoDates(dat1,dat2)
 		else
 		{
 		newnum=newnum/60;
-		//console.log("newnum after another 60"+newnum);
+		console.log("newnum after another 60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" hours";
 		}
 		else
 		{
-			//console.log("newnum after  24 "+newnum);
+		console.log("newnum after  24 "+newnum);
 		newnum=newnum/24;
 
 		phrase=parseInt(newnum)+" days";
@@ -217,12 +217,12 @@ function phraseforloggedindate(dat)
 		{
 			//console.log("nu "+nu);
 			var nu=Date.parse(dat);
-			console.log(nu);
+			//console.log(nu);
 			//console.log(console.log(nu));
 
 			var n = Date.now();
 			var newnum=n-nu;
-			console.log('newnum '+newnum);
+			//console.log('newnum '+newnum);
 			var millisecondsinaday=(24*(60*(60*(1000))));
 		//	console.log("millisecondsinaday "+millisecondsinaday);
 			if (newnum<millisecondsinaday)
@@ -239,7 +239,7 @@ function phraseforloggedindate(dat)
 		else
 		{
 		newnum=newnum/60;
-		console.log("newnum after  60"+newnum);
+		//console.log("newnum after  60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" minutes ago";
@@ -247,14 +247,14 @@ function phraseforloggedindate(dat)
 		else
 		{
 		newnum=newnum/60;
-		console.log("newnum after another 60"+newnum);
+		//console.log("newnum after another 60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" hours ago";
 		}
 		else
 		{
-			console.log("newnum after  24 "+newnum);
+			//console.log("newnum after  24 "+newnum);
 		newnum=newnum/24;
 
 		phrase=parseInt(newnum)+" days ago";
