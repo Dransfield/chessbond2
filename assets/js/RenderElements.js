@@ -145,6 +145,16 @@ function showRematchButton()
 
 }
 
+function timeOfDayForDate(dat)
+{
+	
+	var nu=new Date(dat);
+			var hour = nu.getUTCHours() + 1; //months from 1-12
+			var minute = nu.getUTCMinutes();
+			var second = nu.getUTCSeconds();
+	return hour+":"+minute+":"+second;
+}
+
 function phraseforloggedindate(dat)
 		{
 			//console.log("nu "+nu);
@@ -1391,6 +1401,14 @@ function showVisitorsGraph(elem,data)
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+(rowIter+1));
+			
+			
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(timeOfDayForDate(Visits[rowIter].createdAt));
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","logintime");
+			cellSpan.css("grid-row","r"+(rowIter+1));
+			
 			
 			if(Visits[rowIter].visitorIP)
 			{
