@@ -2374,7 +2374,9 @@ function visitNotification(event)
 			console.log("ITS A MATCH "+event.data.thisadr);
 			io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
 			{
+			console.log(JSON.stringify(reRes));
 
+			console.log(JSON.stringify(resData));
 
 			});
 		}
