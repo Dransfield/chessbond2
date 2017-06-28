@@ -170,8 +170,7 @@ function differenceBetweenTwoDates(dat1,dat2)
 	
 	var millisecondsinaday=(24*(60*(60*(1000))));
 			//console.log("millisecondsinaday "+millisecondsinaday);
-			if (newnum<millisecondsinaday)
-			{
+			
 
 				newnum=newnum/1000;
 				console.log("newnum after 1000 "+newnum);
