@@ -161,6 +161,58 @@ function timeOfDayForDate(dat)
 	return hour+":"+minutestring+":"+secondstring+" UTC (London Time)";
 }
 
+function differenceBetweenTwoDates(dat1,dat2)
+{
+	
+	var nu1=Date.parse(dat1);
+	var nu2=Date.parse(dat2);
+	var newnum=nu2-nu1;
+	
+	var millisecondsinaday=(24*(60*(60*(1000))));
+			//console.log("millisecondsinaday "+millisecondsinaday);
+			if (newnum<millisecondsinaday)
+			{
+
+				newnum=newnum/1000;
+			//	console.log("newnum after 1000 "+newnum);
+		if (newnum<60)
+		{
+		if (newnum<0)
+		{newnum=0;}
+		phrase=parseInt(newnum)+" seconds ";
+		}
+		else
+		{
+		newnum=newnum/60;
+		//console.log("newnum after  60"+newnum);
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" minutes";
+		}
+		else
+		{
+		newnum=newnum/60;
+		//console.log("newnum after another 60"+newnum);
+		if (newnum<60)
+		{
+		phrase=parseInt(newnum)+" hours";
+		}
+		else
+		{
+			//console.log("newnum after  24 "+newnum);
+		newnum=newnum/24;
+
+		phrase=parseInt(newnum)+" days";
+
+		}
+
+		}
+
+		}
+		return phrase;
+			
+}
+
 function phraseforloggedindate(dat)
 		{
 			//console.log("nu "+nu);
@@ -172,12 +224,12 @@ function phraseforloggedindate(dat)
 			var newnum=n-nu;
 			console.log('newnum '+newnum);
 			var millisecondsinaday=(24*(60*(60*(1000))));
-			console.log("millisecondsinaday "+millisecondsinaday);
+		//	console.log("millisecondsinaday "+millisecondsinaday);
 			if (newnum<millisecondsinaday)
 			{
 
 				newnum=newnum/1000;
-				console.log("newnum after 1000 "+newnum);
+				//console.log("newnum after 1000 "+newnum);
 		if (newnum<60)
 		{
 		if (newnum<0)
@@ -1420,6 +1472,15 @@ function showVisitorsGraph(elem,data)
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","logouttime");
 			cellSpan.css("grid-row","r"+(rowIter+1));
+			
+			
+			
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(differenceBetweenTwoDates(Visits[rowIter].createdAt,Visits[rowIter].updatedAt)));
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","loggedintime");
+			cellSpan.css("grid-row","r"+(rowIter+1));
+			
 			
 			if(Visits[rowIter].visitorIP)
 			{
