@@ -1387,7 +1387,7 @@ function showVisitorsGraph(elem,data)
 		if(Visits[rowIter])
 		{
 			var cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(rowIter);
+			cellSpan.append((rowIter+1));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+(rowIter+1));
