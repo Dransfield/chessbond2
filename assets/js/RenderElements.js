@@ -2366,6 +2366,9 @@ function visitNotification(event)
 {
 	for (notIter in Notifications)
 	{
+		console.log(Notifications[notIter].adr);
+		console.log(event.data.thisadr);
+		
 		if(Notifications[notIter].adr==event.data.thisadr)
 		{
 			io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
