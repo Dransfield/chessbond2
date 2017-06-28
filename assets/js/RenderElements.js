@@ -1390,7 +1390,7 @@ function showVisitorsGraph(elem,data)
 			cellSpan.append(rowIter);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
-			cellSpan.css("grid-row","r"+rowIter+1);
+			cellSpan.css("grid-row","r"+(rowIter+1));
 			
 			if(Visits[rowIter].visitorIP)
 			{
@@ -1398,7 +1398,7 @@ function showVisitorsGraph(elem,data)
 			cellSpan.append(Visits[rowIter].visitorIP);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","ipaddress");
-			cellSpan.css("grid-row","r"+rowIter+1);
+			cellSpan.css("grid-row","r"+(rowIter+1));
 			}
 			if(Visits[rowIter].visitDate)
 			{
@@ -1406,7 +1406,7 @@ function showVisitorsGraph(elem,data)
 			cellSpan.append(Visits[rowIter].visitDate);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","date");
-			cellSpan.css("grid-row","r"+rowIter+1);
+			cellSpan.css("grid-row","r"+(rowIter+1));
 			}
 			cellSpan=addSpan(reportDiv,"");
 			if(Visits[rowIter].visitor)
@@ -1422,13 +1422,13 @@ function showVisitorsGraph(elem,data)
   
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
-			cellSpan.css("grid-row","r"+rowIter+1);
+			cellSpan.css("grid-row","r"+(rowIter+1));
 			if(Visits[rowIter].visitorIP)
 			{
 				console.log(Visits[rowIter].visitorIP);
 			$.ajax({
 				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
-				context:rowIter+1
+				context:(rowIter+1)
 				}).done(function(data){
 				if(data)
 				{
