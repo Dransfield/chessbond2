@@ -1409,6 +1409,11 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-column","logintime");
 			cellSpan.css("grid-row","r"+(rowIter+1));
 			
+			cellSpan=addSpan(reportDiv,"");
+			cellSpan.append(timeOfDayForDate(Visits[rowIter].updatedAt));
+			cellSpan.attr("class","lightgreyGridCell");
+			cellSpan.css("grid-column","logouttime");
+			cellSpan.css("grid-row","r"+(rowIter+1));
 			
 			if(Visits[rowIter].visitorIP)
 			{
