@@ -1474,9 +1474,9 @@ function showVisitorsGraph(elem,data)
 			cellSpan.css("grid-row","r"+(rowIter+1));
 			
 			
-			
+			var diff=differenceBetweenTwoDates(Visits[rowIter].createdAt,Visits[rowIter].updatedAt)
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(differenceBetweenTwoDates(Visits[rowIter].createdAt,Visits[rowIter].updatedAt));
+			cellSpan.append(diff);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","loggedintime");
 			cellSpan.css("grid-row","r"+(rowIter+1));
