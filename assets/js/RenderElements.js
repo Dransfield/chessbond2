@@ -152,10 +152,13 @@ function timeOfDayForDate(dat)
 			var hour = nu.getUTCHours() + 1; //months from 1-12
 			var minute = nu.getUTCMinutes();
 			var second = nu.getUTCSeconds();
-			secondstring=second.toString();
+			var secondstring=second.toString();
 			if (secondstring.length==1)
 			{secondstring="0"+secondstring;}
-	return hour+":"+minute+":"+secondstring+" UTC (London Time)";
+			var minutestring=minute.toString();
+			if (minutestring.length==1)
+			{minutestring="0"+minutestring;}
+	return hour+":"+minutestring+":"+secondstring+" UTC (London Time)";
 }
 
 function phraseforloggedindate(dat)
