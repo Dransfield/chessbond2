@@ -1108,6 +1108,7 @@ io.socket.get("/privateconversation",{id:convID},
 		console.log(JSON.stringify(resData));
 		AccountsToRetrieve[resData.Talker1]=resData.Talker1;
 		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
+		AccountsToRetrieve[MyID]=MyID;
 		
 		retrieveAccounts().then(function()
 		{
