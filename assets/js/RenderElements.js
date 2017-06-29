@@ -1449,6 +1449,8 @@ function showVisitorsGraph(elem,owner)
 	titleSpan.attr("class","statsGridTitle");
 	titleSpan.css("grid-column","loggedintime");
 	
+	var position=1;
+	
 	for(rowIter=0;rowIter<25;rowIter++)
 	{
 		
@@ -1458,20 +1460,20 @@ function showVisitorsGraph(elem,owner)
 			cellSpan.append((rowIter+1));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			
 			
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(timeOfDayForDate(Visits[rowIter].createdAt));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","logintime");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(timeOfDayForDate(Visits[rowIter].updatedAt));
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","logouttime");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			
 			
 			var diff=differenceBetweenTwoDates(Visits[rowIter].createdAt,Visits[rowIter].updatedAt)
@@ -1479,7 +1481,7 @@ function showVisitorsGraph(elem,owner)
 			cellSpan.append(diff);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","loggedintime");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			
 			
 			if(Visits[rowIter].visitorIP)
@@ -1488,7 +1490,7 @@ function showVisitorsGraph(elem,owner)
 			cellSpan.append(Visits[rowIter].visitorIP);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","ipaddress");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			}
 			if(Visits[rowIter].visitDate)
 			{
@@ -1496,7 +1498,7 @@ function showVisitorsGraph(elem,owner)
 			cellSpan.append(Visits[rowIter].visitDate);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","date");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			}
 			cellSpan=addSpan(reportDiv,"");
 			if(Visits[rowIter].visitor)
@@ -1512,13 +1514,13 @@ function showVisitorsGraph(elem,owner)
   
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","visitor");
-			cellSpan.css("grid-row","r"+(rowIter+1));
+			cellSpan.css("grid-row","r"+position);
 			if(Visits[rowIter].visitorIP)
 			{
 				console.log(Visits[rowIter].visitorIP);
 			$.ajax({
 				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
-				context:(rowIter+1)
+				context:(position)
 				}).done(function(data){
 				if(data)
 				{
@@ -1533,7 +1535,7 @@ function showVisitorsGraph(elem,owner)
 		}
 		});
 		}
-			
+			position=position+1;
 		}
 	}
 		

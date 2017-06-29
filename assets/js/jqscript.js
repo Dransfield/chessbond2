@@ -1004,9 +1004,12 @@ function setupAdminPage()
 		{
 			RetrieveWallPostsFromList().then(function()
 			{
-				retrieveAccounts().then(function()
+				retrieveVisits().then(function()
 				{
-				renderAdminPage();
+					retrieveAccounts().then(function()
+					{
+					renderAdminPage();
+					});
 				});
 			});
 		});
