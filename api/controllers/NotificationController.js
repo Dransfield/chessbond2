@@ -8,5 +8,14 @@ module.exports = {
 	
 	 return res.ok();
 });
+	},
+	visitnotification:function(req,res){
+			
+	Notification.destroy({adr:req.param('address')}).exec(function (err, records) {
+
+	
+	
+	 return res.ok();
+});
 	}
 };

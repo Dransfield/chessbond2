@@ -103,6 +103,7 @@ module.exports.routes = {
 	'PUT /deletegame':'PageController.deletegame',
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
 	'POST /newnotification':'NotificationController.newnotification',
+	'GET /visitnotification':'NotificationController.visitnotification',
 	//'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
 	'POST /chatmsg':'PageController.chatmsg',
 	'POST /newwallpost':'WallpostController.wallpost',
