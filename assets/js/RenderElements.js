@@ -2456,25 +2456,28 @@ if(coverall)
 }
 function visitNotification(event)
 {
-	for (notIter in Notifications)
-	{
-		console.log("1"+Notifications[notIter].adr);
-		console.log("2"+event.data.thisadr);
+//	for (notIter in Notifications)
+	//{
+		//console.log("1"+Notifications[notIter].adr);
+		//console.log("2"+event.data.thisadr);
 		
-		if(Notifications[notIter].adr==event.data.thisadr)
-		{
-			console.log("ITS A MATCH "+event.data.thisadr);
-			io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
-			{
-			console.log(JSON.stringify(reRes));
-
-			console.log(JSON.stringify(resData));
-
+	//	if(Notifications[notIter].adr==event.data.thisadr)
+		//{
+			//console.log("ITS A MATCH "+event.data.thisadr);
+			io.socket.get("/notification/destory",{adr:event.data.thisadr},
+			//io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
+			function (resData,jwres){
+			
+				window.location.replace(event.data.thisadr);
 			});
-		}
+			//console.log(JSON.stringify(reRes));
 
-	}
-	window.location.replace(event.data.thisadr);
+			//console.log(JSON.stringify(resData));
+
+			//});
+		/}
+
+	//}
 }
 
 function showRecentGames(elem,usracc)
