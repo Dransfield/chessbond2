@@ -1404,7 +1404,7 @@ else
 
 }
 
-function showVisitorsGraph(elem,data)
+function showVisitorsGraph(elem,owner)
 {
 	
 	var	reportDiv=addDiv(elem);
@@ -1451,7 +1451,8 @@ function showVisitorsGraph(elem,data)
 	
 	for(rowIter=0;rowIter<25;rowIter++)
 	{
-		if(Visits[rowIter])
+		
+		if(Visits[rowIter] && (owner==0 || owner==Visits[rowIter].profileOwner))
 		{
 			var cellSpan=addSpan(reportDiv,"");
 			cellSpan.append((rowIter+1));

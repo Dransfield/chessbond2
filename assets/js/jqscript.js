@@ -896,7 +896,7 @@ function setupProfilePage()
 			
 				Accounts[ProfID]['Country']=flagsel.val();
 				updateAccountInfo('Country',MyID);
-			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
+				flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[ProfID]['Country'])+".png");
 			
 			}
 			
@@ -905,7 +905,7 @@ function setupProfilePage()
 	//	io.socket.get("/sitevisit?limit=25&sort=createdAt%20DESC",
 //	function (resData,jwres){
 	//	console.log(resData);
-		showVisitorsGraph(leftright);//,resData);
+		showVisitorsGraph(leftright,ProfID);//,resData);
 		//});
 			var games=3;
 			showRecentGames(leftcol,ProfID);
