@@ -2464,7 +2464,7 @@ function visitNotification(event)
 	//	if(Notifications[notIter].adr==event.data.thisadr)
 		//{
 			//console.log("ITS A MATCH "+event.data.thisadr);
-			io.socket.get("/notification/destory",{adr:event.data.thisadr},
+			io.socket.get("/notification/destroy",{adr:event.data.thisadr},
 			//io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
 			function (resData,jwres){
 			
