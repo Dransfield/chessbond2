@@ -2475,7 +2475,7 @@ function visitNotification(event)
 			//console.log(JSON.stringify(resData));
 
 			//});
-		/}
+		//}
 
 	//}
 }
