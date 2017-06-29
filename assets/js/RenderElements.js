@@ -1404,7 +1404,7 @@ else
 
 }
 
-function showVisitorsGraph(elem,owner)
+function showVisitorsGraph(elem)
 {
 	
 	var	reportDiv=addDiv(elem);
@@ -1451,13 +1451,13 @@ function showVisitorsGraph(elem,owner)
 	
 	var position=1;
 	
-	for(rowIter=0;rowIter<25;rowIter++)
+	for(rowIter in Visits)
 	{
 		
-		if(Visits[rowIter] && (owner==0 || owner==Visits[rowIter].profileOwner))
+		if(Visits[rowIter])
 		{
 			var cellSpan=addSpan(reportDiv,"");
-			cellSpan.append((rowIter+1));
+			cellSpan.append(position);
 			cellSpan.attr("class","lightgreyGridCell");
 			cellSpan.css("grid-column","position");
 			cellSpan.css("grid-row","r"+position);

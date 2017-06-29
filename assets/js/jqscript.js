@@ -1521,25 +1521,47 @@ return NotificationPromise;
 	
 }
 
-function retrieveVisits()
+function retrieveVisits(owner,amount)
 {
 	
-var cg = new Promise
-((resolve, reject) => {
-		io.socket.get("/sitevisit",{limit:25,sort:"createdAt DESC"},
-		function (resData,jwres){
-			for (x in resData)
-			{
-			Visits.push(resData[x]);	
-			AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
-			AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
-			
-			}
-			resolve(resData);
-		});
+	if(owner!=0)
+	{
+	var cg = new Promise
+	((resolve, reject) => {
+			io.socket.get("/sitevisit",{limit:amount,sort:"createdAt DESC",profileOwner:owner},
+			function (resData,jwres){
+				for (x in resData)
+				{
+				Visits.push(resData[x]);	
+				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
+				AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
+				
+				}
+				resolve(resData);
+			});
 
-});
-return cg;	
+	});
+	return cg;	
+	}
+	else
+	{
+	var cg = new Promise
+	((resolve, reject) => {
+			io.socket.get("/sitevisit",{limit:amount,sort:"createdAt DESC"},
+			function (resData,jwres){
+				for (x in resData)
+				{
+				Visits.push(resData[x]);	
+				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
+				AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
+				
+				}
+				resolve(resData);
+			});
+
+	});
+	return cg;	
+	}
 }
 
 function retrieveReports(boardscreen)
