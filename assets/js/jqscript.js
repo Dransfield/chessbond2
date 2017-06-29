@@ -541,7 +541,7 @@ function setupProfilePage()
 		
 		});
 	
-			retrieveVisits().then(function(){
+			retrieveVisits(ProfID,25).then(function(){
 	retrieveBannedWords().then(function(){
 				retrieveGames([ProfID]).then(function(){
 					retrieveAccounts().then(function()
@@ -905,7 +905,7 @@ function setupProfilePage()
 	//	io.socket.get("/sitevisit?limit=25&sort=createdAt%20DESC",
 //	function (resData,jwres){
 	//	console.log(resData);
-		showVisitorsGraph(leftright,ProfID);//,resData);
+		showVisitorsGraph(leftright);//,resData);
 		//});
 			var games=3;
 			showRecentGames(leftcol,ProfID);
