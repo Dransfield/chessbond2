@@ -1143,7 +1143,17 @@ io.socket.get("/privateconversation",{id:convID},
 					showChatMessage(msgbox,WallPosts[iter],"none",false);
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
-		
+					
+					var otherPerson;
+					
+					if(resData.Talker1==MyID)
+					{otherPerson=resData.Talker2;}
+					
+					if(resData.Talker2==MyID)
+					{otherPerson=resData.Talker1;}
+				
+					showAvatar(leftColumn,otherPerson);
+					
 					renderChatPage(inputbox);
 					
 				})
