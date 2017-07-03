@@ -1055,8 +1055,11 @@ function setupChatPage()
 	var overallDiv=addFlexDiv($("#privateconversationpage"),"overallDiv","row","nowrap");
 				var  leftColumn=addSpan(overallDiv);
 				leftColumn.css("width","25%");
-				var rightColumn=addSpan(overallDiv);
-				rightColumn.css("width","75%");
+				
+				var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap");
+				rightFlex.css("width","75%");
+				var msgbox=addSpan(rightFlex);
+				var inputbox=addSpan(rightFlex);
 				
 	$("#closechat").click(function()
 	
@@ -1090,13 +1093,13 @@ function setupChatPage()
 	
 	io.socket.on('personleft',function(data){
 		console.log(JSON.stringify(data));
-		showPersonLeft(rightColumn,data);
+		showPersonLeft(msgbox,data);
 	});
 	io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket");
 		
-			showChatMessage(rightColumn,data,"none",false);
+			showChatMessage(msgbox,data,"none",false);
 			//console.log("document.visibilityState "+document.visibilityState);
 			if (document.visibilityState=='hidden')
 			{
@@ -1110,7 +1113,7 @@ function setupChatPage()
 			}
 			
 			
-		rightColumn.scrollTop(rightColumn.prop("scrollHeight"));
+		rightColumn.scrollTop(msgbox.prop("scrollHeight"));
 				//	$("#privateconversationpage").append(data.content);
 			});
 				
@@ -1135,11 +1138,11 @@ io.socket.get("/privateconversation",{id:convID},
 				
 					for(iter in WallPosts)
 					{	
-					showChatMessage(rightColumn,WallPosts[iter],"none",false);
+					showChatMessage(msgbox,WallPosts[iter],"none",false);
 					}
-					rightColumn.scrollTop($("#privateconversationpage").prop("scrollHeight"));
+					msgbox.scrollTop($("#privateconversationpage").prop("scrollHeight"));
 		
-					renderChatPage(rightColumn);
+					renderChatPage(inputbox);
 					
 				})
 			})
