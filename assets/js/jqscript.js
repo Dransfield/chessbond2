@@ -1052,7 +1052,7 @@ function setupStatsPage()
 function setupChatPage()
 {
 	
-	var overallDiv=addFlexDiv($("privateconversationpage"),"overallflex","row","nowrap");
+	var overallDiv=addFlexDiv($("#privateconversationpage"),"overallDiv","row","nowrap");
 				var  leftColumn=addSpan(overallDiv);
 				leftColumn.css("width","25%");
 				var rightColumn=addSpan(overallDiv);
@@ -1139,7 +1139,7 @@ io.socket.get("/privateconversation",{id:convID},
 					}
 					rightColumn.scrollTop($("#privateconversationpage").prop("scrollHeight"));
 		
-					renderChatPage();
+					renderChatPage(rightColumn);
 					
 				})
 			})
@@ -2190,10 +2190,10 @@ function renderAdminPage()
 	
 	}
 	
-function renderChatPage()
+function renderChatPage(col)
 	{
 	console.log("renderchatpage");
-		showChatForm($("#chatinput"),convID,"Private Conversation","none");
+		showChatForm(col,convID,"Private Conversation","none");
 		
 	}
 	
