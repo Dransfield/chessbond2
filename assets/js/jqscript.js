@@ -1113,7 +1113,7 @@ function setupChatPage()
 			}
 			
 			
-		rightColumn.scrollTop(msgbox.prop("scrollHeight"));
+		msgbox.scrollTop(msgbox.prop("scrollHeight"));
 				//	$("#privateconversationpage").append(data.content);
 			});
 				
