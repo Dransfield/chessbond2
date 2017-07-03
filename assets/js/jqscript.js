@@ -1140,7 +1140,7 @@ io.socket.get("/privateconversation",{id:convID},
 					{	
 					showChatMessage(msgbox,WallPosts[iter],"none",false);
 					}
-					msgbox.scrollTop($("#privateconversationpage").prop("scrollHeight"));
+					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 		
 					renderChatPage(inputbox);
 					
