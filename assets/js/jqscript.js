@@ -1126,9 +1126,9 @@ io.socket.get("/privateconversation",{id:convID},
 				
 				var overallDiv=addFlexDiv($("privateconversationpage"),"overallflex","row","nowrap");
 				var  leftColumn=addSpan(overallDiv);
-				leftColumn.css("width",25%);
+				leftColumn.css("width","25%");
 				rightColumn=addSpan(overallDiv);
-				rightColumn.css("width",75%);
+				rightColumn.css("width","75%");
 				
 					for(iter in WallPosts)
 					{	
