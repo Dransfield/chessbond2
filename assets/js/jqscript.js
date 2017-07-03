@@ -1053,7 +1053,7 @@ function setupChatPage()
 {
 	
 	var overallDiv=addFlexDiv($("#privateconversationpage"),"overallDiv","row","nowrap");
-				var  leftColumn=addSpan(overallDiv);
+				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("width","25%");
 				leftColumn.append("<h1>leftcolumn</h1>");
 				var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap");
