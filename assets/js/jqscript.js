@@ -1051,6 +1051,13 @@ function setupStatsPage()
 
 function setupChatPage()
 {
+	
+	var overallDiv=addFlexDiv($("privateconversationpage"),"overallflex","row","nowrap");
+				var  leftColumn=addSpan(overallDiv);
+				leftColumn.css("width","25%");
+				var rightColumn=addSpan(overallDiv);
+				rightColumn.css("width","75%");
+				
 	$("#closechat").click(function()
 	
 	{
@@ -1083,13 +1090,13 @@ function setupChatPage()
 	
 	io.socket.on('personleft',function(data){
 		console.log(JSON.stringify(data));
-		showPersonLeft($("#privateconversationpage"),data);
+		showPersonLeft(rightColumn,data);
 	});
 	io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket");
 		
-			showChatMessage($("#privateconversationpage"),data,"none",false);
+			showChatMessage(rightColumn,data,"none",false);
 			//console.log("document.visibilityState "+document.visibilityState);
 			if (document.visibilityState=='hidden')
 			{
@@ -1103,7 +1110,7 @@ function setupChatPage()
 			}
 			
 			
-		$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"));
+		rightColumn.scrollTop(rightColumn.prop("scrollHeight"));
 				//	$("#privateconversationpage").append(data.content);
 			});
 				
@@ -1124,11 +1131,7 @@ io.socket.get("/privateconversation",{id:convID},
 			{ 
 				getWallposts(convID).then(function(){
 				
-				var overallDiv=addFlexDiv($("privateconversationpage"),"overallflex","row","nowrap");
-				var  leftColumn=addSpan(overallDiv);
-				leftColumn.css("width","25%");
-				rightColumn=addSpan(overallDiv);
-				rightColumn.css("width","75%");
+				
 				
 					for(iter in WallPosts)
 					{	
