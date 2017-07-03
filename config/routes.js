@@ -40,7 +40,7 @@ module.exports.routes = {
 	'GET /opentournament':{view:'opentournamentjq'},
 	'GET /stats/:ID':{view:'statsjq'},
 	'GET /stats':{view:'statsjq'},
-	'GET /aboutus':{view:'aboutus'},
+	'GET /aboutus':{view:'aboutusjq'},
 	'GET /termsofservice':{view:'termsos'},
 	'GET /privacypolicy':{view:'privacypolicy'},
 	'GET /sitemap':{view:'sitemap'},

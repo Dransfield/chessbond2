@@ -173,7 +173,7 @@ function differenceBetweenTwoDates(dat1,dat2)
 			
 
 				newnum=newnum/1000;
-				console.log("newnum after 1000 "+newnum);
+				//console.log("newnum after 1000 "+newnum);
 		if (newnum<60)
 		{
 		if (newnum<0)
@@ -183,7 +183,7 @@ function differenceBetweenTwoDates(dat1,dat2)
 		else
 		{
 		newnum=newnum/60;
-		console.log("newnum after  60"+newnum);
+		//console.log("newnum after  60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" minutes";
@@ -191,14 +191,14 @@ function differenceBetweenTwoDates(dat1,dat2)
 		else
 		{
 		newnum=newnum/60;
-		console.log("newnum after another 60"+newnum);
+		//console.log("newnum after another 60"+newnum);
 		if (newnum<60)
 		{
 		phrase=parseInt(newnum)+" hours";
 		}
 		else
 		{
-		console.log("newnum after  24 "+newnum);
+		//console.log("newnum after  24 "+newnum);
 		newnum=newnum/24;
 
 		phrase=parseInt(newnum)+" days";
@@ -980,7 +980,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 
 			var but=showButton(butdiv,"Reply","KgreenElement KregularButton");
 		var rplto;
-		console.log("msg.replyto "+msg.replyto);
+		//console.log("msg.replyto "+msg.replyto);
 		if(msg.replyto=="none")
 		{rplto=msg.id;}
 		else
@@ -1525,8 +1525,8 @@ function showVisitorsGraph(elem)
 				if(data)
 				{
 					
-					console.log($(this)[0]);
-		console.log(data.country_name);
+		//			console.log($(this)[0]);
+	//	console.log(data.country_name);
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(data.country_name+":"+data.city);
 			cellSpan.attr("class","lightgreyGridCell");
@@ -2456,28 +2456,11 @@ if(coverall)
 }
 function visitNotification(event)
 {
-//	for (notIter in Notifications)
-	//{
-		//console.log("1"+Notifications[notIter].adr);
-		//console.log("2"+event.data.thisadr);
-		
-	//	if(Notifications[notIter].adr==event.data.thisadr)
-		//{
-			//console.log("ITS A MATCH "+event.data.thisadr);
+
 			io.socket.get("/visitnotification",{address:event.data.thisadr},
-			//io.socket.put("/notification/destroy/"+Notifications[notIter].id,{},function(rwRes,resData)
 			function (resData,jwres){
-			
 				window.location.replace(event.data.thisadr);
 			});
-			//console.log(JSON.stringify(reRes));
-
-			//console.log(JSON.stringify(resData));
-
-			//});
-		//}
-
-	//}
 }
 
 function showRecentGames(elem,usracc)
