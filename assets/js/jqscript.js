@@ -1057,7 +1057,7 @@ function setupChatPage()
 				leftColumn.css("width","25%");
 				leftColumn.append("<h1>leftcolumn</h1>");
 				var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap");
-				rightFlex.css("width","75%");
+			//	rightFlex.css("width","75%");
 				var msgbox=addSpan(rightFlex);
 				msgbox.css("overflow","auto");
 				msgbox.css("height","80%");
