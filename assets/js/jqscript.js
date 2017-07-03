@@ -1124,11 +1124,17 @@ io.socket.get("/privateconversation",{id:convID},
 			{ 
 				getWallposts(convID).then(function(){
 				
+				var overallDiv=addFlexDiv($("privateconversationpage"),"overallflex","row","nowrap");
+				var  leftColumn=addSpan(overallDiv);
+				leftColumn.css("width",25%);
+				rightColumn=addSpan(overallDiv);
+				rightColumn.css("width",75%);
+				
 					for(iter in WallPosts)
 					{	
-					showChatMessage($("#privateconversationpage"),WallPosts[iter],"none",false);
+					showChatMessage(rightColumn,WallPosts[iter],"none",false);
 					}
-					$("#privateconversationpage").scrollTop($("#privateconversationpage").prop("scrollHeight"));
+					rightColumn.scrollTop($("#privateconversationpage").prop("scrollHeight"));
 		
 					renderChatPage();
 					
