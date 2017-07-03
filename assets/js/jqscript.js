@@ -159,7 +159,10 @@ var NavbarDropDown;
 		{
 		setupOpenTournament();	
 		}
-	
+		if($("#textpage").length)
+		{
+		setupTextPage();	
+		}
 	
 	
 	
@@ -187,6 +190,11 @@ var NavbarDropDown;
 		retrieveAccounts();
 	}
 	
+	function setupTextPage()
+	{
+		AccountsToRetrieve[MyID]=MyID;
+		retrieveAccounts();
+	}
 	
 	
 	
