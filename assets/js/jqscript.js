@@ -1059,6 +1059,8 @@ function setupChatPage()
 				var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap");
 				rightFlex.css("width","75%");
 				var msgbox=addSpan(rightFlex);
+				msgbox.css("overflow","auto");
+				
 				var inputbox=addSpan(rightFlex);
 				
 	$("#closechat").click(function()
@@ -1142,7 +1144,7 @@ io.socket.get("/privateconversation",{id:convID},
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 		
-					renderChatPage(inputbox);
+					renderChatPage(msgbox);
 					
 				})
 			})
