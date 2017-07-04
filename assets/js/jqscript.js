@@ -1051,17 +1051,19 @@ function setupStatsPage()
 
 function setupChatPage()
 {
-	
+	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 	var overallDiv=addFlexDiv($("#privateconversationpage"),"overallDiv","row","nowrap","flex-start","flex-start");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
 				leftColumn.append("<h1>leftcolumn</h1>");
-				var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
+				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
+			var rightFlex=addSpan(overallDiv);
 			//	rightFlex.css("width","75%");
 				rightFlex.css("flex-grow","3");
 				var msgbox=addSpan(rightFlex);
-				msgbox.css("align-text","left");
+				
+				
 				msgbox.css("overflow-y","scroll");
 				//msgbox.css("overflow","auto");
 				msgbox.css("height","80%");
