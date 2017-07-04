@@ -1053,7 +1053,7 @@ function setupChatPage()
 {
 	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 	var overallDiv=addFlexDiv($("#privateconversationpage"),"overallDiv","row","nowrap","flex-start","flex-start");
-				overallDiv.css("height","100vh");
+				overallDiv.css("max-height","100vh");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
