@@ -872,7 +872,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton)
 {
 if(deletebutton === undefined) { deletebutton = false; }
 	
-	var myColumn=addFlexDiv(elem,45,"column");
+	var myColumn=addFlexDiv(elem,45,"column","nowrap","flex-start");
 	//console.log("msg.replyto "+msg.replyto);
 	
 	if (msg.replyto==Replyto)
