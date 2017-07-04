@@ -1064,8 +1064,8 @@ function setupChatPage()
 				var msgbox=addSpan(rightFlex,"msgbox");
 				
 				
-				msgbox.css("overflow-y","scroll");
-				//msgbox.css("overflow","auto");
+				//msgbox.css("overflow-y","scroll");
+				msgbox.css("overflow","auto");
 				msgbox.css("height","80%");
 				msgbox.css("width","100%");
 				var inputbox=addSpan(rightFlex);
