@@ -874,7 +874,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	
 	var myColumn=addFlexDiv(elem,45,"column");
 	//console.log("msg.replyto "+msg.replyto);
-
+	myColumn.css("flex-shrink",0);
 	if (msg.replyto==Replyto)
 	{
 
