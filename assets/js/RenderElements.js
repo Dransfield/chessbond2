@@ -874,7 +874,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	
 	var myColumn=addFlexDiv(elem,45,"column");
 	//console.log("msg.replyto "+msg.replyto);
-	myColumn.css("flex-shrink",0);
+	
 	if (msg.replyto==Replyto)
 	{
 
@@ -882,11 +882,11 @@ if(deletebutton === undefined) { deletebutton = false; }
 
 	if(msg.sender==MyID)
 	{
-		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;background-color:lightgrey;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgrey;padding:4px;'></div>");
 	}
 	else
 	{
-		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;background-color:lightgreen;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgreen;padding:4px;'></div>");
 
 	}
 	//console.log("show chat message "+JSON.stringify(msg));
