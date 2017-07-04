@@ -1063,6 +1063,7 @@ function setupChatPage()
 				var msgbox=addSpan(rightFlex);
 				msgbox.css("overflow","auto");
 				msgbox.css("height","80%");
+				msgbox.css("width","100%");
 				var inputbox=addSpan(rightFlex);
 				
 	$("#closechat").click(function()
