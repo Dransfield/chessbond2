@@ -1067,7 +1067,7 @@ function setupChatPage()
 				
 				msgbox.css("overflow-y","scroll");
 				//msgbox.css("overflow","auto");
-				msgbox.css("height","80%");
+				msgbox.css("max-height","80%");
 				msgbox.css("width","100%");
 				var inputbox=addSpan(rightFlex);
 				
