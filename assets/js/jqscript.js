@@ -1164,7 +1164,7 @@ io.socket.get("/privateconversation",{id:convID},
 					
 					if(resData.Talker2==MyID)
 					{otherPerson=resData.Talker1;}
-					 showUsernameJumbo(leftcolumn,otherPerson)
+					 showUsernameJumbo(leftcolumn,otherPerson);
 					showAvatar(leftColumn,otherPerson);
 					
 					renderChatPage(inputbox);
