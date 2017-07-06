@@ -1174,6 +1174,8 @@ io.socket.get("/privateconversation",{id:convID},
 					//console.log(Visits[0]);
 					leftColumn.append("Last visited:"+Visits[0].visitDate);
 					//console.log(inputbox);
+					showFlag(leftColumn,otherPerson);
+					leftColumn.append(Accounts[otherPerson].Country);
 					renderChatPage(inputbox);
 					
 					})
