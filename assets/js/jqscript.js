@@ -1158,7 +1158,7 @@ io.socket.get("/privateconversation",{id:convID},
 					if(resData.Talker2==MyID)
 					{otherPerson=resData.Talker1;}
 					
-				retrievePersonsVisits(otherPerson).then(function(){
+				retrievePersonsVisits(otherPerson,1).then(function(){
 				
 				
 					for(iter in WallPosts)
@@ -1171,8 +1171,8 @@ io.socket.get("/privateconversation",{id:convID},
 				//	console.log(otherPerson);
 					 showUsernameJumbo(leftColumn,otherPerson);
 					showAvatar(leftColumn,otherPerson);
-					console.log(Visits[0]);
-					leftColumn.append(Visits[0].visitDate);
+					//console.log(Visits[0]);
+					leftColumn.append("Last visited:"+Visits[0].visitDate);
 					//console.log(inputbox);
 					renderChatPage(inputbox);
 					
@@ -1598,12 +1598,12 @@ function retrieveAllVisits()
 	
 }
 
-function retrievePersonsVisits(person)
+function retrievePersonsVisits(person,amt)
 {
 	
 	var cg = new Promise
 	((resolve, reject) => {
-			io.socket.get("/sitevisit",{limit:25,sort:"createdAt DESC",visitor:person},
+			io.socket.get("/sitevisit",{limit:amt,sort:"createdAt DESC",visitor:person},
 			function (resData,jwres){
 				for (x in resData)
 				{
