@@ -1058,7 +1058,7 @@ function setupChatPage()
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
 				//leftColumn.css("width:33%");
-				leftColumn.append("<h1>leftcolumn</h1>");
+				//leftColumn.append("<h1>leftcolumn</h1>");
 				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
 			var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
 				rightFlex.css("height","95%");
@@ -1164,7 +1164,7 @@ io.socket.get("/privateconversation",{id:convID},
 					
 					if(resData.Talker2==MyID)
 					{otherPerson=resData.Talker1;}
-				
+					 showUsernameJumbo(leftcolumn,otherPerson)
 					showAvatar(leftColumn,otherPerson);
 					
 					renderChatPage(inputbox);
