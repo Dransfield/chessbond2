@@ -549,7 +549,7 @@ function setupProfilePage()
 		
 		});
 	
-			retrieveVisits(ProfID,25).then(function(){
+			retrieveProfileVisits(ProfID,25).then(function(){
 	retrieveBannedWords().then(function(){
 				retrieveGames([ProfID]).then(function(){
 					retrieveAccounts().then(function()
@@ -1012,7 +1012,7 @@ function setupAdminPage()
 		{
 			RetrieveWallPostsFromList().then(function()
 			{
-				retrieveVisits().then(function()
+				retrieveAllVisits().then(function()
 				{
 					retrieveAccounts().then(function()
 					{
@@ -1058,7 +1058,7 @@ function setupChatPage()
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
 				//leftColumn.css("width:33%");
-				leftColumn.append("<h1>Talking to:</h1>");
+				leftColumn.append("Talking to:");
 				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
 			var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
 				rightFlex.css("height","95%");
@@ -1150,6 +1150,16 @@ io.socket.get("/privateconversation",{id:convID},
 				getWallposts(convID).then(function(){
 				
 				
+				var otherPerson;
+					
+					if(resData.Talker1==MyID)
+					{otherPerson=resData.Talker2;}
+					
+					if(resData.Talker2==MyID)
+					{otherPerson=resData.Talker1;}
+					
+				retrievePersonsVisits(otherPerson).then(function(){
+				
 				
 					for(iter in WallPosts)
 					{	
@@ -1157,19 +1167,16 @@ io.socket.get("/privateconversation",{id:convID},
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 					
-					var otherPerson;
 					
-					if(resData.Talker1==MyID)
-					{otherPerson=resData.Talker2;}
-					
-					if(resData.Talker2==MyID)
-					{otherPerson=resData.Talker1;}
 				//	console.log(otherPerson);
 					 showUsernameJumbo(leftColumn,otherPerson);
 					showAvatar(leftColumn,otherPerson);
+					console.log(Visits[0]);
+					leftColumn.append(Visits[0].visitDate);
 					//console.log(inputbox);
 					renderChatPage(inputbox);
 					
+					})
 				})
 			})
 		})	
@@ -1568,7 +1575,52 @@ return NotificationPromise;
 	
 }
 
-function retrieveVisits(owner,amount)
+
+function retrieveAllVisits()
+{
+	
+	var cg = new Promise
+	((resolve, reject) => {
+			io.socket.get("/sitevisit",{limit:100,sort:"createdAt DESC"},
+			function (resData,jwres){
+				for (x in resData)
+				{
+				Visits.push(resData[x]);	
+				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
+				
+				}
+				resolve(resData);
+			});
+
+	});
+	return cg;	
+	
+	
+}
+
+function retrievePersonsVisits(person)
+{
+	
+	var cg = new Promise
+	((resolve, reject) => {
+			io.socket.get("/sitevisit",{limit:25,sort:"createdAt DESC",visitor:person},
+			function (resData,jwres){
+				for (x in resData)
+				{
+				Visits.push(resData[x]);	
+				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
+				
+				}
+				resolve(resData);
+			});
+
+	});
+	return cg;	
+	
+	
+}
+
+function retrieveProfileVisits(owner,amount)
 {
 	
 	if(owner!=0)
