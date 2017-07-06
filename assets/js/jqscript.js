@@ -1060,7 +1060,7 @@ function setupChatPage()
 				leftColumn.append("<h1>leftcolumn</h1>");
 				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
 			var rightFlex=addSpan(overallDiv,"rightFlex");
-			//	rightFlex.css("width","75%");
+				rightFlex.css("height","75%");
 				rightFlex.css("flex-grow","3");
 				rightFlex.css("overflow-y","scroll");
 				
