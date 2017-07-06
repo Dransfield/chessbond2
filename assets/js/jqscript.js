@@ -1059,17 +1059,19 @@ function setupChatPage()
 				leftColumn.css("flex-grow","1");
 				leftColumn.append("<h1>leftcolumn</h1>");
 				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
-			var rightFlex=addSpan(overallDiv,"rightFlex");
-				rightFlex.css("height","75%");
-				rightFlex.css("flex-grow","3");
-				rightFlex.css("overflow-y","scroll");
+			var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
+				rightFlex.css("height","95%");
+		
+			//	var msgSpan=addSpan(rightflex,"msgSpan");
+			//	rightFlex.css("flex-grow","3");
+			//	msgSpan.css("overflow-y","scroll");
 				
 				var msgbox=addSpan(rightFlex,"msgbox");
 				
-				
-				msgbox.css("overflow-y","auto");
+					msgbox.css("overflow-y","scroll");
+				//msgbox.css("overflow-y","auto");
 				//msgbox.css("overflow","auto");
-				msgbox.css("max-height","80%");
+				msgbox.css("height","80%");
 				msgbox.css("width","100%");
 				var inputbox=addSpan(rightFlex);
 				
