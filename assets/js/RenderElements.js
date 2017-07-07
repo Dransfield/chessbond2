@@ -1442,7 +1442,8 @@ for(rowIter in Visits)
 			row.append(cell);
 			
 			
-			cell=$("<td>"+showUsername(Accounts[Visits[rowIter].visitor].id)+"</td>");
+			cell=$("<td></td>");
+			showUsername(cell,Accounts[Visits[rowIter].visitor].id);
 			row.append(cell);
 			
 			if(Visits[rowIter].visitDate)
