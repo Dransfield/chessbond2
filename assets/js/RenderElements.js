@@ -1405,6 +1405,15 @@ else
 
 }
 
+function showVisitorsTable(elem)
+{
+	
+	var tbl=elem.append("<table id='ipTable'</table>");
+	tbl.append("<th>Order of Visit</th>");
+tbl.append("<th>Visitor</th>");
+tbl.append("<th>Date</th>");
+}
+
 function showVisitorsGraph(elem)
 {
 	
@@ -2338,6 +2347,8 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 NavbarDropDown=$("<ul  style='z-index:9999;width:inherit;position:absolute;right:10px;background-color:white;padding:30px 5px 10px 5px;box-shadow: 10px 10px 5px grey;'></ul>");
 NavbarDropDown.attr("id","NavBarDropDown");
 NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].id+"'><li style='list-style-position: inside;color:black'> My Profile</li></a>");
+NDDlinks['MessagesLink']=$("<a  id='profilelink' href='/messages/"+Accounts[MyID].id+"'><li style='list-style-position: inside;color:black'> My Messages</li></a>");
+
 NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Albums</li></a>");
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
@@ -2363,9 +2374,9 @@ if(Notifications.length>0)
 		NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification);
 	}
 }
-console.log("sosedred");
+//console.log("sosedred");
 
-console.log("sosed2red");
+//console.log("sosed2red");
 for (iter in NDDlinks)
 {
 	NavbarDropDown.append(NDDlinks[iter]);

@@ -44,6 +44,29 @@ border-style:solid;
 }
 /* Small screens */
 
+#ipTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ipTable td, #ipTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#ipTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#ipTable tr:hover {background-color: #ddd;}
+
+#ipTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
   .mynavbar {
     /* On small screens, we are no longer using row direction but column */
     display:flex;
