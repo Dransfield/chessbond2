@@ -1512,6 +1512,12 @@ for(rowIter in Visits)
 	tbl.append(row);	
 	var cell=$("<td>"+posIter+"</td>");
 			row.append(cell);
+	for(blankIter=1;blankIter<8;blankIter++)
+		{			
+			var cell=$("<td>"+posIter+"</td>");
+			row.append(cell);
+	
+		}
 	}
 	}
 	
