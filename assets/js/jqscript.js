@@ -999,8 +999,8 @@ function setupProfilePage()
 			});
 		});
 	});
-});
 }
+
 
 function retrievePrivatesandFollows()
 	{
