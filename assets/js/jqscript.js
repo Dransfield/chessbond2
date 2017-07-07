@@ -913,7 +913,8 @@ function setupProfilePage()
 	//	io.socket.get("/sitevisit?limit=25&sort=createdAt%20DESC",
 //	function (resData,jwres){
 	//	console.log(resData);
-		showVisitorsGraph(leftright);//,resData);
+		//showVisitorsGraph(leftright);//,resData);
+	showVisitorsTable(leftright);
 		//});
 			var games=3;
 			showRecentGames(leftcol,ProfID);
