@@ -555,8 +555,8 @@ function setupProfilePage()
 				retrieveGames([ProfID]).then(function()
 				{
 					
-						 //retrieveOthersProfileVisits(ProfID,25).then(function()
-					//	 {
+						 retrieveOthersProfileVisits(ProfID,25).then(function()
+						 {
 							 
 							retrieveAccounts().then(function()
 							{
@@ -997,7 +997,7 @@ function setupProfilePage()
 					});
 				});
 			});
-		//});
+		});
 	});
 }
 
@@ -1642,10 +1642,9 @@ function retrievePersonsVisits(person,amt,owner)
 
 function retrieveOthersProfileVisits(owner,amount)
 {
-	/*
 	
-	if(owner!=0)
-	{
+	
+	
 	var cg = new Promise
 	((resolve, reject) => {
 			io.socket.get("/sitevisit",{limit:amount,sort:"createdAt DESC",profileOwner:owner,visitor:{'!':owner}},
@@ -1662,27 +1661,8 @@ function retrieveOthersProfileVisits(owner,amount)
 
 	});
 	return cg;	
-	}
-	else
-	{
-	var cg = new Promise
-	((resolve, reject) => {
-			io.socket.get("/sitevisit",{limit:amount,sort:"createdAt DESC"},
-			function (resData,jwres){
-				for (x in resData)
-				{
-				Visits.push(resData[x]);	
-				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
-				AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
-				
-				}
-				resolve(resData);
-			});
-
-	});
-	return cg;	
-	}
-	*/
+	
+	
 }
 
 function retrieveReports(boardscreen)
