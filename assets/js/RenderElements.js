@@ -1441,6 +1441,10 @@ for(rowIter in Visits)
 			var cell=$("<td>"+position+"</td>");
 			row.append(cell);
 			
+			
+			cell=$("<td>"+Accounts[Visits[rowIter].visitor].name+"</td>");
+			row.append(cell);
+			
 			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].createdAt)+"</td>");
 			row.append(cell);
 			
@@ -1452,6 +1456,32 @@ for(rowIter in Visits)
 			
 			cell=$("<td>"+diff+"</td>");
 			row.append(cell);
+			
+			if(Visits[rowIter].visitorIP)
+			{
+				
+			cell=$("<td>"+Visits[rowIter].visitorIP+"</td>");
+			row.append(cell);
+			}
+			
+				if(Visits[rowIter].visitorIP)
+			{
+				console.log(Visits[rowIter].visitorIP);
+			$.ajax({
+				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
+				context:(position)
+				}).done(function(data){
+				if(data)
+				{
+				cell=$("<td>"+data.country_name+":"+data.city+"</td>");
+				row.append(cell);
+				}
+				});
+			}
+			
+			if(Visits[rowIter].visitDate)
+			{
+			}
 			
 			
 			position=position+1;
