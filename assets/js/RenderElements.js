@@ -1514,7 +1514,7 @@ for(rowIter in Visits)
 			row.append(cell);
 	for(blankIter=1;blankIter<8;blankIter++)
 		{			
-			var cell=$("<td>"+posIter+"</td>");
+			var cell=$("<td></td>");
 			row.append(cell);
 	
 		}
