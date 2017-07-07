@@ -555,8 +555,8 @@ function setupProfilePage()
 				retrieveGames([ProfID]).then(function()
 				{
 					
-						 retrieveOthersProfileVisits(ProfID,25).then(function()
-						 {
+						 //retrieveOthersProfileVisits(ProfID,25).then(function()
+					//	 {
 							 
 							retrieveAccounts().then(function()
 							{
@@ -997,7 +997,7 @@ function setupProfilePage()
 					});
 				});
 			});
-		});
+		//});
 	});
 }
 
