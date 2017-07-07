@@ -1441,6 +1441,17 @@ for(rowIter in Visits)
 			var cell=$("<td>"+position+"</td>");
 			row.append(cell);
 			
+			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].createdAt)+"</td>");
+			row.append(cell);
+			
+			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].updatedAt)+"</td>");
+			row.append(cell);
+			
+			var diff=differenceBetweenTwoDates(Visits[rowIter].createdAt,Visits[rowIter].updatedAt)
+			
+			
+			cell=$("<td>"+diff+"</td>");
+			row.append(cell);
 			
 			
 			position=position+1;
