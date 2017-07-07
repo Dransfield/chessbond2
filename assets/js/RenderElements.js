@@ -1408,7 +1408,7 @@ else
 function showVisitorsTable(elem)
 {
 	
-	var tbl=elem.append("<table id='ipTable'</table>");
+	var tbl=elem.append("<table id='ipTable'></table>");
 	tbl.append("<th>Order of Visit</th>");
 tbl.append("<th>Visitor</th>");
 tbl.append("<th>Date</th>");
