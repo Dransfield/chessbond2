@@ -1466,8 +1466,8 @@ for(rowIter in Visits)
 				if(data)
 				{
 				var addition=data.country_name+":"+data.city;
-				cell.append(addition);
-				row.append(cell);
+				$(this).append(addition);
+				row.append($(this));
 				}
 				});
 			}
