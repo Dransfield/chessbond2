@@ -1041,7 +1041,7 @@ function setupAdminPage()
 		
 	});
 });
-
+});
 }
 
 function renderStatsPage()
