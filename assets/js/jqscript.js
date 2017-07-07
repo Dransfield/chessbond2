@@ -550,14 +550,23 @@ function setupProfilePage()
 		});
 	
 			
-	retrieveBannedWords().then(function(){
-				retrieveGames([ProfID]).then(function(){
-					retrieveAccounts().then(function()
-					{
-						retrievePrivatesandFollows().then(function()
-						{			
-							getWallposts(ProfID).then(function(){
-				
+	retrieveBannedWords().then(function()
+	{
+				retrieveGames([ProfID]).then(function()
+				{
+					
+						 retrieveOthersProfileVisits(ProfID,25).then(function()
+						 {
+							 
+							retrieveAccounts().then(function()
+							{
+						
+							
+								retrievePrivatesandFollows().then(function()
+								{			
+									getWallposts(ProfID).then(function()
+									{
+						
 					
 					
 				 
@@ -914,12 +923,12 @@ function setupProfilePage()
 //	function (resData,jwres){
 	//	console.log(resData);
 		//showVisitorsGraph(leftright);//,resData);
-		retrieveProfileVisits(ProfID,25).then(function(){
+		
 	showVisitorsTable(leftright);
-		});
-		retrievePersonsVisits(ProfID,25,ProfID).then(function(){
+		
+		
 	showVisitorsTable(leftright);
-		});
+		
 				
 		
 		//});
@@ -988,6 +997,8 @@ function setupProfilePage()
 					});
 				});
 			});
+		});
+	});
 	});
 }
 
@@ -1027,7 +1038,7 @@ function setupAdminPage()
 					});
 				});
 			});
-		});
+		
 	});
 });
 
@@ -1629,14 +1640,14 @@ function retrievePersonsVisits(person,amt,owner)
 	
 }
 
-function retrieveProfileVisits(owner,amount)
+function retrieveOthersProfileVisits(owner,amount)
 {
 	
 	if(owner!=0)
 	{
 	var cg = new Promise
 	((resolve, reject) => {
-			io.socket.get("/sitevisit",{limit:amount,sort:"createdAt DESC",profileOwner:owner},
+			io.socket.get("/sitevisit",{limit:amount,sort:"createdAt DESC",profileOwner:owner,visitor:{'!':owner}},
 			function (resData,jwres){
 				for (x in resData)
 				{
