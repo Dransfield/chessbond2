@@ -1642,6 +1642,7 @@ function retrievePersonsVisits(person,amt,owner)
 
 function retrieveOthersProfileVisits(owner,amount)
 {
+	/*
 	
 	if(owner!=0)
 	{
@@ -1681,6 +1682,7 @@ function retrieveOthersProfileVisits(owner,amount)
 	});
 	return cg;	
 	}
+	*/
 }
 
 function retrieveReports(boardscreen)
