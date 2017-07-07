@@ -999,7 +999,7 @@ function setupProfilePage()
 			});
 		});
 	});
-	});
+	
 }
 
 function retrievePrivatesandFollows()
