@@ -1408,10 +1408,15 @@ else
 function showVisitorsTable(elem)
 {
 	
-	var tbl=elem.append$("<table id='ipTable'></table>");
-	tbl.append$("<th>Order of Visit</th>");
-tbl.append("#<th>Visitor</th>");
-tbl.append("#<th>Date</th>");
+	var tbl=$("<table id='ipTable'></table>");
+	elem.append(tbl);
+	var header;
+	header=$("<th>Order of Visit</th>");
+elem.append(header);
+header=$("<th>Visitor</th>");
+elem.append(header);
+header=$("#<th>Date</th>");
+elem.append(header);
 }
 
 function showVisitorsGraph(elem)
