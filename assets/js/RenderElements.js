@@ -1445,8 +1445,11 @@ for(rowIter in Visits)
 			cell=$("<td>"+Accounts[Visits[rowIter].visitor].name+"</td>");
 			row.append(cell);
 			
-			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].createdAt)+"</td>");
+			if(Visits[rowIter].visitDate)
+			{
+			cell=$("<td>"+Visits[rowIter].visitDate+"</td>");
 			row.append(cell);
+			}
 			
 			if(Visits[rowIter].visitorIP)
 			{
@@ -1473,6 +1476,9 @@ for(rowIter in Visits)
 				});
 			}
 			
+			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].createdAt)+"</td>");
+			row.append(cell);
+			
 			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].updatedAt)+"</td>");
 			row.append(cell);
 			
@@ -1486,9 +1492,7 @@ for(rowIter in Visits)
 			
 			
 			
-			if(Visits[rowIter].visitDate)
-			{
-			}
+			
 			
 			
 			position=position+1;
