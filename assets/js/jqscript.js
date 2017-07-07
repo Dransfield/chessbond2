@@ -549,7 +549,7 @@ function setupProfilePage()
 		
 		});
 	
-			retrieveProfileVisits(ProfID,25).then(function(){
+			
 	retrieveBannedWords().then(function(){
 				retrieveGames([ProfID]).then(function(){
 					retrieveAccounts().then(function()
@@ -914,7 +914,14 @@ function setupProfilePage()
 //	function (resData,jwres){
 	//	console.log(resData);
 		//showVisitorsGraph(leftright);//,resData);
+		retrieveProfileVisits(ProfID,25).then(function(){
 	showVisitorsTable(leftright);
+		});
+		retrievePersonsVisits(ProfID,25,ProfID).then(function(){
+	showVisitorsTable(leftright);
+		});
+				
+		
 		//});
 			var games=3;
 			showRecentGames(leftcol,ProfID);
@@ -981,7 +988,6 @@ function setupProfilePage()
 					});
 				});
 			});
-		});
 	});
 }
 
@@ -1601,12 +1607,12 @@ function retrieveAllVisits()
 	
 }
 
-function retrievePersonsVisits(person,amt)
+function retrievePersonsVisits(person,amt,owner)
 {
 	
 	var cg = new Promise
 	((resolve, reject) => {
-			io.socket.get("/sitevisit",{limit:amt,sort:"createdAt DESC",visitor:person},
+			io.socket.get("/sitevisit",{limit:amt,sort:"createdAt DESC",visitor:person,profileOwner:owner},
 			function (resData,jwres){
 				for (x in resData)
 				{

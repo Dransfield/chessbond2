@@ -1438,7 +1438,7 @@ for(rowIter in Visits)
 		var row=$("<tr></tr>");
 		tbl.append(row);
 		
-		if(Visits[rowIter] && Visits[rowIter].visitor!=MyID)
+		if(Visits[rowIter] )
 		{
 			var cell=$("<td>"+position+"</td>");
 			row.append(cell);
