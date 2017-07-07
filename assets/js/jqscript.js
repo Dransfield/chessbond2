@@ -927,7 +927,7 @@ function setupProfilePage()
 	showVisitorsTable(leftright);
 		
 		
-	showVisitorsTable(leftright);
+	
 		
 				
 		
