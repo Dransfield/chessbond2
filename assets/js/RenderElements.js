@@ -1457,14 +1457,16 @@ for(rowIter in Visits)
 			
 				if(Visits[rowIter].visitorIP)
 			{
+				cell=$("<td></td>");
 				console.log(Visits[rowIter].visitorIP);
 			$.ajax({
 				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
-				context:(position)
+				context:(cell)
 				}).done(function(data){
 				if(data)
 				{
-				cell=$("<td>"+data.country_name+":"+data.city+"</td>");
+				var addition=data.country_name+":"+data.city;
+				cell.append(addition);
 				row.append(cell);
 				}
 				});
