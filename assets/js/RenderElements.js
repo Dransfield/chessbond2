@@ -1458,6 +1458,7 @@ for(rowIter in Visits)
 				if(Visits[rowIter].visitorIP)
 			{
 				cell=$("<td></td>");
+				row.append(cell);
 				console.log(Visits[rowIter].visitorIP);
 			$.ajax({
 				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
@@ -1467,7 +1468,7 @@ for(rowIter in Visits)
 				{
 				var addition=data.country_name+":"+data.city;
 				$(this).append(addition);
-				row.append($(this));
+				
 				}
 				});
 			}
