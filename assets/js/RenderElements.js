@@ -1415,7 +1415,17 @@ function showVisitorsTable(elem)
 tbl.append(header);
 header=$("<th>Visitor</th>");
 tbl.append(header);
-header=$("#<th>Date</th>");
+header=$("<th>Date</th>");
+tbl.append(header);
+header=$("<th>IPAddress</th>");
+tbl.append(header);
+header=$("<th>Location</th>");
+tbl.append(header);
+header=$("<th>Time of Login</th>");
+tbl.append(header);
+header=$("<th>Time of Logout</th>");
+tbl.append(header);
+header=$("<th>Length of Time Loggedin</th>");
 tbl.append(header);
 }
 
