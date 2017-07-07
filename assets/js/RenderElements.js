@@ -1431,6 +1431,8 @@ tbl.append(header);
 
 	var position=1;
 
+
+
 for(rowIter in Visits)
 	{
 		var row=$("<tr></tr>");
@@ -1499,6 +1501,15 @@ for(rowIter in Visits)
 			position=position+1;
 		}
 		
+	}
+	
+	if(position<25)
+	{
+	for(posIter=position;posIter<26;posIter++)
+	{	
+	var row=$("<tr></tr>");
+	tbl.append(row);	
+	}
 	}
 	
 }
