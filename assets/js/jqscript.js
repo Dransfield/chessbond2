@@ -1647,7 +1647,7 @@ function retrieveOthersProfileVisits(owner,amount)
 	
 	var cg = new Promise
 	((resolve, reject) => {
-			io.socket.get("/sitevisit",{where{visitor:{'!':[owner]},profileOwner:owner},limit:amount,sort:"createdAt DESC"},
+			io.socket.get("/sitevisit",{visitor:{'!':owner},profileOwner:owner,limit:amount,sort:"createdAt DESC"},
 			function (resData,jwres){
 				for (x in resData)
 				{
