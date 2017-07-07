@@ -1427,6 +1427,27 @@ header=$("<th>Time of Logout</th>");
 tbl.append(header);
 header=$("<th>Length of Time Loggedin</th>");
 tbl.append(header);
+
+
+	var position=1;
+
+for(rowIter in Visits)
+	{
+		var row=$("<tr></tr>");
+		tbl.append(row);
+		
+		if(Visits[rowIter])
+		{
+			var cell=$("<td>"+position+"</td>");
+			row.append(cell);
+			
+			
+			
+			position=position+1;
+		}
+		
+	}
+	
 }
 
 function showVisitorsGraph(elem)
