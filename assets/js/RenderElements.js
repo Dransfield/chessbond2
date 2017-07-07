@@ -1412,11 +1412,11 @@ function showVisitorsTable(elem)
 	elem.append(tbl);
 	var header;
 	header=$("<th>Order of Visit</th>");
-elem.append(header);
+tbl.append(header);
 header=$("<th>Visitor</th>");
-elem.append(header);
+tbl.append(header);
 header=$("#<th>Date</th>");
-elem.append(header);
+tbl.append(header);
 }
 
 function showVisitorsGraph(elem)
