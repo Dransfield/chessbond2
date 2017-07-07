@@ -1508,7 +1508,10 @@ for(rowIter in Visits)
 	for(posIter=position;posIter<26;posIter++)
 	{	
 	var row=$("<tr></tr>");
+	console.log(posIter);
 	tbl.append(row);	
+	var cell=$("<td>"+posIter+"</td>");
+			row.append(cell);
 	}
 	}
 	
