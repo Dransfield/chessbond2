@@ -639,7 +639,24 @@ for (x in gamecategories)
 		row.append(cell);
 	
 	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td>"+	totalWhiteGamesPlayed[categoryShowString].length+"</td>");
+		row.append(cell);
 		
+		
+		cell=$("<td>"+	totalWhiteMovesPlayed[categoryShowString]+"</td>");
+		row.append(cell);
+	
+		
+		
+		cell=$("<td>"+parseInt(averageWhiteMovesPlayed[categoryShowString])+"</td>");
+		row.append(cell);
+	
 		row=$("<tr></tr>");
 		tbl.append(row);
 		
@@ -678,39 +695,27 @@ for (x in gamecategories)
 		row.append(cell);
 	
 	
-			
+	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td>"+	totalBlackGamesPlayed[categoryShowString].length+"</td>");
+		row.append(cell);
+	
+	
+		cell=$("<td>"+	totalBlackMovesPlayed[categoryShowString]+"</td>");
+		row.append(cell);
+	
+	
+		cell=$("<td>"+parseInt(averageBlackMovesPlayed[categoryShowString])+"</td>");
+		row.append(cell);
+	
 		
 		/*
-			cellSpan=addSpan(reportDiv,"");
 			
-		
-		
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalBlackGamesPlayed[categoryShowString].length);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","totalgames");
-			cellSpan.css("grid-row","c"+categoryString+"black");
-		
-		
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalWhiteGamesPlayed[categoryShowString].length);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","totalgames");
-			cellSpan.css("grid-row","c"+categoryString+"white");
-		
-		
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalBlackMovesPlayed[categoryShowString]);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","totalmoves");
-			cellSpan.css("grid-row","c"+categoryString+"black");
-		
-		
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(totalWhiteMovesPlayed[categoryShowString]);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","totalmoves");
-			cellSpan.css("grid-row","c"+categoryString+"white");
 		
 		
 		
