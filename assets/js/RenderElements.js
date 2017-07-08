@@ -628,6 +628,18 @@ for (x in gamecategories)
 		row.append(cell);
 		
 		
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td></td>");
+		cell.append(averageWhiteOppositionRatings[categoryShowString]));
+		row.append(cell);
+	
+	
+		
 		row=$("<tr></tr>");
 		tbl.append(row);
 		
@@ -654,7 +666,17 @@ for (x in gamecategories)
 		cell.append(parseInt((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
 	
-		
+	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td></td>");
+		row.append(cell);
+	
+		cell=$("<td></td>");
+		cell.append(averageBlackOppositionRatings[categoryShowString]));
+		row.append(cell);
+	
 	
 			
 		
