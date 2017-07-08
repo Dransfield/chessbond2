@@ -559,7 +559,7 @@ function setupProfilePage()
 					
 						 retrieveOthersProfileVisits(ProfID,25).then(function()
 						 {
-							 	 retrieveOwnProfileVisits(ProfID,25).then(function()
+							 	 retrieveOwnersProfileVisits(ProfID,25).then(function()
 						 {
 							retrieveAccounts().then(function()
 							{
