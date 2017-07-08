@@ -22,7 +22,9 @@ var soundVolume=5;
 var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
-var Visits=[];
+var OthersVisits=[];
+var OwnVisits=[];
+
 var NavbarDropDown;
 		subscribeToMandatoryRooms()
 			var myStatus;
@@ -557,7 +559,8 @@ function setupProfilePage()
 					
 						 retrieveOthersProfileVisits(ProfID,25).then(function()
 						 {
-							 
+							 	 retrieveOwnProfileVisits(ProfID,25).then(function()
+						 {
 							retrieveAccounts().then(function()
 							{
 						
@@ -924,8 +927,10 @@ function setupProfilePage()
 	//	console.log(resData);
 		//showVisitorsGraph(leftright);//,resData);
 		
-	showVisitorsTable(leftright);
-		
+	showVisitorsTable(leftright,OwnVisits);
+			 
+	showVisitorsTable(leftright,OthersVisits);
+			 
 		
 	
 		
@@ -999,6 +1004,7 @@ function setupProfilePage()
 			});
 		});
 	});
+});
 }
 
 
@@ -1596,62 +1602,44 @@ return NotificationPromise;
 }
 
 
-function retrieveAllVisits()
-{
-	
-	var cg = new Promise
-	((resolve, reject) => {
-			io.socket.get("/sitevisit",{limit:100,sort:"createdAt DESC"},
-			function (resData,jwres){
-				for (x in resData)
-				{
-				Visits.push(resData[x]);	
-				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
-				
-				}
-				resolve(resData);
-			});
 
-	});
-	return cg;	
-	
-	
-}
 
-function retrievePersonsVisits(person,amt,owner)
-{
-	
-	var cg = new Promise
-	((resolve, reject) => {
-			io.socket.get("/sitevisit",{limit:amt,sort:"createdAt DESC",visitor:person,profileOwner:owner},
-			function (resData,jwres){
-				for (x in resData)
-				{
-				Visits.push(resData[x]);	
-				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
-				
-				}
-				resolve(resData);
-			});
 
-	});
-	return cg;	
-	
-	
-}
 
 function retrieveOthersProfileVisits(owner,amount)
 {
-	
-	
-	
+
 	var cg = new Promise
 	((resolve, reject) => {
 			io.socket.get("/sitevisit",{visitor:{'!':owner},profileOwner:owner,limit:amount,sort:"createdAt DESC"},
 			function (resData,jwres){
 				for (x in resData)
 				{
-				Visits.push(resData[x]);	
+				OthersVisits.push(resData[x]);	
+				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
+				AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
+				
+				}
+				resolve(resData);
+			});
+
+	});
+	return cg;	
+	
+}
+
+function retrieveOwnersProfileVisits(owner,amount)
+{
+	
+	
+	
+	var cg = new Promise
+	((resolve, reject) => {
+			io.socket.get("/sitevisit",{visitor:owner,profileOwner:owner,limit:amount,sort:"createdAt DESC"},
+			function (resData,jwres){
+				for (x in resData)
+				{
+				OwnersVisits.push(resData[x]);	
 				AccountsToRetrieve[resData[x].visitor]=resData[x].visitor;
 				AccountsToRetrieve[resData[x].profileOwner]=resData[x].profileOwner;
 				

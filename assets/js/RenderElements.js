@@ -1405,7 +1405,7 @@ else
 
 }
 
-function showVisitorsTable(elem)
+function showVisitorsTable(elem,visarr)
 {
 	
 	var tbl=$("<table id='ipTable'></table>");
@@ -1433,41 +1433,41 @@ tbl.append(header);
 
 
 
-for(rowIter in Visits)
+for(rowIter in visarr)
 	{
 		var row=$("<tr></tr>");
 		tbl.append(row);
 		
-		if(Visits[rowIter] )
+		if(visarr[rowIter] )
 		{
 			var cell=$("<td>"+position+"</td>");
 			row.append(cell);
 			
 			
 			cell=$("<td></td>");
-			showUsername(cell,Accounts[Visits[rowIter].visitor].id);
+			showUsername(cell,Accounts[visarr[rowIter].visitor].id);
 			row.append(cell);
 			
-			if(Visits[rowIter].visitDate)
+			if(visarr[rowIter].visitDate)
 			{
-			cell=$("<td>"+Visits[rowIter].visitDate+"</td>");
+			cell=$("<td>"+visarr[rowIter].visitDate+"</td>");
 			row.append(cell);
 			}
 			
-			if(Visits[rowIter].visitorIP)
+			if(visarr[rowIter].visitorIP)
 			{
 				
-			cell=$("<td>"+Visits[rowIter].visitorIP+"</td>");
+			cell=$("<td>"+visarr[rowIter].visitorIP+"</td>");
 			row.append(cell);
 			}
 			
-				if(Visits[rowIter].visitorIP)
+				if(visarr[rowIter].visitorIP)
 			{
 				cell=$("<td></td>");
 				row.append(cell);
-				console.log(Visits[rowIter].visitorIP);
+				console.log(visarr[rowIter].visitorIP);
 			$.ajax({
-				url: "https://freegeoip.net/json/"+Visits[rowIter].visitorIP,
+				url: "https://freegeoip.net/json/"+visarr[rowIter].visitorIP,
 				context:(cell)
 				}).done(function(data){
 				if(data)
@@ -1479,13 +1479,13 @@ for(rowIter in Visits)
 				});
 			}
 			
-			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].createdAt)+"</td>");
+			cell=$("<td>"+timeOfDayForDate(visarr[rowIter].createdAt)+"</td>");
 			row.append(cell);
 			
-			cell=$("<td>"+timeOfDayForDate(Visits[rowIter].updatedAt)+"</td>");
+			cell=$("<td>"+timeOfDayForDate(visarr[rowIter].updatedAt)+"</td>");
 			row.append(cell);
 			
-			var diff=differenceBetweenTwoDates(Visits[rowIter].createdAt,Visits[rowIter].updatedAt)
+			var diff=differenceBetweenTwoDates(visarr[rowIter].createdAt,visarr[rowIter].updatedAt)
 			
 			
 			cell=$("<td>"+diff+"</td>");
