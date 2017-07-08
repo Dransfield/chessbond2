@@ -606,6 +606,20 @@ for (x in gamecategories)
 		cell.append(categoryShowString);
 		row.append(cell);
 		
+		cell=$("<td></td>");
+		cell.append("White");
+		row.append(cell);
+		
+		row=$("<tr></tr>");
+		tbl.append(row);
+		
+		cell=$("<td></td>");
+		cell.append(categoryShowString);
+		row.append(cell);
+		cell=$("<td></td>");
+		cell.append("Black");
+		row.append(cell);
+		
 		/*
 			cellSpan=addSpan(reportDiv,"");
 			cellSpan.append(categoryShowString);
