@@ -653,8 +653,16 @@ for (x in gamecategories)
 		row.append(cell);
 	
 		
+		var avgmov=parseInt(averageWhiteMovesPlayed[categoryShowString]);
+		if (avgmov)
+		{
+		cell=$("<td>"+avgmob+"</td>");
+		}
+		else
+		{
+		cell=$("<td></td>");
+		}
 		
-		cell=$("<td>"+parseInt(averageWhiteMovesPlayed[categoryShowString])+"</td>");
 		row.append(cell);
 	
 		row=$("<tr></tr>");
