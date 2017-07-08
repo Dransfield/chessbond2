@@ -627,7 +627,7 @@ for (x in gamecategories)
 		row.append(cell);
 	
 				cell=$("<td></td>");
-		cell.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
+		cell.append(Accounts[ProfID]['ratingBlack'+categoryShowString]);
 		row.append(cell);
 
 		
