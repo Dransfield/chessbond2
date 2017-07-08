@@ -614,8 +614,16 @@ for (x in gamecategories)
 		cell=$("<td></td>");
 		cell.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
 		row.append(cell);
-
-				cell=$("<td></td>");
+		
+			cell=$("<td></td>");
+		cell.append(parseInt((wonWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+			cell=$("<td></td>");
+		cell.append(parseInt((lostWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+		cell=$("<td></td>");
 		cell.append(parseInt((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
 		
@@ -633,11 +641,21 @@ for (x in gamecategories)
 				cell=$("<td></td>");
 		cell.append(Accounts[ProfID]['ratingBlack'+categoryShowString]);
 		row.append(cell);
-
-				cell=$("<td></td>");
+		
+		cell=$("<td></td>");
+		cell.append(parseInt((wonBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+			cell=$("<td></td>");
+		cell.append(parseInt((lostBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+		cell=$("<td></td>");
 		cell.append(parseInt((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
-
+	
+		
+	
 			
 		
 		/*
