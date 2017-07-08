@@ -635,7 +635,7 @@ for (x in gamecategories)
 		row.append(cell);
 	
 		cell=$("<td></td>");
-		cell.append(averageWhiteOppositionRatings[categoryShowString]));
+		cell.append(averageWhiteOppositionRatings[categoryShowString]);
 		row.append(cell);
 	
 	
@@ -674,7 +674,7 @@ for (x in gamecategories)
 		row.append(cell);
 	
 		cell=$("<td></td>");
-		cell.append(averageBlackOppositionRatings[categoryShowString]));
+		cell.append(averageBlackOppositionRatings[categoryShowString]);
 		row.append(cell);
 	
 	
