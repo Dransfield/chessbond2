@@ -23,7 +23,7 @@ var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
-var OwnVisits=[];
+var OwnersVisits=[];
 
 var NavbarDropDown;
 		subscribeToMandatoryRooms()
@@ -927,7 +927,7 @@ function setupProfilePage()
 	//	console.log(resData);
 		//showVisitorsGraph(leftright);//,resData);
 		
-	showVisitorsTable(leftright,OwnVisits);
+	showVisitorsTable(leftright,OwnersVisits);
 			 
 	showVisitorsTable(leftright,OthersVisits);
 			 
