@@ -610,6 +610,12 @@ for (x in gamecategories)
 		cell.append("White");
 		row.append(cell);
 		
+		
+		cell=$("<td></td>");
+		cell.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
+		row.append(cell);
+		
+		
 		row=$("<tr></tr>");
 		tbl.append(row);
 		
@@ -619,6 +625,11 @@ for (x in gamecategories)
 		cell=$("<td></td>");
 		cell.append("Black");
 		row.append(cell);
+	
+				cell=$("<td></td>");
+		cell.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
+		row.append(cell);
+
 		
 		/*
 			cellSpan=addSpan(reportDiv,"");
