@@ -344,6 +344,22 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+
+function showStatTable(elem)
+{
+	elem.append("<div>"+JoinedGames[ProfID].length+" games found</div>");
+		var tbl=$("<table id='ipTable'></table>");
+	elem.append(tbl);
+	var headers=["Game Category","Color","Current Ratings","Win%","Loss%"
+	,"Draws%","Highest Ratings Scored","Lowest Ratings Scored",
+	"Average Opposition Ratings","Best Win","Lowest Loss","Total Games",
+	"Total Moves","Average Move/Game"];
+	for( h in headers)
+	{var header=$("<th>"+headers[h]+"</th>");
+tbl.append(header);
+}
+}
+
 function showStatGraph(elem)
 {
 	elem.append("<div>"+JoinedGames[ProfID].length+" games found</div>");

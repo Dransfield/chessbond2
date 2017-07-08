@@ -1053,7 +1053,7 @@ function setupAdminPage()
 function renderStatsPage()
 {
 	
-	showStatGraph($("#statspage"));
+	showStatTable($("#statspage"));
 	
 }
 
