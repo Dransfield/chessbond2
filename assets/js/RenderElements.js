@@ -614,6 +614,10 @@ for (x in gamecategories)
 		cell=$("<td></td>");
 		cell.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
 		row.append(cell);
+
+				cell=$("<td></td>");
+		cell.append(parseInt((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
 		
 		
 		row=$("<tr></tr>");
@@ -630,31 +634,15 @@ for (x in gamecategories)
 		cell.append(Accounts[ProfID]['ratingBlack'+categoryShowString]);
 		row.append(cell);
 
+				cell=$("<td></td>");
+		cell.append(parseInt((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+
+			
 		
 		/*
 			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(categoryShowString);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","category");
-			cellSpan.css("grid-row","c"+categoryString+"white");
 			
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(categoryShowString);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","category");
-			cellSpan.css("grid-row","c"+categoryString+"black");
-			
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","currentratings");
-			cellSpan.css("grid-row","c"+categoryString+"white");
-		
-			cellSpan=addSpan(reportDiv,"");
-			cellSpan.append(Accounts[ProfID]['ratingBlack'+categoryShowString]);
-			cellSpan.attr("class","lightgreyGridCell");
-			cellSpan.css("grid-column","currentratings");
-			cellSpan.css("grid-row","c"+categoryString+"black");
 		
 		
 			cellSpan=addSpan(reportDiv,"");
