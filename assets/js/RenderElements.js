@@ -728,7 +728,7 @@ for (x in gamecategories)
 		var avgmov=parseInt(averageWhiteMovesPlayed[categoryShowString]);
 		if (avgmov)
 		{
-		cell=$("<td>"+avgmob+"</td>");
+		cell=$("<td>"+avgmov+"</td>");
 		}
 		else
 		{
