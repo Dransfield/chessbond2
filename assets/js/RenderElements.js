@@ -459,6 +459,8 @@ var totalWhiteGamesPlayed=[];
 	
 	var totalWhiteOppositionRatings=[];
 	var totalBlackOppositionRatings=[];
+	var highestWinWhite=[];
+	var highestWinBlack=[];
 	
 	for (x in gamecategories)
 	{
@@ -561,6 +563,44 @@ var totalWhiteGamesPlayed=[];
 		return (gameIsAWin(ProfID,d));
 		});
 		
+		highestWinBlack=wonBlackGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			if(i<d.Player2CategoryELO)
+			{return d.Player2CategoryELO;}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(i<d.Player1CategoryELO)
+			{return d.Player1CategoryELO;}
+			}
+			
+			return i;
+			
+		},0);
+		
+		highestWinWhite=wonWhiteGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			if(i<d.Player2CategoryELO)
+			{return d.Player2CategoryELO;}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(i<d.Player1CategoryELO)
+			{return d.Player1CategoryELO;}
+			}
+			
+			return i;
+			
+		},0);
+		
 		
 		lostWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
@@ -639,7 +679,7 @@ for (x in gamecategories)
 		row.append(cell);
 	
 	
-		cell=$("<td></td>");
+		cell=$("<td>"+highestWinWhite+"</td>");
 		row.append(cell);
 	
 		cell=$("<td></td>");
@@ -704,7 +744,7 @@ for (x in gamecategories)
 	
 	
 	
-		cell=$("<td></td>");
+		cell=$("<td>"+highestWinBlack+"</td>");
 		row.append(cell);
 	
 		cell=$("<td></td>");
