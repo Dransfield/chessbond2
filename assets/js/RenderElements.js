@@ -587,6 +587,8 @@ var totalWhiteGamesPlayed=[];
 			
 		},0);
 		
+		console.log("wonWhiteGames[categoryShowString].length "+wonWhiteGames[categoryShowString].length);
+		
 		highestWinWhite=wonWhiteGames[categoryShowString].reduce(
 		function(i,d){
 			console.log("HELLO?!?");
