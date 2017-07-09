@@ -461,8 +461,8 @@ var totalWhiteGamesPlayed=[];
 	var totalBlackOppositionRatings=[];
 	var highestWinWhite=[];
 	var highestWinBlack=[];
-	var lowestWinWhite=[];
-	var lowestWinBlack=[];
+	var lowestLossWhite=[];
+	var lowestLossBlack=[];
 	
 	for (x in gamecategories)
 	{
