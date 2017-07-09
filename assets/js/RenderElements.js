@@ -770,11 +770,16 @@ for (x in gamecategories)
 		row.append(cell);
 	
 		if(lowestLossWhite[categoryShowString]==99999)
-		{lowestLossWhite[categoryShowString]=0;}
-		
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		else
+		{
 		cell=$("<td>"+lowestLossWhite[categoryShowString]+"</td>");
 		row.append(cell);
-	
+		}
+		
 		cell=$("<td>"+	totalWhiteGamesPlayed[categoryShowString].length+"</td>");
 		row.append(cell);
 		
@@ -839,12 +844,16 @@ for (x in gamecategories)
 	
 	
 		if(lowestLossBlack[categoryShowString]==99999)
-		{lowestLossBlack[categoryShowString]=0;}
-		
-	
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		else
+		{
 		cell=$("<td>"+lowestLossBlack[categoryShowString]+"</td>");
 		row.append(cell);
-	
+		}
+		
 		cell=$("<td>"+	totalBlackGamesPlayed[categoryShowString].length+"</td>");
 		row.append(cell);
 	
