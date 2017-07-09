@@ -463,7 +463,11 @@ var totalWhiteGamesPlayed=[];
 	var highestWinBlack=[];
 	var lowestLossWhite=[];
 	var lowestLossBlack=[];
-	
+	var highestRatingsWhite=[];
+	var highestRatingsBlack=[];
+	var lowestRatingsWhite=[];
+	var lowestRatingsBlack=[];
+		
 	for (x in gamecategories)
 	{
 		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
@@ -566,6 +570,138 @@ var totalWhiteGamesPlayed=[];
 		});
 		
 		
+		
+		lowestRatingsWhite[categoryShowString]=totalWhiteGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			
+			if(d.Player1CategoryELO)
+			{
+			
+			if(i>d.Player1CategoryELO)
+			{
+				i=d.Player1CategoryELO;
+				return i;}
+			}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(d.Player2CategoryELO)
+			{
+			
+			
+			if(i>d.Player2CategoryELO)
+			{
+				i=d.Player2CategoryELO;
+				return i;}
+			}
+			}
+			return i;
+			
+		},99999);
+		
+		
+		highestRatingsWhite[categoryShowString]=totalWhiteGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			
+			if(d.Player1CategoryELO)
+			{
+			
+			if(i<d.Player1CategoryELO)
+			{
+				i=d.Player1CategoryELO;
+				return i;}
+			}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(d.Player2CategoryELO)
+			{
+			
+			
+			if(i<d.Player2CategoryELO)
+			{
+				i=d.Player2CategoryELO;
+				return i;}
+			}
+			}
+			return i;
+			
+		},0);
+		
+		
+		
+		lowestRatingsBlack[categoryShowString]=totalBlackGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			
+			if(d.Player1CategoryELO)
+			{
+			
+			if(i>d.Player1CategoryELO)
+			{
+				i=d.Player1CategoryELO;
+				return i;}
+			}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(d.Player2CategoryELO)
+			{
+			
+			
+			if(i>d.Player2CategoryELO)
+			{
+				i=d.Player2CategoryELO;
+				return i;}
+			}
+			}
+			return i;
+			
+		},99999);
+		
+		
+		highestRatingsBlack[categoryShowString]=totalBlackGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			
+			if(d.Player1CategoryELO)
+			{
+			
+			if(i<d.Player1CategoryELO)
+			{
+				i=d.Player1CategoryELO;
+				return i;}
+			}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(d.Player2CategoryELO)
+			{
+			
+			
+			if(i<d.Player2CategoryELO)
+			{
+				i=d.Player2CategoryELO;
+				return i;}
+			}
+			}
+			return i;
+			
+		},0);
 		
 		highestWinBlack[categoryShowString]=wonBlackGames[categoryShowString].reduce(
 		function(i,d){
@@ -754,13 +890,28 @@ for (x in gamecategories)
 		cell.append(parseInt((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
 		
+		if(highestRatingsWhite[categoryShowString]>0)
+		{
+		cell=$("<td>"+highestRatingsWhite[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
 		
+		if(lowestRatingsWhite[categoryShowString]>0)
+		{
+		cell=$("<td>"+lowestRatingsWhite[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
 		cell=$("<td></td>");
 		row.append(cell);
-	
-		cell=$("<td></td>");
-		row.append(cell);
-	
+		}
+		
 		cell=$("<td></td>");
 		cell.append(parseInt(averageWhiteOppositionRatings[categoryShowString]));
 		row.append(cell);
@@ -826,7 +977,7 @@ for (x in gamecategories)
 		cell.append(parseInt((wonBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
 		
-			cell=$("<td></td>");
+		cell=$("<td></td>");
 		cell.append(parseInt((lostBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
 		
@@ -835,12 +986,28 @@ for (x in gamecategories)
 		row.append(cell);
 	
 	
+		if(highestRatingsBlack[categoryShowString]>0)
+		{
+		cell=$("<td>"+highestRatingsBlack[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
 		cell=$("<td></td>");
 		row.append(cell);
-	
+		}
+		
+		if(lowestRatingsBlack[categoryShowString]>0)
+		{
+		cell=$("<td>"+lowestRatingsBlack[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
 		cell=$("<td></td>");
 		row.append(cell);
-	
+		}
+		
 		cell=$("<td></td>");
 		cell.append(parseInt(averageBlackOppositionRatings[categoryShowString]));
 		row.append(cell);
