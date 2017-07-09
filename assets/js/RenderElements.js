@@ -581,7 +581,7 @@ var totalWhiteGamesPlayed=[];
 			{
 			console.log("returning "+d.Player2CategoryELO);
 				i=d.Player2CategoryELO;
-				return d.Player2CategoryELO;}
+				return i;}
 			}
 			}
 			
@@ -598,7 +598,7 @@ var totalWhiteGamesPlayed=[];
 			{
 				console.log("returning "+d.Player1CategoryELO);
 				i=d.Player1CategoryELO;
-				return d.Player1CategoryELO;}
+				return i;}
 			}
 			}
 			return i;
@@ -619,7 +619,8 @@ var totalWhiteGamesPlayed=[];
 			console.log("d.Player1CategoryELO "+d.Player2CategoryELO);
 			if(i<d.Player2CategoryELO)
 			{
-				return d.Player2CategoryELO;}
+				i=d.Player2CategoryELO;
+				return i;}
 			}
 			}
 			
@@ -631,7 +632,9 @@ var totalWhiteGamesPlayed=[];
 			console.log("i "+i);
 			console.log("d.Player1CategoryELO "+d.Player1CategoryELO);
 			if(i<d.Player1CategoryELO)
-			{return d.Player1CategoryELO;}
+			{
+				i=d.Player1CategoryELO;
+				return i;}
 			}
 			}
 			return i;
