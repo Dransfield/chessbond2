@@ -564,22 +564,18 @@ var totalWhiteGamesPlayed=[];
 		});
 		
 		
-		console.log("wonBlackGames[categoryShowString].length "+wonBlackGames[categoryShowString].length);
 		
 		highestWinBlack[categoryShowString]=wonBlackGames[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
 			{
-				console.log("profile holder is p1");
 			
 			if(d.Player2CategoryELO)
 			{
-			console.log("d.Player2CategoryELO "+d.Player2CategoryELO);
 			
 			if(i<d.Player2CategoryELO)
 			{
-			console.log("returning "+d.Player2CategoryELO);
 				i=d.Player2CategoryELO;
 				return i;}
 			}
@@ -587,16 +583,11 @@ var totalWhiteGamesPlayed=[];
 			
 			if(d.Player2==ProfID)
 			{
-				
-				console.log("profile holder is p1");
-			
 			if(d.Player1CategoryELO)
 			{
-				console.log("d.Player1CategoryELO "+d.Player1CategoryELO);
 			
 			if(i<d.Player1CategoryELO)
 			{
-				console.log("returning "+d.Player1CategoryELO);
 				i=d.Player1CategoryELO;
 				return i;}
 			}
@@ -608,34 +599,28 @@ var totalWhiteGamesPlayed=[];
 		
 		highestWinWhite[categoryShowString]=wonWhiteGames[categoryShowString].reduce(
 		function(i,d){
-			console.log("HELLO?!?");
 			if(d.Player1==ProfID)
 			{
-				console.log("profile holder is p1");
-			if(d.Player2CategoryELO)
-			{
-			console.log("i "+i);
-			
-			console.log("d.Player1CategoryELO "+d.Player2CategoryELO);
-			if(i<d.Player2CategoryELO)
-			{
-				i=d.Player2CategoryELO;
-				return i;}
-			}
+				if(d.Player2CategoryELO)
+					{
+					if(i<d.Player2CategoryELO)
+						{
+						i=d.Player2CategoryELO;
+						return i;
+						}
+					}
 			}
 			
 			if(d.Player2==ProfID)
 			{
-				console.log("profile holder is p2");
-			if(d.Player1CategoryELO)
-			{
-			console.log("i "+i);
-			console.log("d.Player1CategoryELO "+d.Player1CategoryELO);
-			if(i<d.Player1CategoryELO)
-			{
-				i=d.Player1CategoryELO;
-				return i;}
-			}
+				if(d.Player1CategoryELO)
+					{
+					if(i<d.Player1CategoryELO)
+						{
+						i=d.Player1CategoryELO;
+						return i;
+						}
+					}
 			}
 			return i;
 			
@@ -655,7 +640,67 @@ var totalWhiteGamesPlayed=[];
 		});
 	
 		
+		lowestLossBlack[categoryShowString]=lostBlackGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			
+			if(d.Player2CategoryELO)
+			{
+			
+			if(i>d.Player2CategoryELO)
+			{
+				i=d.Player2CategoryELO;
+				return i;}
+			}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(d.Player1CategoryELO)
+			{
+			
+			if(i>d.Player1CategoryELO)
+			{
+				i=d.Player1CategoryELO;
+				return i;}
+			}
+			}
+			return i;
+			
+		},99999);
 		
+		lowestLossWhite[categoryShowString]=lostWhiteGames[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player1==ProfID)
+			{
+			
+			if(d.Player2CategoryELO)
+			{
+			
+			if(i>d.Player2CategoryELO)
+			{
+				i=d.Player2CategoryELO;
+				return i;}
+			}
+			}
+			
+			if(d.Player2==ProfID)
+			{
+			if(d.Player1CategoryELO)
+			{
+			
+			if(i>d.Player1CategoryELO)
+			{
+				i=d.Player1CategoryELO;
+				return i;}
+			}
+			}
+			return i;
+			
+		},99999);
 		
 		drewBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
