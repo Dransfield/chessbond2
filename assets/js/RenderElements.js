@@ -509,7 +509,7 @@ var totalWhiteGamesPlayed=[];
 		
 		}
 		
-		console.log("totalBlackGamesPlayed "+categoryShowString+" "+totalBlackGamesPlayed[categoryShowString].length);
+	//	console.log("totalBlackGamesPlayed "+categoryShowString+" "+totalBlackGamesPlayed[categoryShowString].length);
 		
 		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
@@ -522,7 +522,7 @@ var totalWhiteGamesPlayed=[];
 			return i+0;
 			}
 		},0);
-			console.log(totalBlackOppositionRatings[categoryShowString]);
+			//console.log(totalBlackOppositionRatings[categoryShowString]);
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
 		{
 			if(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
@@ -568,16 +568,21 @@ var totalWhiteGamesPlayed=[];
 			
 			if(d.Player1==ProfID)
 			{
+			if(d.Player2CategoryELO)
+			{
 			if(i<d.Player2CategoryELO)
 			{return d.Player2CategoryELO;}
+			}
 			}
 			
 			if(d.Player2==ProfID)
 			{
+			if(d.Player1CategoryELO)
+			{
 			if(i<d.Player1CategoryELO)
 			{return d.Player1CategoryELO;}
 			}
-			
+			}
 			return i;
 			
 		},0);
@@ -587,16 +592,27 @@ var totalWhiteGamesPlayed=[];
 			
 			if(d.Player1==ProfID)
 			{
+			if(d.Player2CategoryELO)
+			{
+			console.log("i "+i);
+			
+			console.log("d.Player1CategoryELO "+d.Player2CategoryELO);
 			if(i<d.Player2CategoryELO)
-			{return d.Player2CategoryELO;}
+			{
+				return d.Player2CategoryELO;}
+			}
 			}
 			
 			if(d.Player2==ProfID)
 			{
+			if(d.Player1CategoryELO)
+			{
+			console.log("i "+i);
+			console.log("d.Player1CategoryELO "+d.Player1CategoryELO);
 			if(i<d.Player1CategoryELO)
 			{return d.Player1CategoryELO;}
 			}
-			
+			}
 			return i;
 			
 		},0);
