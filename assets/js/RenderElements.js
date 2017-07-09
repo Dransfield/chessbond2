@@ -589,7 +589,7 @@ var totalWhiteGamesPlayed=[];
 		
 		highestWinWhite=wonWhiteGames[categoryShowString].reduce(
 		function(i,d){
-			
+			console.log("HELLO?!?");
 			if(d.Player1==ProfID)
 			{
 				console.log("profile holder is p1");
