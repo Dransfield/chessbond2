@@ -571,7 +571,7 @@ var totalWhiteGamesPlayed=[];
 		
 		
 		
-		lowestRatingsWhite[categoryShowString]=totalWhiteGames[categoryShowString].reduce(
+		lowestRatingsWhite[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
@@ -604,7 +604,7 @@ var totalWhiteGamesPlayed=[];
 		},99999);
 		
 		
-		highestRatingsWhite[categoryShowString]=totalWhiteGames[categoryShowString].reduce(
+		highestRatingsWhite[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
@@ -638,7 +638,7 @@ var totalWhiteGamesPlayed=[];
 		
 		
 		
-		lowestRatingsBlack[categoryShowString]=totalBlackGames[categoryShowString].reduce(
+		lowestRatingsBlack[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
@@ -671,7 +671,7 @@ var totalWhiteGamesPlayed=[];
 		},99999);
 		
 		
-		highestRatingsBlack[categoryShowString]=totalBlackGames[categoryShowString].reduce(
+		highestRatingsBlack[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
