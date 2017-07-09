@@ -767,7 +767,8 @@ for (x in gamecategories)
 		cell=$("<td>"+highestWinWhite[categoryShowString]+"</td>");
 		row.append(cell);
 	
-		cell=$("<td></td>");
+		cell=$("<td>"+lowestLossWhite[categoryShowString]+"</td>");
+		
 		row.append(cell);
 	
 		cell=$("<td>"+	totalWhiteGamesPlayed[categoryShowString].length+"</td>");
@@ -832,7 +833,7 @@ for (x in gamecategories)
 		cell=$("<td>"+highestWinBlack[categoryShowString]+"</td>");
 		row.append(cell);
 	
-		cell=$("<td></td>");
+		cell=$("<td>"+lowestLossBlack[categoryShowString]+"</td>");
 		row.append(cell);
 	
 		cell=$("<td>"+	totalBlackGamesPlayed[categoryShowString].length+"</td>");
