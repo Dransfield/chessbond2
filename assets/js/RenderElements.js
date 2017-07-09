@@ -767,6 +767,7 @@ for (x in gamecategories)
 	
 	
 		if(highestWinWhite[categoryShowString]!=0)
+		{
 		cell=$("<td>"+highestWinWhite[categoryShowString]+"</td>");
 		row.append(cell);
 		}
@@ -846,6 +847,7 @@ for (x in gamecategories)
 	
 	
 		if(highestWinBlack[categoryShowString]!=0)
+		{
 		cell=$("<td>"+highestWinBlack[categoryShowString]+"</td>");
 		row.append(cell);
 		}
