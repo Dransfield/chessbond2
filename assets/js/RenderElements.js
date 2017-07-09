@@ -901,7 +901,7 @@ for (x in gamecategories)
 		row.append(cell);
 		}
 		
-		if(lowestRatingsWhite[categoryShowString]>0)
+		if(lowestRatingsWhite[categoryShowString]!=99999)
 		{
 		cell=$("<td>"+lowestRatingsWhite[categoryShowString]+"</td>");
 		row.append(cell);
@@ -997,7 +997,7 @@ for (x in gamecategories)
 		row.append(cell);
 		}
 		
-		if(lowestRatingsBlack[categoryShowString]>0)
+		if(lowestRatingsBlack[categoryShowString]!=99999)
 		{
 		cell=$("<td>"+lowestRatingsBlack[categoryShowString]+"</td>");
 		row.append(cell);
