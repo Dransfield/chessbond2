@@ -769,7 +769,7 @@ for (x in gamecategories)
 		cell=$("<td>"+highestWinWhite[categoryShowString]+"</td>");
 		row.append(cell);
 	
-		if(lowestLossWhite[categoryShowString]=99999)
+		if(lowestLossWhite[categoryShowString]==99999)
 		{lowestLossWhite[categoryShowString]=0;}
 		
 		cell=$("<td>"+lowestLossWhite[categoryShowString]+"</td>");
@@ -838,7 +838,7 @@ for (x in gamecategories)
 		row.append(cell);
 	
 	
-		if(lowestLossBlack[categoryShowString]=99999)
+		if(lowestLossBlack[categoryShowString]==99999)
 		{lowestLossBlack[categoryShowString]=0;}
 		
 	
