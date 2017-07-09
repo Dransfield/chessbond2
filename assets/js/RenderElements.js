@@ -563,13 +563,20 @@ var totalWhiteGamesPlayed=[];
 		return (gameIsAWin(ProfID,d));
 		});
 		
+		
+		console.log("wonBlackGames[categoryShowString].length "+wonBlackGames[categoryShowString].length);
+		
 		highestWinBlack=wonBlackGames[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
 			{
+				console.log("profile holder is p1");
+			
 			if(d.Player2CategoryELO)
 			{
+			console.log("d.Player2CategoryELO "+d.Player2CategoryELO);
+			
 			if(i<d.Player2CategoryELO)
 			{return d.Player2CategoryELO;}
 			}
@@ -577,17 +584,22 @@ var totalWhiteGamesPlayed=[];
 			
 			if(d.Player2==ProfID)
 			{
+				
+				console.log("profile holder is p1");
+			
 			if(d.Player1CategoryELO)
 			{
+				console.log("d.Player1CategoryELO "+d.Player1CategoryELO);
+			
 			if(i<d.Player1CategoryELO)
-			{return d.Player1CategoryELO;}
+			{
+				return d.Player1CategoryELO;}
 			}
 			}
 			return i;
 			
 		},0);
 		
-		console.log("wonWhiteGames[categoryShowString].length "+wonWhiteGames[categoryShowString].length);
 		
 		highestWinWhite=wonWhiteGames[categoryShowString].reduce(
 		function(i,d){
