@@ -566,7 +566,7 @@ var totalWhiteGamesPlayed=[];
 		
 		console.log("wonBlackGames[categoryShowString].length "+wonBlackGames[categoryShowString].length);
 		
-		highestWinBlack=wonBlackGames[categoryShowString].reduce(
+		highestWinBlack[categoryShowString]=wonBlackGames[categoryShowString].reduce(
 		function(i,d){
 			
 			if(d.Player1==ProfID)
@@ -606,7 +606,7 @@ var totalWhiteGamesPlayed=[];
 		},0);
 		
 		
-		highestWinWhite=wonWhiteGames[categoryShowString].reduce(
+		highestWinWhite[categoryShowString]=wonWhiteGames[categoryShowString].reduce(
 		function(i,d){
 			console.log("HELLO?!?");
 			if(d.Player1==ProfID)
