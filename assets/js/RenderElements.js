@@ -355,9 +355,10 @@ function showStatTable(elem)
 	"Average Opposition Ratings","Best Win","Lowest Loss","Total Games",
 	"Total Moves","Average Move/Game"];
 	for( h in headers)
-	{var header=$("<th>"+headers[h]+"</th>");
-tbl.append(header);
-}
+	{
+	var header=$("<th>"+headers[h]+"</th>");
+	tbl.append(header);
+	}
 
 			
 		function playerIsWhite(player,game)
@@ -442,7 +443,7 @@ tbl.append(header);
 			return false;
 		}
 
-var totalWhiteGamesPlayed=[];
+	var totalWhiteGamesPlayed=[];
 	var totalWhiteMovesPlayed=[];
 	var totalBlackGamesPlayed=[];
 	var totalBlackMovesPlayed=[];
@@ -475,13 +476,13 @@ var totalWhiteGamesPlayed=[];
 		totalBlackGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
-		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d);
+		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d) && d.Player1!=d.Player2;
 		});
 		
 		totalWhiteGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
-		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d);
+		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2;
 		});
 		
 		
