@@ -578,7 +578,10 @@ var totalWhiteGamesPlayed=[];
 			console.log("d.Player2CategoryELO "+d.Player2CategoryELO);
 			
 			if(i<d.Player2CategoryELO)
-			{return d.Player2CategoryELO;}
+			{
+			console.log("returning "+d.Player2CategoryELO);
+				i=d.Player2CategoryELO;
+				return d.Player2CategoryELO;}
 			}
 			}
 			
@@ -593,6 +596,8 @@ var totalWhiteGamesPlayed=[];
 			
 			if(i<d.Player1CategoryELO)
 			{
+				console.log("returning "+d.Player1CategoryELO);
+				i=d.Player1CategoryELO;
 				return d.Player1CategoryELO;}
 			}
 			}
