@@ -592,6 +592,7 @@ var totalWhiteGamesPlayed=[];
 			
 			if(d.Player1==ProfID)
 			{
+				console.log("profile holder is p1");
 			if(d.Player2CategoryELO)
 			{
 			console.log("i "+i);
@@ -605,6 +606,7 @@ var totalWhiteGamesPlayed=[];
 			
 			if(d.Player2==ProfID)
 			{
+				console.log("profile holder is p2");
 			if(d.Player1CategoryELO)
 			{
 			console.log("i "+i);
