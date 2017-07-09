@@ -719,7 +719,7 @@ for (x in gamecategories)
 		row.append(cell);
 	
 	
-		cell=$("<td>"+highestWinWhite+"</td>");
+		cell=$("<td>"+highestWinWhite[categoryShowString]+"</td>");
 		row.append(cell);
 	
 		cell=$("<td></td>");
@@ -784,7 +784,7 @@ for (x in gamecategories)
 	
 	
 	
-		cell=$("<td>"+highestWinBlack+"</td>");
+		cell=$("<td>"+highestWinBlack[categoryShowString]+"</td>");
 		row.append(cell);
 	
 		cell=$("<td></td>");
