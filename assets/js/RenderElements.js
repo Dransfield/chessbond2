@@ -476,13 +476,13 @@ function showStatTable(elem)
 		totalBlackGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
-		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d) && d.Player1!=d.Player2;
+		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
 		});
 		
 		totalWhiteGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
-		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2;
+		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
 		});
 		
 		
