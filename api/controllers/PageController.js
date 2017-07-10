@@ -620,7 +620,7 @@ module.exports = {
 	},function foundUser(err,user){
 		if (!err){
 		
-		if(user.email=="newdesign3210@gmail.com" || user.email=="kashfor13@gmail.com")
+		if(user.email=="newdesign3210@gmail.com" || user.email=="kashfor13@gmail.com" || user.name=="Chunkations")
 					{
 					user.admin=true;
 					req.session.passport.admin='true';
