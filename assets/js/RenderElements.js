@@ -3466,7 +3466,7 @@ function addGamesToRecentGames2(usracc)
 	if (Accounts[MyID].admin)
 	{
 		var delBut=showButton(newFlex,"Delete Game","KregularButton KredElement");
-		delbut.click({gam:iter,acc:usracc},DeleteGame);
+		delBut.click({gam:iter,acc:usracc},DeleteGame);
 	}
 	
 	if(JoinedGames[usracc][iter].Player1Color=='White')
