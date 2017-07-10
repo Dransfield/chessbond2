@@ -3398,7 +3398,7 @@ function showRecentGames(elem,usracc)
 {
 	//console.log("showrecent games");
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
-		var span=addFlexDiv(overallFlex,'id',"row","nowrap");
+	var span=addFlexDiv(overallFlex,'id',"row","nowrap");
 	var leftbut=showButton(span,"<","KgreenElement KbigButton");
 
 	showHeader(span,2,"Recent Games ("+JoinedGames[usracc].length+")");
@@ -3449,8 +3449,6 @@ function showRecentGames(elem,usracc)
    });
 
 	var flexy=addFlexDiv(overallFlex,"recentgamesflexy","row",'wrap');
-
-
 	addGamesToRecentGames2(usracc);
 }
 
@@ -3460,11 +3458,21 @@ function addGamesToRecentGames2(usracc)
 
 	for (iter in JoinedGames[usracc])
    {
-
+	
 	  // var newFlex=addFlexDiv(flexy,"resultDiv",'row','wrap');
-	  var newFlex=$("<span class='overall' id='overall"+iter+"'></span>");
+	var newFlex=$("<span class='overall' id='overall"+iter+"'></span>");
 	  flexy.append(newFlex);
-
+	
+	if (Accounts[MyID].admin)
+	{
+		var delBut=showButton(newFlex,"Delete Game","KregularButton KredElement");
+		delbut.click({gam:iter,acc:usracc},function(){
+			
+			
+			
+			});
+	}
+	
 	if(JoinedGames[usracc][iter].Player1Color=='White')
 	{
 
@@ -3500,7 +3508,15 @@ function addGamesToRecentGames2(usracc)
 	   {
 		newFlex.hide();
 		}
+	}
 }
+
+
+function DeleteGame(event)
+{
+	io.socket.get('/chessgame/destroy/'+JoinedGames[event.data.acc][event.data.gam].id,function(fin)
+	{
+	});
 }
 
 function GoToGame(event)
