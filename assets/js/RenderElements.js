@@ -492,6 +492,11 @@ function showStatTable(elem)
 		totalWhiteGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
+			
+		if(categoryShowString=="10|0")
+		{
+		console.log();	
+		}
 		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
 		});
 		
