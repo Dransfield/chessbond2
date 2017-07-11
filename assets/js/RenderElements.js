@@ -393,7 +393,10 @@ function showStatTable(elem)
 		
 		function gameIsAWin(player,game)
 		{
-			//console.log(game);
+			if (game.GameCategory=="10|0")
+			{
+			console.log(game);
+		}
 			if(game.Result)
 			{
 				var splitted=game.Result.split(">");
