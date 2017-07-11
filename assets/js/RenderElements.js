@@ -396,7 +396,8 @@ function showStatTable(elem)
 			if (game.GameCategory=="10|0")
 			{
 			console.log(game);
-		}
+			}
+			
 			if(game.Result)
 			{
 				var splitted=game.Result.split(">");
@@ -405,6 +406,12 @@ function showStatTable(elem)
 						if(splitted[y].indexOf("Won by")>-1)
 						{
 							var name=splitted[y-1].split("<")[0];
+							
+								if (game.GameCategory=="10|0")
+								{
+								console.log("winner name is "+name);
+								}
+							
 								if(Accounts[ProfID].name==name)
 								{
 										return true;
