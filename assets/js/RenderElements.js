@@ -495,7 +495,10 @@ function showStatTable(elem)
 		return gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
 		});
 		
-		
+		if(categoryShowString=="10|0")
+		{
+			totalWhiteGamesPlayed[categoryShowString].length;
+		}
 		
 		totalWhiteMovesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
 		function(i,d){
