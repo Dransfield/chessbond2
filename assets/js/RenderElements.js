@@ -393,7 +393,7 @@ function showStatTable(elem)
 		
 		function gameIsAWin(player,game)
 		{
-			if (game.GameCategory=="10|0")
+			if (game.GameCategory=="60|0")
 			{
 			console.log(game);
 			}
@@ -407,7 +407,7 @@ function showStatTable(elem)
 						{
 							var name=splitted[y-1].split("<")[0];
 							
-								if (game.GameCategory=="10|0")
+								if (game.GameCategory=="60|0")
 								{
 								console.log("winner name is "+name);
 								}
@@ -493,7 +493,7 @@ function showStatTable(elem)
 		function(d)
 		{
 			
-		if(categoryShowString=="10|0" && gameMatchesCategory(d,categoryShowString))
+		if(categoryShowString=="60|0" && gameMatchesCategory(d,categoryShowString))
 		{
 		console.log("is player white?"+playerIsWhite(ProfID,d));	
 		console.log(d);
@@ -501,7 +501,7 @@ function showStatTable(elem)
 		console.log(d.Result!="Both Players Timed Out");
 		}
 		var returner=gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
-		if(categoryShowString=="10|0" && gameMatchesCategory(d,categoryShowString))
+		if(categoryShowString=="60|0" && gameMatchesCategory(d,categoryShowString))
 		{
 		console.log(returner);
 		}
@@ -509,7 +509,7 @@ function showStatTable(elem)
 		
 		});
 		
-		if(categoryShowString=="10|0")
+		if(categoryShowString=="60|0")
 		{
 			console.log(totalWhiteGamesPlayed[categoryShowString].length);
 		}
