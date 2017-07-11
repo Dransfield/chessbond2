@@ -497,7 +497,7 @@ function showStatTable(elem)
 		
 		if(categoryShowString=="10|0")
 		{
-			totalWhiteGamesPlayed[categoryShowString].length;
+			console.log(totalWhiteGamesPlayed[categoryShowString].length);
 		}
 		
 		totalWhiteMovesPlayed[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
