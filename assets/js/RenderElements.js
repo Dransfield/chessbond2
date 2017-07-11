@@ -571,6 +571,12 @@ function showStatTable(elem)
 		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
+			if (categoryShowString=="10|0")
+				{
+				console.log(d);
+				console.log(gameIsAWin(ProfID,d));
+				}
+			
 		return (gameIsAWin(ProfID,d));
 		});
 		
@@ -890,6 +896,12 @@ for (x in gamecategories)
 		row.append(cell);
 		
 			cell=$("<td></td>");
+			if (categoryShowString=="10|0")
+			{
+				console.log(wonWhiteGames[categoryShowString].length);
+				console.log(wonWhiteGames[categoryShowString][0]);
+				
+			}
 		cell.append(parseInt((wonWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
 		row.append(cell);
 		
