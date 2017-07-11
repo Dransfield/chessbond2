@@ -1036,13 +1036,13 @@ function setupAdminPage()
 		{
 			RetrieveWallPostsFromList().then(function()
 			{
-				retrieveAllVisits().then(function()
-				{
+			//	retrieveAllVisits().then(function()
+			//	{
 					retrieveAccounts().then(function()
 					{
 					renderAdminPage();
 					});
-				});
+			//	});
 			});
 		
 	});
@@ -1134,6 +1134,7 @@ function setupChatPage()
 		console.log(JSON.stringify(data));
 		showPersonLeft(msgbox,data);
 	});
+	
 	io.socket.on('WallPost', function (data)
 			{
 			console.log("recieved wall post socket");
