@@ -495,8 +495,9 @@ function showStatTable(elem)
 			
 		if(categoryShowString=="10|0" && gameMatchesCategory(d,categoryShowString))
 		{
-		console.log(playerIsWhite(ProfID,d));	
-		console.log (d.Player1!=d.Player2);
+		console.log("is player white?"+playerIsWhite(ProfID,d));	
+		console.log(d);
+		console.log(d.Player1!=d.Player2);
 		console.log(d.Result!="Both Players Timed Out");
 		}
 		var returner=gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
