@@ -25,7 +25,7 @@ module.exports = {
 						
 	},
 	visitedWholeSite:function(req,res){
-		 User.update({id:req.param('person')},{lastTimeVisitedWholeSite:(Date.now())}).
+		 User.update({id:req.param('person')},{lastTimeVisitedWholeSite:(new Date())}).
 		 exec(function afterwards(err, updated){
 			 console.log(updated);
 						 console.log(" user visited"+updated[0].lastTimeVisitedWholeSite);
