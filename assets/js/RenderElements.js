@@ -299,7 +299,7 @@ function phraseforloggedindate(dat)
 		console.log(actualOffset);
 		 console.log(offset2);
 		console.log(actualOffset2);
-		var newnum=nu-n;
+		var newnum=n-nu;
 		console.log(newnum);
 		newnum=newnum/1000;
 		if (newnum<60)
