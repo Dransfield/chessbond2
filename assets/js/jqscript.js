@@ -1205,7 +1205,7 @@ io.socket.get("/privateconversation",{id:convID},
 					//console.log(Visits[0]);
 					if(Accounts[otherPerson].lastTimeVisitedWholeSite)
 					{
-					leftColumn.append("Last visited:"+Accounts[otherPerson].lastTimeVisitedWholeSite);
+					leftColumn.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
 					}
 					//console.log(inputbox);
 					showFlag(leftColumn,otherPerson);
