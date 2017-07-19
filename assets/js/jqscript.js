@@ -1203,9 +1203,9 @@ io.socket.get("/privateconversation",{id:convID},
 					 showUsernameJumbo(leftColumn,otherPerson);
 					showAvatar(leftColumn,otherPerson);
 					//console.log(Visits[0]);
-					if(otherPerson.lastTimeVisitedWholeSite)
+					if(Accounts[otherPerson].lastTimeVisitedWholeSite)
 					{
-					leftColumn.append("Last visited:"+otherPerson.lastTimeVisitedWholeSite);
+					leftColumn.append("Last visited:"+Accounts[otherPerson].lastTimeVisitedWholeSite);
 					}
 					//console.log(inputbox);
 					showFlag(leftColumn,otherPerson);
