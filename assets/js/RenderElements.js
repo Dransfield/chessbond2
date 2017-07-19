@@ -291,16 +291,17 @@ function phraseforloggedindate(dat)
 			//console.log(nuDate.UTC());
 		var n = Date.now();
 		console.log("now "+n);
-			console.log("diff "+(nu-n));
+			console.log("diff "+(n-nu));
 		var nuDate2=new Date(n);
 		var offset=nuDate.getTimezoneOffset();
-		var offset2=nuDate2.getTimezoneOffset();
+		//var offset2=nuDate2.getTimezoneOffset();
 		
 		var actualOffset=(((offset*60))*1000);
-		var actualOffset2=(((offset2*60))*1000);
+		//var actualOffset2=(((offset2*60))*1000);
 		
 		 nu=nu+actualOffset;
-		 n=n+actualOffset2;
+		 console.log("new diff "+(n-nu));
+		// n=n+actualOffset2;
 		 console.log(offset);
 		console.log(actualOffset);
 		 console.log(offset2);
