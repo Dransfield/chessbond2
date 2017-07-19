@@ -286,6 +286,8 @@ function phraseforloggedindate(dat)
 			
 			var nuDate=new Date(nu);
 			console.log("last visit "+nu);
+			console.log("Date.UTC(nuDate)"+Date.UTC(nuDate));
+			console.log("Date.UTC(nu)"+Date.UTC(nu));
 			
 		var n = Date.now();
 		console.log("now "+n);
