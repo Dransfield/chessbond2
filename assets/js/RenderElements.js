@@ -286,6 +286,7 @@ function phraseforloggedindate(dat)
 			
 			var nuDate=new Date(nu);
 			console.log("last visit "+nu);
+		console.log("last visit string "+nuDate.toString());
 		//	console.log("Date.UTC(nuDate)"+Date.UTC(nuDate));
 		//	console.log("Date.UTC(nu)"+Date.UTC(nu));
 			//console.log(nuDate.UTC());
@@ -293,6 +294,7 @@ function phraseforloggedindate(dat)
 		console.log("now "+n);
 			console.log("diff "+(n-nu));
 		var nuDate2=new Date(n);
+		console.log("now string "+nuDate2.toString());
 		var offset=nuDate.getTimezoneOffset();
 		//var offset2=nuDate2.getTimezoneOffset();
 		
