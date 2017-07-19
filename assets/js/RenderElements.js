@@ -219,7 +219,8 @@ function phraseforloggedindate(dat)
 			//console.log(nu);
 			//console.log(console.log(nu));
 			 var offset=nu.getTimezoneOffset();
-			 nu=nu=offset;
+			 console.log("offset "+offset);
+			 nu=nu-offset*60;
 			var n = Date.now();
 			var newnum=n-nu;
 			//console.log('newnum '+newnum);
