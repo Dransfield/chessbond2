@@ -1189,7 +1189,7 @@ io.socket.get("/privateconversation",{id:convID},
 					if(resData.Talker2==MyID)
 					{otherPerson=resData.Talker1;}
 					
-				retrievePersonsVisits(otherPerson,1).then(function(){
+				//retrievePersonsVisits(otherPerson,1).then(function(){
 				
 				
 					for(iter in WallPosts)
@@ -1203,14 +1203,14 @@ io.socket.get("/privateconversation",{id:convID},
 					 showUsernameJumbo(leftColumn,otherPerson);
 					showAvatar(leftColumn,otherPerson);
 					//console.log(Visits[0]);
-					leftColumn.append("Last visited:"+Visits[0].visitDate);
+					leftColumn.append("Last visited:"+otherPerson.lastTimeVisitedWholeSite);
 					//console.log(inputbox);
 					showFlag(leftColumn,otherPerson);
 					leftColumn.append(Accounts[otherPerson].Country);
 					renderChatPage(inputbox);
 					
 					})
-				})
+				//})
 			})
 		})	
 	});
