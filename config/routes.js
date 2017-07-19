@@ -65,7 +65,7 @@ module.exports.routes = {
 	'/UndeletedAccount':{view:'accountundeleted'},
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
-	
+	'GET /wholesitevisit':'UserController.visitedWholeSite',
 	
 	//'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},

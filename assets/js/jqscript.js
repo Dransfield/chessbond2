@@ -26,7 +26,8 @@ var OthersVisits=[];
 var OwnersVisits=[];
 
 var NavbarDropDown;
-		subscribeToMandatoryRooms()
+		subscribeToMandatoryRooms();
+		updateWholeSiteVisit();
 			var myStatus;
 			var idleTimer=5*60;
 			
@@ -109,7 +110,7 @@ var NavbarDropDown;
 		io.socket.on
 		('connect',function()
 		{
-		subscribeToMandatoryRooms()
+		subscribeToMandatoryRooms();
 		}
 		);
 		
@@ -167,7 +168,12 @@ var NavbarDropDown;
 		}
 	
 	
-	
+		function updateWholeSiteVisit()
+		{
+			io.socket.get("/wholesitevisit",{person:MyID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+		}
 		function subscribeToMandatoryRooms()
 		{
 			io.socket.get("/subscribeToRoom",{roomName:'IdleNotificationRoom'},function (resData,jwres){

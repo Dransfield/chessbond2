@@ -24,6 +24,16 @@ module.exports = {
 						 });
 						
 	},
+	visitedWholeSite:function(req,res){
+		 User.update({id:req.param('person')},{lastTimeVisitedWholeSite:(new Date())}).
+		 exec(function afterwards(err, updated){
+			 console.log(updated);
+						 console.log(" user visited"+updated.lastTimeVisitedWholeSite);
+						 res.ok();
+						 });
+						
+	},
+	
 	UndeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){
