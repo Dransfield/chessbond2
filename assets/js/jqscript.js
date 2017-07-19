@@ -1203,7 +1203,10 @@ io.socket.get("/privateconversation",{id:convID},
 					 showUsernameJumbo(leftColumn,otherPerson);
 					showAvatar(leftColumn,otherPerson);
 					//console.log(Visits[0]);
+					if(otherPerson.lastTimeVisitedWholeSite)
+					{
 					leftColumn.append("Last visited:"+otherPerson.lastTimeVisitedWholeSite);
+					}
 					//console.log(inputbox);
 					showFlag(leftColumn,otherPerson);
 					leftColumn.append(Accounts[otherPerson].Country);
