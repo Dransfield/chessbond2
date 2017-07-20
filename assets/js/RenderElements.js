@@ -283,7 +283,7 @@ function phraseforloggedindate(dat)
 	function phrasefordate(dat)
 			{
 			var nu=Date.parse(dat);
-			nu=nu-42777252;
+			//nu=nu-42777252;
 			var nuDate=new Date(nu);
 			console.log("last visit "+nu);
 		console.log("last visit string "+nuDate.toString());
