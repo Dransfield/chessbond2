@@ -285,17 +285,17 @@ function phraseforloggedindate(dat)
 			var nu=Date.parse(dat);
 			//nu=nu-42777252;
 			var nuDate=new Date(nu);
-			console.log("last visit "+nu);
-		console.log("last visit string "+nuDate.toString());
+		//	console.log("last visit "+nu);
+	//console.log("last visit string "+nuDate.toString());
 		//	console.log("Date.UTC(nuDate)"+Date.UTC(nuDate));
 		//	console.log("Date.UTC(nu)"+Date.UTC(nu));
 			//console.log(nuDate.UTC());
 		var n = Date.now();
-		console.log("now "+n);
-			console.log("diff "+(n-nu));
+	//	console.log("now "+n);
+	//		console.log("diff "+(n-nu));
 		var nuDate2=new Date(n);
-		console.log("now string "+nuDate2.toString());
-		console.log("now string "+nuDate2.toLocaleDateString());
+	//	console.log("now string "+nuDate2.toString());
+	//	console.log("now string "+nuDate2.toLocaleDateString());
 		
 		var offset=nuDate.getTimezoneOffset();
 		//var offset2=nuDate2.getTimezoneOffset();
@@ -304,14 +304,14 @@ function phraseforloggedindate(dat)
 		//var actualOffset2=(((offset2*60))*1000);
 		
 		 //nu=nu+actualOffset;
-		 console.log("new diff "+(n-nu));
+		// console.log("new diff "+(n-nu));
 		// n=n+actualOffset2;
-		 console.log(offset);
-		console.log(actualOffset);
+		// console.log(offset);
+		//console.log(actualOffset);
 		// console.log(offset2);
 	//	console.log(actualOffset2);
 		var newnum=n-nu;
-		console.log(newnum);
+		//console.log(newnum);
 		newnum=newnum/1000;
 		if (newnum<60)
 		{
