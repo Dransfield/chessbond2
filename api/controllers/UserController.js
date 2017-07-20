@@ -38,7 +38,7 @@ module.exports = {
 		var param=req.param('field');
 		User.update({id:req.param('acc')},{myparam:req.param('datas'),ProfileUpdated:(Date.now())})
 		.exec(function afterwards(err,updated){
-			res.json(updamyted);
+			res.json(updated);
 		});
 	},
 	UndeleteAccount:function(req,res){
