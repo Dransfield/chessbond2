@@ -2753,6 +2753,7 @@ function updateAccountInfo(words,usracc)
 			{
 
 					//Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(Accounts[usracc]['ProfileUpdated']);
+					console.log("calling phrase for date"+resData['updatedAt']);
 		Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(resData['updatedAt']);
 
 					$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
