@@ -38,6 +38,7 @@ module.exports = {
 		var param=req.param('field');
 		User.update({id:req.param('acc')},{myparam:req.param('datas'),ProfileUpdated:(Date.now())})
 		.exec(function afterwards(err,updated){
+			console.log(err);
 			res.json(updated);
 		});
 	},
