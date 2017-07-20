@@ -295,6 +295,8 @@ function phraseforloggedindate(dat)
 			console.log("diff "+(n-nu));
 		var nuDate2=new Date(n);
 		console.log("now string "+nuDate2.toString());
+		console.log("now string "+nuDate2.toLocaleDateString());
+		
 		var offset=nuDate.getTimezoneOffset();
 		//var offset2=nuDate2.getTimezoneOffset();
 		
