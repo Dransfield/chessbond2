@@ -41,7 +41,7 @@ module.exports = {
 			console.log("hello");
 			console.log(updated);
 			console.log(err);
-			res.json(updated);
+			return res.send(updated);
 		});
 	},
 	UndeleteAccount:function(req,res){

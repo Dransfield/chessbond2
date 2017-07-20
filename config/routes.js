@@ -66,7 +66,7 @@ module.exports.routes = {
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	'GET /wholesitevisit':'UserController.visitedWholeSite',
-	'PUT /updateuser':'UserController,updateField',
+	'PUT /updateuser':'UserController.updateField',
 	//'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
 	//'/tournament':{view:'go'},
