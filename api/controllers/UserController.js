@@ -35,7 +35,8 @@ module.exports = {
 	},
 	updateField:function(req,res){
 		//{acc:usracc,field:words,datas:Accounts[usracc][words]},
-		User.update({id:req.param('acc')},{req.param('field'):req.param('datas'),ProfileUpdated:Date.now()}).exec(function afterwards(err,updated){
+		User.update({id:req.param('acc')},{req.param('field'):req.param('datas'),ProfileUpdated:(Date.now())})
+		.exec(function afterwards(err,updated){
 			res.json(updated);
 		});
 	},
