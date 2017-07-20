@@ -2768,7 +2768,7 @@ function updateAccountInfo(words,usracc)
 			}
 			);
 */
-io.socket.put('/updateuser',{acc:usracc,profupdate:Date.now()},function(resData,jwres)
+io.socket.put('/updateuser',{acc:usracc,profupdate:new Date()},function(resData,jwres)
 {
 	console.log(resData[0]);
 	//console.log(JSON.parse(resData));
