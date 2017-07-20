@@ -2747,7 +2747,7 @@ function updateAccountInfo(words,usracc)
 	console.log("Accounts[ProfID][words] "+Accounts[usracc][words]);
 		Accounts[usracc]['ProfileUpdated']=new Date();
 
-	io.socket.put('/user/'+usracc+"?ProfileUpdated="+Accounts[usracc]['ProfileUpdated'],{
+	/*io.socket.put('/user/'+usracc+"?ProfileUpdated="+Accounts[usracc]['ProfileUpdated'],{
 
 					  }
 
@@ -2767,17 +2767,25 @@ function updateAccountInfo(words,usracc)
 
 			}
 			);
+*/
+io.socket.put('/updateuser',{acc:usracc,field:words,datas:Accounts[usracc][words]},function(resData,jwres)
+{
+	console.log(resData);
+	console.log(JSON.parse(resData));
+	Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(resData['ProfileUpdated']);
+		$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
+	});
 
-		io.socket.put('/user/'+usracc+"?"+words+"="+Accounts[usracc][words],{
+	//	io.socket.put('/user/'+usracc+"?"+words+"="+Accounts[usracc][words],{
+//
+	//				  }
 
-					  }
-
-				,function(resData,jwres)
-			{
+		//		,function(resData,jwres)
+			//{
 
 
-				}
-			);
+				//}
+			//);
 
 }
 

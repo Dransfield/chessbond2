@@ -33,7 +33,12 @@ module.exports = {
 						 });
 						
 	},
-	
+	updateField:function(req,res){
+		{acc:usracc,field:words,datas:Accounts[usracc][words]},
+		User.update({id:acc},{field:datas,ProfileUpdated:Date.now()}).exec(function afterwards(err,updated){
+			res.json(updated);
+		});
+	},
 	UndeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){
