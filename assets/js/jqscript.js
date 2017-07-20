@@ -656,6 +656,8 @@ function setupProfilePage()
 			Accounts[ProfID].LastloginPhrase=phraseforloggedindate(Accounts[ProfID].Lastlogin);
 			console.log("calling phrase for date2"+Accounts[ProfID]['updatedAt']);
 				Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['updatedAt']);
+				Accounts[ProfID]['ProfileUpdatedPhrase']=phrasefordate(Accounts[ProfID]['ProfileUpdated']);
+			
 			var dateObj=new Date(Accounts[ProfID].createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
 			var day = dateObj.getUTCDate();
