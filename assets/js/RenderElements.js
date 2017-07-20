@@ -2752,7 +2752,8 @@ function updateAccountInfo(words,usracc)
 				,function(resData,jwres)
 			{
 
-					Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(Accounts[usracc]['ProfileUpdated']);
+					//Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(Accounts[usracc]['ProfileUpdated']);
+		Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(resData['updatedAt']);
 
 					$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
 
