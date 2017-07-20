@@ -2770,9 +2770,9 @@ function updateAccountInfo(words,usracc)
 */
 io.socket.put('/updateuser',{acc:usracc,field:words,datas:Accounts[usracc][words]},function(resData,jwres)
 {
-	console.log(resData);
-	console.log(JSON.parse(resData));
-	Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(resData['ProfileUpdated']);
+	console.log(resData[0]);
+	//console.log(JSON.parse(resData));
+	Accounts[usracc]['ProfileUpdatedPhrase']=phrasefordate(resData[0]['ProfileUpdated']);
 		$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
 	});
 
