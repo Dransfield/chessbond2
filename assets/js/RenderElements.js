@@ -2768,7 +2768,7 @@ function updateAccountInfo(words,usracc)
 			}
 			);
 */
-io.socket.put('/updateuser',{acc:usracc,field:words,datas:Accounts[usracc][words]},function(resData,jwres)
+io.socket.put('/updateuser',{acc:usracc,profupdate:Date.now()},function(resData,jwres)
 {
 	console.log(resData[0]);
 	//console.log(JSON.parse(resData));
@@ -2776,16 +2776,16 @@ io.socket.put('/updateuser',{acc:usracc,field:words,datas:Accounts[usracc][words
 		$("#ProfileUpdatedPhrase").html(Accounts[usracc]['ProfileUpdatedPhrase']);
 	});
 
-	//	io.socket.put('/user/'+usracc+"?"+words+"="+Accounts[usracc][words],{
-//
-	//				  }
+		io.socket.put('/user/'+usracc+"?"+words+"="+Accounts[usracc][words],{
 
-		//		,function(resData,jwres)
-			//{
+					  }
+
+				,function(resData,jwres)
+			{
 
 
-				//}
-			//);
+				}
+			);
 
 }
 

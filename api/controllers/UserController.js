@@ -33,10 +33,10 @@ module.exports = {
 						 });
 						
 	},
-	updateField:function(req,res){
+	updateProfile:function(req,res){
 		//{acc:usracc,field:words,datas:Accounts[usracc][words]},
-		var param=req.param('field');
-		User.update({id:req.param('acc')},{myparam:req.param('datas'),ProfileUpdated:(new Date())})
+		
+		User.update({id:req.param('acc')},{ProfileUpdated:req.param('profupdate')})
 		.exec(function afterwards(err,updated){
 			console.log("hello");
 			console.log(updated);
