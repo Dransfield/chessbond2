@@ -640,7 +640,7 @@ var year = dateObj.getUTCFullYear();
 newdate = year + "/" + month + "/" + day;
 	//user.Lastlogin=new Date();
 	user.save();
-	return res.redirect('/profile');
+	return res.redirect('/justloggedinjq');
 	
 	}
 	});
