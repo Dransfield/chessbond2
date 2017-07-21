@@ -55,6 +55,7 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 	},
     
     logintwitter:function(req,res){
+		
 passport.authenticate('twitter')(req, res);
 	},
 	twittercallback:function(req,res)

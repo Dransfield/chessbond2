@@ -2845,7 +2845,7 @@ function showLoginForm(elem)
 	loginbut.click(function(){
 
 
-			io.socket.put("/login",{email:emailform.val(),password:passwordform.val()},
+			io.socket.put("/login",{email:emailform.val(),password:passwordform.val(),theDate:new Date()},
 			function (resData, jwr){
 			console.log(resData);
 				if (resData.message!="Logged In Successfully")

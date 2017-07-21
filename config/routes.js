@@ -85,6 +85,7 @@ module.exports.routes = {
 	'PUT /imidle':'PageController.AnnounceIdle',
 	'PUT /banuser':'UserController.banUser',
 	'PUT /unbanuser':'UserController.unbanUser',
+	'GET /ijustloggedin':'UserController.updateLoggedInTime',
 	
 	'PUT /wantrematch':'RematchController.WantRematch',
 	'PUT /SendMail':'ForgotBackController.SendMail',

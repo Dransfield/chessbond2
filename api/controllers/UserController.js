@@ -44,6 +44,13 @@ module.exports = {
 			return res.send(updated);
 		});
 	},
+	updateLoggedInTime:function(req,res){
+		User.update({id:req.param('acc')},{Lastlogin:req.param('loginTime')})
+		.exec(function afterwards(err,updated){
+		return res.ok();	
+		});
+	
+	},
 	UndeleteAccount:function(req,res){
 		if(req.session){
 			if(req.session.passport){

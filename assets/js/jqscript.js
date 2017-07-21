@@ -138,6 +138,10 @@ var NavbarDropDown;
 			
 		setupPlayervsPlayerPage();
 		}
+		if($("#justloggedinpage").length)
+		{
+		setupJustLoggedInPage();
+		}
 		if($("#profilepage").length)
 		{
 		setupProfilePage();
@@ -1357,6 +1361,18 @@ PromiseArray.push(cg);
 }
 return Promise.all(PromiseArray);
 
+}
+
+function setupJustLoggedInPage()
+{
+	AccountsToRetrieve[MyID]=MyID;
+	retrieveAccounts().then(function()
+		{
+			io.socket.get("/ijustloggedin",{acc:MyID,loginTime:new Date()},
+				function (resData,jwres){
+				window.location.replace('/profile/'+MyID);
+				});
+		});
 }
 
 function setupHomePage()
