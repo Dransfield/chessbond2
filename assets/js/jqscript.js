@@ -174,7 +174,7 @@ var NavbarDropDown;
 	
 		function updateWholeSiteVisit()
 		{
-			io.socket.get("/wholesitevisit",{person:MyID},function (resData,jwres){
+			io.socket.get("/wholesitevisit",{person:MyID,theDate:new Date()},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
 		}
