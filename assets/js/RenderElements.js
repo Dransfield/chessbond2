@@ -614,6 +614,8 @@ function showStatTable(elem)
 		averageWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString].length;
 		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString].length;
 		
+		console.log("totalWhiteOppositionRatings[categoryShowString] "+totalWhiteOppositionRatings[categoryShowString]);
+		
 		averageWhiteOppositionRatings[categoryShowString]=totalWhiteOppositionRatings[categoryShowString]/totalWhiteGamesPlayed[categoryShowString].length;
 		averageBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]/totalBlackGamesPlayed[categoryShowString].length;
 		
