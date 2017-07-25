@@ -47,6 +47,8 @@ module.exports.routes = {
 	'GET /contactus':{view:'contactusjq'},
 	'GET /album/:ID': {view: 'album'},
 	'GET /albums/:userID': {view: 'albums'},
+	'GET /messages': {view: 'messagesjq'},
+	
 	'GET /user/avatar/:id':'UploadController.avatar',
 	'/profile/:ID': {view:'profilejq'},
 	//'/newprofile/:ID': {view:'profilejq'},
