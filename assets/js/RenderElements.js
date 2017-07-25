@@ -581,13 +581,13 @@ function showStatTable(elem)
 		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 			
-			if(d.Player2CategoryELO && game.Player1Color=='Black')
+			if(d.Player2CategoryELO && d.Player1Color=='Black')
 			{
 			return i+d.Player2CategoryELO;	
 			}	
 			
 			
-			if(d.Player1CategoryELO && game.Player1Color=='White')
+			if(d.Player1CategoryELO && d.Player1Color=='White')
 			{
 			return i+d.Player1CategoryELO;	
 			}	
@@ -600,13 +600,13 @@ function showStatTable(elem)
 			totalWhiteOppositionRatings[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
 		function(i,d){
 			
-			if(d.Player2CategoryELO && game.Player1Color=='White')
+			if(d.Player2CategoryELO && d.Player1Color=='White')
 			{
 			return i+d.Player2CategoryELO;	
 			}	
 			
 			
-			if(d.Player1CategoryELO && game.Player1Color=='Black')
+			if(d.Player1CategoryELO && d.Player1Color=='Black')
 			{
 			return i+d.Player1CategoryELO;	
 			}	
