@@ -1413,10 +1413,10 @@ function showStatGraph(elem)
 		
 		for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		{
-			//console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
+			console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
 			if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
-			
+			console.log("totalWhiteGamesPlayed[categoryShowString][vIter].Player1Color "+totalWhiteGamesPlayed[categoryShowString][vIter].Player1Color);
 				if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1Color=="White")
 				{
 					totalWhiteOppositionRatings[categoryShowString]=totalWhiteOppositionRatings[categoryShowString]+totalWhiteGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
