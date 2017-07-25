@@ -526,7 +526,7 @@ function showStatTable(elem)
 		function(d)
 		{
 			
-		if(categoryShowString=="60|0" && gameMatchesCategory(d,categoryShowString))
+		if(categoryShowString=="1|0" && gameMatchesCategory(d,categoryShowString))
 		{
 		console.log("is player white?"+playerIsWhite(ProfID,d));	
 		console.log(d);
@@ -558,9 +558,9 @@ function showStatTable(elem)
 		},0);
 		
 		
-		for (vIter in totalWhiteGamesPlayed[categoryShowString])
+		/*for (vIter in totalWhiteGamesPlayed[categoryShowString])
 		{
-			//console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
+			console.log("found game"+JSON.stringify(totalWhiteGamesPlayed[categoryShowString][vIter]));
 			if(totalWhiteGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
 			{
 			
@@ -574,13 +574,39 @@ function showStatTable(elem)
 				}
 			}
 		
-		}
+		}*/
 		
 	//	console.log("totalBlackGamesPlayed "+categoryShowString+" "+totalBlackGamesPlayed[categoryShowString].length);
 		
 		totalBlackOppositionRatings[categoryShowString]=totalBlackGamesPlayed[categoryShowString].reduce(
 		function(i,d){
-			if(d.Player1CategoryELO)
+			
+			if(d.Player2CategoryELO && game.Player1Color=='Black')
+			{
+			return i+d.Player2CategoryELO;	
+			}	
+			
+			
+			if(d.Player1CategoryELO && game.Player1Color=='White')
+			{
+			return i+d.Player1CategoryELO;	
+			}	
+			else
+			{
+			return i+0;
+			}
+		},0);
+		
+			totalWhiteOppositionRatings[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].reduce(
+		function(i,d){
+			
+			if(d.Player2CategoryELO && game.Player1Color=='White')
+			{
+			return i+d.Player2CategoryELO;	
+			}	
+			
+			
+			if(d.Player1CategoryELO && game.Player1Color=='Black')
 			{
 			return i+d.Player1CategoryELO;	
 			}	
@@ -590,11 +616,11 @@ function showStatTable(elem)
 			}
 		},0);
 			//console.log(totalBlackOppositionRatings[categoryShowString]);
+		/*
 		for (vIter in totalBlackGamesPlayed[categoryShowString])
 		{
 			if(totalBlackGamesPlayed[categoryShowString][vIter].Player1CategoryELO)
-			{
-			
+
 				if(totalBlackGamesPlayed[categoryShowString][vIter].Player1Color=="Black")
 				{
 					totalBlackOppositionRatings[categoryShowString]=totalBlackOppositionRatings[categoryShowString]+totalBlackGamesPlayed[categoryShowString][vIter].Player2CategoryELO;
@@ -609,7 +635,7 @@ function showStatTable(elem)
 			}
 		
 		}
-		
+		*/
 		
 		averageWhiteMovesPlayed[categoryShowString]=totalWhiteMovesPlayed[categoryShowString]/totalWhiteGamesPlayed[categoryShowString].length;
 		averageBlackMovesPlayed[categoryShowString]=totalBlackMovesPlayed[categoryShowString]/totalBlackGamesPlayed[categoryShowString].length;
@@ -623,7 +649,7 @@ function showStatTable(elem)
 		wonWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-			if (categoryShowString=="10|0")
+			if (categoryShowString=="1|0")
 				{
 				console.log(d);
 				console.log(gameIsAWin(ProfID,d));
@@ -1227,7 +1253,7 @@ for (x in gamecategories)
 		*/
 
 }
-
+/*
 function showStatGraph(elem)
 {
 	elem.append("<div>"+JoinedGames[ProfID].length+" games found</div>");
@@ -1669,7 +1695,7 @@ function showStatGraph(elem)
 		
 		}
 }
-
+*/
 function showPersonLeft(elem,prsn)
 {
 
