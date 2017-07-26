@@ -142,6 +142,10 @@ var NavbarDropDown;
 		{
 		setupJustLoggedInPage();
 		}
+		if($("#messagespage").length)
+		{
+		setupMessagesPage();
+		}
 		if($("#profilepage").length)
 		{
 		setupProfilePage();
@@ -1372,6 +1376,23 @@ function setupJustLoggedInPage()
 				function (resData,jwres){
 				window.location.replace('/profile/'+MyID);
 				});
+		});
+}
+
+function setupMessagesPage()
+{
+	
+	AccountsToRetrieve[MyID]=MyID;
+	
+		retrieveAccounts().then(function()
+		{
+			retrievePrivatesandFollows().then(function()
+			{ 
+				for (iter in PrivateConversations[MyID]) 
+				{
+				console.log(PrivateConversations[MyID][iter]);
+				}
+			});
 		});
 }
 
