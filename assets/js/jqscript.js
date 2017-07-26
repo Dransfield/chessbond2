@@ -1388,22 +1388,24 @@ function setupMessagesPage()
 			retrievePrivatesandFollows().then(function()
 			{ 
 				
-					
-				retrieveAccounts().then(function()
-				{
 					for (iter in PrivateConversations[MyID]) 
 						{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
+					}
+				retrieveAccounts().then(function()
+				{
+					for (iter in PrivateConversations[MyID]) 
+						{
 						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
 						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
 						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
 						
 						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
 						
-						console.log(PrivateConversations[MyID][iter].Talker1);
-						
+						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
+						
 				});
 			});
 }
