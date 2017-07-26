@@ -1186,10 +1186,11 @@ io.socket.get("/privateconversation",{id:convID},
 		AccountsToRetrieve[resData.Talker2]=resData.Talker2;
 		AccountsToRetrieve[MyID]=MyID;
 		
-		retrieveAccounts().then(function()
-		{
+		
 			retrievePrivatesandFollows().then(function()
 			{ 
+				retrieveAccounts().then(function()
+			{
 				getWallposts(convID).then(function(){
 				
 				
