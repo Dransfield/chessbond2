@@ -2041,13 +2041,13 @@ function addPrivatePromises()
 							for (y in pc)
 							{
 									
-							var otherPerson;
-							var otherPersonsName;
+						//	var otherPerson;
+							//var otherPersonsName;
 							
 							if(MyID==pc[y].Talker1)
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
-							otherPerson=pc[y].Talker2;
+							//otherPerson=pc[y].Talker2;
 						//	if (Accounts[pc[y].Talker2])
 							//{
 							//otherPersonsName=Accounts[pc[y].Talker2].name;
@@ -2056,7 +2056,7 @@ function addPrivatePromises()
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
-							otherPerson=pc[y].Talker1;
+							//otherPerson=pc[y].Talker1;
 							//if (Accounts[pc[y].Talker1])
 							//{
 							//otherPersonsName=Accounts[pc[y].Talker1].name;
@@ -2065,7 +2065,7 @@ function addPrivatePromises()
 				
 						//	if(Accounts[otherPerson])
 							//{
-							
+							/*
 								if(PrivateConversations[MyID])
 								{
 									if(PrivateConversations[MyID][otherPerson])
@@ -2079,7 +2079,7 @@ function addPrivatePromises()
 									addBeginChat(otherPerson);
 									}
 								}
-							
+							*/
 							//}
 							
 							
