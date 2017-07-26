@@ -2258,14 +2258,14 @@ function addFollowPromises()
 							//console.log("Talker1"+pc[x].Talker1);
 							//console.log("Talker2"+pc[x].Talker2);
 							
-							var otherPerson=pc[y].followed;
+							//var otherPerson=pc[y].followed;
 							//console.log("pc "+JSON.stringify(pc));
 							//	if(Accounts[otherPerson])
 							//	{
 							
 								//console.log("about to addfollowed");
-									Follows[otherPerson]=pc[y];
-									addFollowed(otherPerson);
+									Follows[pc[y].followed]=pc[y];
+								//	addFollowed(otherPerson);
 									
 									
 					
