@@ -1396,7 +1396,7 @@ function setupMessagesPage()
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
 				
-				lretrieveAccounts().then(function()
+				retrieveAccounts().then(function()
 				{
 					for (iter in PrivateConversations[MyID]) 
 						{
