@@ -2288,7 +2288,7 @@ function CreateDropDown(usracc)
 	
 	if(Follows[usracc])
 	{
-	addFollowed(usracc)l
+	addFollowed(usracc);
 	}
 	else
 	{
