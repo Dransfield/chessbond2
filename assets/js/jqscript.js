@@ -1789,8 +1789,9 @@ function addFollowed(usracc)
 function addSeeChat(usracc)
 {
 	console.log("adding see chat for "+usracc);
-	PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
-					
+	//PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
+	PrivateconText=$("<a href='/seeprivateconversation/"+usracc+"'>Go To Chat</a>");
+				
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }
 
@@ -2038,9 +2039,7 @@ function addPrivatePromises()
 						
 							for (y in pc)
 							{
-					
-	
-					
+									
 							var otherPerson;
 							var otherPersonsName;
 							
@@ -2048,53 +2047,53 @@ function addPrivatePromises()
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 							otherPerson=pc[y].Talker2;
-							if (Accounts[pc[y].Talker2])
-							{
-							otherPersonsName=Accounts[pc[y].Talker2].name;
-							}
+						//	if (Accounts[pc[y].Talker2])
+							//{
+							//otherPersonsName=Accounts[pc[y].Talker2].name;
+							//}
 							}
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							otherPerson=pc[y].Talker1;
-							if (Accounts[pc[y].Talker1])
-							{
-							otherPersonsName=Accounts[pc[y].Talker1].name;
-							}
+							//if (Accounts[pc[y].Talker1])
+							//{
+							//otherPersonsName=Accounts[pc[y].Talker1].name;
+							//}
 							}
 				
-							if(Accounts[otherPerson])
-							{
+						//	if(Accounts[otherPerson])
+							//{
 							
 								if(PrivateConversations[MyID])
 								{
 									if(PrivateConversations[MyID][otherPerson])
 									{
-									console.log("about to add see chat for  "+otherPerson+" "+otherPersonsName);
+								//	console.log("about to add see chat for  "+otherPerson+" "+otherPersonsName);
 									addSeeChat(otherPerson);
 									}
 									
-					
+									if(!PrivateConversations[MyID][Accounts[x].id])
+									{
+									addBeginChat(otherPerson);
+									}
 								}
 							
-							}
+							//}
 							
 							
 						}
 						
-							for (x in Accounts)
-							{
-								if(Accounts[x])
-								{
-									if(Accounts[x].id)
-									{
-										if(!PrivateConversations[MyID][Accounts[x].id])
-										{
-										addBeginChat(Accounts[x].id);
-										}
-									}	
-								}
-							}
+						//	for (x in Accounts)
+						//	{
+						//		if(Accounts[x])
+							//	{
+							//		if(Accounts[x].id)
+								//	{
+									
+							//		}	
+							//	}
+						//	}
 						
 						
 						resolve(pc);
@@ -2221,33 +2220,35 @@ function addFollowPromises()
 {
 	//console.log("addprivatepromises func");
 	
-	for (x in Accounts)
-	{
-		if(Accounts[x])
-		{
-			if(Accounts[x].id)
-			{
+	//for (x in Accounts)
+	//{
+	//	if(Accounts[x])
+		//{
+		//	if(Accounts[x].id)
+		//	{
 		FollowPromises.push(new Promise((resolve,reject)=>{
-					var thisguy=Accounts[x].id;
-					var thisguysname=Accounts[x].name;
+					//var thisguy=Accounts[x].id;
+					//var thisguysname=Accounts[x].name;
 					
 				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
-					io.socket.get("/follow",{follower:MyID,followed:thisguy},
+					//io.socket.get("/follow",{follower:MyID,followed:thisguy},
+					io.socket.get("/follow",{follower:MyID},
+					
 						function (pc) {
 						//console.log("recieved private conversation"+JSON.stringify(pc));
 						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
-						if(pc)
-						{
-							if (pc.length==0)
-							{
-							addBeginFollow(thisguy);
-							}	
-						}	
+						//if(pc)
+						//{
+						//	if (pc.length==0)
+						//	{
+						//	addBeginFollow(thisguy);
+						//	}	
+						//}	
 						
-						if(!pc)
-						{
-						addBeginFollow(thisguy);
-						}
+						//if(!pc)
+						//{
+						//addBeginFollow(thisguy);
+						//}
 						
 							for (y in pc)
 							{
@@ -2256,17 +2257,17 @@ function addFollowPromises()
 							//console.log("Talker2"+pc[x].Talker2);
 							
 							var otherPerson=pc[y].followed;
-							console.log("pc "+JSON.stringify(pc));
-								if(Accounts[otherPerson])
-								{
+							//console.log("pc "+JSON.stringify(pc));
+							//	if(Accounts[otherPerson])
+							//	{
 							
-								console.log("about to addfollowed");
+								//console.log("about to addfollowed");
 									Follows[otherPerson]=pc[y];
 									addFollowed(otherPerson);
 									
 									
 					
-								}
+								//}
 							
 							
 							
@@ -2275,7 +2276,7 @@ function addFollowPromises()
 						resolve(pc);
 					});
 				}));
-	}}}
+	//}}}
 }
 
 
