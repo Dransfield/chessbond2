@@ -1390,7 +1390,11 @@ function setupMessagesPage()
 			{ 
 				for (iter in PrivateConversations[MyID]) 
 				{
+				showAvatar($("messagespage"),PrivateConversations[MyID][iter].talker1);
+				showAvatar($("messagespage"),PrivateConversations[MyID][iter].talker2);
+				
 				console.log(PrivateConversations[MyID][iter]);
+				
 				}
 			});
 		});
