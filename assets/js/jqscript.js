@@ -1079,10 +1079,11 @@ function setupStatsPage()
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
 	retrieveGames([ProfID]).then(function(){
+				retrievePrivatesandFollows().then(function()
+						{	
 					retrieveAccounts().then(function()
 					{
-						retrievePrivatesandFollows().then(function()
-						{	
+						
 							
 							renderStatsPage();		
 						});
@@ -1386,18 +1387,16 @@ function setupMessagesPage()
 	
 		retrieveBannedWords().then(function()
 		{
-	
+			retrievePrivatesandFollows().then(function()
+			{ 
 			
-					
-					retrievePrivatesandFollows().then(function()
-					{ 
-			
-					for (iter in PrivateConversations[MyID]) 
+				for (iter in PrivateConversations[MyID]) 
 					{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
-						retrieveAccounts().then(function()
+				
+				lretrieveAccounts().then(function()
 				{
 					for (iter in PrivateConversations[MyID]) 
 						{
@@ -1880,11 +1879,11 @@ function clickFollow(event)
 					}
 					else
 					{
-					console.log("lets delete "+resData[0].id);
+					console.log("lets delete 1 "+resData[0].id);
 						io.socket.post('/follow/destroy/'+resData[0].id,{id:resData.id},
 							function (resData2, jwRes2) {
 								console.log(jwRes2);
-							console.log("lets delete "+resData[0].id);
+							console.log("lets delete 2 "+resData[0].id);
 								//console.log("resData[0].id "+resData2[0].id);
 								Blocks[usracc]=null;
 								DropDowns[usracc]['Foll'].empty();
