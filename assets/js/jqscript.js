@@ -1386,7 +1386,10 @@ function setupMessagesPage()
 	
 		retrieveBannedWords().then(function()
 		{
-		retrievePrivatesandFollows().then(function()
+	
+			
+					
+					retrievePrivatesandFollows().then(function()
 					{ 
 			
 					for (iter in PrivateConversations[MyID]) 
@@ -1394,10 +1397,8 @@ function setupMessagesPage()
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
-				retrieveAccounts().then(function()
+						retrieveAccounts().then(function()
 				{
-					
-				
 					for (iter in PrivateConversations[MyID]) 
 						{
 						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
@@ -1584,22 +1585,22 @@ function retrievePrivate()
 							if(MyID==pc[y].Talker1)
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
-							otherPerson=pc[y].Talker2;
-							if (Accounts[pc[y].Talker2])
-							{
-							otherPersonsName=Accounts[pc[y].Talker2].name;
-							}
+							//otherPerson=pc[y].Talker2;
+						//	if (Accounts[pc[y].Talker2])
+						//	{
+						//	otherPersonsName=Accounts[pc[y].Talker2].name;
+						//	}
 							}
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
-							otherPerson=pc[y].Talker1;
-							if (Accounts[pc[y].Talker1])
+							//otherPerson=pc[y].Talker1;
+							//if (Accounts[pc[y].Talker1])
 							{
-							otherPersonsName=Accounts[pc[y].Talker1].name;
+							//otherPersonsName=Accounts[pc[y].Talker1].name;
 							}
 							}
-				
+				/*
 							if(Accounts[otherPerson])
 							{
 							
@@ -1615,10 +1616,10 @@ function retrievePrivate()
 								}
 							
 							}
-							
+					*/		
 							
 						}
-						
+						/*
 							for (x in Accounts)
 							{
 								if(Accounts[x])
@@ -1632,7 +1633,7 @@ function retrievePrivate()
 									}	
 								}
 							}
-						
+						*/	
 						
 						resolve(pc);
 					});
@@ -2159,32 +2160,33 @@ function addBlockPromises()
 {
 	//console.log("addprivatepromises func");
 	
-	for (x in Accounts)
-	{
-		if(Accounts[x])
-		{
-			if(Accounts[x].id)
-			{
-		BlockPromises.push(new Promise((resolve,reject)=>{
-					var thisguy=Accounts[x].id;
-					var thisguysname=Accounts[x].name;
+	//for (x in Accounts)
+	//{
+		//if(Accounts[x])
+	//	{
+		//	if(Accounts[x].id)
+		//	{
+					BlockPromises.push(new Promise((resolve,reject)=>{
+					//var thisguy=Accounts[x].id;
+					//var thisguysname=Accounts[x].name;
 				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
-					io.socket.get("/block",{blocker:MyID,blocked:thisguy},
+					//io.socket.get("/block",{blocker:MyID,blocked:thisguy},
+					io.socket.get("/block",{blocker:MyID},
 						function (pc) {
 						//console.log("recieved private conversation"+JSON.stringify(pc));
 						//console.log("found "+pc.length+" private conversations for "+thisguy+" "+thisguysname);
-						if(pc)
-						{
-							if (pc.length==0)
-							{
-							addBeginBlock(thisguy);
-							}	
-						}	
+						//if(pc)
+						//{
+						//	if (pc.length==0)
+							//{
+							//addBeginBlock(thisguy);
+							//}	
+						//}	
 						
-						if(!pc)
-						{
-						addBeginBlock(thisguy);
-						}
+						//if(!pc)
+						//{
+						//addBeginBlock(thisguy);
+						//}
 						
 							for (y in pc)
 							{
@@ -2192,18 +2194,18 @@ function addBlockPromises()
 							//console.log("Talker1"+pc[x].Talker1);
 							//console.log("Talker2"+pc[x].Talker2);
 							
-							var otherPerson=pc[y].blocked;
-							console.log("pc "+JSON.stringify(pc));
-								if(Accounts[otherPerson])
-								{
+							//var otherPerson=pc[y].blocked;
+							//console.log("pc "+JSON.stringify(pc));
+							//	if(Accounts[otherPerson])
+							//	{
 							
-								console.log("about to add blocked");
-									Blocks[otherPerson]=pc[y];
-									addBlocked(otherPerson);
+							//	console.log("about to add blocked");
+									Blocks[pc[y].blocked]=pc[y];
+								//	addBlocked(otherPerson);
 									
 									
 					
-								}
+								//}
 							
 							
 							
@@ -2212,7 +2214,7 @@ function addBlockPromises()
 						resolve(pc);
 					});
 				}));
-	}}}
+	//}}}
 	
 }
 
