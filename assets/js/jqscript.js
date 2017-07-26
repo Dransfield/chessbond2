@@ -1401,7 +1401,7 @@ function setupMessagesPage()
 						
 						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
 						
-						console.log(PrivateConversations[MyID][iter]);
+						console.log(PrivateConversations[MyID][iter].Talker1);
 						
 						}
 				});
