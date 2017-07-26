@@ -1384,17 +1384,20 @@ function setupMessagesPage()
 	
 	AccountsToRetrieve[MyID]=MyID;
 	
-		
-			retrievePrivatesandFollows().then(function()
-			{ 
-				
+		retrieveBannedWords().then(function()
+		{
+		retrievePrivatesandFollows().then(function()
+					{ 
+			
 					for (iter in PrivateConversations[MyID]) 
-						{
+					{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
 				retrieveAccounts().then(function()
 				{
+					
+				
 					for (iter in PrivateConversations[MyID]) 
 						{
 						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
@@ -1408,6 +1411,7 @@ function setupMessagesPage()
 						
 				});
 			});
+		});
 }
 
 function setupHomePage()
