@@ -1390,8 +1390,8 @@ function setupMessagesPage()
 			{ 
 				for (iter in PrivateConversations[MyID]) 
 				{
-				showAvatar($("messagespage"),PrivateConversations[MyID][iter].Talker1);
-				showAvatar($("messagespage"),PrivateConversations[MyID][iter].Talker2);
+				showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
+				showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
 				
 				console.log(PrivateConversations[MyID][iter]);
 				
