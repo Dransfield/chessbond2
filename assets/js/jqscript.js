@@ -1384,23 +1384,28 @@ function setupMessagesPage()
 	
 	AccountsToRetrieve[MyID]=MyID;
 	
-		retrieveAccounts().then(function()
-		{
+		
 			retrievePrivatesandFollows().then(function()
 			{ 
-				for (iter in PrivateConversations[MyID]) 
+				
+					
+				retrieveAccounts().then(function()
 				{
-				showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
-				showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
-				showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
-				
-				showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
-				
-				console.log(PrivateConversations[MyID][iter]);
-				
-				}
+					for (iter in PrivateConversations[MyID]) 
+						{
+						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
+						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
+						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
+						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
+						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
+						
+						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
+						
+						console.log(PrivateConversations[MyID][iter]);
+						
+						}
+				});
 			});
-		});
 }
 
 function setupHomePage()
