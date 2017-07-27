@@ -1441,20 +1441,21 @@ function setupMessagesPage()
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							ava=showAvatar(leftColumn,otherPerson);
+							var thisDiv=addDiv(leftcolumn);
+							ava=showAvatar(thisDiv,otherPerson);
 							
-							showUsername(leftColumn,otherPerson);
+							showUsername(thisDiv,otherPerson);
 							
 						
 						
 							
 							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
 							{
-							leftColumn.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
 							}
 							//console.log(inputbox);
-							showFlag(leftColumn,otherPerson);
-							leftColumn.append(Accounts[otherPerson].Country);
+							showFlag(thisDiv,otherPerson);
+							thisDiv.append(Accounts[otherPerson].Country);
 					
 							
 							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
