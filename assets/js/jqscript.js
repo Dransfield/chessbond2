@@ -1401,8 +1401,7 @@ function setupMessagesPage()
 				
 				retrieveAccounts().then(function()
 				{
-					for (iter in PrivateConversations[MyID]) 
-						{
+					
 	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 	var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
 				overallDiv.css("max-height","90vh");
@@ -1430,7 +1429,8 @@ function setupMessagesPage()
 				msgbox.css("width","100%");
 				var inputbox=addSpan(rightFlex);
 				showChatForm(inputbox,0,"Private Conversation","none");
-	
+				for (iter in PrivateConversations[MyID]) 
+						{
 							var ava;
 							var otherperson;
 							
