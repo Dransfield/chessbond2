@@ -1407,11 +1407,13 @@ function setupMessagesPage()
 				//overallDiv.css("max-height","100vh");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				//leftColumn.css("border-style","solid");
+				var peoplebox=addSpan(rightFlex,"msgbox");
+				
+				peoplebox.css("overflow-y","scroll");
+				peoplebox.css("height","80%");
 				leftColumn.css("flex-grow","1");
-				leftColumn.css("height","80%");
-				leftColumn.css("overflow-y","scroll");
 				//leftColumn.css("width:33%");
-				leftColumn.append("Talking to:");
+				peoplebox.append("Talking to:");
 				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
 			var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
 				rightFlex.css("height","95%");
