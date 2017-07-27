@@ -1429,23 +1429,35 @@ function setupMessagesPage()
 					for (iter in PrivateConversations[MyID]) 
 						{
 							var ava;
-							var pers;
+							var otherperson;
 							
 							if(MyID!=PrivateConversations[MyID][iter].Talker1)
 							{
-							ava=showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker1);
-							pers=PrivateConversations[MyID][iter].Talker1;
-							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker1);
+							otherPerson=PrivateConversations[MyID][iter].Talker1;
 							}
 						
 							if(MyID!=PrivateConversations[MyID][iter].Talker2)
 							{
-							ava=showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker2);
-							pers=PrivateConversations[MyID][iter].Talker2;
-							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker2);
+							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							ava.click({person:pers,msgrecepticle:msgbox},getMessages);
+							ava=showAvatar(leftColumn,otherPerson);
+							
+							showUsername(leftColumn,otherPerson);
+							
+						
+						
+							
+							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
+							{
+							leftColumn.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							}
+							//console.log(inputbox);
+							showFlag(leftColumn,otherPerson);
+							leftColumn.append(Accounts[otherPerson].Country);
+					
+							
+							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
