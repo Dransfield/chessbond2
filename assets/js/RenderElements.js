@@ -2308,7 +2308,7 @@ function CreateDropDown(usracc)
 	
 	if(PrivateConversations[MyID][usracc])
 	{
-	addSeeChat(PrivateConversations[MyID][usracc].id);
+	addSeeChat(usracc);
 	}
 	else
 	{

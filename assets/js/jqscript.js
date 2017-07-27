@@ -1791,7 +1791,7 @@ function addSeeChat(usracc)
 {
 	console.log("adding see chat for "+usracc);
 	//PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
-	PrivateconText=$("<a href='/seeprivateconversation/"+usracc+"'>Go To Chat</a>");
+	PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
 				
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }
