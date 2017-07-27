@@ -1441,7 +1441,7 @@ function setupMessagesPage()
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							var thisDiv=addDiv(leftcolumn);
+							var thisDiv=addDiv(leftColumn);
 							ava=showAvatar(thisDiv,otherPerson);
 							
 							showUsername(thisDiv,otherPerson);
