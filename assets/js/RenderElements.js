@@ -1734,22 +1734,24 @@ function addSpan(elem,id)
 
 
 }
+
 function showFlag(elem,usracc)
 {
-if(Accounts[usracc])
-{
-			var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
+	if(Accounts[usracc])
+	{
+				var flagimage=$("<img data-toggle='tooltip' title='' class='countryflag' src=''></img>");
 
-			if(Accounts[usracc]['Country'])
-			{
-			flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[usracc]['Country'])+".png");
+				if(Accounts[usracc]['Country'])
+				{
+				flagimage.attr("src","/images/flatflags/"+countryToFilename(Accounts[usracc]['Country'])+".png");
 
 
-			}
-			elem.append(flagimage);
-			return flagimage;
-}
+				}
+				elem.append(flagimage);
+				return flagimage;
 	}
+}
+
 function showHeader(elem,num,content)
 {
 elem.append("<h"+num+">"+content+"</h"+num+">");

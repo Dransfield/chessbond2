@@ -1404,7 +1404,7 @@ function setupMessagesPage()
 					
 	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 	var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
-				overallDiv.css("max-height","90vh");
+				overallDiv.css("max-height","100vh");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
@@ -2064,8 +2064,8 @@ AccountPromises.push(new Promise((resolve, reject) => {
 			console.log("do navbar? "+MyID+" "+usr.id);
 				if (MyID==usr.id)
 				{
-					retrieveNotifications().then(function(){
-				//showNavbar($("#navbar"),MyID,boardscreen);
+				retrieveNotifications().then(function(){
+				showNavbar($("#navbar"),MyID,boardscreen);
 				});
 				}
 				
