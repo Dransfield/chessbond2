@@ -1408,7 +1408,7 @@ function setupMessagesPage()
 				msgbox.css("height","80%");
 				msgbox.css("width","100%");
 				var inputbox=addSpan(rightFlex);
-				showChatForm(inputbox,convID,"Private Conversation","none");
+				showChatForm(inputbox,0,"Private Conversation","none");
 	AccountsToRetrieve[MyID]=MyID;
 	
 		retrieveBannedWords().then(function()
