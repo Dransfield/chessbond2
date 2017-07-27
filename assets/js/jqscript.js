@@ -1470,12 +1470,12 @@ function getMessages(event)
 					{
 						
 						msgbox.html("");
-						for(iter in WallPosts)
+					for(iter in WallPosts)
 					{	
 					showChatMessage(msgbox,WallPosts[iter],"none",false);
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
-					}
+					});
 		}
 	}
 	
