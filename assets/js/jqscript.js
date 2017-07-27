@@ -241,12 +241,12 @@ var NavbarDropDown;
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
 			AccountsToRetrieve[GamePlaying.Player2]=GamePlaying.Player2;
 			AccountsToRetrieve[MyID]=MyID;
-			retrieveAccounts(true).then(function()
-			{
+			
 				retrievePrivatesandFollows().then(function(){
 					
 					
-		
+		retrieveAccounts(true).then(function()
+			{
 					
 						PlayerColorOnTop='Black';
 						PlayerColorOnBottom='White';
@@ -575,12 +575,13 @@ function setupProfilePage()
 						 {
 							 	 retrieveOwnersProfileVisits(ProfID,25).then(function()
 						 {
-							retrieveAccounts().then(function()
-							{
+							
 						
 							
 								retrievePrivatesandFollows().then(function()
-								{			
+								{	
+									retrieveAccounts().then(function()
+							{		
 									getWallposts(ProfID).then(function()
 									{
 						
