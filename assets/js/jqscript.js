@@ -1426,23 +1426,38 @@ function setupMessagesPage()
 				{
 					for (iter in PrivateConversations[MyID]) 
 						{
+							var ava;
+							var pers;
+							
 							if(MyID!=PrivateConversations[MyID][iter].Talker1)
 							{
-							showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker1);
+							ava=showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker1);
+							pers=PrivateConversations[MyID][iter].Talker1;
 							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker1);
 							}
 						
 							if(MyID!=PrivateConversations[MyID][iter].Talker2)
 							{
-							showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker2);
+							ava=showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker2);
+							pers=PrivateConversations[MyID][iter].Talker2;
 							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker2);
 							}
+							
+							ava.click({person:pers},getMessages);
+							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
 						
 				});
 			});
 		});
+}
+
+function getMessages(event)
+{
+	var usracc=event.data.person;
+	console.log("clicked on person "+person);
+	
 }
 
 function setupHomePage()
