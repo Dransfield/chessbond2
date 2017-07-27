@@ -1450,10 +1450,11 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 	}
 	}
 	*/
+	retrievePrivatesandFollows().then(function()
+			{ 
 	retrieveAccounts().then(function()
 		{
-			retrievePrivatesandFollows().then(function()
-			{ 
+			
 			renderHomePage();
 			});
 		});
