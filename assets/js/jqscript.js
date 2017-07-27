@@ -1045,7 +1045,7 @@ function setupAdminPage()
 	io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData2,res2){
 		for (iter2 in resData2)
 		{
-			AccountsToRetrieve[MyID]=resData2[iter2].user;
+			AccountsToRetrieve[resData2[iter2].user]=resData2[iter2].user;
 			UploadedImages[resData2[iter2].id]=(resData2[iter2]);
 		}
 		
