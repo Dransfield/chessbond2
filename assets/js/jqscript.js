@@ -1476,6 +1476,8 @@ function getMessages(event)
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 					});
+		
+		
 		}
 	}
 	
