@@ -1384,7 +1384,31 @@ function setupJustLoggedInPage()
 
 function setupMessagesPage()
 {
-	
+	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
+	var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
+				overallDiv.css("max-height","100vh");
+				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
+				leftColumn.css("border-style","solid");
+				leftColumn.css("flex-grow","1");
+				//leftColumn.css("width:33%");
+				leftColumn.append("Talking to:");
+				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
+			var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
+				rightFlex.css("height","95%");
+		
+			//	var msgSpan=addSpan(rightflex,"msgSpan");
+				rightFlex.css("flex-grow","2");
+			//	msgSpan.css("overflow-y","scroll");
+				
+				var msgbox=addSpan(rightFlex,"msgbox");
+				
+					msgbox.css("overflow-y","scroll");
+				//msgbox.css("overflow-y","auto");
+				//msgbox.css("overflow","auto");
+				msgbox.css("height","80%");
+				msgbox.css("width","100%");
+				var inputbox=addSpan(rightFlex);
+				
 	AccountsToRetrieve[MyID]=MyID;
 	
 		retrieveBannedWords().then(function()
@@ -1404,14 +1428,14 @@ function setupMessagesPage()
 						{
 							if(MyID!=PrivateConversations[MyID][iter].Talker1)
 							{
-							showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
-							showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
+							showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker1);
+							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker1);
 							}
 						
 							if(MyID!=PrivateConversations[MyID][iter].Talker2)
 							{
-							showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
-							showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
+							showAvatar(leftColumn,PrivateConversations[MyID][iter].Talker2);
+							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker2);
 							}
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
