@@ -2620,6 +2620,7 @@ var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
 var im=$("<img class='profilepic' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
 d.append(im);
+return d;
 }
 
 }
