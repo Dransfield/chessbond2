@@ -1459,7 +1459,7 @@ function setupMessagesPage()
 							showFlag(thisDiv,otherPerson);
 							thisDiv.append(Accounts[otherPerson].Country);
 					
-							
+							thisDiv.css("border-style","1");
 							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
