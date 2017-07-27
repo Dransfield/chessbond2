@@ -1402,12 +1402,17 @@ function setupMessagesPage()
 				{
 					for (iter in PrivateConversations[MyID]) 
 						{
-						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
-						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
-						showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
+							if(MyID!=PrivateConversations[MyID][iter].Talker1)
+							{
+							showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
+							showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker1);
+							}
 						
-						showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
-						
+							if(MyID!=PrivateConversations[MyID][iter].Talker2)
+							{
+							showAvatar($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
+							showUsername($("#messagespage"),PrivateConversations[MyID][iter].Talker2);
+							}
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
 						
