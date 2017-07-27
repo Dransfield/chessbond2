@@ -1388,7 +1388,7 @@ function setupMessagesPage()
 {
 	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 	var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
-				overallDiv.css("max-height","100vh");
+				overallDiv.css("max-height","90vh");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
