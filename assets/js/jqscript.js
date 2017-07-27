@@ -1407,7 +1407,7 @@ function setupMessagesPage()
 				//overallDiv.css("max-height","100vh");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				//leftColumn.css("border-style","solid");
-				var peoplebox=addSpan(rightFlex,"msgbox");
+				var peoplebox=addSpan(leftColumn,"peoplebox");
 				
 				peoplebox.css("overflow-y","scroll");
 				peoplebox.css("height","80%");
