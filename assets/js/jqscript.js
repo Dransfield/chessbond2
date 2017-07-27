@@ -1191,11 +1191,13 @@ io.socket.get("/privateconversation",{id:convID},
 			retrievePrivatesandFollows().then(function()
 			{ 
 				retrieveAccounts().then(function()
-			{
-				getWallposts(convID).then(function(){
+				{
+					
+					getWallposts(convID).then(function()
+					{
 				
 				
-				var otherPerson;
+					var otherPerson;
 					
 					if(resData.Talker1==MyID)
 					{otherPerson=resData.Talker2;}
@@ -1443,7 +1445,7 @@ function setupMessagesPage()
 							showUsername(leftColumn,PrivateConversations[MyID][iter].Talker2);
 							}
 							
-							ava.click({person:pers},getMessages);
+							ava.click({person:pers,msgrecepticle:msgbox},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
@@ -1456,7 +1458,26 @@ function setupMessagesPage()
 function getMessages(event)
 {
 	var usracc=event.data.person;
-	console.log("clicked on person "+person);
+	var msgbox=event.data.msgrecepticle;
+	console.log("clicked on person "+usracc);
+	
+	
+	for (iter in PrivateConversations[MyID])
+	{
+		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
+		{
+			getWallposts(PrivateConversations[MyID][iter].id).then(function()
+					{
+						
+						msgbox.html("");
+						for(iter in WallPosts)
+					{	
+					showChatMessage(msgbox,WallPosts[iter],"none",false);
+					}
+					msgbox.scrollTop(msgbox.prop("scrollHeight"));
+					}
+		}
+	}
 	
 }
 
