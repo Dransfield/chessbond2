@@ -1392,6 +1392,7 @@ function setupMessagesPage()
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("border-style","solid");
 				leftColumn.css("flex-grow","1");
+				leftColumn.css("overflow-y","scroll");
 				//leftColumn.css("width:33%");
 				leftColumn.append("Talking to:");
 				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
