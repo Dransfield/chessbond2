@@ -1403,7 +1403,7 @@ function setupMessagesPage()
 				{
 					
 	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
-	var overallDiv=addFlexDiv($("#navbar"),"overallDiv","row","nowrap","flex-start","flex-start");
+	var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
 				overallDiv.css("max-height","90vh");
 				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
 				leftColumn.css("border-style","solid");
@@ -2065,7 +2065,7 @@ AccountPromises.push(new Promise((resolve, reject) => {
 				if (MyID==usr.id)
 				{
 					retrieveNotifications().then(function(){
-				showNavbar($("#navbar"),MyID,boardscreen);
+				//showNavbar($("#navbar"),MyID,boardscreen);
 				});
 				}
 				
