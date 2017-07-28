@@ -1029,9 +1029,10 @@ function setupProfilePage()
 function retrievePrivatesandFollows()
 	{
 	
-	
-	
-	return Promise.all(addFollowPromises(),addBlockPromises(),addPrivatePromises());
+	var p1=addFollowPromises();
+	var p2=addBlockPromises();
+	var p3=addPrivatePromises();
+	return Prromise.all(p1,p2,p3);
 	}
 	
 function retrievePrivateRangeandFollows(index,amt)
