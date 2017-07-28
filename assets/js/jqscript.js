@@ -1485,7 +1485,7 @@ function setupMessagesPage()
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
-						var rightBut=showButton(peoplebox,">","KgreenElement KregularButton");
+						var rightBut=showButton(leftColumn,">","KgreenElement KregularButton");
 						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
 						
 				});
@@ -1525,7 +1525,7 @@ function showUsers(event)
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							var thisDiv=addDiv(event.data.peoplediv);
+							var thisDiv=event.data.peoplediv;
 							ava=showAvatar(thisDiv,otherPerson);
 							
 							showUsername(thisDiv,otherPerson);
@@ -1547,8 +1547,8 @@ function showUsers(event)
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
-						var rightBut=showButton(event.data.peoplediv,">","KgreenElement KregularButton");
-						rightBut.click({userAmt:2,peoplediv:event.data.peoplediv},showUsers);
+						//var rightBut=showButton(event.data.peoplediv,">","KgreenElement KregularButton");
+						//rightBut.click({userAmt:2,peoplediv:event.data.peoplediv},showUsers);
 					});
 					
 					});
