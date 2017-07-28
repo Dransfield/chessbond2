@@ -1400,8 +1400,9 @@ function setupMessagesPage()
 		retrieveBannedWords().then(function()
 		{
 			
-			retrievePrivatesandFollows().then(function(){
-				
+			retrievePrivatesandFollows().then(function()
+			{
+				console.log("retrieved privates and follows");
 				console.log("do loop");
 				for (iter in PrivateConversations[MyID]) 
 					{
@@ -1415,7 +1416,7 @@ function setupMessagesPage()
 				
 					retrieveAccounts().then(function()
 					{
-						
+						console.log("retrieved accounts");
 					var userIndex;
 					//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 					var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
