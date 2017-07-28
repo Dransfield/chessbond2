@@ -1403,6 +1403,10 @@ function setupMessagesPage()
 			retrievePrivateRangeandFollows(0,2).then(function(){
 				for (iter in PrivateConversations[MyID]) 
 					{
+						console.log(iter);
+						console.log("retrieve "+PrivateConversations[MyID][iter].Talker1);
+						console.log("retrieve "+PrivateConversations[MyID][iter].Talker2);
+						
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
