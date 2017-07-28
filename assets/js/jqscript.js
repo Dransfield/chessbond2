@@ -1484,7 +1484,7 @@ function setupMessagesPage()
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
-						var rightBut=showButton(peoplebox,"show more..","KgreenElement KregularButton");
+						var rightBut=showButton(peoplebox,">","KgreenElement KregularButton");
 						rightBut.click({usrIndex:userIndex,userAmt:2,peoplediv:peoplebox},showUsers);
 						
 				});
@@ -1495,6 +1495,8 @@ function setupMessagesPage()
 
 function showUsers(event)
 {
+	userIndex=userIndex+2;
+	console.log(userIndex);
 	//PrivateConversations[MyID]={};
 	retrievePrivateRangeandFollows(event.data.usrIndex,event.data.userAmt).then(function()
 					{
