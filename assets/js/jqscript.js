@@ -1400,7 +1400,7 @@ function setupMessagesPage()
 		retrieveBannedWords().then(function()
 		{
 			
-			retrievePrivateRangeandFollows(0,2).then(function()
+			retrievePrivateRangeandFollows(0,2).then(function(){
 				for (iter in PrivateConversations[MyID]) 
 					{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
