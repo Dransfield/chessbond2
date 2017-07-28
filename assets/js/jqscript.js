@@ -1405,10 +1405,10 @@ function setupMessagesPage()
 		retrieveBannedWords().then(function()
 		{
 			
-			retrievePrivatesandFollows().then(function()
-			{
+			retrievePrivatesandFollows().then(values => { 
+			
 				console.log("retrieved privates and follows");
-				console.log("do loop");
+				console.log(values);
 				console.log(PrivateConversations[MyID]);
 				for (iter in PrivateConversations[MyID]) 
 					{
@@ -2239,7 +2239,7 @@ function addPrivatePromises()
 							{
 							PrivateConversations[MyID]={};
 							}
-						console.log(pc);
+						//console.log(pc);
 							for (y in pc)
 							{
 									
