@@ -1402,14 +1402,14 @@ function setupMessagesPage()
 			
 			retrievePrivateRangeandFollows(0,2).then(values => { 
 			
-				console.log("retrieved privates and follows");
-				console.log(values);
-				console.log(PrivateConversations[MyID]);
+			//	console.log("retrieved privates and follows");
+			//	console.log(values);
+				//console.log(PrivateConversations[MyID]);
 				for (iter in PrivateConversations[MyID]) 
 					{
-						console.log(iter);
-						console.log("retrieve "+PrivateConversations[MyID][iter].Talker1);
-						console.log("retrieve "+PrivateConversations[MyID][iter].Talker2);
+					//	console.log(iter);
+					//	console.log("retrieve "+PrivateConversations[MyID][iter].Talker1);
+					//	console.log("retrieve "+PrivateConversations[MyID][iter].Talker2);
 						
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
@@ -1417,7 +1417,7 @@ function setupMessagesPage()
 				
 					retrieveAccounts().then(function()
 					{
-					console.log("retrieved accounts");
+					//console.log("retrieved accounts");
 					
 					//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 					var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
@@ -1497,7 +1497,7 @@ function setupMessagesPage()
 function showUsers(event)
 {
 	userIndex=userIndex+event.data.userAmt;
-	console.log(userIndex);
+	//console.log(userIndex);
 	event.data.peoplediv.html("");
 	PrivateConversations[MyID]={};
 	retrievePrivateRangeandFollows(userIndex,event.data.userAmt).then(function()
@@ -1542,6 +1542,7 @@ function showUsers(event)
 							thisDiv.append(Accounts[otherPerson].Country);
 					
 							thisDiv.css("border-style","1");
+							console.log("msgbox "+msgbox);
 							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
@@ -1557,7 +1558,8 @@ function getMessages(event)
 {
 	var usracc=event.data.person;
 	var msgbox=event.data.msgrecepticle;
-	console.log("clicked on person "+usracc);
+	
+	console.log("msgbox2 "+msgbox);
 	
 	
 	for (iter in PrivateConversations[MyID])
@@ -2205,7 +2207,7 @@ function addPrivatePromiseRange(index,amt)
 							{
 							PrivateConversations[MyID]={};
 							}
-						console.log(pc);
+						//console.log(pc);
 							for (y in pc)
 							{
 									
