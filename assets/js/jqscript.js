@@ -2243,63 +2243,28 @@ function addPrivatePromises()
 							for (y in pc)
 							{
 									
-						//	var otherPerson;
-							//var otherPersonsName;
-							
+						
 							if(MyID==pc[y].Talker1)
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
-							//otherPerson=pc[y].Talker2;
-						//	if (Accounts[pc[y].Talker2])
-							//{
-							//otherPersonsName=Accounts[pc[y].Talker2].name;
-							//}
+						
 							}
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
-							//otherPerson=pc[y].Talker1;
-							//if (Accounts[pc[y].Talker1])
-							//{
-							//otherPersonsName=Accounts[pc[y].Talker1].name;
-							//}
+							
 							}
 				
-						//	if(Accounts[otherPerson])
-							//{
-							/*
-								if(PrivateConversations[MyID])
-								{
-									if(PrivateConversations[MyID][otherPerson])
-									{
-								//	console.log("about to add see chat for  "+otherPerson+" "+otherPersonsName);
-									addSeeChat(otherPerson);
-									}
-									
-									if(!PrivateConversations[MyID][Accounts[x].id])
-									{
-									addBeginChat(otherPerson);
-									}
-								}
-							*/
-							//}
+					
 							
 							
-						}
-						
-						//	for (x in Accounts)
-						//	{
-						//		if(Accounts[x])
-							//	{
-							//		if(Accounts[x].id)
-								//	{
-									
-							//		}	
-							//	}
-						//	}
-						
-						
+							}
+							console.log("resolve privatecon");
 						resolve(pc);
+				
+						
+						
+						
 					});
 				}));
 	
