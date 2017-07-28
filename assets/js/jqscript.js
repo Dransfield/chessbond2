@@ -1400,7 +1400,7 @@ function setupMessagesPage()
 		retrieveBannedWords().then(function()
 		{
 			
-			retrievePrivateRangeandFollows(0,2).then(function(){
+			retrievePrivatesandFollows().then(function(){
 				
 				console.log("do loop");
 				for (iter in PrivateConversations[MyID]) 
