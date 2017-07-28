@@ -1401,6 +1401,8 @@ function setupMessagesPage()
 		{
 			
 			retrievePrivateRangeandFollows(0,2).then(function(){
+				
+				console.log("do loop");
 				for (iter in PrivateConversations[MyID]) 
 					{
 						console.log(iter);
