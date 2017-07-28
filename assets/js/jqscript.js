@@ -2187,7 +2187,7 @@ WallPostPromises.push(new Promise((resolve, reject) => {
 }
 
 
-function addPrivatePromiseRange(amt,index)
+function addPrivatePromiseRange(index,amt)
 {
 	
 		PrivatePromises.push(new Promise((resolve,reject)=>{
