@@ -1437,6 +1437,7 @@ function setupMessagesPage()
 				
 					msgbox.css("height","80%");
 					msgbox.css("width","100%");
+					
 					var inputbox=addSpan(rightFlex);
 					showChatForm(inputbox,0,"Private Conversation","none");
 				
@@ -1462,7 +1463,7 @@ function setupMessagesPage()
 							
 						
 						
-							
+							console.log(otherPerson);
 							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
 							{
 							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
