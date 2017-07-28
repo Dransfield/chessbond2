@@ -2147,6 +2147,7 @@ AccountPromises.push(new Promise((resolve, reject) => {
 				if (MyID==usr.id)
 				{
 				retrieveNotifications().then(function(){
+					$("#navbar").html("");
 				showNavbar($("#navbar"),MyID,boardscreen);
 				});
 				}
