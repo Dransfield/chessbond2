@@ -1036,7 +1036,7 @@ function retrievePrivatesandFollows()
 	var p3=addPrivatePromises();
 	console.log(p3
 	);
-	return [p1,p2,p3];
+	return Promise.all([p1,p2,p3]);
 	}
 	
 function retrievePrivateRangeandFollows(index,amt)
