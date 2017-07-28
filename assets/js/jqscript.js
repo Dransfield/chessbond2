@@ -2197,7 +2197,7 @@ function addPrivatePromiseRange(index,amt)
 							{
 							PrivateConversations[MyID]={};
 							}
-						
+						console.log(pc);
 							for (y in pc)
 							{
 									
