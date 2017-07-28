@@ -1028,13 +1028,22 @@ function setupProfilePage()
 
 function retrievePrivatesandFollows()
 	{
-	addPrivatePromises();
+	
 	addFollowPromises();
 	addBlockPromises();
+	addPrivatePromises();
 	return Promise.all(FollowPromises,PrivatePromises,BlockPromises);
 	}
 	
-
+function retrievePrivateRangeandFollows(index,amt)
+	{
+	addFollowPromises();
+	addBlockPromises();
+	addPrivatePromiseRange(index,amt);
+	return Promise.all(FollowPromises,PrivatePromises,BlockPromises);
+	
+	}
+	
 function setupAdminPage()
 {
 	
@@ -1042,12 +1051,12 @@ function setupAdminPage()
 		 retrieveBannedWords().then(function()
 		 {
 		
-	io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData2,res2){
-		for (iter2 in resData2)
-		{
-			AccountsToRetrieve[resData2[iter2].user]=resData2[iter2].user;
-			UploadedImages[resData2[iter2].id]=(resData2[iter2]);
-		}
+		io.socket.get("/avatar?sort=createdAt%20DESC",{},function(resData2,res2){
+			for (iter2 in resData2)
+			{
+				AccountsToRetrieve[resData2[iter2].user]=resData2[iter2].user;
+				UploadedImages[resData2[iter2].id]=(resData2[iter2]);
+			}
 		
 		
 		retrieveReports().then(function()
@@ -1063,7 +1072,7 @@ function setupAdminPage()
 			//	});
 			});
 		
-	});
+		});
 });
 });
 }
@@ -1390,48 +1399,48 @@ function setupMessagesPage()
 	
 		retrieveBannedWords().then(function()
 		{
-			retrievePrivatesandFollows().then(function()
-			{ 
 			
+			retrievePrivateRangeandFollows(0,2).then(function()
 				for (iter in PrivateConversations[MyID]) 
 					{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
 				
-				retrieveAccounts().then(function()
-				{
+					retrieveAccounts().then(function()
+					{
+						
+					var userIndex;
+					//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
+					var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
+					//overallDiv.css("max-height","100vh");
+					var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
+					//leftColumn.css("border-style","solid");
+					var peoplebox=addSpan(leftColumn,"peoplebox");
 					
-	//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
-	var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
-				//overallDiv.css("max-height","100vh");
-				var  leftColumn=addFlexDiv(overallDiv,"leftColumn","column");
-				//leftColumn.css("border-style","solid");
-				var peoplebox=addSpan(leftColumn,"peoplebox");
-				
-				peoplebox.css("overflow-y","scroll");
-				peoplebox.css("height","80%");
-				leftColumn.css("flex-grow","1");
-				//leftColumn.css("width:33%");
-				peoplebox.append("Talking to:");
-				//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
-			var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
-				rightFlex.css("height","95%");
-		
-			//	var msgSpan=addSpan(rightflex,"msgSpan");
-				rightFlex.css("flex-grow","2");
-			//	msgSpan.css("overflow-y","scroll");
-				
-				var msgbox=addSpan(rightFlex,"msgbox");
-				
+					peoplebox.css("overflow-y","scroll");
+					peoplebox.css("height","80%");
+					leftColumn.css("flex-grow","1");
+					//leftColumn.css("width:33%");
+					peoplebox.append("Talking to:");
+					//var rightFlex=addFlexDiv(overallDiv,"rightFlex","column","nowrap","flex-start","flex-start");
+					var rightFlex=addFlexDiv(overallDiv,"rightFlex","column");
+					rightFlex.css("height","95%");
+			
+				//	var msgSpan=addSpan(rightflex,"msgSpan");
+					rightFlex.css("flex-grow","2");
+				//	msgSpan.css("overflow-y","scroll");
+					
+					var msgbox=addSpan(rightFlex,"msgbox");
+					
 					msgbox.css("overflow-y","scroll");
-				//msgbox.css("overflow-y","auto");
-				//msgbox.css("overflow","auto");
-				msgbox.css("height","80%");
-				msgbox.css("width","100%");
-				var inputbox=addSpan(rightFlex);
-				showChatForm(inputbox,0,"Private Conversation","none");
-				for (iter in PrivateConversations[MyID]) 
+				
+					msgbox.css("height","80%");
+					msgbox.css("width","100%");
+					var inputbox=addSpan(rightFlex);
+					showChatForm(inputbox,0,"Private Conversation","none");
+				
+					for (iter in PrivateConversations[MyID]) 
 						{
 							var ava;
 							var otherperson;
@@ -1467,10 +1476,67 @@ function setupMessagesPage()
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
+						var rightBut=showButton(peoplebox,"show more..","KgreenElement KregularButton");
+						rightBut.click({usrIndex:userIndex,userAmt:2,peoplediv:peoplebox},showUsers);
 						
 				});
 			});
 		});
+}
+
+
+function showUsers(event)
+{
+	PrivateConversations[MyID]={};
+	retrievePrivateRangeandFollows(event.data.usrIndex,event.data.userAmt).then(function()
+					{
+				for (iter in PrivateConversations[MyID]) 
+					{
+						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
+						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
+					}
+				
+				retrieveAccounts().then(function()
+					{
+					for (iter in PrivateConversations[MyID]) 
+						{
+							var ava;
+							var otherperson;
+							
+							if(MyID!=PrivateConversations[MyID][iter].Talker1)
+							{
+							otherPerson=PrivateConversations[MyID][iter].Talker1;
+							}
+						
+							if(MyID!=PrivateConversations[MyID][iter].Talker2)
+							{
+							otherPerson=PrivateConversations[MyID][iter].Talker2;
+							}
+							
+							var thisDiv=addDiv(event.data.peoplediv);
+							ava=showAvatar(thisDiv,otherPerson);
+							
+							showUsername(thisDiv,otherPerson);
+							
+						
+						
+							
+							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
+							{
+							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							}
+							//console.log(inputbox);
+							showFlag(thisDiv,otherPerson);
+							thisDiv.append(Accounts[otherPerson].Country);
+					
+							thisDiv.css("border-style","1");
+							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
+							
+						//console.log(PrivateConversations[MyID][iter].Talker1);
+						}
+					});
+					
+					});
 }
 
 function getMessages(event)
@@ -2111,6 +2177,41 @@ WallPostPromises.push(new Promise((resolve, reject) => {
 		}
 		);
 	}));
+}
+
+
+function addPrivatePromiseRange(amt,index)
+{
+	
+		PrivatePromises.push(new Promise((resolve,reject)=>{
+					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:amt,skip:index},
+						function (pc) {
+						if(!PrivateConversations[MyID])
+							{
+							PrivateConversations[MyID]={};
+							}
+						
+							for (y in pc)
+							{
+									
+							
+								if(MyID==pc[y].Talker1)
+								{
+								PrivateConversations[MyID][pc[y].Talker2]=pc[y];
+								}
+								else
+								{
+								PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
+								}
+				
+							
+							
+							}
+						
+						resolve(pc);
+					});
+				}));
+	
 }
 
 
