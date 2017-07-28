@@ -1029,15 +1029,9 @@ function setupProfilePage()
 function retrievePrivatesandFollows()
 	{
 	
-	addFollowPromises();
-	addBlockPromises();
-	addPrivatePromises();
-	console.log(FollowPromises);
-	console.log(PrivatePromises);
-	console.log(BlockPromises);
 	
 	
-	return Promise.all(FollowPromises,PrivatePromises,BlockPromises);
+	return Promise.all(addFollowPromises(),addBlockPromises(),addPrivatePromises());
 	}
 	
 function retrievePrivateRangeandFollows(index,amt)
@@ -2232,7 +2226,7 @@ function addPrivatePromiseRange(index,amt)
 function addPrivatePromises()
 {
 	
-		PrivatePromises.push(new Promise((resolve,reject)=>{
+		return new Promise((resolve,reject)=>{
 					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:30000},
 						function (pc) {
 						if(!PrivateConversations[MyID])
@@ -2266,7 +2260,7 @@ function addPrivatePromises()
 						
 						
 					});
-				}));
+				});
 	
 }
 
@@ -2333,7 +2327,7 @@ function addBlockPromises()
 	//	{
 		//	if(Accounts[x].id)
 		//	{
-					BlockPromises.push(new Promise((resolve,reject)=>{
+					return new Promise((resolve,reject)=>{
 					//var thisguy=Accounts[x].id;
 					//var thisguysname=Accounts[x].name;
 				//	console.log("requesting private conversations for "+thisguy+" "+thisguysname);
@@ -2380,7 +2374,7 @@ function addBlockPromises()
 							}
 						resolve(pc);
 					});
-				}));
+				});
 	//}}}
 	
 }
@@ -2395,7 +2389,7 @@ function addFollowPromises()
 		//{
 		//	if(Accounts[x].id)
 		//	{
-		FollowPromises.push(new Promise((resolve,reject)=>{
+		return new Promise((resolve,reject)=>{
 					//var thisguy=Accounts[x].id;
 					//var thisguysname=Accounts[x].name;
 					
@@ -2444,7 +2438,7 @@ function addFollowPromises()
 							}
 						resolve(pc);
 					});
-				}));
+				});
 	//}}}
 }
 
