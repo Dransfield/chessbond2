@@ -1487,7 +1487,7 @@ function setupMessagesPage()
 						}
 						var rightBut=showButton(leftColumn,">","KgreenElement KregularButton");
 						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
-						var leftBut=showButton(leftColumn,">","KgreenElement KregularButton");
+						var leftBut=showButton(leftColumn,"<","KgreenElement KregularButton");
 						leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
 						
 				});
@@ -1495,7 +1495,7 @@ function setupMessagesPage()
 		});
 }
 
-function showUsers(event)
+function showPrevUsers(event)
 {
 	userIndex=userIndex-event.data.userAmt;
 	//console.log(userIndex);
