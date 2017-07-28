@@ -1486,7 +1486,7 @@ function setupMessagesPage()
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
 						var rightBut=showButton(peoplebox,">","KgreenElement KregularButton");
-						rightBut.click({userAmt:2,peoplediv:peoplebox},showUsers);
+						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
 						
 				});
 			});
@@ -1543,7 +1543,7 @@ function showUsers(event)
 					
 							thisDiv.css("border-style","1");
 							console.log("msgbox "+msgbox);
-							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
