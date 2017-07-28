@@ -1486,7 +1486,7 @@ function setupMessagesPage()
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
 						var rightBut=showButton(peoplebox,">","KgreenElement KregularButton");
-						rightBut.click({usrIndex:userIndex,userAmt:2,peoplediv:peoplebox},showUsers);
+						rightBut.click({userAmt:2,peoplediv:peoplebox},showUsers);
 						
 				});
 			});
@@ -1496,10 +1496,10 @@ function setupMessagesPage()
 
 function showUsers(event)
 {
-	userIndex=userIndex+2;
+	userIndex=userIndex+event.data.userAmt;
 	console.log(userIndex);
 	//PrivateConversations[MyID]={};
-	retrievePrivateRangeandFollows(event.data.usrIndex,event.data.userAmt).then(function()
+	retrievePrivateRangeandFollows(userIndex,event.data.userAmt).then(function()
 					{
 				for (iter in PrivateConversations[MyID]) 
 					{
