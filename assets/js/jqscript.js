@@ -1567,7 +1567,7 @@ function getMessages(event)
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
 						
-						msgbox.html("");
+						//msgbox.html("");
 					for(iter in WallPosts)
 					{	
 					showChatMessage(msgbox,WallPosts[iter],"none",false);
