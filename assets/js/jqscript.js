@@ -1546,8 +1546,8 @@ function showUsers(event)
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
-						var rightBut=showButton(peoplebox,">","KgreenElement KregularButton");
-						rightBut.click({userAmt:2,peoplediv:peoplebox},showUsers);
+						var rightBut=showButton(event.data.peoplediv,">","KgreenElement KregularButton");
+						rightBut.click({userAmt:2,peoplediv:event.data.peoplediv},showUsers);
 					});
 					
 					});
