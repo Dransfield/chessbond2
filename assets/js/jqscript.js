@@ -1498,6 +1498,7 @@ function showUsers(event)
 {
 	userIndex=userIndex+event.data.userAmt;
 	console.log(userIndex);
+	event.data.peoplediv.html("");
 	//PrivateConversations[MyID]={};
 	retrievePrivateRangeandFollows(userIndex,event.data.userAmt).then(function()
 					{
