@@ -1030,8 +1030,11 @@ function retrievePrivatesandFollows()
 	{
 	
 	var p1=addFollowPromises();
+	console.log(p1);
 	var p2=addBlockPromises();
+	console.log(p2);
 	var p3=addPrivatePromises();
+	console.log(p3);
 	return Promise.all(p1,p2,p3);
 	}
 	
