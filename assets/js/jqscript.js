@@ -1623,7 +1623,8 @@ function getMessages(event)
 	
 	console.log("msgbox2 "+msgbox);
 	
-	
+	msgbox.html("");
+	WallPosts={};
 	for (iter in PrivateConversations[MyID])
 	{
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
@@ -1631,7 +1632,7 @@ function getMessages(event)
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
 						
-						msgbox.html("");
+						
 					for(iter in WallPosts)
 					{	
 					showChatMessage(msgbox,WallPosts[iter],"none",false);
