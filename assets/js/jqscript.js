@@ -1487,10 +1487,72 @@ function setupMessagesPage()
 						}
 						var rightBut=showButton(leftColumn,">","KgreenElement KregularButton");
 						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
+						var leftBut=showButton(leftColumn,">","KgreenElement KregularButton");
+						leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
 						
 				});
 			});
 		});
+}
+
+function showUsers(event)
+{
+	userIndex=userIndex-event.data.userAmt;
+	//console.log(userIndex);
+	event.data.peoplediv.html("");
+	PrivateConversations[MyID]={};
+	retrievePrivateRangeandFollows(userIndex,event.data.userAmt).then(function()
+					{
+				for (iter in PrivateConversations[MyID]) 
+					{
+						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
+						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
+					}
+				
+				retrieveAccounts().then(function()
+					{
+					for (iter in PrivateConversations[MyID]) 
+						{
+							var ava;
+							var otherperson;
+							
+							if(MyID!=PrivateConversations[MyID][iter].Talker1)
+							{
+							otherPerson=PrivateConversations[MyID][iter].Talker1;
+							}
+						
+							if(MyID!=PrivateConversations[MyID][iter].Talker2)
+							{
+							otherPerson=PrivateConversations[MyID][iter].Talker2;
+							}
+							
+							var thisDiv=event.data.peoplediv;
+							ava=showAvatar(thisDiv,otherPerson);
+							
+							showUsername(thisDiv,otherPerson);
+							
+						
+						
+							
+							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
+							{
+							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							}
+							//console.log(inputbox);
+							showFlag(thisDiv,otherPerson);
+							thisDiv.append(Accounts[otherPerson].Country);
+					
+							thisDiv.css("border-style","1");
+							console.log("msgbox "+msgbox);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+							
+						//console.log(PrivateConversations[MyID][iter].Talker1);
+						}
+						//var rightBut=showButton(event.data.peoplediv,">","KgreenElement KregularButton");
+						//rightBut.click({userAmt:2,peoplediv:event.data.peoplediv},showUsers);
+					});
+					
+					});
 }
 
 
