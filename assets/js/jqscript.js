@@ -2191,7 +2191,7 @@ function addPrivatePromiseRange(index,amt)
 {
 	
 		PrivatePromises.push(new Promise((resolve,reject)=>{
-					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:amt,skip:index},
+					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}]},//,limit:amt,skip:index},
 						function (pc) {
 						if(!PrivateConversations[MyID])
 							{
