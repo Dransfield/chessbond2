@@ -1404,6 +1404,7 @@ function setupMessagesPage()
 			{
 				console.log("retrieved privates and follows");
 				console.log("do loop");
+				console.log(PrivateConversations[MyID]);
 				for (iter in PrivateConversations[MyID]) 
 					{
 						console.log(iter);
@@ -1416,7 +1417,7 @@ function setupMessagesPage()
 				
 					retrieveAccounts().then(function()
 					{
-						console.log("retrieved accounts");
+					console.log("retrieved accounts");
 					var userIndex;
 					//addFlexDiv(elem,id,direction,wrap,jcontent,aItems)
 					var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
