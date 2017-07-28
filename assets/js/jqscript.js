@@ -1032,6 +1032,11 @@ function retrievePrivatesandFollows()
 	addFollowPromises();
 	addBlockPromises();
 	addPrivatePromises();
+	console.log(FollowPromises);
+	console.log(PrivatePromises);
+	console.log(BlockPromises);
+	
+	
 	return Promise.all(FollowPromises,PrivatePromises,BlockPromises);
 	}
 	
@@ -1496,7 +1501,7 @@ function setupMessagesPage()
 
 function showUsers(event)
 {
-	PrivateConversations[MyID]={};
+	//PrivateConversations[MyID]={};
 	retrievePrivateRangeandFollows(event.data.usrIndex,event.data.userAmt).then(function()
 					{
 				for (iter in PrivateConversations[MyID]) 
@@ -2234,7 +2239,7 @@ function addPrivatePromises()
 							{
 							PrivateConversations[MyID]={};
 							}
-						
+						console.log(pc);
 							for (y in pc)
 							{
 									
