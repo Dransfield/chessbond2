@@ -1476,10 +1476,11 @@ function setupMessagesPage()
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
 						var showUserDiv=addFlexDiv(leftColumn,"showuserDiv","row","nowrap");
-						var rightBut=showButton(showUserDiv,">","KgreenElement KregularButton");
-						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
 						var leftBut=showButton(showUserDiv,"<","KgreenElement KregularButton");
 						leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
+						showUserDiv.append("----");
+						var rightBut=showButton(showUserDiv,">","KgreenElement KregularButton");
+						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
 						
 				});
 			});
@@ -1506,7 +1507,7 @@ function showPrevUsers(event)
 						{
 							
 							var otherperson;
-							
+							event.data.peoplediv.append("<p></p><p></p><p></p>");
 							if(MyID!=PrivateConversations[MyID][iter].Talker1)
 							{
 							otherPerson=PrivateConversations[MyID][iter].Talker1;
@@ -1518,7 +1519,7 @@ function showPrevUsers(event)
 							}
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
-						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
@@ -1534,7 +1535,7 @@ function showUsers(event)
 {
 	userIndex=userIndex+event.data.userAmt;
 	//console.log(userIndex);
-	event.data.peoplediv.html("");
+	event.data.peoplediv.empty();
 	PrivateConversations[MyID]={};
 	retrievePrivateRangeandFollows(userIndex,event.data.userAmt).then(function()
 					{
@@ -1550,7 +1551,7 @@ function showUsers(event)
 						{
 							var ava;
 							var otherperson;
-							
+							event.data.peoplediv.append("<p></p><p></p><p></p>");
 							if(MyID!=PrivateConversations[MyID][iter].Talker1)
 							{
 							otherPerson=PrivateConversations[MyID][iter].Talker1;
@@ -1562,7 +1563,7 @@ function showUsers(event)
 							}
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
-						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
