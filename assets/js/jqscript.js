@@ -1447,6 +1447,7 @@ function setupMessagesPage()
 					msgbox.css("width","100%");
 					
 					var inputbox=addSpan(rightFlex);
+					inputbox.attr('id','inputbox');
 					showChatForm(inputbox,0,"Private Conversation","none");
 				
 					for (iter in PrivateConversations[MyID]) 
@@ -1599,7 +1600,8 @@ function getMessages(event)
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 					});
-		
+			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Private Conversation","none");
+				
 		
 		}
 	}
