@@ -1577,7 +1577,7 @@ function getMessages(event)
 	
 	console.log("msgbox2 "+msgbox);
 	
-	msgbox.html("");
+	msgbox.empty();
 	WallPosts={};
 	for (iter in PrivateConversations[MyID])
 	{
