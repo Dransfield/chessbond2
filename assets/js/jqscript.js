@@ -1558,8 +1558,8 @@ function showUsers(event)
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							var ava=showUserIdentity(peoplebox,otherPerson);
-							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
+							var ava=showUserIdentity(event.data.peopleDic,otherPerson);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
