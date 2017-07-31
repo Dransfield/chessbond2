@@ -1577,7 +1577,7 @@ function showUsers(event)
 function getMessages(event)
 {
 	var usracc=event.data.person;
-	var msgbox=$("#"+event.data.msgrecepticle);
+	var msgbox=$("#msgbox");
 	
 	//console.log("msgbox2 "+msgbox[0]);
 	//event.data.msgrecepticle.empty();
