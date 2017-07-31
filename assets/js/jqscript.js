@@ -1582,7 +1582,7 @@ function getMessages(event)
 	//console.log("msgbox2 "+msgbox[0]);
 	//event.data.msgrecepticle.empty();
 	msgbox.empty();
-	WallPosts={};
+	WallPosts=[];
 	for (iter in PrivateConversations[MyID])
 	{
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
