@@ -1577,7 +1577,7 @@ function getMessages(event)
 	var usracc=event.data.person;
 	var msgbox=event.data.msgrecepticle;
 	
-	console.log("msgbox2 "+msgbox);
+	console.log("msgbox2 "+msgbox[0]);
 	event.data.msgrecepticle.empty();
 	msgbox.empty();
 	WallPosts={};
