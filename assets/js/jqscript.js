@@ -1467,10 +1467,7 @@ function setupMessagesPage()
 							var ava=showUserIdentity(peoplebox,otherPerson);
 							msgbox.empty();
 							console.log(msgbox);
-							ava.click(
-							function()
-							{getMessages(otherPerson,msgbox);});
-							
+							ava.click({person:otherperson,msgrecepticle:msgbox.attr('id')},getMessages);
 						
 						
 					
@@ -1574,12 +1571,12 @@ function showUsers(event)
 					
 					});
 }
-function getMessages(usracc,msgbox)
+//function getMessages(usracc,msgbox)
 
-//function getMessages(event)
+function getMessages(event)
 {
-	//var usracc=event.data.person;
-//	var msgbox=event.data.msgrecepticle;
+	var usracc=event.data.person;
+	var msgbox=$("#"+event.data.msgrecepticle);
 	
 	//console.log("msgbox2 "+msgbox[0]);
 	//event.data.msgrecepticle.empty();
