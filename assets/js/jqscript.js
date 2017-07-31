@@ -1467,6 +1467,7 @@ function setupMessagesPage()
 							var ava=showUserIdentity(peoplebox,otherPerson);
 							msgbox.empty();
 							console.log(msgbox);
+							console.log(msgbox.attr('id'));
 							ava.click({person:otherperson,msgrecepticle:msgbox.attr('id')},getMessages);
 						
 						
@@ -1516,7 +1517,7 @@ function showPrevUsers(event)
 							}
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
-							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
@@ -1561,7 +1562,7 @@ function showUsers(event)
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
 						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
-							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
