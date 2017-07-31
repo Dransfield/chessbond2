@@ -1788,7 +1788,7 @@ ava=showAvatar(thisDiv,otherPerson);
 					
 							thisDiv.css("border-style","1");
 							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
-	
+return ava;	
 }
 function showImageUploadForm(elem,usracc)
 {

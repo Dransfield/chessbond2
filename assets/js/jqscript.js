@@ -1464,8 +1464,8 @@ function setupMessagesPage()
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							showUserIdentity(peoplebox,otherPerson);
-							
+							var ava=showUserIdentity(peoplebox,otherPerson);
+							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
 							
 						
 						
@@ -1501,7 +1501,7 @@ function showPrevUsers(event)
 					{
 					for (iter in PrivateConversations[MyID]) 
 						{
-							var ava;
+							
 							var otherperson;
 							
 							if(MyID!=PrivateConversations[MyID][iter].Talker1)
@@ -1514,24 +1514,7 @@ function showPrevUsers(event)
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							var thisDiv=event.data.peoplediv;
-							ava=showAvatar(thisDiv,otherPerson);
-							
-							showUsername(thisDiv,otherPerson);
-							
-						
-						
-							
-							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
-							{
-							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
-							}
-							//console.log(inputbox);
-							showFlag(thisDiv,otherPerson);
-							thisDiv.append(Accounts[otherPerson].Country);
-					
-							thisDiv.css("border-style","1");
-							console.log("msgbox "+msgbox);
+							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
 							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
@@ -1575,25 +1558,8 @@ function showUsers(event)
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							var thisDiv=event.data.peoplediv;
-							ava=showAvatar(thisDiv,otherPerson);
-							
-							showUsername(thisDiv,otherPerson);
-							
-						
-						
-							
-							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
-							{
-							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
-							}
-							//console.log(inputbox);
-							showFlag(thisDiv,otherPerson);
-							thisDiv.append(Accounts[otherPerson].Country);
-					
-							thisDiv.css("border-style","1");
-							console.log("msgbox "+msgbox);
-							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+							var ava=showUserIdentity(peoplebox,otherPerson);
+							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
