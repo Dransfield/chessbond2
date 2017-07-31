@@ -1771,6 +1771,25 @@ function showUsernameJumbo(elem,usracc)
       showUsername(header,usracc);
 	elem.append(header);
 }
+showUserIdentity(elem,usracc)
+{
+var thisDiv=addFlexDiv(elem,"ident"+usracc,"column","nowrap");
+ava=showAvatar(thisDiv,otherPerson);
+							
+							showUsername(thisDiv,otherPerson);
+									console.log(otherPerson);
+							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
+							{
+							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							}
+							//console.log(inputbox);
+							showFlag(thisDiv,otherPerson);
+							thisDiv.append(Accounts[otherPerson].Country);
+					
+							thisDiv.css("border-style","1");
+							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
+	
+}
 function showImageUploadForm(elem,usracc)
 {
 	elem.append(`

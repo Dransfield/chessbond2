@@ -1464,24 +1464,12 @@ function setupMessagesPage()
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
-							var thisDiv=addDiv(peoplebox);
-							ava=showAvatar(thisDiv,otherPerson);
+							showUserIdentity(peoplebox,otherPerson);
 							
-							showUsername(thisDiv,otherPerson);
 							
 						
 						
-							console.log(otherPerson);
-							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
-							{
-							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
-							}
-							//console.log(inputbox);
-							showFlag(thisDiv,otherPerson);
-							thisDiv.append(Accounts[otherPerson].Country);
 					
-							thisDiv.css("border-style","1");
-							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
