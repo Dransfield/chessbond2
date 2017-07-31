@@ -1475,9 +1475,10 @@ function setupMessagesPage()
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
-						var rightBut=showButton(leftColumn,">","KgreenElement KregularButton");
+						var showUserDiv=addFlexDiv(leftColumn,"showuserDiv","row","nowrap");
+						var rightBut=showButton(showUserDiv,">","KgreenElement KregularButton");
 						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
-						var leftBut=showButton(leftColumn,"<","KgreenElement KregularButton");
+						var leftBut=showButton(showUserDiv,"<","KgreenElement KregularButton");
 						leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
 						
 				});
