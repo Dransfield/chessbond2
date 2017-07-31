@@ -1600,6 +1600,7 @@ function getMessages(event)
 					}
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 					});
+					$('#inputbox').empty();
 			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Private Conversation","none");
 				
 		
