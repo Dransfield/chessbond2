@@ -1771,7 +1771,7 @@ function showUsernameJumbo(elem,usracc)
       showUsername(header,usracc);
 	elem.append(header);
 }
-showUserIdentity(elem,usracc)
+function showUserIdentity(elem,usracc)
 {
 var thisDiv=addFlexDiv(elem,"ident"+usracc,"column","nowrap");
 ava=showAvatar(thisDiv,otherPerson);
