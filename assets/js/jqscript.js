@@ -1467,7 +1467,9 @@ function setupMessagesPage()
 							var ava=showUserIdentity(peoplebox,otherPerson);
 							msgbox.empty();
 							console.log(msgbox);
-							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);
+							ava.click(
+							function()
+							{getMessages(otherPerson,msgbox);});
 							
 						
 						
@@ -1561,6 +1563,7 @@ function showUsers(event)
 							}
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
+						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
@@ -1571,14 +1574,15 @@ function showUsers(event)
 					
 					});
 }
+function getMessages(usracc,msgbox)
 
-function getMessages(event)
+//function getMessages(event)
 {
-	var usracc=event.data.person;
-	var msgbox=event.data.msgrecepticle;
+	//var usracc=event.data.person;
+//	var msgbox=event.data.msgrecepticle;
 	
-	console.log("msgbox2 "+msgbox[0]);
-	event.data.msgrecepticle.empty();
+	//console.log("msgbox2 "+msgbox[0]);
+	//event.data.msgrecepticle.empty();
 	msgbox.empty();
 	WallPosts={};
 	for (iter in PrivateConversations[MyID])
