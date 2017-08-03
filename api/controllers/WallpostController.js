@@ -12,7 +12,7 @@ module.exports = {
 		(
 			function (err, records) 
 			{
-				if(req.param('messagetype')=="Private Conversation")
+				if(req.param('messagetype')=="Perm Message")
 				{
 		
 				PrivateConversation.findOne
@@ -22,7 +22,7 @@ module.exports = {
 						{
 							if(pc)
 							{	
-							sails.sockets.broadcast('/privateconversation/'+req.param('grpid'),'WallPost', records);
+							sails.sockets.broadcast('/msgroom/'+req.param('grpid'),'WallPost', records);
 						
 			
 							var reciever;
@@ -37,7 +37,7 @@ module.exports = {
 								reciever=pc.Talker1;
 								}
 			
-								Notification.create({reciever:reciever,msg:"New Private Message Recieved",adr:'/seeprivateconversation/'+req.param('grpid')})
+								Notification.create({reciever:reciever,msg:"New Private Message Recieved",adr:'/myprofilemg'})//+req.param('grpid')})
 								.exec(
 									function (err, records) 
 									{

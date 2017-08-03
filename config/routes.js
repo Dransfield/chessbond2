@@ -31,13 +31,18 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-	//'GET /': {view: 'homepage'},
+	
 	'GET /':{view:'jqhp'},
-	//'GET /jq':{view:'jqhp'},
-	'POST /startprivateconversation':'PrivateConversationController.New',
-	'POST /startfollow':'FollowController.New',
-	'POST /leftprivateconversation':'PrivateConversationController.Left',
+	
+	'POST /starttempconversation':'TempConversationController.New',
+	'POST /lefttempconversation':'TempConversationController.Left',
+	'GET /myprofilemg': {view: 'messagesjq'},
+	'/seeprivateconversation/:ID': {view:'privateconversationjq'},
+	'POST /chatmsg':'PageController.chatmsg',
+	
+	
 	'GET /opentournament':{view:'opentournamentjq'},
+	'POST /startfollow':'FollowController.New',
 	'GET /stats/:ID':{view:'statsjq'},
 	'GET /stats':{view:'statsjq'},
 	'GET /aboutus':{view:'aboutusjq'},
@@ -47,12 +52,12 @@ module.exports.routes = {
 	'GET /contactus':{view:'contactusjq'},
 	'GET /album/:ID': {view: 'album'},
 	'GET /albums/:userID': {view: 'albums'},
-	'GET /messages': {view: 'messagesjq'},
+	
 	
 	'GET /user/avatar/:id':'UploadController.avatar',
 	'/profile/:ID': {view:'profilejq'},
 	//'/newprofile/:ID': {view:'profilejq'},
-	'/seeprivateconversation/:ID': {view:'privateconversationjq'},
+	
 	'/profile': {view:'profilejq'},
 	//'/newprofile': {view:'profilejq'},
 	'GET /humanvshuman/:GameID':{view:'humanvshuman'},
@@ -109,7 +114,7 @@ module.exports.routes = {
 	'POST /newnotification':'NotificationController.newnotification',
 	'GET /visitnotification':'NotificationController.visitnotification',
 	//'PUT /ChangeUsersCurrentGame':'PageController.ChangeUsersCurrentGame',
-	'POST /chatmsg':'PageController.chatmsg',
+	
 	'POST /newwallpost':'WallpostController.wallpost',
 	'PUT /LookedAtProfile':'PageController.LookedAtProfile',
 	'PUT /chessgamemove':'PageController.chessgamemove',
