@@ -16,7 +16,7 @@ module.exports = {
 	},
 	wallpost:function(req,res){
 		
-		Wallpost.create({unread:'true',replyto:req.param('ReplyTo'),content:req.param('content'),sender:req.param('sender'),reciever:req.param('reciever'),groupid:req.param('grpid'),messagetype:req.param('messagetype'),intendedFor:req.param('intendedfor')}).exec
+		Wallpost.create({unread:'true',replyto:req.param('ReplyTo'),content:req.param('content'),sender:req.param('sender'),reciever:req.param('reciever'),groupid:req.param('grpid'),messagetype:req.param('messagetype'),intendedFor:req.param('intendedFor')}).exec
 		(
 			function (err, records) 
 			{
