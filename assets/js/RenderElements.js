@@ -1830,7 +1830,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 		if (MyID==msg.intendedFor || !msg.intendedFor)
 	{
 	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
-	postHeaderDiv.css("background-color","white");
+	postHeaderDiv.css("background-color","lightgreen");
 	});	
 		
 	}
@@ -1838,7 +1838,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	}
 	else
 	{
-		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:white;padding:4px;'></div>");
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgreen;padding:4px;'></div>");
 
 	}
 	//console.log("show chat message "+JSON.stringify(msg));
