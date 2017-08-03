@@ -1824,9 +1824,17 @@ if(deletebutton === undefined) { deletebutton = false; }
 
 	}
 	*/
-		if(msg.unread=="true")
+	if(msg.unread=="true")
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
+		if (MyID==msg.intendedFor)
+	{
+	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
+	postHeaderDiv.css("background-color","white");
+	});	
+		
+	}
+	
 	}
 	else
 	{
@@ -2949,11 +2957,12 @@ function showLoginForm(elem)
 	});
 }
 
-function showChatForm(elem,chatID,msgtype,ReplyTo)
+function showChatForm(elem,chatID,msgtype,ReplyTo,intendedFor)
 {
 	
 if(ReplyTo === undefined) { replyTo = ""; }
-	
+if(intendedFor === undefined) { intendedFor = ""; }
+
 	var  chatDiv=addSpan(elem);
 	var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
@@ -2977,7 +2986,7 @@ if(ReplyTo === undefined) { replyTo = ""; }
 		//msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
 		
 		msgToSend=(censor(msgToSend));
-		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
+		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo,intendedFor);
 		 	chatform.val("");
 		},200);
 	}
@@ -2988,7 +2997,7 @@ if(ReplyTo === undefined) { replyTo = ""; }
 		//msgToSend=msgToSend+" found donkey in word?"+msgToSend.indexOf("donkey");
 		
 		msgToSend=(censor(msgToSend));
-		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo);
+		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo,intendedFor);
 			//SendWallPost(MyID,chatID,msgtype,"",chatform.val(),ReplyTo);
 			chatform.val("");
 			});

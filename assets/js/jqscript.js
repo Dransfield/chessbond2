@@ -1256,11 +1256,11 @@ io.socket.get("/privateconversation",{id:convID},
 }
 
 
-function SendWallPost(Myid,groupid,msgtype,address,msg,replyto)
+function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 		{
 			var none='none';
 			
-			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype},
+			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype,intendedFor:intendedfor},
 			function onSuccess (){
 			//$scope.chatInput = null;
 			
@@ -1601,7 +1601,7 @@ function getMessages(event)
 					msgbox.scrollTop(msgbox.prop("scrollHeight"));
 					});
 					$('#inputbox').empty();
-			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Private Conversation","none");
+			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Private Conversation","none",usracc);
 				
 		
 		}

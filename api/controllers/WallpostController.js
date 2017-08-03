@@ -6,9 +6,17 @@
  */
 
 module.exports = {
+	sawmessage:function(req,res){
+			Wallpost.update({id:req.param('id')},{unread:"false"}).exec
+		(
+		function (err, records) 
+			{
+				return res.ok();
+			});
+	},
 	wallpost:function(req,res){
 		
-		Wallpost.create({unread:'true',replyto:req.param('ReplyTo'),content:req.param('content'),sender:req.param('sender'),reciever:req.param('reciever'),groupid:req.param('grpid'),messagetype:req.param('messagetype')}).exec
+		Wallpost.create({unread:'true',replyto:req.param('ReplyTo'),content:req.param('content'),sender:req.param('sender'),reciever:req.param('reciever'),groupid:req.param('grpid'),messagetype:req.param('messagetype'),intendedFor:req.param('intendedfor')}).exec
 		(
 			function (err, records) 
 			{
