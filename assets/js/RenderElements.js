@@ -1827,7 +1827,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	if(msg.unread=="true")
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
-		if (MyID==msg.intendedFor)
+		if (MyID==msg.intendedFor || !msg.intendedFor)
 	{
 	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
 	postHeaderDiv.css("background-color","white");
