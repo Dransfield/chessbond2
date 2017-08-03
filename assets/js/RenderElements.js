@@ -1813,6 +1813,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 
 	var postHeaderDiv;
 
+/*
 	if(msg.sender==MyID)
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgrey;padding:4px;'></div>");
@@ -1820,6 +1821,16 @@ if(deletebutton === undefined) { deletebutton = false; }
 	else
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgreen;padding:4px;'></div>");
+
+	}
+	*/
+		if(msg.unread==true)
+	{
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
+	}
+	else
+	{
+		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:white;padding:4px;'></div>");
 
 	}
 	//console.log("show chat message "+JSON.stringify(msg));
