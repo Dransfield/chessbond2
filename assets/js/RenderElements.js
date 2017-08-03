@@ -1824,7 +1824,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 
 	}
 	*/
-		if(msg.unread==true)
+		if(msg.unread=="true")
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
 	}
