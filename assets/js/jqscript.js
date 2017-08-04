@@ -1414,7 +1414,7 @@ function setupMessagesPage()
 					for (iter in PrivateConversations[MyID]) 
 						{
 					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
-						//console.log(JSON.stringify(resData));
+						console.log(JSON.stringify(resData));
 						});
 						}
 					retrieveAccounts().then(function()
