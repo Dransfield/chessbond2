@@ -1450,7 +1450,7 @@ function setupMessagesPage()
 						{
 							//console.log("seen message1 "+data.id);
 							console.log("seen message1 "+data);
-							console.log("seen message2 "+$("#msgheader"+data));
+							console.log("seen message2 "+JSON.stringify($("#msgheader"+data)));
 						$("#msgheader"+data).css("background-color","lightgreen");
 						});
 				
