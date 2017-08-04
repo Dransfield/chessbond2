@@ -1830,7 +1830,8 @@ if(deletebutton === undefined) { deletebutton = false; }
 		if (MyID==msg.intendedFor || !msg.intendedFor)
 	{
 	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
-		console.log("message was intended for me"+resData.id);
+		console.log("message was intended for me"+JSON.stringidy(resData));
+	console.log("message was intended for me"+JSON.stringidy(jwr));
 	postHeaderDiv.css("background-color","lightgreen");
 	$("#msgheader"+resData.id).css("background-color","lightgreen");
 	});	
