@@ -1788,8 +1788,8 @@ ava=showAvatar(thisDiv,otherPerson);
 							thisDiv.append(Accounts[otherPerson].Country);
 					
 							thisDiv.css("border-style","1");
-							ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
-return ava;	
+							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
+return thisDiv;	
 }
 function showImageUploadForm(elem,usracc)
 {
