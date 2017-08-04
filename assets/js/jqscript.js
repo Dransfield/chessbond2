@@ -1458,7 +1458,9 @@ function setupMessagesPage()
 						//console.log($("#msgbox").children());
 						
 						$("#msgbox").children().each(function(idx, itm) {
-						console.log( $(itm).attr('id'));
+							console.log(itm);
+							console.log(idx);
+						console.log( $(itm));
 							
 							});
 						
