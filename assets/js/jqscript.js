@@ -1593,18 +1593,19 @@ function getMessages(event)
 	for (iter in PrivateConversations[MyID])
 	{
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
-		{
+		{console.log("iter1 "+iter);
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
+						console.log("iter2 "+iter);
 						io.socket.get("/subscribeToRoom",{roomName:PrivateConversations[MyID][iter].id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
 						
-					for(iter in WallPosts)
-					{	
-					showChatMessage(msgbox,WallPosts[iter],"none",false);
-					}
-					msgbox.scrollTop(msgbox.prop("scrollHeight"));
+						for(iter in WallPosts)
+						{	
+						showChatMessage(msgbox,WallPosts[iter],"none",false);
+						}
+						msgbox.scrollTop(msgbox.prop("scrollHeight"));
 					});
 					$('#inputbox').empty();
 			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Private Conversation","none",usracc);
