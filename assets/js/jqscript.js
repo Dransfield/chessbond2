@@ -1603,7 +1603,24 @@ function getMessages(event)
 						io.socket.get("/subscribeToRoom",{roomName:conv.id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
-						
+								io.socket.on('WallPost', function (data)
+			{
+			console.log("recieved wall post socket"+JSON.stringify(data));
+		
+				if (document.visibilityState=='hidden')
+			{
+				console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
+			if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
+			{
+			PlayBell();
+			}
+			$("#favicon").attr("href","/favicon2.ico");
+			}
+			WallPosts.push(data);
+			
+			showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false);
+				msgbox.scrollTop(msgbox.prop("scrollHeight"));
+			});
 						for(iter in WallPosts)
 						{	
 						showChatMessage(msgbox,WallPosts[iter],"none",false);
