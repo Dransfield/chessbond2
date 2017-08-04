@@ -1512,7 +1512,13 @@ function showPrevUsers(event)
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
-				
+					for (iter in PrivateConversations[MyID]) 
+						{
+							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
+					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
+						console.log(JSON.stringify(resData));
+						});
+						}
 				retrieveAccounts().then(function()
 					{
 					for (iter in PrivateConversations[MyID]) 
@@ -1556,7 +1562,13 @@ function showUsers(event)
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
-				
+					for (iter in PrivateConversations[MyID]) 
+						{
+							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
+					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
+						console.log(JSON.stringify(resData));
+						});
+						}
 				retrieveAccounts().then(function()
 					{
 					for (iter in PrivateConversations[MyID]) 
