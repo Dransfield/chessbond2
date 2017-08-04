@@ -1410,7 +1410,13 @@ function setupMessagesPage()
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
-				
+					
+					for (iter in PrivateConversations[MyID]) 
+						{
+					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
+						//console.log(JSON.stringify(resData));
+						});
+						}
 					retrieveAccounts().then(function()
 					{
 					//console.log("retrieved accounts");
@@ -1603,9 +1609,7 @@ function getMessages(event)
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
 						//console.log("about to subscribe to room /msgroom/"+conv.id);
-						io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+conv.id},function (resData,jwres){
-						//console.log(JSON.stringify(resData));
-						});
+					
 						
 								io.socket.on('WallPost', function (data)
 									{
