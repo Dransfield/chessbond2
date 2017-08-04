@@ -1450,11 +1450,13 @@ function setupMessagesPage()
 						{
 						setTimeout(function(){
 							//console.log("seen message1 "+data.id);
-							console.log("seen message1 "+data);
-							console.log("seen message2 "+JSON.stringify($("#msgheader"+data)));
-							console.log("seen message3 "+JSON.stringify($("#msgheader"+data)[0]));
+							//console.log("seen message1 "+data);
+						//	console.log("seen message2 "+JSON.stringify($("#msgheader"+data)));
+					//		console.log("seen message3 "+JSON.stringify($("#msgheader"+data)[0]));
 						$("#msgheader"+data).css("background-color","lightgreen");
-						$("#msgheader"+data)[0].css("background-color","lightgreen");
+						
+						console.log($("#msgbox").children());
+						
 						},4000);
 						});
 				
