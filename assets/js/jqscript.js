@@ -1454,6 +1454,7 @@ function setupMessagesPage()
 							console.log("seen message2 "+JSON.stringify($("#msgheader"+data)));
 							console.log("seen message3 "+JSON.stringify($("#msgheader"+data)[0]));
 						$("#msgheader"+data).css("background-color","lightgreen");
+						$("#msgheader"+data)[0].css("background-color","lightgreen");
 						},4000);
 						});
 				
