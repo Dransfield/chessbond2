@@ -1832,7 +1832,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
 	postHeaderDiv.css("background-color","lightgreen");
 	});	
-		
+	postHeaderDiv.attr("id","msgheader"+msg.id);
 	}
 	
 	}

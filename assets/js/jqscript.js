@@ -1407,10 +1407,6 @@ function setupMessagesPage()
 				//console.log(PrivateConversations[MyID]);
 				for (iter in PrivateConversations[MyID]) 
 					{
-					//	console.log(iter);
-					//	console.log("retrieve "+PrivateConversations[MyID][iter].Talker1);
-					//	console.log("retrieve "+PrivateConversations[MyID][iter].Talker2);
-						
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
@@ -1449,6 +1445,14 @@ function setupMessagesPage()
 					var inputbox=addSpan(rightFlex);
 					inputbox.attr('id','inputbox');
 					showChatForm(inputbox,0,"Private Conversation","none");
+				
+						io.socket.on('seenmessage', function (data)
+						{
+							console.log("seen message "+data.id);
+							console.log("seen message "+console.log(data));
+							
+						$("#msgheader"+data.id).css("background-color","lightgreen");
+						});
 				
 					for (iter in PrivateConversations[MyID]) 
 						{

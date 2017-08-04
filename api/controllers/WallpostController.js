@@ -12,8 +12,8 @@ module.exports = {
 		function (err, records) 
 			{
 				console.log(req.param('id'));
-				console.log("message is seen "+records);
-				sails.sockets.broadcast(records.intendedFor,'seenmessage', records.id);
+				console.log("message is seen "+records[0]);
+				sails.sockets.broadcast(records[0].intendedFor,'seenmessage', records[0].id);
 						
 				return res.ok();
 			});
