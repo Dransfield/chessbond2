@@ -1449,23 +1449,8 @@ function setupMessagesPage()
 						io.socket.on('seenmessage', function (data)
 						{
 						setTimeout(function(){
-							//console.log("seen message1 "+data.id);
-							//console.log("seen message1 "+data);
-						//	console.log("seen message2 "+JSON.stringify($("#msgheader"+data)));
-					//		console.log("seen message3 "+JSON.stringify($("#msgheader"+data)[0]));
 						$("#msgheader"+data).css("background-color","lightgreen");
-						
-						//console.log($("#msgbox").children());
-						
-						$("#msgbox").children().each(function(idx, itm) {
-							console.log(itm);
-							console.log($(itm).attr("id"));
-							console.log(itm.attr("id"));
-						//console.log( $(itm));
-							//console.log($( this ).attr('id'));
-							});
-						
-						},4000);
+						},2000);
 						});
 				
 					for (iter in PrivateConversations[MyID]) 
