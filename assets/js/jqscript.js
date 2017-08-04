@@ -1471,8 +1471,8 @@ function setupMessagesPage()
 							
 							var ava=showUserIdentity(peoplebox,otherPerson);
 							msgbox.empty();
-							console.log(msgbox);
-							console.log(msgbox.attr('id'));
+							//console.log(msgbox);
+							//console.log(msgbox.attr('id'));
 							ava.click({person:otherperson,msgrecepticle:msgbox.attr('id')},getMessages);
 						
 						
@@ -1599,18 +1599,18 @@ function getMessages(event)
 			//console.log("iter1 "+iter);
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
-						console.log("about to subscribe to room /msgroom/"+conv.id);
+						//console.log("about to subscribe to room /msgroom/"+conv.id);
 						io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+conv.id},function (resData,jwres){
-						console.log(JSON.stringify(resData));
+						//console.log(JSON.stringify(resData));
 						});
 						
 								io.socket.on('WallPost', function (data)
 									{
-									console.log("recieved wall post socket"+JSON.stringify(data));
+									//console.log("recieved wall post socket"+JSON.stringify(data));
 								
 									if (document.visibilityState=='hidden')
 									{
-										console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
+									//console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
 									if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
 									{
 									PlayBell();
