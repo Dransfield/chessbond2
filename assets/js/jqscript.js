@@ -1413,6 +1413,7 @@ function setupMessagesPage()
 					
 					for (iter in PrivateConversations[MyID]) 
 						{
+							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
 					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
