@@ -1461,7 +1461,7 @@ function setupMessagesPage()
 							console.log(itm);
 							console.log(idx);
 						console.log( $(itm));
-							
+							$( this ).attr('id');
 							});
 						
 						},4000);
