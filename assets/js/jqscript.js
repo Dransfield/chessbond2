@@ -1448,8 +1448,8 @@ function setupMessagesPage()
 				
 						io.socket.on('seenmessage', function (data)
 						{
-							console.log("seen message1 "+data.id);
-							console.log("seen message2 "+console.log(data));
+							//console.log("seen message1 "+data.id);
+							console.log("seen message2 "+data);
 							
 						$("#msgheader"+data).css("background-color","lightgreen");
 						});
