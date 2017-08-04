@@ -1590,14 +1590,17 @@ function getMessages(event)
 	//event.data.msgrecepticle.empty();
 	msgbox.empty();
 	WallPosts=[];
+	var conv;
 	for (iter in PrivateConversations[MyID])
 	{
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
-		{console.log("iter1 "+iter);
+		{
+			conv=PrivateConversations[MyID][iter];
+			//console.log("iter1 "+iter);
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
-						console.log("iter2 "+iter);
-						io.socket.get("/subscribeToRoom",{roomName:PrivateConversations[MyID][iter].id},function (resData,jwres){
+					//	console.log("iter2 "+iter);
+						io.socket.get("/subscribeToRoom",{roomName:conv.id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
 						
