@@ -1599,7 +1599,7 @@ function getMessages(event)
 			//console.log("iter1 "+iter);
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
-					//	console.log("iter2 "+iter);
+						console.log("about to subscribe to room ");
 						io.socket.get("/subscribeToRoom",{roomName:conv.id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
