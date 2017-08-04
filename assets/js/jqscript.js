@@ -1457,10 +1457,10 @@ function setupMessagesPage()
 						
 						//console.log($("#msgbox").children());
 						
-						for (i in $("#msgbox").children())
-						{console.log( $("#msgbox").children()[i].attr('id'));
+						$("#msgbox").children().each(function(idx, itm) {
+						console.log( $(itm).attr('id'));
 							
-							}
+							});
 						
 						},4000);
 						});
