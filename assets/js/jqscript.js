@@ -1471,8 +1471,9 @@ function setupMessagesPage()
 							var ava=showUserIdentity(peoplebox,otherPerson);
 							msgbox.empty();
 							//console.log(msgbox);
-							console.log(msgbox.attr('id'));
-							ava.click({person:otherperson},getMessages);
+							//console.log(msgbox.attr('id'));
+							
+							ava.click({person:otherPerson},getMessages);
 						
 						
 					
