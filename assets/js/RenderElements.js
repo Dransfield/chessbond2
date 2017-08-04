@@ -1787,7 +1787,7 @@ ava=showAvatar(thisDiv,otherPerson);
 							showFlag(thisDiv,otherPerson);
 							thisDiv.append(Accounts[otherPerson].Country);
 					
-							thisDiv.css("border-style","1");
+							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
 return thisDiv;	
 }
