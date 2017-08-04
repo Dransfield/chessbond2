@@ -1448,10 +1448,10 @@ function setupMessagesPage()
 				
 						io.socket.on('seenmessage', function (data)
 						{
-							console.log("seen message "+data.id);
-							console.log("seen message "+console.log(data));
+							console.log("seen message1 "+data.id);
+							console.log("seen message2 "+console.log(data));
 							
-						$("#msgheader"+data.id).css("background-color","lightgreen");
+						$("#msgheader"+data).css("background-color","lightgreen");
 						});
 				
 					for (iter in PrivateConversations[MyID]) 
