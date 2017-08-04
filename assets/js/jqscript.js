@@ -1599,8 +1599,8 @@ function getMessages(event)
 			//console.log("iter1 "+iter);
 			getWallposts(PrivateConversations[MyID][iter].id).then(function()
 					{
-						console.log("about to subscribe to room "+conv.id);
-						io.socket.get("/subscribeToRoom",{roomName:conv.id},function (resData,jwres){
+						console.log("about to subscribe to room /msgroom/"+conv.id);
+						io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+conv.id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
 						
