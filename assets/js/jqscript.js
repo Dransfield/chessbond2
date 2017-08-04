@@ -1584,7 +1584,7 @@ function getMessages(event)
 {
 	var usracc=event.data.person;
 	var msgbox=$("#msgbox");
-	
+	console.log("hello");
 	//console.log("msgbox2 "+msgbox[0]);
 	//event.data.msgrecepticle.empty();
 	msgbox.empty();
