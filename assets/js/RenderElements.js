@@ -1826,7 +1826,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	*/
 	if(msg.unread=="true")
 	{
-		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
+		postHeaderDiv=$("<div  id='msgheader"+msg.id+"' style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
 		if (MyID==msg.intendedFor || !msg.intendedFor)
 	{
 	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
@@ -1834,7 +1834,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	//postHeaderDiv.css("background-color","lightgreen");
 	//$("#msgheader"+msg.id).css("background-color","lightgreen");
 	});	
-	postHeaderDiv.attr("id","msgheader"+msg.id);
+	//postHeaderDiv.attr("id",);
 	}
 	
 	}
