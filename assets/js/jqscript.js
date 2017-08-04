@@ -1472,7 +1472,7 @@ function setupMessagesPage()
 							msgbox.empty();
 							//console.log(msgbox);
 							console.log(msgbox.attr('id'));
-							ava.click({person:otherperson,msgrecepticle:msgbox.attr('id')},getMessages);
+							ava.click({person:otherperson},getMessages);
 						
 						
 					
