@@ -1592,6 +1592,9 @@ function getMessages(event)
 	var conv;
 	for (iter in PrivateConversations[MyID])
 	{
+		console.log(PrivateConversations[MyID][iter]);
+		console.log(usracc);
+		console.log(MyID);
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
 		{
 			conv=PrivateConversations[MyID][iter];
