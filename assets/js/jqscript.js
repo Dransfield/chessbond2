@@ -1455,7 +1455,10 @@ function setupMessagesPage()
 					//		console.log("seen message3 "+JSON.stringify($("#msgheader"+data)[0]));
 						$("#msgheader"+data).css("background-color","lightgreen");
 						
-						console.log($("#msgbox").children());
+						//console.log($("#msgbox").children());
+						
+						for (i in $("#msgbox").children())
+						{console.log(i);}
 						
 						},4000);
 						});
