@@ -14,7 +14,7 @@ module.exports = {
 				console.log(req.param('id'));
 				console.log("message is seen "+records[0]);
 				console.log("records[0].intendedFor "+records[0].intendedFor);
-				sails.sockets.broadcast(records[0].intendedFor,'seenmessage', records[0].id);
+				sails.sockets.broadcast('/msgroom/'+records[0].groupid,'seenmessage', records[0].id);
 						
 				return res.ok();
 			});
