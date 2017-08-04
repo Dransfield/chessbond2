@@ -1607,7 +1607,7 @@ function getMessages(event)
 						
 								io.socket.on('WallPost', function (data)
 									{
-									//console.log("recieved wall post socket"+JSON.stringify(data));
+									console.log("recieved wall post socket"+JSON.stringify(data));
 								
 									if (document.visibilityState=='hidden')
 									{
