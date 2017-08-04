@@ -1624,8 +1624,8 @@ function getMessages(event)
 										}
 									}
 									
-									if(foundMessage==false)
-									{
+								//	if(foundMessage==false)
+									//{
 									console.log("recieved wall post socket"+JSON.stringify(data));
 								
 									if (document.visibilityState=='hidden')
@@ -1641,7 +1641,7 @@ function getMessages(event)
 									
 									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false);
 									msgbox.scrollTop(msgbox.prop("scrollHeight"));
-									}
+								//	}
 									});
 									
 									
