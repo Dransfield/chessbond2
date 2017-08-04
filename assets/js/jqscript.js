@@ -1609,6 +1609,18 @@ function getMessages(event)
 						
 								io.socket.on('WallPost', function (data)
 									{
+									var foundMessage;
+									for (recievedIter in WallPosts)
+									{
+										
+										if(WallPosts[recievedIter].id==data.id)	
+										{
+										foundMessage=true;	
+										}
+									}
+									
+									if(foundMessage==false)
+									{
 									console.log("recieved wall post socket"+JSON.stringify(data));
 								
 									if (document.visibilityState=='hidden')
@@ -1624,7 +1636,9 @@ function getMessages(event)
 									
 									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false);
 									msgbox.scrollTop(msgbox.prop("scrollHeight"));
+									}
 									});
+									
 									
 						for(iter in WallPosts)
 						{	

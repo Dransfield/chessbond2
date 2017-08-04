@@ -34,7 +34,8 @@ module.exports = {
 						if (!err)
 						{
 							if(pc)
-							{	
+							{
+							
 							sails.sockets.broadcast('/msgroom/'+req.param('grpid'),'WallPost', records);
 						
 			
