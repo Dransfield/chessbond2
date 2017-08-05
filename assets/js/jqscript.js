@@ -1275,7 +1275,28 @@ function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 			
 			
 	}
+
+
+function getWallpostsIntendedFor()
+{
 	
+var cg = new Promise
+((resolve, reject) => {
+io.socket.get("/wallpost?limit=39999",{intendedFor:MyID},
+	function (resData,jwres){
+		//console.log("got wall posts"+JSON.stringify(resData));
+		for (iter in resData)
+		{
+		WallPosts.push(resData[iter]);
+		WallPosts[iter].content=censor(WallPosts[iter].content);
+		}
+resolve();
+});
+});
+return cg;
+}
+
+
 function getWallposts(grpID)
 {
 	
@@ -1603,12 +1624,34 @@ function showUsers(event)
 function getMessages(event)
 {
 	var usracc=event.data.person;
+	
+	
+	
 	var msgbox=$("#msgbox");
 	console.log("GET MESSAGES");
 	//console.log("msgbox2 "+msgbox[0]);
 	//event.data.msgrecepticle.empty();
 	msgbox.empty();
 	WallPosts=[];
+	
+	if(!usracc)
+	{
+		
+		getWallpostsIntendedFor(MyID).then(function(){
+			
+						for(iter in WallPosts)
+						{	
+						showChatMessage(msgbox,WallPosts[iter],"none",false);
+						}
+						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
+						msgbox.scrollTop(0);
+						
+		});
+		
+	}
+	
+	if (usracc)
+	{
 	var conv;
 	for (iter in PrivateConversations[MyID])
 	{
@@ -1670,9 +1713,9 @@ function getMessages(event)
 			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Perm Message","none",usracc);
 				
 		
+			}
 		}
 	}
-	
 }
 
 function setupHomePage()
