@@ -1277,12 +1277,12 @@ function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 	}
 
 
-function getWallpostsIntendedFor()
+function getWallpostsIntendedFor(person)
 {
 	
 var cg = new Promise
 ((resolve, reject) => {
-io.socket.get("/wallpost?limit=20",{intendedFor:MyID},
+io.socket.get("/wallpost?limit=20",{intendedFor:person},
 	function (resData,jwres){
 		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
