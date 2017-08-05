@@ -1652,8 +1652,9 @@ function getMessages(event)
 									WallPosts.push(data);
 									
 									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false);
-									msgbox.scrollTop(msgbox.prop("scrollHeight"));
-								//	}
+									//msgbox.scrollTop(msgbox.prop("scrollHeight"));
+									msgbox.scrollTop(0);
+									
 									});
 									
 							console.log("about to show wall posts");		
