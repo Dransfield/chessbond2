@@ -1726,6 +1726,16 @@ function addDiv(elem)
 
 
 }
+
+function addDivprepend(elem)
+{
+	var flex=$("<div></div>")
+	elem.prepend(flex);
+	return flex;
+
+
+}
+
 function addSpan(elem,id)
 {
 	var flex=$("<span id='"+id+"'></span>")
@@ -1805,7 +1815,7 @@ function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton)
 if(deletebutton === undefined) { deletebutton = false; }
 	
 	//var myColumn=addFlexDiv(elem,45,"column","nowrap","flex-start");
-	var myColumn=addDiv(elem);
+	var myColumn=addDivprepend(elem);
 	//console.log("msg.replyto "+msg.replyto);
 	
 	if (msg.replyto==Replyto)
@@ -1827,15 +1837,14 @@ if(deletebutton === undefined) { deletebutton = false; }
 	if(msg.unread=="true")
 	{
 		postHeaderDiv=$("<div  id='msgheader"+msg.id+"' style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:red;padding:4px;'></div>");
+		
 		if (MyID==msg.intendedFor || !msg.intendedFor)
-	{
-	io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
-	//	console.log("message was intended for me"+msg.id);
-	//postHeaderDiv.css("background-color","lightgreen");
-	//$("#msgheader"+msg.id).css("background-color","lightgreen");
-	});	
-	//postHeaderDiv.attr("id",);
-	}
+		{
+		
+			io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
+			});	
+	
+		}
 	
 	}
 	else
