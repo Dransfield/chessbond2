@@ -1503,7 +1503,7 @@ function setupMessagesPage()
 							
 							ava.click({person:otherPerson},getMessages);
 						
-						
+						getMessages(blank);
 					
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
@@ -1608,7 +1608,7 @@ function showUsers(event)
 							}
 							
 							
-							getMessages(blank);
+							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
 							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
