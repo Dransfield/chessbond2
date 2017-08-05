@@ -1282,7 +1282,7 @@ function getWallpostsIntendedFor()
 	
 var cg = new Promise
 ((resolve, reject) => {
-io.socket.get("/wallpost?limit=39999",{intendedFor:MyID},
+io.socket.get("/wallpost?limit=20",{intendedFor:MyID},
 	function (resData,jwres){
 		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
