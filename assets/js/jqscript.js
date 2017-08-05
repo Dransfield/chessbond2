@@ -1503,7 +1503,7 @@ function setupMessagesPage()
 							
 							ava.click({person:otherPerson},getMessages);
 						
-						getMessages(blank);
+						getMessages();
 					
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
