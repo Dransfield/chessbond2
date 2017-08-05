@@ -1608,7 +1608,7 @@ function showUsers(event)
 							}
 							
 							
-							getMessages();
+							getMessages(blank);
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
 							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
