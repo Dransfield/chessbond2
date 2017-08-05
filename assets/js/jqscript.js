@@ -1604,7 +1604,7 @@ function getMessages(event)
 {
 	var usracc=event.data.person;
 	var msgbox=$("#msgbox");
-	console.log("hello");
+	console.log("GET MESSAGES");
 	//console.log("msgbox2 "+msgbox[0]);
 	//event.data.msgrecepticle.empty();
 	msgbox.empty();
@@ -1656,9 +1656,10 @@ function getMessages(event)
 								//	}
 									});
 									
-									
+							console.log("about to show wall posts");		
 						for(iter in WallPosts)
 						{	
+							console.log(" show wall post "+WallPosts[iter].content);
 						showChatMessage(msgbox,WallPosts[iter],"none",false);
 						}
 						msgbox.scrollTop(msgbox.prop("scrollHeight"));
