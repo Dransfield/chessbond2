@@ -1663,7 +1663,8 @@ function getMessages(event)
 							console.log(" show wall post "+WallPosts[iter].content);
 						showChatMessage(msgbox,WallPosts[iter],"none",false);
 						}
-						msgbox.scrollTop(msgbox.prop("scrollHeight"));
+						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
+						msgbox.scrollTop(0);
 					});
 					$('#inputbox').empty();
 			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Perm Message","none",usracc);
