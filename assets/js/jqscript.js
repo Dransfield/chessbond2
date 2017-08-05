@@ -1607,6 +1607,8 @@ function showUsers(event)
 							otherPerson=PrivateConversations[MyID][iter].Talker2;
 							}
 							
+							
+							getMessages();
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
 							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
