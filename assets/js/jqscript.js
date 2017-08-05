@@ -1625,8 +1625,11 @@ function showUsers(event)
 
 function getMessages(event)
 {
-	var usracc=event.data.person;
-	
+	var usracc;
+	if (event)
+	{
+	usracc=event.data.person;
+	}
 	
 	
 	var msgbox=$("#msgbox");
