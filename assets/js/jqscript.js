@@ -1679,6 +1679,7 @@ function getMessages(event)
 								io.socket.on('Perm Message', function (data)
 									{
 									var foundMessage;
+									console.log("recieved perm message");
 									for (recievedIter in WallPosts)
 									{
 										
