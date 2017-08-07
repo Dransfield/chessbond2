@@ -35,6 +35,8 @@ module.exports = {
 						{
 							if(pc)
 							{
+							console.log(pc.Talker1);
+							console.log(records);
 							
 							sails.sockets.broadcast(pc.Talker1,'Perm Message', records);
 							sails.sockets.broadcast(pc.Talker2,'Perm Message', records);
@@ -56,7 +58,7 @@ module.exports = {
 			
 								Notification.create({reciever:reciever,msg:"New Private Message Recieved",adr:'/myprofilemg'})//+req.param('grpid')})
 								.exec(
-									function (err, records) 
+									function (err, records2) 
 									{
 
 									//sails.sockets.broadcast(records.reciever,'notification', records);
