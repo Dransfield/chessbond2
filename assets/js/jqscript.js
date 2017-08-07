@@ -111,7 +111,7 @@ var NavbarDropDown;
 		io.socket.on
 		('connect',function()
 		{
-		subscribeToMandatoryRooms();
+		//subscribeToMandatoryRooms();
 		}
 		);
 		
@@ -1483,10 +1483,7 @@ function setupMessagesPage()
 						},2000);
 						});
 						
-					io.socket.on('Perm Message', function (data)
-						{
-							console.log(data);
-						});
+					
 				
 					for (iter in PrivateConversations[MyID]) 
 						{
