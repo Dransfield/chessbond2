@@ -36,7 +36,10 @@ module.exports = {
 							if(pc)
 							{
 							
-							sails.sockets.broadcast('/msgroom/'+req.param('grpid'),'WallPost', records);
+							sails.sockets.broadcast(pc.Talker1,'Perm Message', records);
+							sails.sockets.broadcast(pc.Talker2,'Perm Message', records);
+							
+							//sails.sockets.broadcast('/msgroom/'+req.param('grpid'),'WallPost', records);
 						
 			
 							var reciever;

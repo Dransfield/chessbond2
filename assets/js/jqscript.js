@@ -1435,9 +1435,11 @@ function setupMessagesPage()
 					for (iter in PrivateConversations[MyID]) 
 						{
 							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
-					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
-						console.log(JSON.stringify(resData));
-						});
+					//io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
+					//	io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
+						
+						//console.log(JSON.stringify(resData));
+					//	});
 						}
 					retrieveAccounts().then(function()
 					{
@@ -1480,6 +1482,8 @@ function setupMessagesPage()
 						$("#msgheader"+data).css("background-color","lightgreen");
 						},2000);
 						});
+						
+					
 				
 					for (iter in PrivateConversations[MyID]) 
 						{
@@ -1672,7 +1676,7 @@ function getMessages(event)
 						//console.log("about to subscribe to room /msgroom/"+conv.id);
 					
 						
-								io.socket.on('WallPost', function (data)
+								io.socket.on('Perm Message', function (data)
 									{
 									var foundMessage;
 									for (recievedIter in WallPosts)
