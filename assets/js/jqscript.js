@@ -1658,6 +1658,41 @@ function getMessages(event)
 						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
 						msgbox.scrollTop(0);
 						
+						io.socket.on('Perm Message', function (data)
+									{
+									var foundMessage;
+									console.log("recieved perm message");
+									for (recievedIter in WallPosts)
+									{
+										
+										if(WallPosts[recievedIter].id==data.id)	
+										{
+										foundMessage=true;	
+										}
+									}
+									
+								//	if(foundMessage==false)
+									//{
+									console.log("recieved wall post socket"+JSON.stringify(data));
+								
+									if (document.visibilityState=='hidden')
+									{
+									//console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
+									if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
+									{
+									PlayBell();
+									}
+									$("#favicon").attr("href","/favicon2.ico");
+									}
+									WallPosts.push(data);
+									
+									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false);
+									//msgbox.scrollTop(msgbox.prop("scrollHeight"));
+									msgbox.scrollTop(0);
+									
+									});
+									
+						
 		});
 		
 	}
