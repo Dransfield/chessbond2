@@ -1432,15 +1432,15 @@ function setupMessagesPage()
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
 					
-					for (iter in PrivateConversations[MyID]) 
-						{
-							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
+				//	for (iter in PrivateConversations[MyID]) 
+					//	{
+							//console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
 					//io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
 					//	io.socket.get("/subscribeToRoom",{roomName:MyID},function (resData,jwres){
 						
 						//console.log(JSON.stringify(resData));
 					//	});
-						}
+					//	}
 					retrieveAccounts().then(function()
 					{
 					//console.log("retrieved accounts");
@@ -1483,7 +1483,10 @@ function setupMessagesPage()
 						},2000);
 						});
 						
-					
+					io.socket.on('Perm Message', function (data)
+						{
+							console.log(data);
+						});
 				
 					for (iter in PrivateConversations[MyID]) 
 						{
