@@ -1474,7 +1474,7 @@ function setupMessagesPage()
 					
 					var inputbox=addSpan(rightFlex);
 					inputbox.attr('id','inputbox');
-					showChatForm(inputbox,0,"Perm Message","none");
+					//showChatForm(inputbox,0,"Perm Message","none");
 				
 						io.socket.on('seenmessage', function (data)
 						{
