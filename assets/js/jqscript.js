@@ -1507,7 +1507,7 @@ function setupMessagesPage()
 							//console.log(msgbox.attr('id'));
 							
 							ava.click({person:otherPerson},getMessages);
-							}
+							
 					
 							//console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
 						io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
