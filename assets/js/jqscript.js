@@ -1479,6 +1479,7 @@ function setupMessagesPage()
 						io.socket.on('seenmessage', function (data)
 						{
 						setTimeout(function(){
+							console.log("recieved seen message and timed out");
 						$("#msgheader"+data).css("background-color","lightgreen");
 						},2000);
 						});
