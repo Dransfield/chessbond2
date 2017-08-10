@@ -236,7 +236,7 @@ var NavbarDropDown;
 		$("#favicon").attr("href","/favicon.ico");
 	});
 	retrieveBannedWords().then(function(){
-		getWallposts(GameID).then(function(){
+		getWallposts(GameID,30000).then(function(){
 		retrieveGame(GameID).then(function()
 		{
 			AccountsToRetrieve[GamePlaying.Player1]=GamePlaying.Player1;
@@ -583,7 +583,7 @@ function setupProfilePage()
 								{	
 									retrieveAccounts().then(function()
 							{		
-									getWallposts(ProfID).then(function()
+									getWallposts(ProfID,30000).then(function()
 									{
 						
 					
@@ -1202,7 +1202,7 @@ io.socket.get("/privateconversation",{id:convID},
 				retrieveAccounts().then(function()
 				{
 					
-					getWallposts(convID).then(function()
+					getWallposts(convID,34).then(function()
 					{
 				
 				
@@ -1297,12 +1297,12 @@ return cg;
 }
 
 
-function getWallposts(grpID)
+function getWallposts(grpID,num_of_posts)
 {
 	
 var cg = new Promise
 ((resolve, reject) => {
-io.socket.get("/wallpost?limit=39999",{groupid:grpID},
+io.socket.get("/wallpost",{groupid:grpID,limit:num_of_posts,sort:"createdAt DESC"},
 	function (resData,jwres){
 		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
@@ -1720,7 +1720,7 @@ function getMessages(event)
 		{
 			conv=PrivateConversations[MyID][iter];
 			//console.log("iter1 "+iter);
-			getWallposts(PrivateConversations[MyID][iter].id).then(function()
+			getWallposts(PrivateConversations[MyID][iter].id,15).then(function()
 					{
 						//console.log("about to subscribe to room /msgroom/"+conv.id);
 					
