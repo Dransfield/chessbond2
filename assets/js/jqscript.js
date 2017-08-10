@@ -1724,7 +1724,7 @@ function getMessages(event)
 					{
 						//console.log("about to subscribe to room /msgroom/"+conv.id);
 					
-						
+						/*
 								io.socket.on('Perm Message', function (data)
 									{
 									var foundMessage;
@@ -1737,7 +1737,7 @@ function getMessages(event)
 										foundMessage=true;	
 										}
 									}
-									
+							
 								//	if(foundMessage==false)
 									//{
 									console.log("recieved wall post socket"+JSON.stringify(data));
@@ -1758,7 +1758,7 @@ function getMessages(event)
 									msgbox.scrollTop(0);
 									
 									});
-									
+									*/		
 							console.log("about to show wall posts");		
 						for(iter in WallPosts)
 						{	
