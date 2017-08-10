@@ -1842,6 +1842,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 		{
 		
 			io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
+				console.log("sending saw message ");
 			});	
 	
 		}
