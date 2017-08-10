@@ -1282,7 +1282,7 @@ function getWallpostsIntendedFor(person)
 	
 var cg = new Promise
 ((resolve, reject) => {
-io.socket.get("/wallpost",{intendedFor:person,limit:5,sort:"createdAt DESC"},
+io.socket.get("/wallpost",{intendedFor:person,limit:5,sort:"createdAt ASC"},
 	function (resData,jwres){
 		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
