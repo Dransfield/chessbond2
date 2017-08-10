@@ -1970,7 +1970,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 					//	var del=false;
 					//if(MyID==ProfID)
 					//{del=true;}
-						showChatMessage(replydiv,WallPosts[iter],msg.id,true,deletebutton);
+						//showChatMessage(replydiv,WallPosts[iter],msg.id,true,deletebutton);
 					}
 						}
 
