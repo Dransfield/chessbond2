@@ -1421,8 +1421,8 @@ function setupMessagesPage()
 		retrieveBannedWords().then(function()
 		{
 			
-			retrievePrivateRangeandFollows(0,2).then(values => { 
-			
+			//retrievePrivateRangeandFollows(0,2).then(values => { 
+			retrievePrivatesandFollows().then(function(){
 			//	console.log("retrieved privates and follows");
 			//	console.log(values);
 				//console.log(PrivateConversations[MyID]);
@@ -1543,7 +1543,7 @@ function showPrevUsers(event)
 					}
 					for (iter in PrivateConversations[MyID]) 
 						{
-							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
+							//console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
 					io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
 						console.log(JSON.stringify(resData));
 						});
