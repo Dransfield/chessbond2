@@ -1506,7 +1506,7 @@ function setupMessagesPage()
 							//console.log(msgbox.attr('id'));
 							
 							ava.click({person:otherPerson},getMessages);
-						
+						console.log("calling get messages function");
 						getMessages();
 					
 							
