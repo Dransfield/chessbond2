@@ -1547,6 +1547,7 @@ function showPrevUsers(event)
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
+					/*
 					for (iter in PrivateConversations[MyID]) 
 						{
 							//console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
@@ -1554,6 +1555,7 @@ function showPrevUsers(event)
 						console.log(JSON.stringify(resData));
 						});
 						}
+						*/
 				retrieveAccounts().then(function()
 					{
 					for (iter in PrivateConversations[MyID]) 
@@ -1597,6 +1599,7 @@ function showUsers(event)
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
 					}
+				/*
 					for (iter in PrivateConversations[MyID]) 
 						{
 							console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
@@ -1604,6 +1607,7 @@ function showUsers(event)
 						console.log(JSON.stringify(resData));
 						});
 						}
+				*/
 				retrieveAccounts().then(function()
 					{
 					for (iter in PrivateConversations[MyID]) 
