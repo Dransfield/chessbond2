@@ -1506,12 +1506,15 @@ function setupMessagesPage()
 							//console.log(msgbox.attr('id'));
 							
 							ava.click({person:otherPerson},getMessages);
-						console.log("calling get messages function");
-						getMessages();
+						
 					
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
+						
+						
+						getMessages();
+						
 						var showUserDiv=addFlexDiv(leftColumn,"showuserDiv","row","nowrap");
 						var leftBut=showButton(showUserDiv,"<","KgreenElement KregularButton");
 						leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
