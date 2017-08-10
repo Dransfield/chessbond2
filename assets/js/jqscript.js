@@ -1502,11 +1502,17 @@ function setupMessagesPage()
 							}
 							
 							var ava=showUserIdentity(peoplebox,otherPerson);
-							msgbox.empty();
+							//msgbox.empty();
 							//console.log(msgbox);
 							//console.log(msgbox.attr('id'));
 							
 							ava.click({person:otherPerson},getMessages);
+							}
+					
+							//console.log('/msgroom/'+PrivateConversations[MyID][iter].id);
+						io.socket.get("/subscribeToRoom",{roomName:'/msgroom/'+PrivateConversations[MyID][iter].id},function (resData,jwres){
+						console.log(JSON.stringify(resData));
+						});
 						
 					
 							
@@ -1516,12 +1522,12 @@ function setupMessagesPage()
 						
 						getMessages();
 						
-						var showUserDiv=addFlexDiv(leftColumn,"showuserDiv","row","nowrap");
-						var leftBut=showButton(showUserDiv,"<","KgreenElement KregularButton");
-						leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
-						showUserDiv.append("----");
-						var rightBut=showButton(showUserDiv,">","KgreenElement KregularButton");
-						rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
+					//	var showUserDiv=addFlexDiv(leftColumn,"showuserDiv","row","nowrap");
+					//	var leftBut=showButton(showUserDiv,"<","KgreenElement KregularButton");
+					//	leftBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showPrevUsers);
+					//	showUserDiv.append("----");
+					//	var rightBut=showButton(showUserDiv,">","KgreenElement KregularButton");
+					//	rightBut.click({userAmt:2,peoplediv:peoplebox,msgrecepticle:msgbox},showUsers);
 						
 				});
 			});
