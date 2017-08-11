@@ -1935,8 +1935,16 @@ if(deletebutton === undefined) { deletebutton = false; }
 	nextdiv.css("padding","5px");
 	
 	var contentToPost=msg.content;
-	nextdiv.append(msg.content);
-	
+	if (showall==true)
+	{
+	nextdiv.append(contentToPost);
+	}
+	else
+	{
+	contentToPost=contentToPost(0,29);
+	nextdiv.append(contentToPost);
+		
+	}
 	nextdiv.css("width",postHeaderDiv.width());
 
 	if(Blocks[msg.sender])
