@@ -1947,10 +1947,12 @@ if(deletebutton === undefined) { deletebutton = false; }
 		var containerDiv=addSpan(nextdiv);
 		
 	contentToPost=contentToPost.substr(0,lengthToShow);
-	contentToPost=contentToPost+" ...";
+	
+	//contentToPost=contentToPost+" ...";
 	var contentDiv=addSpan(containerDiv);
 	contentDiv.append(contentToPost);
-	
+	var dotDiv=addSpan(containerDiv);
+	dotDiv.append("...");
 	
 	var restOfMessageDiv=addSpan(containerDiv);
 	var restOfMessage=msg.content.slice(lengthToShow,msg.content.length);
@@ -1961,6 +1963,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	restOfMessageButton.click(function()
 		{
 			restOfMessageDiv.slideToggle();
+			dotDiv.slideToggle();
 		});
 	
 	}
