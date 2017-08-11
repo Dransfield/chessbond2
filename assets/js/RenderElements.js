@@ -1944,15 +1944,17 @@ if(deletebutton === undefined) { deletebutton = false; }
 	var	lengthToShow=29;
 	if(contentToPost.length>lengthToShow)
 	{
+		var containerDiv=addSpan(nextdiv);
+		
 	contentToPost=contentToPost.substr(0,lengthToShow);
 	contentToPost=contentToPost+" ...";
 	nextdiv.append(contentToPost);
 	
-	var restOfMessageDiv=addSpan(nextdiv);
+	var restOfMessageDiv=addSpan(containerDiv);
 	var restOfMessage=msg.content.slice(lengthToShow,msg.content.length);
 	restOfMessageDiv.append(restOfMessage);
 	restOfMessageDiv.hide();
-	nextdiv.append(restOfMessageDiv);
+	containerDiv.append(restOfMessageDiv);
 	var restOfMessageButton=showButton(nextdiv,"...","KgreenElement KregularButton");
 	restOfMessageButton.click(function()
 		{
