@@ -77,7 +77,7 @@ module.exports.routes = {
 	'PUT /updateuser':'UserController.updateProfile',
 	'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'},
-	//'/tournament':{view:'go'},
+	'/tournament':{view:'go'},
 	'GET /registerpage':{view:'register'},
 	'GET /getmyfile':'FetchController.GetFile',
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
