@@ -1962,7 +1962,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	var restOfMessageButton=showButton(nextdiv,"...","KgreenElement KregularButton");
 	restOfMessageButton.click(function()
 		{
-			restOfMessageDiv.slideToggle().dotDiv.slideToggle();
+			restOfMessageDiv.slideToggle().(dotDiv.slideToggle());
 		
 		});
 	
