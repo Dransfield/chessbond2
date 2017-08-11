@@ -1664,7 +1664,7 @@ function getMessages(event)
 			
 						for(iter in WallPosts)
 						{	
-						showChatMessage(msgbox,WallPosts[iter],"none",false);
+						showChatMessage(msgbox,WallPosts[iter],"none",false,false,false);
 						}
 						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
 						msgbox.scrollTop(0);
@@ -1697,7 +1697,7 @@ function getMessages(event)
 									}
 									WallPosts.push(data);
 									
-									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false,false);
+									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false,false,false);
 									//msgbox.scrollTop(msgbox.prop("scrollHeight"));
 									msgbox.scrollTop(0);
 									
