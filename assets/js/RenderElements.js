@@ -1948,14 +1948,14 @@ if(deletebutton === undefined) { deletebutton = false; }
 	contentToPost=contentToPost+" ...";
 	nextdiv.append(contentToPost);
 	
-	var restofMessageDiv=addSpan(nextdiv);
+	var restOfMessageDiv=addSpan(nextdiv);
 	var restOfMessage=msg.content.slice(lengthToShow,msg.content.length);
-	restofMessageDiv.append(restOfMessage);
-	restofMessageDiv.hide();
+	restOfMessageDiv.append(restOfMessage);
+	restOfMessageDiv.hide();
 	var restOfMessageButton=showButton(nextdiv,"...","KgreenElement KregularButton");
 	restOfMessageButton.click(function()
 		{
-			restofMessageDiv.slideToggle();
+			restOfMessageDiv.slideToggle();
 		});
 	nextdiv.append(restOfMessageDiv);
 	}
