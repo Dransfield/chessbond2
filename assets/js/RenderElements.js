@@ -1810,8 +1810,10 @@ function showImageUploadForm(elem,usracc)
     </form>`);
 
 }
-function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton)
+function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton,showall)
 {
+	
+if (showall===undefined){showall=true;}
 if(deletebutton === undefined) { deletebutton = false; }
 	
 	//var myColumn=addFlexDiv(elem,45,"column","nowrap","flex-start");
@@ -1931,7 +1933,10 @@ if(deletebutton === undefined) { deletebutton = false; }
 	nextdiv.attr("id","msgcontent"+msg.id);
 	nextdiv.css("border-style","solid");
 	nextdiv.css("padding","5px");
+	
+	var contentToPost=msg.content;
 	nextdiv.append(msg.content);
+	
 	nextdiv.css("width",postHeaderDiv.width());
 
 	if(Blocks[msg.sender])
