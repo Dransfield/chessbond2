@@ -1945,6 +1945,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	if(contentToPost.length>lengthToShow)
 	{
 	contentToPost=contentToPost.substr(0,lengthToShow);
+	contentToPost=contentToPost+" ...";
 	}
 	nextdiv.append(contentToPost);
 		
