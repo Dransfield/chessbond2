@@ -1947,7 +1947,8 @@ if(deletebutton === undefined) { deletebutton = false; }
 	contentToPost=contentToPost.substr(0,lengthToShow);
 	contentToPost=contentToPost+" ...";
 	nextdiv.append(contentToPost);
-	var restOfMessage=contentToPost.substr(lengthToShow,contentToPost.length);
+	var restOfMessage=msg.content.substr(lengthToShow,contentToPost.length);
+	
 	nextdiv.append(restOfMessage);
 	}
 	else
