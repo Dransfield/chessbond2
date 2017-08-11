@@ -1763,7 +1763,7 @@ function getMessages(event)
 						for(iter in WallPosts)
 						{	
 							console.log(" show wall post "+WallPosts[iter].content);
-						showChatMessage(msgbox,WallPosts[iter],"none",false,false);
+						showChatMessage(msgbox,WallPosts[iter],"none",false,false,false);
 						}
 						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
 						msgbox.scrollTop(0);
