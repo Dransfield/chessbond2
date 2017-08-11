@@ -1952,12 +1952,13 @@ if(deletebutton === undefined) { deletebutton = false; }
 	var restOfMessage=msg.content.slice(lengthToShow,msg.content.length);
 	restOfMessageDiv.append(restOfMessage);
 	restOfMessageDiv.hide();
+	nextdiv.append(restOfMessageDiv);
 	var restOfMessageButton=showButton(nextdiv,"...","KgreenElement KregularButton");
 	restOfMessageButton.click(function()
 		{
 			restOfMessageDiv.slideToggle();
 		});
-	nextdiv.append(restOfMessageDiv);
+	
 	}
 	else
 	{
