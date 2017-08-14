@@ -1817,7 +1817,8 @@ if (showall===undefined){showall=true;}
 if(deletebutton === undefined) { deletebutton = false; }
 	
 	//var myColumn=addFlexDiv(elem,45,"column","nowrap","flex-start");
-	var myColumn=addDiv(elem);
+	//var myColumn=addDiv(elem);
+	var myColumn=$("<div id='wholemessage"+msg.id+"'></div>");
 	//console.log("msg.replyto "+msg.replyto);
 	
 	if (msg.replyto==Replyto)
@@ -1886,7 +1887,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	if(deletebutton)
 	{var delbut=showButton(postHeaderDiv,"X","KredElement KregularButton");
 		delbut.click(function(){
-		$("#"+msg.id).hide();
+		$("#wholemessage"+msg.id).hide();
 		io.socket.put('/wallpost/destroy',{id:msg.id},
 				function  (data){
 				});
@@ -1897,7 +1898,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 			if(WallPosts[iter].replyto==msg.id)
 			{
 				console.log("should hide "+WallPosts[iter].id);
-			$("#"+WallPosts[iter].id).hide();
+			$("#wholemessage"+WallPosts[iter].id).hide();
 			io.socket.put('/wallpost/destroy',{id:WallPosts[iter].id},
 				function  (data){
 				});
