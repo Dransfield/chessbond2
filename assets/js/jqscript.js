@@ -1664,7 +1664,7 @@ function getMessages(event)
 			
 						for(iter in WallPosts)
 						{	
-						showChatMessage(msgbox,WallPosts[iter],"none",false,false,false);
+						showChatMessage(msgbox,WallPosts[iter],"none",false,true,false);
 						}
 						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
 						msgbox.scrollTop(0);
@@ -1762,8 +1762,16 @@ function getMessages(event)
 							console.log("about to show wall posts");		
 						for(iter in WallPosts)
 						{	
-							console.log(" show wall post "+WallPosts[iter].content);
+							//console.log(" show wall post "+WallPosts[iter].content);
+						if(WallPosts[iter].intendedFor==MyID)
+						{	
+						showChatMessage(msgbox,WallPosts[iter],"none",false,true,false);
+						}
+						else
+						{	
 						showChatMessage(msgbox,WallPosts[iter],"none",false,false,false);
+						}
+						
 						}
 						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
 						msgbox.scrollTop(0);
