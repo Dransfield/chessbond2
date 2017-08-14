@@ -1819,6 +1819,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	//var myColumn=addFlexDiv(elem,45,"column","nowrap","flex-start");
 	//var myColumn=addDiv(elem);
 	var myColumn=$("<div id='wholemessage"+msg.id+"'></div>");
+	elem.append(myColumn);
 	//console.log("msg.replyto "+msg.replyto);
 	
 	if (msg.replyto==Replyto)
