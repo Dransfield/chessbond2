@@ -1310,7 +1310,7 @@ io.socket.get("/wallpost",{groupid:grpID,limit:num_of_posts,sort:"createdAt DESC
 		WallPosts.push(resData[iter]);
 		WallPosts[iter].content=censor(WallPosts[iter].content);
 		}
-resolve();
+resolve(resData);
 });
 });
 return cg;
