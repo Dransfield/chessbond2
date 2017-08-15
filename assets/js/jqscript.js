@@ -1803,13 +1803,24 @@ function getMessages(event)
 	if(!usracc)
 	{
 		
+		
+		var promiseList;
 
 		for (myIter in PrivateConversations[MyID])
 		{
 	
-			WallPosts=[];
-			getWallposts(PrivateConversations[MyID][myIter].id,1).then(function()
-					{
+			
+			promiseList.push(getWallposts(PrivateConversations[MyID][myIter].id,1));
+
+		}
+		
+		Promise.all([promiseList]).then(values => { 
+		console.log(values);
+		console.log(JSON.stringify(values));
+		
+		});
+							
+							/*{
 					console.log("just retrieved "+WallPosts.length+" messages");
 						console.log("iter "+myIter);
 							//for(iter in WallPosts)
@@ -1818,8 +1829,8 @@ function getMessages(event)
 							var ava=	showUserIdentity(msgbox,WallPosts[0].sender);
 								ava.append(WallPosts[0].content);
 							//}	
-					});
-		}
+					});*/
+	
 		
 	}
 	if (usracc)
