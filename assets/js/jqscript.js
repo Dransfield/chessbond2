@@ -1810,7 +1810,7 @@ function getMessages(event)
 			WallPosts=[];
 			getWallposts(PrivateConversations[MyID][iter].id,1).then(function()
 					{
-					console.log("just retrieved "+WallPost.length+" messages");
+					console.log("just retrieved "+WallPosts.length+" messages");
 						
 							//for(iter in WallPosts)
 							//{
