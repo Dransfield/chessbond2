@@ -1783,9 +1783,9 @@ function showUsernameJumbo(elem,usracc)
 }
 function showUserIdentity(elem,usracc)
 {
-var thisDiv=addFlexDiv(elem,"ident"+usracc,"column","nowrap");
+var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","wrap");
 thisDiv.css("border-style","solid");
-ava=showAvatar(thisDiv,otherPerson);
+ava=showSmallAvatar(thisDiv,otherPerson);
 							
 							showUsername(thisDiv,otherPerson);
 									console.log(otherPerson);
