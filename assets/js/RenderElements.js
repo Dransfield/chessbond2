@@ -1785,7 +1785,7 @@ function showUserIdentity(elem,usracc)
 {
 var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","wrap");
 thisDiv.css("border-style","solid");
-ava=showSmallAvatar(thisDiv,otherPerson);
+ava=showsmallAvatar(thisDiv,otherPerson);
 							
 							showUsername(thisDiv,otherPerson);
 									console.log(otherPerson);
