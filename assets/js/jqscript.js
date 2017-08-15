@@ -1814,7 +1814,8 @@ function getMessages(event)
 						
 							for(iter in WallPosts)
 							{
-								var ava=showIdentAvatar(msgbox,WallPosts[iter].sender);
+								//var ava=showIdentAvatar(msgbox,WallPosts[iter].sender);
+							var ava=	showUserIdentity(msgbox,WallPosts[iter].sender);
 								ava.append(WallPosts[iter].content);
 							}	
 					});
