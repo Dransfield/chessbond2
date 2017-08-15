@@ -1804,22 +1804,22 @@ function getMessages(event)
 	{
 		
 
-	for (iter in PrivateConversations[MyID])
-	{
+		for (iter in PrivateConversations[MyID])
+		{
 	
 			WallPosts=[];
 			getWallposts(PrivateConversations[MyID][iter].id,1).then(function()
 					{
-					
+					console.log("just retrieved "+WallPost.length+" messages");
 						
-							for(iter in WallPosts)
-							{
+							//for(iter in WallPosts)
+							//{
 								//var ava=showIdentAvatar(msgbox,WallPosts[iter].sender);
-							var ava=	showUserIdentity(msgbox,WallPosts[iter].sender);
-								ava.append(WallPosts[iter].content);
-							}	
+							var ava=	showUserIdentity(msgbox,WallPosts[0].sender);
+								ava.append(WallPosts[0].content);
+							//}	
 					});
-			}
+		}
 		
 	}
 	if (usracc)
