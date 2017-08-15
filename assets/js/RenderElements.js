@@ -1785,17 +1785,17 @@ function showUserIdentity(elem,usracc)
 {
 var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","wrap");
 
-ava=showIdentAvatar(thisDiv,otherPerson);
+ava=showIdentAvatar(thisDiv,usracc);
 							 thisDiv2=addFlexDiv(thisDiv,"ident2"+usracc,"column","wrap");
-							showUsername(thisDiv2,otherPerson);
-									console.log(otherPerson);
-							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
+							showUsername(thisDiv2,usracc);
+									console.log(usracc);
+							if(Accounts[usracc].lastTimeVisitedWholeSite)
 							{
-							thisDiv2.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							thisDiv2.append("Last visited:"+phrasefordate(Accounts[usracc].lastTimeVisitedWholeSite));
 							}
 							//console.log(inputbox);
 							//showFlag(thisDiv,otherPerson);
-							thisDiv2.append(Accounts[otherPerson].Country);
+							thisDiv2.append(Accounts[usracc].Country);
 					
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
