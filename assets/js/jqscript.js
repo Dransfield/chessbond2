@@ -1804,14 +1804,14 @@ function getMessages(event)
 	{
 		
 
-		for (iter in PrivateConversations[MyID])
+		for (myIter in PrivateConversations[MyID])
 		{
 	
 			WallPosts=[];
-			getWallposts(PrivateConversations[MyID][iter].id,1).then(function()
+			getWallposts(PrivateConversations[MyID][myIter].id,1).then(function()
 					{
 					console.log("just retrieved "+WallPosts.length+" messages");
-						console.log("iter "+iter);
+						console.log("iter "+myIter);
 							//for(iter in WallPosts)
 							//{
 								//var ava=showIdentAvatar(msgbox,WallPosts[iter].sender);
