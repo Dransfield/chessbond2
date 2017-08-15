@@ -1804,7 +1804,7 @@ function getMessages(event)
 	{
 		
 		
-		var promiseList;
+		var promiseList=[];
 
 		for (myIter in PrivateConversations[MyID])
 		{
