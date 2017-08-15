@@ -1786,7 +1786,7 @@ function showUserIdentity(elem,usracc)
 var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","wrap");
 
 ava=showIdentAvatar(thisDiv,otherPerson);
-							 thisDiv2=addFlexDiv(thisDiv,"ident"+usracc,"column","wrap");
+							 thisDiv2=addFlexDiv(thisDiv,"ident2"+usracc,"column","wrap");
 							showUsername(thisDiv2,otherPerson);
 									console.log(otherPerson);
 							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
@@ -1799,7 +1799,7 @@ ava=showIdentAvatar(thisDiv,otherPerson);
 					
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
-							thisDiv2.css("border-style","solid");
+							thisDiv.css("border-style","solid");
 return thisDiv;	
 }
 function showImageUploadForm(elem,usracc)
