@@ -1785,7 +1785,7 @@ function showUserIdentity(elem,usracc)
 {
 var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","wrap");
 thisDiv.css("border-style","solid");
-ava=showsmallAvatar(thisDiv,otherPerson);
+ava=showIdentAvatar(thisDiv,otherPerson);
 							
 							showUsername(thisDiv,otherPerson);
 									console.log(otherPerson);
@@ -2686,6 +2686,23 @@ function showVisitorsGraph(elem)
 	}
 		
 	
+
+}
+
+function showIdentAvatar(elem,usracc)
+
+{
+	if(!Accounts[usracc])
+	{}
+	else
+	{
+		var d=addDiv(elem,"");
+	d.addClass("userdropdown");
+var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
+sp.addClass("smallonlinecircle");
+var im=$("<img class='identprofilepic' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+d.append(im);
+}
 
 }
 
