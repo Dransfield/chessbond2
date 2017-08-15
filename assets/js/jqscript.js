@@ -1810,19 +1810,11 @@ function getMessages(event)
 			WallPosts=[];
 			getWallposts(PrivateConversations[MyID][iter].id,1).then(function()
 					{
-					var otherperson;
-						if(MyID!=PrivateConversations[MyID][iter].Talker1)
-							{
-							otherPerson=PrivateConversations[MyID][iter].Talker1;
-							}
+					
 						
-							if(MyID!=PrivateConversations[MyID][iter].Talker2)
-							{
-							otherPerson=PrivateConversations[MyID][iter].Talker2;
-							}
 							for(iter in WallPosts)
 							{
-								var ava=showIdentAvatar(msgbox,otherPerson);
+								var ava=showIdentAvatar(msgbox,WallPosts[iter].sender);
 								ava.append(WallPosts[iter].content);
 							}	
 					});
