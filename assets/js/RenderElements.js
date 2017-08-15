@@ -1786,16 +1786,16 @@ function showUserIdentity(elem,usracc)
 var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","wrap");
 thisDiv.css("border-style","solid");
 ava=showIdentAvatar(thisDiv,otherPerson);
-							
-							showUsername(thisDiv,otherPerson);
+							 thisDiv2=addFlexDiv(elem,"ident"+usracc,"column","wrap");
+							showUsername(thisDiv2,otherPerson);
 									console.log(otherPerson);
 							if(Accounts[otherPerson].lastTimeVisitedWholeSite)
 							{
-							thisDiv.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
+							thisDiv2.append("Last visited:"+phrasefordate(Accounts[otherPerson].lastTimeVisitedWholeSite));
 							}
 							//console.log(inputbox);
-							showFlag(thisDiv,otherPerson);
-							thisDiv.append(Accounts[otherPerson].Country);
+							//showFlag(thisDiv,otherPerson);
+							thisDiv2.append(Accounts[otherPerson].Country);
 					
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
