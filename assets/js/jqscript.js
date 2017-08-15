@@ -1823,7 +1823,7 @@ function getMessages(event)
 							for(iter in WallPosts)
 							{
 								var ava=showIdentAvatar(msgbox,otherPerson);
-								ava.append(WallPosts[iter].content;
+								ava.append(WallPosts[iter].content);
 							}	
 					});
 			}
