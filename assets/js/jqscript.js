@@ -1826,15 +1826,16 @@ function getMessages(event)
 		console.log(values[1]);
 		//console.log(JSON.stringify(values));
 		
-			
-			for (otherIter in values[0])
+			for (iter in values)
 			{
-			console.log(values[0][otherIter]);
+			for (otherIter in values[iter])
+			{
+			console.log(values[iter][otherIter]);
 			
-			var ava=	showUserIdentity(msgbox,values[0][otherIter].sender);
-								ava.append(values[0][otherIter].content);
+			var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
+								ava.append(values[iter][otherIter].content);
 			}
-		
+		}
 		});
 			/*
 		var promiseList=[];
