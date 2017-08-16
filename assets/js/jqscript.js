@@ -2601,19 +2601,18 @@ function addPrivatePromiseRange(index,amt)
 function addPrivatePromises()
 {
 	
+							PrivateConversations[MyID]={};
+							
 		return new Promise((resolve,reject)=>{
 					io.socket.get("/privateconversation",{or:[{Talker1:MyID},{Talker2:MyID}],limit:30000},
 						function (pc) {
-						if(!PrivateConversations[MyID])
-							{
-							PrivateConversations[MyID]={};
-							}
+						
 						//console.log(pc);
 							for (y in pc)
 							{
 									
 						
-							if(MyID==pc[y].Talker1)
+							/*if(MyID==pc[y].Talker1)
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 						
@@ -2622,8 +2621,8 @@ function addPrivatePromises()
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							
-							}
-				
+							}*/
+							PrivateConversations[MyID]=pc;
 					
 							
 							
