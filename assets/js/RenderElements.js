@@ -1795,7 +1795,8 @@ ava=showIdentAvatar(thisDiv,usracc);
 							}
 							//console.log(inputbox);
 							//showFlag(thisDiv,otherPerson);
-							thisDiv2.append(Accounts[usracc].Country);
+							var countrySpan=addSpan(thisDiv2);
+							countrySpan.append(Accounts[usracc].Country);
 					
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
