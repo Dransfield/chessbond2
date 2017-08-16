@@ -1277,12 +1277,12 @@ function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 	}
 
 
-function getWallpostsIntendedFor(person)
+function getWallpostsIntendedFor(personFor,personFrom)
 {
 	
 var cg = new Promise
 ((resolve, reject) => {
-io.socket.get("/wallpost",{intendedFor:person,limit:5,sort:"createdAt DESC"},
+io.socket.get("/wallpost",{intendedFor:personFor,limit:1,sender:personFrom,sort:"createdAt DESC"},
 	function (resData,jwres){
 		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
@@ -1290,7 +1290,7 @@ io.socket.get("/wallpost",{intendedFor:person,limit:5,sort:"createdAt DESC"},
 		WallPosts.push(resData[iter]);
 		WallPosts[iter].content=censor(WallPosts[iter].content);
 		}
-resolve();
+resolve(resData);
 });
 });
 return cg;
@@ -1803,7 +1803,14 @@ function getMessages(event)
 	if(!usracc)
 	{
 		
+		getWallpostsIntendedFor(personFor,personFrom).then(values=>{
+			
+		console.log(values);
+		console.log(JSON.stringify(values));
 		
+		});
+			
+			/*
 		var promiseList=[];
 
 		for (myIter in PrivateConversations[MyID])
