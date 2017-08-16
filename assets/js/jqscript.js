@@ -1827,9 +1827,12 @@ function getMessages(event)
 		//console.log(JSON.stringify(values));
 		for (valIter in values)
 		{
-			console.log(values[valIter]);
-			console.log(values[valIter].PromiseValue);
 			
+			for (otherIter in values[valIter])
+			{
+			console.log(values[valIter][otherIter]);
+			//console.log(values[valIter][otherIter]);
+			}
 		}
 		});
 			/*
