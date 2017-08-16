@@ -1833,7 +1833,10 @@ function getMessages(event)
 			console.log(values[iter][otherIter]);
 			
 			var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
-								ava.append(values[iter][otherIter].content);
+			var textSpan=addSpan(ava);
+								textSpan.append(values[iter][otherIter].content);
+			textSpan.css("border-style","solid");
+			textSpan.css("border","2px");
 			}
 		}
 		});

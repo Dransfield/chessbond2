@@ -1800,7 +1800,7 @@ ava=showIdentAvatar(thisDiv,usracc);
 					
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
-							thisDiv.css("border-style","solid");
+							thisDiv.css("border-bottom-style","solid");
 return thisDiv;	
 }
 function showImageUploadForm(elem,usracc)
