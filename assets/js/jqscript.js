@@ -1818,13 +1818,20 @@ function getMessages(event)
 			promiseList.push(getWallpostsIntendedFor(MyID,otherPerson));
 				
 			
-			Promise.all([promiseList]).then(values => { 
-		console.log(values);
-		console.log(JSON.stringify(values));
 		
-		});
 			
 		}
+		
+		Promise.all([promiseList]).then(values => { 
+		console.log(values);
+		console.log(JSON.stringify(values));
+		for (valIter in values)
+		{
+			console.log(values[valIter]);
+			console.log(values[valIter].PromiseValue);
+			
+		}
+		});
 			/*
 		var promiseList=[];
 
