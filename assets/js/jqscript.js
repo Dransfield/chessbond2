@@ -1818,7 +1818,7 @@ function getMessages(event)
 								otherPerson=PrivateConversations[MyID][myIter].Talker2;
 								}
 			
-			promiseList.push(getWallpostsFromPersonFromGroup(otherPerson,PrivateConversations[MyID][myIter]));
+			promiseList.push(getWallpostsFromPersonFromGroup(otherPerson,PrivateConversations[MyID][myIter].id));
 				
 			
 		
