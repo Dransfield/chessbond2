@@ -1799,6 +1799,7 @@ ava.css("margin","5px");
 							{
 							thisDiv2.append(phrasefordate(Accounts[usracc].lastTimeVisitedWholeSite));
 							}
+							thisDiv2.css("margin","6px");
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
 							//thisDiv.css("border-bottom-style","solid");
