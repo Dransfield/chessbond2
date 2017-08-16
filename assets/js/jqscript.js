@@ -1277,12 +1277,12 @@ function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 	}
 
 
-function getWallpostsIntendedFor(personFor,personFrom)
+function getWallpostsFromPersonFromGroup(personFrom,grpid)
 {
 	
 var cg = new Promise
 ((resolve, reject) => {
-io.socket.get("/wallpost",{intendedFor:personFor,limit:1,sender:personFrom,sort:"createdAt DESC"},
+io.socket.get("/wallpost",{groupid:grpid,limit:1,sender:personFrom,sort:"createdAt DESC"},
 	function (resData,jwres){
 		//console.log("got wall posts"+JSON.stringify(resData));
 		for (iter in resData)
@@ -1554,7 +1554,7 @@ function setupMessagesPage()
 					{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
-					console.log("private conversation found "+PrivateConversations[MyID][iter].id);
+					console.log("private conversation found "+PrivateConversations[MyID][iter].id;
 					}
 					
 				
@@ -1807,6 +1807,7 @@ function getMessages(event)
 
 		for (myIter in PrivateConversations[MyID])
 		{
+			
 								if(MyID!=PrivateConversations[MyID][myIter].Talker1)
 								{
 								otherPerson=PrivateConversations[MyID][myIter].Talker1;
@@ -1816,9 +1817,8 @@ function getMessages(event)
 								{
 								otherPerson=PrivateConversations[MyID][myIter].Talker2;
 								}
-				console.log("private conversation found "+PrivateConversations[MyID][myIter].id);
-				
-			promiseList.push(getWallpostsIntendedFor(MyID,otherPerson));
+			
+			promiseList.push(getWallpostsFromPersonFromGroup(otherPerson,PrivateConversations[MyID][myIter]));
 				
 			
 		
