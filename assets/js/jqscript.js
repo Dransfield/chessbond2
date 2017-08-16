@@ -1823,7 +1823,7 @@ function getMessages(event)
 		}
 		
 		Promise.all(promiseList).then(function(values) { 
-		//console.log(values);
+		console.log(values[1]);
 		//console.log(JSON.stringify(values));
 		
 			
