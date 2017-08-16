@@ -1783,7 +1783,7 @@ function showUsernameJumbo(elem,usracc)
 }
 function showUserIdentity(elem,usracc)
 {
-var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","nowrap");
+var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","nowrap","center","stretch");
 
 ava=showIdentAvatar(thisDiv,usracc);
 ava.css("margin","5px");
