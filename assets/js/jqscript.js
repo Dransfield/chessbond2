@@ -1825,16 +1825,16 @@ function getMessages(event)
 		Promise.all(promiseList).then(function(values) { 
 		//console.log(values);
 		//console.log(JSON.stringify(values));
-		for (valIter in values)
-		{
+		
 			
-			for (otherIter in values[valIter])
+			for (otherIter in values[0])
 			{
-			console.log(values[valIter][otherIter]);
+			console.log(values[0][otherIter]);
 			
-			
+			var ava=	showUserIdentity(msgbox,values[0][otherIter].sender);
+								ava.append(values[0][otherIter].content);
 			}
-		}
+		
 		});
 			/*
 		var promiseList=[];
