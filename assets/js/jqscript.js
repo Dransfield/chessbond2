@@ -1830,7 +1830,7 @@ function getMessages(event)
 			
 			for (otherIter in values[valIter])
 			{
-			console.log(values[valIter][otherIter]);
+			console.log(JSON.stringify(values[valIter][otherIter]));
 			//console.log(values[valIter][otherIter]);
 			}
 		}
