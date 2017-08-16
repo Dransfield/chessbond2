@@ -1837,6 +1837,7 @@ function getMessages(event)
 								textSpan.append(values[iter][otherIter].content);
 			textSpan.css("border-style","solid");
 			//textSpan.css("border","2px");
+			textSpan.css("margin","6px");
 			}
 		}
 		});
