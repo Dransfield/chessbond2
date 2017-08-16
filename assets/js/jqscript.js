@@ -1802,14 +1802,29 @@ function getMessages(event)
 	
 	if(!usracc)
 	{
-		
-		getWallpostsIntendedFor(personFor,personFrom).then(values=>{
+			var promiseList=[];
+
+		for (myIter in PrivateConversations[MyID])
+		{
+								if(MyID!=PrivateConversations[MyID][myIter].Talker1)
+								{
+								otherPerson=PrivateConversations[MyID][myIter].Talker1;
+								}
+							
+								if(MyID!=PrivateConversations[MyID][myIter].Talker2)
+								{
+								otherPerson=PrivateConversations[MyID][myIter].Talker2;
+								}
+			promiseList.push(getWallpostsIntendedFor(MyID,otherPerson));
+				
 			
+			Promise.all([promiseList]).then(values => { 
 		console.log(values);
 		console.log(JSON.stringify(values));
 		
 		});
 			
+		}
 			/*
 		var promiseList=[];
 
