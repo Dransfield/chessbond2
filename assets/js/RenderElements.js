@@ -1796,7 +1796,7 @@ ava=showIdentAvatar(thisDiv,usracc);
 							//console.log(inputbox);
 							//showFlag(thisDiv,otherPerson);
 							var countrySpan=addSpan(thisDiv2);
-							countrySpan.append(Accounts[usracc].Country);
+							countrySpan.append(Accounts[usracc].CurrentCity);
 					
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
