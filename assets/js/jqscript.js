@@ -1554,7 +1554,7 @@ function setupMessagesPage()
 					{
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker1]=PrivateConversations[MyID][iter].Talker1;
 						AccountsToRetrieve[PrivateConversations[MyID][iter].Talker2]=PrivateConversations[MyID][iter].Talker2;
-					console.log("private conversation found "+PrivateConversations[MyID][iter].id;
+//					console.log("private conversation found "+PrivateConversations[MyID][iter].id);
 					}
 					
 				
