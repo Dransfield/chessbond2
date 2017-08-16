@@ -1835,7 +1835,7 @@ function getMessages(event)
 			var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
 			var textSpan=addSpan(ava);
 								textSpan.append(values[iter][otherIter].content);
-			textSpan.css("border-bottom-style","solid");
+			textSpan.css("border-style","solid");
 			//textSpan.css("border","2px");
 			textSpan.css("margin","6px");
 			textSpan.css("flex-grow","5");
