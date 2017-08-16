@@ -1789,15 +1789,15 @@ ava=showIdentAvatar(thisDiv,usracc);
 							 thisDiv2=addFlexDiv(thisDiv,"ident2"+usracc,"column","nowrap");
 							showUsername(thisDiv2,usracc);
 									console.log(usracc);
-							if(Accounts[usracc].lastTimeVisitedWholeSite)
-							{
-							thisDiv2.append(phrasefordate(Accounts[usracc].lastTimeVisitedWholeSite));
-							}
+						
 							//console.log(inputbox);
 							//showFlag(thisDiv,otherPerson);
 							var countrySpan=addSpan(thisDiv2);
 							countrySpan.append(Accounts[usracc].CurrentCity);
-					
+								if(Accounts[usracc].lastTimeVisitedWholeSite)
+							{
+							thisDiv2.append(phrasefordate(Accounts[usracc].lastTimeVisitedWholeSite));
+							}
 							thisDiv.attr("class","clickToShowMessages");
 							//ava.click({person:otherPerson,msgrecepticle:msgbox},getMessages);	
 							//thisDiv.css("border-bottom-style","solid");
