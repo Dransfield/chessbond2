@@ -1843,10 +1843,19 @@ function getMessages(event)
 			textSpan.css("margin","6px");
 			textSpan.css("flex-grow","5");
 			textSpan.hover(function(){
-    $(this).css("background-color", "yellow");
-    }, function(){
-    $(this).css("background-color", "pink");
-});
+				$(this).css("background-color", "yellow");
+				}, function(){
+				$(this).css("background-color", "pink");
+			});
+			
+			var buttonSpan=addFlexDiv(ava,"buttons"+values[iter][otherIter].id,"column");
+			var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
+		delbut.click(function(){
+		$("#ident"+values[iter][otherIter].sender).slideUp();
+		io.socket.put('/wallpost/destroy',{id:values[iter][otherIter].id},
+				function  (data){
+				});
+			
 			}
 		}
 		});
