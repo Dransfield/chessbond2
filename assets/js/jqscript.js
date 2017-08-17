@@ -1856,7 +1856,7 @@ function getMessages(event)
 				
 				delbut.click({senderr:values[iter][otherIter].sender,msgid:values[iter][otherIter].id},deleteidentmessage);
 				*/
-				showIdentMessage(msgbox,values[iter][otherIter]);
+				showIdentMessage(msgbox,values[iter][otherIter],true);
 				}
 			}
 			
@@ -1974,7 +1974,7 @@ function getMessages(event)
 				*/
 				for (messageIter in values)
 				{
-				showIdentMessage(msgbox,values[messageIter]);
+				showIdentMessage(msgbox,values[messageIter],false);
 				}
 		
 			});
@@ -1983,10 +1983,14 @@ function getMessages(event)
 }
 }
 
-function showIdentMessage(elem,msgobj)
+function showIdentMessage(elem,msgobj,clickable)
 {
 	var ava=	showUserIdentity(elem,msgobj.sender,msgobj.id);
 				var textSpan=addSpan(ava);
+				if (clickable)
+				{
+				ava.click({person:msgobj.sender},getMessages);
+				}
 				textSpan.append(msgobj.content);
 				textSpan.css("border-style","solid");
 				//textSpan.css("border","2px");
