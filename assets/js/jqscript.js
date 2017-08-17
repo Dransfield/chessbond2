@@ -1965,9 +1965,11 @@ function getMessages(event)
 					$('#inputbox').empty();
 			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Perm Message","none",usracc);
 				*/
-				var ava=	showUserIdentity(msgbox,PrivateConversations[MyID][iter].sender);
+				for (messageIter in values)
+				{
+				var ava=	showUserIdentity(msgbox,values[messageIter].sender);
 				var textSpan=addSpan(ava);
-				textSpan.append(PrivateConversations[MyID][iter].content);
+				textSpan.append(values[messageIter].content);
 				textSpan.css("border-style","solid");
 				//textSpan.css("border","2px");
 				textSpan.css("margin","6px");
@@ -1979,11 +1981,11 @@ function getMessages(event)
 					$(this).css("background-color", "pink");
 				});
 			
-				var buttonSpan=addFlexDiv(ava,"buttons"+PrivateConversations[MyID][iter].id,"column");
+				var buttonSpan=addFlexDiv(ava,"buttons"+values[messageIter].id,"column");
 				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
 				
-				delbut.click({senderr:PrivateConversations[MyID][iter].sender,msgid:PrivateConversations[MyID][iter].id},deleteidentmessage);
-				
+				delbut.click({senderr:values[messageIter].sender,msgid:values[messageIter].id},deleteidentmessage);
+				}
 		
 			});
 		}
