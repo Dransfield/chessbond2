@@ -1835,6 +1835,9 @@ function getMessages(event)
 			
 				var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
 				var textSpan=addSpan(ava);
+				
+				ava.click({person:values[iter][otherIter].sender},getMessages);
+				
 				textSpan.append(values[iter][otherIter].content);
 				textSpan.css("border-style","solid");
 				//textSpan.css("border","2px");
@@ -1940,7 +1943,7 @@ function getMessages(event)
 									
 									});
 									*/		
-							console.log("about to show wall posts");		
+						/*	console.log("about to show wall posts");		
 						for(iter in WallPosts)
 						{	
 							//console.log(" show wall post "+WallPosts[iter].content);
@@ -1959,6 +1962,25 @@ function getMessages(event)
 					});
 					$('#inputbox').empty();
 			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Perm Message","none",usracc);
+				*/
+				var ava=	showUserIdentity(msgbox,PrivateConversations[MyID][iter].sender);
+				var textSpan=addSpan(ava);
+				textSpan.append(PrivateConversations[MyID][iter].content);
+				textSpan.css("border-style","solid");
+				//textSpan.css("border","2px");
+				textSpan.css("margin","6px");
+				textSpan.css("flex-grow","5");
+				
+				textSpan.hover(function(){
+					$(this).css("background-color", "yellow");
+					}, function(){
+					$(this).css("background-color", "pink");
+				});
+			
+				var buttonSpan=addFlexDiv(ava,"buttons"+PrivateConversations[MyID][iter].id,"column");
+				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
+				
+				delbut.click({senderr:PrivateConversations[MyID][iter].sender,msgid:PrivateConversations[MyID][iter].id},deleteidentmessage);
 				
 		
 			}
