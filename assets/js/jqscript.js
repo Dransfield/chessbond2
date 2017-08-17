@@ -1859,6 +1859,7 @@ function getMessages(event)
 				});
 				}
 			}
+		});
 			/*
 		var promiseList=[];
 
