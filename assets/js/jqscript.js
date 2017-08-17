@@ -1831,6 +1831,7 @@ function getMessages(event)
 			{
 				for (otherIter in values[iter])
 				{
+					/*
 				console.log(values[iter][otherIter]);
 			
 				var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender,values[iter][otherIter].id);
@@ -1854,7 +1855,8 @@ function getMessages(event)
 				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
 				
 				delbut.click({senderr:values[iter][otherIter].sender,msgid:values[iter][otherIter].id},deleteidentmessage);
-				
+				*/
+				showIdentMessage(msgbox,values[iter][otherIter]);
 				}
 			}
 			
@@ -1972,9 +1974,20 @@ function getMessages(event)
 				*/
 				for (messageIter in values)
 				{
-				var ava=	showUserIdentity(msgbox,values[messageIter].sender,values[messageIter].id);
+				showIdentMessage(msgbox,values[messageIter]);
+				}
+		
+			});
+		}
+	}
+}
+}
+
+function showIdentMessage(elem,msgobj)
+{
+	var ava=	showUserIdentity(elem,msgobj.sender,msgobj.id);
 				var textSpan=addSpan(ava);
-				textSpan.append(values[messageIter].content);
+				textSpan.append(msgobj.content);
 				textSpan.css("border-style","solid");
 				//textSpan.css("border","2px");
 				textSpan.css("margin","6px");
@@ -1986,18 +1999,12 @@ function getMessages(event)
 					$(this).css("background-color", "pink");
 				});
 			
-				var buttonSpan=addFlexDiv(ava,"buttons"+values[messageIter].id,"column");
+				var buttonSpan=addFlexDiv(ava,"buttons"+msgobj.id,"column");
 				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
 				
-				delbut.click({senderr:values[messageIter].sender,msgid:values[messageIter].id},deleteidentmessage);
-				}
-		
-			});
-		}
-	}
+				delbut.click({msgid:msgobj.id},deleteidentmessage);
+	
 }
-}
-
 function deleteidentmessage(event)
 			{
 				$("#ident"+event.data.msgid).slideUp();
