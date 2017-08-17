@@ -39,7 +39,7 @@ module.exports = {
 			function(err3,records3)
 			{
 			
-			if(records3.intendedForWantsToDelete && records3.senderWantsToDelete)
+			if(records3[0].intendedForWantsToDelete && records3[0].senderWantsToDelete)
 			{
 				console.log(3);
 				Wallpost.destroy({id:req.param('id')}).exec
@@ -60,7 +60,7 @@ module.exports = {
 			function(err3,records3)
 			{
 			
-			if(records3.intendedForWantsToDelete && records3.senderWantsToDelete)
+			if(records3[0].intendedForWantsToDelete && records3[0].senderWantsToDelete)
 			{
 				console.log(4);
 				Wallpost.destroy({id:req.param('id')}).exec
@@ -71,8 +71,8 @@ module.exports = {
 			else
 			{
 				console.log("nope");
-				console.log(records3.intendedForWantsToDelete);
-				console.log(records3.senderWantsToDelete);
+				console.log(records3[0].intendedForWantsToDelete);
+				console.log(records3[0].senderWantsToDelete);
 				
 				
 				return res.ok();}
