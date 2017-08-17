@@ -65,7 +65,13 @@ module.exports = {
 					});
 			}
 			else
-			{return res.ok();}
+			{
+				console.log("nope");
+				console.log(records3.intendedForWantsToDelete);
+				console.log(records3.senderWantsToDelete);
+				
+				
+				return res.ok();}
 		});	
 		}
 		
