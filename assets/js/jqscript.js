@@ -1897,7 +1897,7 @@ function getMessages(event)
 	var conv;
 	var backBut=showButton(msgbox,"Back","KgreenElement KregularButton");
 				
-				backBut.click(getMessages);
+				backBut.click(function(){getMessages()});
 				
 		
 	for (iter in PrivateConversations[MyID])
