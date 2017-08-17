@@ -1987,7 +1987,7 @@ function getMessages(event)
 		}
 	}
 }
-
+}
 
 function deleteidentmessage(event)
 			{
