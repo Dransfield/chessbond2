@@ -34,10 +34,15 @@ module.exports = {
 			{records.senderWantsToDelete=true;}
 			if(deleter==records.intendedFor)
 			{records.intendedForWantsToDelete=true;}
+			
 				records.save();
 				
 			if(records.intendedForWantsToDelete && records.senderWantsToDelete)
-			{records.destroy();}
+			{
+				Wallpost.destroy({id:req.param('id')}).exec
+				(function(err2,records2){});
+			}
+				
 			return res.ok();
 		});
 	},
