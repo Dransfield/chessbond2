@@ -2000,7 +2000,7 @@ function getMessages(event)
 
 function deleteidentmessage(event)
 			{
-				$("#ident"+event.data.senderr).slideUp();
+				$("#ident"+event.data.msgid).slideUp();
 				io.socket.put('/wallpost/destroy',{id:event.data.msgid},
 				function  (data){
 				});
