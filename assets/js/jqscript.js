@@ -1561,7 +1561,7 @@ function setupMessagesPage()
 					retrieveAccounts().then(function()
 					{
 				
-					var overallDiv=addFlexDiv($("#messagespage"),"overallDiv","row","nowrap","flex-start","flex-start");
+					var overallDiv=addFlexDiv($("#messagespage"),"undermsgbox","row","nowrap","flex-start","flex-start");
 				
 						
 					
@@ -1976,7 +1976,7 @@ function getMessages(event)
 				{
 				showIdentMessage(msgbox,values[messageIter],false);
 				}
-		
+				showChatForm($("#undermsgbox"),values[0].groupid,"Perm Message","none");
 			});
 		}
 	}
