@@ -41,6 +41,7 @@ module.exports = {
 			
 			if(records3.intendedForWantsToDelete && records3.senderWantsToDelete)
 			{
+				console.log(3);
 				Wallpost.destroy({id:req.param('id')}).exec
 				(function(err2,records2){
 					return res.ok();
@@ -61,6 +62,7 @@ module.exports = {
 			
 			if(records3.intendedForWantsToDelete && records3.senderWantsToDelete)
 			{
+				console.log(4);
 				Wallpost.destroy({id:req.param('id')}).exec
 				(function(err2,records2){
 					return res.ok();
