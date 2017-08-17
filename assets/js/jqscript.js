@@ -1895,6 +1895,11 @@ function getMessages(event)
 	if (usracc)
 	{
 	var conv;
+	var backBut=showButton(msgbox,"Back","KgreenElement KregularButton");
+				
+				backBut.click(getMessages);
+				}
+		
 	for (iter in PrivateConversations[MyID])
 	{
 		console.log(PrivateConversations[MyID][iter]);
