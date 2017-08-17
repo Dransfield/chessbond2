@@ -30,14 +30,15 @@ module.exports = {
 			var deleter=req.param('deleter');
 			console.log("deleter "+deleter);
 			console.log("sender"+records.sender);
-			if(deleter==records.sender)
-			{records.senderWantsToDelete=true;}
-			if(deleter==records.intendedFor)
-			{records.intendedForWantsToDelete=true;}
 			
-				records.save();
-				
-			if(records.intendedForWantsToDelete && records.senderWantsToDelete)
+		if(deleter==records.sender)
+			{	
+			Wallpost.update({id:req.param('id')},{senderWantsToDelete:true}).exec
+			(
+			function(err3,records3)
+			{
+			
+			if(records3.intendedForWantsToDelete && records3.senderWantsToDelete)
 			{
 				Wallpost.destroy({id:req.param('id')}).exec
 				(function(err2,records2){
@@ -46,8 +47,29 @@ module.exports = {
 			}
 			else
 			{return res.ok();}
-				
+		});	
+		}
+		
+		if(deleter==records.intendedFor)
+			{	
+			Wallpost.update({id:req.param('id')},{intendedForWantsToDelete:true}).exec
+			(
+			function(err3,records3)
+			{
 			
+			if(records3.intendedForWantsToDelete && records3.senderWantsToDelete)
+			{
+				Wallpost.destroy({id:req.param('id')}).exec
+				(function(err2,records2){
+					return res.ok();
+					});
+			}
+			else
+			{return res.ok();}
+		});	
+		}
+		
+		
 		});
 	},
 	
