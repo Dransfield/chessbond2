@@ -1833,7 +1833,7 @@ function getMessages(event)
 				{
 				console.log(values[iter][otherIter]);
 			
-				var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
+				var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender,values[iter][otherIter].id);
 				var textSpan=addSpan(ava);
 				
 				ava.click({person:values[iter][otherIter].sender},getMessages);
@@ -1972,7 +1972,7 @@ function getMessages(event)
 				*/
 				for (messageIter in values)
 				{
-				var ava=	showUserIdentity(msgbox,values[messageIter].sender);
+				var ava=	showUserIdentity(msgbox,values[messageIter].sender,values[messageIter].id);
 				var textSpan=addSpan(ava);
 				textSpan.append(values[messageIter].content);
 				textSpan.css("border-style","solid");

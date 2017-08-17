@@ -1781,13 +1781,13 @@ function showUsernameJumbo(elem,usracc)
       showUsername(header,usracc);
 	elem.append(header);
 }
-function showUserIdentity(elem,usracc)
+function showUserIdentity(elem,usracc,msgid)
 {
-var thisDiv=addFlexDiv(elem,"ident"+usracc,"row","nowrap","center","stretch");
+var thisDiv=addFlexDiv(elem,"ident"+msgid,"row","nowrap","center","stretch");
 
 ava=showIdentAvatar(thisDiv,usracc);
 ava.css("margin","5px");
-							 thisDiv2=addFlexDiv(thisDiv,"ident2"+usracc,"column","nowrap");
+							 thisDiv2=addFlexDiv(thisDiv,"ident2"+msgid,"column","nowrap");
 							showUsername(thisDiv2,usracc);
 									console.log(usracc);
 						
