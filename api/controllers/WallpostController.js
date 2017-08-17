@@ -33,6 +33,7 @@ module.exports = {
 			
 		if(deleter==records.sender)
 			{	
+				console.log(1);
 			Wallpost.update({id:req.param('id')},{senderWantsToDelete:true}).exec
 			(
 			function(err3,records3)
@@ -52,6 +53,7 @@ module.exports = {
 		
 		if(deleter==records.intendedFor)
 			{	
+				console.log(2);
 			Wallpost.update({id:req.param('id')},{intendedForWantsToDelete:true}).exec
 			(
 			function(err3,records3)
