@@ -1808,21 +1808,19 @@ function getMessages(event)
 		for (myIter in PrivateConversations[MyID])
 		{
 			
-								if(MyID!=PrivateConversations[MyID][myIter].Talker1)
-								{
-								otherPerson=PrivateConversations[MyID][myIter].Talker1;
-								}
+			if(MyID!=PrivateConversations[MyID][myIter].Talker1)
+			{
+				otherPerson=PrivateConversations[MyID][myIter].Talker1;
+			}
 							
-								if(MyID!=PrivateConversations[MyID][myIter].Talker2)
-								{
-								otherPerson=PrivateConversations[MyID][myIter].Talker2;
-								}
+			if(MyID!=PrivateConversations[MyID][myIter].Talker2)
+			{
+				otherPerson=PrivateConversations[MyID][myIter].Talker2;
+			}
 			
 			promiseList.push(getWallpostsFromPersonFromGroup(otherPerson,PrivateConversations[MyID][myIter].id));
 				
-			
-		
-			
+				
 		}
 		
 		Promise.all(promiseList).then(function(values) { 
@@ -1831,34 +1829,36 @@ function getMessages(event)
 		
 			for (iter in values)
 			{
-			for (otherIter in values[iter])
-			{
-			console.log(values[iter][otherIter]);
+				for (otherIter in values[iter])
+				{
+				console.log(values[iter][otherIter]);
 			
-			var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
-			var textSpan=addSpan(ava);
-								textSpan.append(values[iter][otherIter].content);
-			textSpan.css("border-style","solid");
-			//textSpan.css("border","2px");
-			textSpan.css("margin","6px");
-			textSpan.css("flex-grow","5");
-			textSpan.hover(function(){
-				$(this).css("background-color", "yellow");
-				}, function(){
-				$(this).css("background-color", "pink");
-			});
+				var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender);
+				var textSpan=addSpan(ava);
+				textSpan.append(values[iter][otherIter].content);
+				textSpan.css("border-style","solid");
+				//textSpan.css("border","2px");
+				textSpan.css("margin","6px");
+				textSpan.css("flex-grow","5");
+				
+				textSpan.hover(function(){
+					$(this).css("background-color", "yellow");
+					}, function(){
+					$(this).css("background-color", "pink");
+				});
 			
-			var buttonSpan=addFlexDiv(ava,"buttons"+values[iter][otherIter].id,"column");
-			var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
-		delbut.click(function(){
-		$("#ident"+values[iter][otherIter].sender).slideUp();
-		io.socket.put('/wallpost/destroy',{id:values[iter][otherIter].id},
+				var buttonSpan=addFlexDiv(ava,"buttons"+values[iter][otherIter].id,"column");
+				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
+				
+				delbut.click(function(){
+				$("#ident"+values[iter][otherIter].sender).slideUp();
+				io.socket.put('/wallpost/destroy',{id:values[iter][otherIter].id},
 				function  (data){
 				});
 			
+				});
+				}
 			}
-		}
-		});
 			/*
 		var promiseList=[];
 
