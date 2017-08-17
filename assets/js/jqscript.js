@@ -1983,7 +1983,7 @@ function getMessages(event)
 				delbut.click({senderr:PrivateConversations[MyID][iter].sender,msgid:PrivateConversations[MyID][iter].id},deleteidentmessage);
 				
 		
-			}
+			});
 		}
 	}
 }
