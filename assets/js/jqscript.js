@@ -1842,6 +1842,11 @@ function getMessages(event)
 			//textSpan.css("border","2px");
 			textSpan.css("margin","6px");
 			textSpan.css("flex-grow","5");
+			textSpan.hover(function(){
+    $(this).css("background-color", "yellow");
+    }, function(){
+    $(this).css("background-color", "pink");
+});
 			}
 		}
 		});
