@@ -26,7 +26,7 @@ module.exports = {
 		(
 		function (err,records)
 		{
-			console.log(JSON.stringify(records);
+			console.log(JSON.stringify(records));
 			var deleter=req.param('deleter');
 			console.log("deleter "+deleter);
 			console.log("sender"+records.sender);
