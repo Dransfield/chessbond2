@@ -1903,9 +1903,11 @@ function getMessages(event)
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
 		{
 			conv=PrivateConversations[MyID][iter];
-			//console.log("iter1 "+iter);
-			getWallposts(PrivateConversations[MyID][iter].id,15).then(function()
+			console.log("iter1 "+iter);
+			getWallposts(PrivateConversations[MyID][iter].id,15).then(values=>
 					{
+						console.log(values);
+						console.log(JSON.stringify(values));
 						//console.log("about to subscribe to room /msgroom/"+conv.id);
 					
 						/*
