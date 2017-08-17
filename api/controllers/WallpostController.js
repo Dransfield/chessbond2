@@ -40,10 +40,14 @@ module.exports = {
 			if(records.intendedForWantsToDelete && records.senderWantsToDelete)
 			{
 				Wallpost.destroy({id:req.param('id')}).exec
-				(function(err2,records2){});
+				(function(err2,records2){
+					return res.ok();
+					});
 			}
+			else
+			{return res.ok();}
 				
-			return res.ok();
+			
 		});
 	},
 	
