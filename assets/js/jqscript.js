@@ -1850,16 +1850,15 @@ function getMessages(event)
 				var buttonSpan=addFlexDiv(ava,"buttons"+values[iter][otherIter].id,"column");
 				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
 				
-				delbut.click(function(){
-				$("#ident"+values[iter][otherIter].sender).slideUp();
-				io.socket.put('/wallpost/destroy',{id:values[iter][otherIter].id},
-				function  (data){
-				});
-			
-				});
+				delbut.click({senderr:values[iter][otherIter].sender,msgid:values[iter][otherIter].id},deleteidentmessage);
+				
 				}
 			}
-		});
+			
+			
+				});
+	
+		
 			/*
 		var promiseList=[];
 
@@ -1966,6 +1965,15 @@ function getMessages(event)
 		}
 	}
 }
+
+
+function deleteidentmessage(event)
+			{
+				$("#ident"+event.data.senderr).slideUp();
+				io.socket.put('/wallpost/destroy',{id:event.data.msgid},
+				function  (data){
+				});
+			}
 
 function setupHomePage()
 {
