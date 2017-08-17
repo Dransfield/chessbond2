@@ -26,8 +26,10 @@ module.exports = {
 		(
 		function (err,records)
 		{
+			console.log(JSON.stringify(records);
 			var deleter=req.param('deleter');
-			
+			console.log("deleter "+deleter);
+			console.log("sender"+records.sender);
 			if(deleter==records.sender)
 			{records.senderWantsToDelete=true;}
 			if(deleter==records.intendedFor)
