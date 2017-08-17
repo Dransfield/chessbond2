@@ -11,7 +11,7 @@ module.exports = {
 		(
 		function (err, records) 
 			{
-				console.log(req.param('id'));
+				//console.log(req.param('id'));
 				console.log("message is seen "+records[0].groupid);
 				console.log("records[0].intendedFor "+records[0].groupid);
 				sails.sockets.broadcast('/msgroom/'+records[0].groupid,'seenmessage', records[0].id);
@@ -26,14 +26,14 @@ module.exports = {
 		(
 		function (err,records)
 		{
-			console.log(JSON.stringify(records));
+			//console.log(JSON.stringify(records));
 			var deleter=req.param('deleter');
-			console.log("deleter "+deleter);
-			console.log("sender"+records.sender);
+			//console.log("deleter "+deleter);
+			//console.log("sender"+records.sender);
 			
 		if(deleter==records.sender)
 			{	
-				console.log(1);
+			//	console.log(1);
 			Wallpost.update({id:req.param('id')},{senderWantsToDelete:true}).exec
 			(
 			function(err3,records3)
@@ -41,7 +41,7 @@ module.exports = {
 			
 			if(records3[0].intendedForWantsToDelete && records3[0].senderWantsToDelete)
 			{
-				console.log(3);
+				//console.log(3);
 				Wallpost.destroy({id:req.param('id')}).exec
 				(function(err2,records2){
 					return res.ok();
@@ -54,7 +54,7 @@ module.exports = {
 		
 		if(deleter==records.intendedFor)
 			{	
-				console.log(2);
+				//console.log(2);
 			Wallpost.update({id:req.param('id')},{intendedForWantsToDelete:true}).exec
 			(
 			function(err3,records3)
@@ -62,7 +62,7 @@ module.exports = {
 			
 			if(records3[0].intendedForWantsToDelete && records3[0].senderWantsToDelete)
 			{
-				console.log(4);
+				//console.log(4);
 				Wallpost.destroy({id:req.param('id')}).exec
 				(function(err2,records2){
 					return res.ok();
@@ -70,9 +70,9 @@ module.exports = {
 			}
 			else
 			{
-				console.log("nope");
-				console.log(records3[0].intendedForWantsToDelete);
-				console.log(records3[0].senderWantsToDelete);
+				//console.log("nope");
+				//console.log(records3[0].intendedForWantsToDelete);
+				//console.log(records3[0].senderWantsToDelete);
 				
 				
 				return res.ok();}
