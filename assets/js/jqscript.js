@@ -2016,7 +2016,7 @@ function deleteidentmessage(event)
 				function  (data){
 				});
 			*/
-			io.socket.put('/wantstodeletemessage',{id:event.data.msgid,deleter:MyID},function(data){
+			io.socket.post('/wantstodeletemessage',{id:event.data.msgid,deleter:MyID},function(data){
 			});
 			}
 
