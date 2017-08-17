@@ -19,6 +19,27 @@ module.exports = {
 				return res.ok();
 			});
 	},
+	
+	wantsToDelete:function(req,res){
+		
+		Wallpost.findOne({id:req.param('id')}).exec
+		(
+		function (err,records)
+		{
+			var deleter=req.param('deleter');
+			
+			if(deleter==records.sender)
+			{records.senderWantsToDelete=true;}
+			if(deleter==records.intendedFor)
+			{records.intendedForWantsToDelete=true;}
+				records.save();
+				
+			if(records.intendedForWantsToDelete && records.senderWantsToDelete)
+			{records.destroy();}
+			return res.ok();
+		});
+	},
+	
 	wallpost:function(req,res){
 		
 		Wallpost.create({unread:'true',replyto:req.param('ReplyTo'),content:req.param('content'),sender:req.param('sender'),reciever:req.param('reciever'),groupid:req.param('grpid'),messagetype:req.param('messagetype'),intendedFor:req.param('intendedFor')}).exec

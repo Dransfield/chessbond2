@@ -2012,9 +2012,12 @@ function showIdentMessage(elem,msgobj,clickable)
 function deleteidentmessage(event)
 			{
 				$("#ident"+event.data.msgid).slideUp();
-				io.socket.put('/wallpost/destroy',{id:event.data.msgid},
+			/*	io.socket.put('/wallpost/destroy',{id:event.data.msgid},
 				function  (data){
 				});
+			*/
+			io.socket.put('/wantstodeletemessage',{id:event.data.msgid,deleter:MyID},function(data){
+			});
 			}
 
 function setupHomePage()
