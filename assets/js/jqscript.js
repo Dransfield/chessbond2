@@ -1977,7 +1977,9 @@ function getMessages(event)
 				showIdentMessage(msgbox,values[messageIter],false);
 				}
 				$("#chatformspan").detach();
-				showChatForm($("#undermsgbox"),values[0].groupid,"Perm Message","none");
+				var chatDivv=$("<div></div>");
+				showChatForm(chatDivv,values[0].groupid,"Perm Message","none");
+				$("#undermsgbox").append(chatDivv);
 			});
 		}
 	}
