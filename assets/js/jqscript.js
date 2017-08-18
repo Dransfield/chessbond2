@@ -1976,6 +1976,7 @@ function getMessages(event)
 				{
 				showIdentMessage(msgbox,values[messageIter],false);
 				}
+				$("#chatformspan").detach();
 				showChatForm($("#undermsgbox"),values[0].groupid,"Perm Message","none");
 			});
 		}

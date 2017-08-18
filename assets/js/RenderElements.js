@@ -3040,7 +3040,7 @@ function showChatForm(elem,chatID,msgtype,ReplyTo,intendedFor)
 if(ReplyTo === undefined) { replyTo = ""; }
 if(intendedFor === undefined) { intendedFor = ""; }
 
-	var  chatDiv=addSpan(elem);
+	var  chatDiv=$("<span id='chatformspan'</span>");
 	var chatform=$("<input type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		chatDiv.append(chatform);
