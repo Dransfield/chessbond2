@@ -2,6 +2,7 @@
 var myuser;
 var userIndex=0;
 var Accounts={};
+var Albums={};
 var OpenGames={};
 var JoinedGames=[];
 var AccountsToRetrieve={};
@@ -1940,6 +1941,23 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 
 }
 
+function retrieveAlbums(usracc)
+{
+	var albumPromise = new Promise(function(resolve, reject) {
+  io.socket.get('/album/',{user:usracc},
+		function(alb)
+		{
+			Albums=alb;
+			console.log(JSON.stringify(alb));
+		
+				resolve(alb);
+		}
+		);
+	
+});
+
+return albumPromise;
+}
 
 function retrieveAccount(usracc,func,boardscreen)
 {
