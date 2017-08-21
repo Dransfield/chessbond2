@@ -1947,7 +1947,7 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 function retrieveAlbums(usracc)
 {
 	var albumPromise = new Promise(function(resolve, reject) {
-  io.socket.get('/album/',{user:usracc},
+  io.socket.get("/album",{user:usracc},
 		function(alb)
 		{
 			Albums=alb;
