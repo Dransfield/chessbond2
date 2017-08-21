@@ -1098,7 +1098,7 @@ function setupAlbumsPage()
 				{	
 					retrieveAccounts().then(function()
 					{
-						retrieveAlbums().then(function()
+						retrieveAlbums(ProfID).then(function()
 						{
 						
 						});
