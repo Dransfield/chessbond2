@@ -220,7 +220,24 @@ var NavbarDropDown;
 	
 	
 	
-	
+	function createalbum()
+	{
+		
+		
+	if(!User[id].Invisible)
+	{
+	io.socket.post('/album', { name:"New Album" ,user:MyID},
+    function (resData, jwr) {
+
+     // $scope.getalbums(id);
+		toastr.success('Created New Album');
+    });
+	}
+	else
+	{
+		toastr.warning('Disabled Account',"Can't create new album");
+	}
+	}
 	
 
 
@@ -1101,7 +1118,9 @@ function setupAlbumsPage()
 						retrieveAlbums(ProfID).then(function()
 						{
 						showHeader($("#albumspage"),3,"Albums");
-						showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
+						var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
+						newalbumbut.click(createalbum());
+						
 						});
 					});
 				});
