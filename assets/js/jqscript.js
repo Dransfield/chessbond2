@@ -1810,14 +1810,14 @@ function getMessages(event)
 			
 			conv=PrivateConversations[MyID][iter];
 			console.log("iter1 "+iter);
-			showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc);
+			showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc,msgbox);
 			
 		}
 	}
 }
 }
 
-function showIdentMessages(iter,convid,msgsToShow,otherPerson)
+function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 {
 	getWallposts(convid,msgsToShow).then(values=>
 			{
