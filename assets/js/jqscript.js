@@ -1952,7 +1952,7 @@ function retrieveAlbums(usracc)
 		{
 			Albums=alb;
 			console.log(JSON.stringify(alb));
-		
+			console.log(usracc);
 				resolve(alb);
 		}
 		);
