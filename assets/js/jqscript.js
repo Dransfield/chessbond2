@@ -1915,6 +1915,8 @@ function getMessages(event)
 					{
 						console.log(values);
 						console.log(JSON.stringify(values));
+						console.log(iter);
+						console.log(PrivateConversations[MyID][iter].Talker1);
 						//console.log("about to subscribe to room /msgroom/"+conv.id);
 					
 						/*
