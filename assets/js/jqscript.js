@@ -1100,7 +1100,8 @@ function setupAlbumsPage()
 					{
 						retrieveAlbums(ProfID).then(function()
 						{
-						
+						showHeader($("#albumspage"),3,"Albums");
+						showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
 						});
 					});
 				});
