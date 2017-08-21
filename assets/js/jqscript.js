@@ -1752,6 +1752,7 @@ function getMessages(event)
 	
 	if(!usracc)
 	{
+		$("#chatformspan").detach();
 			var promiseList=[];
 
 		for (myIter in PrivateConversations[MyID])
@@ -1821,7 +1822,6 @@ function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 {
 	getWallposts(convid,msgsToShow).then(values=>
 			{
-						
 				for (messageIter in values)
 				{
 				showIdentMessage(msgbox,values[messageIter],false);
