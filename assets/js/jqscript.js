@@ -224,7 +224,7 @@ var NavbarDropDown;
 	{
 		
 		console.log("pressed create album button");
-	if(!User[id].Invisible)
+	if(!Accounts[id].Invisible)
 	{
 	io.socket.post('/album', { name:"New Album" ,user:MyID},
     function (resData, jwr) {
