@@ -147,6 +147,10 @@ var NavbarDropDown;
 		{
 		setupMessagesPage();
 		}
+		if($("#albumspage").length)
+		{
+		setupAlbumsPage();
+		}
 		if($("#profilepage").length)
 		{
 		setupProfilePage();
@@ -1082,6 +1086,21 @@ function renderStatsPage()
 	
 	showStatTable($("#statspage"));
 	
+}
+
+function setupAlbumsPage()
+{
+
+	AccountsToRetrieve[MyID]=MyID;
+	AccountsToRetrieve[ProfID]=ProfID;
+	retrievePrivatesandFollows().then(function()
+				{	
+					retrieveAccounts().then(function()
+					{
+						
+					});
+				});
+					
 }
 
 function setupStatsPage()

@@ -51,7 +51,8 @@ module.exports.routes = {
 	'GET /sitemap':{view:'sitemapjq'},
 	'GET /contactus':{view:'contactusjq'},
 	'GET /album/:ID': {view: 'album'},
-	'GET /albums/:userID': {view: 'albums'},
+	//'GET /albums/:userID': {view: 'albums'},
+	'GET /albums/:userID': {view: 'albumsjq'},
 	
 	
 	'GET /user/avatar/:id':'UploadController.avatar',
