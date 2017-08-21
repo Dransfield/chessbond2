@@ -1748,58 +1748,7 @@ function getMessages(event)
 	//event.data.msgrecepticle.empty();
 	msgbox.empty();
 	WallPosts=[];
-	/*
-	if(!usracc)
-	{
-		
-		getWallpostsIntendedFor(MyID).then(function(){
-			
-						for(iter in WallPosts)
-						{	
-						showChatMessage(msgbox,WallPosts[iter],"none",false,true,false);
-						}
-						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
-						msgbox.scrollTop(0);
-						
-						io.socket.on('Perm Message', function (data)
-									{
-									var foundMessage;
-									console.log("recieved perm message");
-									for (recievedIter in WallPosts)
-									{
-										
-										if(WallPosts[recievedIter].id==data.id)	
-										{
-										foundMessage=true;	
-										}
-									}
-									
-								//	if(foundMessage==false)
-									//{
-									console.log("recieved wall post socket"+JSON.stringify(data));
-								
-									if (document.visibilityState=='hidden')
-									{
-									//console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
-									if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
-									{
-									PlayBell();
-									}
-									$("#favicon").attr("href","/favicon2.ico");
-									}
-									WallPosts.push(data);
-									
-									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false,false,false);
-									//msgbox.scrollTop(msgbox.prop("scrollHeight"));
-									msgbox.scrollTop(0);
-									
-									});
-									
-						
-		});
-		
-	}
-	*/
+	
 	
 	if(!usracc)
 	{
@@ -1831,31 +1780,7 @@ function getMessages(event)
 			{
 				for (otherIter in values[iter])
 				{
-					/*
-				console.log(values[iter][otherIter]);
-			
-				var ava=	showUserIdentity(msgbox,values[iter][otherIter].sender,values[iter][otherIter].id);
-				var textSpan=addSpan(ava);
 				
-				ava.click({person:values[iter][otherIter].sender},getMessages);
-				
-				textSpan.append(values[iter][otherIter].content);
-				textSpan.css("border-style","solid");
-				//textSpan.css("border","2px");
-				textSpan.css("margin","6px");
-				textSpan.css("flex-grow","5");
-				
-				textSpan.hover(function(){
-					$(this).css("background-color", "yellow");
-					}, function(){
-					$(this).css("background-color", "pink");
-				});
-			
-				var buttonSpan=addFlexDiv(ava,"buttons"+values[iter][otherIter].id,"column");
-				var delbut=showButton(buttonSpan,"X","KredElement KregularButton");
-				
-				delbut.click({senderr:values[iter][otherIter].sender,msgid:values[iter][otherIter].id},deleteidentmessage);
-				*/
 				showIdentMessage(msgbox,values[iter][otherIter],true);
 				}
 			}
@@ -1864,34 +1789,6 @@ function getMessages(event)
 				});
 	
 		
-			/*
-		var promiseList=[];
-
-		for (myIter in PrivateConversations[MyID])
-		{
-	
-			
-			promiseList.push(getWallposts(PrivateConversations[MyID][myIter].id,1));
-
-		}
-		
-		Promise.all([promiseList]).then(values => { 
-		console.log(values);
-		console.log(JSON.stringify(values));
-		
-		});
-							
-							/*{
-					console.log("just retrieved "+WallPosts.length+" messages");
-						console.log("iter "+myIter);
-							//for(iter in WallPosts)
-							//{
-								//var ava=showIdentAvatar(msgbox,WallPosts[iter].sender);
-							var ava=	showUserIdentity(msgbox,WallPosts[0].sender);
-								ava.append(WallPosts[0].content);
-							//}	
-					});*/
-	
 		
 	}
 	if (usracc)
@@ -1909,83 +1806,31 @@ function getMessages(event)
 		console.log(MyID);
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
 		{
+			
+			
 			conv=PrivateConversations[MyID][iter];
 			console.log("iter1 "+iter);
-			getWallposts(PrivateConversations[MyID][iter].id,15).then(values=>
-					{
-						console.log(values);
-						console.log(JSON.stringify(values));
-						console.log(iter);
-						console.log(PrivateConversations[MyID][iter].Talker1);
-						//console.log("about to subscribe to room /msgroom/"+conv.id);
-					
-						/*
-								io.socket.on('Perm Message', function (data)
-									{
-									var foundMessage;
-									console.log("recieved perm message");
-									for (recievedIter in WallPosts)
-									{
-										
-										if(WallPosts[recievedIter].id==data.id)	
-										{
-										foundMessage=true;	
-										}
-									}
-							
-								//	if(foundMessage==false)
-									//{
-									console.log("recieved wall post socket"+JSON.stringify(data));
-								
-									if (document.visibilityState=='hidden')
-									{
-									//console.log("Accounts[MyID]['SoundEnabled'] "+Accounts[MyID]['SoundEnabled']);
-									if(Accounts[MyID]['SoundEnabled']=='Sound Enabled')
-									{
-									PlayBell();
-									}
-									$("#favicon").attr("href","/favicon2.ico");
-									}
-									WallPosts.push(data);
-									
-									showChatMessage(msgbox,WallPosts[(WallPosts.length-1)],"none",false);
-									//msgbox.scrollTop(msgbox.prop("scrollHeight"));
-									msgbox.scrollTop(0);
-									
-									});
-									*/		
-						/*	console.log("about to show wall posts");		
-						for(iter in WallPosts)
-						{	
-							//console.log(" show wall post "+WallPosts[iter].content);
-						if(WallPosts[iter].intendedFor==MyID)
-						{	
-						showChatMessage(msgbox,WallPosts[iter],"none",false,true,false);
-						}
-						else
-						{	
-						showChatMessage(msgbox,WallPosts[iter],"none",false,false,false);
-						}
+			showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc);
+			
+		}
+	}
+}
+}
+
+function showIdentMessages(iter,convid,msgsToShow,otherPerson)
+{
+	getWallposts(convid,msgsToShow).then(values=>
+			{
 						
-						}
-						//msgbox.scrollTop(msgbox.prop("scrollHeight"));
-						msgbox.scrollTop(0);
-					});
-					$('#inputbox').empty();
-			showChatForm($('#inputbox'),PrivateConversations[MyID][iter].id,"Perm Message","none",usracc);
-				*/
 				for (messageIter in values)
 				{
 				showIdentMessage(msgbox,values[messageIter],false);
 				}
 				$("#chatformspan").detach();
 				var chatDivv=$("<div></div>");
-				showChatForm(chatDivv,values[0].groupid,"Perm Message","none");
+				showChatForm(chatDivv,values[0].groupid,"Perm Message","none",otherPerson);
 				$("#undermsgbox").append(chatDivv);
-			});
-		}
-	}
-}
+			})
 }
 
 function showIdentMessage(elem,msgobj,clickable)
