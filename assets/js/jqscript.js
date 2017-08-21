@@ -1119,7 +1119,7 @@ function setupAlbumsPage()
 						{
 						showHeader($("#albumspage"),3,"Albums");
 						var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
-						newalbumbut.click(createalbum());
+						newalbumbut.click(createalbum);
 						
 						});
 					});
