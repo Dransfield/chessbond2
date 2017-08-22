@@ -1131,6 +1131,12 @@ function setupAlbumsPage()
 						{
 						albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
 						}
+						
+						io.socket.on('madealbum', function (data)
+							{
+								albumList.append($("<div><h2><a href='/album/"+data.id+"'>"+data.name+"</a></h2></div>"));	
+						
+							});
 						});
 					});
 				});
@@ -1161,7 +1167,8 @@ function setupAlbumPage()
 						
 						io.socket.on('madealbum', function (data)
 							{
-								
+								albumList.append($("<div><h2><a href='/album/"+data.id+"'>"+data.name+"</a></h2></div>"));	
+						
 							});
 						
 						});
