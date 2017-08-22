@@ -26,7 +26,7 @@ var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
 var OwnersVisits=[];
-var mypics={};
+var mypics=[];
 
 var NavbarDropDown;
 		subscribeToMandatoryRooms();
