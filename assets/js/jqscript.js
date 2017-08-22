@@ -1175,7 +1175,7 @@ function setupAlbumPage()
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
-						middleSpan.append("<img style='position:absolute;top:3px;left:99px;width:400px;height:400px' ng-src='/user/avatar/"+mypics[picIndex].id+"'>");
+						middleSpan.append("<img style='position:absolute;top:3px;left:99px;width:400px;height:400px' ng-src='/user/avatar/"+mypics[0].id+"'>");
 						});
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
