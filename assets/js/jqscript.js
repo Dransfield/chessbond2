@@ -1125,7 +1125,7 @@ function setupAlbumsPage()
 						$("#albumspage").append(albumList);
 						for (iter in Albums)
 						{
-						albumList.append(Albums[iter].name);	
+						albumList.append$("<div><a href='/album"+Albums[iter].id+"'>"+Albums[iter].name+"</a></div>");	
 						}
 						});
 					});
