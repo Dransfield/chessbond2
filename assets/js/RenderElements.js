@@ -1764,8 +1764,9 @@ function showFlag(elem,usracc)
 
 function showHeader(elem,num,content)
 {
-elem.append("<h"+num+">"+content+"</h"+num+">");
-
+	var head=$("<h"+num+">"+content+"</h"+num+">");
+elem.append(head);
+return head;
 }
 function showWebsiteNameJumbo(elem)
 {
