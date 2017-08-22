@@ -1156,6 +1156,7 @@ function setupAlbumPage()
 						
 						for (iter in Albums)
 						{
+							console.log(MyID);
 							console.log(ProfID);
 							console.log(Albums[iter].id);
 						if(Albums[iter].id==ProfID)

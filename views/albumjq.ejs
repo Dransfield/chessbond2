@@ -39,15 +39,16 @@
     <%}%>
     
     <script>var ipadd='<%-req.ip%>'</script>
-     <% if (req.param('ID')) { %>
+     
+         <% if (req.param('ID')) { %>
 	
     <script>var ProfID='<%-req.param('ID')%>'</script>
     <% }else{ %>
 	<script>var ProfID=MyID</script>
     	
 			
-    <%}%>
-    
+    <%}%>	
+   
 		
     
     
