@@ -1144,6 +1144,30 @@ function setupAlbumsPage()
 					
 }
 
+function renderAlbumPage(iter)
+{
+	
+var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
+						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
+						showHeader($("#albumpage"),3," Upload more photos"); 
+						
+						showImageUploadForm($("#albumpage"),MyID,Albums[iter].id);
+						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
+						
+							var leftbut=showButton($("#albumpage"),"<","KgreenElement KhugeButton");
+							var middleSpan=addSpan($("#albumpage"));
+							middleSpan.css("position","relative");
+							middleSpan.css("left","0");
+							middleSpan.css("top","0");
+							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
+						middleSpan.append("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
+						console.log(mypics[0].id);		
+							var rightbut=showButton($("#albumpage"),">","KgreenElement KhugeButton");
+																						
+												
+	
+}
+
 function setupAlbumPage()
 {
 
@@ -1162,24 +1186,9 @@ function setupAlbumPage()
 						{
 							
 							retrieveAvatars(Albums[iter].id).then(function(){
-						var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
-						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
-						showHeader($("#albumpage"),3," Upload more photos"); 
+						renderAlbumPage(iter);
 						
-						showImageUploadForm($("#albumpage"),MyID,Albums[iter].id);
-						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
-						
-							var leftbut=showButton($("#albumpage"),"<","KgreenElement KhugeButton");
-							var middleSpan=addSpan($("#albumpage"));
-							middleSpan.css("position","relative");
-							middleSpan.css("left","0");
-							middleSpan.css("top","0");
-							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
-						middleSpan.append("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
-						console.log(mypics[0].id);		
-							var rightbut=showButton($("#albumpage"),">","KgreenElement KhugeButton");
-																						
-												});
+						});	
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
 	
