@@ -152,6 +152,10 @@ var NavbarDropDown;
 		{
 		setupAlbumsPage();
 		}
+		if($("#albumpage").length)
+		{
+		setupAlbumPage();
+		}
 		if($("#profilepage").length)
 		{
 		setupProfilePage();
@@ -226,7 +230,7 @@ var NavbarDropDown;
 		console.log("pressed create album button");
 	if(!Accounts[MyID].Invisible)
 	{
-	io.socket.post('/album', { name:"New Album" ,user:MyID},
+	io.socket.post('/newalbum', { name:"New Album" ,user:MyID},
     function (resData, jwr) {
 
      // $scope.getalbums(id);
@@ -1128,6 +1132,41 @@ function setupAlbumsPage()
 						albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
 						}
 						});
+					});
+				});
+					
+}
+
+function setupAlbumPage()
+{
+
+	AccountsToRetrieve[MyID]=MyID;
+	retrievePrivatesandFollows().then(function()
+				{	
+					retrieveAccounts().then(function()
+					{
+						retrieveAlbums(MyID).then(function()
+						{
+						
+						
+						showHeader($("#albumspage"),1,"Your Albums");
+						var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
+						newalbumbut.click(createalbum);
+						var albumList=$("<div id='albumlist'></div>");
+						$("#albumspage").append(albumList);
+						for (iter in Albums)
+						{
+						albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
+						}
+						
+						io.socket.on('madealbum', function (data)
+							{
+								
+							});
+						
+						});
+						
+						
 					});
 				});
 					

@@ -50,7 +50,9 @@ module.exports.routes = {
 	'GET /privacypolicy':{view:'privacypolicyjq'},
 	'GET /sitemap':{view:'sitemapjq'},
 	'GET /contactus':{view:'contactusjq'},
-	'GET /album/:ID': {view: 'album'},
+	//'GET /album/:ID': {view: 'album'},
+	'GET /album/:ID': {view: 'albumjq'},
+	'POST /newalbum':'AlbumController.makenew',
 	//'GET /albums/:userID': {view: 'albums'},
 	'GET /albums/:userID': {view: 'albumsjq'},
 	
