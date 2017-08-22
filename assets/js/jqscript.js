@@ -26,6 +26,7 @@ var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
 var OwnersVisits=[];
+var mypics={};
 
 var NavbarDropDown;
 		subscribeToMandatoryRooms();
@@ -1159,6 +1160,8 @@ function setupAlbumPage()
 							
 						if(Albums[iter].id==ProfID)
 						{
+							
+							retrieveAvatars(Albums[iter].id).then(function(){
 						var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
@@ -1172,6 +1175,8 @@ function setupAlbumPage()
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
+						middleSpan.append("<img style='position:absolute;top:3px;left:99px;width:400px;height:400px' ng-src='/user/avatar/"+mypics[picIndex].id+"'>");
+						});
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
 	
@@ -2275,7 +2280,33 @@ return NotificationPromise;
 
 
 
+function retrieveAvatars(albid)
+{
+	var cg = new Promise
+	((resolve, reject) => {
+io.socket.get('/avatar?albumid='+albid,
+	function  (data){
+		console.log(JSON.stringify(data));
+		
+		for (x in data)
+		{
+				var nu=new Date(data[x].createdAt);
+			console.log(nu);
+			var month = nu.getUTCMonth() + 1; //months from 1-12
+			var day = nu.getUTCDate();
+			var year = nu.getUTCFullYear();
 
+			newdate = day+ "/"+month+"/"+year ;
+				data[x].phrase=newdate;
+		console.log("$scope.mypics[x].phrase "+data[x].phrase);
+		console.log("data[x].avatarFd "+data[x].avatarFd);
+		}
+		mypics=data;
+		resolve(data);
+	});	
+	});
+	return cg;	
+}
 
 
 function retrieveOthersProfileVisits(owner,amount)
