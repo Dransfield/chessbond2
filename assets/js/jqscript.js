@@ -1166,7 +1166,7 @@ function setupAlbumPage()
 						showImageUploadForm($("#albumpage"),MyID);
 						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
 						
-							var leftbut=showButton($("#albumpage"),"<","KgreenElement KregularButton");
+							var leftbut=showButton($("#albumpage"),"<","KgreenElement KhugeButton");
 							var middleSpan=addSpan($("#albumpage"));
 							middleSpan.css("position","relative");
 							middleSpan.css("left","0");
