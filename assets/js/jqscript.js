@@ -1175,7 +1175,7 @@ function setupAlbumPage()
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
-						middleSpan.append("<img style='position:absolute;top:3px;left:99px;width:400px;height:400px' ng-src='/user/avatar/"+mypics[0].id+"'>");
+						middleSpan.append("<img style='position:absolute;top:3px;left:99px;width:400px;height:400px' ng-src='https://www.chessbond.com/user/avatar/"+mypics[0].id+"'>");
 						console.log(mypics[0].id);
 												});
 							/*
