@@ -1806,14 +1806,26 @@ ava.css("margin","5px");
 							//thisDiv.css("border-bottom-style","solid");
 return thisDiv;	
 }
-function showImageUploadForm(elem,usracc)
+function showImageUploadForm(elem,usracc,album)
 {
+	if(!album)
+	{
 	elem.append(`
 <form action="/uploadavatar" enctype="multipart/form-data" method="post">
     <input type="file" name="avatar" multiple="multiple"><br>
     <input type="submit" value="Upload">
     </form>`);
-
+}
+else
+{
+	elem.append(`
+<form action="/uploadavatar/"+album enctype="multipart/form-data" method="post">
+    <input type="file" name="avatar" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>`);
+	
+	
+}
 }
 function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton,showall)
 {

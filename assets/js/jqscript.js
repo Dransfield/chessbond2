@@ -1166,7 +1166,7 @@ function setupAlbumPage()
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
-						showImageUploadForm($("#albumpage"),MyID);
+						showImageUploadForm($("#albumpage"),MyID,Albums[iter].id);
 						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
 						
 							var leftbut=showButton($("#albumpage"),"<","KgreenElement KhugeButton");
