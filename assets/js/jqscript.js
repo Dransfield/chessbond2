@@ -1156,6 +1156,8 @@ function setupAlbumPage()
 						
 						for (iter in Albums)
 						{
+							console.log(ProfID);
+							console.log(Albums[iter].id);
 						if(Albums[iter].id==ProfID)
 						{
 						showHeader($("#albumpage"),1,Albums[iter].name);
