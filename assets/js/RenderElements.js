@@ -3238,7 +3238,7 @@ return myinput;
 
 function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc,recordID)
 {
-	//console.log("words "+words);
+	
 	var editbut=showButton(elem,"Edit","KregularButton KgreenElement");
 	
 	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
@@ -3255,20 +3255,18 @@ function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc
 	myinput.keydown({inny:myinput},function(event){
 		try{
 		setTimeout(function(){
-		//console.log(JSON.stringify(event));
+		
 		if(!localRecord)
 		{
 		localRecord="";
 		}
 	
 		localRecord=event.data.inny.val();
-		//Accounts[ProfID][words]=censor(
+		
 		UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,recordID)
 		
 		
-		//	console.log("finally");
-   //io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
-	//	{});
+	
 		
 	},70);
 	}
@@ -3289,15 +3287,12 @@ function UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,record
 	//words=censor(words);
 	localRecord=censor(localRecord);
 	elemTochange.html(localRecord);
-	console.log("updatefunc"+updatefunc);
-				updatefunc(words,recordID,localRecord);
+	updatefunc(words,recordID,localRecord);
 
 }
 
 function updateAlbumName(words,recordID,localRecord)
 {
-	console.log("words"+words);
-	
 		io.socket.put('/album/'+recordID+"?"+words+"="+localRecord,{
 
 					  }

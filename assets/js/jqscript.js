@@ -1156,16 +1156,55 @@ function setupAlbumPage()
 						
 						for (iter in Albums)
 						{
-							console.log(MyID);
-							console.log(ProfID);
-							console.log(Albums[iter].id);
+							
 						if(Albums[iter].id==ProfID)
 						{
 						var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
-						showImageUploadForm($("#albumpage"),MyID)
+						showImageUploadForm($("#albumpage"),MyID);
+						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
+						
+							var leftbut=showButton($("#albumpage"),"<","KgreenElement KregularButton");
+							var middleSpan=addSpan($("#albumpage"));
+							middleSpan.css("position","relative");
+							middleSpan.css("left","0");
+							middleSpan.css("top","0");
+							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
+							/*
+	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
+	
+	<span style="position:relative;left:0;top:0;">
+	<img src="/img/frame.jpg" style="position:relative;width:600px">
+	<img style="position:absolute;top:3px;left:99px;width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
+	</span>
+		<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">Next Picture ({{((mypics.length-1)-picIndex)}})</div>
+
+	<span>
+	Created at {{mypics[picIndex].phrase}}<br>
+	<span ng-show="User.id==Album.user">
+		<button ng-click="editfideid=!editfideid" class="btn btn-sml">.Edit Description..
+						</button>
+		 <input  ng-show="editfideid" type="text"  class="form-control"  ng-change="ChangeAvatar('description',mypics[picIndex].id,mypics[picIndex].description)" ng-model="mypics[picIndex].description" />
+	</span>
+	<br>
+	<span style="border-style:inset">
+	{{mypics[picIndex].description}}
+	</span>
+	<br>
+	<button ng-click="SetAvatar('<%-req.session.passport.user%>',mypics[picIndex].id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
+	<br>
+	
+	<button ng-click="DeleteAvatar(mypics[picIndex].id,mypics[picIndex].avatarFd)" type="submit" class="btn btn-sml btn-success">Delete Image</button>
+	
+	
+	</span>
+			
+	
+	
+	</div>
+						*/
 						}
 						}
 						
