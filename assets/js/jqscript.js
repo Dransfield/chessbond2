@@ -1178,15 +1178,15 @@ function setupAlbumPage()
 					{
 						retrieveAlbums(MyID).then(function()
 						{
-						
+						var correctAlbum;
 						for (iter in Albums)
 						{
 							
 						if(Albums[iter].id==ProfID)
 						{
-							
-						retrieveAvatars(Albums[iter].id).then(function(iter){
-						renderAlbumPage(iter);
+							correctAlbum=iter;
+						retrieveAvatars(Albums[correctAlbum].id).then(function(){
+						renderAlbumPage(correctAlbum);
 					});
 							
 							/*
