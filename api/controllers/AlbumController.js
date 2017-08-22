@@ -10,7 +10,7 @@ module.exports = {
 		Album.create({name:req.param('name')}).exec(function (err, album){
   if (err) { return res.serverError(err); }
 
-  sails.log('Finn\'s id is:', album.id);
+  //sails.log('Finn\'s id is:', album.id);
   	sails.sockets.broadcast(req.param('user'),'madealbum', {id:album.id,name:album.name});
 
   return res.ok();

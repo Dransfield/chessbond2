@@ -227,7 +227,7 @@ var NavbarDropDown;
 	function createalbum()
 	{
 		
-		console.log("pressed create album button");
+		//console.log("pressed create album button");
 	if(!Accounts[MyID].Invisible)
 	{
 	io.socket.post('/newalbum', { name:"New Album" ,user:MyID},
@@ -1155,23 +1155,8 @@ function setupAlbumPage()
 						{
 						
 						
-						showHeader($("#albumspage"),1,"Your Albums");
-						var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
-						newalbumbut.click(createalbum);
-						var albumList=$("<div id='albumlist'></div>");
-						$("#albumspage").append(albumList);
-						for (iter in Albums)
-						{
-						albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
-						}
+						showHeader($("#albumpage"),1," Album");
 						
-						io.socket.on('madealbum', function (data)
-							{
-								albumList.append($("<div><h2><a href='/album/"+data.id+"'>"+data.name+"</a></h2></div>"));	
-						
-							});
-						
-						});
 						
 						
 					});
