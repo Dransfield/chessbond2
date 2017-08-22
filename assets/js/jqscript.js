@@ -1156,7 +1156,9 @@ function setupAlbumPage()
 						
 						
 						showHeader($("#albumpage"),1," Album");
+						showHeader($("#albumpage"),3," Upload more photos"); 
 						
+						showImageUploadForm($("#albumpage"),MyID)
 						
 						
 					});
