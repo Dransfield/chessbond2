@@ -1821,8 +1821,8 @@ else
 {
 	var form=$("<form action='/uploadavatar/"+album+"' enctype='multipart/form-data' method='post'></form>");
 	elem.append(form);
-		form.append($("<input type='file' name='avatar' multiple='multiple'><br>");
-		 form.append($("<input type='submit' value='Upload'>");
+		form.append($("<input type='file' name='avatar' multiple='multiple'><br>"));
+		 form.append($("<input type='submit' value='Upload'>"));
 	
 	
 }
