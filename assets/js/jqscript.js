@@ -1154,12 +1154,16 @@ function setupAlbumPage()
 						retrieveAlbums(MyID).then(function()
 						{
 						
-						
-						showHeader($("#albumpage"),1,Albums[ProfID].name);
+						for (iter in Albums)
+						{
+						if(Albums[iter].id==ProfID)
+						{
+						showHeader($("#albumpage"),1,Albums[iter].name);
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
 						showImageUploadForm($("#albumpage"),MyID)
-						
+						}
+						}
 						
 					});
 				});
