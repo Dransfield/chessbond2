@@ -1146,7 +1146,7 @@ function setupAlbumsPage()
 
 function renderAlbumPage(iter)
 {
-	console.log("render func");
+	console.log("render func"+iter);
 var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
