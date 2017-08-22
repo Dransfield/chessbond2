@@ -3235,6 +3235,78 @@ function showInput(elem)
 return myinput;
 }
 
+function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc)
+{
+	//console.log("words "+words);
+	var editbut=showButton(elem,"Edit","KregularButton KgreenElement");
+	
+	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	
+	
+	elem.append(myinput);
+	
+	myinput.hide();
+	editbut.click(function(){
+		myinput.slideToggle();
+	});
+	
+	myinput.val(localRecord);
+	myinput.keydown({inny:myinput},function(event){
+		try{
+		setTimeout(function(){
+		//console.log(JSON.stringify(event));
+		if(!localRecord)
+		{
+		localRecord="";
+		}
+	
+		localRecord=event.data.inny.val();
+		//Accounts[ProfID][words]=censor(
+		UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc)
+		
+		
+		//	console.log("finally");
+   //io.socket.post("/recenterror",{msg:"finally"},function(res1,res2)
+	//	{});
+		
+	},70);
+	}
+	
+		catch(err)
+		{
+		io.socket.post("/recenterror",{msg:err.message,line:err.lineNumber,thefile:err.fileName},function(res1,res2)
+		{});
+		}
+		finally {
+		}
+		});
+}
+
+
+function UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,recordID)
+{
+	words=censor(words);
+	localRecord=censor(localRecord);
+	elemTochange.html(localRecord);
+				updatefunc(words,recordID,localRecord);
+
+}
+
+function updateAlbumName(words,recordID,localRecord)
+{
+	
+		io.socket.put('/album/'+recordID+"?"+words+"="+localRecord,{
+
+					  }
+
+				,function(resData,jwres)
+			{
+
+
+				}
+			);
+}
+
 function showTextwithInput(elem,words,elemTochange)
 {
 	//console.log("words "+words);
@@ -3281,6 +3353,7 @@ function showTextwithInput(elem,words,elemTochange)
 		}
 		});
 }
+
 function showAnchorButton(elem,words,linkto,btnstyle){
 	ButtonNumber=ButtonNumber+1;
 	//console.log("ButtonNumber"+ButtonNumber);

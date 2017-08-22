@@ -1161,7 +1161,8 @@ function setupAlbumPage()
 							console.log(Albums[iter].id);
 						if(Albums[iter].id==ProfID)
 						{
-						showHeader($("#albumpage"),1,Albums[iter].name);
+						var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
+						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName)
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
 						showImageUploadForm($("#albumpage"),MyID)
