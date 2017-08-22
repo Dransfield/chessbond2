@@ -1175,7 +1175,7 @@ function setupAlbumPage()
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
-						middleSpan.append("<img id='imageyouarelookingfor' style='position:absolute;top:-100px;left:99px;width:400px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
+						middleSpan.append("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:99px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						console.log(mypics[0].id);																		
 												});
 							/*
