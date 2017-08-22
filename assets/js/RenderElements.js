@@ -1819,11 +1819,10 @@ function showImageUploadForm(elem,usracc,album)
 }
 else
 {
-	elem.append(`
-<form action="/uploadavatar/`+album"+` enctype="multipart/form-data" method="post">
-    <input type="file" name="avatar" multiple="multiple"><br>
-    <input type="submit" value="Upload">
-    </form>`);
+	var form=$("<form action='/uploadavatar/"+album+"' enctype='multipart/form-data' method='post'></form>");
+	elem.append(form);
+		form.append($("<input type='file' name='avatar' multiple='multiple'><br>");
+		 form.append($("<input type='submit' value='Upload'>");
 	
 	
 }
