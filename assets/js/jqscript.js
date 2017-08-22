@@ -1146,7 +1146,7 @@ function setupAlbumsPage()
 
 function renderAlbumPage(iter)
 {
-	
+	console.log("render func");
 var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
@@ -1185,7 +1185,8 @@ function setupAlbumPage()
 						if(Albums[iter].id==ProfID)
 						{
 							
-							retrieveAvatars(Albums[iter].id).then(renderAlbumPage(iter));	
+						retrieveAvatars(Albums[iter].id).then(renderAlbumPage(iter));
+							
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
 	
