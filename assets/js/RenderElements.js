@@ -1820,7 +1820,7 @@ function showImageUploadForm(elem,usracc,album)
 else
 {
 	elem.append(`
-<form action="/uploadavatar/"+album enctype="multipart/form-data" method="post">
+<form action="/uploadavatar/`+album"+` enctype="multipart/form-data" method="post">
     <input type="file" name="avatar" multiple="multiple"><br>
     <input type="submit" value="Upload">
     </form>`);
