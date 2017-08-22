@@ -1155,7 +1155,7 @@ function setupAlbumPage()
 						{
 						
 						
-						showHeader($("#albumpage"),1," Album");
+						showHeader($("#albumpage"),1,Albums[ProfID].name);
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
 						showImageUploadForm($("#albumpage"),MyID)
