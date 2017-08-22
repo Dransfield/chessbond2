@@ -1123,9 +1123,9 @@ function setupAlbumsPage()
 						newalbumbut.click(createalbum);
 						var albumList=$("#albumlist");
 						$("#albumspage").append(albumList);
-						for (iter in albums)
+						for (iter in Albums)
 						{
-						albumList.append(albums[iter].name);	
+						albumList.append(Albums[iter].name);	
 						}
 						});
 					});
