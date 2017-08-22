@@ -3236,7 +3236,7 @@ function showInput(elem)
 return myinput;
 }
 
-function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc)
+function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc,recordID)
 {
 	//console.log("words "+words);
 	var editbut=showButton(elem,"Edit","KregularButton KgreenElement");
@@ -3263,7 +3263,7 @@ function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc
 	
 		localRecord=event.data.inny.val();
 		//Accounts[ProfID][words]=censor(
-		UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc)
+		UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,recordID)
 		
 		
 		//	console.log("finally");
@@ -3286,15 +3286,17 @@ function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc
 
 function UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,recordID)
 {
-	words=censor(words);
+	//words=censor(words);
 	localRecord=censor(localRecord);
 	elemTochange.html(localRecord);
+	console.log("updatefunc"+updatefunc);
 				updatefunc(words,recordID,localRecord);
 
 }
 
 function updateAlbumName(words,recordID,localRecord)
 {
+	console.log("words"+words);
 	
 		io.socket.put('/album/'+recordID+"?"+words+"="+localRecord,{
 
