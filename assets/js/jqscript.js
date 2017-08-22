@@ -1176,7 +1176,9 @@ function setupAlbumPage()
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
 						middleSpan.append("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
-						console.log(mypics[0].id);																		
+						console.log(mypics[0].id);		
+							var rightbut=showButton($("#albumpage"),">","KgreenElement KhugeButton");
+																						
 												});
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
