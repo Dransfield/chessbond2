@@ -1808,6 +1808,7 @@ return thisDiv;
 }
 function showImageUploadForm(elem,usracc,album)
 {
+	console.log("album "+album);
 	if(!album)
 	{
 	elem.append(`
