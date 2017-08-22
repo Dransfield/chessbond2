@@ -1185,7 +1185,9 @@ function setupAlbumPage()
 						if(Albums[iter].id==ProfID)
 						{
 							
-						retrieveAvatars(Albums[iter].id).then(renderAlbumPage(iter));
+						retrieveAvatars(Albums[iter].id).then(function(iter){
+						renderAlbumPage(iter));
+					});
 							
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
