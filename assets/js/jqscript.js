@@ -1118,14 +1118,14 @@ function setupAlbumsPage()
 						retrieveAlbums(ProfID).then(function()
 						{
 						
-						showHeader($("#albumspage"),3,"Albums");
+						showHeader($("#albumspage"),1,"Your Albums");
 						var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
 						newalbumbut.click(createalbum);
 						var albumList=$("<div></div>");
 						$("#albumspage").append(albumList);
 						for (iter in Albums)
 						{
-						albumList.append($("<div><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></div>"));	
+						albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
 						}
 						});
 					});
