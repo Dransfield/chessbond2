@@ -2,7 +2,7 @@ module.exports = {
 
 		
 	UploadToAlbum: function (req, res) {
-	//console.log("req.param('albumID') "+req.param('albumID'));
+	console.log("upload to album req.param('albumID') "+req.param('albumID'));
   req.file('avatar').upload({
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
@@ -54,7 +54,7 @@ module.exports = {
 },
 	
 	Upload: function (req, res) {
-
+console.log("just upload");
   req.file('avatar').upload({
     // don't allow the total upload size to exceed ~10MB
     maxBytes: 10000000
