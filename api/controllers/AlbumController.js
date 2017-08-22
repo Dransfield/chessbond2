@@ -7,7 +7,7 @@
 
 module.exports = {
 	makenew:function(req,res){
-		Album.create({name:req.param('name'),req.param('user')}).exec(function (err, album){
+		Album.create({name:req.param('name'),user:req.param('user')}).exec(function (err, album){
   if (err) { return res.serverError(err); }
 
   //sails.log('Finn\'s id is:', album.id);
