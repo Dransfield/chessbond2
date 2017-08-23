@@ -1194,8 +1194,8 @@ function renderAlbumPage(iter)
 						var dateSpan=addSpan(rightSpan,"dateSpan");
 						dateSpan.empty();
 						dateSpan.append("Created at "+mypics[imgIndex].phrase);
-						var descspan=showHeader($("#albumpage"),3,mypics[iter].description);
-						showGenericTextwithInput($("#albumpage"),"description",descspan,mypics[iter].description,updatePicDescription,mypics[iter].id)
+						var descspan=showHeader(rightSpan,3,mypics[iter].description);
+						showGenericTextwithInput(rightSpan,"description",descspan,mypics[iter].description,updatePicDescription,mypics[iter].id)
 						
 	
 }
