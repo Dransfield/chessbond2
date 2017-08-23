@@ -1167,7 +1167,7 @@ function renderAlbumPage(iter)
 								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 								$("#descSpan").empty();
 								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
-								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
+								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex],updatePicDescription,mypics[imgIndex].id)
 						
 								}
 							});
@@ -1191,7 +1191,7 @@ function renderAlbumPage(iter)
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
-						showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
+						showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex],updatePicDescription,mypics[imgIndex].id)
 						
 								}
 							});												
