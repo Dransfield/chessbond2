@@ -1189,6 +1189,7 @@ function renderAlbumPage(iter)
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
 								$("#dateSpan").empty();
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
+						$("#descSpan").empty();
 						showHeader($("#descSpan"),3,mypics[imgIndex].description);
 						showGenericTextwithInput($("#descSpan"),"description",$("#theText"),mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
