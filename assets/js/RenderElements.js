@@ -3299,9 +3299,9 @@ function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc
 function UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,recordID)
 {
 	//words=censor(words);
-	localRecord[words]=censor(localRecord[words]);
-	elemTochange.html(localRecord[words]);
-	updatefunc(words,recordID,localRecord[words]);
+	localRecord=censor(localRecord);
+	elemTochange.html(localRecord);
+	updatefunc(words,recordID,localRecord);
 
 }
 
