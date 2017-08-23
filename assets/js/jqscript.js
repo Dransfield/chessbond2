@@ -1194,8 +1194,8 @@ function renderAlbumPage(iter)
 						var dateSpan=addSpan(rightSpan,"dateSpan");
 						dateSpan.empty();
 						dateSpan.append("Created at "+mypics[imgIndex].phrase);
-						console.log("mypics[iter].description "+mypics[iter].description);
-						var descspan=showHeader(rightSpan,3,mypics[iter].description);
+						console.log("mypics[iter].description "+mypics[0].description);
+						var descspan=showHeader(rightSpan,3,mypics[0].description);
 						showGenericTextwithInput(rightSpan,"description",descspan,mypics[0].description,updatePicDescription,mypics[0].id)
 						
 	
