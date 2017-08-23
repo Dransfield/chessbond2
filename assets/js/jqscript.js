@@ -1154,16 +1154,35 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						showImageUploadForm($("#albumpage"),MyID,Albums[iter].id);
 						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
 						
+						var imgIndex=0;
+						
 							var leftbut=showButton($("#albumpage"),"<","KgreenElement KhugeButton");
+							leftbut.click(function()
+							{
+								if (imgIndex>0)
+								{
+								imgIndex=imgIndex-1;
+								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
+								}
+							});
+							
 							var middleSpan=addSpan($("#albumpage"));
 							middleSpan.css("position","relative");
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
-						middleSpan.append("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
+						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
+						middleSpan.append(imgelem);
 						console.log(mypics[0].id);		
 							var rightbut=showButton($("#albumpage"),">","KgreenElement KhugeButton");
-																						
+										rightbut.click(function()
+							{
+								if (imgIndex<mypics.length)
+								{
+								imgIndex=imgIndex+1;
+								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
+								}
+							});												
 												
 	
 }
