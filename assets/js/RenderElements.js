@@ -3275,7 +3275,7 @@ function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc
 		localRecord="";
 		}
 	
-		localRecord[words]=event.data.inny.val();
+		localRecord=event.data.inny.val();
 		
 		UpdateTypedTextGeneric(words,elemTochange,localRecord,updatefunc,recordID)
 		
@@ -3321,6 +3321,7 @@ function updateAlbumName(words,recordID,localRecord)
 
 function updatePicDescription(words,recordID,localRecord)
 {
+	mypics[recordID].description=localRecord;
 		io.socket.put('/avatar/'+recordID+"?"+words+"="+localRecord,{
 
 					  }
