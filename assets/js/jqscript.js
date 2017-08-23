@@ -1174,9 +1174,8 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
-						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
+						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
-						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
 						
 							var rightbut=showButton(displayFlex,">","KgreenElement KhugeButton");
 										rightbut.click(function()
@@ -1190,6 +1189,7 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						
 								}
 							});												
+						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
 						
 						var dateSpan=addSpan(rightSpan,"dateSpan");
 						dateSpan.empty();
