@@ -2342,6 +2342,8 @@ io.socket.get('/avatar?albumid='+albid,
 
 			newdate = day+ "/"+month+"/"+year ;
 				data[x].phrase=newdate;
+		if (!data[x].description)
+		{data[x].description="no description";}
 		console.log("$scope.mypics[x].phrase "+data[x].phrase);
 		console.log("data[x].avatarFd "+data[x].avatarFd);
 		}
