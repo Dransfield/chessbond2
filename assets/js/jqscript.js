@@ -1147,7 +1147,7 @@ function setupAlbumsPage()
 function renderAlbumPage(iter)
 {
 	console.log("render func"+iter);
-var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
+						var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
@@ -1194,7 +1194,9 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						var dateSpan=addSpan(rightSpan,"dateSpan");
 						dateSpan.empty();
 						dateSpan.append("Created at "+mypics[imgIndex].phrase);
-							
+						var descspan=showHeader($("#albumpage"),3,mypics[iter].description);
+						showGenericTextwithInput($("#albumpage"),"description",descspan,mypics[iter].description,updatePicDescription,mypics[iter].id)
+						
 	
 }
 

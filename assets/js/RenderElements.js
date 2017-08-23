@@ -3319,6 +3319,20 @@ function updateAlbumName(words,recordID,localRecord)
 			);
 }
 
+function updatePicDescription(words,recordID,localRecord)
+{
+		io.socket.put('/avatar/'+recordID+"?"+words+"="+localRecord,{
+
+					  }
+
+				,function(resData,jwres)
+			{
+
+
+				}
+			);
+}
+
 function showTextwithInput(elem,words,elemTochange)
 {
 	//console.log("words "+words);
