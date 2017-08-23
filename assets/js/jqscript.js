@@ -1156,20 +1156,20 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						
 						var imgIndex=0;
 						
-							var leftbut=showButton($("#albumpage"),"<","KgreenElement KhugeButton");
+							var leftbut=showButton(displayFlex,"<","KgreenElement KhugeButton");
 							leftbut.click(function()
 							{
 								if (imgIndex>0)
 								{
 								imgIndex=imgIndex-1;
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
-								dateSpan.empty();
-						dateSpan.append("Created at "+mypics[imgIndex].phrase);
+								$("#dateSpan").empty();
+								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 						
 								}
 							});
 							
-							var middleSpan=addSpan($("#albumpage"));
+							var middleSpan=addSpan(displayFlex);
 							middleSpan.css("position","relative");
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
@@ -1177,23 +1177,24 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:-140px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
-						dateSpan=addSpan(rightSpan,"dateSpan");
-						dateSpan.empty();
-						dateSpan.append("Created at "+mypics[imgIndex].phrase);
-						console.log(mypics[0].id);		
-							var rightbut=showButton($("#albumpage"),">","KgreenElement KhugeButton");
+						
+							var rightbut=showButton(displayFlex,">","KgreenElement KhugeButton");
 										rightbut.click(function()
 							{
 								if (imgIndex<mypics.length-1)
 								{
 								imgIndex=imgIndex+1;
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
-								dateSpan.empty();
-						dateSpan.append("Created at "+mypics[imgIndex].phrase);
+								$("#dateSpan").empty();
+						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 						
 								}
 							});												
-												
+						
+						var dateSpan=addSpan(rightSpan,"dateSpan");
+						dateSpan.empty();
+						dateSpan.append("Created at "+mypics[imgIndex].phrase);
+							
 	
 }
 
