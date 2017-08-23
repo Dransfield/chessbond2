@@ -1165,6 +1165,8 @@ function renderAlbumPage(iter)
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
 								$("#dateSpan").empty();
 								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
+								showHeader($("#descSpan"),3,mypics[imgIndex].description);
+								showGenericTextwithInput($("#descSpan"),"description",descspan,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
 								}
 							});
@@ -1186,6 +1188,8 @@ function renderAlbumPage(iter)
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
 								$("#dateSpan").empty();
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
+						showHeader($("#descSpan"),3,mypics[imgIndex].description);
+						showGenericTextwithInput($("#descSpan"),"description",descspan,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
 								}
 							});												
@@ -1195,8 +1199,10 @@ function renderAlbumPage(iter)
 						dateSpan.empty();
 						dateSpan.append("Created at "+mypics[imgIndex].phrase);
 						console.log("mypics[iter].description "+mypics[0].description);
-						var descspan=showHeader(rightSpan,3,mypics[0].description);
-						showGenericTextwithInput(rightSpan,"description",descspan,mypics[0].description,updatePicDescription,mypics[0].id)
+						showHeader(rightSpan,1,"Description");
+						var descSpan=addSpan(rightSpan,"descSpan");
+						showHeader(descSpan,3,mypics[0].description);
+						showGenericTextwithInput(descSpan,"description",descspan,mypics[0].description,updatePicDescription,mypics[0].id)
 						
 	
 }
