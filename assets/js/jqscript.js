@@ -1177,7 +1177,7 @@ var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
 							var rightbut=showButton($("#albumpage"),">","KgreenElement KhugeButton");
 										rightbut.click(function()
 							{
-								if (imgIndex<mypics.length)
+								if (imgIndex<mypics.length-1)
 								{
 								imgIndex=imgIndex+1;
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
