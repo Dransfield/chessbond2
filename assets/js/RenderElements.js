@@ -3321,7 +3321,13 @@ function updateAlbumName(words,recordID,localRecord)
 
 function updatePicDescription(words,recordID,localRecord)
 {
-	mypics[recordID].description=localRecord;
+	for (iter in mypics)
+	{
+		if (mypics[iter].id==recordID)
+		{
+		mypics[iter].description=localRecord;
+		}
+	}
 		io.socket.put('/avatar/'+recordID+"?"+words+"="+localRecord,{
 
 					  }
