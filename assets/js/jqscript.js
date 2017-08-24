@@ -1170,8 +1170,8 @@ function renderAlbumPage(iter)
 								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
-									$("#leftbut").val(">("+imgIndex+")");
-						
+									//$("#leftbut").val(">("+imgIndex+")");
+									$("#button"+ButtonNumber).val(">("+imgIndex+")");
 								}
 							});
 							
