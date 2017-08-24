@@ -1196,7 +1196,7 @@ function renderAlbumPage(iter)
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-							$("#rightbut").val(">("+(mypics.length-imgIndex)+")");
+							rightbut.val(">("+(mypics.length-imgIndex)+")");
 								}
 							});												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
