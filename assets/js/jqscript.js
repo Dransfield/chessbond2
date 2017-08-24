@@ -1157,6 +1157,7 @@ function renderAlbumPage(iter)
 						var imgIndex=0;
 						
 							var leftbut=showButton(displayFlex,"<","KgreenElement KhugeButton");
+							leftbut.attr("id","leftbut");
 							leftbut.click(function()
 							{
 								if (imgIndex>0)
@@ -1168,6 +1169,8 @@ function renderAlbumPage(iter)
 								$("#descSpan").empty();
 								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
+						
+									$("#leftbut").val(">("+imgIndex+")");
 						
 								}
 							});
@@ -1181,6 +1184,7 @@ function renderAlbumPage(iter)
 						middleSpan.append(imgelem);
 						
 							var rightbut=showButton(displayFlex,">("+mypics.length+")","KgreenElement KhugeButton");
+							rightbut.attr("id","rightbut");
 										rightbut.click(function()
 							{
 								if (imgIndex<mypics.length-1)
@@ -1192,7 +1196,7 @@ function renderAlbumPage(iter)
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-							$(this).val(">("+mypics.length+")");
+							$("#rightbut").val(">("+mypics.length+")");
 								}
 							});												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
