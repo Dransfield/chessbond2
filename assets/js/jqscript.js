@@ -1159,6 +1159,7 @@ function renderAlbumPage(iter)
 							var leftbut=showButton(displayFlex,"<","KgreenElement KhugeButton");
 							console.log(leftbut.attr("id"));
 							var thisbuttonnumber=ButtonNumber;
+							console.log("button"+thisbuttonnumber);
 							leftbut.click(function()
 							{
 								if (imgIndex>0)
