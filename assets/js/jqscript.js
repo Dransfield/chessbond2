@@ -1180,7 +1180,7 @@ function renderAlbumPage(iter)
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
 						
-							var rightbut=showButton(displayFlex,">","KgreenElement KhugeButton");
+							var rightbut=showButton(displayFlex,">("+mypics.length+")","KgreenElement KhugeButton");
 										rightbut.click(function()
 							{
 								if (imgIndex<mypics.length-1)
@@ -1192,7 +1192,7 @@ function renderAlbumPage(iter)
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-						
+							$(this).val(">("+mypics.length+")");
 								}
 							});												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
