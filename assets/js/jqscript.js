@@ -1158,6 +1158,7 @@ function renderAlbumPage(iter)
 						
 							var leftbut=showButton(displayFlex,"<","KgreenElement KhugeButton");
 							leftbut.attr("id","leftbut");
+							var thisbuttonnumber=ButtonNumber;
 							leftbut.click(function()
 							{
 								if (imgIndex>0)
@@ -1171,7 +1172,7 @@ function renderAlbumPage(iter)
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
 									//$("#leftbut").val(">("+imgIndex+")");
-									$("#button"+ButtonNumber).val(">("+imgIndex+")");
+									$("#button"+thisbuttonnumber).val(">("+imgIndex+")");
 								}
 							});
 							
