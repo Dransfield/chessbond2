@@ -1188,7 +1188,7 @@ function renderAlbumPage(iter)
 						middleSpan.append(imgelem);
 						
 							var rightbut=showButton(displayFlex,">("+mypics.length+")","KgreenElement KhugeButton");
-							rightbut.attr("id","rightbut");
+							
 							var rightbuttonnumber=ButtonNumber;
 										rightbut.click(function()
 							{
