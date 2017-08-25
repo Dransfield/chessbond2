@@ -1173,11 +1173,9 @@ function renderAlbumPage(iter)
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
 									//$("#leftbut").val(">("+imgIndex+")");
-									console.log("button"+thisbuttonnumber);
-									console.log($("#button"+thisbuttonnumber).attr("id"));
 									
 									$("#button"+thisbuttonnumber).val(">("+imgIndex+")");
-									$("#button"+thisbuttonnumber).text(">("+imgIndex+")");
+									
 								}
 							});
 							
@@ -1203,7 +1201,8 @@ function renderAlbumPage(iter)
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 							//$(this).val(">("+(mypics.length-imgIndex)+")");
-							$("#button"+ButtonNumber).val("ass");
+							//$("#button"+ButtonNumber).val("ass");
+							$("#button"+ButtonNumber).text("ass");
 								}
 							});												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
