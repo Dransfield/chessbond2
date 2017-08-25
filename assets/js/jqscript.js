@@ -1159,6 +1159,9 @@ function renderAlbumPage(iter)
 							var leftbut=showButton(displayFlex,"< (0)","KgreenElement KhugeButton");
 							console.log(leftbut.attr("id"));
 							var leftbuttonnumber=ButtonNumber;
+							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
+							
+							var rightbuttonnumber=ButtonNumber;
 							//console.log("button"+thisbuttonnumber);
 							leftbut.click(function()
 							{
@@ -1188,9 +1191,7 @@ function renderAlbumPage(iter)
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
 						
-							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
 							
-							var rightbuttonnumber=ButtonNumber;
 					rightbut.click(function()
 					{
 						if (imgIndex<mypics.length-1)
