@@ -1174,7 +1174,7 @@ function renderAlbumPage(iter)
 						
 									//$("#leftbut").val(">("+imgIndex+")");
 									console.log("button"+thisbuttonnumber);
-									console.log($("#button"+thisbuttonnumber).attr("id");
+									console.log($("#button"+thisbuttonnumber).attr("id"));
 									
 									$("#button"+thisbuttonnumber).val(">("+imgIndex+")");
 									$("#button"+thisbuttonnumber).text(">("+imgIndex+")");
