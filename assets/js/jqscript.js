@@ -1156,9 +1156,9 @@ function renderAlbumPage(iter)
 						
 						var imgIndex=0;
 						
-							var leftbut=showButton(displayFlex,"<","KgreenElement KhugeButton");
+							var leftbut=showButton(displayFlex,"< (0)","KgreenElement KhugeButton");
 							console.log(leftbut.attr("id"));
-							var thisbuttonnumber=ButtonNumber;
+							var leftbuttonnumber=ButtonNumber;
 							console.log("button"+thisbuttonnumber);
 							leftbut.click(function()
 							{
@@ -1174,7 +1174,7 @@ function renderAlbumPage(iter)
 						
 									//$("#leftbut").val(">("+imgIndex+")");
 									
-									$("#button"+thisbuttonnumber).text("<("+imgIndex+")");
+									$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
 									
 								}
 							});
@@ -1204,6 +1204,7 @@ function renderAlbumPage(iter)
 						//$(this).val(">("+(mypics.length-imgIndex)+")");
 						//$("#button"+ButtonNumber).val("ass");
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
+						$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
 							}
 						});												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
