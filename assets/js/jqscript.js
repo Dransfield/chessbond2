@@ -1159,37 +1159,20 @@ function renderAlbumPage(iter)
 							var leftbut=showButton(displayFlex,"< (0)","KgreenElement KhugeButton");
 							console.log(leftbut.attr("id"));
 							var leftbuttonnumber=ButtonNumber;
-							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
-							
-							var rightbuttonnumber=ButtonNumber;
-							//console.log("button"+thisbuttonnumber);
-							leftbut.click(function()
-							{
-								if (imgIndex>0)
-								{
-								imgIndex=imgIndex-1;
-								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
-								$("#dateSpan").empty();
-								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
-								$("#descSpan").empty();
-								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
-								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-						
-									//$("#leftbut").val(">("+imgIndex+")");
-										$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
-						
-									$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
-									
-								}
-							});
-							
-							var middleSpan=addSpan(displayFlex);
+								var middleSpan=addSpan(displayFlex);
 							middleSpan.css("position","relative");
 							middleSpan.css("left","0");
 							middleSpan.css("top","0");
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
+							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
+							
+							var rightbuttonnumber=ButtonNumber;
+							//console.log("button"+thisbuttonnumber);
+							
+							
+						
 						
 							
 					rightbut.click(function()
@@ -1208,7 +1191,29 @@ function renderAlbumPage(iter)
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
 							}
-						});												
+						});						
+						
+						
+						leftbut.click(function()
+							{
+								if (imgIndex>0)
+								{
+								imgIndex=imgIndex-1;
+								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
+								$("#dateSpan").empty();
+								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
+								$("#descSpan").empty();
+								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
+								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
+						
+									//$("#leftbut").val(">("+imgIndex+")");
+										$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
+						
+									$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
+									
+								}
+							});
+												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
 						
 						var dateSpan=addSpan(rightSpan,"dateSpan");
