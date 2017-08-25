@@ -1189,7 +1189,7 @@ function renderAlbumPage(iter)
 						//$(this).val(">("+(mypics.length-imgIndex)+")");
 						//$("#button"+ButtonNumber).val("ass");
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
-						$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
+						$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
 							}
 						});						
 						
@@ -1209,7 +1209,7 @@ function renderAlbumPage(iter)
 									//$("#leftbut").val(">("+imgIndex+")");
 										$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						
-									$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
+									$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
 									
 								}
 							});
