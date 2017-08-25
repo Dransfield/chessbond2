@@ -1173,7 +1173,8 @@ function renderAlbumPage(iter)
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						
 									//$("#leftbut").val(">("+imgIndex+")");
-									
+										$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
+						
 									$("#button"+leftbuttonnumber).text("<("+imgIndex+")");
 									
 								}
