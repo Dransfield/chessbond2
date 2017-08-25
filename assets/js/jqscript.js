@@ -1187,7 +1187,7 @@ function renderAlbumPage(iter)
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
 						
-							var rightbut=showButton(displayFlex,">("+mypics.length+")","KgreenElement KhugeButton");
+							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
 							
 							var rightbuttonnumber=ButtonNumber;
 					rightbut.click(function()
