@@ -1189,6 +1189,7 @@ function renderAlbumPage(iter)
 						
 							var rightbut=showButton(displayFlex,">("+mypics.length+")","KgreenElement KhugeButton");
 							rightbut.attr("id","rightbut");
+							var rightbuttonnumber=ButtonNumber;
 										rightbut.click(function()
 							{
 								if (imgIndex<mypics.length-1)
@@ -1202,7 +1203,7 @@ function renderAlbumPage(iter)
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 							//$(this).val(">("+(mypics.length-imgIndex)+")");
 							//$("#button"+ButtonNumber).val("ass");
-							$("#button"+ButtonNumber).text("ass");
+							$("#button"+rightbuttonnumber).text("ass");
 								}
 							});												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
