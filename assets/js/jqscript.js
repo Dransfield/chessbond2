@@ -1174,7 +1174,7 @@ function renderAlbumPage(iter)
 						
 									//$("#leftbut").val(">("+imgIndex+")");
 									
-									$("#button"+thisbuttonnumber).text(">("+imgIndex+")");
+									$("#button"+thisbuttonnumber).text("<("+imgIndex+")");
 									
 								}
 							});
