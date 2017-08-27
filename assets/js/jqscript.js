@@ -609,54 +609,56 @@ function setupProfilePage()
 								retrievePrivatesandFollows().then(function()
 								{	
 									retrieveAccounts().then(function()
-							{		
-									getWallposts(ProfID,30000).then(function()
-									{
+									{		
+										getWallposts(ProfID,30000).then(function()
+										{
 						
 					
 					
 				 
-				console.log("add flexdiv");
-				console.log("joined games");
-				console.log(JSON.stringify(JoinedGames));
-				var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
-			leftright.css("align-items","flex-start");
-			var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
-			leftcol.css("width","50%");
-			showUsernameJumbo(leftcol,ProfID);
-			//var divv=addDiv(leftcol);
-			showAvatar(leftcol,ProfID);
-			if(MyID==ProfID)
-			{
-			showImageUploadForm(leftcol,ProfID)
-			}
+											console.log("add flexdiv");
+											console.log("joined games");
+											console.log(JSON.stringify(JoinedGames));
+											var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
+										leftright.css("align-items","flex-start");
+										var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
+										leftcol.css("width","50%");
+										showUsernameJumbo(leftcol,ProfID);
+										//var divv=addDiv(leftcol);
+										showAvatar(leftcol,ProfID);
+										if(MyID==ProfID)
+										{
+										showImageUploadForm(leftcol,ProfID)
+										}
 			
-			showHeader(leftcol,2,"Highest Difficulty Level Beaten:"+Accounts[ProfID].DifficultyLevelBeaten);
-			showHeader(leftcol,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
-			showNewGameControls(leftcol);
-			showAnchorButton(leftcol,'Statistics',"/stats/"+ProfID,"KbigButton KcyanElement");
-			//var tbl=addFlexDiv(leftright,"rightcol","column");
-			
-			
-			//var tbl=showStripedTable(elem);
-			
-			//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
-			//var tblLeft=addFlexDiv(leftright,'tblLeft',"column","wrap")
-			var tblRight=addFlexDiv(leftright,'tblRight',"column","wrap")
-			tblRight.css("width","50%");
-			showHeader(tblRight,2,"Who am I?");
-			var pairarrayone=['Profile Views:','Registered member on:','Last login:',
-			'Number of times logged in:','Gender:','Date of birth:','Current City:',
-			'Fide Title:<br>(Self Claimed:)','Valid Fide ID:','Fide Ratings:',
-			'Profile Updated:','Speak (languages):','Countries Travelled:','Wishing to Travel:',
-			'My Upcoming Trip:','Who Am I?:','How Do I Start My Day?:','Hobbies / Interests:',
-			'Request / Expectation:','Favorite Music / Band:','Favorite TV Shows / Concerts:',
-			'Favorite Books / Food:','Favorite Quote / Writer:','My Professional Chess Tournaments / Trainings/ Participations:',
-			'My best performance in live chess tournaments:','My Live Chess Tournaments History:',
-			'My other performing skills / Inspiring Sports:','My Victory Speech would be (If I became Chess Champion):',
-			'My Victory Speech would be	(If I won the Nobel Prize in any category):'
-			
-			];
+										showHeader(leftcol,2,"Highest Difficulty Level Beaten:"+Accounts[ProfID].DifficultyLevelBeaten);
+										showHeader(leftcol,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
+										showNewGameControls(leftcol);
+										showAnchorButton(leftcol,'Statistics',"/stats/"+ProfID,"KbigButton KcyanElement");
+										showAnchorButton(leftcol,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
+										
+										//var tbl=addFlexDiv(leftright,"rightcol","column");
+										
+										
+										//var tbl=showStripedTable(elem);
+										
+										//var tbl=addFlexDiv(leftright,'tbl',"row","wrap")
+										//var tblLeft=addFlexDiv(leftright,'tblLeft',"column","wrap")
+										var tblRight=addFlexDiv(leftright,'tblRight',"column","wrap")
+										tblRight.css("width","50%");
+										showHeader(tblRight,2,"Who am I?");
+											var pairarrayone=['Profile Views:','Registered member on:','Last login:',
+											'Number of times logged in:','Gender:','Date of birth:','Current City:',
+											'Fide Title:<br>(Self Claimed:)','Valid Fide ID:','Fide Ratings:',
+											'Profile Updated:','Speak (languages):','Countries Travelled:','Wishing to Travel:',
+											'My Upcoming Trip:','Who Am I?:','How Do I Start My Day?:','Hobbies / Interests:',
+											'Request / Expectation:','Favorite Music / Band:','Favorite TV Shows / Concerts:',
+											'Favorite Books / Food:','Favorite Quote / Writer:','My Professional Chess Tournaments / Trainings/ Participations:',
+											'My best performance in live chess tournaments:','My Live Chess Tournaments History:',
+											'My other performing skills / Inspiring Sports:','My Victory Speech would be (If I became Chess Champion):',
+											'My Victory Speech would be	(If I won the Nobel Prize in any category):'
+											
+											];
 			var pairarraytwo=['ProfileViews','Registeredmemberon','LastloginPhrase',
 			'Numberoftimesloggedin','Gender',
 			'BirthDayTotal','CurrentCity',
