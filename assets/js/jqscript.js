@@ -1125,21 +1125,26 @@ function setupAlbumsPage()
 						retrieveAlbums(ProfID).then(function()
 						{
 						
-						showHeader($("#albumspage"),1,"Your Albums");
-						var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
-						newalbumbut.click(createalbum);
-						var albumList=$("<div></div>");
-						$("#albumspage").append(albumList);
-						for (iter in Albums)
+						showHeader($("#albumspage"),1,"Albums:");
+						
+						if(ProfID==MyID)
 						{
-						albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
+							var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
+							newalbumbut.click(createalbum);
+							var albumList=$("<div></div>");
+							$("#albumspage").append(albumList);
+							for (iter in Albums)
+							{
+							albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
+							}
+							
+							io.socket.on('madealbum', function (data)
+								{
+									albumList.append($("<div><h2><a href='/album/"+data.id+"'>"+data.name+"</a></h2></div>"));	
+							
+								});
 						}
 						
-						io.socket.on('madealbum', function (data)
-							{
-								albumList.append($("<div><h2><a href='/album/"+data.id+"'>"+data.name+"</a></h2></div>"));	
-						
-							});
 						});
 					});
 				});
@@ -1234,11 +1239,12 @@ function setupAlbumPage()
 {
 
 	AccountsToRetrieve[MyID]=MyID;
+	
 	retrievePrivatesandFollows().then(function()
 				{	
 					retrieveAccounts().then(function()
 					{
-						retrieveAlbums(MyID).then(function()
+						retrieveAlbum(ProfID).then(function()
 						{
 						var correctAlbum;
 						for (iter in Albums)
@@ -2128,6 +2134,27 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 	
 });
 
+}
+
+function retrieveAlbum(albid)
+{
+	
+		//console.log("get albums "+usracc);
+	var albumPromise = new Promise(function(resolve, reject) {
+  io.socket.get("/album",{id:albid},
+		function(alb)
+		{
+			Albums=alb;
+			//console.log(JSON.stringify(alb));
+			//console.log(usracc);
+				resolve(alb);
+		}
+		);
+	
+});
+
+return albumPromise;
+	
 }
 
 function retrieveAlbums(usracc)
