@@ -1255,7 +1255,7 @@ function setupAlbumPage()
 						{
 						//	correctAlbum=iter;
 						retrieveAvatars(Albums.id).then(function(){
-						renderAlbumPage(Album);
+						renderAlbumPage(Albums);
 						});
 						
 						}
