@@ -3496,7 +3496,7 @@ function showBoardOptions(elem)
 
 }
 
-function SetAvatar(MyID,picid)
+function setAvatar(MyID,picid)
 	{
 		io.socket.put('/User/'+MyID,{
       avatarid:picid,
