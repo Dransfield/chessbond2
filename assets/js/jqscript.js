@@ -1155,10 +1155,12 @@ function renderAlbumPage(alb)
 {
 	console.log("render func"+iter);
 						var nameHeader=showHeader($("#albumpage"),1,alb.name);
+						if(alb.user==MyID)
+						{
 						showGenericTextwithInput($("#albumpage"),"name",nameHeader,alb.name,updateAlbumName,alb.id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
-						
 						showImageUploadForm($("#albumpage"),MyID,alb.id);
+						}
 						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
 						
 						var imgIndex=0;
@@ -1230,8 +1232,10 @@ function renderAlbumPage(alb)
 						showHeader(rightSpan,1,"Description");
 						var descSpan=addSpan(rightSpan,"descSpan");
 						var theText=showHeader(descSpan,3,mypics[0].description);
+						if(alb.user==MyID)
+						{
 						showGenericTextwithInput(descSpan,"description",theText,mypics[0].description,updatePicDescription,mypics[0].id)
-						
+						}
 	
 }
 
