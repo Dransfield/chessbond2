@@ -1235,6 +1235,13 @@ function renderAlbumPage(alb)
 						if(alb.user==MyID)
 						{
 						showGenericTextwithInput(descSpan,"description",theText,mypics[0].description,updatePicDescription,mypics[0].id)
+						
+						var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
+						
+						setAvatarButton.click(function(){
+							setAvatar(MyID,mypics[imgIndex].id);
+						});
+						
 						}
 	
 }

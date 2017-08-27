@@ -3496,6 +3496,18 @@ function showBoardOptions(elem)
 
 }
 
+function SetAvatar(MyID,picid)
+	{
+		io.socket.put('/User/'+MyID,{
+      avatarid:picid,
+      picture:'https://www.chessbond.com/user/avatar/'+picid
+      
+      }  
+    ,function(resData,jwres)
+	{
+      toastr.success('Changed Profile Image');
+      });  
+}
 function showButton(elem,words,btnstyle){
 	
 if(btnstyle === undefined) { btnstyle = "btn-success"; }
