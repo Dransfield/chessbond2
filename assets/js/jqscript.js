@@ -1151,14 +1151,14 @@ function setupAlbumsPage()
 					
 }
 
-function renderAlbumPage(iter)
+function renderAlbumPage(alb)
 {
 	console.log("render func"+iter);
-						var nameHeader=showHeader($("#albumpage"),1,Albums[iter].name);
-						showGenericTextwithInput($("#albumpage"),"name",nameHeader,Albums[iter].name,updateAlbumName,Albums[iter].id)
+						var nameHeader=showHeader($("#albumpage"),1,alb.name);
+						showGenericTextwithInput($("#albumpage"),"name",nameHeader,alb.name,updateAlbumName,alb.id)
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						
-						showImageUploadForm($("#albumpage"),MyID,Albums[iter].id);
+						showImageUploadForm($("#albumpage"),MyID,alb.id);
 						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
 						
 						var imgIndex=0;
@@ -1246,17 +1246,20 @@ function setupAlbumPage()
 					{
 						retrieveAlbum(ProfID).then(function()
 						{
-						var correctAlbum;
-						console.log(Albums);
-						for (iter in Albums)
+						//var correctAlbum;
+						//console.log(Albums);
+						//for (iter in Albums)
+						//{
+						//	console.log(Albums[iter]);
+						if(Albums.id==ProfID)
 						{
-							console.log(Albums[iter]);
-						if(Albums[iter].id==ProfID)
-						{
-							correctAlbum=iter;
-						retrieveAvatars(Albums[correctAlbum].id).then(function(){
-						renderAlbumPage(correctAlbum);
-					});
+						//	correctAlbum=iter;
+						retrieveAvatars(Albums.id).then(function(){
+						renderAlbumPage(Album);
+						});
+						
+						}
+					//});
 							
 							/*
 	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
@@ -1291,8 +1294,8 @@ function setupAlbumPage()
 	
 	</div>
 						*/
-						}
-						}
+						//}
+						//}
 						
 					});
 				});
