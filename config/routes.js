@@ -54,7 +54,7 @@ module.exports.routes = {
 	'GET /album/:ID': {view: 'albumjq'},
 	'POST /newalbum':'AlbumController.makenew',
 	//'GET /albums/:userID': {view: 'albums'},
-	'GET /albums/:userID': {view: 'albumsjq'},
+	'GET /albums/:ID': {view: 'albumsjq'},
 	
 	
 	'GET /user/avatar/:id':'UploadController.avatar',
