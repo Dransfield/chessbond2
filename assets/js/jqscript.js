@@ -1199,6 +1199,13 @@ function renderAlbumPage(alb)
 						//$("#button"+ButtonNumber).val("ass");
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
+							
+							var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
+						
+						setAvatarButton.click(function(){
+							setAvatar(MyID,mypics[imgIndex].id);
+						});
+							
 							}
 						});						
 						
@@ -1220,6 +1227,11 @@ function renderAlbumPage(alb)
 						
 									$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
 									
+									var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
+						
+									setAvatarButton.click(function(){
+									setAvatar(MyID,mypics[imgIndex].id);
+									});
 								}
 							});
 												
