@@ -1247,9 +1247,10 @@ function setupAlbumPage()
 						retrieveAlbum(ProfID).then(function()
 						{
 						var correctAlbum;
+						console.log(Albums);
 						for (iter in Albums)
 						{
-							
+							console.log(Albums[iter]);
 						if(Albums[iter].id==ProfID)
 						{
 							correctAlbum=iter;
