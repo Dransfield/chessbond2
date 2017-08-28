@@ -623,7 +623,10 @@ function setupProfilePage()
 										leftright.css("align-items","flex-start");
 										var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
 										leftcol.css("width","50%");
-										showUsernameJumbo(leftcol,ProfID);
+										
+										var nameAndBookmark=addFlexDiv(leftcol,"nameAndBookmark","row","wrap");
+										showUsernameJumbo(nameAndBookmark,ProfID);
+										nameAndBookmark.append("<img href='/images/bookmrk.png'></img>");
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
 										if(MyID==ProfID)
