@@ -641,8 +641,8 @@ function setupProfilePage()
 										$(this).css("z-order",300);
 										
 										setTimeout(function(){
-										$(this).css("width",100);
-										$(this).css("height",100);
+										$("#bookmarkImg").css("width",100);
+										$("#bookmarkImg").css("height",100);
 										
 										},3000);
 										
