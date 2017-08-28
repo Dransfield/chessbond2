@@ -16,6 +16,7 @@ var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
 var Blocks={};
+var Bookmarks={};
 var WallPosts=[];
 var WallPostsToRetrieve=[];
 var Reports=[];
@@ -628,10 +629,19 @@ function setupProfilePage()
 										showUsernameJumbo(nameAndBookmark,ProfID);
 									//	nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
 									//	nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
+										var foundBookmark=false;
+										
+										for (bIter in bookmarks)
+										{
+										if (bookmarks[bIter].observed==ProfID)	
+											{
+												foundBookmark=true;
+											}
+										}
+										if(foundBookmark==false)
+										{
 										var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrk.png'></img>");
 										nameAndBookmark.append(bookmarkImg);
-										//nameAndBookmark.append("<img style='width:150px;height:150px;' src='/images/bookmrk.png'></img>");
-										//nameAndBookmark.append("<img style='width:200px;height:200px;' src='/images/bookmrk.png'></img>");
 										bookmarkImg.click(function()
 										{
 											
@@ -646,6 +656,12 @@ function setupProfilePage()
 										
 											
 										});
+										}
+										else
+										{
+												var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrkdone.png'></img>");
+										
+										}
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
 										if(MyID==ProfID)
@@ -1086,13 +1102,13 @@ function retrievePrivatesandFollows()
 	var p2=addBlockPromises();
 	
 	var p3=addPrivatePromises();
-	
-	return Promise.all([p1,p2,p3]);
+	var p4=addBookmarkPromises();
+	return Promise.all([p1,p2,p3,p4]);
 	}
 	
 function retrievePrivateRangeandFollows(index,amt)
 	{
-	return Promise.all([addFollowPromises(),addBlockPromises(),addPrivatePromiseRange(index,amt)]);
+	return Promise.all([addFollowPromises(),addBlockPromises(),addPrivatePromiseRange(index,amt),addBookmarkPromises()]);
 	}
 	
 function setupAdminPage()
@@ -3004,6 +3020,22 @@ function addBlockPromises()
 	//}}}
 	
 }
+
+function addBookmarkPromises()
+{
+	
+		return new Promise((resolve,reject)=>{
+					io.socket.get("/bookmark",{bookmarker:MyID},
+					
+						function (pc) {
+						
+							bookmarks=pc;
+						resolve(pc);
+					});
+				});
+
+}
+
 
 function addFollowPromises()
 {
