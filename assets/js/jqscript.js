@@ -627,6 +627,9 @@ function setupProfilePage()
 										var nameAndBookmark=addFlexDiv(leftcol,"nameAndBookmark","row","wrap");
 										showUsernameJumbo(nameAndBookmark,ProfID);
 										nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
+										nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
+										nameAndBookmark.append("<img style='width:100px;height:100px;' src='/images/bookmrk.png'></img>");
+									
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
 										if(MyID==ProfID)
