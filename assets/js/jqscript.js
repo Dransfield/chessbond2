@@ -624,7 +624,7 @@ function setupProfilePage()
 										var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
 										leftcol.css("width","50%");
 										
-										var nameAndBookmark=addFlexDiv(leftcol,"nameAndBookmark","row","wrap");
+										var nameAndBookmark=addFlexDiv(leftcol,"nameAndBookmark","row","nowrap");
 										showUsernameJumbo(nameAndBookmark,ProfID);
 									//	nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
 									//	nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
@@ -635,9 +635,8 @@ function setupProfilePage()
 										bookmarkImg.click(function()
 										{
 											
-										$(this).animate({
-										width: "300px",
-										height:"300px"}, 1500 );
+										$(this).animate({width: "300px",height:"300px"}, 1500 )
+										.animate({width:"100px",height:"100px"},1500);
 										
 											
 										});
