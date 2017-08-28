@@ -686,9 +686,10 @@ function setupProfilePage()
 												$(this).hide();
 												}
 											);
+											}
+											}
 											},3000);
-											}
-											}
+											
 										});
 										
 										}
