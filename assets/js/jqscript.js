@@ -629,6 +629,8 @@ function setupProfilePage()
 										nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
 										nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
 										nameAndBookmark.append("<img style='width:100px;height:100px;' src='/images/bookmrk.png'></img>");
+										nameAndBookmark.append("<img style='width:150px;height:150px;' src='/images/bookmrk.png'></img>");
+										nameAndBookmark.append("<img style='width:200px;height:200px;' src='/images/bookmrk.png'></img>");
 									
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
