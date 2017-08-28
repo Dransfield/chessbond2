@@ -665,6 +665,27 @@ function setupProfilePage()
 										{
 												var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrkdone.png'></img>");
 										nameAndBookmark.append(bookmarkImg);
+										
+										
+										bookmarkImg.click(function()
+										{
+											
+										$(this).animate({width: "300px",height:"300px"}, 1500 )
+										.animate({width:"100px",height:"100px"},1500);
+										
+										
+										setTimeout(function(){
+											io.socket.post("/bookmark/destroy",{bookmarker:MyID,observed:ProfID},function(res)
+											{
+												toastr.success("Bookmark Removed");
+												$(this).hide();
+												}
+											);
+											},3000);
+										
+											
+										});
+										
 										}
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
