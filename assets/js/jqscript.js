@@ -636,7 +636,11 @@ function setupProfilePage()
 										{
 											
 										$(this).animate({width: "300px",height:"300px"}, 1500 )
-										.animate({width:"100px",height:"100px"},1500);
+										.animate({width:"100px",height:"100px"},1500).(function()
+										{toastr.success("Book mark added");
+											io.socket.post("/bookmark",{bookmarker:MyID,observed:ProfID},function(res)
+											{});
+											});
 										
 											
 										});
