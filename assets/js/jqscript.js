@@ -634,7 +634,9 @@ function setupProfilePage()
 										//nameAndBookmark.append("<img style='width:200px;height:200px;' src='/images/bookmrk.png'></img>");
 										bookmarkImg.click(function()
 										{
-										$(this).css("width",2000);
+										$(this).css("width",300);
+										$(this).css("z-order",300);
+										
 											
 										});
 										//var divv=addDiv(leftcol);
