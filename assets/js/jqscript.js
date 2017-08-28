@@ -626,12 +626,17 @@ function setupProfilePage()
 										
 										var nameAndBookmark=addFlexDiv(leftcol,"nameAndBookmark","row","wrap");
 										showUsernameJumbo(nameAndBookmark,ProfID);
-										nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
-										nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
-										nameAndBookmark.append("<img style='width:100px;height:100px;' src='/images/bookmrk.png'></img>");
-										nameAndBookmark.append("<img style='width:150px;height:150px;' src='/images/bookmrk.png'></img>");
-										nameAndBookmark.append("<img style='width:200px;height:200px;' src='/images/bookmrk.png'></img>");
-									
+									//	nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
+									//	nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
+										var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrk.png'></img>");
+										nameAndBookmark.append(bookmarkImg);
+										//nameAndBookmark.append("<img style='width:150px;height:150px;' src='/images/bookmrk.png'></img>");
+										//nameAndBookmark.append("<img style='width:200px;height:200px;' src='/images/bookmrk.png'></img>");
+										bookmarkImg.click(function()
+										{
+										$(this).css("width",2000);
+											
+										});
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
 										if(MyID==ProfID)
