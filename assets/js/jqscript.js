@@ -635,16 +635,9 @@ function setupProfilePage()
 										bookmarkImg.click(function()
 										{
 											
-										$(this).css("width",300);
-										$(this).css("height",300);
-										
-										$(this).css("z-order",300);
-										
-										setTimeout(function(){
-										$("#bookmarkImg").css("width",100);
-										$("#bookmarkImg").css("height",100);
-										
-										},3000);
+										$(this).animate({
+										width: "300px",
+										height:"300px"}, 1500 );
 										
 											
 										});
