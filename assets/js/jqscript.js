@@ -651,7 +651,11 @@ function setupProfilePage()
 										
 										setTimeout(function(){
 											io.socket.post("/bookmark",{bookmarker:MyID,observed:ProfID},function(res)
-											{toastr.success("Bookmark Added");});
+											{
+												toastr.success("Bookmark Added");
+												$(this).hide();
+												}
+											);
 											},3000);
 										
 											
@@ -660,7 +664,7 @@ function setupProfilePage()
 										else
 										{
 												var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrkdone.png'></img>");
-										
+										nameAndBookmark.append(bookmarkImg);
 										}
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
