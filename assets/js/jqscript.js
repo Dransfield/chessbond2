@@ -675,7 +675,11 @@ function setupProfilePage()
 										
 										
 										setTimeout(function(){
-											io.socket.post("/bookmark/destroy",{bookmarker:MyID,observed:ProfID},function(res)
+											for(bIter in bookmarks)
+											{
+											if (bookmarks[bIter].observed==ProfID && bookmarks[bIter].bookmarker==MyID)
+											{
+											io.socket.post("/bookmark/destroy",{id:bookmarks[bIter].id},function(res)
 											{
 												console.log(res);
 												toastr.success("Bookmark Removed");
@@ -683,8 +687,8 @@ function setupProfilePage()
 												}
 											);
 											},3000);
-										
-											
+											}
+											}
 										});
 										
 										}
