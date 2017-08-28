@@ -677,6 +677,7 @@ function setupProfilePage()
 										setTimeout(function(){
 											io.socket.post("/bookmark/destroy",{bookmarker:MyID,observed:ProfID},function(res)
 											{
+												console.log(res);
 												toastr.success("Bookmark Removed");
 												$(this).hide();
 												}
