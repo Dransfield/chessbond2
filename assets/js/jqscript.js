@@ -629,17 +629,9 @@ function setupProfilePage()
 										showUsernameJumbo(nameAndBookmark,ProfID);
 									//	nameAndBookmark.append("<img style='width:50px;height:50px;' src='/images/bookmrk.png'></img>");
 									//	nameAndBookmark.append("<img style='width:75px;height:75px;' src='/images/bookmrk.png'></img>");
-										var foundBookmark=false;
 										
-										for (bIter in bookmarks)
-										{
-										if (bookmarks[bIter].observed==ProfID)	
-											{
-												foundBookmark=true;
-											}
-										}
-										if(foundBookmark==false)
-										{
+										
+										function purpleButton(){
 										var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrk.png'></img>");
 										nameAndBookmark.append(bookmarkImg);
 										bookmarkImg.click(function()
@@ -660,6 +652,20 @@ function setupProfilePage()
 										
 											
 										});
+										}
+										
+										var foundBookmark=false;
+										
+										for (bIter in bookmarks)
+										{
+										if (bookmarks[bIter].observed==ProfID)	
+											{
+												foundBookmark=true;
+											}
+										}
+										if(foundBookmark==false)
+										{
+										purpleButton();
 										}
 										else
 										{
@@ -683,7 +689,8 @@ function setupProfilePage()
 											{
 												console.log(res);
 												toastr.success("Bookmark Removed");
-												$(this).hide();
+												$(this).detach();
+												purpleButton();
 												}
 											);
 											}
