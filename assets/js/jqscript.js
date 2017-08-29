@@ -689,7 +689,7 @@ function setupProfilePage()
 											{
 												console.log(res);
 												toastr.success("Bookmark Removed");
-												$(this).detach();
+												$("#bookmarkImg").detach();
 												purpleButton();
 												}
 											);
