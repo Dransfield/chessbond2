@@ -645,7 +645,8 @@ function setupProfilePage()
 											io.socket.post("/bookmark",{bookmarker:MyID,observed:ProfID},function(res)
 											{
 												toastr.success("Bookmark Added");
-												$(this).hide();
+												$("#bookmarkImg").detach();
+												redButton();
 												}
 											);
 											},3000);
@@ -654,22 +655,9 @@ function setupProfilePage()
 										});
 										}
 										
-										var foundBookmark=false;
-										
-										for (bIter in bookmarks)
+										function redButton()
 										{
-										if (bookmarks[bIter].observed==ProfID)	
-											{
-												foundBookmark=true;
-											}
-										}
-										if(foundBookmark==false)
-										{
-										purpleButton();
-										}
-										else
-										{
-												var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrkdone.png'></img>");
+											var bookmarkImg=$("<img id='bookmarkImg' style='width:100px;height:100px;' src='/images/bookmrkdone.png'></img>");
 										nameAndBookmark.append(bookmarkImg);
 										
 										
@@ -697,8 +685,27 @@ function setupProfilePage()
 											}
 											},3000);
 											
-										});
+										});	
+											
+										}
 										
+										var foundBookmark=false;
+										
+										for (bIter in bookmarks)
+										{
+										if (bookmarks[bIter].observed==ProfID)	
+											{
+												foundBookmark=true;
+											}
+										}
+										if(foundBookmark==false)
+										{
+										purpleButton();
+										}
+										else
+										{
+											
+										redButton();
 										}
 										//var divv=addDiv(leftcol);
 										showAvatar(leftcol,ProfID);
