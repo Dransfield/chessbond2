@@ -679,6 +679,15 @@ function setupProfilePage()
 												toastr.success("Bookmark Removed");
 												$("#bookmarkImg").detach();
 												purpleButton();
+												
+												for(bIter in bookmarks)
+												{
+													console.log(res.id);
+													console.log(bookmarks[bIter].id;
+												if (bookmarks[bIter].id==res.id)
+												{
+													delete bookmarks[bIter];
+												}
 												}
 											);
 											}
@@ -698,13 +707,13 @@ function setupProfilePage()
 												foundBookmark=true;
 											}
 										}
+										
 										if(foundBookmark==false)
 										{
 										purpleButton();
 										}
 										else
 										{
-											
 										redButton();
 										}
 										//var divv=addDiv(leftcol);
