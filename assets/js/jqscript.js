@@ -683,7 +683,7 @@ function setupProfilePage()
 												for(bIter in bookmarks)
 												{
 													console.log(res.id);
-													console.log(bookmarks[bIter].id;
+													console.log(bookmarks[bIter].id);
 												if (bookmarks[bIter].id==res.id)
 												{
 													delete bookmarks[bIter];
