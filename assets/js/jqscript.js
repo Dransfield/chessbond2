@@ -646,8 +646,10 @@ function setupProfilePage()
 											{
 												toastr.success("Bookmark Added");
 												$("#bookmarkImg").detach();
+												bookmarks[res.id]=res;
 												redButton();
-												}
+											
+											}
 											);
 											},3000);
 										
