@@ -3655,6 +3655,8 @@ else
 NDDlinks['DeleteLink']=$("<a href='/UndeleteAccount'><li style='list-style-position: inside;color:black'>UnDelete Account</li></a>");
 }
 
+console.log("bookmarks.length "+bookmarks.length);
+
 if(Notifications.length>0)
 {
 	for (notIter in Notifications)
