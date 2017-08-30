@@ -689,7 +689,8 @@ function setupProfilePage()
 													delete bookmarks[bIter];
 												}
 												}
-											);
+											
+											});
 											}
 											}
 											},3000);
