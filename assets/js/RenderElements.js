@@ -2509,7 +2509,7 @@ for(rowIter in visarr)
 			{
 				cell=$("<td></td>");
 				row.append(cell);
-				console.log(visarr[rowIter].visitorIP);
+				//console.log(visarr[rowIter].visitorIP);
 			$.ajax({
 				url: "https://freegeoip.net/json/"+visarr[rowIter].visitorIP,
 				context:(cell)
