@@ -3665,6 +3665,17 @@ if(Notifications.length>0)
 		NDDlinks['NotificationsLink'+notIter].click({thisadr:Notifications[notIter].adr},visitNotification);
 	}
 }
+
+
+if(bookmarks.length>0)
+{
+	for (bookIter in bookmarks)
+	{
+		NDDlinks['BookmarksLink'+bookIter]=$("<span id='bookmark"+bookIter+"'><li style='list-style-position: inside; cursor:pointer;color:black'>"+Accounts[bookmark[notIter].bookmarked].name+"</li></span>");
+		NDDlinks['BookmarksLink'+bookIter].click({thisadr:Notifications[notIter].adr},visitBookmark);
+	}
+}
+
 //console.log("sosedred");
 
 //console.log("sosed2red");
@@ -3756,6 +3767,12 @@ if(coverall)
 			}
 	}
 	*/
+}
+
+function visitBookmark(event)
+{
+	window.location.replace(event.data.thisadr);
+	
 }
 function visitNotification(event)
 {

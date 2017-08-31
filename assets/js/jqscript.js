@@ -617,9 +617,9 @@ function setupProfilePage()
 					
 					
 				 
-											console.log("add flexdiv");
-											console.log("joined games");
-											console.log(JSON.stringify(JoinedGames));
+											//console.log("add flexdiv");
+											//console.log("joined games");
+											//console.log(JSON.stringify(JoinedGames));
 											var leftright=addFlexDiv($("#profilepage"),"leftright","row","wrap");
 										leftright.css("align-items","flex-start");
 										var leftcol=addFlexDiv(leftright,"leftcol","column","wrap");
