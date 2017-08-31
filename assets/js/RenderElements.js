@@ -3671,6 +3671,7 @@ if(bookmarks.length>0)
 {
 	for (bookIter in bookmarks)
 	{
+		console.log(bookmarks[bookIter].observed);
 		NDDlinks['BookmarksLink'+bookIter]=$("<span id='bookmark"+bookIter+"'><li style='list-style-position: inside; cursor:pointer;color:black'>"+Accounts[bookmarks[bookIter].observed].name+"</li></span>");
 		NDDlinks['BookmarksLink'+bookIter].click({thisadr:"/profile/"+bookmarks[bookIter].observed},visitBookmark);
 	}
