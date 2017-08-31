@@ -3671,8 +3671,8 @@ if(bookmarks.length>0)
 {
 	for (bookIter in bookmarks)
 	{
-		NDDlinks['BookmarksLink'+bookIter]=$("<span id='bookmark"+bookIter+"'><li style='list-style-position: inside; cursor:pointer;color:black'>"+Accounts[bookmark[notIter].bookmarked].name+"</li></span>");
-		NDDlinks['BookmarksLink'+bookIter].click({thisadr:Notifications[notIter].adr},visitBookmark);
+		NDDlinks['BookmarksLink'+bookIter]=$("<span id='bookmark"+bookIter+"'><li style='list-style-position: inside; cursor:pointer;color:black'>"+Accounts[bookmarks[notIter].observed].name+"</li></span>");
+		NDDlinks['BookmarksLink'+bookIter].click({thisadr:"/profile/"+bookmarks[notIter].observed},visitBookmark);
 	}
 }
 
