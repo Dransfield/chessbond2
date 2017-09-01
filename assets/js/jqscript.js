@@ -2294,7 +2294,7 @@ function retrieveAlbums(usracc)
 		function(alb)
 		{
 			Albums=alb;
-			console.log(JSON.stringify(alb));
+			console.log("albums!"+JSON.stringify(alb));
 			console.log(usracc);
 				resolve(alb);
 		}
