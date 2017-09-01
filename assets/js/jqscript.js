@@ -719,8 +719,15 @@ function setupProfilePage()
 										{
 										redButton();
 										}
-										//var divv=addDiv(leftcol);
-										showAvatar(leftcol,ProfID);
+										
+										
+										
+										var avatarAndButtons=addFlexDiv(leftcol,"avatarAndButtons","row","nowrap");
+										
+										showAvatar(avatarAndButtons,ProfID);
+										showAnchorButton(avatarAndButtons,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
+										
+										
 										if(MyID==ProfID)
 										{
 										showImageUploadForm(leftcol,ProfID)
@@ -730,7 +737,6 @@ function setupProfilePage()
 										showHeader(leftcol,2,"Cumulative Rating:"+Accounts[ProfID].ELO);
 										showNewGameControls(leftcol);
 										showAnchorButton(leftcol,'Statistics',"/stats/"+ProfID,"KbigButton KcyanElement");
-										showAnchorButton(leftcol,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
 										
 										//var tbl=addFlexDiv(leftright,"rightcol","column");
 										
