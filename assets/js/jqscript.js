@@ -1232,12 +1232,7 @@ function setupAlbumsPage()
 						{
 							var newalbumbut=showButton($("#albumspage"),"New Album","KgreenElement KregularButton");
 							newalbumbut.click(createalbum);
-							var albumList=$("<div></div>");
-							$("#albumspage").append(albumList);
-							for (iter in Albums)
-							{
-							albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
-							}
+						
 							
 							io.socket.on('madealbum', function (data)
 								{
@@ -1245,6 +1240,12 @@ function setupAlbumsPage()
 							
 								});
 						}
+							var albumList=$("<div></div>");
+							$("#albumspage").append(albumList);
+							for (iter in Albums)
+							{
+							albumList.append($("<div><h2><a href='/album/"+Albums[iter].id+"'>"+Albums[iter].name+"</a></h2></div>"));	
+							}
 						
 						});
 					});
