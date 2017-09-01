@@ -642,7 +642,7 @@ function setupProfilePage()
 										
 										
 										setTimeout(function(){
-											io.socket.post("/bookmark",{bookmarker:MyID,observed:ProfID},function(res)
+											io.socket.post("/bookmark",{bookmarker:MyID,observed:ProfID,observedName:Accounts[ProfID].name},function(res)
 											{
 												toastr.success("Bookmark Added");
 												$("#bookmarkImg").detach();
