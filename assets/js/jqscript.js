@@ -1310,10 +1310,10 @@ function renderAlbumPage(alb)
 							var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
 							setAvatarButton.click(function(){
 							setAvatar(MyID,mypics[imgIndex].id);
-						}
+						
 						
 						});
-							
+							}
 							}
 						});						
 						
