@@ -726,7 +726,7 @@ function setupProfilePage()
 										
 										showAvatar(avatarAndButtons,ProfID);
 										showAnchorButton(avatarAndButtons,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
-										
+										//showAnchorButton(avatarAndButtons,'Send Message','
 										
 										if(MyID==ProfID)
 										{
@@ -2185,7 +2185,7 @@ function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 				}
 				$("#chatformspan").detach();
 				var chatDivv=$("<div></div>");
-				showChatForm(chatDivv,values[0].groupid,"Perm Message","none",otherPerson);
+				showChatForm(chatDivv,convid,"Perm Message","none",otherPerson);
 				$("#undermsgbox").append(chatDivv);
 			})
 }
