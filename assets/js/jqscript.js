@@ -1296,16 +1296,22 @@ function renderAlbumPage(alb)
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
+					
+					if(alb.user==MyID)
+						{
 						showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-						//$(this).val(">("+(mypics.length-imgIndex)+")");
-						//$("#button"+ButtonNumber).val("ass");
+						}
+						
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
 							
+						if(alb.user==MyID)
+						{	
 							var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
-						
-						setAvatarButton.click(function(){
+							setAvatarButton.click(function(){
 							setAvatar(MyID,mypics[imgIndex].id);
+						}
+						
 						});
 							
 							}
@@ -1322,17 +1328,23 @@ function renderAlbumPage(alb)
 								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 								$("#descSpan").empty();
 								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
+								
+								if(alb.user==MyID)
+								{
 								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-						
+								}
 									//$("#leftbut").val(">("+imgIndex+")");
 										$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						
 									$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
-									
+								if(alb.user==MyID)
+									{	
 									var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
 						
 									setAvatarButton.click(function(){
 									setAvatar(MyID,mypics[imgIndex].id);
+									}
+									
 									});
 								}
 							});
@@ -2294,8 +2306,8 @@ function retrieveAlbums(usracc)
 		function(alb)
 		{
 			Albums=alb;
-			console.log("albums!"+JSON.stringify(alb));
-			console.log(usracc);
+			//console.log("albums!"+JSON.stringify(alb));
+			//console.log(usracc);
 				resolve(alb);
 		}
 		);
