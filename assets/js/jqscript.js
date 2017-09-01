@@ -1343,9 +1343,10 @@ function renderAlbumPage(alb)
 						
 									setAvatarButton.click(function(){
 									setAvatar(MyID,mypics[imgIndex].id);
-									}
+									
 									
 									});
+									}
 								}
 							});
 												
