@@ -3640,6 +3640,16 @@ NDDlinks['MessagesLink']=$("<a  id='messageslink' href='/myprofilemg'><li style=
 
 NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Albums</li></a>");
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
+if(bookmarks.length>0)
+{
+	for (bookIter in bookmarks)
+	{
+		console.log(bookmarks[bookIter].observed);
+		console.log(Accounts[bookmarks[bookIter].observed]);
+		NDDlinks['BookmarksLink'+bookIter]=$("<span id='bookmark"+bookIter+"'><li style='list-style-position: inside; cursor:pointer;color:black'>"+bookmarks[bookIter].observedName+"</li></span>");
+		NDDlinks['BookmarksLink'+bookIter].click({thisadr:"/profile/"+bookmarks[bookIter].observed},visitBookmark);
+	}
+}
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
 
 if (Accounts[MyID].admin)
@@ -3667,16 +3677,7 @@ if(Notifications.length>0)
 }
 
 
-if(bookmarks.length>0)
-{
-	for (bookIter in bookmarks)
-	{
-		console.log(bookmarks[bookIter].observed);
-		console.log(Accounts[bookmarks[bookIter].observed]);
-		NDDlinks['BookmarksLink'+bookIter]=$("<span id='bookmark"+bookIter+"'><li style='list-style-position: inside; cursor:pointer;color:black'>"+bookmarks[bookIter].observedName+"</li></span>");
-		NDDlinks['BookmarksLink'+bookIter].click({thisadr:"/profile/"+bookmarks[bookIter].observed},visitBookmark);
-	}
-}
+
 
 //console.log("sosedred");
 
