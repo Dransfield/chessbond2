@@ -722,7 +722,7 @@ function setupProfilePage()
 										
 										
 										
-										var avatarAndButtons=addFlexDiv(leftcol,"avatarAndButtons","row","nowrap");
+										var avatarAndButtons=addFlexDiv(leftcol,"avatarAndButtons","row","nowrap","space-between");
 										
 										showAvatar(avatarAndButtons,ProfID);
 										showAnchorButton(avatarAndButtons,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
