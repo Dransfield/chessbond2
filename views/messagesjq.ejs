@@ -22,7 +22,7 @@
         <div id="navbar"></div>
         <div id="messagespage"></div>
         
-        <script>var person=req.query('person');</script>
+        <script>var person='<%- req.query('person') %>';</script>
         
         <% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
