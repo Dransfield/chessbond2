@@ -1974,9 +1974,14 @@ function setupMessagesPage()
 					
 						}
 						
-						
+						if (!person)
+						{
 						getMessages();
-						
+						}
+						else
+						{
+						getMessages(person);	
+						}
 				
 				});
 			});
@@ -2023,7 +2028,7 @@ function showPrevUsers(event)
 							}
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
-							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessagesEvent);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
 						}
@@ -2077,7 +2082,7 @@ function showUsers(event)
 							
 							
 							var ava=showUserIdentity(event.data.peoplediv,otherPerson);
-							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
+							ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessagesEvent);
 						//	ava.click({person:otherPerson,msgrecepticle:event.data.msgrecepticle},getMessages);
 							
 						//console.log(PrivateConversations[MyID][iter].Talker1);
@@ -2090,13 +2095,19 @@ function showUsers(event)
 }
 //function getMessages(usracc,msgbox)
 
-function getMessages(event)
+function getMesssagesEvent(event)
 {
 	var usracc;
 	if (event)
 	{
 	usracc=event.data.person;
 	}
+	getMessages(usracc);
+}
+
+function getMessages(usracc)
+{
+	
 	
 	
 	var msgbox=$("#msgbox");
@@ -2196,7 +2207,7 @@ function showIdentMessage(elem,msgobj,clickable)
 				var textSpan=addSpan(ava);
 				if (clickable)
 				{
-				ava.click({person:msgobj.sender},getMessages);
+				ava.click({person:msgobj.sender},getMessagesEvent);
 				}
 				textSpan.append(msgobj.content);
 				textSpan.css("border-style","solid");
