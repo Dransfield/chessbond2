@@ -726,7 +726,7 @@ function setupProfilePage()
 										
 										showAvatar(avatarAndButtons,ProfID);
 										showAnchorButton(avatarAndButtons,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
-										//showAnchorButton(avatarAndButtons,'Send Message','
+										showAnchorButton(avatarAndButtons,'Send Message','/myprofilemg/?person='+ProfID,"KbigButton KcyanElement");
 										
 										if(MyID==ProfID)
 										{
