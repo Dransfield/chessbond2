@@ -2095,7 +2095,7 @@ function showUsers(event)
 }
 //function getMessages(usracc,msgbox)
 
-function getMesssagesEvent(event)
+function getMessagesEvent(event)
 {
 	var usracc;
 	if (event)
