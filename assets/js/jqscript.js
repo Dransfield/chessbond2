@@ -2202,6 +2202,7 @@ function getMessages(usracc)
 
 function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 {
+	console.log("get wall posts then should show chat form");
 	getWallposts(convid,msgsToShow).then(values=>
 			{
 				for (messageIter in values)
@@ -2210,6 +2211,7 @@ function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 				}
 				$("#chatformspan").detach();
 				var chatDivv=$("<div></div>");
+				console.log("should show chat form");
 				showChatForm(chatDivv,convid,"Perm Message","none",otherPerson);
 				$("#undermsgbox").append(chatDivv);
 			})
