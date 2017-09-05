@@ -89,11 +89,11 @@ var NavbarDropDown;
 			});
 		io.socket.on('IdleNotification',function (data)
 			{
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
 				if(Accounts[data.user])
 					{
 			Accounts[data.user].idle=data.idlestatus;
-			console.log(data.idlestatus);
+			//console.log(data.idlestatus);
 			if(data.idlestatus=='active')
 			{
 //			$("#circlediv"+Accounts[data.user].name).css("background-color","green");
@@ -1941,6 +1941,7 @@ function setupMessagesPage()
 						},2000);
 						});
 						
+						
 					
 				
 					for (iter in PrivateConversations[MyID]) 
@@ -2172,15 +2173,15 @@ function getMessages(usracc)
 		
 	for (iter in PrivateConversations[MyID])
 	{
-		console.log(PrivateConversations[MyID][iter]);
-		console.log(usracc);
-		console.log(MyID);
+		//console.log(PrivateConversations[MyID][iter]);
+	//	console.log(usracc);
+	//	console.log(MyID);
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
 		{
 			
 			foundPrivateConv=true;
 			conv=PrivateConversations[MyID][iter];
-			console.log("iter1 "+iter);
+			//console.log("iter1 "+iter);
 			showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc,msgbox);
 			
 		}
@@ -2197,12 +2198,18 @@ function getMessages(usracc)
 			
 							});
 	}
+	io.socket.on('Perm Message', function (data)
+						{
+						console.log(data);
+							showIdentMessages(iter,PrivateConversations[MyID][usracc].id,15,usracc,msgbox);
+			
+						});
 }
 }
 
 function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 {
-	console.log("get wall posts then should show chat form");
+//	console.log("get wall posts then should show chat form");
 	getWallposts(convid,msgsToShow).then(values=>
 			{
 				for (messageIter in values)
@@ -2211,7 +2218,7 @@ function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
 				}
 				$("#chatformspan").detach();
 				var chatDivv=$("<div></div>");
-				console.log("should show chat form");
+				//console.log("should show chat form");
 				showChatForm(chatDivv,convid,"Perm Message","none",otherPerson);
 				$("#undermsgbox").append(chatDivv);
 			})
