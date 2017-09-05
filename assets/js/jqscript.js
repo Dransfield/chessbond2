@@ -2201,7 +2201,7 @@ function getMessages(usracc)
 	io.socket.on('Perm Message', function (data)
 						{
 						console.log(data);
-							showIdentMessages(iter,PrivateConversations[MyID][usracc].id,15,usracc,msgbox);
+							showIdentMessages(0,data.groupid,15,usracc,msgbox);
 			
 						});
 }
