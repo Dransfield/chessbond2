@@ -2182,7 +2182,7 @@ function getMessages(usracc)
 			foundPrivateConv=true;
 			conv=PrivateConversations[MyID][iter];
 			//console.log("iter1 "+iter);
-			showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc,msgbox);
+			showIdentMessages(PrivateConversations[MyID][iter].id,15,usracc,msgbox);
 			
 		}
 	}
@@ -2194,7 +2194,7 @@ function getMessages(usracc)
 							function (resData, jwRes) {
 								console.log("resData[0].id "+resData.id);
 								PrivateConversations[MyID][usracc]=resData;
-								showIdentMessages(iter,PrivateConversations[MyID][usracc].id,15,usracc,msgbox);
+								showIdentMessages(PrivateConversations[MyID][usracc].id,15,usracc,msgbox);
 			
 							});
 	}
@@ -2202,13 +2202,13 @@ function getMessages(usracc)
 						{
 						console.log(data);
 						msgbox.clear();
-							showIdentMessages(0,data.groupid,15,usracc,msgbox);
+							showIdentMessages(data.groupid,15,usracc,msgbox);
 			
 						});
 }
 }
 
-function showIdentMessages(iter,convid,msgsToShow,otherPerson,msgbox)
+function showIdentMessages(convid,msgsToShow,otherPerson,msgbox)
 {
 //	console.log("get wall posts then should show chat form");
 	getWallposts(convid,msgsToShow).then(values=>
