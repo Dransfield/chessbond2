@@ -2168,6 +2168,8 @@ function getMessages(usracc)
 				backBut.click(function(){getMessages()});
 				
 		
+		var foundPrivateConv=false;
+		
 	for (iter in PrivateConversations[MyID])
 	{
 		console.log(PrivateConversations[MyID][iter]);
@@ -2176,12 +2178,24 @@ function getMessages(usracc)
 		if((PrivateConversations[MyID][iter].Talker1==usracc && PrivateConversations[MyID][iter].Talker2==MyID) || (PrivateConversations[MyID][iter].Talker2==usracc && PrivateConversations[MyID][iter].Talker1==MyID))
 		{
 			
-			
+			foundPrivateConv=true;
 			conv=PrivateConversations[MyID][iter];
 			console.log("iter1 "+iter);
 			showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc,msgbox);
 			
 		}
+	}
+	
+	if(!foundPrivateConv)
+	{
+		
+		io.socket.post('/privateconversation',{Talker1:MyID,Talker2:usracc},
+							function (resData, jwRes) {
+								console.log("resData[0].id "+resData.id);
+								PrivateConversations[MyID][usracc]=resData;
+								showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc,msgbox);
+			
+							});
 	}
 }
 }
