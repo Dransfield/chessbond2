@@ -2201,7 +2201,7 @@ function getMessages(usracc)
 	io.socket.on('Perm Message', function (data)
 						{
 						console.log(data);
-						msgbox.clear();
+						msgbox.empty();
 							showIdentMessages(data.groupid,15,usracc,msgbox);
 			
 						});
