@@ -2193,7 +2193,7 @@ function getMessages(usracc)
 							function (resData, jwRes) {
 								console.log("resData[0].id "+resData.id);
 								PrivateConversations[MyID][usracc]=resData;
-								showIdentMessages(iter,PrivateConversations[MyID][iter].id,15,usracc,msgbox);
+								showIdentMessages(iter,PrivateConversations[MyID][usracc].id,15,usracc,msgbox);
 			
 							});
 	}
