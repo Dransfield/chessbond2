@@ -3055,7 +3055,7 @@ if(intendedFor === undefined) { intendedFor = ""; }
 
 	var  chatDiv=$("<span id='chatformspan'</span>");
 	elem.append(chatDiv);
-	var chatform=$("<input style='width:100px;height:400px' type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+	var chatform=$("<input  type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		chatDiv.append(chatform);
 		chatDiv.append(chatbutton);
