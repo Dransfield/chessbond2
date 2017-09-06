@@ -3255,7 +3255,7 @@ function showGenericTextwithInput(elem,words,elemTochange,localRecord,updatefunc
 	
 	var editbut=showButton(elem,"Edit","KregularButton KgreenElement");
 	
-	var myinput=$("<input type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
+	var myinput=$("<textarea style='width:100%;height:400px;' type='text' autocomplete='off' class='form-control' placeholder='' name='name' >");
 	
 	
 	elem.append(myinput);
