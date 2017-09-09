@@ -132,6 +132,14 @@ text-align:center;
 padding:5px;
  cursor:pointer;
 }
+.KinbetweenButton{
+color:white;
+font-size:1.6em;
+border-radius: 9px;
+text-align:center;
+padding:5px;
+ cursor:pointer;
+}
 .KregularButton{
 color:white;
 font-size:1em;
