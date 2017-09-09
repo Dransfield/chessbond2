@@ -725,8 +725,8 @@ function setupProfilePage()
 										var avatarAndButtons=addFlexDiv(leftcol,"avatarAndButtons","row","wrap","space-between");
 										
 										showAvatar(avatarAndButtons,ProfID);
-										showAnchorButton(avatarAndButtons,'Albums',"/albums/"+ProfID,"KbigButton KcyanElement");
-										showAnchorButton(avatarAndButtons,'Send Message','/myprofilemg/?person='+ProfID,"KbigButton KcyanElement");
+										showAnchorButton(avatarAndButtons,'Albums',"/albums/"+ProfID,"KregularButton KcyanElement");
+										showAnchorButton(avatarAndButtons,'Send Message','/myprofilemg/?person='+ProfID,"KregularButton KcyanElement");
 										
 										if(MyID==ProfID)
 										{
