@@ -1263,7 +1263,7 @@ function renderAlbumPage(alb)
 						showHeader($("#albumpage"),3," Upload more photos"); 
 						showImageUploadForm($("#albumpage"),MyID,alb.id);
 						}
-						var displayFlex=addFlexDiv($("#albumpage"),"re","row");
+						var displayFlex=addFlexDiv($("#albumpage"),"re","row","wrap");
 						
 						var imgIndex=0;
 						
