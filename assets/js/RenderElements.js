@@ -3460,7 +3460,7 @@ function showBoardOptions(elem)
 		
 		var finalPercent=obj.value;
 		
-		if($(window).width()*(boardSizeValues[sIter].value/100)<91)
+		if($(window).width()*(obj.value/100)<91)
 		{
 			
 			finalPercent=40;
