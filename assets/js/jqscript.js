@@ -366,7 +366,7 @@ var NavbarDropDown;
 							if($(window).width()*(boardSizeValues[sIter].value/100)<91)
 							{
 								
-								finalPercent=30;
+								finalPercent=40;
 							}
 							
 							$("#bdd").css("width",finalPercent+"%");
