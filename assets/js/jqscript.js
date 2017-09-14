@@ -357,9 +357,22 @@ var NavbarDropDown;
 				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
 					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
 					//resizeBoard(boardSizeValues[sIter].value);
-					$("#bdd").css("width",boardSizeValues[sIter].value+"%");
-					$("#boardcontainer").css("width","100%");
-					$("#sideBoard").css("width",(100-boardSizeValues[sIter].value)+"%");
+					
+					
+						var finalPercent=boardSizeValues[sIter].value;
+							
+							if($(window).width()/obj.value<91)
+							{
+								
+								finalPercent=20;
+							}
+							
+							$("#bdd").css("width",finalPercent+"%");
+							$("#boardcontainer").css("width","100%");
+
+							$("#sideBoard").css("width",(100-finalPercent)+"%");
+					
+					
 					}
 				}
 				}

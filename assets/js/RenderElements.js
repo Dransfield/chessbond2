@@ -3454,12 +3454,22 @@ function showBoardOptions(elem)
 		boardSizeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
+		
 		console.log($(window).width()); 
 		console.log(obj.value);
-		$("#bdd").css("width",obj.value+"%");
+		
+		var finalPercent=obj.value;
+		
+		if($(window).width()/obj.value<91)
+		{
+			
+			finalPercent=20;
+		}
+		
+		$("#bdd").css("width",finalPercent+"%");
 		$("#boardcontainer").css("width","100%");
 
-		$("#sideBoard").css("width",(100-obj.value)+"%");
+		$("#sideBoard").css("width",(100-finalPercent)+"%");
 
 		//topPlayerMarque.css("width",$("#bdd").css("width"));
 		Accounts[MyID].BoardSize=obj.value;
