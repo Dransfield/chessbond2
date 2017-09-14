@@ -361,9 +361,9 @@ var NavbarDropDown;
 					
 						var finalPercent=boardSizeValues[sIter].value;
 						console.log("win width "+$(window).width());
-						console.log("board size"+boardSizeValues[sIter].value);
-							console.log("calc result"+($(window).width()/boardSizeValues[sIter].value));
-							if($(window).width()/boardSizeValues[sIter].value<91)
+						console.log("board size"+boardSizeValues[sIter].value/100);
+							console.log("calc result"+($(window).width()*(boardSizeValues[sIter].value/100)));
+							if($(window).width()*(boardSizeValues[sIter].value/100)<91)
 							{
 								
 								finalPercent=20;
