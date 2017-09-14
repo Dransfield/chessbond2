@@ -361,7 +361,7 @@ var NavbarDropDown;
 					
 						var finalPercent=boardSizeValues[sIter].value;
 							
-							if($(window).width()/obj.value<91)
+							if($(window).width()/boardSizeValues[sIter].value<91)
 							{
 								
 								finalPercent=20;
