@@ -3454,6 +3454,7 @@ function showBoardOptions(elem)
 		boardSizeSel.change(function()
 		{
 		var obj=JSON.parse($(this).val());
+		console.log($(window).width()); 
 		$("#bdd").css("width",obj.value+"%");
 		$("#boardcontainer").css("width","100%");
 
