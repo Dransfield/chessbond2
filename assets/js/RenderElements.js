@@ -3455,6 +3455,7 @@ function showBoardOptions(elem)
 		{
 		var obj=JSON.parse($(this).val());
 		console.log($(window).width()); 
+		console.log(obj.value);
 		$("#bdd").css("width",obj.value+"%");
 		$("#boardcontainer").css("width","100%");
 
