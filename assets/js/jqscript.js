@@ -331,7 +331,7 @@ var NavbarDropDown;
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
 				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
-				topPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+				topPlayerMarque.append("<img style='position:relative;' src='/images/eye.png' height='30px'>");
 				showsmallAvatar(topPlayerMarque,PlayerIDOnTop);
 				showUsername(topPlayerMarque,PlayerIDOnTop);
 				if (Accounts[PlayerIDOnTop])
