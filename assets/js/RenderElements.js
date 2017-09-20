@@ -3415,6 +3415,16 @@ function showBoardOptions(elem)
 	{
 		
 		board1.flip();
+		for (btIter in boardThemeValues)
+	{
+		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
+		{
+			
+			var obj=boardThemeValues[btIter];
+	$(".white-1e1d7").css("background-color",obj.whitebackground);	
+		$(".black-3c85d").css("background-color",obj.blackbackground);
+		}
+	}
 	});
 	
 	volumeButton.click(function()
