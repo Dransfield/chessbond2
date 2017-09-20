@@ -12,8 +12,11 @@ var game;
 var withdrawButton;
 
 var turnTakerNoticeDiv;
+
+var topPlayerMarqueContainer;
 var topPlayerMarque;
 var bottomPlayerMarque;
+var bottomPlayerMarqueContainer;
 
 var BottomPingDisplay;
 var TopPingDisplay;

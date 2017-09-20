@@ -3415,6 +3415,8 @@ function showBoardOptions(elem)
 	{
 		
 		board1.flip();
+		bottomPlayerMarque.detach();
+		topPlayerMarqueContainer.append(bottomPlayerMarque);
 		for (btIter in boardThemeValues)
 	{
 		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
@@ -3425,6 +3427,8 @@ function showBoardOptions(elem)
 		$(".black-3c85d").css("background-color",obj.blackbackground);
 		}
 	}
+	
+	
 	});
 	
 	volumeButton.click(function()

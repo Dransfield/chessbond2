@@ -326,7 +326,8 @@ var NavbarDropDown;
 					coverall.detach();
 					});
 				
-				topPlayerMarque=addFlexDiv(boardDivDiv,"topPlayerMarque","row","nowrap","space-between","center");
+				topPlayerMarqueContainer=addDiv(boardDivDiv);
+				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","nowrap","space-between","center");
 				topPlayerMarque.css("overflow","auto");
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
@@ -378,8 +379,8 @@ var NavbarDropDown;
 					}
 				}
 				}
-				
-				bottomPlayerMarque=addFlexDiv(boardDivDiv,"bottomPlayerMarque","row","nowrap","space-between","center");
+				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarque,"bottomPlayerMarque","row","nowrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
