@@ -380,7 +380,7 @@ var NavbarDropDown;
 				}
 				}
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
-				bottomPlayerMarque=addFlexDiv(bottomPlayerMarque,"bottomPlayerMarque","row","nowrap","space-between","center");
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
