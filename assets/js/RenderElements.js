@@ -3417,6 +3417,10 @@ function showBoardOptions(elem)
 		board1.flip();
 		bottomPlayerMarque.detach();
 		topPlayerMarqueContainer.append(bottomPlayerMarque);
+		
+		topPlayerMarque.detach();
+		bottomPlayerMarqueContainer.append(topPlayerMarque);
+		
 		for (btIter in boardThemeValues)
 	{
 		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
