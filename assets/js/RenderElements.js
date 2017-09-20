@@ -3409,6 +3409,14 @@ function showBoardOptions(elem)
 	var volumeSel=showSelect(optionDiv,volumeNames,volumeValues,"Sound Volume");
 	var volumeButton=showButton(optionDiv,"Sound Enabled","KregularButton KgreenElement");
 	var pieceThemeSel=showSelect(optionDiv,piecethemeNames,piecethemeValues,"Piece Theme");
+	var flipButton=showButton(optionDiv,"Flip Board"."LregularButton kgreenButton");
+	
+	flipButton.click(function()
+	{
+		
+		board1.flip();
+	});
+	
 	volumeButton.click(function()
 	{
 		console.log( $(this).text());
