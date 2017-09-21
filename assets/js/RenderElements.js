@@ -3416,10 +3416,23 @@ function showBoardOptions(elem)
 		
 		board1.flip();
 		bottomPlayerMarque.detach();
-		topPlayerMarqueContainer.append(bottomPlayerMarque);
 		
 		topPlayerMarque.detach();
+		
+		if(!boardIsFlipped)
+		{
 		bottomPlayerMarqueContainer.append(topPlayerMarque);
+		topPlayerMarqueContainer.append(bottomPlayerMarque);
+		
+		}
+		
+		else
+		{
+		bottomPlayerMarqueContainer.append(bottomPlayerMarque);
+		topPlayerMarqueContainer.append(topPlayerMarque);
+		
+		}
+		
 		
 		for (btIter in boardThemeValues)
 	{

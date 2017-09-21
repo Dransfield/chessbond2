@@ -18,6 +18,8 @@ var topPlayerMarque;
 var bottomPlayerMarque;
 var bottomPlayerMarqueContainer;
 
+var boardWasFlipped=false;
+
 var BottomPingDisplay;
 var TopPingDisplay;
 
