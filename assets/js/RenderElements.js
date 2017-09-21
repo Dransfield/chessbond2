@@ -3419,18 +3419,17 @@ function showBoardOptions(elem)
 		
 		topPlayerMarque.detach();
 		
-		if(!boardIsFlipped)
+		if(!boardWasFlipped)
 		{
 		bottomPlayerMarqueContainer.append(topPlayerMarque);
 		topPlayerMarqueContainer.append(bottomPlayerMarque);
-		
+		boardWasFlipped=true;
 		}
-		
 		else
 		{
 		bottomPlayerMarqueContainer.append(bottomPlayerMarque);
 		topPlayerMarqueContainer.append(topPlayerMarque);
-		
+		boardWasFlipped=false;
 		}
 		
 		
