@@ -30,7 +30,7 @@ module.exports.policies = {
 
 	'*': true,
 	'myApiAction': ['hasJsonWebToken'],
-	'mySessionAction': ['sessionAuth']
+	'mySessionAction': ['sessionAuth'],
 
   /***************************************************************************
   *                                                                          *
