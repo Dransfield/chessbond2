@@ -38,6 +38,9 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
+  FollowController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
