@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-   '*': true,
+   //'*': true,
 
 	//'*': 'isLoggedIn',
 	'myApiAction': ['hasJsonWebToken'],
