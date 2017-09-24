@@ -2299,11 +2299,11 @@ var opcg = new Promise
 	});
 });
 		
-
+console.log(MyID);
 Promise.all([opcg, retrieveGames([MyID])]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
-	console.log("TWO NAVBARS");
+	console.log("home page promise resolved");
 	AccountsToRetrieve[MyID]=MyID;
 	for (x in OpenGames)
 	{

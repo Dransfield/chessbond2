@@ -3012,6 +3012,8 @@ io.socket.post("/commentreport",{complaint:content,msgID:msgid,reporter:sender},
 }
 function showLoginForm(elem)
 {
+	console.log("show login form");
+	
 	var overallDiv=addFlexDiv(elem,"myloginform","column","wrap","space-around","flex-start");
        showHeader(overallDiv,2,"Email");
      var emailform=$("<input type='text' autocomplete='on' placeholder='email' name='name' >");
