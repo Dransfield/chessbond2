@@ -41,7 +41,7 @@ module.exports.policies = {
   FollowController:{
 	  create: 'isLoggedIn',
 	  destroy: 'isLoggedIn'
-  }
+  },
    BookmarkController:{
 	  create: 'isLoggedIn',
 	  destroy: 'isLoggedIn'
