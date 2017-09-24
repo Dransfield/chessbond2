@@ -2334,12 +2334,12 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 			});
 		});
 	
+
+	
+});
 }
 	else
 	{renderHomePage();}
-	
-});
-
 }
 
 function retrieveAlbum(albid)
