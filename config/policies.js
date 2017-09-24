@@ -26,9 +26,9 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': false,
+   '*': true,
 
-	'*': 'isLoggedIn',
+	//'*': 'isLoggedIn',
 	'myApiAction': ['hasJsonWebToken'],
 	'mySessionAction': ['sessionAuth'],
 
@@ -43,6 +43,18 @@ module.exports.policies = {
 	  destroy: 'isLoggedIn'
   },
    BookmarkController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  }
+   ChessgameController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  }
+   OpenchessgameController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  }
+   PrivateconversationController:{
 	  create: 'isLoggedIn',
 	  destroy: 'isLoggedIn'
   }
