@@ -2290,6 +2290,7 @@ function deleteidentmessage(event)
 
 function setupHomePage()
 {
+	console.log("setuphomepage function");
 	AccountsToRetrieve[MyID]=MyID;
 var opcg = new Promise
 ((resolve, reject) => {
