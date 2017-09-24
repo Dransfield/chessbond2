@@ -711,6 +711,10 @@ function setupProfilePage()
 												}
 												
 												}
+												else
+												{toastr.error(error);
+													console.log(JSON.stringify(error));
+													}
 											});
 											}
 											}
