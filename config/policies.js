@@ -26,9 +26,9 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-   '*': false,
+  // '*': false,
 
-	//'*': 'isLoggedIn',
+	'*': 'isLoggedIn',
 	'myApiAction': ['hasJsonWebToken'],
 	'mySessionAction': ['sessionAuth'],
 
