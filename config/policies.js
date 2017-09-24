@@ -42,6 +42,10 @@ module.exports.policies = {
 	  create: 'isLoggedIn',
 	  destroy: 'isLoggedIn'
   }
+   BookmarkController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  }
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
