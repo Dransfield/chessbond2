@@ -691,7 +691,7 @@ function setupProfilePage()
 											{
 											if (bookmarks[bIter].observed==ProfID && bookmarks[bIter].bookmarker==MyID)
 											{
-											io.socket.post("/bookmark/destroy",{id:bookmarks[bIter].id},function(error,res)
+											io.socket.post("/bookmark/destroy",{id:bookmarks[bIter].id},function(res,error)
 											{
 												if(!error)
 												{
