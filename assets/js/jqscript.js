@@ -693,9 +693,7 @@ function setupProfilePage()
 											{
 											io.socket.post("/bookmark/destroy",{id:bookmarks[bIter].id},function(res,jwres)
 											{
-												console.log(jwres.statusCode);
-												console.log(jwres.body);
-												if(!error)
+												if(jwres.statusCode!=403)
 												{
 												console.log(res);
 												toastr.success("Bookmark Removed");
@@ -714,8 +712,7 @@ function setupProfilePage()
 												
 												}
 												else
-												{toastr.error(error);
-													console.log(JSON.stringify(error));
+												{toastr.error(jwres.body);
 													}
 											});
 											}
