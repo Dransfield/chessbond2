@@ -2300,7 +2300,8 @@ var opcg = new Promise
 	});
 });
 		
-console.log(MyID);
+if(MyID)
+{
 Promise.all([opcg, retrieveGames([MyID])]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
@@ -2333,8 +2334,9 @@ Promise.all([opcg, retrieveGames([MyID])]).then(values => {
 			});
 		});
 	
-
-	
+}
+	else
+	{renderHomePage();}
 	
 });
 
