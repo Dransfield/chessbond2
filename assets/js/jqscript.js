@@ -3303,13 +3303,20 @@ function renderHomePage()
 	{
 		
 	showOpenGameList($("#usr"),OpenGames);
+	if(MyID)
+	{
 	showRecentGames($("#usr"),MyID);
+	}
 	showLoginForm($("#loginform"));
+	
 	$("#newGameControls").css("text-align","center");
+	
 	showWebsiteNameJumbo($("#newGameControls"))
+	if(MyID)
+	{
 	
 	showNewGameControls($("#newGameControls"));
-	
+	}
 	io.socket.on('newmygameevent', function (data)
 			{
 			console.log('recieved new game event '+data);
