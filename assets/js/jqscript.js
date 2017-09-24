@@ -1745,7 +1745,8 @@ var cg = new Promise
 		function (resData,jwres){
 			
 			
-			
+			if (resData)
+			{
 			resData.sort(function(b,a)
 			{
 			//	console.log(a.createdAt);
@@ -1772,6 +1773,7 @@ var cg = new Promise
 			//console.log(JSON.stringify(JoinedGames[persons[x]][1]));
 			//console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
 			resolve(resData);
+			}
 		});		
 });
 PromiseArray.push(cg);	
