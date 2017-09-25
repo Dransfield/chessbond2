@@ -593,7 +593,7 @@ var NavbarDropDown;
 
 function setupProfilePage()
 {
-	
+	console.log("MyID is "+MyID);
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
 	
