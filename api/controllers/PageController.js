@@ -1159,6 +1159,9 @@ transporter.sendMail(mailOptions, function(error, info){
 		
   var roomName = req.param('roomName');
  console.log("joining room "+roomName);
+		console.log("HELLO"+req.url);
+
+
   sails.sockets.join(req, roomName, function(err) {
     if (err) {
       return res.serverError(err);
@@ -1169,7 +1172,7 @@ transporter.sendMail(mailOptions, function(error, info){
     {
 	if (req.session.passport.user)
     {
-		console.log(req.url);
+		console.log("HELLO"+req.url);
 		//console.log(req.url);
 			
 	
