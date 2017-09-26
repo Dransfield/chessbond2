@@ -206,7 +206,7 @@ var NavbarDropDown;
 			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			console.log("blade "+JSON.stringify(resData));
 			if (resData.message=="not logged in")
-			{window.location.replace(window.location.hostname);}
+			{window.location=(window.location.hostname);}
 			});
 		
 			//io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
