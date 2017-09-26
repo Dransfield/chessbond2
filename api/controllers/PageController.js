@@ -1168,7 +1168,10 @@ transporter.sendMail(mailOptions, function(error, info){
 	if (req.session.passport)
     {
 	if (req.session.passport.user)
-    {	
+    {
+		console.log(req.url);
+		//console.log(req.url);
+			
 	
 	Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
 		(function (err, records) {
