@@ -206,7 +206,9 @@ var NavbarDropDown;
 			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			console.log("blade "+JSON.stringify(resData));
 			if (resData.message=="not logged in")
-			{window.location=(window.location.hostname);}
+			{
+				console.log(window.location.hostname);
+				window.location=("www.chessbond.com");}
 			});
 		
 			//io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
