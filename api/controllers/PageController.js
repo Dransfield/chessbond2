@@ -1159,10 +1159,34 @@ transporter.sendMail(mailOptions, function(error, info){
 		
   var roomName = req.param('roomName');
  console.log("joining room "+roomName);
-		console.log("path"+req.param('reqpath'));
-console.log("href"+req.param('reqhref'));
-console.log("hostname"+req.param('reqhost'));
-  sails.sockets.join(req, roomName, function(err) {
+
+var reqpath=req.param('reqpath');
+	if(req.param('reqpath'))
+	{
+	console.log(reqpath);
+	var loggedin=false;
+	 if (req.session)
+    {
+	if (req.session.passport)
+    {
+	if (req.session.passport.user)
+    {
+	loggedin=true;
+	}
+	}
+	}
+	
+	if(loggedin==false)
+	{
+	if(reqpath!="")
+	{
+	}
+	}
+	
+	}
+	
+	
+ sails.sockets.join(req, roomName, function(err) {
     if (err) {
       return res.serverError(err);
     }
@@ -1172,8 +1196,6 @@ console.log("hostname"+req.param('reqhost'));
     {
 	if (req.session.passport.user)
     {
-		console.log("HELLO"+req.url);
-		//console.log(req.url);
 			
 	
 	Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
