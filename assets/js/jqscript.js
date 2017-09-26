@@ -203,7 +203,7 @@ var NavbarDropDown;
 			console.log(JSON.stringify(resData));
 			});
 		
-			io.socket.get("/subscribeToRoom",{roomName:'im online',reqpath:window.location.href},function (resData,jwres){
+			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			//console.log(JSON.stringify(resData));
 			});
 		

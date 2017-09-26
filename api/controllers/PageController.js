@@ -1159,9 +1159,9 @@ transporter.sendMail(mailOptions, function(error, info){
 		
   var roomName = req.param('roomName');
  console.log("joining room "+roomName);
-		console.log("HELLO"+req.param('reqpath'));
-
-
+		console.log("path"+req.param('reqpath'));
+console.log("href"+req.param('reqhref'));
+console.log("hostname"+req.param('reqhost'));
   sails.sockets.join(req, roomName, function(err) {
     if (err) {
       return res.serverError(err);
