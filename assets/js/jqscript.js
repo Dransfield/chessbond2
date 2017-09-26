@@ -208,7 +208,7 @@ var NavbarDropDown;
 			if (resData.message=="not logged in")
 			{
 				console.log(window.location.hostname);
-				window.location=("www.chessbond.com");}
+				window.location.replace("/");}
 			});
 		
 			//io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
