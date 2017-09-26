@@ -1163,7 +1163,7 @@ transporter.sendMail(mailOptions, function(error, info){
 var reqpath=req.param('reqpath');
 	if(req.param('reqpath'))
 	{
-	console.log(reqpath);
+	console.log("reqpath is"+reqpath);
 	var loggedin=false;
 	 if (req.session)
     {
