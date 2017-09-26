@@ -204,7 +204,7 @@ var NavbarDropDown;
 			});
 		
 			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
-			//console.log(JSON.stringify(resData));
+			console.log("blade "+JSON.stringify(resData));
 			if (resData.message=="not logged in")
 			{window.location.assign(window.location.hostname);}
 			});
