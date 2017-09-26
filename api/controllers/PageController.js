@@ -1178,8 +1178,12 @@ var reqpath=req.param('reqpath');
 	
 	if(loggedin==false)
 	{
-	if(reqpath!="")
+	if(reqpath!="/")
 	{
+		 return res.json({
+		dwellers:names,
+      message: 'not logged in'
+    });
 	}
 	}
 	
