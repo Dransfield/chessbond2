@@ -445,8 +445,15 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 sails.on("lifted",UpdateAccountsMarkedForDeletion);
 sails.on("lifted",UpdateBannedAccounts);
 sails.on("lifted",timeOutNonMovedGames);
-
+sails.on("lifted",CreateTournaments);
 var initialTimeouts=[];
+
+function CreateTournaments()
+{
+	
+	
+	
+}
 
 function timeOutNonMovedGames()
 {
