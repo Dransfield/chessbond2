@@ -3333,7 +3333,7 @@ function renderHomePage()
 	showOpenGameList($("#usr"),OpenGames);
 	if(MyID)
 	{
-	showRecentTouraments($("#usr"),MyID);
+	showRecentTournaments($("#usr"),MyID);
 	showRecentGames($("#usr"),MyID);
 	}
 	showLoginForm($("#loginform"));
