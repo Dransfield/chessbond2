@@ -26,6 +26,7 @@ var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
+var Tournaments=[];
 var OwnersVisits=[];
 var mypics=[];
 
@@ -2306,7 +2307,7 @@ var opcg = new Promise
 		
 if(MyID)
 {
-Promise.all([opcg, retrieveGames([MyID])]).then(values => { 
+Promise.all([opcg, retrieveGames([MyID]),retrieveTournaments()]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
 	console.log("home page promise resolved");
@@ -2684,6 +2685,29 @@ var cg = new Promise
 			Reports.push(resData[x]);	
 			AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
+
+
+
+function retrieveTournaments()
+{
+	
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/tournament",{},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			Tournaments.push(resData[x]);	
+			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
 			}
 			resolve(resData);
 		});

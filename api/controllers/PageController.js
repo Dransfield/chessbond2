@@ -451,7 +451,7 @@ var initialTimeouts=[];
 function CreateTournaments()
 {
 	
-	
+	Tournament.Create
 	
 }
 
