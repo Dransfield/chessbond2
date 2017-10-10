@@ -3841,9 +3841,11 @@ function visitNotification(event)
 function showRecentTournaments(elem,usracc)
 {
 
+	elem.append("<h1>Open Tournaments</h1>");
+
 var overallFlex=addFlexDiv(elem,"recentTourments","column",'wrap');
 	var span=addFlexDiv(overallFlex,'id',"row","nowrap");
-	showHeader(span,2,"Tournaments");
+//	showHeader(span,2,"Tournaments");
 
 }
 function showRecentGames(elem,usracc)
@@ -4160,10 +4162,7 @@ elem.append(`
 
 }
 
-function showOpenTournaments(elem,tourneys)
-{
-	elem.append("<h1>Open Tournaments</h1>");
-}
+
 function showOpenGameList(elem,games)
 {
 	elem.append("<h1>Open Games</h1>");
