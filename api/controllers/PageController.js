@@ -451,16 +451,47 @@ var initialTimeouts=[];
 function CreateTournaments()
 {
 	
+	var gamecategories=[{time:1,extratime:0},
+					{time:2,extratime:0},
+					{time:3,extratime:0},
+					{time:4,extratime:0},
+					{time:5,extratime:0},
+					{time:6,extratime:0},
+					{time:7,extratime:0},
+					{time:8,extratime:0},
+					{time:9,extratime:0},
+					{time:10,extratime:0},
+					{time:15,extratime:0},
+					{time:20,extratime:0},
+					{time:30,extratime:0},
+					{time:60,extratime:0},
+					{time:2,extratime:1},
+					{time:3,extratime:1},
+					{time:5,extratime:2},
+					{time:10,extratime:5},
+					{time:15,extratime:5},
+					{time:20,extratime:10},
+					{time:30,extratime:10},
+					{time:60,extratime:10}];
+
+	
+	var sixtySixMinutes=(60*1000)*66;
+	var myInterval=0;
+
+for (iter in gamecategories)
+{
 	setTimeout(function(){
 	setInterval(function(){
-		Tournament.create({category:"1:0"}).
+		Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
 		exec(function afterwards(err, records)
 			{
 				
 			});
-		},300000);
-		},0);
-	
+		},sixtySixMinutes);
+		},(60*1000)*myInterval);
+		
+		myInterval=myInterval+3;
+}	
 }
 
 function timeOutNonMovedGames()
