@@ -475,7 +475,9 @@ function CreateTournaments()
 					{time:60,extratime:10}];
 
 	
-	var sixtySixMinutes=(60*1000)*66;
+	//var sixtySixMinutes=(60*1000)*66;
+	var sixtySixMinutes=(1000);
+	
 	var myInterval=0;
 
 	function setTournamentTimeout(iter,time){
