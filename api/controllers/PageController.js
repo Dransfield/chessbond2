@@ -479,7 +479,7 @@ function CreateTournaments()
 	var myInterval=0;
 
 	function setTournamentInterval(iter){
-	
+	console.log("set tourn inter");
 	setInterval(function(){
 		Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
 		exec(function afterwards(err, records)
@@ -492,7 +492,7 @@ function CreateTournaments()
 
 for (iter in gamecategories)
 {
-	console.log(gamecategories.time);
+	console.log(gamecategories[iter].time);
 	setTimeout(
 	setTournamentInterval
 	,(60*1000)*myInterval,iter);
