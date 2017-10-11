@@ -492,6 +492,7 @@ function CreateTournaments()
 
 for (iter in gamecategories)
 {
+	console.log(gamecategories.time);
 	setTimeout(
 	setTournamentInterval
 	,(60*1000)*myInterval,iter);
