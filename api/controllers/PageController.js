@@ -475,8 +475,8 @@ function CreateTournaments()
 					{time:60,extratime:10}];
 
 	
-	//var sixtySixMinutes=(60*1000)*66;
-	var sixtySixMinutes=(1000);
+	var sixtySixMinutes=(60*1000)*66;
+	//var sixtySixMinutes=(1000);
 	
 	var myInterval=0;
 
@@ -487,6 +487,13 @@ function CreateTournaments()
 	}
 	function setTournamentInterval(iter){
 	console.log("set tourn inter"+iter);
+	
+	Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
+		exec(function afterwards(err, records)
+			{
+				
+			});
+	
 	setInterval(function(){
 		Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
 		exec(function afterwards(err, records)
