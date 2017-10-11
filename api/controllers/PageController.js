@@ -458,7 +458,7 @@ function CreateTournaments()
 			{
 				
 			});
-		},300,000);
+		},300000);
 		},0);
 	
 }
