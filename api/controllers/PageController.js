@@ -486,12 +486,12 @@ function CreateTournaments()
 	,time,iter);
 	}
 	function setTournamentInterval(iter){
-	console.log("set tourn inter"+iter);
+	console.log("set tourn inter"+iter+" t"+gamecategories[iter].time);
 	
 	Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
 		exec(function afterwards(err, records)
 			{
-				
+				console.log("created "+gamecategories[iter].time);
 			});
 	
 	setInterval(function(){
