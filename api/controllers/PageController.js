@@ -451,7 +451,15 @@ var initialTimeouts=[];
 function CreateTournaments()
 {
 	
-	Tournament.Create
+	setTimeout(
+	SetInterval(function(){
+		Tournament.create({category:"1:0"},
+		exec(function afterwards(err, records){
+			{
+				
+			});
+		},300,000);
+		},0);
 	
 }
 
