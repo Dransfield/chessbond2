@@ -451,7 +451,7 @@ var initialTimeouts=[];
 function CreateTournaments()
 {
 	
-	setTimeout(
+	setTimeout(function(){
 	SetInterval(function(){
 		Tournament.create({category:"1:0"}).
 		exec(function afterwards(err, records)
