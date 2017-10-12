@@ -3848,9 +3848,9 @@ function showRecentTournaments(elem,usracc)
 	//	showHeader(span,2,"Tournaments");
 		for (iter in Tournaments)
 		{
-		
-		showHeader(overallFlex,2,Tournaments[iter].category);
-		overallFlex.append(Tournaments[iter].createdAt);
+		var thisFlex=addFlexDiv(overallFlex,"","column",'wrap');
+		showHeader(thisFlex,2,Tournaments[iter].category);
+		thisFlex.append(Tournaments[iter].createdAt);
 		}
 }
 function showRecentGames(elem,usracc)
