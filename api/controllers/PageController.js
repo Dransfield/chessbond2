@@ -459,8 +459,9 @@ function CreateTournaments()
 			{
 				for (iter in records)
 				{
-					console.log(Date.now()-(new Date(records[iter].createdAt));
-					console.log(new Date(records[iter].createdAt));
+					var createdDate=new Date(records[iter].createdAt);
+					console.log(Date.now()-createdDate);
+					console.log(createdDate);
 					
 				}
 			});
