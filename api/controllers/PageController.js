@@ -450,15 +450,21 @@ var initialTimeouts=[];
 
 function CreateTournaments()
 {
-	
+	var sixtySixMinutes=(60*1000)*66;
+	var threeMinutes=(60*1000)*3;
 	//check tournaments
 	setInterval(function(){
-		Tournament.find({}).
+		Tournament.find({players:{ '<': 2 }}).
 		exec(function afterwards(err, records)
 			{
-				
+				for (iter in records)
+				{
+					console.log(Date.now()-(new Date(records[iter].createdAt));
+					console.log(new Date(records[iter].createdAt));
+					
+				}
 			});
-		},sixtySixMinutes);
+		},threeMinutes);
 	
 	var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
@@ -484,8 +490,7 @@ function CreateTournaments()
 					{time:60,extratime:10}];
 
 	
-	var sixtySixMinutes=(60*1000)*66;
-	//var sixtySixMinutes=(1000);
+	
 	
 	var myInterval=0;
 
@@ -513,13 +518,14 @@ function CreateTournaments()
 	
 	}
 
-for (iter in gamecategories)
-{
-	console.log(gamecategories[iter].time);
-	
-		setTournamentTimeout(iter,(60*1000)*myInterval);
-		myInterval=myInterval+3;
-}	
+	for (iter in gamecategories)
+		{
+			console.log(gamecategories[iter].time);
+			
+				setTournamentTimeout(iter,(60*1000)*myInterval);
+				myInterval=myInterval+3;
+		}	
+
 }
 
 function timeOutNonMovedGames()
