@@ -2187,7 +2187,7 @@ function getMessages(usracc)
 			}
 			
 			
-				});
+			});
 	
 		
 		

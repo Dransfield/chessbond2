@@ -451,6 +451,15 @@ var initialTimeouts=[];
 function CreateTournaments()
 {
 	
+	//check tournaments
+	setInterval(function(){
+		Tournament.find({}).
+		exec(function afterwards(err, records)
+			{
+				
+			});
+		},sixtySixMinutes);
+	
 	var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},

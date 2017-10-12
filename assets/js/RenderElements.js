@@ -3841,17 +3841,17 @@ function visitNotification(event)
 function showRecentTournaments(elem,usracc)
 {
 
-	elem.append("<h1>Open Tournaments</h1>");
+		elem.append("<h1>Open Tournaments</h1>");
 
-	var overallFlex=addFlexDiv(elem,"recentTourments","column",'wrap');
-	var span=addFlexDiv(overallFlex,'id',"row","nowrap");
-//	showHeader(span,2,"Tournaments");
-	for (iter in Tournaments)
-	{
-	overallFlex.append(Tournaments[iter].category);
+		var overallFlex=addFlexDiv(elem,"recentTourments","column",'wrap');
+		var span=addFlexDiv(overallFlex,'id',"row","nowrap");
+	//	showHeader(span,2,"Tournaments");
+		for (iter in Tournaments)
+		{
 		
-	overallFlex.append(Tournaments[iter].createdAt);
-	}
+		showHeader(overallFlex,2,Tournaments[iter].category);
+		overallFlex.append(Tournaments[iter].createdAt);
+		}
 }
 function showRecentGames(elem,usracc)
 {
