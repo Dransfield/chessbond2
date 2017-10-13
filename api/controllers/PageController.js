@@ -622,7 +622,7 @@ function timeOutNonMovedGames()
 					exec(function afterwards(err, nowupdated){
 						for (x in nowupdated)
 						{
-						console.log(JSON.stringify(nowupdated[x]));
+						//console.log(JSON.stringify(nowupdated[x]));
 							nowupdated[0].DaysToDelete=nowupdated[x].DaysToDelete-1;
 								console.log(nowupdated[x].name+"has "+nowupdated[x].DaysToDelete+"days left");
 								nowupdated[x].save();
@@ -713,7 +713,7 @@ module.exports = {
 					}
 	user.Numberoftimesloggedin+=1;
 	var dateObj=new Date();
-	console.log(JSON.stringify(dateObj));
+	console.log("date obj "+JSON.stringify(dateObj));
 	var month = dateObj.getUTCMonth() + 1; //months from 1-12
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
