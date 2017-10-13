@@ -3857,6 +3857,10 @@ function showRecentTournaments(elem,usracc)
 }
 function showRecentGames(elem,usracc)
 {
+	
+	if(!JoinedGames[usracc].length)
+	{return;}
+	
 	//console.log("showrecent games");
 	var overallFlex=addFlexDiv(elem,"recentgames","column",'wrap');
 	var span=addFlexDiv(overallFlex,'id',"row","nowrap");
