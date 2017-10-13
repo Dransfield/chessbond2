@@ -3844,7 +3844,7 @@ function showRecentTournaments(elem,usracc)
 		elem.append("<h1>Open Tournaments</h1>");
 
 		var overallFlex=addFlexDiv(elem,"recentTourments","row",'wrap');
-		var span=addFlexDiv(overallFlex,'id',"row","nowrap");
+		//var span=addFlexDiv(overallFlex,'id',"row","nowrap");
 	//	showHeader(span,2,"Tournaments");
 		for (iter in Tournaments)
 		{
