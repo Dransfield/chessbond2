@@ -3851,6 +3851,8 @@ function showRecentTournaments(elem,usracc)
 		var thisFlex=addFlexDiv(overallFlex,"","column",'wrap');
 		showHeader(thisFlex,2,Tournaments[iter].category);
 		thisFlex.append(Tournaments[iter].createdAt);
+		var buttonFlex=addFlexDiv(elem,"","row",'wrap');
+		showButton(buttonFlex,"Join","kgreenElement kregularButton");
 		}
 }
 function showRecentGames(elem,usracc)
