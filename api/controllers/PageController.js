@@ -469,6 +469,8 @@ function CreateTournaments()
 					var createdDate=new Date(records[iter].createdAt);
 					console.log(Date.now()-createdDate);
 					console.log(createdDate);
+					if(createdDate>threeMinutes)
+					{records.iter.destroy();}
 					
 				}
 			});
