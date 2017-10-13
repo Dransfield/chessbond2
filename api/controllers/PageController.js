@@ -450,13 +450,20 @@ var initialTimeouts=[];
 
 function CreateTournaments()
 {
+	console.log("create tournaments");
 	var sixtySixMinutes=(60*1000)*66;
 	var threeMinutes=(60*1000)*3;
 	//check tournaments
 	//setInterval(function(){
-		Tournament.find({players:{ '<': 2 }}).
+	//	Tournament.find({players:{ '<': 2 }}).
+		Tournament.find({
+		 or : [
+    { players: 0 },
+    { players:null }
+  ]}).
 		exec(function afterwards(err, records)
 			{
+				console.log("records "+records);
 				for (iter in records)
 				{
 					var createdDate=new Date(records[iter].createdAt);
