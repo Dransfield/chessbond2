@@ -470,7 +470,7 @@ function CreateTournaments()
 					//console.log(Date.now()-createdDate);
 					//console.log(createdDate);
 					if(createdDate>threeMinutes)
-					{records.iter.destroy();}
+					{records[iter].destroy();}
 					
 				}
 			});
