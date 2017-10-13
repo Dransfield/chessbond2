@@ -3850,7 +3850,7 @@ function showRecentTournaments(elem,usracc)
 		{
 		var thisFlex=addFlexDiv(overallFlex,"","column",'wrap');
 		showHeader(thisFlex,2,Tournaments[iter].category);
-		thisFlex.append(Tournaments[iter].createdAt);
+		thisFlex.append(phrasefordate(Tournaments[iter].createdAt));
 		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
 		showButton(buttonFlex,"Join","KgreenElement KregularButton");
 		}
