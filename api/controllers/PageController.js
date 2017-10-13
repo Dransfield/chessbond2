@@ -454,7 +454,7 @@ function CreateTournaments()
 	var sixtySixMinutes=(60*1000)*66;
 	var threeMinutes=(60*1000)*3;
 	//check tournaments
-	//setInterval(function(){
+	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
 		Tournament.find({
 		 or : [
@@ -474,7 +474,7 @@ function CreateTournaments()
 					
 				}
 			});
-		//},threeMinutes);
+		},threeMinutes);
 	
 	var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
