@@ -398,7 +398,7 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://www.chessbond.com/auth/google_oauth2/"
   },
   function(accessToken, refreshToken, profile, done) {
-	  console.log(profile);
+	 // console.log(profile);
     User.findOne({ googleId: profile.id }, function (err, user) {
        // if there is an error, stop everything and return that
                 // ie an error connecting to the database
@@ -426,7 +426,7 @@ passport.use(new GoogleStrategy({
                 } else {
                     // if there is no user found with that facebook id, create them
                     //var newUser            = new User();
-                    console.log(profile);
+                 //   console.log(profile);
                     var emailadr="none";
                     if(profile.emails)
                     {
@@ -472,7 +472,7 @@ passport.use(new GoogleStrategy({
                 // ie an error connecting to the database
                 if (err)
                     return done(err);
-				console.log(profile);
+				//console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
 					console.log("twitter profile._json.location "+profile._json.location);
@@ -570,7 +570,7 @@ passport.use(new FacebookStrategy({
 
         // asynchronous
         process.nextTick(function() {
- console.log(profile);
+ //console.log(profile);
 		    var countr="none";
                     var gotcountry=false;
           
