@@ -3857,7 +3857,8 @@ function showRecentTournaments(elem,usracc)
 }
 function showRecentGames(elem,usracc)
 {
-	
+	if(!JoinedGames)
+	{return;}
 	if(!JoinedGames[usracc].length)
 	{return;}
 	
