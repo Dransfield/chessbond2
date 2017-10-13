@@ -2344,7 +2344,8 @@ Promise.all([opcg, retrieveGames([MyID]),retrieveTournaments()]).then(values => 
 });
 }
 	else
-	{renderHomePage();}
+	{console.log("NOO MYID");
+		renderHomePage();}
 }
 
 function retrieveAlbum(albid)
