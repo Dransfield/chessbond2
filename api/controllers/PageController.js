@@ -467,8 +467,8 @@ function CreateTournaments()
 				for (iter in records)
 				{
 					var createdDate=new Date(records[iter].createdAt);
-					console.log(Date.now()-createdDate);
-					console.log(createdDate);
+					//console.log(Date.now()-createdDate);
+					//console.log(createdDate);
 					if(createdDate>threeMinutes)
 					{records.iter.destroy();}
 					
