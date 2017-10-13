@@ -18,7 +18,7 @@ module.exports = {
 	unbanUser:function(req,res){
 		 User.update({id:req.param('banneduser')},{tempBan:false}).
 		 exec(function afterwards(err, updated){
-			 console.log(updated);
+			// console.log(updated);
 						 console.log("banned user "+req.param('banneduser'));
 						 res.ok();
 						 });
@@ -27,7 +27,7 @@ module.exports = {
 	visitedWholeSite:function(req,res){
 		 User.update({id:req.param('person')},{lastTimeVisitedWholeSite:req.param('theDate')}).
 		 exec(function afterwards(err, updated){
-			 console.log(updated);
+			// console.log(updated);
 						// console.log(" user visited"+updated[0].lastTimeVisitedWholeSite);
 						 res.ok();
 						 });
@@ -38,9 +38,9 @@ module.exports = {
 		
 		User.update({id:req.param('acc')},{ProfileUpdated:req.param('profupdate')})
 		.exec(function afterwards(err,updated){
-			console.log("hello");
-			console.log(updated);
-			console.log(err);
+			//console.log("hello");
+			//console.log(updated);
+			//console.log(err);
 			return res.send(updated);
 		});
 	},
