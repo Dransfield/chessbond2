@@ -618,7 +618,7 @@ function setupProfilePage()
 			
 	retrieveBannedWords().then(function()
 	{
-				retrieveGames([ProfID]).then(function()
+				retrieveGames(ProfID).then(function()
 				{
 					
 						 retrieveOthersProfileVisits(ProfID,25).then(function()
@@ -1472,7 +1472,7 @@ function setupStatsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
-	retrieveGames([ProfID]).then(function(){
+	retrieveGames(ProfID).then(function(){
 				retrievePrivatesandFollows().then(function()
 						{	
 					retrieveAccounts().then(function()
@@ -1738,15 +1738,15 @@ return cg;
 }
 
 
-function retrieveGames(persons)
+function retrieveGames(person)
 {
-	var PromiseArray=[];
-	for (x in persons)
-	{
+	//var PromiseArray=[];
+	//for (x in persons)
+	//{
 	//	console.log("persons[x] "+persons[x]);
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/chessgame",{or:[{'Player1':persons[x]},{'Player2':persons[x]}],limit:30000},
+		io.socket.get("/chessgame",{or:[{'Player1':person},{'Player2':person}],limit:30000},
 		function (resData,jwres){
 			
 			if(jwres.statusCode!=403)
@@ -1761,12 +1761,12 @@ var cg = new Promise
 				}
 			
 			);
-			JoinedGames[persons[x]]=[];
+			JoinedGames[person]=[];
 			//console.log(JSON.stringify(resData));
 		//	console.log(resData);
 			for (y in resData)
 			{
-			JoinedGames[persons[x]].push(resData[y]);
+			JoinedGames[person].push(resData[y]);
 			AccountsToRetrieve[resData[y].Player1]=resData[y].Player1;
 			AccountsToRetrieve[resData[y].Player2]=resData[y].Player2;
 			
@@ -1783,10 +1783,10 @@ var cg = new Promise
 			}
 		});		
 });
-PromiseArray.push(cg);	
+//PromiseArray.push(cg);	
 
-}
-return Promise.all(PromiseArray);
+//}
+return cg;
 
 }
 
@@ -2307,7 +2307,7 @@ var opcg = new Promise
 		
 if(MyID)
 {
-Promise.all([opcg, retrieveGames([MyID]),retrieveTournaments()]).then(values => { 
+Promise.all([opcg, retrieveGames(MyID),retrieveTournaments()]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
 	console.log("home page promise resolved");
