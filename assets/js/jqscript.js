@@ -1743,7 +1743,7 @@ function retrieveGames(person)
 	//var PromiseArray=[];
 	//for (x in persons)
 	//{
-	//	console.log("persons[x] "+persons[x]);
+		console.log("retrieve games");
 var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/chessgame",{or:[{'Player1':person},{'Player2':person}],limit:30000},

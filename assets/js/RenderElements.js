@@ -2489,8 +2489,11 @@ for(rowIter in visarr)
 			
 			
 			cell=$("<td></td>");
+			if(Accounts[visarr[rowIter].visitor])
+			{
 			showUsername(cell,Accounts[visarr[rowIter].visitor].id);
 			row.append(cell);
+			}
 			
 			if(visarr[rowIter].visitDate)
 			{
