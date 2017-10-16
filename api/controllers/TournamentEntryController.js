@@ -7,7 +7,7 @@
 
 module.exports = {
 	join:function(req,res){
-		
+		console.log("tourn entry join");
 	Tournamententry.Create({player:req.param['player'],tournid:req.param['tourny']}).
 	exec(function afterwards(err, records)
 			{

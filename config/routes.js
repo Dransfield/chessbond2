@@ -33,7 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 	
 	'GET /':{view:'jqhp'},
-	'POST /JoinTournament':'TournamentController.Join',
+	'POST /JoinTournament':'TournamentEntryController.join',
 	'POST /starttempconversation':'TempConversationController.New',
 	'POST /lefttempconversation':'TempConversationController.Left',
 	'GET /myprofilemg': {view: 'messagesjq'},
