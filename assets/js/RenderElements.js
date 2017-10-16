@@ -3862,11 +3862,11 @@ function showRecentTournaments(elem,usracc)
 }
 
 
-function joinTournamentFunction()
+function joinTournamentFunction(event)
 {
 	
 
-		io.socket.post('/JoinTournament',{player:plr,tourny:tournID},function (resData, jwr) {
+		io.socket.post('/JoinTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
 				toastr.success("Joined Tournament");
 			});	
 			
