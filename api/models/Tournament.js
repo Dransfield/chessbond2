@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-
+players:{type:'integer',defaultsTo:0}
   }
 };
 
