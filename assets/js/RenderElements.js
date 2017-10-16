@@ -3857,14 +3857,23 @@ function showRecentTournaments(elem,usracc)
 		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
 		var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
 		
-		joinTournamentButton.click(function(){
-		io.socket.post('/JoinTournament',{player:MyID,tourny:Tournaments[iter].id},function (resData, jwr) {
+		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+		}
+}
+
+
+function joinTournamentFunction()
+{
+	
+
+		io.socket.post('/JoinTournament',{player:plr,tourny:tournID},function (resData, jwr) {
 				toastr.success("Joined Tournament");
 			});	
 			
-			});
-		}
+			
+		
 }
+
 function showRecentGames(elem,usracc)
 {
 	if(!JoinedGames)
