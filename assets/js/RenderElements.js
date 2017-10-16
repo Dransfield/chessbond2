@@ -3855,7 +3855,14 @@ function showRecentTournaments(elem,usracc)
 		showHeader(thisFlex,2,Tournaments[iter].category);
 		thisFlex.append(phrasefordate(Tournaments[iter].createdAt));
 		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
-		showButton(buttonFlex,"Join","KgreenElement KregularButton");
+		var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
+		
+		joinTournamentButton.click(function(){
+		io.socket.post('/JoinTournament',{player:MyID,tourny:Tournaments[iter].id},function (resData, jwr) {
+				toastr.success("Joined Tournament");
+			});	
+			
+			});
 		}
 }
 function showRecentGames(elem,usracc)
