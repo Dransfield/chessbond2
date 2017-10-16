@@ -12,9 +12,10 @@ module.exports = {
 	exec(function afterwards(err, records)
 			{
 				
-			});
-	
-	Tournamententry.find({tournid:req.param['tourny']}).
+		console.log(err);
+		console.log(JSON.stringify(records));		
+				
+				Tournamententry.find({tournid:req.param['tourny']}).
 	exec(function afterwards(err,records)
 	{
 	Tournament.update({id:req.param['tourny']},{players:records.length}).
@@ -26,6 +27,10 @@ module.exports = {
 	
 	
 	});
+				
+			});
+	
+	
 }
 };
 
