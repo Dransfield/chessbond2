@@ -3334,7 +3334,10 @@ function renderHomePage()
 	showOpenGameList($("#usr"),OpenGames);
 	if(MyID)
 	{
-	showRecentTournaments($("#usr"),MyID);
+		$("#usr").append("<h1>Open Tournaments</h1>");
+
+		var overallFlex=addFlexDiv($("#usr"),"recentTourments","row",'wrap');
+	showRecentTournaments(overallFlex,MyID);
 	showRecentGames($("#usr"),MyID);
 	}
 	showLoginForm($("#loginform"));
