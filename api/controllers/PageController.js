@@ -71,7 +71,7 @@
 			console.log('Cant create joined game.');
 			//console.log(JSON.stringify(err));
 			}
-			console.log("records"+JSON.stringify(records));
+			//console.log("records"+JSON.stringify(records));
 			//console.log(records);
 			console.log("broadcasting to "+p1ID);
 			  sails.sockets.broadcast(p1ID,'newmygameevent', records);
@@ -463,7 +463,7 @@ function CreateTournaments()
   ]}).
 		exec(function afterwards(err, records)
 			{
-				console.log("records "+records);
+				//console.log("records "+records);
 				for (iter in records)
 				{
 					var createdDate=new Date(records[iter].createdAt);
@@ -515,6 +515,7 @@ function CreateTournaments()
 	Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
 		exec(function afterwards(err, records)
 			{
+				sails.sockets.broadcast('im online', 'new tournament',records);
 				console.log("created "+gamecategories[iter].time);
 			});
 	
