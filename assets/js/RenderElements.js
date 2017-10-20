@@ -3843,7 +3843,7 @@ function visitNotification(event)
 
 function showRecentTournaments(elem,usracc)
 {
-
+		elem.empty();
 		elem.append("<h1>Open Tournaments</h1>");
 
 		var overallFlex=addFlexDiv(elem,"recentTourments","row",'wrap');

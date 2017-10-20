@@ -3358,6 +3358,17 @@ function renderHomePage()
 		$(location).attr('href', '/humanvshumannew/'+data.id);
 			
 			});
+			
+			io.socket.on('new tournament', function (data)
+			{
+			console.log('recieved new tournament event '+data);
+			
+			data.phrase=phrasefordate(data.createdAt);
+			Tournaments.push(data);
+			//addJoinedGame(games.length-1,games,myelem);
+			showRecentTournaments($("#usr"),MyID);		
+			});
+			
 	
 	}
 

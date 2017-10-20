@@ -522,7 +522,7 @@ function CreateTournaments()
 		Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
 		exec(function afterwards(err, records)
 			{
-				
+				sails.sockets.broadcast('im online', 'new tournament',records);
 			});
 		},sixtySixMinutes);
 	
