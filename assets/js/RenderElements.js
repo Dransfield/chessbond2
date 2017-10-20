@@ -3849,7 +3849,7 @@ function showRecentTournaments(elem,usracc)
 	//	showHeader(span,2,"Tournaments");
 		for (iter in Tournaments)
 		{
-		var thisFlex=addFlexDiv(overallFlex,"","column",'wrap');
+		var thisFlex=addFlexDiv(elem,"","column",'wrap');
 		showHeader(thisFlex,2,Tournaments[iter].category);
 		thisFlex.append(phrasefordate(Tournaments[iter].createdAt));
 		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
