@@ -3330,13 +3330,13 @@ function renderChatPage(col)
 	
 function renderHomePage()
 	{
-		
+		var overallFlex
 	showOpenGameList($("#usr"),OpenGames);
 	if(MyID)
 	{
 		$("#usr").append("<h1>Open Tournaments</h1>");
 
-		var overallFlex=addFlexDiv($("#usr"),"recentTourments","row",'wrap');
+		overallFlex=addFlexDiv($("#usr"),"recentTourments","row",'wrap');
 	showRecentTournaments(overallFlex,MyID);
 	showRecentGames($("#usr"),MyID);
 	}
@@ -3369,7 +3369,7 @@ function renderHomePage()
 			data.phrase=phrasefordate(data.createdAt);
 			Tournaments.push(data);
 			//addJoinedGame(games.length-1,games,myelem);
-			showRecentTournaments($("#usr"),MyID);		
+			showRecentTournaments(overallFlex,MyID);		
 			});
 			
 	
