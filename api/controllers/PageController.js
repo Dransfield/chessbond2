@@ -605,7 +605,7 @@ function CreateTournaments()
 				{
 						console.log(circList[iter].time);
 						createTournamentCandidate(circList[iter],myInterval);
-						setTournamentTimeout(iter,((60*1000)*myInterval)-(seconds_ago*1000));
+						setTournamentTimeout(iter,((60*1000)*myInterval)-(seconds_ago*1000),circList);
 						myInterval=myInterval+3;
 				}	
 		});
