@@ -533,7 +533,7 @@ function CreateTournaments()
 	}
 
 	Tournament.find({ id: { '>': 0 }}).exec(function(err,latestOne){
-		console.log("lattestOne "+latestOne);
+		console.log("lattestOne "+JSON.stringify(latestOne));
 	
 		for (iter in gamecategories)
 			{
