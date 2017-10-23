@@ -532,19 +532,44 @@ function CreateTournaments()
 	
 	}
 
-	Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
+	Tournamentcandidate.destroy({}).exec(function (candidateerr,deletedcandidates)
 	{
-		console.log("lattestOne "+JSON.stringify(latestOne));
-		var createdAt=new Date(latestOne.createdAt);
-		var seconds_ago=(Date.now()-createdAt)/1000;
-		console.log("was created "+seconds_ago+" seconds ago");
-		for (iter in gamecategories)
-			{
-					console.log(gamecategories[iter].time);
+		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
+		{
+			//console.log("lattestOne "+JSON.stringify(latestOne));
+			var createdAt=new Date(latestOne.createdAt);
+			var seconds_ago=(Date.now()-createdAt)/1000;
+			console.log("was created "+seconds_ago+" seconds ago");
+			myInterval=threeMinutes-(seconds_ago*1000);
 			
-					setTournamentTimeout(iter,(60*1000)*myInterval);
-					myInterval=myInterval+3;
-			}	
+			var circList=[];
+			
+			for (tIter in gamecategories)
+			{
+				var startNow=false;
+				
+					if (gamecategories(tIter).time==parseInt(latestOne.category.slice(0,0)) && gamecategories(tIter).extratime==parseInt(latestOne.category.slice(2,2)))
+					{
+						startnow=true;
+					}
+			
+				if (startNow==true)
+				{
+					circList.push(gamecategories[tIter]);
+				}
+			}
+			
+			console.log(JSON.stringify(circList);
+			
+			
+			for (iter in gamecategories)
+				{
+						console.log(gamecategories[iter].time);
+				
+						setTournamentTimeout(iter,(60*1000)*myInterval);
+						myInterval=myInterval+3;
+				}	
+		});
 	});
 }
 
