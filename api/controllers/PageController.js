@@ -568,14 +568,28 @@ function CreateTournaments()
 				}
 			}
 			
+			console.log("latestOne "+latestOne.category);
 			console.log("circlist "+JSON.stringify(circList));
 			console.log("circ list length "+circList.length);
 			
 			if(circList.length<gamecategories.length)
 			{
 			console.log("needed "+(gamecategories.length-circList.length));	
+			var needed=(gamecategories.length-circList.length);
+			
+			for (iter in gamecategories)
+				{
+				if(iter<needed)
+				{
+				circList.push(gamecategories[iter]);	
+				}
+				}
+			
 			}
 			
+			
+			console.log("circlist "+JSON.stringify(circList));
+		
 			for (iter in gamecategories)
 				{
 						console.log(gamecategories[iter].time);
