@@ -532,7 +532,7 @@ function CreateTournaments()
 	
 	}
 
-	Tournament.findOne({ id: { '!': null }}).exec(function(err,latestOne)
+	Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 	{
 		console.log("lattestOne "+JSON.stringify(latestOne));
 	
