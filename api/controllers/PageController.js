@@ -544,9 +544,12 @@ function CreateTournaments()
 			
 			var circList=[];
 			
+			
+			var startNow=false;
+			
 			for (tIter in gamecategories)
 			{
-				var startNow=false;
+				
 				//console.log("latestOne.category "+latestOne.category);
 				var myArray=latestOne.category.split(":");
 			//	console.log("parseInt(myArray[0])  "+parseInt(myArray[0]));
