@@ -532,7 +532,7 @@ function CreateTournaments()
 	
 	}
 
-	Tournament.findone({}).exec(function(err,latestOne){
+	Tournament.findOne({}).exec(function(err,latestOne){
 		console.log("lattestOne "+latestOne);
 	
 		for (iter in gamecategories)
