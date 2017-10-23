@@ -551,8 +551,10 @@ function CreateTournaments()
 				var myArray=latestOne.category.split(":");
 				console.log("parseInt(myArray[0])  "+parseInt(myArray[0]));
 				console.log("parseInt(myArray[1])  "+parseInt(myArray[1]));
+				console.log("parseInt(gamecategories[tIter].extratime) "+parseInt(gamecategories[tIter].extratime));
+				console.log("parseInt(gamecategories[tIter].time) "+parseInt(gamecategories[tIter].time));
 				
-					if (gamecategories[tIter].time==parseInt(myArray[0]) && gamecategories[tIter].extratime==parseInt(myArray[1]))
+					if (parseInt(gamecategories[tIter].time)==parseInt(myArray[0]) && parseInt(gamecategories[tIter].extratime)==parseInt(myArray[1]))
 					{
 						startnow=true;
 					}
