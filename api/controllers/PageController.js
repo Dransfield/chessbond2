@@ -569,7 +569,12 @@ function CreateTournaments()
 			}
 			
 			console.log("circlist "+JSON.stringify(circList));
+			console.log("circ list length "+circList.length);
 			
+			if(circList.length<gamecategories.length)
+			{
+			console.log("needed "+(gamecategories.length-circList.length));	
+			}
 			
 			for (iter in gamecategories)
 				{
