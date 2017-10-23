@@ -547,7 +547,7 @@ function CreateTournaments()
 			for (tIter in gamecategories)
 			{
 				var startNow=false;
-				console.log("parseInt(latestOne.category.slice(0,0) "+parseInt(latestOne.category.slice(0,0));
+				console.log("parseInt(latestOne.category.slice(0,0) "+parseInt(latestOne.category.slice(0,0)));
 					if (gamecategories[tIter].time==parseInt(latestOne.category.slice(0,0)) && gamecategories[tIter].extratime==parseInt(latestOne.category.slice(2,2)))
 					{
 						startnow=true;
