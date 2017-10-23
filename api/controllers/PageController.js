@@ -552,7 +552,7 @@ function CreateTournaments()
 				console.log("parseInt(myArray[0])  "+parseInt(myArray[0]));
 				console.log("parseInt(myArray[1])  "+parseInt(myArray[1]));
 				
-					if (gamecategories[tIter].time==parseInt(myArray[0])) && gamecategories[tIter].extratime==parseInt(myArray[1])))
+					if (gamecategories[tIter].time==parseInt(myArray[0]) && gamecategories[tIter].extratime==parseInt(myArray[1]))
 					{
 						startnow=true;
 					}
