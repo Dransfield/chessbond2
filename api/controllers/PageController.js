@@ -559,7 +559,7 @@ function CreateTournaments()
 				}
 			}
 			
-			console.log(JSON.stringify(circList));
+			console.log("circlist "+JSON.stringify(circList));
 			
 			
 			for (iter in gamecategories)
