@@ -453,6 +453,8 @@ function CreateTournaments()
 	console.log("create tournaments");
 	var sixtySixMinutes=(60*1000)*66;
 	var threeMinutes=(60*1000)*3;
+	
+	
 	//check tournaments
 	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
@@ -530,14 +532,17 @@ function CreateTournaments()
 	
 	}
 
-	for (iter in gamecategories)
-		{
-			console.log(gamecategories[iter].time);
+	Tournament.findone({}).exec(function(err,latestOne){
+		console.log("lattestOne "+latestOne);
+	
+		for (iter in gamecategories)
+			{
+					console.log(gamecategories[iter].time);
 			
-				setTournamentTimeout(iter,(60*1000)*myInterval);
-				myInterval=myInterval+3;
-		}	
-
+					setTournamentTimeout(iter,(60*1000)*myInterval);
+					myInterval=myInterval+3;
+			}	
+	});
 }
 
 function timeOutNonMovedGames()
