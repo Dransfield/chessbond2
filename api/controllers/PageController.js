@@ -506,23 +506,24 @@ function CreateTournaments()
 	
 	var myInterval=0;
 
-	function setTournamentTimeout(iter,time){
+	function setTournamentTimeout(iter,time,list){
 		setTimeout(
 	setTournamentInterval
-	,time,iter);
+	,time,iter,list);
 	}
-	function setTournamentInterval(iter){
-	console.log("set tourn inter"+iter+" t"+gamecategories[iter].time);
 	
-	Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
+	function setTournamentInterval(iter,list){
+	console.log("set tourn inter"+iter+" t"+list[iter].time);
+	
+	Tournament.create({category:list[iter].time+":"+list[iter].extratime}).
 		exec(function afterwards(err, records)
 			{
 				sails.sockets.broadcast('im online', 'new tournament',records);
-				console.log("created "+gamecategories[iter].time);
+				console.log("created "+list[iter].time);
 			});
 	
 	setInterval(function(){
-		Tournament.create({category:gamecategories[iter].time+":"+gamecategories[iter].extratime}).
+		Tournament.create({category:list[iter].time+":"+list[iter].extratime}).
 		exec(function afterwards(err, records)
 			{
 				sails.sockets.broadcast('im online', 'new tournament',records);
@@ -531,7 +532,16 @@ function CreateTournaments()
 		},sixtySixMinutes);
 	
 	}
-
+	
+	function createTournamentCandidate(obj)
+	{
+		Tournamentcandidate.create({category:obj.time+":"+obj.extratime}).
+		exec(function afterwards(err,records)
+		{
+			
+		});
+	}
+	
 	Tournamentcandidate.destroy({}).exec(function (candidateerr,deletedcandidates)
 	{
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
@@ -540,7 +550,8 @@ function CreateTournaments()
 			var createdAt=new Date(latestOne.createdAt);
 			var seconds_ago=(Date.now()-createdAt)/1000;
 			console.log("was created "+seconds_ago+" seconds ago");
-			myInterval=threeMinutes-(seconds_ago*1000);
+			//myInterval=seconds_ago;
+			
 			
 			var circList=[];
 			
@@ -590,11 +601,11 @@ function CreateTournaments()
 			
 			console.log("circlist "+JSON.stringify(circList));
 		
-			for (iter in gamecategories)
+			for (iter in circList)
 				{
-						console.log(gamecategories[iter].time);
-				
-						setTournamentTimeout(iter,(60*1000)*myInterval);
+						console.log(circList[iter].time);
+						createTournamentCandidate(circList[iter],myInterval);
+						setTournamentTimeout(iter,((60*1000)*myInterval)-(seconds_ago*1000));
 						myInterval=myInterval+3;
 				}	
 		});
