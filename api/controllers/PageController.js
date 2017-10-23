@@ -548,8 +548,9 @@ function CreateTournaments()
 			{
 				var startNow=false;
 				console.log("latestOne.category "+latestOne.category);
-				console.log("parseInt(latestOne.category.split(":")[0])  "+parseInt(latestOne.category.split(":")[0]) ));
-				console.log("parseInt(latestOne.category.split(":")[1])  "+parseInt(latestOne.category.split(":")[1]) ));
+				var myArray=latestOne.category.split(":");
+				console.log("parseInt(myArray[0])  "+parseInt(myArray[0]));
+				console.log("parseInt(myArray[1])  "+parseInt(myArray[1]));
 				
 					if (gamecategories[tIter].time==parseInt(latestOne.category.split(":")[0]) && gamecategories[tIter].extratime==parseInt(latestOne.category.slice(2,2)))
 					{
