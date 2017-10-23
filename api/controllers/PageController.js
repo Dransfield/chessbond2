@@ -548,7 +548,7 @@ function CreateTournaments()
 			{
 				var startNow=false;
 				
-					if (gamecategories(tIter).time==parseInt(latestOne.category.slice(0,0)) && gamecategories(tIter).extratime==parseInt(latestOne.category.slice(2,2)))
+					if (gamecategories[tIter].time==parseInt(latestOne.category.slice(0,0)) && gamecategories[tIter].extratime==parseInt(latestOne.category.slice(2,2)))
 					{
 						startnow=true;
 					}
