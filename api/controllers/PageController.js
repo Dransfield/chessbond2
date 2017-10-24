@@ -609,7 +609,13 @@ function CreateTournaments()
 						console.log("(seconds_ago)"+((seconds_ago)));
 						console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
 						console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
-						console.log("create Delay "+createDelay);
+						
+						var mins=((60*1000)*myInterval);
+						var minuser=seconds_ago*1000;
+						createDelay=mins-minuser;
+						console.log("createDelay "+createDelay);
+						
+						//console.log("create Delay "+createDelay);
 						setTournamentTimeout(iter,createDelay,circList);
 						myInterval=myInterval+3;
 				}	
