@@ -606,6 +606,8 @@ function CreateTournaments()
 						console.log(circList[iter].time);
 						createTournamentCandidate(circList[iter],myInterval);
 						var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
+						console.log("(seconds_ago*1000)"+((seconds_ago*1000)));
+						console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
 						console.log("create Delay "+createDelay);
 						setTournamentTimeout(iter,createDelay,circList);
 						myInterval=myInterval+3;
