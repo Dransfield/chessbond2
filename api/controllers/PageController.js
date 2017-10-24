@@ -628,7 +628,7 @@ function timeOutNonMovedGames()
 						gam.save();
 						sails.sockets.broadcast(gam.id, 'chessgamemove',{room:gam.id});
 	
-						console.log("timeout "+gam.id);
+						//console.log("timeout "+gam.id);
 						/*
 						Chessgame.update({id:records[iter].id},{Result:"Both Players Timed Out"},function after2(err2,records2)
 						{
