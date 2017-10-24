@@ -373,7 +373,7 @@ var gamecategories=[{time:1,extratime:0},
 
 function showUpcomingTournamentTable(elem)
 {
-	var tbl=$("<table id='tournamentCandidateTable'></table>");
+	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
 var headers=["Game Category","Starts in..","Players Interested"];
 	for( h in headers)
