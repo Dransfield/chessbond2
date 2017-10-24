@@ -27,6 +27,7 @@ var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
 var Tournaments=[];
+var TournamentCandidates=[];
 var OwnersVisits=[];
 var mypics=[];
 
@@ -2307,7 +2308,7 @@ var opcg = new Promise
 		
 if(MyID)
 {
-Promise.all([opcg, retrieveGames(MyID),retrieveTournaments()]).then(values => { 
+Promise.all([opcg, retrieveGames(MyID),retrieveTournaments(),retrieveTournamentCandidates()]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
 	console.log("home page promise resolved");
@@ -2694,7 +2695,26 @@ var cg = new Promise
 return cg;	
 }
 
+function retrieveTournamentCandidates()
+{
+	
 
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/tournamentcandidate",{},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			TournamentCandidates.push(resData[x]);	
+			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
 
 function retrieveTournaments()
 {
@@ -3336,7 +3356,7 @@ function renderHomePage()
 	{
 		$("#usr").append("<h1>Open Tournaments</h1>");
 
-		overallFlex=addFlexDiv($("#usr"),"recentTourments","row",'wrap');
+		overallFlex=addFlexDiv($("#usr"),"recentTourments","column",'wrap');
 	showRecentTournaments(overallFlex,MyID);
 	showRecentGames($("#usr"),MyID);
 	}
