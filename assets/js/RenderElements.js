@@ -371,6 +371,26 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+function showUpcomingTournamentTable(elem)
+{
+	var tbl=$("<table id='tournamentCandidateTable'></table>");
+	elem.append(tbl);
+var headers=["Game Category","Starts in..","Players Interested"];
+	for( h in headers)
+	{
+	var header=$("<th>"+headers[h]+"</th>");
+	tbl.append(header);
+	}
+	for (iter in TournamentCandidates)
+	{
+	var row=$("<tr></tr>");
+		tbl.append(row);
+		
+		var cell=$("<td></td>");
+		cell.append(TournamentCandidates[iter].category);
+		row.append(cell);
+	}	
+}
 
 function showStatTable(elem)
 {
