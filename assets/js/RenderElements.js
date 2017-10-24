@@ -3850,8 +3850,8 @@ function showRecentTournaments(elem,usracc)
 		for (iter in TournamentCandidates)
 		{
 		var thisFlex=addFlexDiv(elem,"","row",'wrap');
-		showHeader(thisFlex,4,Tournaments[iter].category);
-		thisFlex.append(phrasefordate(Tournaments[iter].createdAt));
+		showHeader(thisFlex,4,TournamentCandidates[iter].category);
+		thisFlex.append(phrasefordate(TournamentCandidates[iter].createdAt));
 		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
 		var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
 		
