@@ -564,7 +564,7 @@ function CreateTournaments()
 			});
 			console.log("index of "+latestOne.category+" is "+JSON.stringify(indexNum));
 			
-			var arr1=gamecategores.slice(indexNum);
+			var arr1=gamecategories.slice(indexNum);
 			var arr2=[];
 			
 			if(indexNum>0)
