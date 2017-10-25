@@ -555,7 +555,7 @@ function CreateTournaments()
 			
 			var circList=[];
 			
-			var indexNum=gamecategories.find(function(cat){
+			var indexNum=gamecategories.findIndex(function(cat){
 				
 				var theString=cat.time+":"+cat.extratime;
 				console.log("cat "+theString);
