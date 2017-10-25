@@ -576,13 +576,15 @@ function CreateTournaments()
 			console.log("sliced1 "+JSON.stringify(arr1));
 			
 			console.log("sliced2 "+JSON.stringify(arr2));
-			console.log("spliced3 "+JSON.stringify(arr3));
+			
 			
 			
 			arr3=arr1.concat(arr2);
 			
 			console.log("orig length "+gamecategories.length);
 			console.log("arr3 length "+arr3.length);
+			console.log("spliced3 "+JSON.stringify(arr3));
+			
 			var startNow=false;
 			
 			for (tIter in gamecategories)
