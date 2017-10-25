@@ -562,7 +562,7 @@ function CreateTournaments()
 				if (theString==latestOne.category)
 				{return true;}
 			});
-			console.log("index of "+latestOne.category+" is "+indexNum);
+			console.log("index of "+latestOne.category+" is "+JSON.stringify(indexNum));
 			
 			var startNow=false;
 			
