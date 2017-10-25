@@ -549,25 +549,26 @@ function CreateTournaments()
 			//console.log("lattestOne "+JSON.stringify(latestOne));
 			var createdAt=new Date(latestOne.createdAt);
 			var seconds_ago=(Date.now()-createdAt)/1000;
-			console.log("was created "+seconds_ago+" seconds ago");
+			//console.log("was created "+seconds_ago+" seconds ago");
 			//myInterval=seconds_ago;
 			
 			
 			var circList=[];
 			
+			var indexNum=gamecategories.find(function(cat){
+				if (cat==latestOne.category)
+				{return true;}
+			});
+			console.log("index of "+latestOne.category+" is "+indexNum);
 			
 			var startNow=false;
 			
 			for (tIter in gamecategories)
 			{
 				
-				//console.log("latestOne.category "+latestOne.category);
-				var myArray=latestOne.category.split(":");
-			//	console.log("parseInt(myArray[0])  "+parseInt(myArray[0]));
-			//	console.log("parseInt(myArray[1])  "+parseInt(myArray[1]));
-			//	console.log("parseInt(gamecategories[tIter].extratime) "+parseInt(gamecategories[tIter].extratime));
-			//	console.log("parseInt(gamecategories[tIter].time) "+parseInt(gamecategories[tIter].time));
 				
+				var myArray=latestOne.category.split(":");
+	
 					if (parseInt(gamecategories[tIter].time)==parseInt(myArray[0]) && parseInt(gamecategories[tIter].extratime)==parseInt(myArray[1]))
 					{
 						startNow=true;
@@ -579,13 +580,10 @@ function CreateTournaments()
 				}
 			}
 			
-			console.log("latestOne "+latestOne.category);
-			console.log("circlist "+JSON.stringify(circList));
-			console.log("circ list length "+circList.length);
 			
 			if(circList.length<gamecategories.length)
 			{
-			console.log("needed "+(gamecategories.length-circList.length));	
+		
 			var needed=(gamecategories.length-circList.length);
 			
 			for (iter in gamecategories)
@@ -599,21 +597,21 @@ function CreateTournaments()
 			}
 			
 			
-			console.log("circlist "+JSON.stringify(circList));
+			
 		
 			for (iter in circList)
 				{
-						console.log(circList[iter].time);
+						//console.log(circList[iter].time);
 						createTournamentCandidate(circList[iter],myInterval);
 						var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
-						console.log("(seconds_ago)"+((seconds_ago)));
-						console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
-						console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
+					//	console.log("(seconds_ago)"+((seconds_ago)));
+					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
+					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
 						
 						var mins=((60*1000)*myInterval);
 						var minuser=seconds_ago*1000;
 						createDelay=mins+minuser;
-						console.log("createDelay "+createDelay);
+					//	console.log("createDelay "+createDelay);
 						
 						//console.log("create Delay "+createDelay);
 						setTournamentTimeout(iter,createDelay,circList);
