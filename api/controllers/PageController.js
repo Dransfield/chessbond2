@@ -564,8 +564,9 @@ function CreateTournaments()
 			});
 			console.log("index of "+latestOne.category+" is "+JSON.stringify(indexNum));
 			
-			var arr1=gamecategories.slice(indexNum-1);
+			var arr1=gamecategories.slice(indexNum+1);
 			var arr2=[];
+			var arr3=[];
 			
 			if(indexNum>0)
 			{
@@ -576,6 +577,7 @@ function CreateTournaments()
 			
 			console.log("sliced2 "+JSON.stringify(arr2));
 			
+			arr3=arr1.cat(arr2);
 			
 			
 			var startNow=false;
