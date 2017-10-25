@@ -577,7 +577,7 @@ function CreateTournaments()
 			
 			console.log("sliced2 "+JSON.stringify(arr2));
 			
-			arr3=arr1.cat(arr2);
+			arr3=arr1.concat(arr2);
 			
 			
 			var startNow=false;
