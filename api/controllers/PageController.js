@@ -556,8 +556,10 @@ function CreateTournaments()
 			var circList=[];
 			
 			var indexNum=gamecategories.find(function(cat){
-				console.log("cat "+cat.category);
-				if (cat.category==latestOne.category)
+				
+				var theString=cat.time+":"+cat.extratime;
+				console.log("cat "+theString);
+				if (theString==latestOne.category)
 				{return true;}
 			});
 			console.log("index of "+latestOne.category+" is "+indexNum);
