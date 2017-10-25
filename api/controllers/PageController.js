@@ -542,6 +542,32 @@ function CreateTournaments()
 		});
 	}
 	
+	
+	function createCircList(latcat)
+			{
+			var indexNum=gamecategories.findIndex(function(cat){
+				
+				var theString=cat.time+":"+cat.extratime;
+				//console.log("cat "+theString);
+				if (theString==latcat)
+				{return true;}
+			});
+			console.log("index of "+latcat+" is "+JSON.stringify(indexNum));
+			
+			var arr1=gamecategories.slice(indexNum+1);
+			var arr2=[];
+			var arr3=[];
+			
+			if(indexNum>0)
+			{
+			arr2=gamecategories.slice(0,indexNum+1);	
+			}
+			
+		
+			arr3=arr1.concat(arr2);
+			return arr3;
+			}
+	
 	Tournamentcandidate.destroy({}).exec(function (candidateerr,deletedcandidates)
 	{
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
@@ -553,74 +579,12 @@ function CreateTournaments()
 			//myInterval=seconds_ago;
 			
 			
-			var circList=[];
-			
-			var indexNum=gamecategories.findIndex(function(cat){
-				
-				var theString=cat.time+":"+cat.extratime;
-				console.log("cat "+theString);
-				if (theString==latestOne.category)
-				{return true;}
-			});
-			console.log("index of "+latestOne.category+" is "+JSON.stringify(indexNum));
-			
-			var arr1=gamecategories.slice(indexNum+1);
-			var arr2=[];
-			var arr3=[];
-			
-			if(indexNum>0)
-			{
-			arr2=gamecategories.slice(0,indexNum+1);	
-			}
-			
-			console.log("sliced1 "+JSON.stringify(arr1));
-			
-			console.log("sliced2 "+JSON.stringify(arr2));
+			var circList=createCircList(latestOne.category);
 			
 			
 			
-			arr3=arr1.concat(arr2);
 			
-			console.log("orig length "+gamecategories.length);
-			console.log("arr3 length "+arr3.length);
-			console.log("spliced3 "+JSON.stringify(arr3));
-			
-			var startNow=false;
-			
-			for (tIter in gamecategories)
-			{
-				
-				
-				var myArray=latestOne.category.split(":");
-	
-					if (parseInt(gamecategories[tIter].time)==parseInt(myArray[0]) && parseInt(gamecategories[tIter].extratime)==parseInt(myArray[1]))
-					{
-						startNow=true;
-					}
-			
-				if (startNow==true)
-				{
-					circList.push(gamecategories[tIter]);
-				}
-			}
-			
-			
-			if(circList.length<gamecategories.length)
-			{
-		
-			var needed=(gamecategories.length-circList.length);
-			
-			for (iter in gamecategories)
-				{
-				if(iter<needed)
-				{
-				circList.push(gamecategories[iter]);	
-				}
-				}
-			
-			}
-			
-			
+
 			
 		
 			for (iter in circList)
