@@ -538,7 +538,7 @@ function CreateTournaments()
 		Tournamentcandidate.create({category:obj.time+":"+obj.extratime,countDown:interval}).
 		exec(function afterwards(err,records)
 		{
-			setInterval(updateCountdown,(60)*1000,rec);
+			setInterval(updateCountdown,(60)*1000,records);
 		});
 	}
 	
