@@ -603,6 +603,7 @@ function CreateTournaments()
 				{
 					var mins=((60*1000)*myInterval);
 						var minuser=seconds_ago*1000;
+						console.log("threeMinutes "+threeMinutes);
 						minuser=threeMinutes-minuser;
 						var createDelay=mins+minuser;
 						console.log("myInterval "+myInterval);
