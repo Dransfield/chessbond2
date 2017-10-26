@@ -601,6 +601,12 @@ function CreateTournaments()
 		
 			for (iter in circList)
 				{
+					var mins=((60*1000)*myInterval);
+						var minuser=seconds_ago*1000;
+						minuser=threeMinutes-minuser;
+						var createDelay=mins+minuser;
+						console.log("myInterval "+myInterval);
+						console.log("createDelay "+createDelay);
 						//console.log(circList[iter].time);
 						createTournamentCandidate(circList[iter],myInterval);
 						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
@@ -608,10 +614,7 @@ function CreateTournaments()
 					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
 					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
 						
-						var mins=((60*1000)*myInterval);
-						var minuser=seconds_ago*1000;
-						minuser=threeMinutes-minuser;
-						var createDelay=mins+minuser;
+						
 					//	console.log("createDelay "+createDelay);
 						
 						//console.log("create Delay "+createDelay);
