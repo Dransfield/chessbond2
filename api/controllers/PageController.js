@@ -538,14 +538,18 @@ function CreateTournaments()
 		Tournamentcandidate.create({category:obj.time+":"+obj.extratime,countDown:interval}).
 		exec(function afterwards(err,records)
 		{
-			setTimeout(function(){
-			rec.countDown=rec.countDown-1;
-			console.log(rec.time+":"+rec.extratime+" countdown"+rec.countDown)
-			rec.save();
-			},(60)*1000,rec);
+			setInterval(updateCountdown,(60)*1000,rec);
 		});
 	}
 	
+	
+	function updateCountdown(rec)
+	{
+		rec.countDown=rec.countDown-1;
+			console.log(rec.time+":"+rec.extratime+" countdown"+rec.countDown)
+			rec.save();
+			
+	}
 	
 	function createCircList(latcat)
 			{
