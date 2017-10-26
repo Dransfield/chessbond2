@@ -504,7 +504,7 @@ function CreateTournaments()
 	
 	
 	
-	var myInterval=0;
+	
 
 	function setTournamentTimeout(iter,time,list){
 		setTimeout(
@@ -533,12 +533,16 @@ function CreateTournaments()
 	
 	}
 	
-	function createTournamentCandidate(obj)
+	function createTournamentCandidate(obj,interval)
 	{
-		Tournamentcandidate.create({category:obj.time+":"+obj.extratime}).
+		Tournamentcandidate.create({category:obj.time+":"+obj.extratime,countDown:interval}).
 		exec(function afterwards(err,records)
 		{
-			
+			setTimeout(function(){
+			rec.countDown=rec.countDown-1;
+			console.log(rec.time+":"+rec.extratime+" countdown"+rec.countDown)
+			rec.save();
+			},(60)*1000,rec);
 		});
 	}
 	
@@ -568,6 +572,8 @@ function CreateTournaments()
 			return arr3;
 			}
 	
+	var myInterval=0;
+	
 	Tournamentcandidate.destroy({}).exec(function (candidateerr,deletedcandidates)
 	{
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
@@ -577,6 +583,8 @@ function CreateTournaments()
 			var seconds_ago=(Date.now()-createdAt)/1000;
 			//console.log("was created "+seconds_ago+" seconds ago");
 			//myInterval=seconds_ago;
+			
+			var minutes_ago=seconds_ago/60;
 			
 			
 			var circList=createCircList(latestOne.category);
@@ -591,14 +599,15 @@ function CreateTournaments()
 				{
 						//console.log(circList[iter].time);
 						createTournamentCandidate(circList[iter],myInterval);
-						var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
+						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
 					//	console.log("(seconds_ago)"+((seconds_ago)));
 					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
 					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
 						
 						var mins=((60*1000)*myInterval);
 						var minuser=seconds_ago*1000;
-						createDelay=mins+minuser;
+						minuser=threeMinutes-minuser;
+						var createDelay=mins+minuser;
 					//	console.log("createDelay "+createDelay);
 						
 						//console.log("create Delay "+createDelay);
