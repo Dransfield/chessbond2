@@ -532,7 +532,7 @@ function CreateTournaments()
 		exec(function afterwards(err, records)
 			{
 				sails.sockets.broadcast('im online', 'new tournament',records);
-				console.log("created tournament after interval");
+				console.log("created tournament after interval"+records.createdAt);
 			});
 		},sixtySixMinutes);
 	},time);
