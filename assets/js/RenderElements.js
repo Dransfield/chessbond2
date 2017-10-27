@@ -396,7 +396,8 @@ function showUpcomingTournamentTable2(elem)
 {
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
-var headers=["Game Category","Starts in..","Players Interested"];
+	var tablePosition=1;
+var headers=["Position","Game Category","Starts in..","Players Interested"];
 	for( h in headers)
 	{
 	var header=$("<th>"+headers[h]+"</th>");
@@ -412,10 +413,17 @@ var headers=["Game Category","Starts in..","Players Interested"];
 	var row=$("<tr></tr>");
 		tbl.append(row);
 		
+		cell=$("<td></td>");
+		cell.append(tablePosition);
+		row.append(cell);
+		
+		tablePosition=tablePosition+1;
+		
 		var cell=$("<td></td>");
 		cell.append(Tournaments[iter].category);
 		row.append(cell);
-	var cell=$("<td></td>");
+		
+		cell=$("<td></td>");
 		cell.append(Tournaments[iter].timeToAvailable);
 		row.append(cell);
 		}
