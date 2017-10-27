@@ -3358,7 +3358,7 @@ function renderHomePage()
 
 		//overallFlex=addFlexDiv($("#usr"),"recentTourments","column",'wrap');
 	//showRecentTournaments(overallFlex,MyID);
-	showUpcomingTournamentTable($("#usr"));
+	showUpcomingTournamentTable2($("#usr"));
 	showRecentGames($("#usr"),MyID);
 	}
 	showLoginForm($("#loginform"));

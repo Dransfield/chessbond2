@@ -392,6 +392,30 @@ var headers=["Game Category","Starts in..","Players Interested"];
 	}	
 }
 
+function showUpcomingTournamentTable2(elem)
+{
+	var tbl=$("<table id='ipTable'></table>");
+	elem.append(tbl);
+var headers=["Game Category","Starts in..","Players Interested"];
+	for( h in headers)
+	{
+	var header=$("<th>"+headers[h]+"</th>");
+	tbl.append(header);
+	}
+	for (iter in Tournaments)
+	{
+	var row=$("<tr></tr>");
+		tbl.append(row);
+		
+		var cell=$("<td></td>");
+		cell.append(Tournaments[iter].category);
+		row.append(cell);
+	var cell=$("<td></td>");
+		cell.append(Tournaments[iter].timeToAvailable);
+		row.append(cell);
+	}	
+}
+
 function showStatTable(elem)
 {
 	elem.append("<div>"+JoinedGames[ProfID].length+" games found</div>");
