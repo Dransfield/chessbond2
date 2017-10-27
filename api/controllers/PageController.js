@@ -522,7 +522,7 @@ function CreateTournaments()
 	Tournament.create({category:list[iter].time+":"+list[iter].extratime,timeToAvailable:time}).
 		exec(function afterwards(err, records)
 			{
-				setTimeout(function(){
+				setTimeout(function(records){
 				sails.sockets.broadcast('im online', 'new tournament',records);
 				records.activated=true;
 				records.save();
