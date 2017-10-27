@@ -3879,6 +3879,23 @@ function showRecentTournaments(elem,usracc)
 		}
 }
 
+function showRecentTournaments2(elem,usracc)
+{
+		elem.empty();
+		
+		//var span=addFlexDiv(overallFlex,'id',"row","nowrap");
+	//	showHeader(span,2,"Tournaments");
+		for (iter in TournamentCandidates)
+		{
+		var thisFlex=addFlexDiv(elem,"","row",'wrap');
+		showHeader(thisFlex,4,TournamentCandidates[iter].category);
+		thisFlex.append(phrasefordate(TournamentCandidates[iter].createdAt));
+		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
+		var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
+		
+		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+		}
+}
 
 function joinTournamentFunction(event)
 {

@@ -507,9 +507,13 @@ function CreateTournaments()
 	
 
 	function setTournamentTimeout(iter,time,list){
+		
+		createTournamentCandidate(list[iter],time);
+		
 		setTimeout(
 	setTournamentInterval
 	,time,iter,list);
+	
 	}
 	
 	function setTournamentInterval(iter,list){
@@ -519,6 +523,7 @@ function CreateTournaments()
 		exec(function afterwards(err, records)
 			{
 				sails.sockets.broadcast('im online', 'new tournament',records);
+				//var circList=createCircList(latestOne.category);
 				console.log("created "+list[iter].time);
 			});
 	
@@ -538,7 +543,7 @@ function CreateTournaments()
 		Tournamentcandidate.create({category:obj.time+":"+obj.extratime,countDown:interval}).
 		exec(function afterwards(err,records)
 		{
-			setInterval(updateCountdown,(60)*1000,records);
+			//setInterval(updateCountdown,(60)*1000,records);
 		});
 	}
 	
@@ -613,7 +618,7 @@ function CreateTournaments()
 						console.log("myInterval "+myInterval);
 						console.log("createDelay "+createDelay);
 						//console.log(circList[iter].time);
-						createTournamentCandidate(circList[iter],myInterval);
+					//	createTournamentCandidate(circList[iter],myInterval);
 						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
 					//	console.log("(seconds_ago)"+((seconds_ago)));
 					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
