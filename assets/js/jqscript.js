@@ -3390,7 +3390,7 @@ function renderHomePage()
 			data.phrase=phrasefordate(data.createdAt);
 			Tournaments.push(data);
 			//addJoinedGame(games.length-1,games,myelem);
-			showRecentTournaments(overallFlex,MyID);		
+			showRecentTournaments2(overallFlex,MyID);		
 			});
 			
 	
