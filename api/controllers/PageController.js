@@ -617,9 +617,12 @@ function CreateTournaments()
 						if(createDelay>threeMinutes)
 						{
 					minuser=threeMinutes-minuser;
+						console.log("createdelay not set to zero "+createDelay);
 						}
 						else
-						{createDelay=0;}
+						{createDelay=0;
+							console.log("createdelay set to zero "+createDelay);
+							}
 					/*
 						console.log("seconds ago "+seconds_ago);
 						console.log("mins "+mins);
