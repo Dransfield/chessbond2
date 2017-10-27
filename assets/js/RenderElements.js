@@ -408,7 +408,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		if(Tournaments[iter].timeToAvailable)
 		{
 	
-		if(Tournaments[iter].timeToAvailable)>0
+		if(Tournaments[iter].timeToAvailable>0)
 		{
 	var row=$("<tr></tr>");
 		tbl.append(row);
