@@ -526,7 +526,7 @@ function CreateTournaments()
 				sails.sockets.broadcast('im online', 'new tournament',records);
 				records.activated=true;
 				records.save();
-				},time);
+				},time,records);
 				//var circList=createCircList(latestOne.category);
 				console.log("created "+list[iter].time);
 			});
