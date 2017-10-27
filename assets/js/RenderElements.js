@@ -404,6 +404,11 @@ var headers=["Game Category","Starts in..","Players Interested"];
 	}
 	for (iter in Tournaments)
 	{
+		if(Tournaments[iter].timeToAvailable)
+		{
+	
+		if(Tournaments[iter].timeToAvailable)>0
+		{
 	var row=$("<tr></tr>");
 		tbl.append(row);
 		
@@ -413,6 +418,8 @@ var headers=["Game Category","Starts in..","Players Interested"];
 	var cell=$("<td></td>");
 		cell.append(Tournaments[iter].timeToAvailable);
 		row.append(cell);
+		}
+	}
 	}	
 }
 
