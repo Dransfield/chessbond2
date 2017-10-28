@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
 players:{type:'integer',defaultsTo:0},
-activated:{type:'integer',defaultsTo:false}
+activated:{type:'boolean',defaultsTo:false}
   }
 };
 
