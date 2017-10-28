@@ -603,6 +603,7 @@ function CreateTournaments()
 	
 	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
 	{
+		console.log("just deleted "+deletedcandidates);
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 		{
 			//console.log("lattestOne "+JSON.stringify(latestOne));
