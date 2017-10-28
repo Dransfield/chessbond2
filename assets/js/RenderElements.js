@@ -394,6 +394,7 @@ var headers=["Game Category","Starts in..","Players Interested"];
 
 function showUpcomingTournamentTable2(elem)
 {
+	console.log("showUpcomingTournamentTable2 ");
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
 	var tablePosition=1;
@@ -403,6 +404,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	var header=$("<th>"+headers[h]+"</th>");
 	tbl.append(header);
 	}
+	console.log("Tournaments.length "+Tournaments.length);
 	for (iter in Tournaments)
 	{
 		if(Tournaments[iter].timeToAvailable)
