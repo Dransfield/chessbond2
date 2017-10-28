@@ -517,12 +517,12 @@ function CreateTournaments()
 	}
 	
 	
-	function activate_tournament(record)
+	function activate_tournament(records)
 	{
-		sails.sockets.broadcast('im online', 'new tournament',record);
+		sails.sockets.broadcast('im online', 'new tournament',records);
 				
-		record.activated=true;
-		record.save();
+		records.activated=true;
+		records.save();
 	}
 	
 	function setTournamentInterval(time,iter,list){
