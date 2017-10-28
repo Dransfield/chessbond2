@@ -535,6 +535,7 @@ function CreateTournaments()
 	Tournament.create({category:list[iter].time+":"+list[iter].extratime,timeToAvailable:time}).
 		exec(function afterwards(err, createdT)
 			{
+				console.log(err);
 				console.log("records1 "+createdT);
 				setTimeout(activate_tournament,time,createdT);
 				//var circList=createCircList(latestOne.category);
