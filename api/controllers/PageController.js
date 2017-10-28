@@ -625,23 +625,26 @@ function CreateTournaments()
 		
 			for (iter in circList)
 				{
-					var mins=((60*1000)*myInterval);
-						var minuser=seconds_ago*1000;
+					var tournamentTimeout=((60*1000)*myInterval);
+						var lastTournCreated=seconds_ago*1000;
 						console.log("seconds_ago "+seconds_ago);
-						console.log("minuser "+minuser);
-						var createDelay=mins+minuser;
-						console.log("createDelay1 "+createDelay);
-						if(createDelay>threeMinutes)
+						console.log("lastTournCreated "+lastTournCreated);
+						console.log("createDelay1 "+totalTimeout);
+						if(lastTournCreated>threeMinutes)
 						{
 					
-					createDelay=0;
-						console.log("createdelay set to zero "+createDelay);
+						lastTournCreated=0;
+						console.log("lastTournCreated set to zero "+lastTournCreated);
 						}
 						else
 						{
-							minuser=threeMinutes-minuser;
-							console.log("createdelay set to zero "+createDelay);
+							lastTournCreated=threeMinutes-lastTournCreated;
+							console.log("lastTournCreated  reversed"+lastTournCreated);
 							}
+					
+					var totalTimeout=tournamentTimeout-lastTournCreated;
+						
+					
 					/*
 						console.log("seconds ago "+seconds_ago);
 						console.log("mins "+mins);
@@ -663,9 +666,7 @@ function CreateTournaments()
 						
 					//	console.log("createDelay "+createDelay);
 						
-						console.log("create Delay2 "+createDelay);
-						console.log("circList "+circList);
-						setTournamentTimeout(iter,createDelay,circList);
+						setTournamentTimeout(iter,totalTimeout,circList);
 						myInterval=myInterval+3;
 				}	
 		});
