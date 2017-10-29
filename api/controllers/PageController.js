@@ -524,8 +524,8 @@ function CreateTournaments()
 		{
 		sails.sockets.broadcast('im online', 'new tournament',records);
 				
-		records.activated=true;
-		records.save();
+	//	records.activated=true;
+		//records.save();
 		}
 	}
 	
