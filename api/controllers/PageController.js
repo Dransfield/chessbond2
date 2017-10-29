@@ -462,7 +462,7 @@ function CreateTournaments()
 		 or : [
     { players: 0 },
     { players:null }
-  ]}).
+  ],activated:true}).
 		exec(function afterwards(err, records)
 			{
 				//console.log("records "+records);
