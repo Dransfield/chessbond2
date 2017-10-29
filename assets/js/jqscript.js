@@ -3350,7 +3350,7 @@ function renderChatPage(col)
 	
 function renderHomePage()
 	{
-		var overallFlex
+		var overallFlex;
 	showOpenGameList($("#usr"),OpenGames);
 	if(MyID)
 	{
