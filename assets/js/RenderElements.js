@@ -347,7 +347,7 @@ function phraseforloggedindate(dat)
 		return phrase;
 	}
 
-
+/*
 var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},
@@ -370,7 +370,7 @@ var gamecategories=[{time:1,extratime:0},
 					{time:20,extratime:10},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
-
+*/
 function showUpcomingTournamentTable(elem)
 {
 	var tbl=$("<table id='ipTable'></table>");
@@ -425,9 +425,19 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		cell.append(Tournaments[iter].category);
 		row.append(cell);
 		
-		cell=$("<td></td>");
-		cell.append(Tournaments[iter].timeToAvailable);
-		row.append(cell);
+		var timeCell=$("<td></td>");
+		
+		function updateTimeCell(cell,iter)
+		{
+			Tournaments[iter].currentTime=Tournaments[iter].currentTime-121;
+			cell.html(Tournaments[iter].currentTime);
+		}
+		
+		Tournaments[iter].currentTime=Tournaments[iter].timeToAvailable;
+		setInterval(updateTimeCell,121,timeCell,iter);
+		//cell.append(Tournaments[iter].timeToAvailable);
+		row.append(timeCell);
+		
 		}
 	}
 	}	
