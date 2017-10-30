@@ -3391,7 +3391,8 @@ function renderHomePage()
 			data.phrase=phrasefordate(data.createdAt);
 			Tournaments.push(data);
 			//addJoinedGame(games.length-1,games,myelem);
-			showRecentTournaments2(overallFlex,MyID);		
+			//showRecentTournaments2(overallFlex,MyID);		
+			showUpcomingTournamentTable2($("#usr"));
 			});
 			
 	
