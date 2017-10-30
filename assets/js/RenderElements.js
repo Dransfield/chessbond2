@@ -430,7 +430,10 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		function updateTimeCell(cell,iter)
 		{
 			Tournaments[iter].currentTime=Tournaments[iter].currentTime-121;
-			cell.html(Tournaments[iter].currentTime);
+			var totalSeconds=Tournaments[iter].currentTime/1000;
+			var minutes=totalSeconds/60;
+			var secondsToShow=totalSeconds & 60;
+			cell.html(minutes+":"secondsToShow);
 		}
 		
 		Tournaments[iter].currentTime=Tournaments[iter].timeToAvailable;
