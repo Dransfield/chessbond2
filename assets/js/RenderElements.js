@@ -438,6 +438,10 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		if (secondsToShow<10)
 		{secondsToShow="0"+secondsToShow;}
 			cell.html(minutesToShow+":"+secondsToShow);
+			
+			if(Tournaments[iter].activated==true)
+			{cell.html("Tournament beginning soon!");}
+			
 		}
 		
 		Tournaments[iter].currentTime=Tournaments[iter].timeToAvailable;

@@ -3384,6 +3384,19 @@ function renderHomePage()
 			
 			});
 			
+			
+			io.socket.on('activate tournament',function(data)
+			{
+				console.log("recieved activate tournament"+data.id);
+				for (iter in Tournaments)
+				{
+				if(Tournaments[iter].id==data.id)
+				{
+				Tournaments[iter].activated=true;
+				}
+				}
+			});
+			
 			io.socket.on('new tournament', function (data)
 			{
 			console.log('recieved new tournament event '+data);

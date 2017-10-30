@@ -519,10 +519,10 @@ function CreateTournaments()
 	
 	function activate_tournament(records)
 	{
-		console.log("records2 "+records);
+		console.log("activate records2 "+JSON.stringify(records));
 		if(records)
 		{
-		sails.sockets.broadcast('im online', 'new tournament',records);
+		sails.sockets.broadcast('im online', 'activate tournament',records);
 				
 	//	records.activated=true;
 		//records.save();
