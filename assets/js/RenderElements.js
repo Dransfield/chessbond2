@@ -429,15 +429,19 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		
 		function updateTimeCell(cell,iter)
 		{
-			Tournaments[iter].currentTime=Tournaments[iter].currentTime-121;
-			var totalSeconds=Tournaments[iter].currentTime/1000;
-			var minutes=totalSeconds/60;
-			var secondsToShow=totalSeconds & 60;
-			cell.html(minutes+":"secondsToShow);
+		
+		Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
+		var bythousand=Tournaments[iter].currentTime/1000;
+		var secondsToShow=(parseInt((bythousand % 60))).toString();
+		var	minutesToShow=(parseInt((bythousand/60))).toString();
+		
+		if (secondsToShow<10)
+		{secondsToShow="0"+secondsToShow;}
+			cell.html(minutesToShow+":"secondsToShow);
 		}
 		
 		Tournaments[iter].currentTime=Tournaments[iter].timeToAvailable;
-		setInterval(updateTimeCell,121,timeCell,iter);
+		setInterval(updateTimeCell,500,timeCell,iter);
 		//cell.append(Tournaments[iter].timeToAvailable);
 		row.append(timeCell);
 		
