@@ -14,6 +14,7 @@ module.exports = {
 			console.log(dat);
 			sender={serverTime:dat,tourneys:latestOne};
 			return res.send(sender);
+		});
 	}
 };
 
