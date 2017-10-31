@@ -532,7 +532,9 @@ function CreateTournaments()
 	function setTournamentInterval(time,iter,list){
 	console.log("set tourn inter"+iter+" t"+list[iter].time);
 	
-	Tournament.create({category:list[iter].time+":"+list[iter].extratime,timeToAvailable:time}).
+	var availDate=new Date(time);
+	
+	Tournament.create({category:list[iter].time+":"+list[iter].extratime,timeToAvailable:time,dateAvailable:availDate}).
 		exec(function afterwards(err, createdT)
 			{
 				if(err)
