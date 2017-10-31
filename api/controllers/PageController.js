@@ -533,12 +533,13 @@ function CreateTournaments()
 	console.log("set tourn inter"+iter+" t"+list[iter].time);
 	
 	var now=Date.now();
-	console.log("now "+now);
+	//console.log("now "+now);
 	now=now+time;
-	console.log("now+time"+now);
+	//console.log("now+time"+now);
 	var availDate=new Date(now);
-	console.log("availDate "+availDate);
-	Tournament.create({category:list[iter].time+":"+list[iter].extratime,timeToAvailable:time,dateAvailable:now}).
+	var aDateString=availDate.toString();
+	//console.log("availDate "+availDate);
+	Tournament.create({category:list[iter].time+":"+list[iter].extratime,timeToAvailable:time,dateAvailable:aDateString}).
 		exec(function afterwards(err, createdT)
 			{
 				if(err)
