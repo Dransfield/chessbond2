@@ -454,7 +454,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 			
 		}
 		
-		Tournaments[iter].currentTime=Tournaments[iter].timeToAvailable;
+		Tournaments[iter].currentTime=diff;
 		setInterval(updateTimeCell,500,timeCell,iter);
 		//cell.append(Tournaments[iter].timeToAvailable);
 		row.append(timeCell);
