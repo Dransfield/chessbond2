@@ -1,4 +1,4 @@
-
+var serverTime;
 var myuser;
 var userIndex=0;
 var Accounts={};
@@ -2308,7 +2308,7 @@ var opcg = new Promise
 		
 if(MyID)
 {
-Promise.all([opcg, retrieveGames(MyID),retrieveTournaments(),retrieveTournamentCandidates()]).then(values => { 
+Promise.all([opcg, retrieveGames(MyID),retrieveTournamentsWithTime(),retrieveTournamentCandidates()]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
 	console.log("home page promise resolved");
@@ -2737,6 +2737,31 @@ var cg = new Promise
 });
 return cg;	
 }
+
+
+function retrieveTournamentsWithTime()
+{
+	
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/upcomingTournamentsWithTime",{},
+		function (resData,jwres){
+			serverTime=resData.serverTime;
+			for (x in resData.tourneys)
+			{
+			Tournaments.push(resData.tourneys[x]);
+			//console.log(JSON.stringify(resData[x]));
+			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
+
 
 function retrieveBannedWords()
 
