@@ -418,10 +418,10 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	
 	var date2=new Date(Tournaments[iter].createdAt);
 	var diff=date1-nowDate;
-	console.log(nowDate);
-	console.log(date1);
-	console.log(date2);
-	console.log(diff);
+	//console.log(nowDate);
+	//console.log(date1);
+	//console.log(date2);
+	//console.log(diff);
 	
 	var row=$("<tr></tr>");
 		tbl.append(row);

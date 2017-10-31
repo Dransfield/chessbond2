@@ -8,7 +8,7 @@
 module.exports = {
 	
 	upcomingTournamentsWithTime:function(req,res){
-	Tournament.find({ activated:false,timeToAvailable:{'>':0},sort: 'createdAt DESC'}).exec(function(err,latestOne)
+	Tournament.find({ activated:false,timeToAvailable:{'>':0},sort: 'createdAt ASC'}).exec(function(err,latestOne)
 		{
 			var dat=Date.now();
 			console.log(dat);
