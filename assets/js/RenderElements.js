@@ -412,6 +412,16 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	
 		if(Tournaments[iter].timeToAvailable>0)
 		{
+	
+	
+	var date1=new Date(Tournaments[iter].dateAvailable);
+	
+	var date2=new Date(Tournaments[iter].createdAt);
+	var diff=date1-date2;
+	console.log(date1);
+	console.log(date2);
+	console.log(diff);
+	
 	var row=$("<tr></tr>");
 		tbl.append(row);
 		
