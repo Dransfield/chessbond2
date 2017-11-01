@@ -407,7 +407,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	console.log("Tournaments.length "+Tournaments.length);
 	for (iter in Tournaments)
 	{
-		if(Tournaments[iter].timeToAvailable)
+		if(Tournaments[iter].activated==false)
 		{
 	
 		//if(Tournaments[iter].timeToAvailable>0)
