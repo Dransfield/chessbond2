@@ -410,8 +410,8 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		if(Tournaments[iter].timeToAvailable)
 		{
 	
-		if(Tournaments[iter].timeToAvailable>0)
-		{
+		//if(Tournaments[iter].timeToAvailable>0)
+		//{
 	
 	var nowDate=new Date(serverTime);
 	var date1=new Date(Tournaments[iter].dateAvailable);
@@ -462,7 +462,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		
 		}
 	}
-	}	
+	//}	
 }
 
 function showStatTable(elem)
