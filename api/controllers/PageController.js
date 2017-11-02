@@ -546,11 +546,13 @@ function CreateTournaments()
 				{
 				console.log(err);
 				}
-				console.log("records1 "+createdT);
+				console.log("records1 "+JSON.stringify(createdT));
 				setTimeout(activate_tournament,time,createdT);
 				//var circList=createCircList(latestOne.category);
 				console.log("created "+list[iter].time);
 			});
+			
+			/*
 	setTimeout(function(){
 	setInterval(function(){
 		Tournament.create({category:list[iter].time+":"+list[iter].extratime}).
@@ -561,6 +563,7 @@ function CreateTournaments()
 			});
 		},sixtySixMinutes);
 	},time);
+	*/
 	}
 	
 	function createTournamentCandidate(obj,interval)
