@@ -517,16 +517,32 @@ function CreateTournaments()
 	}
 	
 	
-	function activate_tournament(records)
+	function activate_tournament(record)
 	{
-		console.log("activate records2 "+JSON.stringify(records));
-		if(records)
+		console.log("activate this record "+JSON.stringify(record));
+		console.log("sixtySixMinutes "+sixtySixMinutes);
+		if(record)
 		{
-		sails.sockets.broadcast('im online', 'activate tournament',records);
+		sails.sockets.broadcast('im online', 'activate tournament',record);
+				var now=Date.now();
+				//console.log("now "+now);
+				now=now+sixtySixMinutes;
+				//console.log("now+time"+now);
+				var availDate=new Date(now);
+				var aDateString=availDate.toString();
+				
+				Tournament.create({category:record.category,timeToAvailable:record.timeToAvailable,dateAvailable:aDateString}).
+		exec(function afterwards(err, newcreatedT)
+			{
+				sails.sockets.broadcast('im online', 'new tournament',newcreatedT);
+				setTimeout(activate_tournament,sixtySixMinutes,newcreatedT);
+			});
+			
+		}
 				
 	//	records.activated=true;
 		//records.save();
-		}
+		
 	}
 	
 	function setTournamentInterval(time,iter,list){
