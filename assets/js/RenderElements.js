@@ -441,17 +441,17 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		function updateTimeCell(cell,iter)
 		{
 		
-		Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
-		var bythousand=Tournaments[iter].currentTime/1000;
-		var secondsToShow=(parseInt((bythousand % 60))).toString();
-		var	minutesToShow=(parseInt((bythousand/60))).toString();
-		
-		if (secondsToShow<10)
-		{secondsToShow="0"+secondsToShow;}
-			cell.html(minutesToShow+":"+secondsToShow);
+			Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
+			var bythousand=Tournaments[iter].currentTime/1000;
+			var secondsToShow=(parseInt((bythousand % 60))).toString();
+			var	minutesToShow=(parseInt((bythousand/60))).toString();
 			
-			if(Tournaments[iter].activated==true)
-			{cell.html("Tournament beginning soon!");}
+			if (secondsToShow<10)
+			{secondsToShow="0"+secondsToShow;}
+				cell.html(minutesToShow+":"+secondsToShow);
+				
+				if(Tournaments[iter].activated==true)
+				{cell.html("Tournament beginning soon!");}
 			
 		}
 		
@@ -463,6 +463,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		}
 	}
 	//}	
+	return tbl;
 }
 
 function showStatTable(elem)

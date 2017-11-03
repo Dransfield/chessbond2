@@ -3384,7 +3384,7 @@ function renderHomePage()
 
 		//overallFlex=addFlexDiv($("#usr"),"recentTourments","column",'wrap');
 	//showRecentTournaments(overallFlex,MyID);
-	showUpcomingTournamentTable2($("#usr"));
+	var tournamentTable=showUpcomingTournamentTable2($("#usr"));
 	showRecentGames($("#usr"),MyID);
 	}
 	showLoginForm($("#loginform"));
@@ -3431,7 +3431,8 @@ function renderHomePage()
 			Tournaments.push(data);
 			//addJoinedGame(games.length-1,games,myelem);
 			//showRecentTournaments2(overallFlex,MyID);		
-			showUpcomingTournamentTable2($("#usr"));
+			tournamentTable.detach();
+			tournamentTable=showUpcomingTournamentTable2($("#usr"));
 			});
 			
 	
