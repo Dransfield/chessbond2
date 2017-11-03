@@ -3417,6 +3417,7 @@ function renderHomePage()
 				{
 				if(Tournaments[iter].id==data.id)
 				{
+					console.log("found activated tournament");
 				Tournaments[iter].activated=true;
 				}
 				}
