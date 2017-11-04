@@ -1,4 +1,7 @@
 var serverTime;
+var tournamentTable;
+var tournamentTableContainer;
+
 var myuser;
 var userIndex=0;
 var Accounts={};
@@ -3381,10 +3384,10 @@ function renderHomePage()
 	if(MyID)
 	{
 		$("#usr").append("<h1>Open Tournaments</h1>");
-
+	tournamentTableContainer=addDiv($("#usr"));
 		//overallFlex=addFlexDiv($("#usr"),"recentTourments","column",'wrap');
 	//showRecentTournaments(overallFlex,MyID);
-	var tournamentTable=showUpcomingTournamentTable2($("#usr"));
+	tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
 	showRecentGames($("#usr"),MyID);
 	}
 	showLoginForm($("#loginform"));
@@ -3440,7 +3443,8 @@ function renderHomePage()
 			{
 				Tournaments=data.tourneys;
 				serverTime=data.serverTime;
-				showUpcomingTournamentTable2($("#usr"));
+				tournamentTable.detach();
+				showUpcomingTournamentTable2(tournamentTableContainer);
 			});
 	
 	}
