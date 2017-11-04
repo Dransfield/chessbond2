@@ -3423,18 +3423,25 @@ function renderHomePage()
 				}
 			});
 			
+			/*
 			io.socket.on('new tournament', function (data)
 			{
-			console.log('recieved new tournament event '+data);
-			
-			data.phrase=phrasefordate(data.createdAt);
-			Tournaments.push(data);
-			//addJoinedGame(games.length-1,games,myelem);
-			//showRecentTournaments2(overallFlex,MyID);		
-			tournamentTable.detach();
-			tournamentTable=showUpcomingTournamentTable2($("#usr"));
+				console.log('recieved new tournament event '+data);
+				
+				data.phrase=phrasefordate(data.createdAt);
+				Tournaments.push(data);
+				//addJoinedGame(games.length-1,games,myelem);
+				//showRecentTournaments2(overallFlex,MyID);		
+				tournamentTable.detach();
+				tournamentTable=showUpcomingTournamentTable2($("#usr"));
 			});
-			
+			*/
+			io.socket.on('tournament list',function (data)
+			{
+				Tournaments=data.tourneys;
+				serverTime=data.serverTime;
+				showUpcomingTournamentTable2($("#usr"));
+			});
 	
 	}
 

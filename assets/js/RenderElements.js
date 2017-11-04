@@ -416,7 +416,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	var nowDate=new Date(serverTime);
 	var date1=new Date(Tournaments[iter].dateAvailable);
 	
-	var date2=new Date(Tournaments[iter].createdAt);
+	//var date2=new Date(Tournaments[iter].createdAt);
 	var diff=date1-nowDate;
 	//console.log(nowDate);
 	//console.log(date1);

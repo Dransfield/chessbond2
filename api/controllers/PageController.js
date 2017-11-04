@@ -532,11 +532,21 @@ function CreateTournaments()
 				var aDateString=availDate.toString();
 				
 				Tournament.create({category:record.category,timeToAvailable:record.timeToAvailable,dateAvailable:aDateString}).
-		exec(function afterwards(err, newcreatedT)
-			{
-				sails.sockets.broadcast('im online', 'new tournament',newcreatedT);
-				setTimeout(activate_tournament,sixtySixMinutes,newcreatedT);
-			});
+					exec(function afterwards(err, newcreatedT)
+						{
+							//sails.sockets.broadcast('im online', 'new tournament',newcreatedT);
+							Tournament.find({ activated:false,sort: 'timeToAvailable ASC'}).
+								exec(function(err,tournamentList)
+									{
+									var dat=Date.now();
+									//console.log(dat);
+									sender={serverTime:dat,tourneys:tournamentList};
+									sails.sockets.broadcast('im online', 'tournament list',sender);
+									//return res.send(sender);
+									});
+							
+							setTimeout(activate_tournament,sixtySixMinutes,newcreatedT);
+						});
 			
 		}
 				
