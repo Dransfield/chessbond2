@@ -538,11 +538,17 @@ function CreateTournaments()
 							Tournament.find({ activated:false,sort: 'timeToAvailable ASC'}).
 								exec(function(err,tournamentList)
 									{
-									var dat=Date.now();
-									//console.log(dat);
-									sender={serverTime:dat,tourneys:tournamentList};
-									sails.sockets.broadcast('im online', 'tournament list',sender);
-									//return res.send(sender);
+									
+									
+									Tournament.update({id:record.id},{activated:true}).
+									exec(function afterwards(err3,updatedRecord)
+										{
+										var dat=Date.now();
+										//console.log(dat);
+										sender={serverTime:dat,tourneys:tournamentList};
+										sails.sockets.broadcast('im online', 'tournament list',sender);
+										//return res.send(sender);
+										});
 									});
 							
 							setTimeout(activate_tournament,sixtySixMinutes,newcreatedT);
