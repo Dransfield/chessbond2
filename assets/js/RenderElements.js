@@ -3961,13 +3961,15 @@ function showRecentTournaments2(elem,usracc)
 	//	showHeader(span,2,"Tournaments");
 		for (iter in Tournaments)
 		{
-		var thisFlex=addFlexDiv(elem,"","row",'wrap');
-		showHeader(thisFlex,4,Tournaments[iter].category);
-		thisFlex.append(phrasefordate(Tournaments[iter].createdAt));
-		thisFlex.append(Tournaments[iter].timeToAvailable);
-		var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
-		var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
-		
+			if(Tournaments[iter].timeToAvailable>0)
+			{
+				var thisFlex=addFlexDiv(elem,"","row",'wrap');
+				showHeader(thisFlex,4,Tournaments[iter].category);
+				thisFlex.append(phrasefordate(Tournaments[iter].createdAt));
+				thisFlex.append(Tournaments[iter].timeToAvailable);
+				var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
+				var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
+			}
 		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 		}
 }
