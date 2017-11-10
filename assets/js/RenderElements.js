@@ -7,6 +7,8 @@ var recentGameIndex=0;
 var recentGamesToShow=20;
 var lastChatMessagePostedBy="";
 var NDDlinks={};
+var updateTournamentInterval;
+
 var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},
@@ -405,6 +407,8 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	tbl.append(header);
 	}
 	console.log("Tournaments.length "+Tournaments.length);
+	var timeCells={};
+	
 	for (iter in Tournaments)
 	{
 		if(Tournaments[iter].activated==false)
@@ -436,33 +440,44 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		cell.append(Tournaments[iter].category);
 		row.append(cell);
 		
-		var timeCell=$("<td></td>");
+		timeCells[iter]=$("<td></td>");
 		
-		function updateTimeCell(cell,iter)
-		{
-		
-			Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
-			var bythousand=Tournaments[iter].currentTime/1000;
-			var secondsToShow=(parseInt((bythousand % 60))).toString();
-			var	minutesToShow=(parseInt((bythousand/60))).toString();
-			
-			if (secondsToShow<10)
-			{secondsToShow="0"+secondsToShow;}
-				cell.html(minutesToShow+":"+secondsToShow);
-				
-				if(Tournaments[iter].activated==true)
-				{cell.html("Tournament beginning soon!");}
-			
-		}
 		
 		Tournaments[iter].currentTime=diff;
-		setInterval(updateTimeCell,500,timeCell,iter);
+		
 		//cell.append(Tournaments[iter].timeToAvailable);
-		row.append(timeCell);
+		row.append(timeCells[iter]);
 		
 		}
 	}
 	//}	
+	if(updateTournamentInterval)
+	{
+		
+	clearInterval(updateTournamentInterval);	
+	}
+	
+	updateTournamentInterval=setInterval(updateTimeCells,500);
+	
+	function updateTimeCells()
+		{
+		for (iter in Tournaments)
+				{
+					Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
+					var bythousand=Tournaments[iter].currentTime/1000;
+					var secondsToShow=(parseInt((bythousand % 60))).toString();
+					var	minutesToShow=(parseInt((bythousand/60))).toString();
+					
+					if (secondsToShow<10)
+					{secondsToShow="0"+secondsToShow;}
+					timeCells[iter].html(minutesToShow+":"+secondsToShow);
+						
+					if(Tournaments[iter].activated==true)
+					{timeCells[iter].html("Tournament beginning soon!");}
+				}
+			
+		}
+	
 	return tbl;
 }
 
