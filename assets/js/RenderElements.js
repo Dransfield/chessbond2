@@ -397,7 +397,7 @@ var headers=["Game Category","Starts in..","Players Interested"];
 function showUpcomingTournamentTable2(elem)
 {
 	
-	Tournaments.sort(function(a, b){return a.timeToAvailable - b.timeToAvailable});
+	Tournaments.sort(function(a, b){return a.dateAvailable - b.dateAvailable});
 	
 	console.log("showUpcomingTournamentTable2 ");
 	var tbl=$("<table id='ipTable'></table>");
@@ -466,7 +466,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		{
 			
 			
-	Tournaments.sort(function(a, b){return a.timeToAvailable - b.timeToAvailable});
+	Tournaments.sort(function(a, b){return a.dateAvailable - b.dateAvailable});
 	
 		for (iter in Tournaments)
 				{
