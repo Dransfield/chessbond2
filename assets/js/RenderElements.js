@@ -396,6 +396,9 @@ var headers=["Game Category","Starts in..","Players Interested"];
 
 function showUpcomingTournamentTable2(elem)
 {
+	
+	Tournaments.sort(function(a, b){return b.timeToAvailable - a.timeToAvailable});
+	
 	console.log("showUpcomingTournamentTable2 ");
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
@@ -461,6 +464,10 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	
 	function updateTimeCells()
 		{
+			
+			
+	Tournaments.sort(function(a, b){return b.timeToAvailable - a.timeToAvailable});
+	
 		for (iter in Tournaments)
 				{
 					Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
