@@ -397,7 +397,18 @@ var headers=["Game Category","Starts in..","Players Interested"];
 function showUpcomingTournamentTable2(elem)
 {
 	
-	Tournaments.sort(function(a, b){return a.dateAvailable - b.dateAvailable});
+	
+	function sortTourn(a,b)
+	{
+	var nowDate=new Date(serverTime);
+	var dateA=new Date(a.dateAvailable);
+	var diffa=dateA-nowDate;
+	var dateB=new Date(b.dateAvailable);
+	var diffa=dateB-nowDate;
+	return diffa - diffb;
+	}
+	
+	Tournaments.sort(sortTourn);
 	
 	console.log("showUpcomingTournamentTable2 ");
 	var tbl=$("<table id='ipTable'></table>");
@@ -466,7 +477,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		{
 			
 			
-	Tournaments.sort(function(a, b){return a.dateAvailable - b.dateAvailable});
+	Tournaments.sort(sortTourn);
 	
 		for (iter in Tournaments)
 				{
