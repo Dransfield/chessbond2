@@ -404,7 +404,7 @@ function showUpcomingTournamentTable2(elem)
 	var dateA=new Date(a.dateAvailable);
 	var diffa=dateA-nowDate;
 	var dateB=new Date(b.dateAvailable);
-	var diffa=dateB-nowDate;
+	var diffb=dateB-nowDate;
 	return diffa - diffb;
 	}
 	
