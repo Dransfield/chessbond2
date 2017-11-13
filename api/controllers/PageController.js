@@ -540,11 +540,11 @@ function CreateTournaments()
 									{
 									
 									
-									Tournament.update({id:record.id},{activated:true}).
+									Tournament.update({id:record.id},{activated:true,timeToAvailable:0}).
 									exec(function afterwards(err3,updatedRecord)
 										{
 										var dat=Date.now();
-										//console.log(dat);
+										console.log("updated Record"+updatedRecord);
 										sender={serverTime:dat,tourneys:tournamentList};
 										sails.sockets.broadcast('im online', 'tournament list',sender);
 										//return res.send(sender);
