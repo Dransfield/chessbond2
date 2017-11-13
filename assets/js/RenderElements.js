@@ -428,43 +428,44 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		if(Tournaments[iter].activated==false)
 		{
 	
-		//if(Tournaments[iter].timeToAvailable>0)
-		//{
+			if(Tournaments[iter].timeToAvailable>0)
+			{
 	
-	var nowDate=new Date(serverTime);
-	var date1=new Date(Tournaments[iter].dateAvailable);
-	
-	//var date2=new Date(Tournaments[iter].createdAt);
-	var diff=date1-nowDate;
-	//console.log(nowDate);
-	//console.log(date1);
-	//console.log(date2);
-	//console.log(diff);
-	
-	var row=$("<tr></tr>");
-		tbl.append(row);
+				var nowDate=new Date(serverTime);
+				var date1=new Date(Tournaments[iter].dateAvailable);
+				
+				//var date2=new Date(Tournaments[iter].createdAt);
+				var diff=date1-nowDate;
+				//console.log(nowDate);
+				//console.log(date1);
+				//console.log(date2);
+				//console.log(diff);
+				
+				var row=$("<tr></tr>");
+					tbl.append(row);
+					
+					cell=$("<td></td>");
+					cell.append(tablePosition);
+					row.append(cell);
+					
+					tablePosition=tablePosition+1;
+					
+					var cell=$("<td></td>");
+					cell.append(Tournaments[iter].category);
+					row.append(cell);
+					
+					timeCells[iter]=$("<td></td>");
 		
-		cell=$("<td></td>");
-		cell.append(tablePosition);
-		row.append(cell);
 		
-		tablePosition=tablePosition+1;
-		
-		var cell=$("<td></td>");
-		cell.append(Tournaments[iter].category);
-		row.append(cell);
-		
-		timeCells[iter]=$("<td></td>");
-		
-		
-		Tournaments[iter].currentTime=diff;
-		
-		//cell.append(Tournaments[iter].timeToAvailable);
-		row.append(timeCells[iter]);
-		
+					Tournaments[iter].currentTime=diff;
+					
+					//cell.append(Tournaments[iter].timeToAvailable);
+					row.append(timeCells[iter]);
+					
+			}
 		}
 	}
-	//}	
+		
 	if(updateTournamentInterval)
 	{
 		
