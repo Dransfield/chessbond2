@@ -428,6 +428,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 		if(Tournaments[iter].activated==false)
 		{
 			console.log("Tavailable "+Tournaments[iter].timeToAvailable);
+			console.log("Tournaments[iter].category "+Tournaments[iter].category);
 			if(Tournaments[iter].timeToAvailable>0)
 			{
 	
