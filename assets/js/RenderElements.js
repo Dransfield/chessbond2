@@ -484,6 +484,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 				{
 					if(Tournaments[iter].timeToAvailable>0)
 					{
+						console.log("Tavailable "+Tournaments[iter].timeToAvailable);
 					Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
 					var bythousand=Tournaments[iter].currentTime/1000;
 					var secondsToShow=(parseInt((bythousand % 60))).toString();
