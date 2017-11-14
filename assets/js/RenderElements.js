@@ -408,7 +408,20 @@ function showUpcomingTournamentTable2(elem)
 	return diffa - diffb;
 	}
 	
+	function timeToAvailFunc(a)
+	{
+	var nowDate=new Date(serverTime);
+	var dateA=new Date(a.dateAvailable);
+	var diffa=dateA-nowDate;
+	return diffa;	
+	}
+	
 	Tournaments.sort(sortTourn);
+	
+	for (iter in Tournaments)
+	{
+	Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+	}
 	
 	console.log("showUpcomingTournamentTable2 ");
 	var tbl=$("<table id='ipTable'></table>");
