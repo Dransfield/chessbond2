@@ -438,6 +438,14 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	
 	for (iter in Tournaments)
 	{
+		if(Tournaments[iter].timeToAvailable<1)
+			{
+				tbl.append("Current Tournament:"+Tournaments[iter].category);
+			}
+	}
+	
+	for (iter in Tournaments)
+	{
 		if(Tournaments[iter].activated==false)
 		{
 			console.log("Tavailable "+Tournaments[iter].timeToAvailable);
