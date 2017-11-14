@@ -440,11 +440,12 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	{
 		if(Tournaments[iter].timeToAvailable<1)
 			{
+				console.log(" current tourn iter "+iter);
 				var row=$("<tr></tr>");
 					tbl.append(row);
 					timeCells[iter]=$("<td></td>");
 					row.append(timeCells[iter]);
-				timeCells[iter].append("Current Tournament:"+Tournaments[iter].category);
+					timeCells[iter].append("Current Tournament:"+Tournaments[iter].category);
 			}
 	}
 	
