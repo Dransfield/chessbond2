@@ -446,6 +446,12 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 					timeCells[iter]=$("<td></td>");
 					row.append(timeCells[iter]);
 					timeCells[iter].append("Current Tournament:"+Tournaments[iter].category);
+				var cell2=$("<td></td>");
+				row.append(cell2);
+					var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
+		
+		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+		
 			}
 	}
 	

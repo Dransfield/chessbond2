@@ -461,6 +461,9 @@ function CreateTournaments()
 		Tournament.find({
 		 or : [
     { players: 0 },
+    { players: 1 },
+    { players: 2 },
+    { players: 3 },
     { players:null }
   ],activated:true}).
 		exec(function afterwards(err, records)

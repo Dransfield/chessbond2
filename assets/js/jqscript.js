@@ -3446,6 +3446,12 @@ function renderHomePage()
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
 			});
+			io.socket.on('tournament entries',function (data)
+			{
+				console.log("tournid "+data.tournID);
+				
+				console.log("players "+data.players);
+			});
 	
 	}
 
