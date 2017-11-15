@@ -18,7 +18,8 @@ module.exports = {
 				Tournamententry.find({tournid:req.param('tourny')}).
 	exec(function afterwards(err2,records2)
 	{
-	Tournament.update({id:req.param('tourny')},{players:records.length}).
+		console.log("records2.length "+records2.length);
+	Tournament.update({id:req.param('tourny')},{players:records2.length}).
 	exec(function afterwards(err3,records3)
 		{
 		console.log("records3 "+JSON.stringify(records3[0]));		
