@@ -3448,9 +3448,9 @@ function renderHomePage()
 			});
 			io.socket.on('tournament entries',function (data)
 			{
-				console.log("tournid "+data.tournID);
+				console.log("tournid "+data[0].tournID);
 				
-				console.log("players "+data.players);
+				console.log("players "+data[0].players);
 			});
 	
 	}
