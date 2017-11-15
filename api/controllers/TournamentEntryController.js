@@ -13,15 +13,17 @@ module.exports = {
 			{
 				
 		console.log(err);
-		console.log(JSON.stringify(records));		
+		//console.log(JSON.stringify(records));		
 				
 				Tournamententry.find({tournid:req.param('tourny')}).
-	exec(function afterwards(err,records)
+	exec(function afterwards(err2,records2)
 	{
 	Tournament.update({id:req.param('tourny')},{players:records.length}).
-	exec(function afterwards(err2,records2)
+	exec(function afterwards(err3,records3)
 		{
-			sails.sockets.broadcast('im online', 'tournament entries',{tournID:records2.id,players:records2.players});
+		console.log(JSON.stringify(records3));		
+			
+			sails.sockets.broadcast('im online', 'tournament entries',{tournID:records3.id,players:records3.players});
 										
 		});
 	
