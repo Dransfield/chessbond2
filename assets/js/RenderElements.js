@@ -423,6 +423,7 @@ function showUpcomingTournamentTable2(elem)
 	Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
 	}
 	
+	var timeCells={};
 	
 	for (iter in Tournaments)
 	{
@@ -455,7 +456,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	tbl.append(header);
 	}
 	console.log("Tournaments.length "+Tournaments.length);
-	var timeCells={};
+	
 	
 	
 	
