@@ -434,7 +434,7 @@ function showUpcomingTournamentTable2(elem)
 					elem.append(row);
 					timeCells[iter]=$("<span></span>");
 					row.append(timeCells[iter]);
-					timeCells[iter].append("Current Tournament:"+Tournaments[iter].category);
+					timeCells[iter].append("<h1>Current Tournament:"+Tournaments[iter].category+"</h1>");
 				var cell2=$("<span></span>");
 				row.append(cell2);
 				var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
