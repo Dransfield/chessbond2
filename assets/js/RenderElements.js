@@ -423,6 +423,27 @@ function showUpcomingTournamentTable2(elem)
 	Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
 	}
 	
+	
+	for (iter in Tournaments)
+	{
+		if(Tournaments[iter].timeToAvailable<1)
+			{
+				console.log(" current tourn iter "+iter);
+				var row=$("<div></div>");
+					elem.append(row);
+					timeCells[iter]=$("<span></span>");
+					row.append(timeCells[iter]);
+					timeCells[iter].append("Current Tournament:"+Tournaments[iter].category);
+				var cell2=$("<span></span>");
+				row.append(cell2);
+				var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
+		
+				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+		
+			}
+	}
+	
+	
 	console.log("showUpcomingTournamentTable2 ");
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
@@ -436,24 +457,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	console.log("Tournaments.length "+Tournaments.length);
 	var timeCells={};
 	
-	for (iter in Tournaments)
-	{
-		if(Tournaments[iter].timeToAvailable<1)
-			{
-				console.log(" current tourn iter "+iter);
-				var row=$("<tr></tr>");
-					tbl.append(row);
-					timeCells[iter]=$("<td></td>");
-					row.append(timeCells[iter]);
-					timeCells[iter].append("Current Tournament:"+Tournaments[iter].category);
-				var cell2=$("<td></td>");
-				row.append(cell2);
-					var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
-		
-		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
-		
-			}
-	}
+	
 	
 	for (iter in Tournaments)
 	{
