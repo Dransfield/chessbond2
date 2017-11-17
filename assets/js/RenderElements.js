@@ -432,7 +432,7 @@ function showUpcomingTournamentTable2(elem)
 				console.log(" current tourn iter "+iter);
 				var row=$("<div></div>");
 					elem.append(row);
-					timeCells[iter]=$("<span></span>");
+					timeCells[iter]=$("<spanstyle='text-align:center'></span>");
 					row.append(timeCells[iter]);
 					timeCells[iter].append("<h1>Current Tournament:"+Tournaments[iter].category+"</h1>");
 				var cell2=$("<span></span>");
