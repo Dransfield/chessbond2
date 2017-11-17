@@ -430,7 +430,7 @@ function showUpcomingTournamentTable2(elem)
 		if(Tournaments[iter].timeToAvailable<1)
 			{
 				console.log(" current tourn iter "+iter);
-				var currentTournamentDiv=$("<div></div>");
+				currentTournamentDiv=$("<div></div>");
 					currentTournamentDivContainer.append(currentTournamentDiv);
 					timeCells[iter]=$("<span style='text-align:center;background-color:lightblue'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
