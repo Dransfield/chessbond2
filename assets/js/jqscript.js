@@ -3444,7 +3444,10 @@ function renderHomePage()
 			{
 				Tournaments=data.tourneys;
 				serverTime=data.serverTime;
+				if(currentTournamentDiv)
+				{
 				currentTournamentDiv.detach();
+				}
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
 			});
