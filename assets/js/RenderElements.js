@@ -432,10 +432,10 @@ function showUpcomingTournamentTable2(elem)
 				console.log(" current tourn iter "+iter);
 				var currentTournamentDiv=$("<div></div>");
 					elem.append(currentTournamentDiv);
-					timeCells[iter]=$("<span style='text-align:center'></span>");
+					timeCells[iter]=$("<span style='text-align:center;background-color:lightblue'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h1>Current Tournament:"+Tournaments[iter].category+"</h1>");
-				var cell2=$("<span></span>");
+				var cell2=$("<span style='text-align:center;background-color:lightblue'></span>");
 				currentTournamentDiv.append(cell2);
 				var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
 		
