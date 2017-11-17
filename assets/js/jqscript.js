@@ -3384,7 +3384,15 @@ function renderHomePage()
 	showOpenGameList($("#usr"),OpenGames);
 	if(MyID)
 	{
-		$("#usr").append("<h1>Open Tournaments</h1>");
+		
+		$("#usr").append("<h1>Current Tournament</h1>");
+		currentTournamentDivContainer=addDiv($("#usr"));
+		
+		
+		$("#usr").append("<h1>Upcoming Tournaments</h1>");
+		
+		
+		
 	tournamentTableContainer=addDiv($("#usr"));
 		//overallFlex=addFlexDiv($("#usr"),"recentTourments","column",'wrap');
 	//showRecentTournaments(overallFlex,MyID);
