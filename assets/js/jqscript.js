@@ -1,6 +1,7 @@
 var serverTime;
 var tournamentTable;
 var tournamentTableContainer;
+var currentTournamentDiv;
 
 var myuser;
 var userIndex=0;
@@ -3443,6 +3444,7 @@ function renderHomePage()
 			{
 				Tournaments=data.tourneys;
 				serverTime=data.serverTime;
+				currentTournamentDiv.detach();
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
 			});

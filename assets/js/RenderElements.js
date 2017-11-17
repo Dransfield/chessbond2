@@ -430,13 +430,13 @@ function showUpcomingTournamentTable2(elem)
 		if(Tournaments[iter].timeToAvailable<1)
 			{
 				console.log(" current tourn iter "+iter);
-				var row=$("<div></div>");
-					elem.append(row);
+				var currentTournamentDiv=$("<div></div>");
+					elem.append(currentTournamentDiv);
 					timeCells[iter]=$("<span style='text-align:center'></span>");
-					row.append(timeCells[iter]);
+					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h1>Current Tournament:"+Tournaments[iter].category+"</h1>");
 				var cell2=$("<span></span>");
-				row.append(cell2);
+				currentTournamentDiv.append(cell2);
 				var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
 		
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
