@@ -2,6 +2,7 @@ var serverTime;
 var tournamentTable;
 var tournamentTableContainer;
 var currentTournamentDiv;
+var joinbuttonDiv;
 
 var myuser;
 var userIndex=0;
@@ -3455,6 +3456,7 @@ function renderHomePage()
 				if(currentTournamentDiv)
 				{
 				currentTournamentDiv.detach();
+				joinbuttonDiv.detach();
 				}
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
