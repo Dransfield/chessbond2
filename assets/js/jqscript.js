@@ -3526,7 +3526,7 @@ function renderHomePage()
 					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
 					
-					joinedPlayersDiv.append(TournamentEntries.length+" players joined");
+					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
 					
 					if (currentTournamentID==data.tournID)
 					{
@@ -3537,7 +3537,9 @@ function renderHomePage()
 						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
 							function(usr)
 							{
-							joinedPlayersDiv.append(usr.name);	
+							//joinedPlayersDiv.append(usr.name);	
+							Accounts[usr.id]=usr;
+							showUsernameJumbo(joinedPlayersDiv,usr.id)
 							});
 						
 						}
