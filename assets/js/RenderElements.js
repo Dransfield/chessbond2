@@ -394,11 +394,8 @@ var headers=["Game Category","Starts in..","Players Interested"];
 	}	
 }
 
-function showUpcomingTournamentTable2(elem)
-{
-	
-	
-	function sortTourn(a,b)
+
+function sortTourn(a,b)
 	{
 	var nowDate=new Date(serverTime);
 	var dateA=new Date(a.dateAvailable);
@@ -407,6 +404,12 @@ function showUpcomingTournamentTable2(elem)
 	var diffb=dateB-nowDate;
 	return diffa - diffb;
 	}
+
+function showUpcomingTournamentTable2(elem)
+{
+	
+	
+	
 	
 	function timeToAvailFunc(a)
 	{
@@ -442,7 +445,9 @@ function showUpcomingTournamentTable2(elem)
 				var joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
 		
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
-		
+				
+				joinedPlayersDiv=addFlexDiv(currentTournamentDivContainer,"playerList","column");
+				
 			}
 	}
 	

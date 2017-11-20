@@ -4,6 +4,8 @@ var tournamentTableContainer;
 var currentTournamentDiv;
 var joinbuttonDiv;
 
+var joinedPlayersDiv;
+
 var myuser;
 var userIndex=0;
 var Accounts={};
@@ -32,6 +34,7 @@ var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
 var Tournaments=[];
+var TournamentEntries=[];
 var TournamentCandidates=[];
 var OwnersVisits=[];
 var mypics=[];
@@ -2744,6 +2747,28 @@ return cg;
 }
 
 
+function retrieveSpecificTournamentEntries(tournID)
+{
+	
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/tournamententry",{tournid:tournID},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			TournamentEntries.push(resData[x]);
+			//console.log(JSON.stringify(resData[x]));
+			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
+
 function retrieveTournamentsWithTime()
 {
 	
@@ -3457,6 +3482,7 @@ function renderHomePage()
 				{
 				currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
+				joinedPlayersDiv.detach();
 				}
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
@@ -3467,6 +3493,39 @@ function renderHomePage()
 				console.log("tournid "+data.tournID);
 				
 				console.log("players "+data.players);
+				retrieveSpecificTournamentEntries(data.tournID).then
+				(
+				function()
+				{
+				
+				Tournaments.sort(sortTourn);
+	
+				for (iter in Tournaments)
+				{
+				Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+				}	
+				
+				var currentTournamentID;
+				
+				for (iter in Tournaments)
+				{
+				if(Tournaments[iter].timeToAvailable<1)
+				{
+					currentTournamentID=Tournaments[iter].id;
+				}
+				}
+				
+				if (currentTournamentID==data.tournID)
+				{
+					for(playerIter in TournamentEntries)
+					{
+						
+					joinedPlayersDiv.append(JSON.stringify(TournamentEntries[playerIter]);	
+					}
+				}
+				
+				});
+				
 			});
 	
 	}
