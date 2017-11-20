@@ -3487,6 +3487,7 @@ function renderHomePage()
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
 			});
+			
 			io.socket.on('tournament entries',function (data)
 			{
 				console.log(JSON.stringify(data));
@@ -3494,39 +3495,40 @@ function renderHomePage()
 				
 				console.log("players "+data.players);
 				retrieveSpecificTournamentEntries(data.tournID).then
-				(
-				function()
+				(function()
 				{
-				
-				Tournaments.sort(sortTourn);
-	
-				for (iter in Tournaments)
-				{
-				Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
-				}	
-				
-				var currentTournamentID;
-				
-				for (iter in Tournaments)
-				{
-				if(Tournaments[iter].timeToAvailable<1)
-				{
-					currentTournamentID=Tournaments[iter].id;
-				}
-				}
-				
-				console.log("currentTournamentID "+currentTournamentID);
-				console.log("data.tournID "+data.tournID);
-				
-				if (currentTournamentID==data.tournID)
-				{
-					for(playerIter in TournamentEntries)
+					
+					console.log("retrieved tournament entries!");
+					Tournaments.sort(sortTourn);
+					
+					for (iter in Tournaments)
 					{
-						
-					joinedPlayersDiv.append(JSON.stringify(TournamentEntries[playerIter]);	
-					}
-				}
+					Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+					}	
+					/*
+					var currentTournamentID;
 				
+					for (iter in Tournaments)
+					{
+						if(Tournaments[iter].timeToAvailable<1)
+						{
+						currentTournamentID=Tournaments[iter].id;
+						}
+					}
+				
+					console.log("currentTournamentID "+currentTournamentID);
+					console.log("data.tournID "+data.tournID);
+				
+					if (currentTournamentID==data.tournID)
+					{
+						for(playerIter in TournamentEntries)
+						{
+						
+						joinedPlayersDiv.append(JSON.stringify(TournamentEntries[playerIter]);	
+						}
+					}
+					*/
+					
 				});
 				
 			});
