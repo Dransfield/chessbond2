@@ -3524,7 +3524,13 @@ function renderHomePage()
 						for(playerIter in TournamentEntries)
 						{
 						
-						joinedPlayersDiv.append(JSON.stringify(TournamentEntries[playerIter]));	
+						
+						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
+							function(usr)
+							{
+							joinedPlayersDiv.append(usr.name);	
+							});
+						
 						}
 					}
 					
