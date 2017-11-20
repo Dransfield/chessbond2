@@ -430,12 +430,14 @@ function showUpcomingTournamentTable2(elem)
 		if(Tournaments[iter].timeToAvailable<1)
 			{
 				console.log(" current tourn iter "+iter);
-				currentTournamentDiv=$("<div></div>");
-					currentTournamentDivContainer.append(currentTournamentDiv);
-					timeCells[iter]=$("<span style='text-align:center;background-color:lightblue'></span>");
+				//currentTournamentDiv=
+				//	currentTournamentDivContainer.append(currentTournamentDiv);
+				currentTournamentDiv=addFlexDiv(currentTournamentDivContainer,"tournflex","row");	
+				
+					timeCells[iter]=$("<span style='text-align:center;background-color:coral'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Current Tournament:"+Tournaments[iter].category+"</h2>");
-				var cell2=$("<span style='text-align:center;background-color:lightblue'></span>");
+				
 				currentTournamentDiv.append(cell2);
 				var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
 		
@@ -464,8 +466,8 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	{
 		if(Tournaments[iter].activated==false)
 		{
-			console.log("Tavailable "+Tournaments[iter].timeToAvailable);
-			console.log("Tournaments[iter].category "+Tournaments[iter].category);
+			//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
+			//console.log("Tournaments[iter].category "+Tournaments[iter].category);
 			if(Tournaments[iter].timeToAvailable>0)
 			{
 	
