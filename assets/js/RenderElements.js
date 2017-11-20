@@ -405,12 +405,6 @@ function sortTourn(a,b)
 	return diffa - diffb;
 	}
 
-function showUpcomingTournamentTable2(elem)
-{
-	
-	
-	
-	
 	function timeToAvailFunc(a)
 	{
 	var nowDate=new Date(serverTime);
@@ -419,6 +413,14 @@ function showUpcomingTournamentTable2(elem)
 	return diffa;	
 	}
 	
+
+function showUpcomingTournamentTable2(elem)
+{
+	
+	
+	
+	
+
 	Tournaments.sort(sortTourn);
 	
 	for (iter in Tournaments)

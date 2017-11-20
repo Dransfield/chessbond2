@@ -3505,7 +3505,7 @@ function renderHomePage()
 					{
 					Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
 					}	
-					/*
+					
 					var currentTournamentID;
 				
 					for (iter in Tournaments)
@@ -3524,10 +3524,10 @@ function renderHomePage()
 						for(playerIter in TournamentEntries)
 						{
 						
-						joinedPlayersDiv.append(JSON.stringify(TournamentEntries[playerIter]);	
+						joinedPlayersDiv.append(JSON.stringify(TournamentEntries[playerIter]));	
 						}
 					}
-					*/
+					
 					
 				});
 				
