@@ -3515,6 +3515,9 @@ function renderHomePage()
 				}
 				}
 				
+				console.log("currentTournamentID "+currentTournamentID);
+				console.log("data.tournID "+data.tournID);
+				
 				if (currentTournamentID==data.tournID)
 				{
 					for(playerIter in TournamentEntries)
