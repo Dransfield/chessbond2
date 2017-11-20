@@ -3494,6 +3494,9 @@ function renderHomePage()
 				console.log("tournid "+data.tournID);
 				
 				console.log("players "+data.players);
+				
+				TournamentEntries=[];
+				
 				retrieveSpecificTournamentEntries(data.tournID).then
 				(function()
 				{
