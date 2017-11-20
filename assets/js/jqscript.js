@@ -3521,7 +3521,7 @@ function renderHomePage()
 					
 					joinedPlayersDiv.empty();
 					
-					joinedPlayersDiv.append(data.length+" players joined");
+					joinedPlayersDiv.append(TournamentEntries.length+" players joined");
 					
 					if (currentTournamentID==data.tournID)
 					{
