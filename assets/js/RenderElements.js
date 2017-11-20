@@ -437,9 +437,9 @@ function showUpcomingTournamentTable2(elem)
 					timeCells[iter]=$("<span style='text-align:center;background-color:coral'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Current Tournament:"+Tournaments[iter].category+"</h2>");
-				
-				currentTournamentDiv.append(cell2);
-				var joinTournamentButton=showButton(cell2,"Join","KgreenElement KregularButton");
+				var buttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
+				//currentTournamentDiv.append(cell2);
+				var joinTournamentButton=showButton(buttonDiv,"Join","KgreenElement KregularButton");
 		
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 		
