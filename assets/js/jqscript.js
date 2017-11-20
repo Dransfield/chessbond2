@@ -3498,7 +3498,7 @@ function renderHomePage()
 				(function()
 				{
 					
-					console.log("retrieved tournament entries!");
+					console.log("retrieved tournament entries!"+data.length);
 					Tournaments.sort(sortTourn);
 					
 					for (iter in Tournaments)
@@ -3520,6 +3520,8 @@ function renderHomePage()
 					console.log("data.tournID "+data.tournID);
 					
 					joinedPlayersDiv.empty();
+					
+					joinedPlayersDiv.append(data.length+" players joined");
 					
 					if (currentTournamentID==data.tournID)
 					{
