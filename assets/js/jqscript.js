@@ -3522,7 +3522,7 @@ function renderHomePage()
 				
 					console.log("currentTournamentID "+currentTournamentID);
 					console.log("data.tournID "+data.tournID);
-					
+					joinedPlayersDivContainer.empty();
 					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
 					
