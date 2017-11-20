@@ -438,6 +438,7 @@ function showUpcomingTournamentTable2(elem)
 				//currentTournamentDiv=
 				//	currentTournamentDivContainer.append(currentTournamentDiv);
 				currentTournamentDiv=addFlexDiv(currentTournamentDivContainer,"tournflex","row");	
+				joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
 					timeCells[iter]=$("<span style='text-align:center;background-color:coral'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
@@ -448,7 +449,6 @@ function showUpcomingTournamentTable2(elem)
 		
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 				
-				joinedPlayersDiv=addFlexDiv(currentTournamentDivContainer,"playerList","column");
 				
 			}
 	}

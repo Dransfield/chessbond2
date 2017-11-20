@@ -4,6 +4,7 @@ var tournamentTableContainer;
 var currentTournamentDiv;
 var joinbuttonDiv;
 
+var joinedPlayersDivContainer;
 var joinedPlayersDiv;
 
 var myuser;
@@ -3413,7 +3414,7 @@ function renderHomePage()
 		
 		$("#usr").append("<h1>Current Tournament</h1>");
 		currentTournamentDivContainer=addDiv($("#usr"));
-		
+		joinedPlayersDivContainer=addDiv($("#usr"));
 		
 		$("#usr").append("<h1>Upcoming Tournaments</h1>");
 		
@@ -3522,7 +3523,8 @@ function renderHomePage()
 					console.log("currentTournamentID "+currentTournamentID);
 					console.log("data.tournID "+data.tournID);
 					
-					joinedPlayersDiv.empty();
+					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
+				
 					
 					joinedPlayersDiv.append(TournamentEntries.length+" players joined");
 					
