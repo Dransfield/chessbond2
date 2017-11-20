@@ -3518,7 +3518,9 @@ function renderHomePage()
 				
 					console.log("currentTournamentID "+currentTournamentID);
 					console.log("data.tournID "+data.tournID);
-				
+					
+					joinedPlayersDiv.empty();
+					
 					if (currentTournamentID==data.tournID)
 					{
 						for(playerIter in TournamentEntries)
