@@ -480,6 +480,7 @@ function CreateTournaments()
 					TournamentEntry.find({tournid:records[iter].id}).exec
 					(function afterwards(tdestroyErr,tdestroyRecords)
 					{
+						console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
 						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
 						(function afterwards(cdestroyErr,cdestroyRecords)
 						{});
