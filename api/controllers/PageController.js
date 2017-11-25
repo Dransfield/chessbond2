@@ -1092,7 +1092,7 @@ deleteopengame:function(req,res){
 	else
 	{return res.error("Already in a tournament");}
 	});
-}
+},
 	
 	
 	newopengame:function(req,res){
