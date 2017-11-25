@@ -19,6 +19,8 @@ module.exports = {
 		console.log("questionErr"+questionErr);
 	}
 	
+	console.log("questionRecords "+questionRecords);
+	
 	if (!questionRecords || questionRecords.length==0)
 	{
 			CurrentTournamententry.create({player:req.param('player'),tournid:req.param('tourny')}).
@@ -50,7 +52,7 @@ module.exports = {
 	
 	}
 	else
-	{return res.error("Already in a tournament");}
+	{return res.send("Already in a tournament");}
 	});
 }
 };
