@@ -480,7 +480,7 @@ function CreateTournaments()
 					TournamentEntry.find({tournid:records[iter].id}).exec
 					(function afterwards(tdestroyErr,tdestroyRecords)
 					{
-						CurrentTournamententry.destroy({player:tdestriyRecords.player}).exec
+						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
 						(function afterwards(cdestroyErr,cdestroyRecords)
 						{});
 						
