@@ -34,7 +34,7 @@ module.exports.routes = {
 	
 	'GET /':{view:'jqhp'},
 	'GET /upcomingTournamentsWithTime':'TournamentController.upcomingTournamentsWithTime',
-	'POST /JoinTournament':'CurrentTournamententry.joinTournament',
+	'POST /JoinTournament':'Tournamententry.joinTournament',
 	'POST /starttempconversation':'TempConversationController.New',
 	'POST /lefttempconversation':'TempConversationController.Left',
 	'GET /myprofilemg': {view: 'messagesjq'},
