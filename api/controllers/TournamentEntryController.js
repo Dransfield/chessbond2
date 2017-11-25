@@ -20,6 +20,8 @@ module.exports = {
 	}
 	
 	console.log("questionRecords "+questionRecords);
+	console.log("questionRecords length "+questionRecords.length);
+	
 	
 	if (!questionRecords || questionRecords.length==0)
 	{
