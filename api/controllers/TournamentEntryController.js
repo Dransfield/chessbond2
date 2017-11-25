@@ -26,7 +26,7 @@ module.exports = {
 			CurrentTournamententry.create({player:req.param('player'),tournid:req.param('tourny')}).
 			exec(function afterwards(currentErr, currentRecords)
 			{
-		
+			
 			});
 	
 	Tournamententry.create({player:req.param('player'),tournid:req.param('tourny')}).
