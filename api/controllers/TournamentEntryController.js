@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	join:function(req,res){
+	joinTournament:function(req,res){
 	console.log("tourn entry join");
 	
 	
