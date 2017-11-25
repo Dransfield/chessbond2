@@ -10,7 +10,7 @@ module.exports = {
 	console.log("tourn entry join");
 	
 	
-	CurrentTournamententry.find({player:req.param('player')).
+	CurrentTournamententry.find({player:req.param('player')}).
 	exec(function afterwards(questionErr,questionRecords)
 	{
 	
