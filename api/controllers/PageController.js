@@ -1408,11 +1408,11 @@ transporter.sendMail(mailOptions, function(error, info){
     
     chatmsg:function(req,res){
 
-	Chatmessage.create({room:req.param('roomName'),content:req.param('content')}).exec(function (err, records) {
+	Chatmessage.create({room:req.param('roomName'),content:req.param('content')}).exec(function (err, records)
+	 {
 	sails.sockets.broadcast(records.room,'message', {room:records.room,content: records.content });
-	
 	 return res.ok();
-});
+	});
 	},
 	
 	AnnounceIdle:function(req,res){
@@ -1466,14 +1466,14 @@ var reqpath=req.param('reqpath');
     }
     if (req.session)
     {
-	if (req.session.passport)
-    {
-	if (req.session.passport.user)
-    {
+		if (req.session.passport)
+		{
+			if (req.session.passport.user)
+			{
 			
 	
-	Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
-		(function (err, records) {
+			Subscription.create({hi:1,socketid:sails.sockets.getId(req),subscriber:req.session.passport.user,room:roomName}).exec
+			(function (err, records) {
 			if (err)
 			{
 				console.log(JSON.stringify(err));
@@ -1486,21 +1486,21 @@ var reqpath=req.param('reqpath');
 			}
 			
 			Subscription.find({room:roomName}).exec
-		(function (err, records) {
-			var people=[];
-			//console.log(JSON.stringify(records));
-			
-			for (x in records)
-		 {people.push(records[x].subscriber);}
-		 var names="";
-		// console.log("people array"+JSON.stringify(people));
-		 User.find({id:people}).exec
-		(function (err, userrecords) {
-			//console.log("userrecords"+JSON.stringify(userrecords));
-		for (iter in userrecords)
-		{
-		names=names+userrecords[iter].name+","; 
-		}
+				(function (err, records) {
+				var people=[];
+				//console.log(JSON.stringify(records));
+				
+				for (x in records)
+				 {people.push(records[x].subscriber);}
+				 var names="";
+				// console.log("people array"+JSON.stringify(people));
+				 User.find({id:people}).exec
+				(function (err, userrecords) {
+					//console.log("userrecords"+JSON.stringify(userrecords));
+				for (iter in userrecords)
+				{
+				names=names+userrecords[iter].name+","; 
+				}
 			 return res.json({
 		dwellers:names,
       message: 'joined room'

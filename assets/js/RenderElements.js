@@ -36,25 +36,25 @@ function showRematchButton()
 {
 
 	io.socket.on('newmygameevent', function (data)
-			{
+		{
 		$(location).attr('href', '/humanvshumannew/'+data.id);
 
-			});
+		});
 
 	io.socket.on('rematch',function (data)
-			{
+		{
 
 			console.log("recieved rematch");
 			var nam="";
-				if (GamePlaying.Player1=data.content)
+			if (GamePlaying.Player1=data.content)
 				{nam=GamePlaying.Player1Name;}
-				if (GamePlaying.Player2=data.content)
+			if (GamePlaying.Player2=data.content)
 				{nam=GamePlaying.Player2Name;}
 
 			var but=showButton($("body"),nam+" wants a rematch","KgreenElement KhugeButton");
 			but.css("position","fixed");
 			but.css("top","10%");
-			});
+		});
 
 	var Rematchbutton=showButton($("body"),"Rematch?","KgreenElement KhugeButton");
 	var timerspan=addSpan(Rematchbutton,"rematchTimer");
@@ -304,14 +304,13 @@ function phraseforloggedindate(dat)
 		
 		var actualOffset=(((offset*60))*1000);
 		//var actualOffset2=(((offset2*60))*1000);
-		
-		 //nu=nu+actualOffset;
-		// console.log("new diff "+(n-nu));
-		// n=n+actualOffset2;
-		// console.log(offset);
+		//nu=nu+actualOffset;
+		//console.log("new diff "+(n-nu));
+		//n=n+actualOffset2;
+		//console.log(offset);
 		//console.log(actualOffset);
-		// console.log(offset2);
-	//	console.log(actualOffset2);
+		//console.log(offset2);
+		//console.log(actualOffset2);
 		var newnum=n-nu;
 		//console.log(newnum);
 		newnum=newnum/1000;
