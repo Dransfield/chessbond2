@@ -454,7 +454,7 @@ function CreateTournaments()
 	var sixtySixMinutes=(60*1000)*66;
 	var threeMinutes=(60*1000)*3;
 	var tenMinutes=(60*1000)*10;
-	
+	var oneMinute=60*1000;
 	//check tournaments
 	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
@@ -475,8 +475,10 @@ function CreateTournaments()
 					//console.log(Date.now()-createdDate);
 					//console.log(createdDate);
 					if((Date.now()-createdDate)>threeMinutes)
-					{records[iter].destroy();}
-					
+					{
+						records[iter].destroy();
+					}
+					console.log("looking for tournament entry with id "+records[iter].id);
 					Tournamententry.find({tournid:records[iter].id}).exec
 					(function afterwards(tdestroyErr,tdestroyRecords)
 					{
@@ -490,7 +492,7 @@ function CreateTournaments()
 					
 				}
 			});
-		},tenMinutes);
+		},oneMinute);
 	
 	var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
