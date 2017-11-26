@@ -492,7 +492,7 @@ function CreateTournaments()
 					
 				}
 			});
-		},oneMinute);
+		},tenMinutes);
 	
 	var gamecategories=[{time:1,extratime:0},
 					{time:2,extratime:0},
