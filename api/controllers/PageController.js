@@ -477,7 +477,7 @@ function CreateTournaments()
 					if((Date.now()-createdDate)>threeMinutes)
 					{records[iter].destroy();}
 					
-					TournamentEntry.find({tournid:records[iter].id}).exec
+					Tournamententry.find({tournid:records[iter].id}).exec
 					(function afterwards(tdestroyErr,tdestroyRecords)
 					{
 						console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
