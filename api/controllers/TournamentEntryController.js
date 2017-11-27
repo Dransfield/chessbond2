@@ -21,8 +21,13 @@ module.exports = {
 	
 			console.log("questionRecords "+questionRecords);
 			console.log("questionRecords length "+questionRecords.length);
-	
-			Tournament.find({id:questionRecords[0].tournid}).exec
+			var tournLookingFor;
+			
+			if (questionRecords)
+			{tournLookingFor=questionRecords[0].tournid;}
+			
+			
+			Tournament.find({id:tournLookingFor}).exec
 			(function afterwards(findTournamentErr,findTournamentRecords)
 			{
 	
