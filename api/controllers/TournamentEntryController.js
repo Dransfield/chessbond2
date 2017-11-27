@@ -72,7 +72,7 @@ module.exports = {
 		}
 		else
 		{
-			return res.send(404,"Already in a tournament");
+			return res.send(404,"Sorry, You are already actively participating in another live tournament and you can join another only after it is completed. ");
 		}
 		
 		});
