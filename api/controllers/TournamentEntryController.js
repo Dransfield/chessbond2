@@ -61,9 +61,15 @@ module.exports = {
 						Tournament.update({id:req.param('tourny')},{players:records2.length}).
 						exec(function afterwards(err3,records3)
 						{
-						console.log("records3 "+JSON.stringify(records3[0]));		
-						sails.sockets.broadcast('im online', 'tournament entries',{tournID:records3[0].id,players:records3[0].players});
-						return res.send(200,"Successfully joined tournament");
+							if(records3)
+							{
+							console.log("records3 "+JSON.stringify(records3[0]));		
+							sails.sockets.broadcast('im online', 'tournament entries',{tournID:records3[0].id,players:records3[0].players});
+							return res.send(200,"Successfully joined tournament");
+							}
+							else
+							{return res.send(404,"Tournament doesnt exist anymore");
+							}
 						});
 					});
 				
