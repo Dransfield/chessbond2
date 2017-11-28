@@ -1311,6 +1311,7 @@ function setupTournamentViewPage()
 							showHeader($("#tournamentviewpage"),2,JSON.stringify(Tournaments[0]));
 							for(iter in TournamentEntries)
 							{
+							showHeader($("#tournamentviewpage"),2,JSON.stringify(TournamentEntries[iter]));
 							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
 							}
 						});
