@@ -443,11 +443,17 @@ function showUpcomingTournamentTable2(elem)
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
 				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
+				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
 				//currentTournamentDiv.append(cell2);
 				var joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
 		
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
-				
+				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");
+			gotobut.click({gam:iter,acc:usracc},GoToTournament);
+			function GoToTournament(event)
+			{
+			$(location).attr('href', '/tournamentview/'+Tournaments[0].id);
+			}
 				
 			}
 	}
@@ -4037,6 +4043,7 @@ function showRecentTournaments(elem,usracc)
 		}
 }
 
+/*
 function showRecentTournaments2(elem,usracc)
 {
 		elem.empty();
@@ -4066,7 +4073,7 @@ function showRecentTournaments2(elem,usracc)
 		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 		}
 }
-
+*/
 function joinTournamentFunction(event)
 {
 	
