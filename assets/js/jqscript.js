@@ -1308,10 +1308,12 @@ function setupTournamentViewPage()
 						{
 						
 							showHeader($("#tournamentviewpage"),1,"Tournament");
-							showHeader($("#tournamentviewpage"),2,JSON.stringify(Tournaments[0]));
+							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
+							showHeader($("#tournamentviewpage"),2,"Entrants:");
+							
 							for(iter in TournamentEntries)
 							{
-							showHeader($("#tournamentviewpage"),2,JSON.stringify(TournamentEntries[iter]));
+							//showHeader($("#tournamentviewpage"),2,JSON.stringify(TournamentEntries[iter]));
 							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
 							}
 						});
