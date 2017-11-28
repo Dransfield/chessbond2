@@ -63,7 +63,9 @@ module.exports = {
 						{
 							if(records3)
 							{
-							console.log("records3 "+JSON.stringify(records3[0]));		
+							console.log("records3 "+JSON.stringify(records3));		
+								
+							console.log("records3[0] "+JSON.stringify(records3[0]));		
 							sails.sockets.broadcast('im online', 'tournament entries',{tournID:records3[0].id,players:records3[0].players});
 							return res.send(200,"Successfully joined tournament");
 							}
