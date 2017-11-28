@@ -1302,9 +1302,11 @@ function setupTournamentViewPage()
 				{	
 					retrieveAccounts().then(function()
 					{
-						
-						showHeader($("#tournamentviewpage"),1,"Tournament");
-						
+						retrieveTournament(ProfID).then(function()
+						{
+							showHeader($("#tournamentviewpage"),1,"Tournament");
+							showHeader($("#tournamentviewpage"),2,JSON.stringify(Tournaments[0]));
+						});
 						
 					});
 				});
@@ -2768,6 +2770,26 @@ var cg = new Promise
 return cg;	
 }
 
+function retrieveTournament(tournID)
+{
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/tournament/"+tournID,{},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			Tournaments.push(resData[x]);
+			//console.log(JSON.stringify(resData[x]));
+			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
 
 function retrieveSpecificTournamentEntries(tournID)
 {
