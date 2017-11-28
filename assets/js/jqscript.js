@@ -2348,7 +2348,7 @@ var opcg = new Promise
 		
 if(MyID)
 {
-Promise.all([opcg, retrieveGames(MyID),retrieveTournamentsWithTime(),retrieveTournamentCandidates()]).then(values => { 
+Promise.all([opcg, retrieveGames(MyID),retrieveTournamentsWithTime()]).then(values => { 
 	OpenGames=values[0];
 	//JoinedGames=values[1];
 	console.log("home page promise resolved");
