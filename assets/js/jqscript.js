@@ -173,6 +173,10 @@ var NavbarDropDown;
 		{
 		setupProfilePage();
 		}
+		if($("#tournamentviewpage").length)
+		{
+		setupTournamentViewPage();
+		}
 		if($("#homepage").length)
 		{
 		setupHomePage();
@@ -1285,6 +1289,23 @@ function setupAlbumsPage()
 							}
 						
 						});
+					});
+				});
+					
+}
+
+function setupTournamentViewPage()
+{
+
+	AccountsToRetrieve[MyID]=MyID;
+	retrievePrivatesandFollows().then(function()
+				{	
+					retrieveAccounts().then(function()
+					{
+						
+						showHeader($("#tournamentviewpage"),1,"Tournament");
+						
+						
 					});
 				});
 					
