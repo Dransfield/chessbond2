@@ -1298,18 +1298,25 @@ function setupTournamentViewPage()
 {
 
 	AccountsToRetrieve[MyID]=MyID;
-	retrievePrivatesandFollows().then(function()
-				{	
-					retrieveAccounts().then(function()
-					{
-						retrieveTournament(ProfID).then(function()
+	retrieveTournament(ProfID).then(function()
+			{
+				retrieveTournamentEntries(ProfID).then(function()
+				{
+					retrievePrivatesandFollows().then(function()
+					{		
+						retrieveAccounts().then(function()
 						{
+						
 							showHeader($("#tournamentviewpage"),1,"Tournament");
 							showHeader($("#tournamentviewpage"),2,JSON.stringify(Tournaments[0]));
+							for(iter in TournamentEntries)
+							{
+							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
+							}
 						});
-						
 					});
 				});
+			});
 					
 }
 
@@ -2727,18 +2734,19 @@ var cg = new Promise
 return cg;	
 }
 
-function retrieveTournamentCandidates()
+function retrieveTournamentEntries(tournID)
 {
 	
 
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/tournamentcandidate",{},
+		io.socket.get("/tournamententry",{'tournid':tournID},
 		function (resData,jwres){
 			for (x in resData)
 			{
-			TournamentCandidates.push(resData[x]);	
-			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
+			TournamentEntries.push(resData[x]);
+			
+			AccountsToRetrieve[resData[x].player]=resData[x].player;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
 			}
 			resolve(resData);
