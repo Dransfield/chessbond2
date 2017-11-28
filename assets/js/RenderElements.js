@@ -4053,6 +4053,15 @@ function showRecentTournaments2(elem,usracc)
 				thisFlex.append(Tournaments[iter].timeToAvailable);
 				var buttonFlex=addFlexDiv(thisFlex,"","row",'wrap');
 				var joinTournamentButton=showButton(buttonFlex,"Join","KgreenElement KregularButton");
+				
+				var gotobut=showButton(buttonFlex,"View Tournament","KregularButton KgreenElement");
+			gotobut.click({gam:iter,acc:usracc},GoToTournament);
+			function GoToTournament(event)
+			{
+			$(location).attr('href', '/tournamentview/'+Tournaments[0].id);
+			}
+				
+				
 			}
 		joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 		}
