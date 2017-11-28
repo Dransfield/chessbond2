@@ -61,7 +61,7 @@ module.exports = {
 						Tournament.update({id:req.param('tourny')},{players:records2.length}).
 						exec(function afterwards(err3,records3)
 						{
-							if(records3)
+							if(records3 && records3[0])
 							{
 							console.log("records3 "+JSON.stringify(records3));		
 								
