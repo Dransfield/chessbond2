@@ -449,7 +449,7 @@ function showUpcomingTournamentTable2(elem)
 		
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");
-			gotobut.click({gam:iter,acc:usracc},GoToTournament);
+			gotobut.click(GoToTournament);
 			function GoToTournament(event)
 			{
 			$(location).attr('href', '/tournamentview/'+Tournaments[0].id);
