@@ -23,7 +23,7 @@ module.exports = {
 			console.log("questionRecords length "+questionRecords.length);
 			var tournLookingFor;
 			
-			if (questionRecords)
+			if (questionRecords && questionRecords.length>0)
 			{tournLookingFor=questionRecords[0].tournid;}
 			
 			
