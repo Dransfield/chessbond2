@@ -412,6 +412,8 @@ function sortTourn(a,b)
 	return diffa;	
 	}
 	
+	function withdrawTournament(event)
+	{}
 
 function showUpcomingTournamentTable2(elem)
 {
