@@ -3540,6 +3540,7 @@ function renderHomePage()
 				currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
 				viewbuttonDiv.detach();
+				withdrawbuttonDiv.detach();
 				joinedPlayersDiv.detach();
 				
 				//for (emptyIter in bigemptyDiv)
