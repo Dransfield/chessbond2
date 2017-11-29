@@ -452,15 +452,25 @@ function showUpcomingTournamentTable2(elem)
 				withdrawbuttonDiv=addFlexDiv(currentTournamentDivContainer,"withdrawbuttonflex","row");
 				//currentTournamentDiv.append(cell2);
 			
-				var joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
+				var joinTournamentButton;
+				var withdrawTournamentButton;
 				
-				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
-			
+				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function (resData,jwres)
+				{
+					
+					if(resData.length==0)
+					{
+					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
+					}
+					else
+					{
+					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+					}
+				});
 				
-				var withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
 				
-				withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
-		
 		
 				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");
 			gotobut.click(GoToTournament);
