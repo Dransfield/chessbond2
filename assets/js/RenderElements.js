@@ -412,7 +412,7 @@ function sortTourn(a,b)
 	return diffa;	
 	}
 	
-	function withdrawTournament(event)
+	function withdrawTournamentFunction(event)
 	{}
 
 function showUpcomingTournamentTable2(elem)
