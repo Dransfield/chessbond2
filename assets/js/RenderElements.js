@@ -457,7 +457,7 @@ function showUpcomingTournamentTable2(elem)
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
 			
 				
-				var withdrawTournamentButton=showButton(withdrawbuttonDiv,"Join","KgreenElement KregularButton");
+				var withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
 		
