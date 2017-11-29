@@ -442,12 +442,24 @@ function showUpcomingTournamentTable2(elem)
 					timeCells[iter]=$("<span style='text-align:center;background-color:coral'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
+					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,"Empty");
 				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
+				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,"Empty");
 				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
+				bigemptyDiv[2]=showHeader(currentTournamentDivContainer,"Empty");
+				withdrawbuttonDiv=addFlexDiv(currentTournamentDivContainer,"withdrawbuttonflex","row");
 				//currentTournamentDiv.append(cell2);
+			
 				var joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
-		
+				
 				joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+			
+				
+				var withdrawTournamentButton=showButton(withdrawbuttonDiv,"Join","KgreenElement KregularButton");
+				
+				withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
+		
+		
 				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");
 			gotobut.click(GoToTournament);
 			function GoToTournament(event)

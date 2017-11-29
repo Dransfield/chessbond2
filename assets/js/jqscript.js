@@ -7,6 +7,8 @@ var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var joinedPlayersDiv;
 
+var bigemptyDiv=[];
+
 var myuser;
 var userIndex=0;
 var Accounts={};
@@ -3539,6 +3541,10 @@ function renderHomePage()
 				joinbuttonDiv.detach();
 				viewbuttonDiv.detach();
 				joinedPlayersDiv.detach();
+				
+				//for (emptyIter in bigemptyDiv)
+				//{bigemptyDiv[emptyIter].detach();}
+				bigemptyDiv.map(x=>x.detach());
 				}
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
