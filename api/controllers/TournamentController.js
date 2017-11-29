@@ -14,7 +14,10 @@ module.exports = {
 			{
 			var dat=Date.now();
 			console.log(dat);
-			sender={serverTime:dat,tourneys:latestOne+latestOne2};
+			console.log(JSON.stringify(latestOne);
+			console.log(JSON.stringify(latestOne2);
+			latestOne.push(latestOne2);
+			sender={serverTime:dat,tourneys:latestOne};
 			return res.send(sender);
 			});
 		});
