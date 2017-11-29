@@ -460,13 +460,15 @@ function showUpcomingTournamentTable2(elem)
 					
 					if(resData.length==0)
 					{
-					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
-					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
+					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+					
 					}
 					else
 					{
-					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
-					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
+					
 					}
 				});
 				
