@@ -3,7 +3,7 @@ var tournamentTable;
 var tournamentTableContainer;
 var currentTournamentDiv;
 var joinbuttonDiv;
-
+var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var joinedPlayersDiv;
 
@@ -3537,6 +3537,7 @@ function renderHomePage()
 				{
 				currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
+				viewbuttonDiv.detach();
 				joinedPlayersDiv.detach();
 				}
 				tournamentTable.detach();
