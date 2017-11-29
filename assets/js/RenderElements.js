@@ -444,11 +444,11 @@ function showUpcomingTournamentTable2(elem)
 					timeCells[iter]=$("<span style='text-align:center;background-color:coral'></span>");
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
-					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,"Empty");
+					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,1," ");
 				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
-				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,"Empty");
+				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,1," ");
 				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
-				bigemptyDiv[2]=showHeader(currentTournamentDivContainer,"Empty");
+				bigemptyDiv[2]=showHeader(currentTournamentDivContainer,1," ");
 				withdrawbuttonDiv=addFlexDiv(currentTournamentDivContainer,"withdrawbuttonflex","row");
 				//currentTournamentDiv.append(cell2);
 			
