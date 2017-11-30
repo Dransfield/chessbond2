@@ -23,7 +23,7 @@ module.exports = {
 			Tournament.find({id:oldTourn}).exec
 			(function afterwards(oldTournErr,oldTournRecords)
 			{
-			if(questionErr)
+			if(oldTournErr)
 			{
 			console.log("oldTournErr"+oldTournErr);
 			}
