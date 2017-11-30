@@ -455,7 +455,9 @@ function showUpcomingTournamentTable2(elem)
 				var joinTournamentButton;
 				var withdrawTournamentButton;
 				
-				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function (resData,jwres)
+				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},showRightButton);
+				
+				function showRightButton(resData,jwres)
 				{
 					
 					if(resData.length==0)
@@ -470,8 +472,8 @@ function showUpcomingTournamentTable2(elem)
 					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
 					
 					}
-				});
-				
+					
+				}
 				
 		
 				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");
