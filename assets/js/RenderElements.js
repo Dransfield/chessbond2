@@ -413,7 +413,43 @@ function sortTourn(a,b)
 	}
 	
 	function withdrawTournamentFunction(event)
-	{}
+	{
+		
+		
+		
+		tournamentTableContainer.slideUp();
+		io.socket.post('/LeaveTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
+				//toastr.success("Joined Tournament");
+					console.log(JSON.stringify(jwr));
+					if(jwr.statusCode!=404)
+					{
+						toastr.success(resData);
+					}
+					else
+					{
+						toastr.error(resData);
+					}
+					
+					
+					currentTournamentDiv.detach();
+				joinbuttonDiv.detach();
+				viewbuttonDiv.detach();
+				withdrawbuttonDiv.detach();
+				joinedPlayersDiv.detach();
+				
+				//for (emptyIter in bigemptyDiv)
+				//{bigemptyDiv[emptyIter].detach();}
+				bigemptyDiv.map(x=>x.detach());
+				
+				tournamentTable.detach();
+				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+				tournamentTableContainer.slideDown();
+			});	
+		
+		
+		
+		
+		}
 
 function showUpcomingTournamentTable2(elem)
 {
