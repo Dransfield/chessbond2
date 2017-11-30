@@ -455,14 +455,14 @@ function showUpcomingTournamentTable2(elem)
 				var joinTournamentButton;
 				var withdrawTournamentButton;
 				
-				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function(resData,jwres)
+				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function(resData,jwres,iter)
 				{
 				showRightButton(iter,resData,jwres);	
 				});
 				
 				function showRightButton(iter,resData,jwres)
 				{
-					
+					console.log("iter "+iter);
 					if(resData.length==0)
 					{
 					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
