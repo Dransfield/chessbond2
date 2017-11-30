@@ -4110,7 +4110,7 @@ function showRecentTournaments2(elem,usracc)
 function joinTournamentFunction(event)
 {
 	
-
+	tournamentTableContainer.slideUp();
 		io.socket.post('/JoinTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
 				//toastr.success("Joined Tournament");
 					console.log(JSON.stringify(jwr));
@@ -4122,6 +4122,21 @@ function joinTournamentFunction(event)
 					{
 						toastr.error(resData);
 					}
+					
+					
+					currentTournamentDiv.detach();
+				joinbuttonDiv.detach();
+				viewbuttonDiv.detach();
+				withdrawbuttonDiv.detach();
+				joinedPlayersDiv.detach();
+				
+				//for (emptyIter in bigemptyDiv)
+				//{bigemptyDiv[emptyIter].detach();}
+				bigemptyDiv.map(x=>x.detach());
+				}
+				tournamentTable.detach();
+				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+				tournamentTableContainer.slideDown();
 			});	
 			
 			
