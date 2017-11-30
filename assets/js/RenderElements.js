@@ -4133,7 +4133,7 @@ function joinTournamentFunction(event)
 				//for (emptyIter in bigemptyDiv)
 				//{bigemptyDiv[emptyIter].detach();}
 				bigemptyDiv.map(x=>x.detach());
-				}
+				
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
 				tournamentTableContainer.slideDown();
