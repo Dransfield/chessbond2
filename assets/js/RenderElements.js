@@ -455,9 +455,12 @@ function showUpcomingTournamentTable2(elem)
 				var joinTournamentButton;
 				var withdrawTournamentButton;
 				
-				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},showRightButton);
+				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function(resData,jwres)
+				{
+				showRightButton(iter,resData,jwres);	
+				});
 				
-				function showRightButton(resData,jwres)
+				function showRightButton(iter,resData,jwres)
 				{
 					
 					if(resData.length==0)
