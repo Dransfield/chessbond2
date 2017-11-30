@@ -15,9 +15,13 @@ module.exports = {
 		{
 	
 			var oldTourn;
+			var currentID;
 			
 			if (currentRecords && currentRecords.length>0)
-			{oldTourn=currentRecords[0].tournid;}
+			{
+				oldTourn=currentRecords[0].tournid;
+				currentID=currentRecords[0].id;
+				}
 			
 		
 			Tournament.find({id:oldTourn}).exec
@@ -40,12 +44,12 @@ module.exports = {
 			}
 			else
 			{
-				CurrentTournamentEntry.destroy({id:currentRecords[0].id}).exec
+				CurrentTournamententry.destroy({id:currentID}).exec
 				(function afterwards(doneErr,doneRecords)
 				{
 				});
 				
-				Tournamententry.destroy({player:currentRecords[0].player,tournid:currentRecords[0].tournid}).exec
+				Tournamententry.destroy({player:req.param('player'),tournid:oldTourn}).exec
 				(function afterwards(doneErr,doneRecords)
 				{
 				});
