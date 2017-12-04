@@ -457,7 +457,7 @@ function showUpcomingTournamentTable2(elem)
 	
 	
 	
-
+	console.log("Tournaments length "+Tournaments.length);
 	Tournaments.sort(sortTourn);
 	
 	for (iter in Tournaments)
