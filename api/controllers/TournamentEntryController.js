@@ -6,6 +6,53 @@
  */
 
 module.exports = {
+	leaveTournament:function(req,res){
+	
+		CurrentTournamententry.destroy({tournid:req.param('tourny'),player:req.param('player')}).
+		exec(function afterwards(currentErr,currentRecords)
+		{
+			
+			Tournamententry.destroy({tournid:req.param('tourny'),player:req.param('player')}).
+			exec(function afterwards(tErr,tRecords)
+			{
+			
+			if(tErr || currentErr)
+			{
+			
+				if(tErr)
+				{	
+				return res.send(404,tErr);
+				}
+				
+				if(currentErr)
+				{	
+				return res.send(404,currentErr);
+				}
+				
+			}
+			else
+			{
+			
+				if(tRecords)
+				{	
+				return res.send(200,"Successfully left tournament.");
+				}
+				else
+				{	
+				return res.send(404,"No tournament entry found.");
+				}
+			
+			}
+			
+			
+			});
+		
+		});
+	
+		
+	
+	
+	},
 	joinTournament:function(req,res){
 	console.log("tourn entry join");
 	
