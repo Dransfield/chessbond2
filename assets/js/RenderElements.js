@@ -422,7 +422,32 @@ function sortTourn(a,b)
 	return diffa;	
 	}
 	
-	function withdrawTournamentFunction(event)
+		function withdrawTournamentFunctionMainPage(event)
+	{
+		
+		
+		
+		
+		io.socket.post('/LeaveTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
+				//toastr.success("Joined Tournament");
+					console.log(JSON.stringify(jwr));
+					if(jwr.statusCode!=404)
+					{
+						toastr.success(resData);
+					}
+					else
+					{
+						toastr.error(resData);
+					}
+					
+			});	
+		
+		
+		
+		
+		}
+	
+	function withdrawTournamentFunctionTournamentPage(event)
 	{
 		
 		
@@ -462,19 +487,34 @@ function sortTourn(a,b)
 		}
 
 
-function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv)
+function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv,page)
 				{
 					//console.log("iter "+iter);
 					if(resData.length==0)
 					{
 					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
-					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+					if(page.search("tournamentviewpage")==0)
+					{
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunctionTournamentPage);
+					}
+					if(page.search("mainpage")==0)
+					{
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunctionMainPage);
+					}
 					
 					}
 					else
 					{
+						
 					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
-					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
+					if(page.search("tournamentviewpage")==0)
+					{
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunctionTournamentPage);
+					}
+					if(page.search("tournamentviewpage")==0)
+					{
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunctionMainPage);
+					}
 					
 					}
 					
@@ -529,7 +569,7 @@ function showUpcomingTournamentTable2(elem)
 				var currentIter=iter;
 				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function(resData,jwres)
 				{
-				showRightTournamentButton(currentIter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv);	
+				showRightTournamentButton(currentIter,resData,jwres,"mainpage");	
 				});
 				
 				
@@ -4162,7 +4202,32 @@ function showRecentTournaments2(elem,usracc)
 		}
 }
 */
-function joinTournamentFunction(event)
+
+
+function joinTournamentFunctionTournamentPage(event)
+{
+	
+
+	io.socket.post('/JoinTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
+				//toastr.success("Joined Tournament");
+					console.log(JSON.stringify(jwr));
+					if(jwr.statusCode!=404)
+					{
+						toastr.success(resData);
+					}
+					else
+					{
+						toastr.error(resData);
+					}
+					afterTournamentJoinTournamentPage();
+					
+			});	
+			
+			
+		
+}
+
+function joinTournamentFunctionMainPage(event)
 {
 	
 	tournamentTableContainer.slideUp();
@@ -4177,25 +4242,30 @@ function joinTournamentFunction(event)
 					{
 						toastr.error(resData);
 					}
+					afterTournamentJoinMainPage();
 					
-					
-					currentTournamentDiv.detach();
-				joinbuttonDiv.detach();
-				viewbuttonDiv.detach();
-				withdrawbuttonDiv.detach();
-				joinedPlayersDiv.detach();
-				
-				//for (emptyIter in bigemptyDiv)
-				//{bigemptyDiv[emptyIter].detach();}
-				bigemptyDiv.map(x=>x.detach());
-				
-				tournamentTable.detach();
-				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
-				tournamentTableContainer.slideDown();
 			});	
 			
 			
 		
+}
+
+function afterTournamentJoinMainPage()
+{
+	
+		currentTournamentDiv.detach();
+		joinbuttonDiv.detach();
+		viewbuttonDiv.detach();
+		withdrawbuttonDiv.detach();
+		joinedPlayersDiv.detach();
+				
+		//for (emptyIter in bigemptyDiv)
+		//{bigemptyDiv[emptyIter].detach();}
+		bigemptyDiv.map(x=>x.detach());
+				
+		tournamentTable.detach();
+		tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+		tournamentTableContainer.slideDown();
 }
 
 function showRecentGames(elem,usracc)
