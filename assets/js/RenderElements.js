@@ -469,11 +469,11 @@ function showUpcomingTournamentTable2(elem)
 	
 	console.log("Tournaments length "+Tournaments.length);
 	
-	for(iter in Tournaments)
-	{console.log("iter"+iter);
-		console.log(JSON.stringify(Tournaments[iter]));
-		}
-	
+	//for(iter in Tournaments)
+	//{console.log("iter"+iter);
+		//console.log(JSON.stringify(Tournaments[iter]));
+		//}
+	Tournaments = Tournaments.filter(function(n){ return n != undefined }); 
 	Tournaments.sort(sortTourn);
 	
 	for (iter in Tournaments)
