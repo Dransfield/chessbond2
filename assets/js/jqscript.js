@@ -1327,14 +1327,15 @@ function setupTournamentViewPage()
 							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
 							}
 							
+							//console.log("Tournaments.length "+Tournaments.length);
 							
 							for (iter in Tournaments)
 							{
 								if(Tournaments[iter].id==ProfID)
 								{	
-									console.log("show right tourn button"+ProfID);
-									console.log("show right tourn button2"+Tournaments[iter].id);
-									console.log("iter "+iter);
+							//		console.log("show right tourn button"+ProfID);
+								//	console.log("show right tourn button2"+Tournaments[iter].id);
+									//console.log("iter "+iter);
 								showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv);	
 								}
 							}
@@ -2815,7 +2816,7 @@ var cg = new Promise
 		function (resData,jwres){
 			for (x in resData)
 			{
-			Tournaments.push(resData);
+			Tournaments.push(resData[x]);
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
