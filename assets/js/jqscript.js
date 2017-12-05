@@ -1332,7 +1332,9 @@ function setupTournamentViewPage()
 							{
 								if(Tournaments[iter].id==ProfID)
 								{	
-									console.log("show right tourn button");
+									console.log("show right tourn button"+ProfID);
+									console.log("show right tourn button2"+Tournaments[iter].id);
+									console.log("iter "+iter);
 								showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv);	
 								}
 							}
