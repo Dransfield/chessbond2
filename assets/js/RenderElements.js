@@ -396,6 +396,16 @@ var headers=["Game Category","Starts in..","Players Interested"];
 
 function sortTourn(a,b)
 	{
+		if(!b)
+		{console.log("found null tourn");
+			for (iter in Tournaments)
+			{if(b==Tournaments[iter])
+				{console.log("its the "+iter+" one");}
+				}
+			}
+		if(!b.dateAvailable)
+		{console.log("found null tourn with no available");}
+		
 	var nowDate=new Date(serverTime);
 	var dateA=new Date(a.dateAvailable);
 	var diffa=dateA-nowDate;
@@ -458,6 +468,12 @@ function showUpcomingTournamentTable2(elem)
 	
 	
 	console.log("Tournaments length "+Tournaments.length);
+	
+	for(iter in Tournaments)
+	{console.log("iter"+iter);
+		console.log(JSON.stringify(Tournaments[iter]);
+		}
+	
 	Tournaments.sort(sortTourn);
 	
 	for (iter in Tournaments)

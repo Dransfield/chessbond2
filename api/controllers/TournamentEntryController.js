@@ -35,7 +35,20 @@ module.exports = {
 			
 				if(tRecords)
 				{	
-				return res.send(200,"Successfully left tournament.");
+				
+				Tournamententry.find({tournid:req.param('tourny')}).
+						exec(function afterwards(err2,records2)
+						{
+				//			console.log("records2.length "+records2.length);
+							Tournament.update({id:req.param('tourny')},{players:records2.length}).
+							exec(function afterwards(err3,records3)
+							{
+				
+							return res.send(200,"Successfully left tournament.");
+				
+							});
+						});	
+				
 				}
 				else
 				{	
