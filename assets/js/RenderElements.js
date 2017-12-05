@@ -422,7 +422,7 @@ function sortTourn(a,b)
 	return diffa;	
 	}
 	
-		function withdrawTournamentFunctionMainPage(event)
+		function withdrawTournamentFunctionTournamentPage(event)
 	{
 		
 		
@@ -447,7 +447,7 @@ function sortTourn(a,b)
 		
 		}
 	
-	function withdrawTournamentFunctionTournamentPage(event)
+	function withdrawTournamentFunctionMainPage(event)
 	{
 		
 		
