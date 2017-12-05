@@ -471,7 +471,7 @@ function showUpcomingTournamentTable2(elem)
 	
 	for(iter in Tournaments)
 	{console.log("iter"+iter);
-		console.log(JSON.stringify(Tournaments[iter]);
+		console.log(JSON.stringify(Tournaments[iter]));
 		}
 	
 	Tournaments.sort(sortTourn);
