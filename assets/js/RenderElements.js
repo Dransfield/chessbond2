@@ -4250,6 +4250,8 @@ function joinTournamentFunctionMainPage(event)
 		
 }
 
+function afterTournamentJoinTournamentPage()
+{}
 function afterTournamentJoinMainPage()
 {
 	
