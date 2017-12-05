@@ -462,7 +462,7 @@ function sortTourn(a,b)
 		}
 
 
-function showRightTournamentButtoniter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv)
+function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv)
 				{
 					//console.log("iter "+iter);
 					if(resData.length==0)
