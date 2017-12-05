@@ -461,6 +461,25 @@ function sortTourn(a,b)
 		
 		}
 
+
+function showRightTournamentButtoniter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv)
+				{
+					//console.log("iter "+iter);
+					if(resData.length==0)
+					{
+					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
+					
+					}
+					else
+					{
+					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
+					
+					}
+					
+				}
+				
 function showUpcomingTournamentTable2(elem)
 {
 	
@@ -510,26 +529,10 @@ function showUpcomingTournamentTable2(elem)
 				var currentIter=iter;
 				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function(resData,jwres)
 				{
-				showRightButton(currentIter,resData,jwres);	
+				showRightTournamentButton(currentIter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv);	
 				});
 				
-				function showRightButton(iter,resData,jwres)
-				{
-					console.log("iter "+iter);
-					if(resData.length==0)
-					{
-					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
-					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunction);
-					
-					}
-					else
-					{
-					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
-					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunction);
-					
-					}
-					
-				}
+				
 				
 		
 				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");

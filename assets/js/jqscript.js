@@ -1308,16 +1308,36 @@ function setupTournamentViewPage()
 					{		
 						retrieveAccounts().then(function()
 						{
-						
+							io.socket.get("/currenttournamententry",{player:MyID,tournid:ProfID},function(resData,jwres)
+							{
+							
 							showHeader($("#tournamentviewpage"),1,"Tournament");
 							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
 							showHeader($("#tournamentviewpage"),2,"Entrants:");
+							
+							var joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
+							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
+				
+							var joinTournamentButton;
+							var withdrawTournamentButton;
 							
 							for(iter in TournamentEntries)
 							{
 							//showHeader($("#tournamentviewpage"),2,JSON.stringify(TournamentEntries[iter]));
 							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
 							}
+							
+							
+							for (iter in Tournaments)
+							{
+								if(Tournaments[iter].id==ProfID)
+								{	
+								showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv);	
+								}
+							}	
+							
+							});
+							
 						});
 					});
 				});
