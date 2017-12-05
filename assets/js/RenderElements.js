@@ -569,7 +569,7 @@ function showUpcomingTournamentTable2(elem)
 				var currentIter=iter;
 				io.socket.get("/currenttournamententry",{player:MyID,tournid:Tournaments[iter].id},function(resData,jwres)
 				{
-				showRightTournamentButton(currentIter,resData,jwres,"mainpage");	
+				showRightTournamentButton(currentIter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv,"mainpage");	
 				});
 				
 				
