@@ -1332,9 +1332,10 @@ function setupTournamentViewPage()
 							{
 								if(Tournaments[iter].id==ProfID)
 								{	
+									console.log("show right tourn button");
 								showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv);	
 								}
-							}	
+							}
 							
 							});
 							
