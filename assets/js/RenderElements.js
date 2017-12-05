@@ -511,7 +511,7 @@ function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbutt
 					{
 					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunctionTournamentPage);
 					}
-					if(page.search("tournamentviewpage")==0)
+					if(page.search("mainpage")==0)
 					{
 					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunctionMainPage);
 					}
