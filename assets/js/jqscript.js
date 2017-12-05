@@ -1308,8 +1308,13 @@ function setupTournamentViewPage()
 					{		
 						retrieveAccounts().then(function()
 						{
+							
+							
 							io.socket.get("/currenttournamententry",{player:MyID,tournid:ProfID},function(resData,jwres)
 							{
+							
+							console.log("Tournaments.length "+Tournaments.length);
+							
 							
 							showHeader($("#tournamentviewpage"),1,"Tournament");
 							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
@@ -1327,7 +1332,6 @@ function setupTournamentViewPage()
 							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
 							}
 							
-							//console.log("Tournaments.length "+Tournaments.length);
 							
 							for (iter in Tournaments)
 							{
