@@ -1318,11 +1318,13 @@ function setupTournamentViewPage()
 							
 							showHeader($("#tournamentviewpage"),1,"Tournament");
 							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
-							showHeader($("#tournamentviewpage"),2,"Entrants:");
+							
 							
 							var joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
 							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
-				
+							
+							showHeader($("#tournamentviewpage"),2,"Entrants:");
+							
 							var joinTournamentButton;
 							var withdrawTournamentButton;
 							
