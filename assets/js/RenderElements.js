@@ -434,6 +434,9 @@ function sortTourn(a,b)
 					if(jwr.statusCode!=404)
 					{
 						toastr.success(resData);
+						event.data.withdrawDiv.slideUp();
+						event.data.joinDiv.slideDown();
+						
 					}
 					else
 					{
@@ -495,11 +498,11 @@ function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbutt
 					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
 					if(page.search("tournamentviewpage")==0)
 					{
-					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunctionTournamentPage);
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id,joinDiv:joinbuttonDiv,withdrawDiv:withdrawbuttonDiv},joinTournamentFunctionTournamentPage);
 					}
 					if(page.search("mainpage")==0)
 					{
-					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},joinTournamentFunctionMainPage);
+					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id,joinDiv:joinbuttonDiv,withdrawDiv:withdrawbuttonDiv},joinTournamentFunctionMainPage);
 					}
 					
 					}
@@ -509,11 +512,11 @@ function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbutt
 					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
 					if(page.search("tournamentviewpage")==0)
 					{
-					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunctionTournamentPage);
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id,joinDiv:joinbuttonDiv,withdrawDiv:withdrawbuttonDiv},withdrawTournamentFunctionTournamentPage);
 					}
 					if(page.search("mainpage")==0)
 					{
-					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id},withdrawTournamentFunctionMainPage);
+					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id,joinDiv:joinbuttonDiv,withdrawDiv:withdrawbuttonDiv},withdrawTournamentFunctionMainPage);
 					}
 					
 					}
@@ -4207,19 +4210,21 @@ function showRecentTournaments2(elem,usracc)
 function joinTournamentFunctionTournamentPage(event)
 {
 	
-
+	
 	io.socket.post('/JoinTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
 				//toastr.success("Joined Tournament");
 					console.log(JSON.stringify(jwr));
 					if(jwr.statusCode!=404)
 					{
 						toastr.success(resData);
+						event.data.joinDiv.slideUp();
+						afterTournamentJoinTournamentPage(event.data.withdrawDiv);
 					}
 					else
 					{
 						toastr.error(resData);
 					}
-					afterTournamentJoinTournamentPage();
+					
 					
 			});	
 			
@@ -4250,8 +4255,11 @@ function joinTournamentFunctionMainPage(event)
 		
 }
 
-function afterTournamentJoinTournamentPage()
-{}
+function afterTournamentJoinTournamentPage(div)
+{
+div.slideDown();
+	
+}
 function afterTournamentJoinMainPage()
 {
 	
