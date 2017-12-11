@@ -1322,17 +1322,47 @@ function setupTournamentViewPage()
 							
 							var joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
 							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
+							var joinedPlayersDivContainer=addDiv($("#usr"));
 							
-							showHeader($("#tournamentviewpage"),2,"Entrants:");
 							
 							var joinTournamentButton;
 							var withdrawTournamentButton;
 							
-							for(iter in TournamentEntries)
+				io.socket.on('tournament entries',function (data)
+				{
+								
+				TournamentEntries=[];
+				
+					retrieveSpecificTournamentEntries(data.tournID).then
+					(function()
+					{
+					joinedPlayersDivContainer.empty();
+					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
+				
+					
+					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
+					
+					if (ProfID==data.tournID)
+					{
+						for(playerIter in TournamentEntries)
+						{
+						
+						
+						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
+							function(usr)
 							{
-							//showHeader($("#tournamentviewpage"),2,JSON.stringify(TournamentEntries[iter]));
-							showUsername($("#tournamentviewpage"),TournamentEntries[iter].player);	
-							}
+							//joinedPlayersDiv.append(usr.name);	
+							Accounts[usr.id]=usr;
+							showUsernameJumbo(joinedPlayersDiv,usr.id)
+							});
+						
+						}
+					}
+					
+					
+					});
+				
+				});
 							
 							
 							for (iter in Tournaments)
