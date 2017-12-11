@@ -1339,7 +1339,7 @@ function setupTournamentViewPage()
 				TournamentEntries=[];
 				if(data.tournID==ProfID)
 				{
-					showTournamentEntries(data.tournID,joinPlayersDivContainer,joinedPlayersDiv);
+					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
 				}
 					
 				});
@@ -3597,7 +3597,7 @@ function renderHomePage()
 					if (currentTournamentID==data.tournID)
 					{
 					
-					showTournamentEntries(data.tournID,joinPlayersDivContainer,joinedPlayersDiv);
+					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
 					}
 			
 					
