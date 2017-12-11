@@ -1335,7 +1335,7 @@ function setupTournamentViewPage()
 							
 				io.socket.on('tournament entries',function (data)
 				{
-								
+						console.log("recieved tourn entries "+JSON.stringify(data));
 				TournamentEntries=[];
 				
 					retrieveSpecificTournamentEntries(data.tournID).then
