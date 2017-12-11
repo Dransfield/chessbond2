@@ -1332,10 +1332,11 @@ function setupTournamentViewPage()
 							
 							var joinTournamentButton;
 							var withdrawTournamentButton;
-							
+								showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+				
 				io.socket.on('tournament entries',function (data)
 				{
-						console.log("recieved tourn entries "+JSON.stringify(data));
+						//console.log("recieved tourn entries "+JSON.stringify(data));
 				TournamentEntries=[];
 				if(data.tournID==ProfID)
 				{
