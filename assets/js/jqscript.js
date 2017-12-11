@@ -1307,8 +1307,8 @@ function setupTournamentViewPage()
 	
 	retrieveTournament(ProfID).then(function()
 			{
-				retrieveTournamentEntries(ProfID).then(function()
-				{
+			//	retrieveTournamentEntries(ProfID).then(function()
+				//{
 					retrievePrivatesandFollows().then(function()
 					{		
 						retrieveAccounts().then(function()
@@ -1360,7 +1360,7 @@ function setupTournamentViewPage()
 							});
 							
 						});
-					});
+				//	});
 				});
 			});
 					
