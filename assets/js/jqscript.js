@@ -3594,14 +3594,9 @@ function renderHomePage()
 			
 			io.socket.on('tournament entries',function (data)
 			{
-					if (currentTournamentID==data.tournID)
-					{
-					
-					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
-					}
 			
-					
-					
+			showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+			
 			});
 				
 			
