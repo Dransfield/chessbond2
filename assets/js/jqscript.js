@@ -1335,38 +1335,13 @@ function setupTournamentViewPage()
 							
 				io.socket.on('tournament entries',function (data)
 				{
-						console.log("recieved tourn entries "+JSON.stringify(data));
+				//		console.log("recieved tourn entries "+JSON.stringify(data));
 				TournamentEntries=[];
-				
-					retrieveSpecificTournamentEntries(data.tournID).then
-					(function()
-					{
-					joinedPlayersDivContainer.empty();
-					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
-				
-					console.log("TournamentEntries.length "+TournamentEntries.length);
-					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
+				if(data.tournID==ProfID)
+				{
+					showTournamentEntries(data.tournID,joinPlayersDivContainer,joinedPlayersDiv);
+				}
 					
-					if (ProfID==data.tournID)
-					{
-						for(playerIter in TournamentEntries)
-						{
-						
-						
-						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
-							function(usr)
-							{
-							//joinedPlayersDiv.append(usr.name);	
-							Accounts[usr.id]=usr;
-							showUsernameJumbo(joinedPlayersDiv,usr.id)
-							});
-						
-						}
-					}
-					
-					
-					});
-				
 				});
 							
 							
@@ -1389,6 +1364,7 @@ function setupTournamentViewPage()
 			});
 					
 }
+
 
 function renderAlbumPage(alb)
 {
@@ -3618,64 +3594,17 @@ function renderHomePage()
 			
 			io.socket.on('tournament entries',function (data)
 			{
-				console.log(JSON.stringify(data));
-				console.log("tournid "+data.tournID);
-				
-				console.log("players "+data.players);
-				
-				TournamentEntries=[];
-				
-				retrieveSpecificTournamentEntries(data.tournID).then
-				(function()
-				{
-					
-					console.log("retrieved tournament entries!"+data.length);
-					Tournaments.sort(sortTourn);
-					
-					for (iter in Tournaments)
-					{
-					Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
-					}	
-					
-					var currentTournamentID;
-				
-					for (iter in Tournaments)
-					{
-						if(Tournaments[iter].timeToAvailable<1)
-						{
-						currentTournamentID=Tournaments[iter].id;
-						}
-					}
-				
-					console.log("currentTournamentID "+currentTournamentID);
-					console.log("data.tournID "+data.tournID);
-					joinedPlayersDivContainer.empty();
-					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
-				
-					
-					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
-					
 					if (currentTournamentID==data.tournID)
 					{
-						for(playerIter in TournamentEntries)
-						{
-						
-						
-						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
-							function(usr)
-							{
-							//joinedPlayersDiv.append(usr.name);	
-							Accounts[usr.id]=usr;
-							showUsernameJumbo(joinedPlayersDiv,usr.id)
-							});
-						
-						}
+					
+					showTournamentEntries(data.tournID,joinPlayersDivContainer,joinedPlayersDiv);
 					}
+			
 					
 					
-				});
-				
 			});
+				
+			
 	
 	}
 

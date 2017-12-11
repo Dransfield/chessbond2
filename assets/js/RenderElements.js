@@ -489,6 +489,37 @@ function sortTourn(a,b)
 		
 		}
 
+function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
+{
+retrieveSpecificTournamentEntries(tournID).then
+					(function()
+					{
+					joinedPlayersDivContainer.empty();
+					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
+				
+					//console.log("TournamentEntries.length "+TournamentEntries.length);
+					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
+					
+					
+						for(playerIter in TournamentEntries)
+						{
+						
+						
+						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
+							function(usr)
+							{
+							//joinedPlayersDiv.append(usr.name);	
+							Accounts[usr.id]=usr;
+							showUsernameJumbo(joinedPlayersDiv,usr.id)
+							});
+						
+						}
+					
+					
+					
+					});
+				
+}
 
 function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv,page)
 				{
