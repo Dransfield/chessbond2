@@ -1300,6 +1300,11 @@ function setupTournamentViewPage()
 {
 
 	AccountsToRetrieve[MyID]=MyID;
+	
+	io.socket.get("/subscribeToRoom",{roomName:ProfID},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});
+	
 	retrieveTournament(ProfID).then(function()
 			{
 				retrieveTournamentEntries(ProfID).then(function()
