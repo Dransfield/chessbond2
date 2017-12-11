@@ -1332,7 +1332,7 @@ function setupTournamentViewPage()
 							
 							var joinTournamentButton;
 							var withdrawTournamentButton;
-								showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+								showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv);
 				
 				io.socket.on('tournament entries',function (data)
 				{
