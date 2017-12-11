@@ -1327,7 +1327,7 @@ function setupTournamentViewPage()
 							
 							var joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
 							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
-							var joinedPlayersDivContainer=addDiv($("#usr"));
+							joinedPlayersDivContainer=addDiv($("#usr"));
 							
 							
 							var joinTournamentButton;

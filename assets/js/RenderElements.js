@@ -4213,7 +4213,7 @@ function joinTournamentFunctionTournamentPage(event)
 	
 	io.socket.post('/JoinTournament',{player:event.data.plr,tourny:event.data.tournID},function (resData, jwr) {
 				//toastr.success("Joined Tournament");
-					console.log(JSON.stringify(jwr));
+					//console.log(JSON.stringify(jwr));
 					if(jwr.statusCode!=404)
 					{
 						toastr.success(resData);
