@@ -584,8 +584,8 @@ function showUpcomingTournamentTable2(elem)
 				
 				
 				io.socket.get("/subscribeToRoom",{roomName:Tournaments[iter].id},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			});	
+				console.log(JSON.stringify(resData));
+				});	
 				
 				//currentTournamentDiv=
 				//	currentTournamentDivContainer.append(currentTournamentDiv);
