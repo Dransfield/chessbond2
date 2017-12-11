@@ -1344,7 +1344,7 @@ function setupTournamentViewPage()
 					joinedPlayersDivContainer.empty();
 					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
-					
+					console.log("TournamentEntries.length "+TournamentEntries.length);
 					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
 					
 					if (ProfID==data.tournID)
