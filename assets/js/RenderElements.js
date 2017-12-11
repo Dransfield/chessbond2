@@ -550,6 +550,12 @@ function showUpcomingTournamentTable2(elem)
 		if(Tournaments[iter].timeToAvailable<1)
 			{
 				console.log(" current tourn iter "+iter);
+				
+				
+				io.socket.get("/subscribeToRoom",{roomName:Tournaments[iter].id},function (resData,jwres){
+			console.log(JSON.stringify(resData));
+			});	
+				
 				//currentTournamentDiv=
 				//	currentTournamentDivContainer.append(currentTournamentDiv);
 				currentTournamentDiv=addFlexDiv(currentTournamentDivContainer,"tournflex","row");	
@@ -576,7 +582,7 @@ function showUpcomingTournamentTable2(elem)
 				});
 				
 				
-				
+			
 		
 				var gotobut=showButton(viewbuttonDiv,"View Tournament","KregularButton KgreenElement");
 			gotobut.click(GoToTournament);
@@ -584,7 +590,7 @@ function showUpcomingTournamentTable2(elem)
 			{
 			$(location).attr('href', '/tournamentview/'+Tournaments[0].id);
 			}
-				
+			
 			}
 	}
 	
