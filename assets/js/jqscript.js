@@ -3591,10 +3591,12 @@ function renderHomePage()
 				}
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+					console.log("looking for current tournament");
 					for (iter in Tournaments)
 					{
 						if(Tournaments[iter].timeToAvailable<1)
 						{
+						console.log("found current tournament"+Tournaments[iter].id);
 						showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
 						}
 					}
