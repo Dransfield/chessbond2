@@ -3591,6 +3591,13 @@ function renderHomePage()
 				}
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+					for (iter in Tournaments)
+					{
+						if(Tournaments[iter].timeToAvailable<1)
+						{
+						showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+						}
+					}
 			});
 			
 			io.socket.on('tournament entries',function (data)
