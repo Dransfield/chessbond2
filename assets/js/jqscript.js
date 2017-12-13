@@ -3597,7 +3597,7 @@ function renderHomePage()
 						if(Tournaments[iter].timeToAvailable<1)
 						{
 						console.log("found current tournament"+Tournaments[iter].id);
-						showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv);
 						}
 					}
 			});
