@@ -3522,6 +3522,14 @@ function renderHomePage()
 		//overallFlex=addFlexDiv($("#usr"),"recentTourments","column",'wrap');
 	//showRecentTournaments(overallFlex,MyID);
 	tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+		for (iter in Tournaments)
+					{
+						if(Tournaments[iter].timeToAvailable<1)
+						{
+					//	console.log("found current tournament"+Tournaments[iter].id);
+						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv);
+						}
+					}
 	showRecentGames($("#usr"),MyID);
 	}
 	showLoginForm($("#loginform"));
