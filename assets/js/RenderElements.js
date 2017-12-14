@@ -436,7 +436,8 @@ function sortTourn(a,b)
 						toastr.success(resData);
 						event.data.withdrawDiv.slideUp();
 						event.data.joinDiv.slideDown();
-						
+						showTournamentEntries(event.data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+				
 					}
 					else
 					{
@@ -481,6 +482,7 @@ function sortTourn(a,b)
 				
 				tournamentTable.detach();
 				tournamentTable=showUpcomingTournamentTable2(tournamentTableContainer);
+				showTournamentEntries(event.data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
 				tournamentTableContainer.slideDown();
 			});	
 		
@@ -491,6 +493,7 @@ function sortTourn(a,b)
 
 function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
 {
+	TournamentEntries=[];
 retrieveSpecificTournamentEntries(tournID).then
 					(function()
 					{
