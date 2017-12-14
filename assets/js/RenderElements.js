@@ -527,8 +527,8 @@ retrieveSpecificTournamentEntries(tournID).then
 function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbuttonDiv,page)
 				{
 					//console.log("iter "+iter);
-					if(resData.length==0)
-					{
+				//	if(resData.length==0)
+				//	{
 					joinTournamentButton=showButton(joinbuttonDiv,"Join","KgreenElement KregularButton");
 					if(page.search("tournamentviewpage")==0)
 					{
@@ -539,9 +539,9 @@ function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbutt
 					joinTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id,joinDiv:joinbuttonDiv,withdrawDiv:withdrawbuttonDiv},joinTournamentFunctionMainPage);
 					}
 					
-					}
-					else
-					{
+					//}
+				//	else
+				//	{
 						
 					withdrawTournamentButton=showButton(withdrawbuttonDiv,"Withdraw","KgreenElement KregularButton");
 					if(page.search("tournamentviewpage")==0)
@@ -553,9 +553,18 @@ function showRightTournamentButton(iter,resData,jwres,joinbuttonDiv,withdrawbutt
 					withdrawTournamentButton.click({plr:MyID,tournID:Tournaments[iter].id,joinDiv:joinbuttonDiv,withdrawDiv:withdrawbuttonDiv},withdrawTournamentFunctionMainPage);
 					}
 					
+					//}
+					
+					if(resData.length==0)
+					{
+						withdrawbuttonDiv.slideUp();
+					}
+					else
+					{
+						joinbuttonDiv.slideUp();
 					}
 					
-				}
+}
 				
 function showUpcomingTournamentTable2(elem)
 {
