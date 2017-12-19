@@ -3509,7 +3509,7 @@ function renderHomePage()
 	showOpenGameList($("#usr"),OpenGames);
 	if(Accounts[MyID])
 	{
-		
+		console.log(Accounts[MyID]);
 		$("#usr").append("<h1>Current Tournament</h1>");
 		currentTournamentDivContainer=addDiv($("#usr"));
 		joinedPlayersDivContainer=addDiv($("#usr"));
