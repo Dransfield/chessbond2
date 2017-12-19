@@ -3507,7 +3507,7 @@ function renderHomePage()
 	{
 		var overallFlex;
 	showOpenGameList($("#usr"),OpenGames);
-	if(MyID)
+	if(Accounts[MyID])
 	{
 		
 		$("#usr").append("<h1>Current Tournament</h1>");
