@@ -81,9 +81,9 @@ module.exports.routes = {
 	'/forgot':{view:'forgot'},
 	'GET /wholesitevisit':'UserController.visitedWholeSite',
 	'PUT /updateuser':'UserController.updateProfile',
-	'GET /profilealbum': {view: 'myfile'},
+	//'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'}
-	'/tournamentjq':{view:'go'},
+//	'/tournamentjq':{view:'go'},
 	'GET /registerpage':{view:'register'},
 	'GET /getmyfile':'FetchController.GetFile',
 	//'GET /HomepageHeartbeat':'PageController.HomepageHeartbeat',
