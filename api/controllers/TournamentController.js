@@ -18,37 +18,38 @@ module.exports = {
 			//console.log("latestone2"+JSON.stringify(latestOne2));
 			latestOne.push(latestOne2[0]);
 			sender={serverTime:dat,tourneys:latestOne};
-			
-				setTimeout(function()
-					{
-						
-						console.log("three minutes after tournament activation");
-							
-							Tournamententry.find({tournid:latestOne2.id}).exec(function(err3,entries)
-							{
-								console.log("entries "+JSON.stringify(entries));
-								for (playerIter in entries)
-								{
-								
-								
-									console.log("every other player than "+entries[playerIter].player);
-									for(otherIter in entries)
-									{
-										if(entries[otherIter].player != entries[playerIter].player)
-										{
-										console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
-										}
-									}
-									
-									
-								}
-							});
-						
-					},180000);
+			setupgames(latestOne2.id);
+				
 			
 			return res.send(sender);
 			});
 		});
+	},
+	setupgames:function(thetournid)
+	{
+		
+		setTimeout(function(){
+				console.log("thetournid "+thetournid);
+		Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)
+			{
+				console.log("entries "+JSON.stringify(entries));
+			for (playerIter in entries)
+				{
+								
+			console.log("every other player than "+entries[playerIter].player);
+					for(otherIter in entries)
+					{
+						if(entries[otherIter].player != entries[playerIter].player)
+						{
+						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
+						}
+					}
+									
+									
+				}
+			});
+						
+		},180000);
 	}
 };
 
