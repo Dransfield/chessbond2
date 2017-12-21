@@ -578,7 +578,7 @@ function CreateTournaments()
 		
 	}
 	
-	function setupgames(thetournid)
+	function setupTournamentGames(thetournid)
 	{
 		
 		setTimeout(function(){
