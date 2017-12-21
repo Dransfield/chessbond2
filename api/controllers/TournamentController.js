@@ -25,7 +25,7 @@ module.exports = {
 			});
 		});
 	},
-	setupgames:function(thetournid)
+	function setupgames(thetournid)
 	{
 		
 		setTimeout(function(){
