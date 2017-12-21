@@ -19,7 +19,7 @@ module.exports = {
 			latestOne.push(latestOne2[0]);
 			sender={serverTime:dat,tourneys:latestOne};
 			
-				setTimeOut(function()
+				setTimeout(function()
 					{
 						
 						console.log("three minutes after tournament activation");
