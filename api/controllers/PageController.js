@@ -563,6 +563,7 @@ function CreateTournaments()
 									//	console.log("updated Record"+JSON.stringify(updatedRecord));
 										sender={serverTime:dat,tourneys:tournamentList};
 										sails.sockets.broadcast('im online', 'tournament list',sender);
+										setupTournamentGames(record.id);
 										//return res.send(sender);
 										});
 									});
@@ -576,6 +577,34 @@ function CreateTournaments()
 		//records.save();
 		
 	}
+	
+	function setupgames(thetournid)
+	{
+		
+		setTimeout(function(){
+				console.log("thetournid "+thetournid);
+		Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)
+			{
+				console.log("entries "+JSON.stringify(entries));
+			for (playerIter in entries)
+				{
+								
+			console.log("every other player than "+entries[playerIter].player);
+					for(otherIter in entries)
+					{
+						if(entries[otherIter].player != entries[playerIter].player)
+						{
+						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
+						}
+					}
+									
+									
+				}
+			});
+						
+		},180000);
+	}
+
 	
 	function setTournamentInterval(time,iter,list){
 	console.log("set tourn inter"+iter+" t"+list[iter].time);
