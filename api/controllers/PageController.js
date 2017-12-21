@@ -536,7 +536,7 @@ function CreateTournaments()
 	function activate_tournament(record)
 	{
 		console.log("activate this record "+JSON.stringify(record));
-		console.log("sixtySixMinutes "+sixtySixMinutes);
+		//console.log("sixtySixMinutes "+sixtySixMinutes);
 		if(record)
 		{
 		sails.sockets.broadcast('im online', 'activate tournament',record);
@@ -560,7 +560,7 @@ function CreateTournaments()
 									exec(function afterwards(err3,updatedRecord)
 										{
 										var dat=Date.now();
-										console.log("updated Record"+JSON.stringify(updatedRecord));
+									//	console.log("updated Record"+JSON.stringify(updatedRecord));
 										sender={serverTime:dat,tourneys:tournamentList};
 										sails.sockets.broadcast('im online', 'tournament list',sender);
 										//return res.send(sender);
@@ -594,10 +594,10 @@ function CreateTournaments()
 				{
 				console.log(err);
 				}
-				console.log("records1 "+JSON.stringify(createdT));
+				//console.log("records1 "+JSON.stringify(createdT));
 				setTimeout(activate_tournament,time,createdT);
 				//var circList=createCircList(latestOne.category);
-				console.log("created "+list[iter].time);
+			//	console.log("created "+list[iter].time);
 			});
 			
 			/*
