@@ -45,7 +45,7 @@ module.exports = {
 			//console.log("latestone2"+JSON.stringify(latestOne2));
 			latestOne.push(latestOne2[0]);
 			sender={serverTime:dat,tourneys:latestOne};
-			setupgames(latestOne2.id);
+			setupgames(latestOne2[0].id);
 				
 			
 			return res.send(sender);
