@@ -538,7 +538,7 @@ function showTournamentGameSchedule(elem,entries)
 			}
 										
 										
-		}
+		
 	//});	
 	
 }
