@@ -588,14 +588,21 @@ function CreateTournaments()
 				console.log("entries "+JSON.stringify(entries));
 			for (playerIter in entries)
 				{
-								
-			console.log("every other player than "+entries[playerIter].player);
+					var startMakingGames=false;
+					console.log("every other player than "+entries[playerIter].player);
+				 
 					for(otherIter in entries)
 					{
-						if(entries[otherIter].player != entries[playerIter].player)
+			
+						if(startMakingGames==true)
 						{
 						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
 						}
+						if(entries[otherIter].player == entries[playerIter].player)
+						{
+						starMakingGames=true;
+						}
+
 					}
 									
 									
