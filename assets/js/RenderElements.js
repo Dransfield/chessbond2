@@ -493,6 +493,7 @@ function sortTourn(a,b)
 
 function showTournamentGameSchedule(elem,entries)
 {
+var gameNumber=0;
 
 //	Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)
 				//{
@@ -509,11 +510,34 @@ function showTournamentGameSchedule(elem,entries)
 							console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
 							if(startMakingGames==true)
 							{
-								console.log("found match2");
+							gameNumber=gameNumber+1;
+							elem.append("Game:"+gameNumber);
+							
+							console.log("found match2");
+							
 							elem.append("<div>White:</div> ");
 							showUsername(elem,entries[otherIter].player);
 							elem.append("<div> Black: </div>");
 							showUsername(elem,entries[playerIter].player);
+							
+							gameNumber=gameNumber+1;
+							elem.append("Game:"+gameNumber);
+							
+							elem.append("<div>White:</div> ");
+							showUsername(elem,entries[playerIter].player);
+							elem.append("<div> Black: </div>");
+							showUsername(elem,entries[otherIter].player);
+							
+							gameNumber=gameNumber+1;
+							elem.append("Game:"+gameNumber);
+							
+							elem.append("<div>White:</div> ");
+							showUsername(elem,entries[otherIter].player);
+							elem.append("<div> Black: </div>");
+							showUsername(elem,entries[playerIter].player);
+							
+							gameNumber=gameNumber+1;
+							elem.append("Game:"+gameNumber);
 							
 							elem.append("<div>White:</div> ");
 							showUsername(elem,entries[playerIter].player);
