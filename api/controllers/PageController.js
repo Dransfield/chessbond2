@@ -596,7 +596,9 @@ function CreateTournaments()
 						//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
 						if(startMakingGames==true)
 						{
-						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
+						console.log("white: "+entries[otherIter].player+" black: "+entries[playerIter].player);
+						console.log("white: "+entries[playerIter].player+" black: "+entries[otherIter].player);
+					
 						}
 						
 						if(entries[otherIter].player == entries[playerIter].player)
