@@ -594,20 +594,22 @@ function CreateTournaments()
 					for(otherIter in entries)
 					{
 						console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
-						if(startMakingGames==true)
-						{
-						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
-						}
+					
 						if(entries[otherIter].player == entries[playerIter].player)
 						{
 						starMakingGames=true;
+						console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
+							
 						}
 						else
 						{
 						console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
 							
 						}
-
+							if(startMakingGames==true)
+						{
+						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
+						}
 					}
 									
 									
