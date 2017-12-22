@@ -509,6 +509,7 @@ function showTournamentGameSchedule(elem,entries)
 							//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
 							if(startMakingGames==true)
 							{
+								console.log("found match2");
 							elem.append("<div>White:</div> ");
 							showUsername(entries[otherIter].player);
 							elem.append("<div> Black: </div>");
@@ -526,11 +527,12 @@ function showTournamentGameSchedule(elem,entries)
 						{
 						startMakingGames=true;
 						//console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
+								console.log("found match1");
 								
 						}
 						else
 						{
-						//console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
+						console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
 						
 						}
 							
