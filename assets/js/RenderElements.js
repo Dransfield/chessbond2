@@ -491,6 +491,58 @@ function sortTourn(a,b)
 		
 		}
 
+function showTournamentGameSchedule(elem,entries)
+{
+
+//	Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)
+				//{
+					elem.append("<h1>Game Schedule</h1>");
+					
+					console.log("entries "+JSON.stringify(entries));
+				for (playerIter in entries)
+					{
+						var startMakingGames=false;
+					//	console.log("every other player than "+entries[playerIter].player);
+					 
+						for(otherIter in entries)
+						{
+							//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
+							if(startMakingGames==true)
+							{
+							elem.append("<div>White:</div> ");
+							showUsername(entries[otherIter].player);
+							elem.append("<div> Black: </div>");
+							showUsername(entries[playerIter].player);
+							
+							elem.append("<div>White:</div> ");
+							showUsername(entries[playerIter].player);
+							elem.append("<div> Black: </div>");
+							showUsername(entries[otherIter].player);
+							
+							}	
+						}
+							
+						if(entries[otherIter].player == entries[playerIter].player)
+						{
+						startMakingGames=true;
+						//console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
+								
+						}
+						else
+						{
+						//console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
+						
+						}
+							
+							
+			}
+										
+										
+		}
+	//});	
+	
+}
+
 function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
 {
 	TournamentEntries=[];

@@ -596,8 +596,8 @@ function CreateTournaments()
 						//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
 						if(startMakingGames==true)
 						{
-						console.log("white: "+entries[otherIter].player+" black: "+entries[playerIter].player);
-						console.log("white: "+entries[playerIter].player+" black: "+entries[otherIter].player);
+						console.log("White: "+entries[otherIter].player+" Black: "+entries[playerIter].player);
+						console.log("White: "+entries[playerIter].player+" Black: "+entries[otherIter].player);
 					
 						}
 						

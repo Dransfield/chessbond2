@@ -1307,8 +1307,8 @@ function setupTournamentViewPage()
 	
 	retrieveTournament(ProfID).then(function()
 			{
-			//	retrieveTournamentEntries(ProfID).then(function()
-				//{
+				retrieveTournamentEntries(ProfID).then(function()
+				{
 					retrievePrivatesandFollows().then(function()
 					{		
 						retrieveAccounts().then(function()
@@ -1332,8 +1332,10 @@ function setupTournamentViewPage()
 							
 							var joinTournamentButton;
 							var withdrawTournamentButton;
-								showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv);
-				
+							
+							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv);
+							showTournamentGameSchedule($("#tournamentviewpage"),TournamentEntries);
+							
 				io.socket.on('tournament entries',function (data)
 				{
 						//console.log("recieved tourn entries "+JSON.stringify(data));
@@ -1360,7 +1362,7 @@ function setupTournamentViewPage()
 							});
 							
 						});
-				//	});
+					});
 				});
 			});
 					
