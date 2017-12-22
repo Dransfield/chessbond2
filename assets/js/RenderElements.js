@@ -506,7 +506,7 @@ function showTournamentGameSchedule(elem,entries)
 					 
 						for(otherIter in entries)
 						{
-							//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
+							console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
 							if(startMakingGames==true)
 							{
 								console.log("found match2");
@@ -521,22 +521,22 @@ function showTournamentGameSchedule(elem,entries)
 							showUsername(entries[otherIter].player);
 							
 							}	
-						}
-							
-						if(entries[otherIter].player == entries[playerIter].player)
-						{
-						startMakingGames=true;
-						//console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
-								console.log("found match1");
-								
-						}
-						else
-						{
-						console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
 						
-						}
 							
+							if(entries[otherIter].player == entries[playerIter].player)
+							{
+							startMakingGames=true;
+							//console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
+									console.log("found match1");
+									
+							}
+							else
+							{
+							console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
 							
+							}
+								
+						}	
 			}
 										
 										
