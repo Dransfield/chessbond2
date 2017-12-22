@@ -602,6 +602,11 @@ function CreateTournaments()
 						{
 						starMakingGames=true;
 						}
+						else
+						{
+						console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
+							
+						}
 
 					}
 									
