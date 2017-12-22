@@ -593,7 +593,7 @@ function CreateTournaments()
 				 
 					for(otherIter in entries)
 					{
-			
+						console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
 						if(startMakingGames==true)
 						{
 						console.log("game between "+entries[otherIter].player+" and "+entries[playerIter].player);
