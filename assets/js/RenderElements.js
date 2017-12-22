@@ -511,7 +511,7 @@ var gameNumber=0;
 							if(startMakingGames==true)
 							{
 							gameNumber=gameNumber+1;
-							elem.append("Game:"+gameNumber);
+							elem.append("<h2>Game:"+gameNumber+"</h2>");
 							
 							console.log("found match2");
 							
@@ -521,7 +521,7 @@ var gameNumber=0;
 							showUsername(elem,entries[playerIter].player);
 							
 							gameNumber=gameNumber+1;
-							elem.append("Game:"+gameNumber);
+							elem.append("<h2>Game:"+gameNumber+"</h2>");
 							
 							elem.append("<div>White:</div> ");
 							showUsername(elem,entries[playerIter].player);
@@ -529,7 +529,7 @@ var gameNumber=0;
 							showUsername(elem,entries[otherIter].player);
 							
 							gameNumber=gameNumber+1;
-							elem.append("Game:"+gameNumber);
+							elem.append("<h2>Game:"+gameNumber+"</h2>");
 							
 							elem.append("<div>White:</div> ");
 							showUsername(elem,entries[otherIter].player);
@@ -537,7 +537,7 @@ var gameNumber=0;
 							showUsername(elem,entries[playerIter].player);
 							
 							gameNumber=gameNumber+1;
-							elem.append("Game:"+gameNumber);
+							elem.append("<h2>Game:"+gameNumber+"</h2>");
 							
 							elem.append("<div>White:</div> ");
 							showUsername(elem,entries[playerIter].player);
