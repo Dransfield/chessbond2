@@ -511,14 +511,14 @@ function showTournamentGameSchedule(elem,entries)
 							{
 								console.log("found match2");
 							elem.append("<div>White:</div> ");
-							showUsername(entries[otherIter].player);
+							showUsername(elem,entries[otherIter].player);
 							elem.append("<div> Black: </div>");
-							showUsername(entries[playerIter].player);
+							showUsername(elem,entries[playerIter].player);
 							
 							elem.append("<div>White:</div> ");
-							showUsername(entries[playerIter].player);
+							showUsername(elem,entries[playerIter].player);
 							elem.append("<div> Black: </div>");
-							showUsername(entries[otherIter].player);
+							showUsername(elem,entries[otherIter].player);
 							
 							}	
 						
