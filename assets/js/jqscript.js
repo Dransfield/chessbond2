@@ -1334,6 +1334,7 @@ function setupTournamentViewPage()
 							var withdrawTournamentButton;
 							
 							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv);
+							console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
 							showTournamentGameSchedule($("#tournamentviewpage"),TournamentEntries);
 							
 				io.socket.on('tournament entries',function (data)

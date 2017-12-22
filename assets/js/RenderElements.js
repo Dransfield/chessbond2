@@ -545,10 +545,10 @@ function showTournamentGameSchedule(elem,entries)
 
 function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
 {
-	TournamentEntries=[];
-retrieveSpecificTournamentEntries(tournID).then
-					(function()
-					{
+//	TournamentEntries=[];
+//retrieveSpecificTournamentEntries(tournID).then
+	//				(function()
+	//				{
 					joinedPlayersDivContainer.empty();
 					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
@@ -572,7 +572,7 @@ retrieveSpecificTournamentEntries(tournID).then
 					
 					
 					
-					});
+			//		});
 				
 }
 
