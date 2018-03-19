@@ -711,6 +711,9 @@ function CreateTournaments()
 		console.log("just deleted "+deletedcandidates);
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 		{
+
+			if (latestOne)
+			{
 			//console.log("lattestOne "+JSON.stringify(latestOne));
 			var createdAt=new Date(latestOne.createdAt);
 			var seconds_ago=(Date.now()-createdAt)/1000;
@@ -774,6 +777,7 @@ function CreateTournaments()
 						setTournamentTimeout(iter,totalTimeout,circList);
 						myInterval=myInterval+3;
 				}	
+				}		
 		});
 	});
 }
