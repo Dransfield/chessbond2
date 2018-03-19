@@ -200,7 +200,7 @@ var boardThemeNames=['original','A1','A2',
 	var DrawSound=new Audio("/draw.mp3");
 	var WithdrawSound=new Audio("/withdraw.mp3");
 	var SoundEnabled=false;
-	$("#SoundModal").modal()
+	//$("#SoundModal").modal()
 	var EnableSound=function()
 {
 			

@@ -208,7 +208,9 @@ var NavbarDropDown;
 		function updateWholeSiteVisit()
 		{
 			io.socket.get("/wholesitevisit",{person:MyID,theDate:new Date()},function (resData,jwres){
+				if (resData){
 			console.log(JSON.stringify(resData));
+				}
 			});
 		}
 		function subscribeToMandatoryRooms()
