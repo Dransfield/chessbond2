@@ -12,9 +12,6 @@
     "ejs": "2.3.4",
     "elo-rank": "*",
     "elo-rating": "*",
-   
-    
-
     "include-all": "^1.0.0",
     "nodemailer": "*",
     "node-schedule": "*",
@@ -23,15 +20,12 @@
     "passport-google-oauth20": "*",
     "passport-local": "~1.0.0",
     "passport-twitter": "*",
- 
     "node-schedule":"*",
-    "angular-in-memory-web-api": "~0.3.1",
     "core-js": "^2.4.1",
     "rxjs": "5.0.1",
     "systemjs": "0.19.39",
     "zone.js": "^0.8.4",
     "express": "^4.14.0",
-    "angular2-in-memory-web-api": "0.0.20",
     "rc": "1.0.1",
     "sails": "~0.12.8",
     "skipper-gridfs":"*",
