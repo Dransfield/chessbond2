@@ -2,7 +2,7 @@ fresh install:
 copy api/models
 copy api/controllers
 copy api/policies
-copy  passport,MD5 to package.json
+copy  passport,MD5,sailsmongo to package.json
 copy /views,assets/js,assets/styles
 copy js files from tasks/pipeline.js to tasks/pipeline.js
 in config/views.js set partials to true
