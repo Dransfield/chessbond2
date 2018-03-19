@@ -1,74 +1,370 @@
-<!-- Default home page -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
-<style>
-  /* Styles included inline since you'll probably be deleting this page anyway */
-  html,body{text-align:left;font-size:1em}html,body,img,form,textarea,input,fieldset,div,p,div,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,code{margin:0;padding:0}ul,li{list-style:none}img{display:block}a img{border:0}a{text-decoration:none;font-weight:normal;font-family:inherit}*:active,*:focus{outline:0;-moz-outline-style:none}h1,h2,h3,h4,h5,h6{font-weight:normal}div.clear{clear:both}.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}body{font-family:"Open Sans",Arial,sans-serif;font-weight:300;}.top-bar {width: 100%; background-color: #e4f0f1; padding: 15px 0;}.top-bar .container img {float: left;}.top-bar .container ul {float: right; padding-top: 25px;}.top-bar .container li {float: left; width: 125px; text-align: center; font-size: 15px; color:#000; font-weight: 600;}.top-bar .container a li:hover {color: #118798; -webkit-transition:color 200ms; -moz-transition:color 200ms; -o-transition:color 200ms;transition:color 200ms;}.container{width: 80%; max-width: 1200px; margin: auto;}div.header {-webkit-transition: 6s; -moz-transition: 6s; -o-transition: 6s;transition: 6s; background: rgba(4, 36, 41, 0.89) url(http://sailsjs.org/images/img_sailsShadow.png) no-repeat 42% bottom; padding: 100px 0 65px;}.header h1#main-title{color: #fff; font-weight: 300; font-size: 2.5em;}.header h3{color: #b1eef7; font-style: italic; font-weight: 300;}.header h3 code{font-style: normal!important; background-color: rgba(255,255,255,0.5); font-weight: 300; color:#0e6471; margin: 0px 5px;}div.main.container{padding: 50px 0;}h1 {color: #118798; font-weight: 300;}code {font-size: inherit; font-family: 'Consolas', 'Monaco', monospace; padding:4px 5px 1px; background-color: #f3f5f7}a{color: #118798; font-weight: 300; text-decoration: underline;}a:hover {color: #0e6471; -webkit-transition:color 200ms; -moz-transition:color 200ms; -o-transition:color 200ms;transition:color 200ms;}p{line-height: 1.5em;}blockquote{background-color: #e4f0f1; padding: 25px; line-height: 1.5em; margin: 15px 0;}blockquote span{font-weight: 600; padding-right: 5px;}ul.getting-started{padding: 25px 75px 25px 0; width: 70%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}ul.getting-started li{padding: 25px 0;}ul.getting-started li h3 {padding-bottom: 10px; font-size: 25px; font-weight: 300;}.sprite{background:url(http://sailsjs.org/images/newapp.sprite.png) no-repeat; position: absolute; left: 0; top:0;}.getting-started .sprite{margin-left:10px;padding-left:60px;height:42px;width:0; float: left;}.getting-started .one{background-position:0 0}.getting-started .two{background-position:0 -42px}.getting-started .three{background-position:0 -83px}div.step {position: relative; padding-left: 70px; opacity: 0.9;}div.step:hover{ opacity: 1;}div.links {float: left; width: 30%; max-width: 325px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #f3f5f7; border: 1px solid #ebebeb; padding: 25px 45px 35px;}div.links h3 {color: #727272; text-align: center; font-size: 28px; font-weight: 300;}div.links h4 {color: #727272; font-size: 17px; font-weight: 600; padding: 15px 0 10px;}div.links .link-list a {text-decoration: none; font-weight: 400;}div.links .link-list a li {padding: 0px 0px 5px 10px;}div.default-page{min-width: 1200px;}.pocket{display:none;}
-</style>
-<script type="text/javascript">
-setTimeout(function sunrise () {
-  document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
-}, 0);
-</script>
 
-<div class="default-page">
-  <div class="header">
-    <h1 id="main-title" class="container"><%= __('A brand new app.') %></h1>
-    <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
-  </div>
-  <div class="main container clearfix">
-    <!-- <h1>Getting started</h1>
-    <p>Don't worry, we've got your back.</p> -->
-    <ul class="getting-started">
-      <li class="clearfix">
-        <div class="step">
-          <div class="sprite one"></div>
-          <h3>Generate a REST API.</h3>
-          <p>
-            Run <code>sails generate api user</code>.  This will create two files: a <a href="http://sailsjs.org/#!/documentation/concepts/ORM/Models.html">model</a> <code class="pocket">api/models/User.js</code> and a <a href="http://sailsjs.org/#!/documentation/concepts/Controllers">controller</a><code class="pocket">api/controllers/UserController.js</code>.
-          </p>
-        </div>
-      </li>
-      <li class="clearfix">
-        <div class="step">
-          <div class="sprite two"></div>
-          <h3>
-            Lift your app.
-          </h3>
-          <p>
-            Run <code>sails lift</code> to start up your app server.  If you visit <a target="_blank" href="http://localhost:<%= sails.config.port || 1337%>/user"><code>http://localhost:<%= sails.config.port || 1337%>/user</code></a> in your browser, you'll see a <a href="http://sailsjs.org/#!/documentation/reference/blueprint-api">WebSocket-compatible</a> user API.
-          </p>
-        </div>
-      </li>
-      <li class="clearfix">
-        <div class="step">
-          <div class="sprite three"></div>
-          <h3>
-            Dive in.
-          </h3>
-          <p>Blueprints are just the beginning.  You'll probably also want to learn how to customize your app's <a href="http://sailsjs.org/#!/documentation/concepts/Routes">routes</a>, set up <a href="http://sailsjs.org/#!/documentation/concepts/Policies">security policies</a>, configure your <a href="http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html">data sources</a>, and build custom <a target="_blank" href="http://sailsjs.org/#!/documentation/concepts/Controllers?q=actions">controller actions</a>. For more help getting started, check out the links on this page.</p>
+<html>
+  <head>
+    <%- include partials/title.ejs %>
+    <%- include partials/description.ejs %>
+    <%- include partials/keywords.ejs %>  
+     <!-- Viewport mobile tag for sensible mobile support -->
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <!--STYLES END-->
+        <!--SCRIPTS-->
+        <script src="/js/dependencies/sails.io.js"></script>
+        <script src="/js/dependencies/angular.1.3.js"></script>
+         <script src="/js/dependencies/angular-sanitize.js"></script>
+        <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+        <script src="/js/dependencies/chessboard-0.3.0.js"></script>
+        <script src="/js/dependencies/chess.min.js"></script>
+        <script src="/js/dependencies/stockfish.js"></script>
+        <script src="/js/dependencies/angular-toastr.js"></script>
+        <script src="/js/dependencies/bootstrap.min.js"></script>
+        <script src="/js/dependencies/compareTo.module.js"></script>
+        <script src="/js/dependencies/enginegame.js"></script>
+        <script src="/js/HomepageModule.js"></script>
+        <script src="/js/HomepageController.js"></script>
+        <script src="/js/RegisterController.js"></script>
+        <script src="/js/SinglePlayerController.js"></script>
+        <script src="/js/TwoPlayerController.js"></script>
+        <!--SCRIPTS END-->
+    </head>
+    
+    <body id="body" ng-app="HomepageModule" ng-controller="HomepageController" ngcloak>
 
-        </div>
-      </li>
-    </ul>
-    <div class="links">
-      <!-- <h3>Links</h3> -->
-      <ul class="link-list">
+<%- JSON.stringify(req.session.socketid) %>
+<!--
+ <%-JSON.stringify(req.session) %>
+ <%-JSON.stringify(req.session.passport) %>
+ -->
+	
+    <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
 
-        <h4>Docs</h4>
-        <a target="_blank" href="http://sailsjs.org/#!/documentation/anatomy/myApp"><li>App Structure</li></a>
-        <a target="_blank" href="http://sailsjs.org/#!/documentation/reference"><li>Reference</li></a>
-        <a target="_blank" href="http://sailsjs.org/#!/documentation/concepts/extending-sails/Adapters/adapterList.html"><li>Supported Databases</li></a>
+    
+ <%- include('partials/navbar',{userid:Myid,Myid:Myid}); %>
+ 
+	 	<div  ng-show="User.Invisible" style="background-color:black;z-index:999;width:100%;height:100%;opacity:0.9;position:fixed;left:0;top:50;">
+	</div>
+		<div class="jumbotron ">
+			
+			
+			
+			<% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+			<% } %>
+			<% }else{ %>
+			<% if (req.session.flash){%>
+			<% if (req.session.flash.error){%>
+			<div ng-init="showflash('<%- req.session.flash.error %>')"></div>
+			<% } %>
+			<% } %>
+	     <% } %>
+	     <div class="row">
+	     <div class="col-md-4">
+			 </div>
+         <div class="col-md-4 text-center">
+	    <h1 >Chessbond</h1>
+    
 
-        <h4>Tutorials</h4>
-        <a target="_blank" href="https://github.com/sails101"><li>Sails 101</li></a>
+			 </div>
+    
+         <div class="col-md-4">
+			 </div>
+			 </div>
+      
+     <% if (req.session.passport && req.session.passport.user) { %>
+		  		 <div class="row">
+			 <div class="col-md-2 ">  
+			</div>
+			<div class="text-center col-md-3">
+			<a  ng-show="SoleConnectorVariable=='true'" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			</div>
+		 <div class="col-md-2 ">  
+			</div>
+		 <div class="text-center col-md-3">
+		 
+			<button  ng-show="SoleConnectorVariable=='true'" ng-click="ShowNewGameOptions=!ShowNewGameOptions" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			</div>
+		<div class="col-md-2 ">  
+			</div>
+		</div>
+		
+		<div ng-show="ShowNewGameOptions">
+		<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
+	<!--	<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >-->
+		
+			<h2>Choose a Time Limit:</h2>
+			<select  ng-options="(c.time+'|'+c.extratime) for c in gamecategories" ng-model="timeobject" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
+	 <!-- <option ng-value="c" ng-repeat="c in gamecategories" >{{c.time+"|"+c.extratime}}</option>-->
+	</select>
+	<h2>Which Color would you like to be?:</h2>
+	<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
+	  <option>White</option>
+	  <option>Black</option>
+	</select>
+	<button id="go button" type="submit" class="btn btn-success">Go</button>
+	</form>
+		
+		</div>
+		
+		
+	 <% }else{ %>
+	 <style>
+	 .mytext{font-size:14px;
+	 
+	 }
+	 </style>
+	 <div style="display:flex">
+	 <span style="border-style: solid;width:50%;padding-left:6px">
+	<p ><span style="color:blue"> In Defence of Chessbond.com</span></p>
 
-        <h4>Community</h4>
-        <a target="_blank" href="http://stackoverflow.com/search?q=sails.js"><li>StackOverFlow</li></a>
-        <a target="_blank" href="https://github.com/balderdashy/sails"><li>GitHub</li></a>
-        <a target="_blank" href="https://groups.google.com/forum/#!forum/sailsjs"><li>Google Group</li></a>
-        <a target="_blank" href="http://webchat.freenode.net/"><li>IRC (#sailsjs on freenode)</li></a>
 
-      </ul>
-    </div>
-  </div>
+<span class="mytext"><span style="color:blue">Chess</span> is one of the oldest board games 
+on the planet, played by people of all ages and from different backgrounds. 
+Despite an undeserved reputation as being high-brow or nerdy, the game is actually 
+growing in popularity. Why is that the case?
+</span>
+
+
+<span class="mytext">
+Players develop a combination of skills that can be applied to a variety of 
+life situations. They learn to be observant, to plan their moves carefully and 
+precisely and to anticipate their opponent’s tactics. There are other benefits
+ that go beyond the game itself, such as the ability to socialise with others,
+  the <span style="color:blue">chance to travel</span> to tournaments and 
+  <span style="color:blue">experiencing other cultures</span>, and the
+   opportunity to <span style="color:blue">build long-term friendships</span> with like-minded people.
+</span>
+
+
+
+<div class="mytext">
+As technology continues to dominate our lives, it was just a matter of time
+ before chess was given the digital makeover. A new website has been launched 
+ that enables enthusiasts to play online with anyone, anywhere in the world, at
+  the click of a mouse.</div>
+
+<div class="mytext"><span style="color:blue">Chessbond.com </span> is poised to take your 
+chess play to the next level, helps chess lovers enjoy a game at home, in a 
+coffee shop, during a trip or even while taking the dog for a walk.
+ Thanks to widespread internet access and Wi-Fi availability, it’s never been
+  easier to find a suitable opponent, putting the game within reach of more
+   and more people. Such instant access also makes it more convenient to arrange
+    cross-border tournaments, encourage 
+    <span style="color:blue">international travel</span>
+    and provide 
+    <span style="color:blue">
+    experiences of the world</span> outside your own space.</div>
+
+
+<div class="mytext">From its origin in India almost 1500 years ago, chess has come a long way. 
+With sites like this
+<!--<span style="color:blue">
+ Chessbond.com 
+</span>-->
+championing its cause, that trend looks set to 
+continue well into the 21st century and beyond. Why not sign up to 
+<span style="color:blue">
+Chessbond.com
+</span>
+today? Get started playing free chess, making friends and penpals, exchanging
+ travel and cultural experiences, and above all , Have fun!</div>
+<h3 style="color:blue">
+So, What are you waiting for?
+Join now diving into your next adventure!
+</h3>
+	 </span>
+		 <span>
+        
+		<span>	 
+         <a class=" btn btn-primary" href="/loginfacebook">Login with Facebook</a>
+		<a class="btn btn-primary" href="/logintwitter">Login with Twitter</a>
+		<a  class="btn btn-primary" href="/logingoogle">Login with Google</a>
+    	</span>
+	<h2>Login</h2>
+    <form name="form" ng-submit="login()" role="form">
+        <span class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Email</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </span>
+        <span class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </span>
+        <span class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="/registerpage" class="btn btn-link">Register</a>
+            <a href="/forgot" class="btn btn-link">Forgot Password</a>
+        </span>
+    </form>
+</span>
 </div>
+        	<%}%>
+		
+		
+		</div>
+    
+
+				  
+	    <% if (req.session.passport && req.session.passport.user) { %>
+    			  
+    <h2 class="sub-header">Your Games</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player1</th>
+                  <th>Player2</th>
+                  
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				  
+            <tr ng-repeat="game in joinedgames track by $index">
+			<td><%- include('partials/username', {userid: "game.Player1",Myid:Myid}); %></td>
+			<td><%- include('partials/username', {userid: "game.Player2",Myid:Myid}); %></td>
+			
+			<td>
+				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
+				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
+			</td>
+			
+			</tr>
+            </tbody>
+            </table>
+          </div>
+     
+    <% } %>
+    
+     
+				<h2 class="sub-header">Visitors</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="player in Players track by $index">
+			<td><%- include('partials/username', {userid: "player.id",Myid:Myid}); %></td>
+	
+			<% if (req.session.authenticated) { %>
+    		<% if (req.session.authenticated==true) { %>
+			<td>		
+				
+				
+			</td>
+			<% } %>
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+				 <h2 class="sub-header">Open Games</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                  <th>Date</th>
+                  <th>Join</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="sess in sessions track by $index">
+			<td><a href="/profile/{{sess.Player1}}" target="_blank">{{sess.Player1Name}}</a></td>
+			<td>{{opengame.phrase}}</td>
+			
+			<% if (req.session.passport) { %>
+    		
+			<td>		
+				<button ng-click="joingame(sess.id,sess.Player1,sess.Player1Name,sess.Player1Color,'<%- req.session.passport.user%>',User.name,sess.GameType,sess.TimeLimit)">Join Game</button>
+				
+				<button ng-click="deleteopengame(sess.id)">Delete Game</button>
+				
+			</td>
+			
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+
+				
+				 <h2 class="sub-header">Open Games</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                  <th>Date</th>
+                  <th>Join</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="opengame in opg track by $index">
+			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
+			<td>{{opengame.phrase}}</td>
+		
+			<% if (req.session.passport) { %>
+    		
+			<td>		
+				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,opengame.Player1Color,'<%- req.session.passport.user%>',User.name,opengame.GameType,opengame.GameCategory,opengame.TimeLimit)">Join Game</button>
+					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
+    		
+				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
+				
+			</td>
+			
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+<div style="float: right; font-family: arial;font-weight:bold;font-size:15px;color:#86BEE0;">
+    <a href="https://www.positivessl.com" style=" float: right;font-family: arial; font-size: 10px; color: #212121; text-decoration: none;"><img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="SSL Certificate" title="SSL Certificate" border="0" /></a>
+<a href="https://www.positivessl.com" style="color:#86BEE0; text-decoration: none;">SSL Certificate</a></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%- include partials/footer.ejs %>
+    </body>
+   </html>
