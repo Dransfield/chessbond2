@@ -1,0 +1,169 @@
+
+<html>
+  <head>
+    <%- include partials/title.ejs %>
+    <%- include partials/description.ejs %>
+    <%- include partials/keywords.ejs %>  
+     <!-- Viewport mobile tag for sensible mobile support -->
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <link rel="stylesheet" href="/styles/general.css">
+        <link rel="stylesheet" href="/styles/results.css">
+        <!--STYLES END-->
+        </head>
+       <body>
+        <div id="navbar"></div>
+        <div id="homepage"></div>
+        <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<script>var MyID='<%- req.session.passport.user %>'</script>
+			<% }else{ %>
+			<script>var MyID=''</script>
+	
+			<%}%>
+			<% }else{ %>
+    <script>var MyID=''</script>
+			
+    <%}%>
+    
+    
+    
+    <% if (req.session.passport && req.session.passport.user) { %>
+    <div id="newGameControls"></div>
+    <% }else{ %>
+    	 <style>
+	 .mytext{font-size:14px;
+	 
+	 }
+	 </style>
+	 <div style="display:flex">
+	 <span style="border-style: solid;width:50%;padding-left:6px">
+	<p ><span style="color:blue"> In Defence of Chessbond.com</span></p>
+
+
+<span class="mytext"><span style="color:blue">Chess</span> is one of the oldest board games 
+on the planet, played by people of all ages and from different backgrounds. 
+Despite an undeserved reputation as being high-brow or nerdy, the game is actually 
+growing in popularity. Why is that the case?
+</span>
+
+
+<span class="mytext">
+Players develop a combination of skills that can be applied to a variety of 
+life situations. They learn to be observant, to plan their moves carefully and 
+precisely and to anticipate their opponent’s tactics. There are other benefits
+ that go beyond the game itself, such as the ability to socialise with others,
+  the <span style="color:blue">chance to travel</span> to tournaments and 
+  <span style="color:blue">experiencing other cultures</span>, and the
+   opportunity to <span style="color:blue">build long-term friendships</span> with like-minded people.
+</span>
+
+
+
+<div class="mytext">
+As technology continues to dominate our lives, it was just a matter of time
+ before chess was given the digital makeover. A new website has been launched 
+ that enables enthusiasts to play online with anyone, anywhere in the world, at
+  the click of a mouse.</div>
+
+<div class="mytext"><span style="color:blue">Chessbond.com </span> is poised to take your 
+chess play to the next level, helps chess lovers enjoy a game at home, in a 
+coffee shop, during a trip or even while taking the dog for a walk.
+ Thanks to widespread internet access and Wi-Fi availability, it’s never been
+  easier to find a suitable opponent, putting the game within reach of more
+   and more people. Such instant access also makes it more convenient to arrange
+    cross-border tournaments, encourage 
+    <span style="color:blue">international travel</span>
+    and provide 
+    <span style="color:blue">
+    experiences of the world</span> outside your own space.</div>
+
+
+<div class="mytext">From its origin in India almost 1500 years ago, chess has come a long way. 
+With sites like this
+<!--<span style="color:blue">
+ Chessbond.com 
+</span>-->
+championing its cause, that trend looks set to 
+continue well into the 21st century and beyond. Why not sign up to 
+<span style="color:blue">
+Chessbond.com
+</span>
+today? Get started playing free chess, making friends and penpals, exchanging
+ travel and cultural experiences, and above all , Have fun!</div>
+<h3 style="color:blue">
+So, What are you waiting for?
+Join now diving into your next adventure!
+</h3>
+	 </span>
+		 <span>
+        
+		<span>	
+		 <div id="socialLogins"></div>
+         <a class=" btn btn-primary" href="/loginfacebook">Login with Facebook</a>
+		<a class="btn btn-primary" href="/logintwitter">Login with Twitter</a>
+		<a  class="btn btn-primary" href="/logingoogle">Login with Google</a>
+    	</span>
+	<h2>Login</h2>
+	<div id="loginform">
+	<!--
+    <form name="form" ng-submit="login()" role="form">
+        <span class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Email</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </span>
+        <span class="form-group" >
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control"  />
+       </span>
+        <span class="form-actions">
+            <button type="submit" >Login</button>
+            <a href="/registerpage" class="btn btn-link">Register</a>
+            <a href="/forgot" class="btn btn-link">Forgot Password</a>
+        </span>
+    </form>-->
+</span>
+</div>
+    <%}%>
+    
+    <div id="usr">
+    
+    </div>
+    
+ <!--SCRIPTS-->
+ <script src="/js/dependencies/sails.io.js"></script>
+ <script src="/js/dependencies/angular.1.3.js"></script>
+ <script src="/js/dependencies/angular-sanitize.js"></script>
+ <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+ <script src="/js/dependencies/chess.min.js"></script>
+ <script src="/js/dependencies/stockfish.js"></script>
+ <script src="/js/dependencies/angular-toastr.js"></script>
+ <script src="/js/dependencies/bootstrap.min.js"></script>
+ <script src="/js/dependencies/chessboard-0.3.0.js"></script>
+ <script src="/js/dependencies/compareTo.module.js"></script>
+ <script src="/js/dependencies/enginegame.js"></script>
+
+ <script src="/js/jqscript.js"></script>
+
+    <!--SCRIPTS END-->
+   
+    
+    <div style="float: right; font-family: arial;font-weight:bold;font-size:15px;color:#86BEE0;">
+    <a href="https://www.positivessl.com" style=" float: right;font-family: arial; font-size: 10px; color: #212121; text-decoration: none;"><img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="SSL Certificate" title="SSL Certificate" border="0" /></a>
+<a href="https://www.positivessl.com" style="color:#86BEE0; text-decoration: none;">SSL Certificate</a></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%- include partials/footer.ejs %>
+    </body>
+   </html>

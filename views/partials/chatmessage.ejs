@@ -1,0 +1,13 @@
+	<div style="display:flex"  ng-controller="AccountController">
+			<%- include('avatar', {userid:userid,Myid:Myid}); %>
+    		<span>
+    		
+    <span ng-controller="BlockedAccountController" 
+    ng-init="setShouldGetBlockedAccounts('<%- userid %>')" ng-show="!BlockedAccounts[<%- userid%>]">
+    {{<%- content%>}}
+    </span>
+    
+		<br>by <%- include('username', {userid: userid,Myid:Myid}); %> {{Age}}
+		</span>
+		
+	</div>

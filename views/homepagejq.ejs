@@ -1,0 +1,370 @@
+
+<html>
+  <head>
+    <%- include partials/title.ejs %>
+    <%- include partials/description.ejs %>
+    <%- include partials/keywords.ejs %>  
+     <!-- Viewport mobile tag for sensible mobile support -->
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <!--STYLES END-->
+        <!--SCRIPTS-->
+        <script src="/js/dependencies/sails.io.js"></script>
+        <script src="/js/dependencies/angular.1.3.js"></script>
+         <script src="/js/dependencies/angular-sanitize.js"></script>
+        <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+        <script src="/js/dependencies/chessboard-0.3.0.js"></script>
+        <script src="/js/dependencies/chess.min.js"></script>
+        <script src="/js/dependencies/stockfish.js"></script>
+        <script src="/js/dependencies/angular-toastr.js"></script>
+        <script src="/js/dependencies/bootstrap.min.js"></script>
+        <script src="/js/dependencies/compareTo.module.js"></script>
+        <script src="/js/dependencies/enginegame.js"></script>
+        <script src="/js/HomepageModule.js"></script>
+        <script src="/js/HomepageController.js"></script>
+        <script src="/js/RegisterController.js"></script>
+        <script src="/js/SinglePlayerController.js"></script>
+        <script src="/js/TwoPlayerController.js"></script>
+        <!--SCRIPTS END-->
+    </head>
+    
+    <body id="body" ng-app="HomepageModule" ng-controller="HomepageController" ngcloak>
+
+<%- JSON.stringify(req.session.socketid) %>
+<!--
+ <%-JSON.stringify(req.session) %>
+ <%-JSON.stringify(req.session.passport) %>
+ -->
+	
+    <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
+
+    
+ <%- include('partials/navbar',{userid:Myid,Myid:Myid}); %>
+ 
+	 	<div  ng-show="User.Invisible" style="background-color:black;z-index:999;width:100%;height:100%;opacity:0.9;position:fixed;left:0;top:50;">
+	</div>
+		<div class="jumbotron ">
+			
+			
+			
+			<% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="SoleConnectorFunction('<%- req.session.passport.user %>')"></div>
+			<% } %>
+			<% }else{ %>
+			<% if (req.session.flash){%>
+			<% if (req.session.flash.error){%>
+			<div ng-init="showflash('<%- req.session.flash.error %>')"></div>
+			<% } %>
+			<% } %>
+	     <% } %>
+	     <div class="row">
+	     <div class="col-md-4">
+			 </div>
+         <div class="col-md-4 text-center">
+	    <h1 >Chessbond</h1>
+    
+
+			 </div>
+    
+         <div class="col-md-4">
+			 </div>
+			 </div>
+      
+     <% if (req.session.passport && req.session.passport.user) { %>
+		  		 <div class="row">
+			 <div class="col-md-2 ">  
+			</div>
+			<div class="text-center col-md-3">
+			<a  ng-show="SoleConnectorVariable=='true'" href="/playvsai" class="btn btn-lg btn-success">Play Chess against the AI!</a>
+			</div>
+		 <div class="col-md-2 ">  
+			</div>
+		 <div class="text-center col-md-3">
+		 
+			<button  ng-show="SoleConnectorVariable=='true'" ng-click="ShowNewGameOptions=!ShowNewGameOptions" type="submit" class="btn btn-lg btn-success">Create a New vs Human Game</button>
+			</div>
+		<div class="col-md-2 ">  
+			</div>
+		</div>
+		
+		<div ng-show="ShowNewGameOptions">
+		<form id="newgameform" ng-submit="createopengame('Timed',User.id,User.name )" >
+	<!--	<form id="newgameform" ng-submit="createsession('Timed',User.id,User.name )" >-->
+		
+			<h2>Choose a Time Limit:</h2>
+			<select  ng-options="(c.time+'|'+c.extratime) for c in gamecategories" ng-model="timeobject" id="timelimitpicker" class="form-control bg-success" data-style="btn-success">
+	 <!-- <option ng-value="c" ng-repeat="c in gamecategories" >{{c.time+"|"+c.extratime}}</option>-->
+	</select>
+	<h2>Which Color would you like to be?:</h2>
+	<select ng-model="GameForm.color" id="colorpicker" class="form-control bg-success" data-style="btn-success">
+	  <option>White</option>
+	  <option>Black</option>
+	</select>
+	<button id="go button" type="submit" class="btn btn-success">Go</button>
+	</form>
+		
+		</div>
+		
+		
+	 <% }else{ %>
+	 <style>
+	 .mytext{font-size:14px;
+	 
+	 }
+	 </style>
+	 <div style="display:flex">
+	 <span style="border-style: solid;width:50%;padding-left:6px">
+	<p ><span style="color:blue"> In Defence of Chessbond.com</span></p>
+
+
+<span class="mytext"><span style="color:blue">Chess</span> is one of the oldest board games 
+on the planet, played by people of all ages and from different backgrounds. 
+Despite an undeserved reputation as being high-brow or nerdy, the game is actually 
+growing in popularity. Why is that the case?
+</span>
+
+
+<span class="mytext">
+Players develop a combination of skills that can be applied to a variety of 
+life situations. They learn to be observant, to plan their moves carefully and 
+precisely and to anticipate their opponent’s tactics. There are other benefits
+ that go beyond the game itself, such as the ability to socialise with others,
+  the <span style="color:blue">chance to travel</span> to tournaments and 
+  <span style="color:blue">experiencing other cultures</span>, and the
+   opportunity to <span style="color:blue">build long-term friendships</span> with like-minded people.
+</span>
+
+
+
+<div class="mytext">
+As technology continues to dominate our lives, it was just a matter of time
+ before chess was given the digital makeover. A new website has been launched 
+ that enables enthusiasts to play online with anyone, anywhere in the world, at
+  the click of a mouse.</div>
+
+<div class="mytext"><span style="color:blue">Chessbond.com </span> is poised to take your 
+chess play to the next level, helps chess lovers enjoy a game at home, in a 
+coffee shop, during a trip or even while taking the dog for a walk.
+ Thanks to widespread internet access and Wi-Fi availability, it’s never been
+  easier to find a suitable opponent, putting the game within reach of more
+   and more people. Such instant access also makes it more convenient to arrange
+    cross-border tournaments, encourage 
+    <span style="color:blue">international travel</span>
+    and provide 
+    <span style="color:blue">
+    experiences of the world</span> outside your own space.</div>
+
+
+<div class="mytext">From its origin in India almost 1500 years ago, chess has come a long way. 
+With sites like this
+<!--<span style="color:blue">
+ Chessbond.com 
+</span>-->
+championing its cause, that trend looks set to 
+continue well into the 21st century and beyond. Why not sign up to 
+<span style="color:blue">
+Chessbond.com
+</span>
+today? Get started playing free chess, making friends and penpals, exchanging
+ travel and cultural experiences, and above all , Have fun!</div>
+<h3 style="color:blue">
+So, What are you waiting for?
+Join now diving into your next adventure!
+</h3>
+	 </span>
+		 <span>
+        
+		<span>	 
+         <a class=" btn btn-primary" href="/loginfacebook">Login with Facebook</a>
+		<a class="btn btn-primary" href="/logintwitter">Login with Twitter</a>
+		<a  class="btn btn-primary" href="/logingoogle">Login with Google</a>
+    	</span>
+	<h2>Login</h2>
+    <form name="form" ng-submit="login()" role="form">
+        <span class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Email</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </span>
+        <span class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </span>
+        <span class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="/registerpage" class="btn btn-link">Register</a>
+            <a href="/forgot" class="btn btn-link">Forgot Password</a>
+        </span>
+    </form>
+</span>
+</div>
+        	<%}%>
+		
+		
+		</div>
+    
+
+				  
+	    <% if (req.session.passport && req.session.passport.user) { %>
+    			  
+    <h2 class="sub-header">Your Games</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player1</th>
+                  <th>Player2</th>
+                  
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				  
+            <tr ng-repeat="game in joinedgames track by $index">
+			<td><%- include('partials/username', {userid: "game.Player1",Myid:Myid}); %></td>
+			<td><%- include('partials/username', {userid: "game.Player2",Myid:Myid}); %></td>
+			
+			<td>
+				<button ng-click="PlayGame(game.id,game.Player2)" class="btn btn-lg btn-success" >Play Game</a>
+				<button ng-click="deletegame(game.id,'<%-  req.session.passport.user %>')">Delete Game</button>
+			</td>
+			
+			</tr>
+            </tbody>
+            </table>
+          </div>
+     
+    <% } %>
+    
+     
+				<h2 class="sub-header">Visitors</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="player in Players track by $index">
+			<td><%- include('partials/username', {userid: "player.id",Myid:Myid}); %></td>
+	
+			<% if (req.session.authenticated) { %>
+    		<% if (req.session.authenticated==true) { %>
+			<td>		
+				
+				
+			</td>
+			<% } %>
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+				 <h2 class="sub-header">Open Games</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                  <th>Date</th>
+                  <th>Join</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="sess in sessions track by $index">
+			<td><a href="/profile/{{sess.Player1}}" target="_blank">{{sess.Player1Name}}</a></td>
+			<td>{{opengame.phrase}}</td>
+			
+			<% if (req.session.passport) { %>
+    		
+			<td>		
+				<button ng-click="joingame(sess.id,sess.Player1,sess.Player1Name,sess.Player1Color,'<%- req.session.passport.user%>',User.name,sess.GameType,sess.TimeLimit)">Join Game</button>
+				
+				<button ng-click="deleteopengame(sess.id)">Delete Game</button>
+				
+			</td>
+			
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+
+				
+				 <h2 class="sub-header">Open Games</h2>
+          <div class="table-responsive" style="overflow:visible;">
+            <table class="table table-striped">
+              
+		
+			<thead>
+                <tr>
+	              <th>Player</th>
+                  <th>Date</th>
+                  <th>Join</th>
+				<!--HEADERS OF TABLE-->
+                </tr>
+           </thead>
+           <tbody>
+				
+            <tr ng-repeat="opengame in opg track by $index">
+			<td><%- include('partials/username', {userid: "opengame.Player1",Myid:Myid}); %></td>
+			<td>{{opengame.phrase}}</td>
+		
+			<% if (req.session.passport) { %>
+    		
+			<td>		
+				<button ng-click="joingame(opengame.id,opengame.Player1,opengame.Player1Name,opengame.Player1Color,'<%- req.session.passport.user%>',User.name,opengame.GameType,opengame.GameCategory,opengame.TimeLimit)">Join Game</button>
+					<%- include('partials/avatar', {userid: "opengame.Player1",Myid:Myid}); %>
+    		
+				<button ng-click="deleteopengame(opengame.id)">Delete Game</button>
+				
+			</td>
+			
+			<% } %>
+			</tr>
+            </tbody>
+            </table>
+          </div>
+
+<div style="float: right; font-family: arial;font-weight:bold;font-size:15px;color:#86BEE0;">
+    <a href="https://www.positivessl.com" style=" float: right;font-family: arial; font-size: 10px; color: #212121; text-decoration: none;"><img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="SSL Certificate" title="SSL Certificate" border="0" /></a>
+<a href="https://www.positivessl.com" style="color:#86BEE0; text-decoration: none;">SSL Certificate</a></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%- include partials/footer.ejs %>
+    </body>
+   </html>

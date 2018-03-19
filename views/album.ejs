@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+      <%- include partials/title.ejs %>
+       <%- include partials/description.ejs %> 
+   <%- include partials/keywords.ejs %> 
+      <!-- Viewport mobile tag for sensible mobile support -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/angular-toastr.css">
+      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/angular.1.3.js"></script>
+      <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+      <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+      <script src="/js/dependencies/chess.min.js"></script>
+      <script src="/js/dependencies/stockfish.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/bootstrap.min.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/enginegame.js"></script>
+      <script src="/js/HomepageModule.js"></script>
+      <script src="/js/HomepageController.js"></script>
+      <script src="/js/RegisterController.js"></script>
+      <script src="/js/SinglePlayerController.js"></script>
+      <script src="/js/TwoPlayerController.js"></script>
+      <!--SCRIPTS END-->
+   </head>
+     <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
+     <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
+
+    
+ <%- include('partials/navbar',{userid:Myid,Myid:Myid}); %>
+   
+   <div  ng-show="User.Invisible" style="background-color:black;z-index:999;width:100%;height:100%;opacity:0.9;position:fixed;left:0;top:50;">
+	</div>
+   
+   <h3>Upload more photos</h3>
+   <form action="/uploadavatar/<%-req.param('ID')%>" enctype="multipart/form-data" method="post">
+    <input type="file" name="avatar" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>
+   <div ng-init="getalbum('<%-req.param('ID')%>')">
+	</div>
+    <div ng-init="getpics('<%-req.param('ID')%>')">
+	</div>
+	 	<% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+    		<% } %>
+	<% } %>
+	
+	<h1>{{Album.name}}</h1>
+	<span ng-show="User.id==Album.user">
+		<button ng-click="editalbumtitle=!editalbumtitle" class="btn btn-sml">Edit Album Title..
+						</button>
+		 <input  ng-show="editalbumtitle" type="text"  class="form-control"  ng-change="ChangeAlbum('name','<%-req.param('ID')%>',Album.name)" ng-model="Album.name" />
+	</span>
+	
+	<!--<div  style="display:flex"> ng-repeat="pic in mypics track by $index">
+	<span>
+	<img style="width:400px" ng-src="/user/avatar/{{pic.id}}">
+	</span>
+	<span>
+	Created at {{pic.phrase}}<br>
+	<span ng-show="User.id==Album.user">
+		<button ng-click="editfideid=!editfideid" class="btn btn-sml">.Edit Description..
+						</button>
+		 <input  ng-show="editfideid" type="text"  class="form-control"  ng-change="ChangeAvatar('description',pic.id,pic.description)" ng-model="pic.description" />
+	</span>
+	<br>
+	<span style="border-style:inset">
+	{{pic.description}}
+	</span>
+	<br>
+	<button ng-click="SetAvatar('<%-req.session.passport.user%>',pic.id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
+	<br>
+	
+	<button ng-click="DeleteAvatar(pic.id,pic.avatarFd)" type="submit" class="btn btn-sml btn-success">Delete Image</button>
+	
+	
+	</span>
+	-->
+	
+	<div  style="display:flex">
+	<div class="btn btn-lg btn-success" ng-show="picIndex>0" ng-click="GetOlderPics(mypics[picIndex].id)"><</div>
+	
+	<span style="position:relative;left:0;top:0;">
+	<img src="/img/frame.jpg" style="position:relative;width:600px">
+	<img style="position:absolute;top:3px;left:99px;width:400px" ng-src="/user/avatar/{{mypics[picIndex].id}}">
+	</span>
+		<div ng-show="picIndex<(mypics.length-1)" class="btn btn-lg btn-success" ng-click="GetMorePics(mypics[picIndex].id)">Next Picture ({{((mypics.length-1)-picIndex)}})</div>
+
+	<span>
+	Created at {{mypics[picIndex].phrase}}<br>
+	<span ng-show="User.id==Album.user">
+		<button ng-click="editfideid=!editfideid" class="btn btn-sml">.Edit Description..
+						</button>
+		 <input  ng-show="editfideid" type="text"  class="form-control"  ng-change="ChangeAvatar('description',mypics[picIndex].id,mypics[picIndex].description)" ng-model="mypics[picIndex].description" />
+	</span>
+	<br>
+	<span style="border-style:inset">
+	{{mypics[picIndex].description}}
+	</span>
+	<br>
+	<button ng-click="SetAvatar('<%-req.session.passport.user%>',mypics[picIndex].id)" type="submit" class="btn btn-lg btn-success">Use this image as avatar</button>
+	<br>
+	
+	<button ng-click="DeleteAvatar(mypics[picIndex].id,mypics[picIndex].avatarFd)" type="submit" class="btn btn-sml btn-success">Delete Image</button>
+	
+	
+	</span>
+			
+	
+	
+	</div>
+	</body>
+</html>

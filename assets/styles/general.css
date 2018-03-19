@@ -1,0 +1,325 @@
+
+.countryflag
+{
+
+color:#AAAAAA;
+background-color: #d2d2d2;
+padding: 2px;
+height:64px; 
+width:64px; 
+}
+.smallprofilepic
+{
+width:25px;
+height:25px;
+position:relative;
+z-index: 1;
+}
+.profilepic
+{
+width:100px;
+height:100px;
+position:relative;
+z-index: 1;
+}
+.identprofilepic
+{
+
+width:45px;
+height:45px;
+position:relative;
+z-index: 1;
+
+}
+.smallonlinecircle
+{
+position:absolute;
+z-index: 2;
+bottom: 0px;
+ height:10px;
+ width:10px;
+background-color:red;
+border-style:solid;
+}
+.onlinecircle
+{
+position:absolute;
+z-index: 2;
+bottom: 4px;
+ height:20px;
+ width:20px;
+background-color:red;
+border-style:solid;
+}
+/* Small screens */
+
+#ipTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ipTable td, #ipTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#ipTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#ipTable tr:hover {background-color: #ddd;}
+
+#ipTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #5cb85c;
+    color: white;
+}
+
+  .mynavbar {
+    /* On small screens, we are no longer using row direction but column */
+    display:flex;
+    flex-wrap:wrap ;
+   background-color:black;
+    justify-content:space-between;
+    align-content:space-around;
+    align-items:center;
+  
+  }
+  .ChartCell
+  {
+  padding-right:10px;
+    
+    border-right: solid #AAAAAA;
+  }
+ .spacer{
+ height:20px;
+ width:20px;
+ }
+  .Kdropdown{
+  
+  
+  }
+  .overall
+  {
+  border-color:AAAAAA;
+  border:1px
+}
+.clickToShowMessages{
+ cursor:pointer;
+ border-style:solid;
+}
+.idlesquare{
+ height:20px;
+ width:20px;
+background-color:red;
+border-style:solid;
+}
+.KhugeButton{
+color:white;
+font-size:4em;
+border-radius: 9px;
+text-align:center;
+padding:5px;
+ cursor:pointer;
+
+}
+.KbigButton{
+color:white;
+font-size:2em;
+border-radius: 9px;
+text-align:center;
+padding:5px;
+ cursor:pointer;
+}
+.KinbetweenButton{
+color:white;
+font-size:1.6em;
+border-radius: 9px;
+text-align:center;
+padding:5px;
+ cursor:pointer;
+}
+.KregularButton{
+color:white;
+font-size:1em;
+border-radius: 9px;
+text-align:center;
+padding:5px;
+ cursor:pointer;
+}
+.imageGrid
+{
+  display:grid;
+  grid-auto-flow:row;
+  grid-template-columns:1fr 1fr;
+  grid-row-gap: 2px;
+}
+
+.reportGrid
+{
+  display:grid;
+  grid-auto-flow:row;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 2px;
+}
+.statsGridTitle {
+  grid-row:titlerow;
+  border-bottom-style:solid;
+  background-color:teal;
+  font-weight:bold;
+  border-right-style:solid;
+  //border-radius: 15px;
+  text-align:center;
+  //box-shadow: 10px 10px lightblue;
+  color:white;
+}
+
+.visitorsGrid
+{
+display:grid;
+ grid-row-gap: 2px;
+grid-template-columns:
+[position] 1fr
+[visitor] 1fr
+[date] 1fr
+[ipaddress] 1fr
+[location] 1fr
+[logintime] 1fr
+[logouttime] 1fr
+[loggedintime] 1fr;
+grid-template-rows:
+[titlerow]   1fr
+[r1] 1fr
+[r2] 1fr
+[r3] 1fr
+[r4] 1fr
+[r5] 1fr
+[r6] 1fr
+[r7] 1fr
+[r8] 1fr
+[r9] 1fr
+[r10] 1fr
+[r11] 1fr
+[r12] 1fr
+[r13] 1fr
+[r14] 1fr
+[r15] 1fr
+[r16] 1fr
+[r17] 1fr
+[r18] 1fr
+[r19] 1fr
+[r20] 1fr
+[r21] 1fr
+[r22] 1fr
+[r23] 1fr
+[r24] 1fr
+[r25] 1fr;
+
+}
+.statsGrid
+{
+  display:grid;
+  
+  grid-template-columns:
+  [category] 1fr
+   [color] 1fr 
+   [currentratings] 1fr 
+   [winpercent] 1fr 
+   [losspercent] 1fr 
+   [drawpercent] 1fr 
+   [highestratingsscored] 1fr 
+   [lowestratingsscored] 1fr 
+   [averageoppositionratings] 1fr 
+   [bestwin] 1fr [lowestloss] 1fr 
+   [totalgames] 1fr [totalmoves] 1fr [averagemoves] 1fr;
+ grid-template-rows:[titlerow]   1fr
+					[c1x0white] 1fr
+					[c1x0black] 1fr
+					[c2x0white] 1fr
+					[c2x0black] 1fr
+					[c3x0white] 1fr
+					[c3x0black] 1fr
+					[c4x0white] 1fr
+					[c4x0black] 1fr
+					[c5x0white] 1fr
+					[c5x0black] 1fr
+					[c6x0white] 1fr
+					[c6x0black] 1fr
+					[c7x0white] 1fr
+					[c7x0black] 1fr
+					[c8x0white] 1fr
+					[c8x0black] 1fr
+					[c9x0white] 1fr
+					[c9x0black] 1fr
+					[c10x0white] 1fr
+					[c10x0black] 1fr
+					[c15x0white] 1fr
+					[c15x0black] 1fr
+					[c20x0white] 1fr
+					[c20x0black] 1fr
+					[c30x0white] 1fr
+					[c30x0black] 1fr
+					[c60x0white] 1fr
+					[c60x0black] 1fr
+					[c2x1white] 1fr
+					[c2x1black] 1fr
+					[c3x1white] 1fr
+					[c3x1black] 1fr
+					[c5x2white] 1fr
+					[c5x2black] 1fr
+					[c10x5white] 1fr
+					[c10x5black] 1fr
+					[c15x5white] 1fr
+					[c15x5black] 1fr
+					[c20x10white] 1fr
+					[c20x10black] 1fr
+					[c30x10white] 1fr
+					[c30x10black] 1fr
+					[c60x10white] 1fr
+					[c60x10black] 1fr;
+					
+	grid-row-gap: 2px;
+}
+.greyGridCell {
+ background-color:grey;
+ border-right-style:solid;
+}
+.lightgreyGridCell{
+background-color:Gainsboro;
+border-right-style:solid;
+}
+.gridTitle {
+  grid-row:1;
+  border-bottom-style:solid;
+  background-color:teal;
+  font-weight:bold;
+  border-right-style:solid;
+  //border-radius: 15px;
+  text-align:center;
+  box-shadow: 10px 10px lightblue;
+  color:white;
+}
+.KgreenElement
+{
+background: #5cb85c;
+
+}
+.KcyanElement
+{
+background-color: #5bc0de;
+}
+.KredElement
+{
+background-color:#b85c5c;
+}
+  /* Small screens */
+@media all and (max-width: 500px) {
+ .mynavbar {
+   flex-direction:column;
+ }
+@media only screen and (max-width: 480px) {
+       h1 { font-size: 3em !important; }
+       h2 { font-size: 2em !important; }
+       h3 { font-size: 1em !important; }
+     }

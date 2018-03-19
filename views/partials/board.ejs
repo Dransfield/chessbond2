@@ -1,0 +1,139 @@
+<div id="overallcontainer" class="col-md-12">
+	<div  id="boardcontainercontainer" class="col-md-6">
+	<div style="display:flex; justify-content:space-around;align-items: center;">
+		<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
+			</span>
+			<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
+			</span>
+			<img style="position:relative;" src='/images/eye2.png' height="30px">
+			<!--<img style="position:absolute;left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>-->
+				
+		
+				
+			<span class="label label-success" ><a href="/profile/{{TopPlayerid}}" target="_blank">{{TopPlayerName}}</a>
+			</span>
+			<img style="left:{{pic1coordx}}%;top:{{pic1coordy}}%;"ng-mouseleave="smallimage1()" ng-mouseenter="bigimage1()" height = '{{pic1height}}px' src='{{TopPlayerPic}}'>
+		
+		
+			({{TopPlayerELO}})
+				
+				
+		<%- include flag1.ejs %>
+		Ping {{TopPingDisplay}}
+		</div>
+		<!--
+		<div id="timercontainer" style="padding-top:3px;padding-left:3px">
+			<span ng_show ="TopMinutes>0" span class="h3" id="time1">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
+			</span>
+			<span ng_show ="TopMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{TopMinutes}}:{{TopSeconds}}:{{TopMilliseconds}}
+			</span>
+		</div>-->
+		<div class="row" style="padding:3px;">
+			 <div id ="boardcontainer" ng-show="SoleConnectorVariable=='true'"   ng-class="boardcontainerstyle" >
+			 </div>
+     	</div>
+	<!--	<div id="timercontainer" style="padding-bottom:3px;padding-left:3px">
+			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
+			</span>
+			
+			<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
+			</span>
+			
+		</div>-->
+		<div style="display:flex;align-content:center;justify-content:space-around;align-items: center;">
+			<span ng_show ="BottomMinutes>0" span class="h3" id="time1">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
+			</span>
+			
+			<span ng_show ="BottomMinutes==0" span class="h3" id="time1" style="color:#DD0000">{{BottomMinutes}}:{{BottomSeconds}}:{{BottomMilliseconds}}
+			</span>
+			
+		
+			<img style="position:relative;" height="30px" src='/images/eye.png'>
+			<!-- <img style="position:absolute;left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>-->
+	
+		
+		
+			<span class="label label-success" ><a href="/profile/{{BottomPlayerid}}" target="_blank">{{BottomPlayerName}}</a>
+			</span>
+			<img style="left:{{pic2coordx}}%;top:{{pic2coordy}}%;"ng-mouseleave="smallimage2()" ng-mouseenter="bigimage2()" height = '{{pic2height}}px' src='{{BottomPlayerPic}}'>
+		
+		
+
+			({{BottomPlayerELO}})
+		
+		
+		<%- include flag2.ejs %>
+		
+		<span style=" text-align: center;" >
+		Ping {{BottomPingDisplay}}
+		</span>
+		
+		</div>
+		
+		
+		<img ng-repeat="wpiece in capturedWhitepieces" height = '30px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/w{{wpiece}}.png" ></p>
+        <br>
+        <h2>Overall Score:{{ChessGameObject.OverallScore}}</h2>
+        <br>
+		
+		<img ng-repeat="bpiece in capturedBlackpieces" height = '30px' src="/img/chesspieces/{{User.ChessPieceTheme[0]}}/b{{bpiece}}.png" ></p>
+	</div>
+				
+				
+			
+			
+	<div id="infocontainer" style="padding: 2px;" class="col-md-6">
+		<button class="btn btn-success" ng-show="ShowOfferDrawButton && (!ChessGameObject.Result)" ng-click="OfferDraw()">Offer a Draw
+		</button>
+		<button class="btn btn-success" ng-show="ShowAcceptDrawButton && (!ChessGameObject.Result)" ng-click="AcceptDraw()">Accept Draw
+		</button>
+		<button class="btn btn-success" ng-show="ShowWithdrawButton && (!ChessGameObject.Result)" ng-click="Withdraw()">Withdraw
+		</button>
+      
+		<div class="label label-default col-md-12" ng-hide="(ChessGameObject.Result)">Result:*,in progress
+		</div>
+        
+        <div class="label label-default col-md-12" ng-show="(ChessGameObject.Result)">Result:
+        </div>
+		
+		 <div  class="col-md-12" ng-show="(ChessGameObject.Result)" ng-bind-html="ChessGameObject.Result">
+		 </div>
+         
+         <div class="col-md-12 label label-default" ng-bind-html="ChessGameObject.TurnTakerSentence" ng-model="TurnTaker">
+         </div>
+        
+         <% if (req.session.passport){ %>
+			<% if (req.session.passport.user){ %>
+				<div class="col-md-12 label label-default">Chat
+				</div>
+				<div class="col-md-12" id="chatdiv" style="overflow-y: scroll;max-height:40vh;">
+					<table>
+						<tr ng-repeat="chatmsg in chatting track by $index">
+						<!-- <td >{{chatmsg.content}}</td>-->
+							<td ng-bind-html="chatmsg.content">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-12">
+					<form ng-submit="chatMessage('<%- req.session.passport.user %>')">
+					<input type="text" autocomplete="off" class="form-control" placeholder="chat message" name="name" ng-model="chatInput"  required>
+					<button type="submit" >chat</button>
+					</form>
+				</div>
+			<%}%>
+		<%}%>
+        
+		<div id="movelist" class="col-md-12 list-group">
+			<div  ng-repeat="mov in Moves track by $index">
+				<span ng-show="!$last">{{mov}}
+				</span>	
+				<b style="background-color:cornflowerblue" id="lastpgn" ng-show="$last">{{mov}}
+				</b>	
+            </div>
+		</div>
+        
+	</div>
+		
+	
+</div>

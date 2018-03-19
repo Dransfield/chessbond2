@@ -1,0 +1,3 @@
+fresh install:
+copy all passport,MD5 to package.json
+copy /views,assets/js,assets/styles

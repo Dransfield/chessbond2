@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+   <%- include partials/title.ejs %>
+    <%- include partials/description.ejs %> 
+   <%- include partials/keywords.ejs %> 
+      <!-- Viewport mobile tag for sensible mobile support -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/angular-toastr.css">
+      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/angular.1.3.js"></script>
+      <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+      <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+      <script src="/js/dependencies/chess.min.js"></script>
+      <script src="/js/dependencies/stockfish.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/bootstrap.min.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/enginegame.js"></script>
+      <script src="/js/HomepageModule.js"></script>
+      <script src="/js/HomepageController.js"></script>
+      <script src="/js/RegisterController.js"></script>
+      <script src="/js/SinglePlayerController.js"></script>
+      <script src="/js/TwoPlayerController.js"></script>
+      <!--SCRIPTS END-->
+   </head>
+     <body ng-app="HomepageModule" ng-controller="AlbumController" ng-mousemove="changeFavicon('https://www.chessbond.com/favicon.ico')" ng-focus="PlayBell()" ng-cloak>
+     <% var Myid='0'%>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<% Myid=req.session.passport.user;%>
+			<% } %>
+	<% } %>
+
+    
+ <%- include('partials/navbar',{userid:Myid,Myid:Myid}); %>
+   
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<div ng-init="joinImOnlineRoom()"></div>
+			<div ng-init="getuser('<%-req.session.passport.user%>')"></div>
+   		<% } %>
+	<% } %>
+	<div style="margin-left:10%;margin:10%;white-space: pre-wrap;display:block;width: 69%;line-height: 2em;">
+<h2>Site Map,</h2>
+
+Chessbond.com
+304 S. Jones Blvd #202, Las Vegas NV 89107
+	</div>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.857216547238!2d-115.22581108534304!3d36.17002901061792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c10888e5a331%3A0x84fdf6eb5d56d075!2s304+S+Jones+Blvd+%23202%2C+Las+Vegas%2C+NV+89107!5e0!3m2!1sen!2sus!4v1488829889128" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	 <%- include partials/footer.ejs %>
+	</body>
+</html>

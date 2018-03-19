@@ -1,0 +1,95 @@
+
+<html>
+  <head>
+     <%- include partials/title.ejs %>
+     <%- include partials/description.ejs %> 
+   <%- include partials/keywords.ejs %> 
+     <!-- Viewport mobile tag for sensible mobile support -->
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <!--STYLES END-->
+     
+    </head>
+    
+    <body >
+
+    <div id="navbar"></div>
+        <div id="opentournamentpage"></div>
+        <div id="chatinput"></div>
+        <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<script>var MyID='<%- req.session.passport.user %>'</script>
+			<% }else{ %>
+			<script>var MyID=''</script>
+	
+			<%}%>
+			<% }else{ %>
+			<script>var MyID=''</script>
+			<%}%>
+			
+			<div style="text-align:center;color:red;">
+			<h1>
+			Chessbond.com   Open  Online   Chess  League
+			</h1>
+			</div>
+			<h3>
+			<div style="text-align:center;color:orange;">
+			Tournament Version:  2017-18-1.0
+			</div>
+			</h3>
+			<div style="text-align:center;color:blue;">
+						<u><p>Objects of this Campaign:</p></u>
+<p>Develop the interest over Chess  games in Uganda, Bringing more awareness about the game.</p>
+<p>Support and Encourage the Ugandan Players playing Chess games on regular basis to attain about  20 to 25 more  titled players  by the year 2025.</p>
+<p>Focussing the target of  one  million Ugandan Chess players  actively  playing chess games at the regular interval  either online (or) offline.</p>
+</div>
+<h2>
+<div style="border:1px;text-align:center;border-style: solid;">
+		<p style="color:red;">Start Date :    On   July  1st  2017</p>
+	<p style="color:red;">End Date   :    On  June 30th 2018</p>
+	<p style="color:red;"> Duration   :    Year long, Online Chess tournament</p>
+	<p style="color:red;">Eligibility  :   Open to all nationalities to play online, fairly</p>
+	</div></h2>	
+	<h1><u><div style="text-align:center;color:blue">Cash Prizes</div></u></h1>
+	<h3><div style="color:red;text-align:center;">
+	<p>No Entry fees  required.</p>
+<p>This is  a tournament with free entry to play online at their flexible time during the  whole year irrelevant of opponents and categories.</p>
+<p>Each win gets, valued.</p>
+<p>Top 100 players will be awarded cash prizes, basis on their  corresponding number of wins regardless of category.  The total number of wins will be purely
+considered  taking from their respective profile of  Chessbond.com</p>
+
+<p>Each win , will  gain the potential of  winning  One Uganda Shilling(UGX)  per  game won during these period as long as positioned  into top 100 Chess players from time to time.</p>
+<p>All the winners  will be paid  in  US $ (Equvalent UGX)  to their  Paypal account.</p>
+<p>Prizes will be paid to them,  through online on July 31st 2018.</p>
+<p>All the winners  ( Top 100  players )   can claim their cash prize providing their  only  Paypal  account between  July 1st 2018 to July 20th 2018. Beyond the given deadline strictly  wont be entertained by any means.</p>
+<p>Chessbond.com has  independently reserved  all the rights to  detect and strip  the prize of  winners, if  found guilty of playing unfairly by cheating  (or)  damaging the  spirit of game played at any time, online.</p>
+<p>All the players are requested to update the rolling changes of rules and regulations of this online tournaments into Chessbond.com only,from time to time - Not personally getting notified, about the changes.</p>
+
+ </div></h3>
+			<%- include partials/footer.ejs %>
+			   <!--SCRIPTS-->
+        <script src="/js/dependencies/sails.io.js"></script>
+        <script src="/js/dependencies/angular.1.3.js"></script>
+        <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
+        <script src="/js/dependencies/chessboard-0.3.0.min.js"></script>
+        <script src="/js/dependencies/chess.min.js"></script>
+        <script src="/js/dependencies/stockfish.js"></script>
+        <script src="/js/dependencies/angular-toastr.js"></script>
+        <script src="/js/dependencies/bootstrap.min.js"></script>
+        <script src="/js/dependencies/compareTo.module.js"></script>
+        <script src="/js/dependencies/enginegame.js"></script>
+        <script src="/js/HomepageModule.js"></script>
+        <script src="/js/HomepageController.js"></script>
+        <script src="/js/RegisterController.js"></script>
+        <script src="/js/SinglePlayerController.js"></script>
+        <script src="/js/TwoPlayerController.js"></script>
+        <!--SCRIPTS END-->
+    </body>
+   </html>
