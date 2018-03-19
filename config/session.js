@@ -30,7 +30,7 @@ module.exports.session = {
   * https://github.com/expressjs/session#cookie for more info.               *
   *                                                                          *
   ***************************************************************************/
-
+cookie:{ path: '/', httpOnly: true, secure: false, maxAge: 360*24 * 60 * 60 * 1000 },
   // cookie: {
   //   // Cookie expiration in milliseconds.
   //   // For example, use 24 * 60 * 60 * 1000 to make sessions expire in 24 hours.
@@ -56,7 +56,13 @@ module.exports.session = {
   * configure                                                                *
   *                                                                          *
   ***************************************************************************/
-
+   adapter: 'connect-mongo',
+   host: 'localhost',
+   port: 27017,
+   db: 'chessdb',
+   collection: 'sessions',
+   auto_reconnect: true,
+   url: 'mongodb://chessbondprakash:Chessmaster123!@localhost:27017/chessdb', // user, password and port optional
   // adapter: 'connect-redis',
 
   /***************************************************************************

@@ -28,9 +28,14 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+    someMongodbServer: {
+    adapter: 'sails-mongo',
+    host: 'localhost',
+    port: 27017,
+     user: 'chessbondprakash',
+     password: 'Chessmaster123!',
+     database: 'chessdb'
+  }
 
   /***************************************************************************
   *                                                                          *

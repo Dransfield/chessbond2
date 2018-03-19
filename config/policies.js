@@ -25,7 +25,38 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
+'*': true,
 
+	//'*': 'isLoggedIn',
+	'myApiAction': ['hasJsonWebToken'],
+	'mySessionAction': ['sessionAuth'],
+
+  /***************************************************************************
+  *                                                                          *
+  * Here's an example of mapping some policies to run before a controller    *
+  * and its actions                                                          *
+  *                                                                          *
+  ***************************************************************************/
+  FollowController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  },
+   BookmarkController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  },
+   ChessgameController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  },
+   OpenchessgameController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  },
+   PrivateconversationController:{
+	  create: 'isLoggedIn',
+	  destroy: 'isLoggedIn'
+  }
   // '*': true,
 
   /***************************************************************************
