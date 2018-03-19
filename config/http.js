@@ -22,7 +22,8 @@ module.exports.http = {
   ****************************************************************************/
 
   middleware: {
-
+passportInit    : require('passport').initialize(),
+    passportSession : require('passport').session(),
   /***************************************************************************
   *                                                                          *
   * The order in which middleware should be run for HTTP request. (the Sails *
@@ -47,13 +48,105 @@ module.exports.http = {
     //   '404',
     //   '500'
     // ],
+     order: [
+   //  'myRequestLogger',
+       'startRequestTimer',
+       'cookieParser',
+       'session',
+       'InitUser',
+        'passportInit',     
+        'passportSession',
+       'bodyParser',
+       'handleBodyParserError',
+       'compress',
+       'methodOverride',
+       'poweredBy',
+       '$custom',
+       'router',
+       
+       'www',
+       
+       'favicon',
+       '404',
+       '500'
+     ],
 
   /****************************************************************************
   *                                                                           *
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
   ****************************************************************************/
-
+	InitUser:function(req,res,next){
+	
+	if (req.session.passport)
+	{
+		//console.log("passport user"+req.session.passport.user);
+		if(!req.session.passport.user)
+		{return next();
+    	}
+		
+		User.findOne({
+      id: req.session.passport.user
+	},function foundUser(err,user){
+		if (err)
+		{console.log(JSON.stringify(err));
+			  return next();
+    
+			}
+		if (!user)
+		{
+		console.log("no user");
+		return next();
+    	}
+		if (!err){
+	
+			var fields=['ChessPieceTheme','Country','SoundEnabled',"ELO",'DifficultyLevelBeaten',
+			'BoardSize','BoardOrientation','SoundVolume','Numberoftimesloggedin','Gender','Dateofbirth','CurrentCity'
+			,'FideTitle','ValidFideID','FideRatings'];
+	var InitField=['A',"United Kingdom","Sound Enabled",1200,0,300,"Right",
+	5,0,"","","","","",""];
+	
+			//console.log("user "+JSON.stringify(user));
+	for(x in fields)
+	{
+		if (!user[fields[x]])
+		{
+			
+		user[fields[x]]=InitField[x];
+		
+		}
+		
+		}
+		user.save();
+	  return next();
+    
+	}
+	});
+			
+     }
+     else
+     {
+	  return next();
+     }
+	},
+  myRequestLogger: function (req, res, next) {
+	  
+		var str=req.headers.host;
+	if(str)
+	{
+         if (str.startsWith('www')==false)
+         
+         {
+			 console.log("redirect to https");
+		 res.redirect('https://www.chessbond.com');
+		 }
+		 else
+			{
+         return next();
+			}
+     }
+     }
+      
     // myRequestLogger: function (req, res, next) {
     //     console.log("Requested :: ", req.method, req.url);
     //     return next();
