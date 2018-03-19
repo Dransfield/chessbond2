@@ -29,13 +29,13 @@ module.exports.bootstrap = function(cb) {
  // It's very important to trigger this callback method when you are finished 
  // with the bootstrap! (otherwise your server will never lift, since it's waiting on the bootstrap) 
  
-    app.get('*', function(req,res) {  
+   // app.get('*', function(req,res) {  
  
-      if(req.isSocket) 
-          return res.redirect('wss://' + req.headers.host + req.url)  
+     // if(req.isSocket) 
+       //   return res.redirect('wss://' + req.headers.host + req.url)  
  
-      return res.redirect('https://' + req.headers.host + req.url)  
+      //return res.redirect('https://' + req.headers.host + req.url)  
  
-    }).listen(80);
+    //}).listen(80);
     cb();
 };
