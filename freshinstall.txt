@@ -1,6 +1,9 @@
 fresh install:
+copy api/models
+copy api/controllers
 copy all passport,MD5 to package.json
 copy /views,assets/js,assets/styles
 copy js files from tasks/pipeline.js to tasks/pipeline.js
 in config/views.js set partials to true
 copy config/routes.js to config/routes.js
+copy config/passport.js
