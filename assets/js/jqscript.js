@@ -3537,6 +3537,7 @@ function renderHomePage()
 					}
 	showRecentGames($("#usr"),MyID);
 	}
+			console.log("render home page show login form");
 	showLoginForm($("#loginform"));
 	
 	$("#newGameControls").css("text-align","center");
