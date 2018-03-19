@@ -45,7 +45,7 @@ passportInit    : require('passport').initialize(),
        'compress',
        'methodOverride',
        'poweredBy',
-       '$custom',
+     //  '$custom',
        'router',
        
        'www',
