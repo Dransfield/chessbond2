@@ -30,7 +30,7 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
-
+	'js/RenderElements.js',
   
   //'js/AccountService.js',
   // All of the rest of your client-side js files

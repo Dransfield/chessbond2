@@ -1,20 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-       <%- include partials/title.ejs %>
-        <%- include partials/description.ejs %> 
-   <%- include partials/keywords.ejs %> 
-      <!-- Viewport mobile tag for sensible mobile support -->
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <!--STYLES-->
-      <link rel="stylesheet" href="/styles/angular-toastr.css">
-      <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
-      <link rel="stylesheet" href="/styles/chessboard-0.3.0.min.css">
-      <link rel="stylesheet" href="/styles/importer.css">
-      <!--STYLES END-->
 
-   </head>
-     <body>
      <div id="navbar"></div>
         <div id="textpage"></div>
     <% if (req.session.passport) { %>
@@ -191,13 +175,4 @@ Welcome to the Chessbond.com , a  Social Networking Service (Hereon, the "Servic
 24. VIOLATIONS
 24.1 Please report any violations of the TOS to us via email id  to  contact@chessbond.com
 </div>
-	<%- include partials/footer.ejs %>
-	 	    <!--SCRIPTS-->
-  <script src="/js/dependencies/sails.io.js"></script>
-        <script src="/js/dependencies/jqscript.js"></script>
-         <script src="/js/dependencies/RenderElements.js"></script>
-        <script src="/js/dependencies/jquery-1.10.1.min.js"></script>
-  
-    <!--SCRIPTS END-->
-	</body>
-</html>
+
