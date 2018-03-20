@@ -1,27 +1,4 @@
 
-<html>
-  <head>
-    <%- include partials/title.ejs %>
-    <%- include partials/description.ejs %>
-    <%- include partials/keywords.ejs %>  
-     <!-- Viewport mobile tag for sensible mobile support -->
-   <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <!--STYLES-->
-        <link rel="stylesheet" href="/styles/angular-toastr.css">
-        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
-        <link rel="stylesheet" href="/styles/chessboard-0.3.0.css">
-        <link rel="stylesheet" href="/styles/importer.css">
-        <!--STYLES END-->
-        <!--SCRIPTS-->
-     
-  
-        <!--SCRIPTS END-->
-    </head>
-    
-    <body id="body" >
 
 <%- JSON.stringify(req.session.socketid) %>
 <!--
@@ -351,6 +328,4 @@ Join now diving into your next adventure!
 <br>
 <br>
 <br>
-<%- include partials/footer.ejs %>
-    </body>
-   </html>
+
