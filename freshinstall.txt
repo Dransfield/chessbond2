@@ -13,3 +13,4 @@ copy config/passport.js
 copy config/policies.js
 copy config/models.js
 copy config/session.js
+copy ssl folder from config folder
