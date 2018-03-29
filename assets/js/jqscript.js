@@ -181,7 +181,7 @@ var NavbarDropDown;
 		}
 		if($("#homepage").length)
 		{
-			console.log("found homepage div");
+			console.log("found omepage div");
 		setupHomePage();
 		}
 		if($("#statspage").length)
