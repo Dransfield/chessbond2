@@ -49,7 +49,7 @@ passportInit    : require('passport').initialize(),
     //   '500'
     // ],
      order: [
-   //  'myRequestLogger',
+     'myRequestLogger',
        'startRequestTimer',
        'cookieParser',
        'session',
