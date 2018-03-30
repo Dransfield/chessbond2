@@ -11,18 +11,17 @@ car =car+ (require('fs').readFileSync(require('path').resolve(__dirname,'ssl/'+f
 }
 */
 var files=[
-require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSADomainValidationSecureServerCA.crt')),
-require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSAAddTrustCA.crt')),
-require('fs').readFileSync(require('path').resolve(__dirname,'ssl/AddTrustExternalCARoot.crt'))
+//require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSADomainValidationSecureServerCA.crt')),
+//require('fs').readFileSync(require('path').resolve(__dirname,'ssl/COMODORSAAddTrustCA.crt')),
+//require('fs').readFileSync(require('path').resolve(__dirname,'ssl/AddTrustExternalCARoot.crt'))
 ]
 module.exports = {
 
 
 ssl: {
-     //ca: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/bundle.crt')),
-      ca: files.join(),
+  //    ca: files.join(),
 		
-     key: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/chessbond.key')),
-    cert: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/www_chessbond_com.crt'))
+    // key: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/chessbond.key')),
+    //cert: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/www_chessbond_com.crt'))
    }
    };
