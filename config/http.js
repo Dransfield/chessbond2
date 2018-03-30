@@ -49,7 +49,7 @@ passportInit    : require('passport').initialize(),
     //   '500'
     // ],
      order: [
-     'myRequestLogger',
+     'forceSSL',
        'startRequestTimer',
        'cookieParser',
        'session',
@@ -129,28 +129,17 @@ passportInit    : require('passport').initialize(),
 	  return next();
      }
 	},
-  myRequestLogger: function (req, res, next) {
-	  
-		var str=req.headers.host;
-	if(str)
-	{
-         if (str.startsWith('www')==false)
-         
-         {
-			 console.log("redirect to https");
-		 res.redirect('https://www.chessbond.com');
-		 }
-		 else
-			{
-         return next();
-			}
-     }
-     }
-      
-    // myRequestLogger: function (req, res, next) {
-    //     console.log("Requested :: ", req.method, req.url);
-    //     return next();
-    // }
+	
+   forceSSL: function (req, res, next) {
+
+            if (req.isSocket) {
+                return res.redirect('wss://' + req.headers.host + req.url);
+            } else if (req.headers["x-forwarded-proto"] == "http") {
+                return res.redirect('https://' + req.headers.host + req.url);
+            } else {
+                next(); //it's already secure
+            }
+}
 
 
   /***************************************************************************
@@ -169,7 +158,7 @@ passportInit    : require('passport').initialize(),
 
     // bodyParser: require('skipper')({strict: true})
 
-  },
+  }
 
 
   /***************************************************************************
