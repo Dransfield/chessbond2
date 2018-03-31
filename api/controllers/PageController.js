@@ -450,7 +450,7 @@ var initialTimeouts=[];
 
 
 	
- CreateTournaments:function()
+function CreateTournaments()
 {
 	
 	
