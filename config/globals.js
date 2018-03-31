@@ -135,4 +135,4 @@ module.exports.globals = {
 	 models: true
 };
 
-sails.on("lifted",CreateTournaments);
+
