@@ -9,7 +9,7 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.globals.html
  */
  
- sails.on("lifted",CreateTournaments);
+ 
  
 
 		
@@ -134,3 +134,5 @@ module.exports.globals = {
 	},
 	 models: true
 };
+
+sails.on("lifted",CreateTournaments);
