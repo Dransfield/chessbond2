@@ -715,7 +715,7 @@ var initialTimeouts=[];
 				}		
 		});
 	});
-}
+
 
 function timeOutNonMovedGames()
 {
