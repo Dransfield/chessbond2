@@ -86,52 +86,7 @@ module.exports.globals = {
   * your models via sails.models.*.                                           *
   *                                                                           *
   ****************************************************************************/
-  CreateTournaments:function()
-{
-	console.log("create tournaments");
-	var sixtySixMinutes=(60*1000)*66;
-	var threeMinutes=(60*1000)*3;
-	var tenMinutes=(60*1000)*10;
-	var oneMinute=60*1000;
-	//check tournaments
-	setInterval(function(){
-	//	Tournament.find({players:{ '<': 2 }}).
-		Tournament.find({
-		 or : [
-    { players: 0 },
-    { players: 1 },
-    { players: 2 },
-    { players: 3 },
-    { players:null }
-  ],activated:true}).
-		exec(function afterwards(err, records)
-			{
-				//console.log("records "+records);
-				for (iter in records)
-				{
-					var createdDate=new Date(records[iter].createdAt);
-					//console.log(Date.now()-createdDate);
-					//console.log(createdDate);
-					if((Date.now()-createdDate)>threeMinutes)
-					{
-						records[iter].destroy();
-					}
-					console.log("looking for tournament entry with id "+records[iter].id);
-					Tournamententry.find({tournid:records[iter].id}).exec
-					(function afterwards(tdestroyErr,tdestroyRecords)
-					{
-						console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
-						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
-						(function afterwards(cdestroyErr,cdestroyRecords)
-						{});
-						
-						
-					});
-					
-				}
-			});
-		},tenMinutes);
-	},
+ 
 	 models: true
 };
 

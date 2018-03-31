@@ -445,15 +445,207 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 sails.on("lifted",UpdateAccountsMarkedForDeletion);
 sails.on("lifted",UpdateBannedAccounts);
 sails.on("lifted",timeOutNonMovedGames);
-sails.on("lifted",sails.config.globals.CreateTournaments);
+sails.on("lifted",CreateTournaments);
 var initialTimeouts=[];
 
 
 	
-
-
+ CreateTournaments:function()
+{
 	
 	
+		var myInterval=0;
+	
+	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
+	{
+		console.log("just deleted "+deletedcandidates);
+		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
+		{
+
+			if (latestOne)
+			{
+			//console.log("lattestOne "+JSON.stringify(latestOne));
+			var createdAt=new Date(latestOne.createdAt);
+			var seconds_ago=(Date.now()-createdAt)/1000;
+			//console.log("was created "+seconds_ago+" seconds ago");
+			//myInterval=seconds_ago;
+			
+			var minutes_ago=seconds_ago/60;
+			
+			
+			var circList=createCircList(latestOne.category);
+			
+			
+			
+			
+
+			
+		
+			for (iter in circList)
+				{
+					var tournamentTimeout=((60*1000)*myInterval);
+						var lastTournCreated=seconds_ago*1000;
+						console.log("seconds_ago "+seconds_ago);
+						console.log("lastTournCreated "+lastTournCreated);
+						console.log("createDelay1 "+totalTimeout);
+						if(lastTournCreated>threeMinutes)
+						{
+					
+						lastTournCreated=0;
+						console.log("lastTournCreated set to zero "+lastTournCreated);
+						}
+						else
+						{
+							lastTournCreated=threeMinutes-lastTournCreated;
+							console.log("lastTournCreated  reversed"+lastTournCreated);
+							}
+					
+					var totalTimeout=tournamentTimeout-lastTournCreated;
+						
+					
+					/*
+						console.log("seconds ago "+seconds_ago);
+						console.log("mins "+mins);
+						console.log("threeMinutes "+threeMinutes);
+						console.log("minuser "+minuser);
+						
+						console.log("threeminutes-minuser "+minuser);
+						
+						console.log("myInterval "+myInterval);
+						console.log("createDelay "+createDelay);
+					*/
+						//console.log(circList[iter].time);
+					//	createTournamentCandidate(circList[iter],myInterval);
+						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
+					//	console.log("(seconds_ago)"+((seconds_ago)));
+					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
+					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
+						
+						
+					//	console.log("createDelay "+createDelay);
+						
+						setTournamentTimeout(iter,totalTimeout,circList);
+						myInterval=myInterval+3;
+				}	
+				}		
+		});
+	});
+	
+	
+	console.log("create tournaments");
+	var sixtySixMinutes=(60*1000)*66;
+	var threeMinutes=(60*1000)*3;
+	var tenMinutes=(60*1000)*10;
+	var oneMinute=60*1000;
+	//check tournaments
+	setInterval(function(){
+	//	Tournament.find({players:{ '<': 2 }}).
+		Tournament.find({
+		 or : [
+    { players: 0 },
+    { players: 1 },
+    { players: 2 },
+    { players: 3 },
+    { players:null }
+  ],activated:true}).
+		exec(function afterwards(err, records)
+			{
+				//console.log("records "+records);
+				for (iter in records)
+				{
+					var createdDate=new Date(records[iter].createdAt);
+					//console.log(Date.now()-createdDate);
+					//console.log(createdDate);
+					if((Date.now()-createdDate)>threeMinutes)
+					{
+						records[iter].destroy();
+					}
+					console.log("looking for tournament entry with id "+records[iter].id);
+					Tournamententry.find({tournid:records[iter].id}).exec
+					(function afterwards(tdestroyErr,tdestroyRecords)
+					{
+						console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
+						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
+						(function afterwards(cdestroyErr,cdestroyRecords)
+						{});
+						
+						
+					});
+					
+				}
+			});
+		},tenMinutes);
+	}
+	
+	/*
+
+		var myInterval=0;
+	
+	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
+	{
+		console.log("just deleted "+deletedcandidates);
+		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
+		{
+
+			if (latestOne)
+			{
+			//console.log("lattestOne "+JSON.stringify(latestOne));
+			var createdAt=new Date(latestOne.createdAt);
+			var seconds_ago=(Date.now()-createdAt)/1000;
+			//console.log("was created "+seconds_ago+" seconds ago");
+			//myInterval=seconds_ago;
+			
+			var minutes_ago=seconds_ago/60;
+			
+			
+			var circList=createCircList(latestOne.category);
+			
+			
+			
+			
+
+			
+		
+			for (iter in circList)
+				{
+					var tournamentTimeout=((60*1000)*myInterval);
+						var lastTournCreated=seconds_ago*1000;
+						console.log("seconds_ago "+seconds_ago);
+						console.log("lastTournCreated "+lastTournCreated);
+						console.log("createDelay1 "+totalTimeout);
+						if(lastTournCreated>threeMinutes)
+						{
+					
+						lastTournCreated=0;
+						console.log("lastTournCreated set to zero "+lastTournCreated);
+						}
+						else
+						{
+							lastTournCreated=threeMinutes-lastTournCreated;
+							console.log("lastTournCreated  reversed"+lastTournCreated);
+							}
+					
+					var totalTimeout=tournamentTimeout-lastTournCreated;
+						
+					
+					
+						//console.log(circList[iter].time);
+					//	createTournamentCandidate(circList[iter],myInterval);
+						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
+					//	console.log("(seconds_ago)"+((seconds_ago)));
+					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
+					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
+						
+						
+					//	console.log("createDelay "+createDelay);
+						
+						setTournamentTimeout(iter,totalTimeout,circList);
+						myInterval=myInterval+3;
+				}	
+				}		
+		});
+	});
+	*/
 	
 	
 
@@ -639,82 +831,7 @@ var initialTimeouts=[];
 			return arr3;
 			}
 	
-	var myInterval=0;
-	
-	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
-	{
-		console.log("just deleted "+deletedcandidates);
-		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
-		{
 
-			if (latestOne)
-			{
-			//console.log("lattestOne "+JSON.stringify(latestOne));
-			var createdAt=new Date(latestOne.createdAt);
-			var seconds_ago=(Date.now()-createdAt)/1000;
-			//console.log("was created "+seconds_ago+" seconds ago");
-			//myInterval=seconds_ago;
-			
-			var minutes_ago=seconds_ago/60;
-			
-			
-			var circList=createCircList(latestOne.category);
-			
-			
-			
-			
-
-			
-		
-			for (iter in circList)
-				{
-					var tournamentTimeout=((60*1000)*myInterval);
-						var lastTournCreated=seconds_ago*1000;
-						console.log("seconds_ago "+seconds_ago);
-						console.log("lastTournCreated "+lastTournCreated);
-						console.log("createDelay1 "+totalTimeout);
-						if(lastTournCreated>threeMinutes)
-						{
-					
-						lastTournCreated=0;
-						console.log("lastTournCreated set to zero "+lastTournCreated);
-						}
-						else
-						{
-							lastTournCreated=threeMinutes-lastTournCreated;
-							console.log("lastTournCreated  reversed"+lastTournCreated);
-							}
-					
-					var totalTimeout=tournamentTimeout-lastTournCreated;
-						
-					
-					/*
-						console.log("seconds ago "+seconds_ago);
-						console.log("mins "+mins);
-						console.log("threeMinutes "+threeMinutes);
-						console.log("minuser "+minuser);
-						
-						console.log("threeminutes-minuser "+minuser);
-						
-						console.log("myInterval "+myInterval);
-						console.log("createDelay "+createDelay);
-					*/
-						//console.log(circList[iter].time);
-					//	createTournamentCandidate(circList[iter],myInterval);
-						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
-					//	console.log("(seconds_ago)"+((seconds_ago)));
-					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
-					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
-						
-						
-					//	console.log("createDelay "+createDelay);
-						
-						setTournamentTimeout(iter,totalTimeout,circList);
-						myInterval=myInterval+3;
-				}	
-				}		
-		});
-	});
 
 
 function timeOutNonMovedGames()
