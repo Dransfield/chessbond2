@@ -441,81 +441,16 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	};
 
 
-//	 sails.on("lifted", deleteAllSubs);
-//sails.on("lifted",UpdateAccountsMarkedForDeletion);
-//sails.on("lifted",UpdateBannedAccounts);
-//sails.on("lifted",timeOutNonMovedGames);
-//sails.on("lifted",CreateTournaments);
+	 sails.on("lifted", deleteAllSubs);
+sails.on("lifted",UpdateAccountsMarkedForDeletion);
+sails.on("lifted",UpdateBannedAccounts);
+sails.on("lifted",timeOutNonMovedGames);
+
 var initialTimeouts=[];
 
-function CreateTournaments()
-{
-	console.log("create tournaments");
-	var sixtySixMinutes=(60*1000)*66;
-	var threeMinutes=(60*1000)*3;
-	var tenMinutes=(60*1000)*10;
-	var oneMinute=60*1000;
-	//check tournaments
-	setInterval(function(){
-	//	Tournament.find({players:{ '<': 2 }}).
-		Tournament.find({
-		 or : [
-    { players: 0 },
-    { players: 1 },
-    { players: 2 },
-    { players: 3 },
-    { players:null }
-  ],activated:true}).
-		exec(function afterwards(err, records)
-			{
-				//console.log("records "+records);
-				for (iter in records)
-				{
-					var createdDate=new Date(records[iter].createdAt);
-					//console.log(Date.now()-createdDate);
-					//console.log(createdDate);
-					if((Date.now()-createdDate)>threeMinutes)
-					{
-						records[iter].destroy();
-					}
-					console.log("looking for tournament entry with id "+records[iter].id);
-					Tournamententry.find({tournid:records[iter].id}).exec
-					(function afterwards(tdestroyErr,tdestroyRecords)
-					{
-						console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
-						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
-						(function afterwards(cdestroyErr,cdestroyRecords)
-						{});
-						
-						
-					});
-					
-				}
-			});
-		},tenMinutes);
+
 	
-	var gamecategories=[{time:1,extratime:0},
-					{time:2,extratime:0},
-					{time:3,extratime:0},
-					{time:4,extratime:0},
-					{time:5,extratime:0},
-					{time:6,extratime:0},
-					{time:7,extratime:0},
-					{time:8,extratime:0},
-					{time:9,extratime:0},
-					{time:10,extratime:0},
-					{time:15,extratime:0},
-					{time:20,extratime:0},
-					{time:30,extratime:0},
-					{time:60,extratime:0},
-					{time:2,extratime:1},
-					{time:3,extratime:1},
-					{time:5,extratime:2},
-					{time:10,extratime:5},
-					{time:15,extratime:5},
-					{time:20,extratime:10},
-					{time:30,extratime:10},
-					{time:60,extratime:10}];
+
 
 	
 	
