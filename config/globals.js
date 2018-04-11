@@ -54,10 +54,10 @@ module.exports.globals = {
   ****************************************************************************/
 
 	// services: true,
-	oneMinute=(60*1000),
-	sixtySixMinutes=(oneMinute*66),
-	 threeMinutes=((60*1000)*3),
-	 tenMinutes=((60*1000)*10),
+	oneMinute:(60*1000),
+	sixtySixMinutes:(oneMinute*66),
+	 threeMinutes:((60*1000)*3),
+	 tenMinutes:((60*1000)*10),
 	 
 		gamecategories:[{time:1,extratime:0},
 					{time:2,extratime:0},
