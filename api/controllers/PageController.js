@@ -510,7 +510,7 @@ function CreateTournaments()
 						lastTournCreated=0;
 						console.log("lastTournCreated set to zero "+lastTournCreated);
 						}
-						elsethreeMinutes
+						else
 						{
 							lastTournCreated=sails.config.globals.threeMinutes-lastTournCreated;
 							console.log("lastTournCreated  reversed"+lastTournCreated);
