@@ -3,7 +3,7 @@ copy api/models
 copy api/controllers
 copy api/policies
 copy assets: mp3,images,img
-copy  passport,MD5,sailsmongo,corejs,systemjs,zonejs to package.json
+copy  passport,MD5,sailsmongo,corejs,systemjs,zonejs,node-schedule to package.json
 copy /views,assets/js,assets/styles
 copy js files from tasks/pipeline.js to tasks/pipeline.js
 in config/views.js set partials to true
