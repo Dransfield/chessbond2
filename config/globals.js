@@ -55,7 +55,7 @@ module.exports.globals = {
 
 	// services: true,
 	oneMinute:(60*1000),
-	sixtySixMinutes:(oneMinute*66),
+	sixtySixMinutes:(sails.config.globals.oneMinute*66),
 	 threeMinutes:((60*1000)*3),
 	 tenMinutes:((60*1000)*10),
 	 
