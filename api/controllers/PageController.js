@@ -489,7 +489,7 @@ function CreateTournaments()
 				console.log(theCategory);
 			}
 			
-			var circList=createCircList(latestOne.category);
+			var circList=createCircList(theCategory);
 			
 			
 			
@@ -824,7 +824,7 @@ function CreateTournaments()
 	
 	function createCircList(latcat)
 			{
-			var indexNum=gamecategories.findIndex(function(cat){
+			var indexNum=sails.config.globals.gamecategories.findIndex(function(cat){
 				
 				var theString=cat.time+":"+cat.extratime;
 				//console.log("cat "+theString);
@@ -833,13 +833,13 @@ function CreateTournaments()
 			});
 			console.log("index of "+latcat+" is "+JSON.stringify(indexNum));
 			
-			var arr1=gamecategories.slice(indexNum+1);
+			var arr1=sails.config.globals.gamecategories.slice(indexNum+1);
 			var arr2=[];
 			var arr3=[];
 			
 			if(indexNum>0)
 			{
-			arr2=gamecategories.slice(0,indexNum+1);	
+			arr2=sails.config.globals.gamecategories.slice(0,indexNum+1);	
 			}
 			
 		
