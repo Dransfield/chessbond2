@@ -462,10 +462,17 @@ function CreateTournaments()
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 		{
 
+			var createdAt;
+			
 			if (latestOne)
 			{
+			createdAt=new Date(latestOne.createdAt);
+			}
+			else
+			{
+			createdAt=new Date();
+			}
 			//console.log("lattestOne "+JSON.stringify(latestOne));
-			var createdAt=new Date(latestOne.createdAt);
 			var seconds_ago=(Date.now()-createdAt)/1000;
 			//console.log("was created "+seconds_ago+" seconds ago");
 			//myInterval=seconds_ago;
