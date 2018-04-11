@@ -504,15 +504,15 @@ function CreateTournaments()
 						console.log("seconds_ago "+seconds_ago);
 						console.log("lastTournCreated "+lastTournCreated);
 						console.log("createDelay1 "+totalTimeout);
-						if(lastTournCreated>threeMinutes)
+						if(lastTournCreated>sails.config.globals.threeMinutes)
 						{
 					
 						lastTournCreated=0;
 						console.log("lastTournCreated set to zero "+lastTournCreated);
 						}
-						else
+						elsethreeMinutes
 						{
-							lastTournCreated=threeMinutes-lastTournCreated;
+							lastTournCreated=sails.config.globals.threeMinutes-lastTournCreated;
 							console.log("lastTournCreated  reversed"+lastTournCreated);
 							}
 					
@@ -549,10 +549,7 @@ function CreateTournaments()
 	
 	
 	console.log("create tournaments");
-	var sixtySixMinutes=(60*1000)*66;
-	var threeMinutes=(60*1000)*3;
-	var tenMinutes=(60*1000)*10;
-	var oneMinute=60*1000;
+	
 	//check tournaments
 	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
@@ -572,7 +569,7 @@ function CreateTournaments()
 					var createdDate=new Date(records[iter].createdAt);
 					//console.log(Date.now()-createdDate);
 					//console.log(createdDate);
-					if((Date.now()-createdDate)>threeMinutes)
+					if((Date.now()-createdDate)>sails.config.globals.threeMinutes)
 					{
 						records[iter].destroy();
 					}
@@ -590,7 +587,7 @@ function CreateTournaments()
 					
 				}
 			});
-		},tenMinutes);
+		},sails.config.globals.tenMinutes);
 	}
 	
 	/*
@@ -679,13 +676,13 @@ function CreateTournaments()
 	function activate_tournament(record)
 	{
 		console.log("activate this record "+JSON.stringify(record));
-		//console.log("sixtySixMinutes "+sixtySixMinutes);
+		console.log("sixtySixMinutes "+sails.config.globals.sixtySixMinutes);
 		if(record)
 		{
 		sails.sockets.broadcast('im online', 'activate tournament',record);
 				var now=Date.now();
 				//console.log("now "+now);
-				now=now+sixtySixMinutes;
+				now=now+sails.config.globals.sixtySixMinutes;
 				//console.log("now+time"+now);
 				var availDate=new Date(now);
 				var aDateString=availDate.toString();
@@ -711,7 +708,7 @@ function CreateTournaments()
 										});
 									});
 							
-							setTimeout(activate_tournament,sixtySixMinutes,newcreatedT);
+							setTimeout(activate_tournament,sails.config.globals.sixtySixMinutes,newcreatedT);
 						});
 			
 		}
