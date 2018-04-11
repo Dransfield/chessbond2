@@ -485,7 +485,7 @@ function CreateTournaments()
 			}
 			else
 			{
-				theCategory=gamecategories[0].time+":"+gamecategories[0].extratime;
+				theCategory=sails.config.globals.gamecategories[0].time+":"+sails.config.globals.gamecategories[0].extratime;
 				console.log(theCategory);
 			}
 			
