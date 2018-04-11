@@ -7,8 +7,6 @@
  
 
 
-
-
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 
  function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
@@ -479,6 +477,17 @@ function CreateTournaments()
 			
 			var minutes_ago=seconds_ago/60;
 			
+			var  theCategory;
+			
+			if(latestOne)
+			{
+				theCategory=latestOne.category;
+			}
+			else
+			{
+				theCategory=gamecategories[0].time+":"+gamecategories[0].extratime;
+				console.log(theCategory);
+			}
 			
 			var circList=createCircList(latestOne.category);
 			
