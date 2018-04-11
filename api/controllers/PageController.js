@@ -534,7 +534,7 @@ function CreateTournaments()
 						setTournamentTimeout(iter,totalTimeout,circList);
 						myInterval=myInterval+3;
 				}	
-				}		
+						
 		});
 	});
 	
