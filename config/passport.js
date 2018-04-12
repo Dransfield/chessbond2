@@ -561,7 +561,7 @@ passport.use(new FacebookStrategy({
 */
 		clientID: '204758053307163',
 		clientSecret:'efc1758be36f4bfc488ea18f5680cb60',
-		 callbackURL: 'http://www.chessbond.com/auth/facebook_oauth2/',
+		 callbackURL: 'https://www.chessbond.com/auth/facebook_oauth2/',
 		 profileFields: ['id', 'displayName', 'photos','email','gender','hometown','locale','location','birthday']
     },
 

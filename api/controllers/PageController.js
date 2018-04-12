@@ -499,7 +499,7 @@ function CreateTournaments()
 		
 			for (iter in circList)
 				{
-					var tournamentTimeout=((60*1000)*myInterval);
+					var tournamentTimeout=(sails.config.globals.oneMinute*myInterval);
 						var lastTournCreated=seconds_ago*1000;
 						console.log("seconds_ago "+seconds_ago);
 						console.log("lastTournCreated "+lastTournCreated);
