@@ -132,13 +132,28 @@ passportInit    : require('passport').initialize(),
 	
    forceSSL: function (req, res, next) {
 
-            if (req.isSocket) {
+            if (req.isSocket) 
+            {
                 return res.redirect('wss://' + req.headers.host + req.url);
-            } else if (req.headers["x-forwarded-proto"] == "http") {
-                return res.redirect('https://' + req.headers.host + req.url);
-            } else {
-                next(); //it's already secure
-            }
+            } 
+            else 
+            {
+			
+			var host = req.header("host");
+			if (host.match(/^www\..*/i)) 
+			{
+				console.log("www"+req.headers["x-forwarded-proto"]);
+			next();
+			} 
+			else
+			{
+				console.log("no www:"+(req.headers["x-forwarded-proto"]));
+			res.redirect(301, "https://www." + host + req.url);
+			}
+}
+				
+			}
+          }
 }
 
 
