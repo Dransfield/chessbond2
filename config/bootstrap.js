@@ -13,10 +13,14 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-   var http = require( 'http' );
-module.exports.bootstrap = function(cb) {
-    //If the environment is production, then listen on port 80 
-        http.createServer( sails.hooks.http.app ).listen( 80 );        
-	}
+  var express = require('express')
+  , app = express()
+  , server = require('http').createServer(app);
+
+server.listen(80);
+
+app.get('/', function(req, res) {
+  res.redirect("https://"+req.host+req.url);
+});
   cb();
 };
