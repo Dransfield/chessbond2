@@ -143,8 +143,17 @@ passportInit    : require('passport').initialize(),
 			var host = req.header("host");
 			if (host.match(/^www\..*/i)) 
 			{
-				console.log(req.headers.host);
+			
+			if(req.secure)
+			{
 			next();
+			}
+			else
+			{
+			res.redirect(301, "https://" + host + req.url);
+			}
+			
+			
 			} 
 			else
 			{
