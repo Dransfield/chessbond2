@@ -572,7 +572,7 @@ var gameNumber=0;
 function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
 {
 	TournamentEntries=[];
-retrieveTournamentEntries(ProfID).then(function()
+retrieveTournamentEntries(tournID).then(function()
 				{
 //retrieveSpecificTournamentEntries(tournID).then
 	//				(function()
