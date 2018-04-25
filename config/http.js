@@ -130,14 +130,15 @@ passportInit    : require('passport').initialize(),
      }
 	},
 	
-   forceSSL: function (req, res, next) {
+   forceSSL: function (req, res, next) 
+   {
 
-            if (req.isSocket) 
-            {
+         if (req.isSocket) 
+         {
                 return res.redirect('wss://' + req.headers.host + req.url);
-            } 
-            else 
-            {
+         } 
+         else 
+         {
 			
 			var host = req.header("host");
 			if (host.match(/^www\..*/i)) 
@@ -150,10 +151,11 @@ passportInit    : require('passport').initialize(),
 				console.log("no www:"+(req.headers["x-forwarded-proto"]));
 			res.redirect(301, "https://www." + host + req.url);
 			}
-}
+			
+		}
 				
-			}
-          }
+	}
+          
 }
 
 
