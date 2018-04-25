@@ -143,7 +143,7 @@ passportInit    : require('passport').initialize(),
 			var host = req.header("host");
 			if (host.match(/^www\..*/i)) 
 			{
-				console.log(host);
+				console.log(req.headers.host);
 			next();
 			} 
 			else
