@@ -143,12 +143,12 @@ passportInit    : require('passport').initialize(),
 			var host = req.header("host");
 			if (host.match(/^www\..*/i)) 
 			{
-				console.log("www"+req.headers["x-forwarded-proto"]);
+				console.log(host);
 			next();
 			} 
 			else
 			{
-				console.log("no www:"+(req.headers["x-forwarded-proto"]));
+				//console.log("no www:"+(req.headers["x-forwarded-proto"]));
 			res.redirect(301, "https://www." + host + req.url);
 			}
 			
