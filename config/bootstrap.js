@@ -13,9 +13,9 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  var express = require('express')
-  , app = express()
-  , server = require('http').createServer(app);
+  //var express = require('express')
+   var app = express();
+   var server = require('http').createServer(app);
 
 server.listen(80);
 
