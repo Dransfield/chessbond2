@@ -571,7 +571,9 @@ var gameNumber=0;
 
 function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
 {
-//	TournamentEntries=[];
+	TournamentEntries=[];
+retrieveTournamentEntries(ProfID).then(function()
+				{
 //retrieveSpecificTournamentEntries(tournID).then
 	//				(function()
 	//				{
@@ -598,7 +600,7 @@ function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDi
 					
 					
 					
-			//		});
+					});
 				
 }
 
