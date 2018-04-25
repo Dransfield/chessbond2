@@ -146,10 +146,12 @@ passportInit    : require('passport').initialize(),
 			
 			if(req.secure)
 			{
+				console.log("secure");
 			next();
 			}
 			else
 			{
+				console.log("not secure");
 			res.redirect(301, "https://" + host + req.url);
 			}
 			
@@ -157,7 +159,7 @@ passportInit    : require('passport').initialize(),
 			} 
 			else
 			{
-				//console.log("no www:"+(req.headers["x-forwarded-proto"]));
+				console.log("no www:"+req.secure);
 			res.redirect(301, "https://www." + host + req.url);
 			}
 			
