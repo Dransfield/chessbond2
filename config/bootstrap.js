@@ -13,15 +13,30 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+console.log("bootstrap");
  var http = require('http');
+var express = require('express');
+var app = express();
 
-http.createServer(function(request, response){
-	console.log("HELLO?!?!");
-  response.writeHead(200, {'Content-type':'text/plan'});
-  response.write('Hello Node JS Server Response');
-  response.end( );
+// on the request to root (localhost:3000/)
+app.get('/', function (req, res) {
+    res.send('<b>My</b> first express http server');
+});
 
-}).listen(80);
+// On localhost:3000/welcome
+app.get('/welcome', function (req, res) {
+    res.send('<b>Hello</b> welcome to my http server made with express');
+});
+
+// Change the 404 message modifing the middleware
+app.use(function(req, res, next) {
+    res.status(404).send("Sorry, that route doesn't exist. Have a nice day :)");
+});
+
+// start the server in the port 3000 !
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000.');
+});
  /*
   var express = require('express')
    var app = express();
