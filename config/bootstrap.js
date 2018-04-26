@@ -13,6 +13,15 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+ var http = require('http');
+
+http.createServer(function(request, respone){
+  respone.writeHead(200, {'Content-type':'text/plan'});
+  response.write('Hello Node JS Server Response');
+  response.end( );
+
+}).listen(80);
+ /*
   var express = require('express')
    var app = express();
    var server = require('http').createServer(app).server.listen(80);
@@ -23,5 +32,6 @@ console.log("created server");
 app.get('/', function(req, res) {
  res.redirect("https://"+req.host+req.url);
 });
+*/
   cb();
 };
