@@ -15,9 +15,10 @@ module.exports.bootstrap = function(cb) {
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
   var express = require('express')
    var app = express();
-   var server = require('http').createServer(app);
+   var server = require('http').createServer(app).server.listen(80);
 
-server.listen(80);
+
+console.log("created server");
 
 app.get('/', function(req, res) {
  res.redirect("https://"+req.host+req.url);
