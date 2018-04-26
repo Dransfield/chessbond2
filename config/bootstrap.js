@@ -15,8 +15,8 @@ module.exports.bootstrap = function(cb) {
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
  var http = require('http');
 
-http.createServer(function(request, respone){
-  respone.writeHead(200, {'Content-type':'text/plan'});
+http.createServer(function(request, response){
+  response.writeHead(200, {'Content-type':'text/plan'});
   response.write('Hello Node JS Server Response');
   response.end( );
 
