@@ -48,6 +48,7 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		//console.log("RES"+JSON.stringify(res));
 		*/
 		 passport.authenticate('google',{
+			  scope: ['profile','email'] ,
             successRedirect : '/justloggedin',
             failureRedirect : '/',
             failureFlash: true
