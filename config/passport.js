@@ -395,7 +395,7 @@ if(loc.indexOf(statecodes[x].name)>-1)
 passport.use(new GoogleStrategy({
     clientID: '79902088919-rlb7uk2od7s3337tchn9h32jmo0elo7v.apps.googleusercontent.com',
     clientSecret: 'AChKZobq7KFTCf_jbs7hsxYn',
-    callbackURL: "http://www.chessbond.com/auth/google_oauth2/"
+    callbackURL: "https://www.chessbond.com/auth/google_oauth2/"
   },
   function(accessToken, refreshToken, profile, done) {
 	 // console.log(profile);

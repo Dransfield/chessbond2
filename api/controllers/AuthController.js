@@ -16,8 +16,8 @@ module.exports = {
     },
     
         logingoogle:function(req,res){
-//passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
-passport.authenticate('google',{ scope: ['https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/userinfo.email'] })(req, res);
+passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
+//passport.authenticate('google',{ scope: ['https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/userinfo.email'] })(req, res);
 
 	},
 	googlecallback:function(req,res)
