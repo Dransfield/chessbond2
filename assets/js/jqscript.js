@@ -1430,7 +1430,7 @@ function renderAlbumPage(alb)
 							});
 								
 								
-							var rotateImageButton=showButton(descSpan("Rotate Image","KgreenElement KregularButton");
+							var rotateImageButton=showButton(descSpan,"Rotate Image","KgreenElement KregularButton");
 							rotateImageButton.click(function(){
 								
 							mypics[imgIndex].rotation=mypics[imgIndex].rotation+90;
