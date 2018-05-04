@@ -1405,27 +1405,21 @@ function renderAlbumPage(alb)
 							
 							
 						
-						
-							
-					rightbut.click(function()
-					{
-						if (imgIndex<mypics.length-1)
+						function refresh()
 						{
-						imgIndex=imgIndex+1;
-								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
+										$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
 								$("#dateSpan").empty();
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
-					
-					if(alb.user==MyID)
+						if(alb.user==MyID)
 						{
 						showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						}
 						
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
-							
+						
 						if(alb.user==MyID)
 						{	
 							var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
@@ -1434,7 +1428,8 @@ function renderAlbumPage(alb)
 						
 						
 							});
-							
+								
+								
 							var rotateImageButton=showButton(descSpan("Rotate Image","KgreenElement KregularButton");
 							rotateImageButton.click(function(){
 								
@@ -1445,71 +1440,37 @@ function renderAlbumPage(alb)
 							});
 							
 						}
-							}
-						});						
 						
 						
-						leftbut.click(function()
-							{
-								if (imgIndex>0)
-								{
-								imgIndex=imgIndex-1;
-								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
-								$("#dateSpan").empty();
-								$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
-								$("#descSpan").empty();
-								var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
-								
-								if(alb.user==MyID)
-								{
-								showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
-								}
-									//$("#leftbut").val(">("+imgIndex+")");
-										$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
+						}
+							
+					rightbut.click(function()
+					{
+						if (imgIndex<mypics.length-1)
+						{
+						imgIndex=imgIndex+1;
+						refresh();
+						}
+					
+					});						
 						
-									$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
-								if(alb.user==MyID)
-									{	
-									var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
 						
-									setAvatarButton.click(function(){
-									setAvatar(MyID,mypics[imgIndex].id);
-									
-									
-									});
-									}
-								}
-							});
+					leftbut.click(function()
+					{
+						if (imgIndex>0)
+						{
+						imgIndex=imgIndex-1;
+						refresh();
+						}
+					});
 												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
 						
 						var dateSpan=addSpan(rightSpan,"dateSpan");
-						dateSpan.empty();
-						dateSpan.append("Created at "+mypics[imgIndex].phrase);
-						console.log("mypics[iter].description "+mypics[0].description);
-						showHeader(rightSpan,1,"Description");
+						//showHeader(rightSpan,1,"Description");
 						var descSpan=addSpan(rightSpan,"descSpan");
-						var theText=showHeader(descSpan,3,mypics[0].description);
-						if(alb.user==MyID)
-						{
-						showGenericTextwithInput(descSpan,"description",theText,mypics[0].description,updatePicDescription,mypics[0].id)
 						
-						var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
 						
-						setAvatarButton.click(function(){
-							setAvatar(MyID,mypics[imgIndex].id);
-						});
-						
-							var rotateImageButton=showButton(descSpan("Rotate Image","KgreenElement KregularButton");
-							rotateImageButton.click(function(){
-								
-							mypics[imgIndex].rotation=mypics[imgIndex].rotation+90;
-							if(mypics[imgIndex].rotation>270)
-							{mypics[imgIndex].rotation=0;}
-							
-							});
-							
-						}
 	
 }
 

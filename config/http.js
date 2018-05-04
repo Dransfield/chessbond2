@@ -146,12 +146,12 @@ passportInit    : require('passport').initialize(),
 			
 			if(req.secure)
 			{
-				console.log("secure");
+				//console.log("secure");
 			next();
 			}
 			else
 			{
-				console.log("not secure");
+				//console.log("not secure");
 			res.redirect(301, "https://" + host + req.url);
 			}
 			
