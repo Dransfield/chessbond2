@@ -1397,7 +1397,7 @@ function renderAlbumPage(alb)
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
-						imgelem.css('transform',"rotate("+mypics[imgIndex].rotation+")");
+						imgelem.css('transform',"rotate("+mypics[imgIndex].rotation+"deg)");
 							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
 							
 							var rightbuttonnumber=ButtonNumber;
