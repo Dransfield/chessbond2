@@ -14,3 +14,4 @@ copy config/policies.js
 copy config/models.js
 copy config/session.js
 copy ssl folder from config folder
+mongoimport --db chessdb --collection city --fields country,city --type csv --file mydb.txt

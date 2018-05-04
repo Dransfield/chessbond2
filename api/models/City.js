@@ -8,7 +8,9 @@
 module.exports = {
 
   attributes: {
-
+ country:{ type: 'string', unique: false,defaultsTo: 'None'},
+ city:{ type: 'string', unique: false,defaultsTo: 'None'}
+   
   }
 };
 
