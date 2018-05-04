@@ -1469,7 +1469,7 @@ function renderAlbumPage(alb)
 						var dateSpan=addSpan(rightSpan,"dateSpan");
 						//showHeader(rightSpan,1,"Description");
 						var descSpan=addSpan(rightSpan,"descSpan");
-						
+						refresh();
 						
 	
 }
