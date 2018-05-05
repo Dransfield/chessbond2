@@ -3198,6 +3198,7 @@ else
 var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
 var im=$("<img class='profilepic'  alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+console.log("picrot "+Accounts[usracc].pictureRotation);
 im.css("transform","rotate("+Accounts[usracc].pictureRotation+"deg)");
 d.append(im);
 return d;
