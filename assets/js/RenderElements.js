@@ -3197,8 +3197,8 @@ else
 	d.addClass("userdropdown");
 var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
-var im=$("<img class='profilepic' style='transform:rotate("+Accounts[usracc].pictureRotation+"deg)' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
-//imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
+var im=$("<img class='profilepic'  alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+im.css("transform","rotate("+Accounts[usracc].pictureRotation+"deg)");
 d.append(im);
 return d;
 }
