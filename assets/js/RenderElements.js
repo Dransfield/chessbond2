@@ -3369,6 +3369,24 @@ function showStripedTable(elem)
 
 }
 
+
+function updateAvatarInfo(words,avar)
+{
+	
+			
+		io.socket.put('/avatar/'+avar.id+"?"+words+"="+avar[words],{
+
+					  }
+
+				,function(resData,jwres)
+			{
+
+
+				}
+			);
+		
+}
+
 function updateAccountInfo(words,usracc)
 {
 	console.log("words "+words);

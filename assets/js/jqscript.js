@@ -1440,7 +1440,7 @@ function renderAlbumPage(alb)
 							if(mypics[imgIndex].rotation>270)
 							{mypics[imgIndex].rotation=0;}
 							imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
-						
+							updateAvatarInfo("rotation",mypic[imgIndex]);
 							});
 							
 						}
