@@ -28,8 +28,8 @@ BoardSize:{type:'integer',defaultsTo:300},
    CurrentCity:{type:'string',defaultsTo:""},
    FideTitle:{type:'string',defaultsTo:""},
    ValidFideID:{type:'string',defaultsTo:""},
-   FideRatings:{type:'string',defaultsTo:""}
-
+   FideRatings:{type:'string',defaultsTo:""},
+pictureRotation:{type:'integer',defaultsTo:0}
 },
   beforeCreate: function(user, cb) {
     user.password = md5(user.password);

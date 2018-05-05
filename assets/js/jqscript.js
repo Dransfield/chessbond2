@@ -1441,6 +1441,12 @@ function renderAlbumPage(alb)
 							{mypics[imgIndex].rotation=0;}
 							imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
 							updateAvatarInfo("rotation",mypics[imgIndex]);
+							
+							if(Accounts[usracc].picture==mypics[imgIndex].id)
+							{
+							Accounts[usracc].pictureRotation=mypics[imgIndex].rotation;
+							}
+							
 							});
 							
 						}

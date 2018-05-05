@@ -3197,7 +3197,8 @@ else
 	d.addClass("userdropdown");
 var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
-var im=$("<img class='profilepic' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+var im=$("<img class='profilepic' style='transform:rotate("+Accounts[usracc].pictureRotation+")deg' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+
 d.append(im);
 return d;
 }
@@ -3372,19 +3373,11 @@ function showStripedTable(elem)
 
 function updateAvatarInfo(words,avar)
 {
-	
-			
-		io.socket.put('/avatar/'+avar.id+"?"+words+"="+avar[words],{
-
-					  }
-
-				,function(resData,jwres)
-			{
-
-
-				}
-			);
-		
+		io.socket.put('/avatar/'+avar.id+"?"+words+"="+avar[words],{},
+		function(resData,jwres)
+		{
+		}
+		);
 }
 
 function updateAccountInfo(words,usracc)
