@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-
+	rotation:{type:'integer',defaultsTo:0}
   }
 };
 

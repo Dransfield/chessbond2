@@ -1397,7 +1397,6 @@ function renderAlbumPage(alb)
 							middleSpan.append("<img src='/img/frame.jpg' style='position:relative;width:600px'>");
 						var imgelem=$("<img id='imageyouarelookingfor' style='position:absolute;top:0px;left:149px;width:300px;height:200px' src='/user/avatar/"+mypics[0].id+"'>");
 						middleSpan.append(imgelem);
-						imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
 							var rightbut=showButton(displayFlex,">("+(mypics.length-1)+")","KgreenElement KhugeButton");
 							
 							var rightbuttonnumber=ButtonNumber;
@@ -1407,6 +1406,10 @@ function renderAlbumPage(alb)
 						
 						function refresh()
 						{
+						if(!mypics[imgIndex].rotation)
+						{mypics[imgIndex].rotation=0;}
+						imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
+						
 										$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
 								$("#dateSpan").empty();
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
@@ -1436,7 +1439,8 @@ function renderAlbumPage(alb)
 							mypics[imgIndex].rotation=mypics[imgIndex].rotation+90;
 							if(mypics[imgIndex].rotation>270)
 							{mypics[imgIndex].rotation=0;}
-							
+							imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
+						
 							});
 							
 						}
