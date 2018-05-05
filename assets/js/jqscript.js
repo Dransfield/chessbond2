@@ -1445,6 +1445,7 @@ function renderAlbumPage(alb)
 							if(Accounts[usracc].avatarid==mypics[imgIndex].id)
 							{
 							Accounts[usracc].pictureRotation=mypics[imgIndex].rotation;
+							updateAccountInfo('pictureRotation',usracc);
 							}
 							
 							});
