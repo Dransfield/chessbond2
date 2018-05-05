@@ -1442,9 +1442,9 @@ function renderAlbumPage(alb)
 							imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
 							updateAvatarInfo("rotation",mypics[imgIndex]);
 							
-							if(Accounts[usracc].avatarid==mypics[imgIndex].id)
+							if(Accounts[MyID].avatarid==mypics[imgIndex].id)
 							{
-							Accounts[usracc].pictureRotation=mypics[imgIndex].rotation;
+							Accounts[MyID].pictureRotation=mypics[imgIndex].rotation;
 							updateAccountInfo("pictureRotation",MyID);
 							}
 							
