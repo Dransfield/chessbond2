@@ -1336,7 +1336,7 @@ function setupTournamentViewPage()
 							var joinTournamentButton;
 							var withdrawTournamentButton;
 							
-							=[];
+							TournamentEntries=[];
 							retrieveTournamentEntries(tournID).then(function()
 							{
 							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
