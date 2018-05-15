@@ -1336,9 +1336,13 @@ function setupTournamentViewPage()
 							var joinTournamentButton;
 							var withdrawTournamentButton;
 							
-							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv);
-							console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
+							=[];
+							retrieveTournamentEntries(tournID).then(function()
+							{
+							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+							//console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
 							showTournamentGameSchedule($("#tournamentviewpage"),TournamentEntries);
+							}
 							
 				io.socket.on('tournament entries',function (data)
 				{

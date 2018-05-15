@@ -376,7 +376,7 @@ function showUpcomingTournamentTable(elem)
 {
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
-var headers=["Game Category","Starts in..","Players Interested"];
+var headers=["Game Category","Starts in.."," Interested"];
 	for( h in headers)
 	{
 	var header=$("<th>"+headers[h]+"</th>");
@@ -569,11 +569,9 @@ var gameNumber=0;
 	
 }
 
-function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
+function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv,entries)
 {
-	TournamentEntries=[];
-retrieveTournamentEntries(tournID).then(function()
-				{
+	
 //retrieveSpecificTournamentEntries(tournID).then
 	//				(function()
 	//				{
@@ -581,14 +579,14 @@ retrieveTournamentEntries(tournID).then(function()
 					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
 					//console.log("TournamentEntries.length "+TournamentEntries.length);
-					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
+					joinedPlayersDiv.append("<div>"+entries.length+" players joined</div>");
 					
 					
 						for(playerIter in TournamentEntries)
 						{
 						
 						
-						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
+						 io.socket.get('/user/'+entries[playerIter].player,
 							function(usr)
 							{
 							//joinedPlayersDiv.append(usr.name);	
@@ -600,7 +598,7 @@ retrieveTournamentEntries(tournID).then(function()
 					
 					
 					
-					});
+					
 				
 }
 
