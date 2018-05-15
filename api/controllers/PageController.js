@@ -587,7 +587,10 @@ function CreateTournaments()
 					
 				}
 			});
-		},sails.config.globals.tenMinutes);
+//		},sails.config.globals.tenMinutes);
+		},sails.config.globals.threeMinutes);
+		
+		
 	}
 	
 	/*

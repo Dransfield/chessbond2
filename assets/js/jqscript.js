@@ -6,7 +6,7 @@ var joinbuttonDiv;
 var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var joinedPlayersDiv;
-
+//(502) 425-0220 hcc
 var bigemptyDiv=[];
 
 var myuser;
