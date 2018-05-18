@@ -125,7 +125,7 @@ function CreateTournaments()
 						
 					//	console.log("createDelay "+createDelay);
 						
-						setTournamentTimeout(iter,totalTimeout,sails.config.globals.gamecategories);
+						setTournamentTimeout(iter,tournamentTimeout,sails.config.globals.gamecategories);
 						myInterval=myInterval+3;
 				}	
 						
