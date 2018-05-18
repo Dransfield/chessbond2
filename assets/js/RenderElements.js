@@ -582,9 +582,9 @@ function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDi
 					joinedPlayersDiv.append("<div>"+entries.length+" players joined</div>");
 					
 					
-						for(playerIter in TournamentEntries)
+						for(playerIter in entries)
 						{
-						
+						console.log(entries[playerIter]);
 						
 						 io.socket.get('/user/'+entries[playerIter].player,
 							function(usr)
