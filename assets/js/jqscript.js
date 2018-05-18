@@ -3529,10 +3529,11 @@ function renderHomePage()
 						if(Tournaments[iter].timeToAvailable<1)
 						{
 					//	console.log("found current tournament"+Tournaments[iter].id);
-						retrieveTournamentEntries(Tournaments[iter].id).then(function()
-						{
-						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
-						});
+						var thisTournament=Tournaments[iter];
+							retrieveTournamentEntries(thisTournament.id).then(function()
+							{
+							showTournamentEntries(thisTournament.id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+							});
 						}
 					}
 		showRecentGames($("#usr"),MyID);
@@ -3610,10 +3611,11 @@ function renderHomePage()
 					{
 						if(Tournaments[iter].timeToAvailable<1)
 						{
-						retrieveTournamentEntries(Tournaments[iter].id).then(function()
+							var thisTournament=Tournaments[iter];
+						retrieveTournamentEntries(thisTournament.id).then(function()
 						{	
-						console.log("found current tournament"+Tournaments[iter].id);
-						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+						console.log("found current tournament"+thisTournament.id);
+						showTournamentEntries(thisTournament.id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
 						});
 						}
 					}
