@@ -131,6 +131,19 @@ function CreateTournaments()
 	
 	console.log("create tournaments");
 	
+	CurrentTournamententry.destroy({}).exec
+						(function afterwards(cdestroyErr,cdestroyRecords)
+						{
+							
+							
+							});
+	
+	Tournamententry.destroy({}).exec
+						(function afterwards(cdestroyErr,cdestroyRecords)
+						{
+							
+							
+							});
 	//check tournaments
 	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
@@ -309,7 +322,7 @@ function CreateTournaments()
 	
 	function setupTournamentGames(thetournid)
 	{
-		
+		console.log("setupTournamentGames");
 		setTimeout(function(){
 				console.log("thetournid "+thetournid);
 		Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)

@@ -78,7 +78,7 @@ module.exports = {
 			var currentID;
 			
 			if (currentRecords && currentRecords.length>0)
-			{
+				{
 				oldTourn=currentRecords[0].tournid;
 				currentID=currentRecords[0].id;
 				}
@@ -96,14 +96,20 @@ module.exports = {
 			console.log("questionRecords length "+oldTournRecords.length);
 			var tournLookingFor=req.param('tourny');
 			console.log('tournid'+req.param('tourny'));
+			
 			if (oldTournRecords && oldTournRecords.length>0)
+			
 			{
 			
 			return res.send(404,"Sorry, You are already actively participating in another live tournament and you can join another only after it is completed. ");
-		
+			
+			
 			}
+			
 			else
+			
 			{
+			
 				CurrentTournamententry.destroy({id:currentID}).exec
 				(function afterwards(doneErr,doneRecords)
 				{
