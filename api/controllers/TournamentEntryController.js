@@ -81,12 +81,12 @@ module.exports = {
 				
 					
 	
-					console.log("questionRecords "+oldTournRecords);
-					console.log("questionRecords length "+oldTournRecords.length);
+					//co/nsole.log("questionRecords "+oldTournRecords);
+					//console.log("questionRecords length "+oldTournRecords.length);
 					var tournLookingFor=req.param('tourny');
 					console.log('tournid'+req.param('tourny'));
 			
-					if (!oldTournErr && oldTournRecords.id && oldTournRecords.result=="")
+					if (oldTournRecords && !oldTournErr && oldTournRecords.result=="")
 				
 					{
 			
