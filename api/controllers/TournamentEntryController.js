@@ -137,7 +137,7 @@ module.exports = {
 						console.log("error "+err);
 						//console.log(JSON.stringify(records));		
 						User.update({id:req.param('player')},{currentTournament:req.param('tourny')}).
-						exec(function afterwards(err3,records3)
+						exec(function afterwards(err1,records1)
 						{
 							Tournamententry.find({tournid:req.param('tourny')}).
 							exec(function afterwards(err2,records2)
@@ -151,7 +151,7 @@ module.exports = {
 									console.log("records3 "+JSON.stringify(records3));		
 									console.log("records3[0] "+JSON.stringify(records3[0]));		
 									//sails.sockets.broadcast('im online', 'tournament entries',{tournID:records3[0].id,players:records3[0].players});
-									sails.sockets.broadcast(records3[0].id, 'tournament entries',{tournID:records3[0].id,players:records3[0].players});
+									sails.sockets.broadcast(records3[0].id, 'tournament entries',{tournID:records3[0].id,entries:records2});
 								
 									return res.send(200,"Successfully joined tournament");
 									}

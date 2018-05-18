@@ -1336,21 +1336,21 @@ function setupTournamentViewPage()
 							var joinTournamentButton;
 							var withdrawTournamentButton;
 							
-							TournamentEntries=[];
-							retrieveTournamentEntries(ProfID).then(function()
-							{
+							//TournamentEntries=[];
+							//retrieveTournamentEntries(ProfID).then(function()
+							//{
 							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
 							//console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
 							showTournamentGameSchedule($("#tournamentviewpage"),TournamentEntries);
-							});
+							//});
 							
 				io.socket.on('tournament entries',function (data)
 				{
 						//console.log("recieved tourn entries "+JSON.stringify(data));
-				TournamentEntries=[];
+				//TournamentEntries=[];
 				if(data.tournID==ProfID)
 				{
-					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv,data.entries);
 				}
 					
 				});
@@ -3529,10 +3529,13 @@ function renderHomePage()
 						if(Tournaments[iter].timeToAvailable<1)
 						{
 					//	console.log("found current tournament"+Tournaments[iter].id);
-						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv);
+						retrieveTournamentEntries(ProfID).then(function()
+						{
+						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+						});
 						}
 					}
-	showRecentGames($("#usr"),MyID);
+		showRecentGames($("#usr"),MyID);
 	}
 			console.log("render home page show login form");
 	showLoginForm($("#loginform"));
@@ -3607,16 +3610,19 @@ function renderHomePage()
 					{
 						if(Tournaments[iter].timeToAvailable<1)
 						{
+						retrieveTournamentEntries(ProfID).then(function()
+						{	
 						console.log("found current tournament"+Tournaments[iter].id);
-						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv);
+						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+						});
 						}
 					}
 			});
 			
 			io.socket.on('tournament entries',function (data)
 			{
-			
-			showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+			console.log("entries recieved "+data.entries);
+			showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv,data.entries);
 			
 			});
 				
