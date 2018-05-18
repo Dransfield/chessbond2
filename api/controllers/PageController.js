@@ -20,11 +20,12 @@
 	
 	
 
-	 sails.on("lifted", deleteAllSubs);
+sails.on("lifted", deleteAllSubs);
 sails.on("lifted",UpdateAccountsMarkedForDeletion);
 sails.on("lifted",UpdateBannedAccounts);
 sails.on("lifted",timeOutNonMovedGames);
 sails.on("lifted",CreateTournaments);
+
 var initialTimeouts=[];
 
 
@@ -34,6 +35,9 @@ function CreateTournaments()
 	
 	
 		var myInterval=0;
+		Tournament.update({activated:true,result:""},{result:"Cancelled due to server restart"}).exec(function(uperr,uprec)
+		{}
+		);
 	
 	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
 	{
@@ -74,10 +78,6 @@ function CreateTournaments()
 			
 			
 			
-			
-
-			
-		
 			for (iter in circList)
 				{
 					var tournamentTimeout=(sails.config.globals.oneMinute*myInterval);
@@ -87,15 +87,14 @@ function CreateTournaments()
 						console.log("createDelay1 "+totalTimeout);
 						if(lastTournCreated>sails.config.globals.threeMinutes)
 						{
-					
 						lastTournCreated=0;
 						console.log("lastTournCreated set to zero "+lastTournCreated);
 						}
 						else
 						{
-							lastTournCreated=sails.config.globals.threeMinutes-lastTournCreated;
-							console.log("lastTournCreated  reversed"+lastTournCreated);
-							}
+						lastTournCreated=sails.config.globals.threeMinutes-lastTournCreated;
+						console.log("lastTournCreated  reversed"+lastTournCreated);
+						}
 					
 					var totalTimeout=tournamentTimeout-lastTournCreated;
 						
@@ -131,13 +130,13 @@ function CreateTournaments()
 	
 	console.log("create tournaments");
 	
-	CurrentTournamententry.destroy({}).exec
+	/*CurrentTournamententry.destroy({}).exec
 						(function afterwards(cdestroyErr,cdestroyRecords)
 						{
 							
 							
 							});
-	
+	*/
 	Tournamententry.destroy({}).exec
 						(function afterwards(cdestroyErr,cdestroyRecords)
 						{
@@ -172,14 +171,15 @@ function CreateTournaments()
 					Tournamententry.find({tournid:records[iter].id}).exec
 					(function afterwards(tdestroyErr,tdestroyRecords)
 					{
-						console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
+						
+						/*console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
 						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
 						(function afterwards(cdestroyErr,cdestroyRecords)
 						{
 							
 							
 							});
-						
+						*/
 						
 					});
 					

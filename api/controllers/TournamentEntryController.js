@@ -7,10 +7,10 @@
 
 module.exports = {
 	leaveTournament:function(req,res){
-	
+	/*
 		CurrentTournamententry.destroy({tournid:req.param('tourny'),player:req.param('player')}).
 		exec(function afterwards(currentErr,currentRecords)
-		{
+		{*/
 			
 			Tournamententry.destroy({tournid:req.param('tourny'),player:req.param('player')}).
 			exec(function afterwards(tErr,tRecords)
@@ -60,31 +60,18 @@ module.exports = {
 			
 			});
 		
-		});
+		//});
 	
 		
 	
 	
 	},
+	
 	joinTournament:function(req,res){
 	console.log("tourn entry join");
 	
 	
-	CurrentTournamententry.find({player:req.param('player')}).
-		exec(function afterwards(currentErr,currentRecords)
-		{
-	
-			var oldTourn;
-			var currentID;
-			
-			if (currentRecords && currentRecords.length>0)
-				{
-				oldTourn=currentRecords[0].tournid;
-				currentID=currentRecords[0].id;
-				}
-			
-		
-			Tournament.find({id:oldTourn}).exec
+		Tournament.find({id:oldTourn}).exec
 			(function afterwards(oldTournErr,oldTournRecords)
 			{
 			if(oldTournErr)
@@ -110,11 +97,11 @@ module.exports = {
 			
 			{
 			
-				CurrentTournamententry.destroy({id:currentID}).exec
+				/*CurrentTournamententry.destroy({id:currentID}).exec
 				(function afterwards(doneErr,doneRecords)
 				{
 				});
-				
+				*/
 				Tournamententry.destroy({player:req.param('player'),tournid:oldTourn}).exec
 				(function afterwards(doneErr,doneRecords)
 				{
@@ -135,12 +122,12 @@ module.exports = {
 				else
 				{
 			
-					CurrentTournamententry.create({player:req.param('player'),tournid:req.param('tourny')}).
+					/*CurrentTournamententry.create({player:req.param('player'),tournid:req.param('tourny')}).
 					exec(function afterwards(currentErr, currentRecords)
 					{
 			
 					});
-	
+					*/
 					Tournamententry.create({player:req.param('player'),tournid:req.param('tourny')}).
 					exec(function afterwards(err, records)
 					{
@@ -173,14 +160,11 @@ module.exports = {
 					});
 	
 				}
-			//else
-		//	{
-		//		return res.send(404,"Sorry, You are already actively participating in another live tournament and you can join another only after it is completed. ");
-		//	}
+			
 		
 			});
 		});
-	});
-}
+	
+	}
 };
 
