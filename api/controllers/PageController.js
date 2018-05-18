@@ -36,20 +36,20 @@ function CreateTournaments()
 	
 		var myInterval=0;
 		Tournament.update({activated:true,result:""},{result:"Cancelled due to server restart"}).exec(function(uperr,uprec)
-		{}
-		);
+		{
 	
 	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
 	{
 		console.log("just deleted "+deletedcandidates);
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 		{
-
+			Tournament.update({id:latestOne.id},{result:""}).exec(function(latesterr,updated)
+			{
 			var createdAt;
 			
-			if (latestOne)
+			if (updated)
 			{
-			createdAt=new Date(latestOne.createdAt);
+			createdAt=new Date(updated.createdAt);
 			}
 			else
 			{
@@ -64,9 +64,9 @@ function CreateTournaments()
 			
 			var  theCategory;
 			
-			if(latestOne)
+			if(updated)
 			{
-				theCategory=latestOne.category;
+				theCategory=updated.category;
 			}
 			else
 			{
@@ -127,7 +127,8 @@ function CreateTournaments()
 		});
 	});
 	
-	
+	});
+	});
 	console.log("create tournaments");
 	
 	/*CurrentTournamententry.destroy({}).exec

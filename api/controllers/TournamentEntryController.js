@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+	
 	leaveTournament:function(req,res){
 	/*
 		CurrentTournamententry.destroy({tournid:req.param('tourny'),player:req.param('player')}).
@@ -70,44 +71,45 @@ module.exports = {
 	joinTournament:function(req,res){
 	console.log("tourn entry join");
 	
-	
-		Tournament.find({id:oldTourn}).exec
-			(function afterwards(oldTournErr,oldTournRecords)
-			{
-			if(oldTournErr)
-			{
-			console.log("oldTournErr"+oldTournErr);
-			}
-	
-			console.log("questionRecords "+oldTournRecords);
-			console.log("questionRecords length "+oldTournRecords.length);
-			var tournLookingFor=req.param('tourny');
-			console.log('tournid'+req.param('tourny'));
-			
-			if (oldTournRecords && oldTournRecords.length>0)
-			
-			{
-			
-			return res.send(404,"Sorry, You are already actively participating in another live tournament and you can join another only after it is completed. ");
-			
-			
-			}
-			
-			else
-			
-			{
-			
-				/*CurrentTournamententry.destroy({id:currentID}).exec
-				(function afterwards(doneErr,doneRecords)
+		User.findOne({id:req.param('player')}).exec
+				(function afterwards(userErr,userRecord)
 				{
-				});
-				*/
-				Tournamententry.destroy({player:req.param('player'),tournid:oldTourn}).exec
-				(function afterwards(doneErr,doneRecords)
-				{
-				});
 				
-			}
+				Tournament.findOne({id:userRecord.currentTournament}).exec
+					(function afterwards(oldTournErr,oldTournRecords)
+					{
+				
+					
+	
+					console.log("questionRecords "+oldTournRecords);
+					console.log("questionRecords length "+oldTournRecords.length);
+					var tournLookingFor=req.param('tourny');
+					console.log('tournid'+req.param('tourny'));
+			
+					if (!oldTournErr && oldTournRecords.id)
+				
+					{
+			
+					return res.send(404,"Sorry, You are already actively participating in another live tournament and you can join another only after it is completed. ");
+			
+			
+					}
+			
+					else
+			
+					{
+			
+						/*CurrentTournamententry.destroy({id:currentID}).exec
+						(function afterwards(doneErr,doneRecords)
+			
+						});
+						*/
+						Tournamententry.destroy({player:req.param('player'),tournid:oldTournRecords.id}).exec
+						(function afterwards(doneErr,doneRecords)
+						{
+						});
+				
+					}
 			
 			Tournament.find({id:tournLookingFor}).exec
 			(function afterwards(findTournamentErr,findTournamentRecords)
