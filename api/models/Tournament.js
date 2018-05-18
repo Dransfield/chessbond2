@@ -11,6 +11,6 @@ module.exports = {
 players:{type:'integer',defaultsTo:0},
 activated:{type:'boolean',defaultsTo:false},
 result:{type:'string',defaultsTo:""}
-  
+}
 };
 
