@@ -104,12 +104,14 @@ module.exports = {
 			
 						});
 						*/
+						if(oldTournRecords)
+						{
 						Tournamententry.destroy({player:req.param('player'),tournid:oldTournRecords.id}).exec
 						(function afterwards(doneErr,doneRecords)
 						{
 						});
-				
-					}
+						}
+				   }
 			
 			Tournament.find({id:tournLookingFor}).exec
 			(function afterwards(findTournamentErr,findTournamentRecords)
