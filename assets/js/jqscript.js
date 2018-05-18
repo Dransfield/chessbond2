@@ -3529,7 +3529,7 @@ function renderHomePage()
 						if(Tournaments[iter].timeToAvailable<1)
 						{
 					//	console.log("found current tournament"+Tournaments[iter].id);
-						retrieveTournamentEntries(ProfID).then(function()
+						retrieveTournamentEntries(Tournaments[iter].id).then(function()
 						{
 						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
 						});
@@ -3610,7 +3610,7 @@ function renderHomePage()
 					{
 						if(Tournaments[iter].timeToAvailable<1)
 						{
-						retrieveTournamentEntries(ProfID).then(function()
+						retrieveTournamentEntries(Tournaments[iter].id).then(function()
 						{	
 						console.log("found current tournament"+Tournaments[iter].id);
 						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
