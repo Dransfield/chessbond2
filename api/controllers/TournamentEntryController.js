@@ -158,17 +158,17 @@ module.exports = {
 									else
 									{return res.send(404,"Tournament doesnt exist anymore");
 									}
+								});
 							});
-						});
 				
+						});
 					});
-				});
 				}
 			
 		
 			});
 		});
-	
+	});
 	}
 };
 
