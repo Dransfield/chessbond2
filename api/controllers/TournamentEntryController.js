@@ -86,7 +86,7 @@ module.exports = {
 					var tournLookingFor=req.param('tourny');
 					console.log('tournid'+req.param('tourny'));
 			
-					if (!oldTournErr && oldTournRecords.id)
+					if (!oldTournErr && oldTournRecords.id && oldTournRecords.result=="")
 				
 					{
 			
