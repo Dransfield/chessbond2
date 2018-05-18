@@ -41,6 +41,7 @@ function CreateTournaments()
 	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
 	{
 		console.log("just deleted "+deletedcandidates);
+		/*
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 		{
 			Tournament.update({id:latestOne.id},{result:""}).exec(function(latesterr,updated)
@@ -61,7 +62,8 @@ function CreateTournaments()
 			//myInterval=seconds_ago;
 			
 			var minutes_ago=seconds_ago/60;
-			
+			*/
+		/*	
 			var  theCategory;
 			
 			if(updated)
@@ -73,15 +75,17 @@ function CreateTournaments()
 				theCategory=sails.config.globals.gamecategories[0].time+":"+sails.config.globals.gamecategories[0].extratime;
 				console.log(theCategory);
 			}
+			*/
+			//var circList=createCircList(theCategory);
 			
-			var circList=createCircList(theCategory);
 			
 			
-			
-			for (iter in circList)
+			//for (iter in circList)
+			for (iter in sails.config.globals.gamecategories)
 				{
 					var tournamentTimeout=(sails.config.globals.oneMinute*myInterval);
-						var lastTournCreated=seconds_ago*1000;
+						//var lastTournCreated=seconds_ago*1000;
+						/*
 						console.log("seconds_ago "+seconds_ago);
 						console.log("lastTournCreated "+lastTournCreated);
 						console.log("createDelay1 "+totalTimeout);
@@ -98,6 +102,7 @@ function CreateTournaments()
 					
 					var totalTimeout=tournamentTimeout-lastTournCreated;
 						
+					*/
 					
 					/*
 						console.log("seconds ago "+seconds_ago);
@@ -120,16 +125,16 @@ function CreateTournaments()
 						
 					//	console.log("createDelay "+createDelay);
 						
-						setTournamentTimeout(iter,totalTimeout,circList);
+						setTournamentTimeout(iter,totalTimeout,sails.config.globals.gamecategories);
 						myInterval=myInterval+3;
 				}	
 						
+		//});
+	//});
+	
 		});
 	});
-	
-	});
-	});
-	console.log("create tournaments");
+	//console.log("create tournaments");
 	
 	/*CurrentTournamententry.destroy({}).exec
 						(function afterwards(cdestroyErr,cdestroyRecords)
@@ -138,13 +143,14 @@ function CreateTournaments()
 							
 							});
 	*/
-	Tournamententry.destroy({}).exec
-						(function afterwards(cdestroyErr,cdestroyRecords)
-						{
+	//Tournamententry.destroy({}).exec
+		//				(function afterwards(cdestroyErr,cdestroyRecords)
+			//			{
 							
 							
-							});
+				//			});
 	//check tournaments
+	
 	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
 		Tournament.find({
@@ -166,36 +172,30 @@ function CreateTournaments()
 					if((Date.now()-createdDate)>sails.config.globals.threeMinutes)
 					{
 						records[iter].destroy();
+								Tournamententry.destroy({tournid:records[iter].id}).exec
+								(function afterwards(tdestroyErr,tdestroyRecords)
+								{	
+						
+						
+						
+								});
+			
 					}
 					console.log("looking for tournament entry with id "+records[iter].id);
 					
-					Tournamententry.find({tournid:records[iter].id}).exec
-					(function afterwards(tdestroyErr,tdestroyRecords)
-					{
-						
-						/*console.log("tournament entries for destroyed tourny "+JSON.stringify(tdestroyRecords));
-						CurrentTournamententry.destroy({player:tdestroyRecords.player}).exec
-						(function afterwards(cdestroyErr,cdestroyRecords)
-						{
-							
-							
-							});
-						*/
-						
-					});
 					
 					
 				}
 			});
-//		},sails.config.globals.tenMinutes);
-		},sails.config.globals.threeMinutes);
+		},sails.config.globals.tenMinutes);
+		//},sails.config.globals.threeMinutes);
 		
-		
+		*/
 	}
 	
 	/*
 
-		var myInterval=0;
+		
 	
 	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
 	{
