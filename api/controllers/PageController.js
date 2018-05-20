@@ -155,7 +155,8 @@ function CreateTournaments()
 		Tournament.find({players:{ '>': 1 }}).
 		exec(function afterwards(tournyerr,tournyrecords)
 		{console.log("tournaments with more than 1 entrant:"+tournyrecords);
-		},sails.config.globals.oneMinute);
+		});
+		,sails.config.globals.oneMinute);
 	//	Tournament.find({
 	
 	setInterval(function(){
