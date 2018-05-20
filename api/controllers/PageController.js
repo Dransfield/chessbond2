@@ -176,7 +176,7 @@ function CreateTournaments()
 		
 		Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
 			{
-				if(updatedRecords)
+				if(tournyRecords)
 				{
 				console.log("this tournament is now currently playing "+JSON.stringify(tournyRecords));	
 					for (tIter in tournyRecords)
