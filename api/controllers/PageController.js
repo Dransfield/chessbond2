@@ -189,6 +189,8 @@ function CreateTournaments()
 		
 		
 	}
+	
+	setTournamentToCurrentlyPlaying();
 	setInterval(setTournamentToCurrentlyPlaying
 		,sails.config.globals.threeMinutes);
 	
@@ -223,6 +225,7 @@ function CreateTournaments()
 			
 	}
 	
+	judgeCurrentlyPlayingTournaments();
 	setInterval(judgeCurrentlyPlayingTournaments
 		,sails.config.globals.threeMinutes);
 	
