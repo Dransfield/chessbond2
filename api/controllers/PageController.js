@@ -154,7 +154,10 @@ function CreateTournaments()
 	//*********************************
 	//set tournament to currently playing=true
 	//******************************
-	setInterval(function(){
+	
+	function setTournamentToCurrentlyPlaying()
+	{
+		
 		Tournament.find({players:{ '>': 1 }}).
 		exec
 		(
@@ -184,7 +187,9 @@ function CreateTournaments()
 		}
 		);
 		
-		}
+		
+	}
+	setInterval(setTournamentToCurrentlyPlaying
 		,sails.config.globals.threeMinutes);
 	
 	
@@ -193,7 +198,11 @@ function CreateTournaments()
 	//*********************************
 	//judge currently playing tournament
 	//******************************
-	setInterval(function(){
+	
+	function judgeCurrentlyPlayingTournaments()
+	{
+		
+	
 		Tournament.find({currentlyPlaying:true}).
 		exec
 		(
@@ -211,8 +220,10 @@ function CreateTournaments()
 		
 		}
 		);
-		
-		}
+			
+	}
+	
+	setInterval(judgeCurrentlyPlayingTournaments
 		,sails.config.globals.threeMinutes);
 	
 	//	Tournament.find({
