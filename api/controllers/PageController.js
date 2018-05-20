@@ -152,6 +152,13 @@ function CreateTournaments()
 	//check tournaments
 	
 	setInterval(function(){
+		Tournament.find({players:{ '>': 1 }}).
+		exec(function afterwards(tournyerr,tournyrecords)
+		{console.log("tournaments with more than 1 entrant:"+tournyrecords);
+		});
+	//	Tournament.find({
+	
+	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
 		Tournament.find({
 		 or : [
