@@ -151,19 +151,35 @@ function CreateTournaments()
 				//			});
 	//check tournaments
 	
-	//*********************************
+	
+	//********************
+	//set currently playing with result to not currently playing
+	//**********************
+	function setCurrentlyPlayingWithResultToNotCurrentlyPlaying()
+	{
+		Tournament.update({currentlyPlaying:true,{'!',result:""}},{currentlyPlaying:false}).exec(function(updateErr,updatedRecords)
+			{
+				console.log("set not currently playing "+JSON.stringify(updatedRecords));
+		});
+	}
+	
+	 setCurrentlyPlayingWithResultToNotCurrentlyPlaying();
+	setInterval( setCurrentlyPlayingWithResultToNotCurrentlyPlaying
+		,sails.config.globals.threeMinutes);
+	
+	//****************************************
 	//set tournament to currently playing=true
-	//******************************
+	//****************************************
 	
 	function setTournamentToCurrentlyPlaying()
 	{
 		
-		Tournament.find({players:{ '>': 1 }}).
+		Tournament.find({players:{ '>': 1 },result:""}).
 		exec
 		(
 		function afterwards(tournyerr,tournyRecords)
 		{
-			console.log("looked for tournaments with more than 1 entrant");
+			console.log("looked for tournaments with more than 1 entrant and no result");
 			for (tIter in tournyRecords)
 			{
 			
