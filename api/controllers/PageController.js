@@ -153,10 +153,36 @@ function CreateTournaments()
 	
 	setInterval(function(){
 		Tournament.find({players:{ '>': 1 }}).
-		exec(function afterwards(tournyerr,tournyrecords)
-		{console.log("tournaments with more than 1 entrant:"+tournyrecords);
-		});
-		},sails.config.globals.oneMinute);
+		exec
+		(
+		function afterwards(tournyerr,tournyRecords)
+		{
+			for (tIter in tournyRecords)
+			{
+			
+			console.log("tournaments with more than 1 entrant:"+tournyRecords[tIter]);
+			
+			if(tournyRecords[tIter].currentlyPlaying==false)
+			{
+			var thisTourn=tournyRecords[tIter];
+				setTimeout(function(){
+			
+			Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr,updatedRecords)
+			{
+			console.log("this tournament is now currently playing "+updatedRecords[0].id);	
+			});
+				},sails.globals.threeMinutes);
+				
+			}
+			
+			}
+		
+		}
+		);
+		
+		}
+		,sails.config.globals.threeMinute);
+	
 	//	Tournament.find({
 	
 	setInterval(function(){
