@@ -215,7 +215,7 @@ function CreateTournaments()
 			{
 			
 			console.log("tournaments currently playing:"+JSON.stringify(tournyRecords[tIter]));
-					var createdDate=new Date(tournyRecords[iter].createdAt);
+					var createdDate=new Date(tournyRecords[tIter].createdAt);
 					console.log(Date.now()-createdDate);
 			
 			}
