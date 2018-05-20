@@ -157,6 +157,7 @@ function CreateTournaments()
 		(
 		function afterwards(tournyerr,tournyRecords)
 		{
+			console.log("looked for tournaments with more than 1 entrant");
 			for (tIter in tournyRecords)
 			{
 			
@@ -171,7 +172,7 @@ function CreateTournaments()
 			{
 			console.log("this tournament is now currently playing "+updatedRecords[0].id);	
 			});
-				},sails.globals.threeMinutes);
+				},sails.config.globals.threeMinutes);
 				
 			}
 			
