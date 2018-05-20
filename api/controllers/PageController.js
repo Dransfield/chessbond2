@@ -176,23 +176,26 @@ function CreateTournaments()
 		
 		Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,updatedRecords)
 			{
-				
-		console.log("this tournament is now currently playing "+updatedRecords[0].id);	
-			for (tIter in tournyRecords)
-			{
-			var thisTourn=tournyRecords[tIter];
-			
-			setTimeout(function(){
-			
-			Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
-			{
-			console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+				if(updatedRecords)
+				{
+				console.log("this tournament is now currently playing "+updatedRecords[0].id);	
+					for (tIter in tournyRecords)
+					{
+					var thisTourn=tournyRecords[tIter];
+					
+					setTimeout(function(){
+					
+					Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					{
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					});
+						},(sails.config.globals.threeMinutes)-1000);
+					
+					
+						}
+				}
+		
 			});
-				},(sails.config.globals.threeMinutes)-10);
-			
-			
-			}
-		});
 		/*
 		Tournament.find({players:{ '>': 1 },result:""}).
 		exec
