@@ -181,7 +181,7 @@ function CreateTournaments()
 		);
 		
 		}
-		,sails.config.globals.threeMinute);
+		,sails.config.globals.threeMinutes);
 	
 	//	Tournament.find({
 	
