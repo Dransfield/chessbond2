@@ -160,7 +160,7 @@ function CreateTournaments()
 			for (tIter in tournyRecords)
 			{
 			
-			console.log("tournaments with more than 1 entrant:"+tournyRecords[tIter]);
+			console.log("tournaments with more than 1 entrant:"+JSON.stringify(tournyRecords[tIter]));
 			
 			if(tournyRecords[tIter].currentlyPlaying==false)
 			{
