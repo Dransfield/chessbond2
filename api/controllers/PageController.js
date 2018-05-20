@@ -151,6 +151,9 @@ function CreateTournaments()
 				//			});
 	//check tournaments
 	
+	//*********************************
+	//set tournament to currently playing=true
+	//******************************
 	setInterval(function(){
 		Tournament.find({players:{ '>': 1 }}).
 		exec
@@ -184,8 +187,40 @@ function CreateTournaments()
 		}
 		,sails.config.globals.threeMinutes);
 	
+	
+	
+	
+	//*********************************
+	//judge currently playing tournament
+	//******************************
+	setInterval(function(){
+		Tournament.find({currentlyPlaying:true}).
+		exec
+		(
+		function afterwards(tournyerr,tournyRecords)
+		{
+			console.log("looked for tournaments currently playing");
+			for (tIter in tournyRecords)
+			{
+			
+			console.log("tournaments currently playing:"+JSON.stringify(tournyRecords[tIter]));
+					var createdDate=new Date(records[iter].createdAt);
+					console.log(Date.now()-createdDate);
+			
+			}
+		
+		}
+		);
+		
+		}
+		,sails.config.globals.threeMinutes);
+	
 	//	Tournament.find({
 	
+	
+	//*****************************************
+	//destroy tournaments with less than 2 players
+	//****************************************
 	setInterval(function(){
 	//	Tournament.find({players:{ '<': 2 }}).
 		Tournament.find({
