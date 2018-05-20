@@ -157,7 +157,7 @@ function CreateTournaments()
 	//**********************
 	function setCurrentlyPlayingWithResultToNotCurrentlyPlaying()
 	{
-		Tournament.update({currentlyPlaying:true,{'!',result:""}},{currentlyPlaying:false}).exec(function(updateErr,updatedRecords)
+		Tournament.update({currentlyPlaying:true,result:{'!',""}},{currentlyPlaying:false}).exec(function(updateErr,updatedRecords)
 			{
 				console.log("set not currently playing "+JSON.stringify(updatedRecords));
 		});
