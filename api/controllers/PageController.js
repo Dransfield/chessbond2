@@ -162,7 +162,7 @@ function CreateTournaments()
 			
 			console.log("tournaments with more than 1 entrant:"+JSON.stringify(tournyRecords[tIter]));
 			
-			if(tournyRecords[tIter].currentlyPlaying==false)
+			if(!tournyRecords[tIter].currentlyPlaying)
 			{
 			var thisTourn=tournyRecords[tIter];
 				setTimeout(function(){
