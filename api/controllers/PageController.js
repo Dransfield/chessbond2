@@ -174,11 +174,11 @@ function CreateTournaments()
 	function setTournamentToCurrentlyPlaying()
 	{
 		
-		Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,updatedRecords)
+		Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
 			{
 				if(updatedRecords)
 				{
-				console.log("this tournament is now currently playing "+updatedRecords[0].id);	
+				console.log("this tournament is now currently playing "+JSON.stringify(tournyRecords));	
 					for (tIter in tournyRecords)
 					{
 					var thisTourn=tournyRecords[tIter];
