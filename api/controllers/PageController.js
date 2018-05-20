@@ -492,7 +492,7 @@ function CreateTournaments()
 
 	
 	function setTournamentInterval(time,iter,list){
-	console.log("set tourn inter"+iter+" t"+list[iter].time);
+	//console.log("set tourn inter"+iter+" t"+list[iter].time);
 	
 	var now=Date.now();
 	//console.log("now "+now);
