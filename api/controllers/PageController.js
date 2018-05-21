@@ -26,7 +26,7 @@ sails.on("lifted",UpdateBannedAccounts);
 sails.on("lifted",timeOutNonMovedGames);
 sails.on("lifted",CreateTournaments);
 
-var initialTimeouts=[];
+
 
 
 	
@@ -188,6 +188,7 @@ function CreateTournaments()
 					Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
 					{
 					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(thisTourn.id);
 					});
 						},(sails.config.globals.threeMinutes)-1000);
 					
@@ -430,7 +431,7 @@ function CreateTournaments()
 									//	console.log("updated Record"+JSON.stringify(updatedRecord));
 										sender={serverTime:dat,tourneys:tournamentList};
 										sails.sockets.broadcast('im online', 'tournament list',sender);
-										setupTournamentGames(record.id);
+										
 										//return res.send(sender);
 										});
 									});
@@ -447,9 +448,9 @@ function CreateTournaments()
 	
 	function setupTournamentGames(thetournid)
 	{
-		console.log("setupTournamentGames");
-		setTimeout(function(){
-				console.log("thetournid "+thetournid);
+		//console.log("setupTournamentGames");
+	//	setTimeout(function(){
+		//		console.log("thetournid "+thetournid);
 		Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)
 			{
 				console.log("entries "+JSON.stringify(entries));
@@ -487,7 +488,7 @@ function CreateTournaments()
 				}
 			});
 						
-		},sails.config.globals.threeMinutes);
+		//},sails.config.globals.threeMinutes);
 	}
 
 	
@@ -582,7 +583,7 @@ function timeOutNonMovedGames()
 				{
 					//if (!records[iter].Result)	
 					//{
-				initialTimeouts[records[iter].id]=setTimeout(function(gam)
+				sails.config.globals.initialTimeouts[records[iter].id]=setTimeout(function(gam)
 					{
 						
 						

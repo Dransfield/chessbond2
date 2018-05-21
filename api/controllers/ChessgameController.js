@@ -394,7 +394,7 @@ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
 			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
 			}
 			
-			initialTimeouts[records.id]=setTimeout(function(gamID)
+			sails.config.globals.initialTimeouts[records.id]=setTimeout(function(gamID)
 			{
 				console.log("inaction timeout"+gamID);
 				Chessgame.findOne({id:gamID}).exec(function(
@@ -486,7 +486,7 @@ module.exports = {
     chessgamemove:function(req,res){
 	var td=0;
 	console.log("req.param('GameOver')"+req.param('GameOver'));
-	clearTimeout(initialTimeouts[req.param('GameID')]);
+	clearTimeout(sails.config.globals.initialTimeouts[req.param('GameID')]);
 	if (req.param('GameOver')=='true')
 	{
 		

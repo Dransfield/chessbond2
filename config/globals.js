@@ -58,7 +58,7 @@ module.exports.globals = {
 	sixtySixMinutes:((60*1000)*66),
 	 threeMinutes:((60*1000)*3),
 	 tenMinutes:((60*1000)*10),
-	 
+	 initialTimeouts:[],
 		gamecategories:[{time:1,extratime:0},
 					{time:2,extratime:0},
 					{time:3,extratime:0},
