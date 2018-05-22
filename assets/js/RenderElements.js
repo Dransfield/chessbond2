@@ -662,7 +662,15 @@ function showUpcomingTournamentTable2(elem)
 	
 	for (iter in Tournaments)
 	{
-	Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+		if(!Tournaments[iter].activated)
+		{
+		Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+		}
+		else
+		{
+		Tournaments[iter].timeToAvailable=sails.config.globals.threeMinutes-timeToAvailFunc(Tournaments[iter]);
+			
+		}
 	}
 	
 	var timeCells={};
@@ -688,7 +696,7 @@ function showUpcomingTournamentTable2(elem)
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
 					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,1," ");
 				timeToCurrentTournamentStartDiv=addFlexDiv(currentTournamentDivContainer,"","row");
-				timeToCurrentTournamentStartDiv.append(displayableTime(sails.config.globals.threeMinutes-Tournaments[iter].timeToAvailable));
+				timeToCurrentTournamentStartDiv.append(displayableTime(Tournaments[iter].timeToAvailable));
 				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,1," ");
 				
 				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
@@ -745,11 +753,11 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 			if(Tournaments[iter].timeToAvailable>0)
 			{
 	
-				var nowDate=new Date(serverTime);
-				var date1=new Date(Tournaments[iter].dateAvailable);
+				//var nowDate=new Date(serverTime);
+				//var date1=new Date(Tournaments[iter].dateAvailable);
 				
 				//var date2=new Date(Tournaments[iter].createdAt);
-				var diff=date1-nowDate;
+				//var diff=date1-nowDate;
 				//console.log(nowDate);
 				//console.log(date1);
 				//console.log(date2);
@@ -771,7 +779,7 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 					timeCells[iter]=$("<td></td>");
 		
 		
-					Tournaments[iter].currentTime=diff;
+					//Tournaments[iter].currentTime=diff;
 					
 					//cell.append(Tournaments[iter].timeToAvailable);
 					row.append(timeCells[iter]);
@@ -798,12 +806,16 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 				{
 					if(Tournaments[iter].timeToAvailable>0)
 					{
-						//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
-					Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
-					timeCells[iter].html(displayableTime(Tournaments[iter].currentTime));
+					
+					//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
+					Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
+					timeCells[iter].html(displayableTime(Tournaments[iter].timeToAvailable));
 						
 					if(Tournaments[iter].activated==true)
-					{timeCells[iter].html("Tournament beginning soon!");}
+					{
+					timeToCurrentTournamentStartDiv.html(displayableTime(Tournaments[iter].timeToAvailable));
+					}
+					
 					}
 				}
 			
