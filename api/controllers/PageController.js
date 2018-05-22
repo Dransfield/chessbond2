@@ -38,9 +38,9 @@ function CreateTournaments()
 		Tournament.update({activated:true,result:""},{result:"Cancelled due to server restart"}).exec(function(uperr,uprec)
 		{
 	
-	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
-	{
-		console.log("just deleted "+deletedcandidates);
+			Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
+			{
+			console.log("just deleted "+deletedcandidates);
 		/*
 		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
 		{

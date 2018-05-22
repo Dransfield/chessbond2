@@ -3,6 +3,7 @@ var tournamentTable;
 var tournamentTableContainer;
 var currentTournamentDiv;
 var joinbuttonDiv;
+var timeToCurrentTournamentStartDiv;
 var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var joinedPlayersDiv;
@@ -1328,7 +1329,7 @@ function setupTournamentViewPage()
 							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
 							
 							
-							var joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
+							joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
 							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
 							joinedPlayersDivContainer=addDiv($("#tournamentviewpage"));
 							
@@ -3597,6 +3598,7 @@ function renderHomePage()
 				currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
 				viewbuttonDiv.detach();
+				timeToCurrentTournamentStartDiv.detach();
 				withdrawbuttonDiv.detach();
 				joinedPlayersDiv.detach();
 				

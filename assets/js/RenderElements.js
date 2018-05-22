@@ -376,7 +376,7 @@ function showUpcomingTournamentTable(elem)
 {
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
-var headers=["Game Category","Starts in.."," Interested"];
+var headers=["Game Category","Available to Join.."," Interested"];
 	for( h in headers)
 	{
 	var header=$("<th>"+headers[h]+"</th>");
@@ -472,6 +472,7 @@ function sortTourn(a,b)
 					
 					currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
+				timeToCurrentTournamentStartDiv.detach();
 				viewbuttonDiv.detach();
 				withdrawbuttonDiv.detach();
 				joinedPlayersDiv.detach();
@@ -686,10 +687,14 @@ function showUpcomingTournamentTable2(elem)
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
 					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,1," ");
-				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
+				timeToCurrentTournamentStartDiv=addFlexDiv(currentTournamentDivContainer,"","row");
+				timeToCurrentTournamentStartDiv.append(displayableTime(Tournaments[iter].timeToAvailable));
 				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,1," ");
-				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
+				
+				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
 				bigemptyDiv[2]=showHeader(currentTournamentDivContainer,1," ");
+				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
+				bigemptyDiv[3]=showHeader(currentTournamentDivContainer,1," ");
 				withdrawbuttonDiv=addFlexDiv(currentTournamentDivContainer,"withdrawbuttonflex","row");
 				//currentTournamentDiv.append(cell2);
 			
@@ -720,7 +725,7 @@ function showUpcomingTournamentTable2(elem)
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
 	var tablePosition=1;
-var headers=["Position","Game Category","Starts in..","Players Interested"];
+var headers=["Position","Game Category","Available in..","Players Interested"];
 	for( h in headers)
 	{
 	var header=$("<th>"+headers[h]+"</th>");
@@ -795,13 +800,7 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 					{
 						//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
 					Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
-					var bythousand=Tournaments[iter].currentTime/1000;
-					var secondsToShow=(parseInt((bythousand % 60))).toString();
-					var	minutesToShow=(parseInt((bythousand/60))).toString();
-					
-					if (secondsToShow<10)
-					{secondsToShow="0"+secondsToShow;}
-					timeCells[iter].html(minutesToShow+":"+secondsToShow);
+					timeCells[iter].html(displayableTime(Tournaments[iter].currentTime));
 						
 					if(Tournaments[iter].activated==true)
 					{timeCells[iter].html("Tournament beginning soon!");}
@@ -812,6 +811,21 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 	
 	return tbl;
 }
+
+function displayableTime(millis)
+
+	{
+	
+			var bythousand=millis/1000;
+					var secondsToShow=(parseInt((bythousand % 60))).toString();
+					var	minutesToShow=(parseInt((bythousand/60))).toString();
+					
+					if (secondsToShow<10)
+					{secondsToShow="0"+secondsToShow;}
+					
+					return minutesToShow+":"+secondsToShow;
+			
+	}
 
 function showStatTable(elem)
 {
@@ -4405,6 +4419,7 @@ function afterTournamentJoinMainPage()
 		currentTournamentDiv.detach();
 		joinbuttonDiv.detach();
 		viewbuttonDiv.detach();
+		timeToCurrentTournamentStartDiv.detach();
 		withdrawbuttonDiv.detach();
 		joinedPlayersDiv.detach();
 				

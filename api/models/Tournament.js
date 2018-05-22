@@ -7,12 +7,14 @@
 
 module.exports = {
 
-  attributes: {
+  attributes: 
+  {
 players:{type:'integer',defaultsTo:0},
 activated:{type:'boolean',defaultsTo:false},
 result:{type:'string',defaultsTo:""},
-currentlyPlaying:{type:'boolean',defaultsTo:false}
-
+currentlyPlaying:{type:'boolean',defaultsTo:false},
+currentTime:{type:'integer',defaultsTo:0}
 }
+
 };
 
