@@ -673,7 +673,7 @@ function showUpcomingTournamentTable2(elem)
 		}
 	}
 	
-	var timeCells={};
+	
 	
 	for (iter in Tournaments)
 	{

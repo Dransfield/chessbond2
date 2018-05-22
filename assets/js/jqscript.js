@@ -6,6 +6,7 @@ var joinbuttonDiv;
 var timeToCurrentTournamentStartDiv;
 var viewbuttonDiv;
 var joinedPlayersDivContainer;
+var timeCells={};
 var joinedPlayersDiv;
 //(502) 425-0220 hcc
 var bigemptyDiv=[];
