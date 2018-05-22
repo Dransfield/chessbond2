@@ -806,16 +806,19 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 				{
 					if(Tournaments[iter].timeToAvailable>0)
 					{
-					
-					//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
-					Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
-					timeCells[iter].html(displayableTime(Tournaments[iter].timeToAvailable));
+						if(timeCells[iter])
+						{
+						//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
+						Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
+						timeCells[iter].html(displayableTime(Tournaments[iter].timeToAvailable));
+							
+						if(Tournaments[iter].activated==true)
+						{
+						timeToCurrentTournamentStartDiv.html(displayableTime(Tournaments[iter].timeToAvailable));
+						}
 						
-					if(Tournaments[iter].activated==true)
-					{
-					timeToCurrentTournamentStartDiv.html(displayableTime(Tournaments[iter].timeToAvailable));
-					}
-					
+						}
+						
 					}
 				}
 			
