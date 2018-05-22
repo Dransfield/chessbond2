@@ -650,7 +650,7 @@ function showUpcomingTournamentTable2(elem)
 	
 	
 	
-	
+	console.log("howUpcomingTournamentTable2");
 	console.log("Tournaments length "+Tournaments.length);
 	
 	//for(iter in Tournaments)
