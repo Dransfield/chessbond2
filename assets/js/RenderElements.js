@@ -668,7 +668,7 @@ function showUpcomingTournamentTable2(elem)
 		}
 		else
 		{
-		Tournaments[iter].timeToAvailable=sails.config.globals.threeMinutes-timeToAvailFunc(Tournaments[iter]);
+		Tournaments[iter].timeToAvailable=threeMinutes-timeToAvailFunc(Tournaments[iter]);
 			
 		}
 	}

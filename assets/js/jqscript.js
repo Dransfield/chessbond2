@@ -9,7 +9,7 @@ var joinedPlayersDivContainer;
 var joinedPlayersDiv;
 //(502) 425-0220 hcc
 var bigemptyDiv=[];
-
+var threeMinutes=(60*1000)*3;
 var myuser;
 var userIndex=0;
 var Accounts={};
