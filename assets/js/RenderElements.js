@@ -824,7 +824,7 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 					else
 					
 					{
-						timeToCurrentTournamentStartDiv.html(displayableTime(threeMinutes-Tournaments[iter].timeToAvailable));
+						timeToCurrentTournamentStartDiv.html(displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
 					}
 					
 				}
