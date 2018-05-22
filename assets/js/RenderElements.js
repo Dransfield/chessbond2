@@ -668,7 +668,7 @@ function showUpcomingTournamentTable2(elem)
 		}
 		else
 		{
-		Tournaments[iter].timeToAvailable=threeMinutes-timeToAvailFunc(Tournaments[iter]);
+		Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
 			
 		}
 	}
@@ -696,7 +696,7 @@ function showUpcomingTournamentTable2(elem)
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
 					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,1," ");
 				timeToCurrentTournamentStartDiv=addFlexDiv(currentTournamentDivContainer,"","row");
-				timeToCurrentTournamentStartDiv.append(displayableTime(Tournaments[iter].timeToAvailable));
+				timeToCurrentTournamentStartDiv.append(displayableTime(threeMinutes-Tournaments[iter].timeToAvailable));
 				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,1," ");
 				
 				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
@@ -820,8 +820,14 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 						}
 						
 					}
+					
+					else
+					
+					{
+						timeToCurrentTournamentStartDiv.html(displayableTime(threeMinutes-Tournaments[iter].timeToAvailable));
+					}
+					
 				}
-			
 		}
 	
 	return tbl;
