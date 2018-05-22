@@ -801,7 +801,7 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 			
 			
 	Tournaments.sort(sortTourn);
-	
+	/*
 	for (iter in Tournaments)
 	{
 		Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
@@ -815,8 +815,9 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 						
 					}
 	}
+	*/
 	
-	/*
+	
 		for (iter in Tournaments)
 				{
 					if(Tournaments[iter].timeToAvailable>0)
@@ -839,12 +840,13 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 					else
 					
 					{
+						Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
 						
 						timeToCurrentTournamentStartDiv.html(displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
 					}
 					
 				}
-	*/
+	
 		}
 	
 	return tbl;
