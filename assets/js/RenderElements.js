@@ -844,9 +844,10 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 					}
 					
 				}
-		}
 	*/
-	//return tbl;
+		}
+	
+	return tbl;
 }
 
 function displayableTime(millis)
