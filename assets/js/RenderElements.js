@@ -842,7 +842,7 @@ var headers=["Position","Game Category","Available in..","Players Interested"];
 					{
 						Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
 						
-						timeToCurrentTournamentStartDiv.html("Time to start:"+displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
+						timeToCurrentTournamentStartDiv.html("Tournament starts in:"+displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
 					}
 					
 				}

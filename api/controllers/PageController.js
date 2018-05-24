@@ -171,10 +171,23 @@ function CreateTournaments()
 	//set tournament to currently playing=true
 	//****************************************
 	
-	function setTournamentToCurrentlyPlaying()
+	function setTournamentToCurrentlyPlaying(record)
 	{
+		console.log("set tournament to currently playing?"+JSON.stringify(record));
 		
-		Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
+		Tournament.find({currentlyPlaying:false,result:"",id:record.id,players:{'>':1}}).exec(function(updateErr,tournyRecords)
+			{
+				if(tournyRecords)
+				{
+					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					{
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(tournyRecords.id);
+					});
+				}
+			});
+			
+		/*Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
 			{
 				if(tournyRecords)
 				{
@@ -197,6 +210,7 @@ function CreateTournaments()
 				}
 		
 			});
+			*/
 		/*
 		Tournament.find({players:{ '>': 1 },result:""}).
 		exec
@@ -231,9 +245,9 @@ function CreateTournaments()
 		
 	}
 	
-	setTournamentToCurrentlyPlaying();
-	setInterval(setTournamentToCurrentlyPlaying
-		,sails.config.globals.threeMinutes);
+	//setTournamentToCurrentlyPlaying();
+	//setInterval(setTournamentToCurrentlyPlaying
+		//,sails.config.globals.threeMinutes);
 	
 	
 	
@@ -427,10 +441,13 @@ function CreateTournaments()
 									Tournament.update({id:record.id},{activated:true,timeToAvailable:0}).
 									exec(function afterwards(err3,updatedRecord)
 										{
+										
 										var dat=Date.now();
 									//	console.log("updated Record"+JSON.stringify(updatedRecord));
 										sender={serverTime:dat,tourneys:tournamentList};
 										sails.sockets.broadcast('im online', 'tournament list',sender);
+										
+										setTimeout(setTournamentToCurrentlyPlaying,sails.config.globals.threeMinutes,updatedRecord[0]);
 										
 										//return res.send(sender);
 										});
