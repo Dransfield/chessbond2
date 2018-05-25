@@ -352,6 +352,8 @@ function CreateTournaments()
 				{
 					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
 					{
+					console.log("set tournament to currently playing2 "+JSON.stringify(updatedRecords2));
+	
 					console.log("this tournament is now currently playing "+updatedRecords2.id);	
 					setupTournamentGames(tournyRecords.id);
 					});

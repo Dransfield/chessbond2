@@ -389,7 +389,7 @@ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
 			//console.log(records);
 			console.log("broadcasting to "+p1ID);
 			  sails.sockets.broadcast(p1ID,'newmygameevent', records);
-			  if (p1ID!=p2ID)
+			 if (p1ID!=p2ID)
 			{
 			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
 			}
