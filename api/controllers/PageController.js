@@ -350,6 +350,7 @@ function CreateTournaments()
 			{
 				if(tournyRecords)
 				{
+					console.log("tournyRecords "+JSON.stringify(tournyRecords));
 					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
 					{
 					console.log("set tournament to currently playing2 "+JSON.stringify(updatedRecords2));
