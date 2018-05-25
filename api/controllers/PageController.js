@@ -350,13 +350,13 @@ function CreateTournaments()
 			{
 				if(tournyRecords)
 				{
-					console.log("tournyRecords "+JSON.stringify(tournyRecords));
-					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					console.log("tournyRecords "+JSON.stringify(tournyRecords[0]));
+					Tournament.update({id:tournyRecords[0].id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
 					{
 					console.log("set tournament to currently playing2 "+JSON.stringify(updatedRecords2));
 	
-					console.log("this tournament is now currently playing "+updatedRecords2.id);	
-					setupTournamentGames(tournyRecords.id);
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(updatedRecords2[0].id);
 					});
 				}
 			});
