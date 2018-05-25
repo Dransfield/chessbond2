@@ -352,7 +352,7 @@ function CreateTournaments()
 				{
 					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
 					{
-					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					console.log("this tournament is now currently playing "+updatedRecords2.id);	
 					setupTournamentGames(tournyRecords.id);
 					});
 				}
