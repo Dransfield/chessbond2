@@ -11,7 +11,7 @@ module.exports = {
 	upcomingTournamentsWithTime:function(req,res){
 	Tournament.find({ activated:false,sort: 'timeToAvailable ASC'}).exec(function(err,latestOne)
 		{
-			Tournament.find({activated:true,sort: 'createdAt DESC',limit:1}).exec(function(err2,latestOne2)
+			Tournament.find({activated:true,currentlyPlaying:false,sort: 'createdAt DESC',limit:1}).exec(function(err2,latestOne2)
 			{
 			var dat=Date.now();
 			//console.log(dat);
