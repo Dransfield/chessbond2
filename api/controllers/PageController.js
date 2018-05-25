@@ -171,79 +171,7 @@ function CreateTournaments()
 	//set tournament to currently playing=true
 	//****************************************
 	
-	function setTournamentToCurrentlyPlaying(record)
-	{
-		console.log("set tournament to currently playing?"+JSON.stringify(record));
-		
-		Tournament.find({currentlyPlaying:false,result:"",id:record.id,players:{'>':1}}).exec(function(updateErr,tournyRecords)
-			{
-				if(tournyRecords)
-				{
-					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
-					{
-					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
-					setupTournamentGames(tournyRecords.id);
-					});
-				}
-			});
-			
-		/*Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
-			{
-				if(tournyRecords)
-				{
-				console.log("this tournament is now currently playing "+JSON.stringify(tournyRecords));	
-					for (tIter in tournyRecords)
-					{
-					var thisTourn=tournyRecords[tIter];
-					
-					setTimeout(function(){
-					
-					Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
-					{
-					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
-					setupTournamentGames(thisTourn.id);
-					});
-						},(sails.config.globals.threeMinutes)-1000);
-					
-					
-						}
-				}
-		
-			});
-			*/
-		/*
-		Tournament.find({players:{ '>': 1 },result:""}).
-		exec
-		(
-		function afterwards(tournyerr,tournyRecords)
-		{
-			console.log("looked for tournaments with more than 1 entrant and no result");
-			for (tIter in tournyRecords)
-			{
-			
-			console.log("tournaments with more than 1 entrant:"+JSON.stringify(tournyRecords[tIter]));
-			
-			if(!tournyRecords[tIter].currentlyPlaying)
-			{
-			var thisTourn=tournyRecords[tIter];
-				setTimeout(function(){
-			
-			Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr,updatedRecords)
-			{
-			console.log("this tournament is now currently playing "+updatedRecords[0].id);	
-			});
-				},sails.config.globals.threeMinutes);
-				
-			}
-			
-			}
-		
-		}
-		*/
-		
-		
-		
-	}
+	
 	
 	//setTournamentToCurrentlyPlaying();
 	//setInterval(setTournamentToCurrentlyPlaying
@@ -414,7 +342,79 @@ function CreateTournaments()
 	
 	}
 	
-	
+	function setTournamentToCurrentlyPlaying(record)
+	{
+		console.log("set tournament to currently playing?"+JSON.stringify(record));
+		
+		Tournament.find({currentlyPlaying:false,result:"",id:record.id,players:{'>':1}}).exec(function(updateErr,tournyRecords)
+			{
+				if(tournyRecords)
+				{
+					Tournament.update({id:tournyRecords.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					{
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(tournyRecords.id);
+					});
+				}
+			});
+			
+		/*Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
+			{
+				if(tournyRecords)
+				{
+				console.log("this tournament is now currently playing "+JSON.stringify(tournyRecords));	
+					for (tIter in tournyRecords)
+					{
+					var thisTourn=tournyRecords[tIter];
+					
+					setTimeout(function(){
+					
+					Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					{
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(thisTourn.id);
+					});
+						},(sails.config.globals.threeMinutes)-1000);
+					
+					
+						}
+				}
+		
+			});
+			*/
+		/*
+		Tournament.find({players:{ '>': 1 },result:""}).
+		exec
+		(
+		function afterwards(tournyerr,tournyRecords)
+		{
+			console.log("looked for tournaments with more than 1 entrant and no result");
+			for (tIter in tournyRecords)
+			{
+			
+			console.log("tournaments with more than 1 entrant:"+JSON.stringify(tournyRecords[tIter]));
+			
+			if(!tournyRecords[tIter].currentlyPlaying)
+			{
+			var thisTourn=tournyRecords[tIter];
+				setTimeout(function(){
+			
+			Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr,updatedRecords)
+			{
+			console.log("this tournament is now currently playing "+updatedRecords[0].id);	
+			});
+				},sails.config.globals.threeMinutes);
+				
+			}
+			
+			}
+		
+		}
+		*/
+		
+		
+		
+	}
 	function activate_tournament(record)
 	{
 		console.log("activate this record "+JSON.stringify(record));
