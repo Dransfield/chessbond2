@@ -492,8 +492,8 @@ function CreateTournaments()
 						var num1=thetourn.category.split(":")[0];
 						var num2=thetourn.category.split(":")[0];
 						
-						MakeChessGameForTournament(p1,p2,"White",thetourn.category,"timed",num1,num2,thetourn)
-						MakeChessGameForTournament(p2,p1,"White",thetourn.category,"timed",num1,num2,thetourn)
+						MakeChessGameForTournament(p1,p2,"White",thetourn.category,"timed",num1,num2,thetourn);
+						MakeChessGameForTournament(p2,p1,"White",thetourn.category,"timed",num1,num2,thetourn);
 						
 						}
 						
@@ -522,7 +522,7 @@ function CreateTournaments()
 	function MakeChessGameForTournament(p1,p2,p1color,gamecat,gametype,num1,num2,tourn)
  {
 	 gametype="timed";
-	 
+	 console.log("MakeChessGameForTournament");
 	User.find({
 	id : [p1,p2]
 	}).exec(function (err, players){
