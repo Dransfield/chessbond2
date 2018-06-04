@@ -609,7 +609,8 @@ function CreateTournaments()
 	resolve(records);
 	}
 	});
-	}
+	});
+}
 	
 	function MakeChessGameForTournament(p1,p2,p1color,gamecat,gametype,num1,num2,tourn)
  {
