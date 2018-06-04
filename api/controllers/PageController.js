@@ -554,6 +554,7 @@ function CreateTournaments()
 				});
 						
 		//},sails.config.globals.threeMinutes);
+	});
 	}
 	
 	function activateTournamentGame(entry1,entry2,thetourn)
