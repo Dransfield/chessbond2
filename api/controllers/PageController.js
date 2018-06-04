@@ -536,7 +536,7 @@ function CreateTournaments()
 					console.log("entries.length "+entries.length);
 					var activate=true;
 					
-						for (playerIter=0;playerIter++;playerIter<entries.length)
+						for (playerIter=0;playerIter<entries.length;playerIter++)
 						{
 							if(activate==true)
 							{
