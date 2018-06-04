@@ -563,10 +563,53 @@ function CreateTournaments()
 		console.log(entry1.player);
 		console.log(entry2.player);
 		Chessgame.update({Player1:entry1.player,Player2:entry2.player,tournament:thetourn.id},{started:true}).exec(
-		function(err3,entries)
-		{});
+		function(err3,records)
+		{
+			
+			if (err3)
+			{console.log(err3);}
+			else
+			{
+			
+			var promiseArray=[];
+			promiseArray.push(retrieveSubPromise(entry1.player));
+			promiseArray.push(retrieveSubPromise(entry2.player));
+			
+			Promise.all(promiseArray).then(values => 
+				{ 
+				console.log(values);
+				
+				if(values[0] && values[1])
+				{
+				if(values[0].subscriber &&  values[1].subscriber)
+				{ 
+				sails.sockets.broadcast(p1ID,'newmygameevent', records);
+				sails.sockets.broadcast(p2ID,'newmygameevent', records);
+				}
+				}
+				
+				});
+			}
+			
+		});
 	}
 								
+	
+	function retrieveSubPromise(user)
+	{
+		
+	 return new Promise((resolve,reject)=>{
+	Subscription.find({
+	subscriber : user,room:'im online'
+	}).exec(function (err, records){	
+	if (err)
+	{reject();}
+	else
+	{
+	resolve(records);
+	}
+	});
+	}
 	
 	function MakeChessGameForTournament(p1,p2,p1color,gamecat,gametype,num1,num2,tourn)
  {
