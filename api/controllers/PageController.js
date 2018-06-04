@@ -559,7 +559,8 @@ function CreateTournaments()
 	
 	function activateTournamentGame(entry1,entry2,thetourn)
 	{
-		chessgame.update(player1:entry1.player,player2:entry2.player,tournament:thetourn.id},{started:true}).exec(function()
+		Chessgame.update(player1:entry1.player,player2:entry2.player,tournament:thetourn.id},{started:true}).exec(
+		function(err3,entries)
 		{});
 	}
 								
