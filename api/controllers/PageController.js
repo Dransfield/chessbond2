@@ -540,10 +540,11 @@ function CreateTournaments()
 						{
 							if(activate==true)
 							{
-								if ((playerIter+1)!=entries.length)
+								var nextOne=playerIter+1;
+								if ((nextOne+1)<entries.length)
 								{
 									console.log("playeriter"+playerIter);
-									activateTournamentGame(entries[playerIter],entries[(playerIter+1)],thetourn);
+									activateTournamentGame(entries[playerIter],entries[nextOne],thetourn);
 									activate=false;
 								}
 							}
