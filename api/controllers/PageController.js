@@ -613,16 +613,29 @@ function CreateTournaments()
 					else
 					{firstPlayer=myRecords.Player2;}
 					
-					User.findOne({id:firstPlayer}).exec(function(
-					userErr,theUser)
+					//User.findOne({id:firstPlayer}).exec(function(
+					//userErr,theUser)
+					//{
+						
+					if (firstPlayer=myRecords.Player1)
 					{
+					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
+					}
+					else
+					{
+						
+					DoTournamentGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
+					}
+					/*
 					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
 					timeOuterr,timeOutRecords)
 					{
 					//sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
 	
 					});
-					});	
+					*/
+					
+					//});	
 						
 					}
 				});
@@ -768,6 +781,171 @@ function CreateTournaments()
 			}); 
 	 });
 	}
+	
+	function DoTournamentGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
+	{
+	var elo = require('elo-rank')(15);
+	console.log("winner "+winner);
+	console.log("loser "+loser);
+	var winnergamecategory;
+	var losergamecategory;
+
+	
+	winnergamecategory='rating'+winnercolor+gamecat;
+	losergamecategory='rating'+losercolor+gamecat;
+	
+	
+  
+  User.find({
+  id : [winner, loser]
+	}).exec(function (err, winnersandlosers){
+	//console.log("winners and losers:"+JSON.stringify(winnersandlosers));
+	
+	var winnerRecord;
+	var loserRecord;
+	if (winner==winnersandlosers[0].id)
+	{winnerRecord=winnersandlosers[0];
+		loserRecord=winnersandlosers[1];
+		}
+		else
+		{
+		winnerRecord=winnersandlosers[1];
+		loserRecord=winnersandlosers[0];
+		
+		}
+	
+	if (winner==loser)
+	{
+		winnerRecord=winnersandlosers[0];
+		loserRecord=winnersandlosers[0];
+	}
+	
+	var winnerstartELO=winnerRecord.ELO;
+	var loserstartELO=loserRecord.ELO;
+	var expectedScoreA = elo.getExpected(winnerstartELO, loserstartELO);
+	var expectedScoreB = elo.getExpected(loserstartELO, winnerstartELO);
+	
+	var winnerstartcatELO=winnerRecord[winnergamecategory];
+	var loserstartcatELO=loserRecord[losergamecategory];
+	
+	if (!winnerRecord[winnergamecategory])
+	{winnerstartcatELO=1200;}
+	if (!loserRecord[losergamecategory])
+	{loserstartcatELO=1200;}
+	
+	var expectedScoreAcat = elo.getExpected(winnerstartcatELO, loserstartcatELO);
+	var expectedScoreBcat = elo.getExpected(loserstartcatELO, winnerstartcatELO);
+	
+	if (winner!=loser)
+	{
+	
+	winnerRecord.ELO = elo.updateRating(expectedScoreA, 1, winnerstartELO);
+	loserRecord.ELO = elo.updateRating(expectedScoreB, 0,loserstartELO);
+	
+	winnerRecord[winnergamecategory] = elo.updateRating(expectedScoreAcat, 1, winnerstartcatELO);
+	loserRecord[losergamecategory] = elo.updateRating(expectedScoreBcat, 0, loserstartcatELO);
+	
+	console.log("about to save");
+	loserRecord.save();
+	winnerRecord.save();
+	console.log("saved");
+	}
+	//var Res1=winnerRecord.name+"'s ELO score went from "+winnerstartELO+" to "+winnerRecord.ELO;
+	//var Res2=loserRecord.name+"'s ELO score went from "+loserstartELO+" to "+loserRecord.ELO;
+	var WinnereloSentence="";
+	console.log("winnerRecord.ELO "+winnerRecord.ELO);
+	console.log("winnerstartELO "+winnerstartELO);
+	if(winnerRecord.ELO>winnerstartELO)
+	{WinnereloSentence="+"+(winnerRecord.ELO-winnerstartELO);}
+	else
+	{WinnereloSentence=(winnerRecord.ELO-winnerstartELO);}
+	
+	var LosereloSentence="";
+	console.log("loserRecord.ELO "+loserRecord.ELO);
+	console.log("loserstartELO "+loserstartELO);
+	
+	if(loserRecord.ELO>loserstartELO)
+	{LosereloSentence="+"+(loserRecord.ELO-loserstartELO);}
+	else
+	{LosereloSentence=(loserRecord.ELO-loserstartELO);}
+	
+	console.log("LosereloSentence "+LosereloSentence);
+	
+	var WinnercateloSentence="";
+	if(winnerRecord[winnergamecategory]>winnerstartcatELO)
+	{WinnercateloSentence="+"+(winnerRecord[winnergamecategory]-winnerstartcatELO);}
+	else
+	{WinnercateloSentence=(winnerRecord[winnergamecategory]-winnerstartcatELO);}
+	
+	var LosercateloSentence="";
+	if(loserRecord[losergamecategory]>loserstartcatELO)
+	{LosercateloSentence="+"+(loserRecord[losergamecategory]-loserstartcatELO);}
+	else
+	{LosercateloSentence=(loserRecord[losergamecategory]-loserstartcatELO);}
+	
+	
+	var resultstring="";
+	
+		if (timeout=='false')
+	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> checkmate</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Checkmate</span><br>";}
+	else
+	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";}
+	
+	
+	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
+	resultstring+="<br><span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+loserRecord.name+"</span><span>:</span> <span class='redtext'>"+loserRecord.ELO+" ("+LosereloSentence+")</span>";
+	
+	console.log("winnergamecategory "+winnergamecategory);
+	console.log("losergamecategory "+losergamecategory);
+	
+	resultstring+="<br><span>New</span> <span class='redtext'>"+winnercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord[winnergamecategory]+" ("+WinnercateloSentence+")</span>";
+	resultstring+="<br><span>New</span> <span class='redtext'>"+losercolor+" "+gamecat+" ELO ratings </span><span>of</span><span class='redtext'> "+loserRecord.name+"</span><span>:</span> <span class='redtext'>"+loserRecord[losergamecategory]+" ("+LosercateloSentence+")</span>";
+	
+	var tts="Status:<span class='redtext'>Game over</span>";
+	
+	var player1Record;
+	var player2Record;
+	var player1gamecategory;
+	var player2gamecategory;
+	
+	if(winner1or2==1)
+	{
+		player1Record=winnerRecord;
+		player2Record=loserRecord;
+		player1gamecategory=winnergamecategory;
+		player2gamecategory=losergamecategory;
+		
+		}
+	else
+	{
+		player2Record=winnerRecord;
+		player1Record=loserRecord;
+		player2gamecategory=winnergamecategory;
+		player1gamecategory=losergamecategory;
+		
+	}
+	
+	console.log("winner1or2 "+winner1or2);
+	console.log("player1Record "+player1Record);
+	console.log("player2Record "+player2Record);
+	console.log("player1Record[player1gamecategory] "+player1Record[player1gamecategory]);
+	console.log("player2Record[player2gamecategory] "+player2Record[player2gamecategory]);
+	
+	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
+	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
+		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+
+	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
+	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	
+	 
+	});
+	});
+	
+	
+	});
+
+	};
 	
 	function setTournamentInterval(time,iter,list){
 	//console.log("set tourn inter"+iter+" t"+list[iter].time);
