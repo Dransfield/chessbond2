@@ -81,7 +81,25 @@ module.exports.globals = {
 					{time:20,extratime:10},
 					{time:30,extratime:10},
 					{time:60,extratime:10}],
-
+playerIsWhite:function (player,game)
+		{
+		var imWhite=-1;
+		if(game.Player1==player && game.Player1Color=='White')
+		{imWhite=1;}
+		if(game.Player1==player && game.Player1Color=='Black')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		if(game.Player2==player && game.Player1Color=='Black')
+		{imWhite=1;}
+		if(game.Player2==player && game.Player1Color=='White')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		return imWhite;
+		},
   /****************************************************************************
   *                                                                           *
   * Expose each of your app's models as global variables (using their         *

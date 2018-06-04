@@ -124,7 +124,7 @@ module.exports.sockets = {
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
    Subscription.destroy({subscriber:session.passport.user}).exec(function(){
-	console.log(JSON.stringify(session.passport.user));   
+	//console.log(JSON.stringify(session.passport.user));   
     return cb();
 	
 	});

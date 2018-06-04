@@ -572,6 +572,7 @@ function CreateTournaments()
 			{
 			
 			var theGame=records;
+			/*
 			//console.log("theGame "+JSON.stringify(theGame));
 			var promiseArray=[];
 			promiseArray.push(retrieveSubPromise(entry1.player));
@@ -585,12 +586,50 @@ function CreateTournaments()
 				{
 				if(values[0].subscriber &&  values[1].subscriber)
 				{ 
+				*/
 				sails.sockets.broadcast(p1ID,'newmygameevent', theGame[0]);
 				sails.sockets.broadcast(p2ID,'newmygameevent', theGame[0]);
+				/*
 				}
 				}
 				
 				});
+				*/
+				
+				
+				sails.config.globals.initialTimeouts[theGame[0].id]=setTimeout(function(gamID)
+			{
+				console.log("inaction timeout"+gamID);
+				Chessgame.findOne({id:gamID}).exec(function(
+				myerr,myRecords)
+				{
+					//console.log("Move "+myRecords.Move);
+					if (myRecords.Move==1)
+					{
+					
+					var firstPlayer;
+					if (sails.config.globals.playerIsWhite(myRecords.Player1,myRecords))
+					{firstPlayer=myRecords.Player1;}
+					else
+					{firstPlayer=myRecords.Player2;}
+					
+					User.findOne({id:firstPlayer}).exec(function(
+					userErr,theUser)
+					{
+					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
+					timeOuterr,timeOutRecords)
+					{
+					//sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
+	
+					});
+					});	
+						
+					}
+				});
+					
+					},30000,theGame[0].id);
+				
+				
 			}
 			
 		});
@@ -673,7 +712,7 @@ function CreateTournaments()
 		
 		
 		
-		Chessgame.create({started:false,tournament:tourn.id,Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+		Chessgame.create({tournamentGame:true,started:false,tournament:tourn.id,Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
 			
 			function (err, records) {
 				if(err){
@@ -815,7 +854,7 @@ function CreateTournaments()
 
 function timeOutNonMovedGames()
 {
-						Chessgame.find({Move:1}).
+						Chessgame.find({Move:1,tournamentGame:false,Result:""}).
 					exec(function afterwards(err, records){
 				for(iter in records)
 				{
