@@ -599,7 +599,7 @@ function CreateTournaments()
 	{
 		
 	 return new Promise((resolve,reject)=>{
-	Subscription.find({
+	Subscription.findOne({
 	subscriber : user,room:'im online'
 	}).exec(function (err, records){	
 	if (err)
