@@ -534,21 +534,21 @@ function CreateTournaments()
 				{ 
 					console.log("made all tournament games"+JSON.stringify(values));
 					console.log("entries.length "+entries.length);
-					var dontActivate=false;
+					var activate=true;
 					
 						for (playerIter in entries)
 						{
-							if(dontActivate==false)
+							if(activate==true)
 							{
-							if ((playerIter+1)!=entries.length)
-							{
-								
-								activateTournamentGame(entries[playerIter],entries[playerIter+1],thetourn);
-								dontActivate=true;
-							}
+								if ((playerIter+1)!=entries.length)
+								{
+									console.log("playeriter"+playerIter);
+									activateTournamentGame(entries[playerIter],entries[playerIter+1],thetourn);
+									activate=false;
+								}
 							}
 							else
-							{dontActivate=true;}
+							{activate=true;}
 						}
 				
 				});
@@ -559,6 +559,8 @@ function CreateTournaments()
 	
 	function activateTournamentGame(entry1,entry2,thetourn)
 	{
+		console.log(entry1.player);
+		console.log(entry2.player);
 		Chessgame.update({player1:entry1.player,player2:entry2.player,tournament:thetourn.id},{started:true}).exec(
 		function(err3,entries)
 		{});
