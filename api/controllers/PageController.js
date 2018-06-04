@@ -471,11 +471,24 @@ function CreateTournaments()
 		//console.log("setupTournamentGames");
 	//	setTimeout(function(){
 		//		console.log("thetournid "+thetournid);
+		
+		
 		Tournamententry.find({tournid:thetourn.id}).exec(function(err3,entries)
 			{
+				
+				
+				
+				
+				
+				
+				
 				console.log("entries "+JSON.stringify(entries));
+				
+				var promiseArray=[];
+				
 			for (playerIter in entries)
 				{
+					
 					var startMakingGames=false;
 				//	console.log("every other player than "+entries[playerIter].player);
 				 
@@ -487,13 +500,15 @@ function CreateTournaments()
 						var p1=entries[otherIter].player;
 						var p2=entries[playerIter].player;
 						
-						console.log("White: "+p1+" Black: "+p2);
-						console.log("White: "+p2+" Black: "+p1);
+						//console.log("White: "+p1+" Black: "+p2);
+						//console.log("White: "+p2+" Black: "+p1);
 						var num1=thetourn.category.split(":")[0];
 						var num2=thetourn.category.split(":")[0];
+						num1=num1*60;
+						num2=num2*60;
 						
-						MakeChessGameForTournament(p1,p2,"White",thetourn.category,"timed",num1,num2,thetourn);
-						MakeChessGameForTournament(p2,p1,"White",thetourn.category,"timed",num1,num2,thetourn);
+						promiseArray.push(MakeChessGameForTournament(p1,p2,"White",thetourn.category,"timed",num1,num2,thetourn));
+						promiseArray.push(MakeChessGameForTournament(p2,p1,"White",thetourn.category,"timed",num1,num2,thetourn));
 						
 						}
 						
@@ -514,20 +529,53 @@ function CreateTournaments()
 									
 									
 				}
-			});
+				
+				Promise.all(promiseArray).then(values => 
+				{ 
+					console.log("made all tournament games"+JSON.stringify(values));
+					console.log("entries.length "+entries.length);
+					var dontActivate=false;
+					
+						for (playerIter in entries)
+						{
+							if(dontActivate==false)
+							{
+							if ((playerIter+1)!=entries.length)
+							{
+								
+								activateTournamentGame(entries[playerIter],entries[playerIter+1],thetourn);
+								dontActivate=true;
+							}
+							}
+							else
+							{dontActivate=true;}
+						});
+				
+				});
 						
 		//},sails.config.globals.threeMinutes);
 	}
 	
+	function activateTournamentGame(entry1,entry2,thetourn)
+	{
+		chessgame.update(player1:entry1.player,player2:entry2.player,tournament:thetourn.id},{started:true}).exec(function()
+		{});
+	}
+								
+	
 	function MakeChessGameForTournament(p1,p2,p1color,gamecat,gametype,num1,num2,tourn)
  {
+	 
+	 
+		 return new Promise((resolve,reject)=>{
 	 gametype="timed";
 	 console.log("MakeChessGameForTournament");
 	User.find({
 	id : [p1,p2]
 	}).exec(function (err, players){
 		
-		if (err) return res.negotiate(err);
+		if (err) 
+		{reject();}
 		
 		// If session refers to a user who no longer exists, still allow logout.
 			if (!players) {
@@ -574,22 +622,26 @@ function CreateTournaments()
 		
 		
 		
-		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+		Chessgame.create({started:false,tournament:tourn.id,Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
 			
 			function (err, records) {
 				if(err){
 			console.log('Cant create joined game.');
 			//console.log(JSON.stringify(err));
+			reject();
 			}
+			else
+			{resolve(records);}
 			//console.log("records"+JSON.stringify(records));
 			//console.log(records);
-			console.log("broadcasting to "+p1ID);
-			  sails.sockets.broadcast(p1ID,'newmygameevent', records);
-			 if (p1ID!=p2ID)
-			{
-			  sails.sockets.broadcast(p2ID,'newmygameevent', records);
-			}
-			
+			//console.log("broadcasting to "+p1ID);
+			 
+			 // sails.sockets.broadcast(p1ID,'newmygameevent', records);
+			 //if (p1ID!=p2ID)
+			//{
+			 // sails.sockets.broadcast(p2ID,'newmygameevent', records);
+			//}
+			/*
 			sails.config.globals.initialTimeouts[records.id]=setTimeout(function(gamID)
 			{
 				console.log("inaction timeout"+gamID);
@@ -602,14 +654,14 @@ function CreateTournaments()
 					Chessgame.update({id:myRecords.id},{Result:"Both Players Timed Out"},function(
 					timeOuterr,timeOutRecords)
 					{
-					sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
+					//sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
 	
 					});
 						
 					}
 					});
 					},30000,records.id);
-		
+			*/
 			//return res.json(records);
 			
 			
@@ -624,7 +676,7 @@ function CreateTournaments()
 			
 			//game.destroy();
 			}); 
-	 
+	 });
 	}
 	
 	function setTournamentInterval(time,iter,list){
