@@ -123,11 +123,11 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
-   Subscription.destroy({socketid:socket}).exec(function(){
-	console.log(JSON.stringify(socket));   
+   //Subscription.destroy({socketid:socket}).exec(function(){
+	console.log(JSON.stringify(session));   
     return cb();
 	
-	});
+	//});
    },
 
   /***************************************************************************
