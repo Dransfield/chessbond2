@@ -122,10 +122,13 @@ module.exports.sockets = {
   * disconnects                                                              *
   *                                                                          *
   ***************************************************************************/
-  // afterDisconnect: function(session, socket, cb) {
-  //   // By default: do nothing.
-  //   return cb();
-  // },
+   afterDisconnect: function(session, socket, cb) {
+   Subscription.destroy({socketid:socket}).exec(function(){
+	console.log(JSON.stringify(socket));   
+    return cb();
+	
+	});
+   },
 
   /***************************************************************************
   *                                                                          *
