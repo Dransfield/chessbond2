@@ -549,7 +549,7 @@ function CreateTournaments()
 							}
 							else
 							{dontActivate=true;}
-						});
+						}
 				
 				});
 						
