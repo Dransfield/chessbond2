@@ -572,7 +572,7 @@ function CreateTournaments()
 			{
 			
 			var theGame=records;
-			console.log("theGame "+JSON.stringify(theGame));
+			//console.log("theGame "+JSON.stringify(theGame));
 			var promiseArray=[];
 			promiseArray.push(retrieveSubPromise(entry1.player));
 			promiseArray.push(retrieveSubPromise(entry2.player));
@@ -585,8 +585,8 @@ function CreateTournaments()
 				{
 				if(values[0].subscriber &&  values[1].subscriber)
 				{ 
-				sails.sockets.broadcast(p1ID,'newmygameevent', theGame);
-				sails.sockets.broadcast(p2ID,'newmygameevent', theGame);
+				sails.sockets.broadcast(p1ID,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(p2ID,'newmygameevent', theGame[0]);
 				}
 				}
 				
