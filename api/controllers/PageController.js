@@ -572,7 +572,7 @@ function CreateTournaments()
 			{
 			
 			var theGame=records;
-			
+			console.log("theGame "+JSON.stringify(theGame));
 			var promiseArray=[];
 			promiseArray.push(retrieveSubPromise(entry1.player));
 			promiseArray.push(retrieveSubPromise(entry2.player));
