@@ -541,7 +541,7 @@ function CreateTournaments()
 							if(activate==true)
 							{
 								var nextOne=playerIter+1;
-								if ((nextOne+1)<entries.length)
+								if ((nextOne)<entries.length)
 								{
 									console.log("playeriter"+playerIter);
 									activateTournamentGame(entries[playerIter],entries[nextOne],thetourn);
