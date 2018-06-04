@@ -562,7 +562,7 @@ function CreateTournaments()
 	{
 		console.log(entry1.player);
 		console.log(entry2.player);
-		Chessgame.update({player1:entry1.player,player2:entry2.player,tournament:thetourn.id},{started:true}).exec(
+		Chessgame.update({Player1:entry1.player,Player2:entry2.player,tournament:thetourn.id},{started:true}).exec(
 		function(err3,entries)
 		{});
 	}
