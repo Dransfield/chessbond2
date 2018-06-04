@@ -543,7 +543,7 @@ function CreateTournaments()
 								if ((playerIter+1)!=entries.length)
 								{
 									console.log("playeriter"+playerIter);
-									activateTournamentGame(entries[playerIter],entries[playerIter+1],thetourn);
+									activateTournamentGame(entries[playerIter],entries[(playerIter+1)],thetourn);
 									activate=false;
 								}
 							}
