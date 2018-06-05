@@ -1316,7 +1316,7 @@ function setupShowAllTournamentsPage()
 			
 			for (entryIter in JoinedGames[ProfID])
 			{
-				promiseArray.push(retrieveTournament(JoinedGames[ProfID].tournid));
+				promiseArray.push(retrieveTournament(JoinedGames[ProfID][entryIter].tournid));
 			}
 			
 			Promise.all(promiseArray).then(function(values) { 
