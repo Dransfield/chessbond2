@@ -1322,6 +1322,10 @@ function setupShowAllTournamentsPage()
 			Promise.all(promiseArray).then(function(values) { 
 			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
 			console.log("Tournaments.length "+Tournaments.length);
+			console.log(JSON.stringify(Tournaments[iter]));
+			console.log(JSON.stringify(Tournaments[0][iter]));
+			console.log(JSON.stringify(Tournaments));
+			
 			for(iter=0 ;iter< Tournaments.length;iter++)
 			{
 			var dateObj=new Date(Tournaments[iter].createdAt);
@@ -1333,9 +1337,9 @@ function setupShowAllTournamentsPage()
 		
 			if(minute<10)
 			{minute="0"+minute;}
-			$("#showalltournamentspage").append(Tournaments[iter].createdAt);
-			$("#showalltournamentspage").append(Tournaments[iter][0].createdAt);
-		
+			console.log(Tournaments[iter].createdAt);
+			console.log(Tournaments[iter][0].createdAt);
+			
 			$("#showalltournamentspage").append("<a href='/tournamentview/"+Tournaments[iter].id+"'> <h1>"+(iter+1)+"</h1></a>");
 			$("#showalltournamentspage").append("<span>"+month+"/"+day+"/"+year+"</span>");
 			$("#showalltournamentspage").append("<span style='width:30px'></span>");
