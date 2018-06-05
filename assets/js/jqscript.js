@@ -2002,7 +2002,7 @@ var cg = new Promise
 				}
 			
 			);
-			//JoinedGames[person]=[];
+			JoinedGames[person]=[];
 			//console.log(JSON.stringify(resData));
 		//	console.log(resData);
 			for (y in resData)
