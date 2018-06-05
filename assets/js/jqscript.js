@@ -1309,7 +1309,7 @@ function setupShowAllTournamentsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
 	
-	Tournaments=[];
+	Tournaments={};
 	retrieveTournamentGames(ProfID).then(function(){
 		
 			var promiseArray=[];
@@ -2996,7 +2996,8 @@ return cg;
 
 function retrieveTournament(tournID)
 {
-
+if (!Tournaments[tournID])
+{
 var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/tournament/"+tournID,{},
@@ -3014,6 +3015,7 @@ var cg = new Promise
 
 });
 return cg;	
+}
 }
 
 function retrieveSpecificTournamentEntries(tournID)
