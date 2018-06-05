@@ -1837,7 +1837,7 @@ function retrieveTournamentGames(tournID)
 
 var cg = new Promise
 ((resolve, reject) => {
-		io.socket.get("/chessgame",{tournament:tournID},limit:30000},
+		io.socket.get("/chessgame",{tournament:tournID}),
 		function (resData,jwres){
 			
 			if(jwres.statusCode!=403)
