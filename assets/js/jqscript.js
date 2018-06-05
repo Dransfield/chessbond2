@@ -1386,7 +1386,7 @@ function setupTournamentViewPage()
 							console.log("Tournaments "+JSON.stringify(Tournaments));
 							
 							showHeader($("#tournamentviewpage"),1,"Tournament");
-							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
+							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[ProfID].category);
 							
 							
 							joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
@@ -2002,7 +2002,7 @@ var cg = new Promise
 				}
 			
 			);
-			JoinedGames[person]=[];
+			//JoinedGames[person]=[];
 			//console.log(JSON.stringify(resData));
 		//	console.log(resData);
 			for (y in resData)

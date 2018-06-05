@@ -25,6 +25,15 @@ module.exports = {
 			return res.send(sender);
 			});
 		});
+	},
+	getPlayersGames:function(req,res){
+	
+	Chessgame.find({or:[{'Player1':req.param('player')},{'Player2':req.param('player')}],tournamentGame:true}).exec(function(err,results)
+	{
+		
+		
+	});
+	
 	}
 	
 };
