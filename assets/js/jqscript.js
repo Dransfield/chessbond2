@@ -3004,7 +3004,7 @@ var cg = new Promise
 			
 			for (x in resData)
 			{
-			Tournaments.push(resData);
+			Tournaments[resData.id]=resData;
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
