@@ -1314,6 +1314,7 @@ function setupTournamentViewPage()
 			{
 				retrieveTournamentEntries(ProfID).then(function()
 				{
+					
 					retrievePrivatesandFollows().then(function()
 					{		
 						retrieveAccounts().then(function()
@@ -1343,7 +1344,8 @@ function setupTournamentViewPage()
 							//{
 							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
 							//console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
-							showTournamentGameSchedule($("#tournamentviewpage"),TournamentEntries);
+							showTournamentGameSchedule($("#tournamentviewpage"),ProfID);
+					
 							//});
 							
 				io.socket.on('tournament entries',function (data)

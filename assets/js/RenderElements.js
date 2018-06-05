@@ -492,81 +492,32 @@ function sortTourn(a,b)
 		
 		}
 
-function showTournamentGameSchedule(elem,entries)
+function showTournamentGameSchedule(elem,thetournid)
 {
 var gameNumber=0;
 
-//	Tournamententry.find({tournid:thetournid}).exec(function(err3,entries)
-				//{
+Chessgame.find({tournament:thetournid}).exec(function(err3,games)
+				{
 					elem.append("<h1>Game Schedule</h1>");
 					
 					console.log("entries "+JSON.stringify(entries));
-				for (playerIter in entries)
-					{
-						var startMakingGames=false;
-					//	console.log("every other player than "+entries[playerIter].player);
-					 
-						for(otherIter in entries)
+						for (gameIter in games)
 						{
-							console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
-							if(startMakingGames==true)
+							elem.append("<h2>Game:"+games[gameIter].id+"</h2>");
+							if(games[gameIter].Result.length>0)
 							{
-							gameNumber=gameNumber+1;
-							elem.append("<h2>Game:"+gameNumber+"</h2>");
-							
-							console.log("found match2");
-							
-							elem.append("<div>White:</div> ");
-							showUsername(elem,entries[otherIter].player);
-							elem.append("<div> Black: </div>");
-							showUsername(elem,entries[playerIter].player);
-							
-							gameNumber=gameNumber+1;
-							elem.append("<h2>Game:"+gameNumber+"</h2>");
-							
-							elem.append("<div>White:</div> ");
-							showUsername(elem,entries[playerIter].player);
-							elem.append("<div> Black: </div>");
-							showUsername(elem,entries[otherIter].player);
-							
-							gameNumber=gameNumber+1;
-							elem.append("<h2>Game:"+gameNumber+"</h2>");
-							
-							elem.append("<div>White:</div> ");
-							showUsername(elem,entries[otherIter].player);
-							elem.append("<div> Black: </div>");
-							showUsername(elem,entries[playerIter].player);
-							
-							gameNumber=gameNumber+1;
-							elem.append("<h2>Game:"+gameNumber+"</h2>");
-							
-							elem.append("<div>White:</div> ");
-							showUsername(elem,entries[playerIter].player);
-							elem.append("<div> Black: </div>");
-							showUsername(elem,entries[otherIter].player);
-							
-							}	
-						
-							
-							if(entries[otherIter].player == entries[playerIter].player)
-							{
-							startMakingGames=true;
-							//console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
-									console.log("found match1");
-									
-							}
-							else
-							{
-							console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
-							
-							}
+							elem.append("<h3>Result:"+games[gameIter].Result+"</h3>");
 								
-						}	
-			}
-										
-										
-		
-	//});	
+							}
+							elem.append("<div>White:</div> ");
+							showUsername(elem,games[gameIter].Player1);
+							elem.append("<div> Black: </div>");
+							showUsername(elem,games[gameIter].Player2);
+							
+						}
+				});			
+							
+	
 	
 }
 
