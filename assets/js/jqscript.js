@@ -1337,7 +1337,7 @@ function setupShowAllTournamentsPage()
 			$("#showalltournamentspage").append("<span style='width:30px'></span>");
 			$("#showalltournamentspage").append("<span>"+hour+":"+minute+"</span>");
 			}
-			}				
+			});				
 			
 		});
 	
