@@ -1309,16 +1309,26 @@ function setupShowAllTournamentsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
 	
-	Tournaments={};
+	
 	retrieveTournamentGames(ProfID).then(function(){
 		
 			var promiseArray=[];
-			
+			var gamesFound=0;
+			var temp={};
 			for (entryIter in JoinedGames[ProfID])
 			{
+				gamesFound=gamesFound+1;
 				promiseArray.push(retrieveTournament(JoinedGames[ProfID][entryIter].tournament));
+				console.log("tournid "+JoinedGames[ProfID][entryIter].tournament);
+				temp[JoinedGames[ProfID][entryIter].tournament]=JoinedGames[ProfID][entryIter].tournament;
 			}
 			
+			console.log("gamesFound "+gamesFound);
+			for(iter in temp)
+			{
+			console.log("gamesFound "+temp[iter]);
+				
+			}
 			Promise.all(promiseArray).then(function(values) { 
 			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
 			console.log("Tournaments.length "+Tournaments.length);
