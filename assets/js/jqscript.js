@@ -1321,7 +1321,7 @@ function setupShowAllTournamentsPage()
 			
 			Promise.all(promiseArray).then(function(values) { 
 			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
-			for(iter=0 ;iter< Tournaments.length;iter++)
+			for(iter=0 ;iter++;iter< Tournaments.length)
 			{
 			var dateObj=new Date(Tournaments[iter].createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
