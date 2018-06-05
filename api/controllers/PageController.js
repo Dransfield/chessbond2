@@ -784,7 +784,8 @@ function CreateTournaments()
 	
 	function DoTournamentGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
 	{
-	var elo = require('elo-rank')(15);
+	var EloRank = require('elo-rank');
+	var elo = new EloRank(15);
 	console.log("winner "+winner);
 	console.log("loser "+loser);
 	var winnergamecategory;
