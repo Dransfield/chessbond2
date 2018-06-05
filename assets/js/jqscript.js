@@ -2998,9 +2998,10 @@ var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/tournament/"+tournID,{},
 		function (resData,jwres){
+			Tournaments=[];
 			for (x in resData)
 			{
-			Tournaments[0]=resData;
+			Tournaments.push(resData);
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
