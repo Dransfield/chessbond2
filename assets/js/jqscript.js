@@ -202,6 +202,10 @@ var NavbarDropDown;
 		{
 		setupOpenTournament();	
 		}
+		if($("#showalltournamentspage").length)
+		{
+		setupShowAllTournamentsPage();
+		}
 		if($("#textpage").length)
 		{
 		setupTextPage();	
@@ -1299,6 +1303,36 @@ function setupAlbumsPage()
 					});
 				});
 					
+}
+
+function setupShowAllTournamentsPage()
+{
+	AccountsToRetrieve[MyID]=MyID;
+	
+	
+	
+		retrievePlayersTournaments(ProfID).then(function(){
+			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
+			for(iter=0 ;iter< Tournaments.length;iter++)
+			{
+			var dateObj=new Date(msg.createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+			var hour=dateObj.getUTCHours();
+			var minute=dateObj.getUTCMinutes();
+		
+			if(minute<10)
+			{minute="0"+minute;}
+			$("#showalltournamentspage").append("<h1>"+(iter+1)+"</h1>");
+			$("#showalltournamentspage").append("<span>"+month+"/"+day+"/"+year+"</span>");
+			$("#showalltournamentspage").append("<span style='width:30px'></span>");
+			$("#showalltournamentspage").append("<span>"+hour+":"+minute+"</span>");
+	
+			}				
+			
+		});
+	
 }
 
 function setupTournamentViewPage()

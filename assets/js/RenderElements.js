@@ -499,7 +499,7 @@ var gameNumber=0;
 
 					elem.append("<h1>Game Schedule</h1>");
 					var games=JoinedGames[thetournid];
-						for (gameIter in games)
+						for (gameIter=0;gameIter++; gameIter<games.length)
 						{
 							elem.append("<h2>:"+(gameIter+1)+"<a href='/humanvshumannew/"+games[gameIter].id+"'></h2>");
 							
