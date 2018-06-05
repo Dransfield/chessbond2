@@ -501,17 +501,17 @@ var gameNumber=0;
 					var games=JoinedGames[thetournid];
 						for (gameIter in games)
 						{
-							elem.append("<h2>Game:"+games[gameIter].id+"</h2>");
+							elem.append("<h2>:"+(gameIter+1)+"<a href='/humanvshumannew/"+games[gameIter].id+"'></h2>");
+							
+							elem.append("<h4><div>White:</div></h4>");
+							showUsername(elem,games[gameIter].Player1);
+							elem.append("<h4><div> Black: </div></h4>");
+							showUsername(elem,games[gameIter].Player2);
 							if(games[gameIter].Result.length>0)
 							{
-							elem.append("<h3>Result:"+games[gameIter].Result+"</h3>");
+							elem.append("<div>Result:"+games[gameIter].Result+"</div>");
 								
 							}
-							elem.append("<div>White:</div> ");
-							showUsername(elem,games[gameIter].Player1);
-							elem.append("<div> Black: </div>");
-							showUsername(elem,games[gameIter].Player2);
-							
 						}
 						
 							
