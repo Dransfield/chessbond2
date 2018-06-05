@@ -496,10 +496,9 @@ function showTournamentGameSchedule(elem,thetournid)
 {
 var gameNumber=0;
 
-Chessgame.find({tournament:thetournid}).exec(function(err3,games)
-				{
+
 					elem.append("<h1>Game Schedule</h1>");
-					
+					var games=JoinedGames[thetournid];
 					console.log("entries "+JSON.stringify(entries));
 						for (gameIter in games)
 						{
@@ -515,7 +514,7 @@ Chessgame.find({tournament:thetournid}).exec(function(err3,games)
 							showUsername(elem,games[gameIter].Player2);
 							
 						}
-				});			
+						
 							
 	
 	

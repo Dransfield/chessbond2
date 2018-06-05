@@ -1314,7 +1314,8 @@ function setupTournamentViewPage()
 			{
 				retrieveTournamentEntries(ProfID).then(function()
 				{
-					
+					retrieveTournamentGames(ProfID).then(function()
+					{
 					retrievePrivatesandFollows().then(function()
 					{		
 						retrieveAccounts().then(function()
@@ -1377,7 +1378,7 @@ function setupTournamentViewPage()
 					});
 				});
 			});
-					
+		});
 }
 
 
@@ -1830,7 +1831,44 @@ var cg = new Promise
 return cg;
 }
 
+function retrieveTournamentGames(tournID)
+{
 
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/chessgame",{tournament:tournID}],limit:30000},
+		function (resData,jwres){
+			
+			if(jwres.statusCode!=403)
+			{
+			if (resData)
+			{
+			resData.sort(function(b,a)
+			{
+				return (new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime());
+				}
+			
+			);
+			JoinedGames[tournID]=[];
+	
+			for (y in resData)
+			{
+			JoinedGames[tournID].push(resData[y]);
+			AccountsToRetrieve[resData[y].Player1]=resData[y].Player1;
+			AccountsToRetrieve[resData[y].Player2]=resData[y].Player2;			
+			}	
+		
+			resolve(resData);
+			}
+			}
+		});		
+});
+
+return cg;
+
+	
+}
 function retrieveGames(person)
 {
 	//var PromiseArray=[];
