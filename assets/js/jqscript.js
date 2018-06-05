@@ -1322,8 +1322,8 @@ function setupShowAllTournamentsPage()
 			Promise.all(promiseArray).then(function(values) { 
 			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
 			console.log("Tournaments.length "+Tournaments.length);
-			console.log(JSON.stringify(Tournaments[iter]));
-			console.log(JSON.stringify(Tournaments[0][iter]));
+			console.log(JSON.stringify(Tournaments[0]));
+			console.log(JSON.stringify(Tournaments[0][0]));
 			console.log(JSON.stringify(Tournaments));
 			
 			for(iter=0 ;iter< Tournaments.length;iter++)
