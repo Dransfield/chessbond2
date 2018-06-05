@@ -1323,8 +1323,8 @@ function setupShowAllTournamentsPage()
 			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
 			console.log("Tournaments.length "+Tournaments.length);
 			console.log(JSON.stringify(Tournaments));
-			
-			for(iter=0 ;iter< Tournaments.length;iter++)
+			var iter2=0;
+			for(iter in Tournaments)
 			{
 			var dateObj=new Date(Tournaments[iter].createdAt);
 			var month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -1336,10 +1336,11 @@ function setupShowAllTournamentsPage()
 			if(minute<10)
 			{minute="0"+minute;}
 			
-			$("#showalltournamentspage").append("<a href='/tournamentview/"+Tournaments[iter].id+"'> <h1>"+(iter+1)+"</h1></a>");
+			$("#showalltournamentspage").append("<a href='/tournamentview/"+Tournaments[iter].id+"'> <h1>"+(iter2+1)+"</h1></a>");
 			$("#showalltournamentspage").append("<span>"+month+"/"+day+"/"+year+"</span>");
 			$("#showalltournamentspage").append("<span style='width:30px'></span>");
 			$("#showalltournamentspage").append("          <span>"+hour+":"+minute+"</span>");
+			iter2=iter2+1;
 			}
 			});				
 			
