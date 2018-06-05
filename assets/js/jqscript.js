@@ -1310,13 +1310,13 @@ function setupShowAllTournamentsPage()
 	AccountsToRetrieve[MyID]=MyID;
 	
 	
-	retrievePlayersTournamentEntries(ProfID).then(function(){
+	retrieveTournamentGames(ProfID).then(function(){
 		
 			var promiseArray=[];
 			
-			for (entryIter in TournamentEntries)
+			for (entryIter in JoinedGames[ProfID])
 			{
-				promiseArray.push(retrieveTournament(TournamentEntries[entryIter].tournid));
+				promiseArray.push(retrieveTournament(JoinedGames[ProfID].tournid));
 			}
 			
 			Promise.all(promiseArray).then(function(values) { 
@@ -1921,6 +1921,58 @@ function retrieveGames(person)
 var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/chessgame",{or:[{'Player1':person},{'Player2':person}],limit:30000},
+		function (resData,jwres){
+			
+			if(jwres.statusCode!=403)
+			{
+			if (resData)
+			{
+			resData.sort(function(b,a)
+			{
+			//	console.log(a.createdAt);
+			//	console.log(new Date(a.createdAt).getTime());
+				return (new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime());
+				}
+			
+			);
+			JoinedGames[person]=[];
+			//console.log(JSON.stringify(resData));
+		//	console.log(resData);
+			for (y in resData)
+			{
+			JoinedGames[person].push(resData[y]);
+			AccountsToRetrieve[resData[y].Player1]=resData[y].Player1;
+			AccountsToRetrieve[resData[y].Player2]=resData[y].Player2;
+			
+			//console.log("resdata");
+			//console.log(JSON.stringify(resData[y]));
+			}	
+		
+			//console.log("joined games persons[x]");
+			//console.log(JSON.stringify(JoinedGames[persons[x]][0]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]][1]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
+			resolve(resData);
+			}
+			}
+		});		
+});
+//PromiseArray.push(cg);	
+
+//}
+return cg;
+
+}
+
+function retrieveTournamentGames(person)
+{
+	//var PromiseArray=[];
+	//for (x in persons)
+	//{
+		console.log("retrieve games");
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/chessgame",{or:[{'Player1':person},{'Player2':person}],tournamentGame:true,limit:30000},
 		function (resData,jwres){
 			
 			if(jwres.statusCode!=403)
