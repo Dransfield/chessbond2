@@ -1869,6 +1869,7 @@ return cg;
 
 	
 }
+
 function retrieveGames(person)
 {
 	//var PromiseArray=[];
