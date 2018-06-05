@@ -1334,6 +1334,8 @@ function setupShowAllTournamentsPage()
 			if(minute<10)
 			{minute="0"+minute;}
 			$("#showalltournamentspage").append(Tournaments[iter].createdAt);
+			$("#showalltournamentspage").append(Tournaments[iter][0].createdAt);
+		
 			$("#showalltournamentspage").append("<a href='/tournamentview/"+Tournaments[iter].id+"'> <h1>"+(iter+1)+"</h1></a>");
 			$("#showalltournamentspage").append("<span>"+month+"/"+day+"/"+year+"</span>");
 			$("#showalltournamentspage").append("<span style='width:30px'></span>");
