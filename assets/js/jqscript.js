@@ -1310,7 +1310,7 @@ function setupShowAllTournamentsPage()
 	AccountsToRetrieve[MyID]=MyID;
 	
 	
-	retrieveTournamentGames(ProfID).then(function(){
+	retrievePlayersTournamentGames(ProfID).then(function(){
 		
 			var promiseArray=[];
 			var gamesFound=0;
@@ -1979,7 +1979,7 @@ return cg;
 
 }
 
-function retrieveTournamentGames(person)
+function retrievePlayersTournamentGames(person)
 {
 	//var PromiseArray=[];
 	//for (x in persons)
