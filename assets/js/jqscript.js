@@ -1316,15 +1316,12 @@ function setupShowAllTournamentsPage()
 			
 			for (entryIter in JoinedGames[ProfID])
 			{
-				console.log(JoinedGames[ProfID][entryIter].tournament);
 				promiseArray.push(retrieveTournament(JoinedGames[ProfID][entryIter].tournament));
 			}
 			
 			Promise.all(promiseArray).then(function(values) { 
 			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
 			console.log("Tournaments.length "+Tournaments.length);
-			console.log(JSON.stringify(Tournaments[0]));
-			console.log(JSON.stringify(Tournaments[0][0]));
 			console.log(JSON.stringify(Tournaments));
 			
 			for(iter=0 ;iter< Tournaments.length;iter++)
@@ -1338,8 +1335,6 @@ function setupShowAllTournamentsPage()
 		
 			if(minute<10)
 			{minute="0"+minute;}
-			console.log(Tournaments[iter].createdAt);
-			console.log(Tournaments[iter][0].createdAt);
 			
 			$("#showalltournamentspage").append("<a href='/tournamentview/"+Tournaments[iter].id+"'> <h1>"+(iter+1)+"</h1></a>");
 			$("#showalltournamentspage").append("<span>"+month+"/"+day+"/"+year+"</span>");
