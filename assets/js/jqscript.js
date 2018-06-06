@@ -38,7 +38,8 @@ var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
-var Tournaments={};
+
+var Tournaments=[];
 var TournamentEntries=[];
 var TournamentCandidates=[];
 var OwnersVisits=[];
@@ -3062,8 +3063,8 @@ var cg = new Promise
 			serverTime=resData.serverTime;
 			for (x in resData.tourneys)
 			{
-			//Tournaments[(resData.tourneys[x]);
-			Tournaments=resData.tourneys[x];
+			Tournaments.push(resData.tourneys[x]);
+			//Tournaments=resData.tourneys[x];
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
