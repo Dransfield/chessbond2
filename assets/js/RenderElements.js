@@ -499,13 +499,14 @@ var gameNumber=0;
 				var games=JoinedGames[thetournid];
 				console.log(JSON.stringify(games));
 				
-				if(games[gameIter].Result.length==0 && games[gameIter].started==true)
+				
+					for (gameIter=0; gameIter<games.length;gameIter++)
+						{
+						if(games[gameIter].Result.length==0 && games[gameIter].started==true)
 							{
 							elem.append("<div>Now Playing</div>");
 							}
 							
-					for (gameIter=0; gameIter<games.length;gameIter++)
-						{
 						elem.append("<a href='/humanvshumannew/"+games[gameIter].id+"'><h2>:"+(gameIter+1)+"</h2></a>");
 						elem.append("<h4><div>White:</div></h4>");
 						showUsername(elem,games[gameIter].Player1);
