@@ -500,7 +500,7 @@ var gameNumber=0;
 				console.log(JSON.stringify(games));
 					for (gameIter=0; gameIter<games.length;gameIter++)
 						{
-						elem.append("<h2>:"+(gameIter+1)+"<a href='/humanvshumannew/"+games[gameIter].id+"'></h2>");
+						elem.append("<a href='/humanvshumannew/"+games[gameIter].id+"'><h2>:"+(gameIter+1)+"</h2></a>");
 						elem.append("<h4><div>White:</div></h4>");
 						showUsername(elem,games[gameIter].Player1);
 						elem.append("<h4><div> Black: </div></h4>");
