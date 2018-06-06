@@ -3062,7 +3062,8 @@ var cg = new Promise
 			serverTime=resData.serverTime;
 			for (x in resData.tourneys)
 			{
-			Tournaments.push(resData.tourneys[x]);
+			//Tournaments[(resData.tourneys[x]);
+			Tournaments=resData.tourneys[x];
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
