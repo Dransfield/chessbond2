@@ -1090,11 +1090,12 @@ function timeOutNonMovedGames()
 									}
 					
 								}
-						  });
+						  
 						
 					
-					},30000,records[iter]);
-					}
+							},30000,records[iter]);
+						}
+					});
 }
 
  function UpdateBannedAccounts()
