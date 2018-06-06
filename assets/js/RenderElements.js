@@ -498,6 +498,12 @@ var gameNumber=0;
 				elem.append("<h1>Game Schedule</h1>");
 				var games=JoinedGames[thetournid];
 				console.log(JSON.stringify(games));
+				
+				if(games[gameIter].Result.length==0 && games[gameIter].started==true)
+							{
+							elem.append("<div>Now Playing</div>");
+							}
+							
 					for (gameIter=0; gameIter<games.length;gameIter++)
 						{
 						elem.append("<a href='/humanvshumannew/"+games[gameIter].id+"'><h2>:"+(gameIter+1)+"</h2></a>");
@@ -505,10 +511,7 @@ var gameNumber=0;
 						showUsername(elem,games[gameIter].Player1);
 						elem.append("<h4><div> Black: </div></h4>");
 						showUsername(elem,games[gameIter].Player2);
-							if(games[gameIter].Result.length==0 && games[gameIter].started==true)
-							{
-							elem.append("<div>Now Playing</div>");
-							}
+							
 							
 							if(games[gameIter].Result.length>0)
 							{

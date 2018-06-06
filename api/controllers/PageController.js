@@ -1062,6 +1062,38 @@ function timeOutNonMovedGames()
 					//}
 				}
 				});
+				
+					Chessgame.find({started:true,Move:1,tournamentGame:true,Result:""}).
+					exec(function afterwards(err, records){
+				for(iter in records)
+				{
+				sails.config.globals.initialTimeouts[theGame[0].id]=setTimeout(function(gam)
+			
+					if (gam.Move==1)
+					{
+					
+					var firstPlayer;
+					if (sails.config.globals.playerIsWhite(gam.Player1,gam))
+					{firstPlayer=gam.Player1;}
+					else
+					{firstPlayer=gam.Player2;}
+					
+						
+					if (firstPlayer=gam.Player1)
+					{
+					DoTournamentGameResult(gam.Player2,gam.Player1,'Black','White',gam.GameCategory,gam.id,'true',2);
+					}
+					else
+					{
+						
+					DoTournamentGameResult(gam.Player1,gam.Player2,'Black','White',gam.GameCategory,gam.id,'true',1);
+					}
+					
+					}
+				}
+				
+					
+					},30000,records[iter]);
 	
 }
 
