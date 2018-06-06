@@ -1068,7 +1068,7 @@ function timeOutNonMovedGames()
 					{
 						for(iter in records)
 						{
-						sails.config.globals.initialTimeouts[theGame[0].id]=setTimeout(function(gam)
+						sails.config.globals.initialTimeouts[records[iter].id]=setTimeout(function(gam)
 							{
 								if (gam.Move==1)
 								{
