@@ -498,7 +498,7 @@ var gameNumber=0;
 				elem.append("<h1>Game Schedule</h1>");
 				var games=JoinedGames[thetournid];
 				console.log(JSON.stringify(games));
-					for (gameIter=0;gameIter++; gameIter<games.length)
+					for (gameIter=0; gameIter<games.length;gameIter++)
 						{
 						elem.append("<h2>:"+(gameIter+1)+"<a href='/humanvshumannew/"+games[gameIter].id+"'></h2>");
 						elem.append("<h4><div>White:</div></h4>");
