@@ -342,9 +342,57 @@ function CreateTournaments()
 	
 	}
 	
+	
+	function assignTournamentPlayersToGames(tournid)
+	{
+		var freePlayers=[];
+		Chessgame.find({tournament:tournid}).exec(function(allGameErr,allgames)
+		{
+			for (allIter in allgames)
+			{
+			freePlayers[allgames[allIter].Player1]=allgames[allIter].Player1;				
+			freePlayers[allgames[allIter].Player2]=allgames[allIter].Player2;				
+			}
+		
+		
+				Chessgame.find({tournament:tournid,started:true,Result:""}).exec(function(narrowErr,narrow)
+				{
+		
+					for (narrowIter in narrow)
+					{
+					freePlayers[narrow[narrowIter].Player1]="";				
+					freePlayers[narrow[narrowIter].Player2]="";				
+					}
+		
+					Chessgame.find({tournament:tournid,started:false,Result:""}).exec(function(gameErr,opengames)
+					{
+						
+						var player1=opengames[openIter].Player1;
+						var player2=opengames[openIter].Player2;
+						
+						for (openIter in opengames)
+						{
+							if (freePlayers[player1]==player1)
+							{
+								if (freePlayers[player2]==player2)
+								{
+								activateTournamentGame(player1,player2,tournid);
+								freePlayers[player1]="";
+								freePlayers[player2]="";
+								}
+							}
+							
+						}
+					});
+		
+		
+				});
+		});
+	}
+	
 	function setTournamentToCurrentlyPlaying(record)
 	{
-		console.log("set tournament to currently playing?"+JSON.stringify(record));
+		//console.log("set tournament to currently playing?"+JSON.stringify(record));
 		
 		Tournament.find({currentlyPlaying:false,result:"",id:record.id,players:{'>':1}}).exec(function(updateErr,tournyRecords)
 			{
@@ -357,6 +405,9 @@ function CreateTournaments()
 	
 					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
 					setupTournamentGames(updatedRecords2[0]);
+					
+					
+					
 					});
 				}
 			});
@@ -544,7 +595,7 @@ function CreateTournaments()
 								if ((nextOne)<entries.length)
 								{
 									console.log("playeriter"+playerIter);
-									activateTournamentGame(entries[playerIter],entries[nextOne],thetourn);
+									activateTournamentGame(entries[playerIter].player,entries[nextOne].player,thetourn);
 									activate=false;
 								}
 							}
@@ -558,11 +609,11 @@ function CreateTournaments()
 	});
 	}
 	
-	function activateTournamentGame(entry1,entry2,thetourn)
+	function activateTournamentGame(player1,player2,thetourn)
 	{
 		console.log(entry1.player);
 		console.log(entry2.player);
-		Chessgame.update({Player1:entry1.player,Player2:entry2.player,tournament:thetourn.id},{started:true}).exec(
+		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn.id},{started:true}).exec(
 		function(err3,records)
 		{
 			
@@ -938,7 +989,8 @@ function CreateTournaments()
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
-	
+	assignTournamentPlayersToGames(updated[0].tournament);
+	 
 	 
 	});
 	});

@@ -26,7 +26,9 @@ module.exports = {
 			});
 		});
 	},
-	getPlayersGames:function(req,res){
+	
+	getPlayersGames:function(req,res)
+	{
 	
 	Chessgame.find({or:[{'Player1':req.param('player')},{'Player2':req.param('player')}],tournamentGame:true}).exec(function(err,results)
 	{

@@ -3222,7 +3222,7 @@ function showUsername(elem,usracc)
 
 	if(Accounts[usracc])
 	{
-		console.log("accounts exists to show username");
+	//	console.log("accounts exists to show username");
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
 		var usr=$("<div style='display:flex'><span class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </span><!--<span class='idlesquare' id='circlediv"+Accounts[usracc].name+"'</span>--></div>");
