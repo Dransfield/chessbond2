@@ -495,27 +495,21 @@ function sortTourn(a,b)
 function showTournamentGameSchedule(elem,thetournid)
 {
 var gameNumber=0;
-
-
-					elem.append("<h1>Game Schedule</h1>");
-					var games=JoinedGames[thetournid];
-						for (gameIter=0;gameIter++; gameIter<games.length)
+				elem.append("<h1>Game Schedule</h1>");
+				var games=JoinedGames[thetournid];
+				console.log(JSON.stringify(games));
+					for (gameIter=0;gameIter++; gameIter<games.length)
 						{
-							elem.append("<h2>:"+(gameIter+1)+"<a href='/humanvshumannew/"+games[gameIter].id+"'></h2>");
-							
-							elem.append("<h4><div>White:</div></h4>");
-							showUsername(elem,games[gameIter].Player1);
-							elem.append("<h4><div> Black: </div></h4>");
-							showUsername(elem,games[gameIter].Player2);
+						elem.append("<h2>:"+(gameIter+1)+"<a href='/humanvshumannew/"+games[gameIter].id+"'></h2>");
+						elem.append("<h4><div>White:</div></h4>");
+						showUsername(elem,games[gameIter].Player1);
+						elem.append("<h4><div> Black: </div></h4>");
+						showUsername(elem,games[gameIter].Player2);
 							if(games[gameIter].Result.length>0)
 							{
 							elem.append("<div>Result:"+games[gameIter].Result+"</div>");
-								
 							}
 						}
-						
-							
-	
 	
 }
 
