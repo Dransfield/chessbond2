@@ -407,7 +407,7 @@ function CreateTournaments()
 								winnersString=winnersString.concat("none");
 							}
 							
-							Tournament.update({id:tournid},{}).exec(function(){
+							Tournament.update({id:tournid},{result:winnersString}).exec(function(){
 							
 							});
 							
