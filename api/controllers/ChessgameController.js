@@ -363,11 +363,11 @@ var elo = new EloRank(15);
 							for (gameIter in finishedGames)
 							{
 								
-								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player1,finishedGames[gameIter]))
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player1Name,finishedGames[gameIter]))
 								{
 								winners[finishedGames[gameIter].Player1].won=winners[finishedGames[gameIter].Player1].won+1;	
 								}
-								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player2,finishedGames[gameIter]))
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player2Name,finishedGames[gameIter]))
 								{
 								winners[finishedGames[gameIter].Player2].won=winners[finishedGames[gameIter].Player2].won+1;	
 								}
