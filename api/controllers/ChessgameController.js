@@ -335,14 +335,29 @@ var elo = new EloRank(15);
  function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
-		Chessgame.find({tournament:tournid}).exec(function(allGameErr,allgames)
-		{
-			for (allIter in allgames)
-			{
-			freePlayers[allgames[allIter].Player1]=allgames[allIter].Player1;				
-			freePlayers[allgames[allIter].Player2]=allgames[allIter].Player2;				
-			}
 		
+		Chessgame.find({tournament:tournid,Result:""}).exec(function(availErr,availableGames)
+			{
+				
+				if(availableGames.length==0)
+				{
+					Tournamententry.destroy({tournid:tournid}).exec
+						(function afterwards(doneErr,doneRecords)
+						{
+						});
+				}
+				
+			if (availableGames.length>0)
+			{
+				Chessgame.find({tournament:tournid}).exec(function(allGameErr,allgames)
+				{
+					for (allIter in allgames)
+					{
+					freePlayers[allgames[allIter].Player1]=allgames[allIter].Player1;				
+					freePlayers[allgames[allIter].Player2]=allgames[allIter].Player2;				
+					}
+		
+			
 		
 				Chessgame.find({tournament:tournid,started:true,Result:""}).exec(function(narrowErr,narrow)
 				{
@@ -355,6 +370,9 @@ var elo = new EloRank(15);
 		
 					Chessgame.find({tournament:tournid,started:false,Result:""}).exec(function(gameErr,opengames)
 					{
+						
+						
+						
 						for (openIter in opengames)
 						{
 							var player1=opengames[openIter].Player1;
@@ -380,6 +398,8 @@ var elo = new EloRank(15);
 		
 				});
 		});
+	}
+	});
 	}
 	
 	function activateTournamentGame(player1,player2,thetourn)
