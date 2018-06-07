@@ -377,6 +377,7 @@ function CreateTournaments()
 								{
 									if (freePlayers[player2]==player2)
 									{
+									console.log("activating "+opengames[openIter].id);
 									activateTournamentGame(player1,player2,tournid);
 									freePlayers[player1]="";
 									freePlayers[player2]="";
@@ -625,8 +626,9 @@ function CreateTournaments()
 			{
 			
 			var theGame=records;
+			console.log("theGame "+JSON.stringify(theGame));
 			/*
-			//console.log("theGame "+JSON.stringify(theGame));
+			
 			var promiseArray=[];
 			promiseArray.push(retrieveSubPromise(entry1.player));
 			promiseArray.push(retrieveSubPromise(entry2.player));
