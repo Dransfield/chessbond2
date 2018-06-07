@@ -411,7 +411,8 @@ function CreateTournaments()
 							
 							});
 							
-						});
+							});
+							});
 				}
 				
 			if (availableGames.length>0)
