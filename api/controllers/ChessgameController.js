@@ -332,7 +332,148 @@ var elo = new EloRank(15);
 
 	};
 
- 
+ function assignTournamentPlayersToGames(tournid)
+	{
+		var freePlayers=[];
+		Chessgame.find({tournament:tournid}).exec(function(allGameErr,allgames)
+		{
+			for (allIter in allgames)
+			{
+			freePlayers[allgames[allIter].Player1]=allgames[allIter].Player1;				
+			freePlayers[allgames[allIter].Player2]=allgames[allIter].Player2;				
+			}
+		
+		
+				Chessgame.find({tournament:tournid,started:true,Result:""}).exec(function(narrowErr,narrow)
+				{
+		
+					for (narrowIter in narrow)
+					{
+					freePlayers[narrow[narrowIter].Player1]="";				
+					freePlayers[narrow[narrowIter].Player2]="";				
+					}
+		
+					Chessgame.find({tournament:tournid,started:false,Result:""}).exec(function(gameErr,opengames)
+					{
+						for (openIter in opengames)
+						{
+							var player1=opengames[openIter].Player1;
+							var player2=opengames[openIter].Player2;
+						
+							for (openIter in opengames)
+							{
+								if (freePlayers[player1]==player1)
+								{
+									if (freePlayers[player2]==player2)
+									{
+									console.log("activating "+opengames[openIter].id);
+									activateTournamentGame(player1,player2,tournid);
+									freePlayers[player1]="";
+									freePlayers[player2]="";
+									}
+								}
+							
+							}
+						}
+					});
+		
+		
+				});
+		});
+	}
+	
+	function activateTournamentGame(player1,player2,thetourn)
+	{
+		//console.log(entry1.player);
+		//console.log(entry2.player);
+		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn},{started:true}).exec(
+		function(err3,records)
+		{
+			
+			if (err3)
+			{console.log(err3);}
+			else
+			{
+			
+			var theGame=records;
+			console.log("theGame "+JSON.stringify(theGame));
+			/*
+			
+			var promiseArray=[];
+			promiseArray.push(retrieveSubPromise(entry1.player));
+			promiseArray.push(retrieveSubPromise(entry2.player));
+			
+			Promise.all(promiseArray).then(values => 
+				{ 
+				console.log(values);
+				
+				if(values[0] && values[1])
+				{
+				if(values[0].subscriber &&  values[1].subscriber)
+				{ 
+				*/
+				sails.sockets.broadcast(p1ID,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(p2ID,'newmygameevent', theGame[0]);
+				/*
+				}
+				}
+				
+				});
+				*/
+				
+				
+				sails.config.globals.initialTimeouts[theGame[0].id]=setTimeout(function(gamID)
+			{
+				console.log("inaction timeout"+gamID);
+				Chessgame.findOne({id:gamID}).exec(function(
+				myerr,myRecords)
+				{
+					//console.log("Move "+myRecords.Move);
+					if (myRecords.Move==1)
+					{
+					
+					var firstPlayer;
+					if (sails.config.globals.playerIsWhite(myRecords.Player1,myRecords))
+					{firstPlayer=myRecords.Player1;}
+					else
+					{firstPlayer=myRecords.Player2;}
+					
+					//User.findOne({id:firstPlayer}).exec(function(
+					//userErr,theUser)
+					//{
+						
+					if (firstPlayer=myRecords.Player1)
+					{
+					DoGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
+					}
+					else
+					{
+						
+					DoGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
+					}
+					/*
+					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
+					timeOuterr,timeOutRecords)
+					{
+					//sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
+	
+					});
+					*/
+					
+					//});	
+						
+					}
+				});
+					
+					},30000,theGame[0].id);
+				
+				
+			}
+			
+		});
+	}
+							
+	
 function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
  {
 	User.find({
