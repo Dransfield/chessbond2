@@ -343,7 +343,7 @@ function CreateTournaments()
 	}
 	
 	
-f
+
 	function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
