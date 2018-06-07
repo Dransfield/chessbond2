@@ -598,7 +598,7 @@ function CreateTournaments()
 								if ((nextOne)<entries.length)
 								{
 									console.log("playeriter"+playerIter);
-									activateTournamentGame(entries[playerIter].player,entries[nextOne].player,thetourn);
+									activateTournamentGame(entries[playerIter].player,entries[nextOne].player,thetourn.id);
 									activate=false;
 								}
 							}
@@ -616,7 +616,7 @@ function CreateTournaments()
 	{
 		//console.log(entry1.player);
 		//console.log(entry2.player);
-		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn.id},{started:true}).exec(
+		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn},{started:true}).exec(
 		function(err3,records)
 		{
 			
