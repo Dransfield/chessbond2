@@ -103,6 +103,20 @@ var NavbarDropDown;
 				NavbarDropDown.append("<hr>");
 				
 			});
+			
+			
+			io.socket.on('newmygameevent', function (data)
+			{
+			console.log('recieved new game event '+data);
+			
+			data.phrase=phrasefordate(data.createdAt);
+			JoinedGames[MyID].push(data);
+			//addJoinedGame(games.length-1,games,myelem);
+			addGamesToRecentGames2(MyID);
+		$(location).attr('href', '/humanvshumannew/'+data.id);
+			
+			});
+			
 		io.socket.on('IdleNotification',function (data)
 			{
 				//console.log(JSON.stringify(data));
@@ -3732,17 +3746,7 @@ function renderHomePage()
 	
 	showNewGameControls($("#newGameControls"));
 	}
-	io.socket.on('newmygameevent', function (data)
-			{
-			console.log('recieved new game event '+data);
-			
-			data.phrase=phrasefordate(data.createdAt);
-			JoinedGames[MyID].push(data);
-			//addJoinedGame(games.length-1,games,myelem);
-			addGamesToRecentGames2(MyID);
-		$(location).attr('href', '/humanvshumannew/'+data.id);
-			
-			});
+	
 			
 			
 			io.socket.on('activate tournament',function(data)

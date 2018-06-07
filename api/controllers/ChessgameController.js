@@ -163,7 +163,7 @@
 	
 	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
 	{
-
+	
 	var EloRank = require('elo-rank');
 	
 var elo = new EloRank(15);
@@ -319,8 +319,11 @@ var elo = new EloRank(15);
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	if (updated[0].tournament)
+	{
+	assignTournamentPlayersToGames(updated[0].tournament);
+	}
 	
-	 
 	});
 	});
 	
@@ -536,11 +539,13 @@ module.exports = {
 		
 			
 	if (clrtomove==cg.Player1Color)
-		{
+		{	
+		
 		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,'false',2);
 		}
 		else
 		{
+		
 		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.GameCategory,cg.id,'false',1);
 		}
 	}
