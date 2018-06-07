@@ -1309,7 +1309,7 @@ function setupAlbumsPage()
 function setupShowAllTournamentsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
-	retrieveAccounts(),then(function(){
+	retrieveAccounts().then(function(){
 	
 	retrievePlayersTournamentGames(ProfID).then(function(){
 		
