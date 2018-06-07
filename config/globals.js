@@ -121,7 +121,7 @@ playerIsWhite:function (player,game)
 						//		console.log("winner name is "+name);
 						//		}
 							
-								if(player.name.indexOf(name)==0)
+								if(player.indexOf(name)==0)
 								{
 										return true;
 								}
