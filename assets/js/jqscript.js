@@ -1403,6 +1403,10 @@ function setupTournamentViewPage()
 							showHeader($("#tournamentviewpage"),1,"Tournament");
 							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[ProfID].category);
 							
+							if(Tournaments[ProfID].result)
+							{
+								showHeader($("#tournamentviewpage"),2,Tournaments[ProfID].result);
+							}
 							
 							joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
 							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
