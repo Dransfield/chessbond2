@@ -356,7 +356,7 @@ function assignTournamentPlayersToGames(tournid)
 						(function afterwards(doneErr,doneRecords)
 						{
 							
-						Chessgame.find({tournament:tournid,Result:""}).exec(function(finishedErr,finishedGames)
+						Chessgame.find({tournament:tournid}).exec(function(finishedErr,finishedGames)
 							{	
 							
 							var winners={};
