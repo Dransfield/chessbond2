@@ -367,18 +367,18 @@ function CreateTournaments()
 							for (gameIter in finishedGames)
 							{
 							winners[finishedGames[gameIter].Player1]={name:finishedGames[gameIter].Player1Name,acct:finishedGames[gameIter].Player1,won:0};
-							//console.log(JSON.stringify(winners[finishedGames[gameIter]));
+							//console.log(JSON.stringify(winners[finishedGames[gameIter]]));
 							winners[finishedGames[gameIter].Player2]={name:finishedGames[gameIter].Player2Name,acct:finishedGames[gameIter].Player2,won:0};
 							}
 							
 							for (gameIter in finishedGames)
 							{
 								
-								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player1,finishedGames[gameIter]))
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player1Name,finishedGames[gameIter]))
 								{
 								winners[finishedGames[gameIter].Player1].won=winners[finishedGames[gameIter].Player1].won+1;	
 								}
-								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player2,finishedGames[gameIter]))
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player2Name,finishedGames[gameIter]))
 								{
 								winners[finishedGames[gameIter].Player2].won=winners[finishedGames[gameIter].Player2].won+1;	
 								}
@@ -450,6 +450,7 @@ function CreateTournaments()
 						
 							for (openIter in opengames)
 							{
+								
 								if (freePlayers[player1]==player1)
 								{
 									if (freePlayers[player2]==player2)
@@ -471,8 +472,7 @@ function CreateTournaments()
 	}
 	});
 	}
-	
-	function setTournamentToCurrentlyPlaying(record)
+		function setTournamentToCurrentlyPlaying(record)
 	{
 		//console.log("set tournament to currently playing?"+JSON.stringify(record));
 		
