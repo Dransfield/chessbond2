@@ -343,7 +343,7 @@ function CreateTournaments()
 	}
 	
 	
-	function assignTournamentPlayersToGames(tournid)
+function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
 		
@@ -362,7 +362,7 @@ function CreateTournaments()
 							var winners={};
 							var countWinner=[];
 							var highestNumber=0;
-							var winnerString="Winners: ";
+							var winnersString="Winners: ";
 							for (gameIter in finishedGames)
 							{
 							winners[finishedGames[gameIter].Player1]={name:finishedGames[gameIter].Player1Name,acct:finishedGames[gameIter].Player1,won:0};
