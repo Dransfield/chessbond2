@@ -611,8 +611,8 @@ function CreateTournaments()
 	
 	function activateTournamentGame(player1,player2,thetourn)
 	{
-		console.log(entry1.player);
-		console.log(entry2.player);
+		//console.log(entry1.player);
+		//console.log(entry2.player);
 		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn.id},{started:true}).exec(
 		function(err3,records)
 		{
