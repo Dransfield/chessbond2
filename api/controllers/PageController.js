@@ -343,7 +343,8 @@ function CreateTournaments()
 	}
 	
 	
-function assignTournamentPlayersToGames(tournid)
+f
+	function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
 		
@@ -366,17 +367,18 @@ function assignTournamentPlayersToGames(tournid)
 							for (gameIter in finishedGames)
 							{
 							winners[finishedGames[gameIter].Player1]={name:finishedGames[gameIter].Player1Name,acct:finishedGames[gameIter].Player1,won:0};
+							console.log(JSON.stringify(winners[finishedGames[gameIter]));
 							winners[finishedGames[gameIter].Player2]={name:finishedGames[gameIter].Player2Name,acct:finishedGames[gameIter].Player2,won:0};
 							}
 							
 							for (gameIter in finishedGames)
 							{
 								
-								if (sails.config.globals.gameIsAWin(finishedGames[gameIter],finishedGames[gameIter].Player1))
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player1,finishedGames[gameIter]))
 								{
 								winners[finishedGames[gameIter].Player1].won=winners[finishedGames[gameIter].Player1].won+1;	
 								}
-								if (sails.config.globals.gameIsAWin(finishedGames[gameIter],finishedGames[gameIter].Player2))
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player2,finishedGames[gameIter]))
 								{
 								winners[finishedGames[gameIter].Player2].won=winners[finishedGames[gameIter].Player2].won+1;	
 								}
