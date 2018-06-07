@@ -100,6 +100,36 @@ playerIsWhite:function (player,game)
 		//{imWhite=false;}
 		return imWhite;
 		},
+		gameIsAWin:function(player,game) 
+		{
+			//if (game.GameCategory=="60|0")
+			//{
+			//console.log(game);
+			//}
+			
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Won by")>-1)
+						{
+							var name=splitted[y-1].split("<")[0];
+							
+						//		if (game.GameCategory=="60|0")
+						//		{
+						//		console.log("winner name is "+name);
+						//		}
+							
+								if(player.name.indexOf(name)==0)
+								{
+										return true;
+								}
+							
+						}
+					}
+			}
+		},
   /****************************************************************************
   *                                                                           *
   * Expose each of your app's models as global variables (using their         *

@@ -355,6 +355,59 @@ function CreateTournaments()
 					Tournamententry.destroy({tournid:tournid}).exec
 						(function afterwards(doneErr,doneRecords)
 						{
+							
+						Chessgame.find({tournament:tournid,Result:""}).exec(function(finishedErr,finishedGames)
+							{	
+							
+							var winners={};
+							var countWinner=[];
+							var highestNumber=0;
+							var winnerString="Winners: ";
+							for (gameIter in finishedGames)
+							{
+							winners[finishedGames[gameIter].Player1]={name:finishedGames[gameIter].Player1Name,acct:finishedGames[gameIter].Player1,won:0};
+							winners[finishedGames[gameIter].Player2]={name:finishedGames[gameIter].Player2Name,acct:finishedGames[gameIter].Player2,won:0};
+							}
+							
+							for (gameIter in finishedGames)
+							{
+								
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter],finishedGames[gameIter].Player1))
+								{
+								winners[finishedGames[gameIter].Player1].won=winners[finishedGames[gameIter].Player1].won+1;	
+								}
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter],finishedGames[gameIter].Player2))
+								{
+								winners[finishedGames[gameIter].Player2]won.=winners[finishedGames[gameIter].Player2].won+1;	
+								}
+								
+							}
+							
+							for(winnerIter in winners)
+							{
+								console.log(winnerIter);
+								if (winners[winnerIter].won>highestNumber)
+								{
+								highestNumber=winners[winnerIter].won;
+								}
+							}
+							
+							if (highestNumber>0)
+							{
+							for(winnerIter in winners)
+							{
+								if (winners[winnerIter].won==highestNumber)
+								{
+									winnersString=winnersString.concat(winners[winnerIter].name);
+								}
+							}
+							}
+							else
+							{
+								winnersString=winnersString.concat("none");
+							}
+							});
+							
 						});
 				}
 				
