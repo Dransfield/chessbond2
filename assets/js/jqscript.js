@@ -1309,7 +1309,7 @@ function setupAlbumsPage()
 function setupShowAllTournamentsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
-	
+	retrieveAccounts(),then(function(){
 	
 	retrievePlayersTournamentGames(ProfID).then(function(){
 		
@@ -1356,7 +1356,7 @@ function setupShowAllTournamentsPage()
 			});				
 			
 		});
-	
+	});
 }
 
 function setupTournamentViewPage()

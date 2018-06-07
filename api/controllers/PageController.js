@@ -366,22 +366,24 @@ function CreateTournaments()
 		
 					Chessgame.find({tournament:tournid,started:false,Result:""}).exec(function(gameErr,opengames)
 					{
-						
-						var player1=opengames[openIter].Player1;
-						var player2=opengames[openIter].Player2;
-						
 						for (openIter in opengames)
 						{
-							if (freePlayers[player1]==player1)
+							var player1=opengames[openIter].Player1;
+							var player2=opengames[openIter].Player2;
+						
+							for (openIter in opengames)
 							{
-								if (freePlayers[player2]==player2)
+								if (freePlayers[player1]==player1)
 								{
-								activateTournamentGame(player1,player2,tournid);
-								freePlayers[player1]="";
-								freePlayers[player2]="";
+									if (freePlayers[player2]==player2)
+									{
+									activateTournamentGame(player1,player2,tournid);
+									freePlayers[player1]="";
+									freePlayers[player2]="";
+									}
 								}
-							}
 							
+							}
 						}
 					});
 		
