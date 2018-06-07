@@ -378,7 +378,7 @@ function CreateTournaments()
 								}
 								if (sails.config.globals.gameIsAWin(finishedGames[gameIter],finishedGames[gameIter].Player2))
 								{
-								winners[finishedGames[gameIter].Player2]won.=winners[finishedGames[gameIter].Player2].won+1;	
+								winners[finishedGames[gameIter].Player2].won=winners[finishedGames[gameIter].Player2].won+1;	
 								}
 								
 							}
@@ -406,6 +406,9 @@ function CreateTournaments()
 							{
 								winnersString=winnersString.concat("none");
 							}
+							
+							Tournament.update({id:tournid},{
+							
 							});
 							
 						});
