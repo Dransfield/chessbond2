@@ -427,7 +427,7 @@ var elo = new EloRank(15);
 					{
 					console.log(narrow[narrowIter].Player1+" not free");
 					console.log(narrow[narrowIter].Player2+" not free");
-					
+					console.log("because of "+narrow[narrowIter].id);
 					freePlayers[narrow[narrowIter].Player1]="";				
 					freePlayers[narrow[narrowIter].Player2]="";				
 					}

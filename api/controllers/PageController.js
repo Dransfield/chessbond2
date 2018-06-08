@@ -436,7 +436,7 @@ function CreateTournaments()
 					{
 					console.log(narrow[narrowIter].Player1+" not free");
 					console.log(narrow[narrowIter].Player2+" not free");
-					console.log("because of game "+narrow[narrowIter[.id);
+					console.log("because of game "+narrow[narrowIter].id);
 					freePlayers[narrow[narrowIter].Player1]="";				
 					freePlayers[narrow[narrowIter].Player2]="";				
 					}
