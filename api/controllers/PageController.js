@@ -551,6 +551,7 @@ function CreateTournaments()
 		
 		
 	}
+	
 	function activate_tournament(record)
 	{
 		console.log("activate this record "+JSON.stringify(record));
@@ -628,8 +629,10 @@ function CreateTournaments()
 					for(otherIter in entries)
 					{
 						//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
-						if(startMakingGames==true)
+						if (entries[playerIter].id!=entries[otherIter])
 						{
+						//if(startMakingGames==true)
+						//{
 						var p1=entries[otherIter].player;
 						var p2=entries[playerIter].player;
 						

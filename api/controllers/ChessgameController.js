@@ -319,9 +319,10 @@ var elo = new EloRank(15);
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
-	if (updated[0].tournament)
+	if (updated[0].tournamentGame)
 	{
-	assignTournamentPlayersToGames(updated[0].tournament);
+	setTimeout(assignTournamentPlayersToGames,sails.config.globals.fifteenSeconds,updated[0].tournament);
+	
 	}
 	
 	});
