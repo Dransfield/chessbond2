@@ -334,6 +334,7 @@ var elo = new EloRank(15);
 	};
 	
 	
+	
 	function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
@@ -427,7 +428,7 @@ var elo = new EloRank(15);
 					{
 					console.log(narrow[narrowIter].Player1+" not free");
 					console.log(narrow[narrowIter].Player2+" not free");
-					console.log("because of "+narrow[narrowIter].id);
+					console.log("because of game "+narrow[narrowIter].id);
 					freePlayers[narrow[narrowIter].Player1]="";				
 					freePlayers[narrow[narrowIter].Player2]="";				
 					}
@@ -448,7 +449,7 @@ var elo = new EloRank(15);
 									if (freePlayers[player2]==player2)
 									{
 									console.log("activating "+opengames[openIter].id);
-									activateTournamentGame(player1,player2,tournid);
+									activateTournamentGame(player1,player2,opengames[openIter].id);
 									freePlayers[player1]="";
 									freePlayers[player2]="";
 									}
@@ -464,12 +465,11 @@ var elo = new EloRank(15);
 	}
 	});
 	}
-		
-	function activateTournamentGame(player1,player2,thetourn)
+		function activateTournamentGame(player1,player2,thegame)
 	{
 		//console.log(entry1.player);
 		//console.log(entry2.player);
-		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn},{started:true}).exec(
+		Chessgame.update({id:thegame},{started:true}).exec(
 		function(err3,records)
 		{
 			
@@ -495,8 +495,8 @@ var elo = new EloRank(15);
 				if(values[0].subscriber &&  values[1].subscriber)
 				{ 
 				*/
-				sails.sockets.broadcast(p1ID,'newmygameevent', theGame[0]);
-				sails.sockets.broadcast(p2ID,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(theGame[0].Player1,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(theGame[0].Player2,'newmygameevent', theGame[0]);
 				/*
 				}
 				}
@@ -527,12 +527,12 @@ var elo = new EloRank(15);
 						
 					if (firstPlayer=myRecords.Player1)
 					{
-					DoGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
+					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
 					}
 					else
 					{
 						
-					DoGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
+					DoTournamentGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
 					}
 					/*
 					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
@@ -555,8 +555,7 @@ var elo = new EloRank(15);
 			
 		});
 	}
-							
-	
+								
 function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
  {
 	User.find({

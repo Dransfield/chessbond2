@@ -457,7 +457,7 @@ function CreateTournaments()
 									if (freePlayers[player2]==player2)
 									{
 									console.log("activating "+opengames[openIter].id);
-									activateTournamentGame(player1,player2,tournid);
+									activateTournamentGame(player1,player2,opengames[openIter].id);
 									freePlayers[player1]="";
 									freePlayers[player2]="";
 									}
@@ -697,11 +697,11 @@ function CreateTournaments()
 	});
 	}
 	
-	function activateTournamentGame(player1,player2,thetourn)
+	function activateTournamentGame(player1,player2,thegame)
 	{
 		//console.log(entry1.player);
 		//console.log(entry2.player);
-		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn,started:false},{started:true}).exec(
+		Chessgame.update({id:thegame},{started:true}).exec(
 		function(err3,records)
 		{
 			
