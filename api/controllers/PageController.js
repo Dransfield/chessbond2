@@ -400,7 +400,7 @@ function CreateTournaments()
 							{
 								if (winners[winnerIter].won==highestNumber)
 								{
-									winnersString=winnersString.concat(winners[winnerIter].name);
+									winnersString=winnersString.concat(" "+winners[winnerIter].name);
 								}
 							}
 							}

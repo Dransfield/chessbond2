@@ -321,7 +321,7 @@ var elo = new EloRank(15);
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
 	if (updated[0].tournamentGame)
 	{
-	setTimeout(assignTournamentPlayersToGames,sails.config.globals.fifteenSeconds,updated[0].tournament);
+	setTimeout(assignTournamentPlayersToGames,sails.config.globals.thirtySeconds,updated[0].tournament);
 	
 	}
 	
@@ -392,7 +392,7 @@ var elo = new EloRank(15);
 							{
 								if (winners[winnerIter].won==highestNumber)
 								{
-									winnersString=winnersString.concat(winners[winnerIter].name);
+									winnersString=winnersString.concat(" "+winners[winnerIter].name);
 								}
 							}
 							}
