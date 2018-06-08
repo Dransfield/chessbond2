@@ -630,7 +630,7 @@ function CreateTournaments()
 					for(otherIter in entries)
 					{
 						//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
-						if (entries[playerIter].id!=entries[otherIter])
+						if (entries[playerIter].id!=entries[otherIter].id)
 						{
 						//if(startMakingGames==true)
 						//{
