@@ -337,7 +337,7 @@ var elo = new EloRank(15);
 	function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
-		console.log(tournid);
+		console.log("assign tournid "+tournid);
 		
 		Chessgame.find({tournament:tournid,Result:""}).exec(function(availErr,availableGames)
 			{
@@ -425,6 +425,9 @@ var elo = new EloRank(15);
 		
 					for (narrowIter in narrow)
 					{
+					console.log(narrow[narrowIter].Player1+" not free");
+					console.log(narrow[narrowIter].Player2+" not free");
+					
 					freePlayers[narrow[narrowIter].Player1]="";				
 					freePlayers[narrow[narrowIter].Player2]="";				
 					}
@@ -436,11 +439,10 @@ var elo = new EloRank(15);
 						
 						for (openIter in opengames)
 						{
+							
 							var player1=opengames[openIter].Player1;
 							var player2=opengames[openIter].Player2;
 						
-							for (openIter in opengames)
-							{
 								if (freePlayers[player1]==player1)
 								{
 									if (freePlayers[player2]==player2)
@@ -452,7 +454,7 @@ var elo = new EloRank(15);
 									}
 								}
 							
-							}
+							
 						}
 					});
 		
