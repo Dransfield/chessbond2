@@ -337,6 +337,7 @@ var elo = new EloRank(15);
 	function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
+		console.log(tournid);
 		
 		Chessgame.find({tournament:tournid,Result:""}).exec(function(availErr,availableGames)
 			{

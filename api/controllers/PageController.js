@@ -343,7 +343,6 @@ function CreateTournaments()
 	}
 	
 	
-
 	function assignTournamentPlayersToGames(tournid)
 	{
 		var freePlayers=[];
@@ -450,7 +449,6 @@ function CreateTournaments()
 						
 							for (openIter in opengames)
 							{
-								
 								if (freePlayers[player1]==player1)
 								{
 									if (freePlayers[player2]==player2)
@@ -472,7 +470,7 @@ function CreateTournaments()
 	}
 	});
 	}
-		function setTournamentToCurrentlyPlaying(record)
+			function setTournamentToCurrentlyPlaying(record)
 	{
 		//console.log("set tournament to currently playing?"+JSON.stringify(record));
 		
