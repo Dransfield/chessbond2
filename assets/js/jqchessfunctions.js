@@ -944,6 +944,10 @@ function StartBlackClock()
 			{
 			showRematchButton();
 			}
+			else
+			{
+			showTournamentRedirectNotice();	
+			}
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();
 				withdrawButton.slideUp();

@@ -32,6 +32,25 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+
+function showTournamentRedirectNotice()
+{
+	
+	var redirectButton=showButton($("body"),"Redirecting in ","KgreenElement KhugeButton");
+	var timerspan=addSpan(redirectButton,"rematchTimer");
+	redirectButton.css("position","fixed");
+	redirectButton.css("top","50%");
+	var redirectSeconds=30;
+	
+	setInterval(function(){
+		redirectSeconds=redirectSeconds-1;
+		$("#rematchTimer").html(redirectSeconds);
+		if(rematchSeconds==0)
+		{redirectbutton.slideUp();}
+	},1000);
+
+	}
+
 function showRematchButton()
 {
 
