@@ -722,8 +722,8 @@ function CreateTournaments()
 				if(values[0].subscriber &&  values[1].subscriber)
 				{ 
 				*/
-				sails.sockets.broadcast(p1ID,'newmygameevent', theGame[0]);
-				sails.sockets.broadcast(p2ID,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(theGame[0].Player1,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(theGame[0].Player2,'newmygameevent', theGame[0]);
 				/*
 				}
 				}
