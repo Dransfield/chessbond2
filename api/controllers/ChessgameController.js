@@ -527,12 +527,12 @@ var elo = new EloRank(15);
 						
 					if (firstPlayer=myRecords.Player1)
 					{
-					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
+					DoGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
 					}
 					else
 					{
 						
-					DoTournamentGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
+					DoGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
 					}
 					/*
 					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
