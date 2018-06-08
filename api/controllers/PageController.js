@@ -669,6 +669,7 @@ function CreateTournaments()
 				
 				Promise.all(promiseArray).then(values => 
 				{ 
+					/*
 					console.log("made all tournament games"+JSON.stringify(values));
 					console.log("entries.length "+entries.length);
 					var activate=true;
@@ -688,7 +689,8 @@ function CreateTournaments()
 							else
 							{activate=true;}
 						}
-				
+					*/
+					assignTournamentPlayersToGames(thetourn.id);
 				});
 						
 		//},sails.config.globals.threeMinutes);
@@ -699,7 +701,7 @@ function CreateTournaments()
 	{
 		//console.log(entry1.player);
 		//console.log(entry2.player);
-		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn},{started:true}).exec(
+		Chessgame.update({Player1:player1,Player2:player2,tournament:thetourn,started:false},{started:true}).exec(
 		function(err3,records)
 		{
 			
