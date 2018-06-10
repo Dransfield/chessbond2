@@ -245,6 +245,9 @@ var NavbarDropDown;
 			});
 		
 			console.log("subscribe to web page "+window.location.href);
+			
+			console.log("subscribe to web page "+window.location.pathname);
+			
 			io.socket.get("/subscribeToRoom",{roomName:window.location.href,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			
 			});
