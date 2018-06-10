@@ -1557,12 +1557,12 @@ transporter.sendMail(mailOptions, function(error, info){
 
 		
   var roomName = req.param('roomName');
- console.log("joining room "+roomName);
+ //console.log("joining room "+roomName);
 
 var reqpath=req.param('reqpath');
 	if(req.param('reqpath'))
 	{
-	console.log("reqpath is"+reqpath);
+	//console.log("reqpath is"+reqpath);
 	var loggedin=false;
 	 if (req.session)
     {

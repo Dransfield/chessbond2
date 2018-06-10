@@ -2294,6 +2294,9 @@ else
 	
 }
 }
+
+//loadin page//showChatMessage(thisDiv,WallPosts[iter],"none",true,del);
+//recieved //showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true,del);
 function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton,showall)
 {
 	
@@ -3222,7 +3225,7 @@ else
 var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
 var im=$("<img class='profilepic'  alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
-console.log("picrot "+Accounts[usracc].pictureRotation);
+//console.log("picrot "+Accounts[usracc].pictureRotation);
 im.css("transform","rotate("+Accounts[usracc].pictureRotation+"deg)");
 d.append(im);
 return d;

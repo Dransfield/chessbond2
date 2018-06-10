@@ -244,6 +244,11 @@ var NavbarDropDown;
 			console.log(JSON.stringify(resData));
 			});
 		
+			console.log("subscribe to web page "+window.location.href);
+			io.socket.get("/subscribeToRoom",{roomName:window.location.href,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
+			
+			});
+			
 			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			console.log("blade "+JSON.stringify(resData));
 			if (resData.message=="not logged in")
@@ -3270,7 +3275,7 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 								PrivateConversations[MyID][usracc]=resData;
 								io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
 							function (resData, jwRes) {
-								console.log("resData[0].id "+resData.id);
+							//	console.log("resData[0].id "+resData.id);
 								
 								});
 					
