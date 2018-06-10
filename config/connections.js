@@ -37,7 +37,10 @@ module.exports.connections = {
      password: 'Chessmaster123!',
      database: 'chessdb'
   }
+/*
+db.createUser({user: "chessbondprakash",pwd: "Chessmaster123!",roles: [ "readWrite", "dbAdmin"]});
 
+*/
   /***************************************************************************
   *                                                                          *
   * MySQL is the world's most popular relational database.                   *
