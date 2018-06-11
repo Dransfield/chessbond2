@@ -3442,7 +3442,7 @@ function addPrivatePromises()
 						//console.log(pc);
 							for (y in pc)
 							{
-									
+							console.log("add private "+JSON.stringify(y));
 						
 							/*if(MyID==pc[y].Talker1)
 							{

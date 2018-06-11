@@ -2323,7 +2323,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgreen;padding:4px;'></div>");
 
-	}
+	}add
 	*/
 	if(msg.unread=="true")
 	{
