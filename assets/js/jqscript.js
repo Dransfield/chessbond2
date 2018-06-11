@@ -3440,9 +3440,9 @@ function addPrivatePromises()
 						function (pc) {
 						
 						//console.log(pc);
-							for (y in pc)
-							{
-							console.log("add private "+JSON.stringify(y));
+							//for (y in pc)
+							//{
+							console.log("add private "+JSON.stringify(pc));
 						
 							/*if(MyID==pc[y].Talker1)
 							{
@@ -3458,7 +3458,7 @@ function addPrivatePromises()
 					
 							
 							
-							}
+							//}
 							console.log("resolve privatecon");
 						resolve(pc);
 				
