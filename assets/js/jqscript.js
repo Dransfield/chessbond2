@@ -1828,7 +1828,7 @@ function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 		{
 			var none='none';
 			
-			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype,intendedFor:intendedfor},
+			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype,location:window.location.pathname,intendedFor:intendedfor},
 			function onSuccess (){
 			//$scope.chatInput = null;
 			
