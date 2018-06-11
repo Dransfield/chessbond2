@@ -4180,6 +4180,9 @@ NDDlinks['MessagesLink']=$("<a  id='messageslink' href='/myprofilemg'><li style=
 
 NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Albums</li></a>");
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
+
+
+if(bookmarks){
 if(bookmarks.length>0)
 {
 	for (bookIter in bookmarks)
@@ -4190,6 +4193,8 @@ if(bookmarks.length>0)
 		NDDlinks['BookmarksLink'+bookIter].click({thisadr:"/profile/"+bookmarks[bookIter].observed},visitBookmark);
 	}
 }
+}
+
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
 
 if (Accounts[MyID].admin)
