@@ -1216,6 +1216,11 @@ function setupProfilePage()
 			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true,del);
 			}
 			
+						
+			//$("#favicon").attr("href","/favicon2.ico");
+				//	$("#privateconversationpage").append(data.content);
+			});
+			
 			io.socket.on('seenmessage', function (data)
 						{
 						setTimeout(function(){
@@ -1223,10 +1228,6 @@ function setupProfilePage()
 						$("#msgheader"+data).css("background-color","lightgreen");
 						},2000);
 						});
-						
-			//$("#favicon").attr("href","/favicon2.ico");
-				//	$("#privateconversationpage").append(data.content);
-			});
 		if(Accounts[MyID].Invisible)
 		{
 			console.log("IM INVISIBLE");
