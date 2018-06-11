@@ -2332,7 +2332,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 		if (MyID==msg.intendedFor || !msg.intendedFor)
 		{
 		
-			io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
+			io.socket.post('/sawmessage',{id:msg.id,location:window.location.pathname},function (resData, jwr) {
 				console.log("sending saw message ");
 			});	
 	

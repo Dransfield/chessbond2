@@ -244,11 +244,7 @@ var NavbarDropDown;
 			console.log(JSON.stringify(resData));
 			});
 		
-			console.log("subscribe to web page "+window.location.href);
-			
-			console.log("subscribe to web page "+window.location.pathname);
-			
-			io.socket.get("/subscribeToRoom",{roomName:window.location.href,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
+			io.socket.get("/subscribeToRoom",{roomName:window.location.pathname,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			
 			});
 			
@@ -1202,6 +1198,7 @@ function setupProfilePage()
 					if(MyID==ProfID)
 					{del=true;}
 			showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true,del);
+			
 			}
 			else
 			{
@@ -1215,6 +1212,14 @@ function setupProfilePage()
 			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true,del);
 			}
 			
+			io.socket.on('seenmessage', function (data)
+						{
+						setTimeout(function(){
+							console.log("recieved seen message and timed out");
+						$("#msgheader"+data).css("background-color","lightgreen");
+						},2000);
+						});
+						
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
