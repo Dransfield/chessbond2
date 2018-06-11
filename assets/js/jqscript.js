@@ -3442,24 +3442,24 @@ function addPrivatePromises()
 						//console.log(pc);
 							for (y in pc)
 							{
-							console.log("add private "+JSON.stringify(pc[y]));
+							//console.log("add private "+JSON.stringify(pc[y]));
 						
-							/*if(MyID==pc[y].Talker1)
+							if(MyID==pc[y].Talker1)
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 						
-							}[
+							}
 							else
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							
-							}*/
-							PrivateConversations[MyID]=pc[y];
+							}
+							//PrivateConversations[MyID]=pc[y];
 					
 							
 							
 							}
-							console.log("resolve privatecon");
+							//console.log("resolve privatecon");
 						resolve(pc);
 				
 						
