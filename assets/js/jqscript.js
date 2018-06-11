@@ -153,7 +153,7 @@ var NavbarDropDown;
 			
 			console.log("adding go to chat to  "+JSON.stringify(data));
 			$("#PrivateConversationDD"+data.user).empty();
-			$("#PrivateConversationDD"+data.user).append("<a href='/seeprivateconversation/"+PrivateConversations[MyID][data.user].id+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
+			$("#PrivateConversationDD"+data.user).append("<a href='/myprof/"+PrivateConversations[MyID][data.user].id+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
 			
 			
 			});
@@ -3160,7 +3160,7 @@ function addSeeChat(usracc)
 {
 	console.log("adding see chat for "+usracc);
 	//PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
-	PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
+	PrivateconText=$("<a href='/myprof/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
 				
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }

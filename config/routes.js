@@ -42,7 +42,7 @@ module.exports.routes = {
 	'POST /startprivateconversation':'PrivateConversationController.New',
 	'POST /leftprivateconversation':'PrivateConversationController.Left',
 	'GET /myprofilemg': {view: 'messagesjq'},
-	'/seeprivateconversation/:ID': {view:'privateconversationjq'},
+	'/myprof/:ID': {view:'privateconversationjq'},
 	'POST /chatmsg':'PageController.chatmsg',
 	'POST /sawmessage':'WallpostController.SawMessage',
 	'POST /wantstodeletemessage':'WallpostController.wantsToDelete',

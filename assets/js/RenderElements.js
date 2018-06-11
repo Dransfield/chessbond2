@@ -2875,7 +2875,7 @@ function CreateDropDown(usracc)
 	}
 	else
 	{
-	addBeginFollow(usracc);
+	addBeginaddBeginFollow(usracc);
 	}
 	DropDowns[usracc]['block']=$("<li></li>");
 	DropDowns[usracc].append(DropDowns[usracc]['block']);
