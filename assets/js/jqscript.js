@@ -3296,10 +3296,8 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 					
 					
 					});
-	
-
-
 }
+
 function addBeginFollow(usracc)
 {
 		DropDowns[usracc]['Foll'].empty();
