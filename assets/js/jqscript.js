@@ -1341,6 +1341,7 @@ function setupAlbumsPage()
 function setupShowAllTournamentsPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
+	retrievePrivatesandFollows().then(function(){
 	retrieveAccounts().then(function(){
 	
 	retrievePlayersTournamentGames(ProfID).then(function(){
@@ -1389,6 +1390,7 @@ function setupShowAllTournamentsPage()
 			
 		});
 	});
+});
 }
 
 function setupTournamentViewPage()
