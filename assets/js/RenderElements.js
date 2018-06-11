@@ -3566,6 +3566,7 @@ if(intendedFor === undefined) { intendedFor = ""; }
 		
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo,intendedFor);
+		 	//SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 		 	chatform.val("");
 		},200);
 	}

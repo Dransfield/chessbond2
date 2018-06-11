@@ -1163,7 +1163,8 @@ function setupProfilePage()
 			showHeader(tblRight,2,"Comment Wall");
 			var chatDiv=addFlexDiv(tblRight,"chatdiv","column",'wrap');
 			chatDiv.css("align-items","flex-start");
-			showChatForm(chatDiv,ProfID,"wall",ProfID);
+			showChatForm(chatDiv,ProfID,"wall","none",ProfID);
+			//showChatForm(elem,chatID,msgtype,ReplyTo,intendedFor)
 			//console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
@@ -1203,6 +1204,7 @@ function setupProfilePage()
 			}
 			else
 			{
+				console.log("reply to is not none");
 					var replydiv=addFlexDiv($("#"+WallPosts[(WallPosts.length-1)].replyto),43,"column");
 						replydiv.css("padding-left","20%");
 						var del=false;
@@ -1733,7 +1735,7 @@ function setupChatPage()
 	
 	io.socket.on('WallPost', function (data)
 			{
-			console.log("recieved wall post socket");
+			console.log("recieved chat message socket");
 		
 			showChatMessage(msgbox,data,"none",false);
 			//console.log("document.visibilityState "+document.visibilityState);
