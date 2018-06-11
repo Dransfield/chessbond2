@@ -55,6 +55,7 @@ module.exports.globals = {
 
 	// services: true,
 	oneMinute:(60*1000),
+	fiveSeconds:(5*1000),
 	fifteenSeconds:(15*1000),
 	thirtySeconds:(30*1000),
 	sixtySixMinutes:((60*1000)*66),

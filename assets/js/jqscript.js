@@ -1173,6 +1173,7 @@ function setupProfilePage()
 					if(MyID==ProfID)
 					{del=true;}
 					showChatMessage(thisDiv,WallPosts[iter],"none",true,del);
+					
 					}
 					
 					
