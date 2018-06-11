@@ -2335,7 +2335,7 @@ if(deletebutton === undefined) { deletebutton = false; }
 			io.socket.post('/sawmessage',{id:msg.id,location:window.location.pathname},function (resData, jwr) {
 				console.log("sending saw message ");
 			});	
-			},sails.config.globals.fiveSeconds);
+			},(5*1000));
 		}
 	
 	}
