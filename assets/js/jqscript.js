@@ -492,7 +492,7 @@ var NavbarDropDown;
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat","none");		
 					io.socket.on('WallPost', function (data)
 			{
-			console.log("recieved wall post socket"+JSON.stringify(data));
+			console.log("recieved chesschat socket"+JSON.stringify(data));
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
 				if (document.visibilityState=='hidden')
 			{
@@ -1163,7 +1163,7 @@ function setupProfilePage()
 			showHeader(tblRight,2,"Comment Wall");
 			var chatDiv=addFlexDiv(tblRight,"chatdiv","column",'wrap');
 			chatDiv.css("align-items","flex-start");
-			showChatForm(chatDiv,ProfID,"wall",ProfID);
+			showChatForm(chatDiv,ProfID,"wall","none");
 			//console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
@@ -1193,6 +1193,7 @@ function setupProfilePage()
 			}
 			if(WallPosts[(WallPosts.length-1)].replyto=='none')
 			{
+				console.log("replyto is none");
 				var thisDiv=addFlexDiv(chatDiv,WallPosts[(WallPosts.length-1)].id,"column");
 				var del=false;
 					if(MyID==ProfID)
