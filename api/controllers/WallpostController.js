@@ -140,6 +140,7 @@ module.exports = {
 			if(req.param('messagetype')=="wall")
 			{
 				console.log("message type is wall");
+				console.log("sending to "+req.param('location'));
 				sails.sockets.broadcast(req.param('location'),'WallPost', records);
 				Notification.create({reciever:req.param('grpid'),msg:"New Wall Post Recieved",adr:'/profile/'+req.param('grpid')}).exec
 				(
