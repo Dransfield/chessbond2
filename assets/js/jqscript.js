@@ -3440,8 +3440,8 @@ function addPrivatePromises()
 						function (pc) {
 						
 						//console.log(pc);
-							//for (y in pc)
-							//{
+							for (y in pc)
+							{
 							console.log("add private "+JSON.stringify(pc));
 						
 							/*if(MyID==pc[y].Talker1)
@@ -3454,11 +3454,11 @@ function addPrivatePromises()
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							
 							}*/
-							PrivateConversations[MyID]=pc;
+							PrivateConversations[MyID]=pc[y];
 					
 							
 							
-							//}
+							}
 							console.log("resolve privatecon");
 						resolve(pc);
 				
