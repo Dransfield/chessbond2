@@ -16,7 +16,7 @@
     "grunt": "1.0.1",
    
     "node-schedule": "*",
-	//"passport": "~0.2.1",
+	
    
 	"passport": "~0.4.0",
     "passport-facebook": "*",
