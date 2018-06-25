@@ -1389,7 +1389,7 @@ module.exports = {
 					}
 	user.Numberoftimesloggedin+=1;
 	var dateObj=new Date();
-	console.log("date obj "+JSON.stringify(dateObj));
+	console.log("just logged in date obj "+JSON.stringify(dateObj));
 	var month = dateObj.getUTCMonth() + 1; //months from 1-12
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
