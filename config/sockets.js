@@ -123,8 +123,11 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
+	   if(session.passport)
+	   {
    Subscription.destroy({subscriber:session.passport.user}).exec(function(){
 	//console.log(JSON.stringify(session.passport.user));   
+	}
     return cb();
 	
 	});

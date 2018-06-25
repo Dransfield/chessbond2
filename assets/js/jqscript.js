@@ -9,6 +9,8 @@ var joinedPlayersDivContainer;
 var timeCells={};
 var joinedPlayersDiv;
 //(502) 425-0220 hcc
+//hurstpd 499 2352
+//lmpd502-574-2111
 var bigemptyDiv=[];
 var threeMinutes=(60*1000)*3;
 var myuser;
