@@ -994,14 +994,15 @@ function StartBlackClock()
 	{
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 	
-	if (numberOfMovesIHaveMade(GamePlaying)>0)
+	
+	}
+	if (numberOfMovesIHaveMade(GamePlaying)>0 || GamePlaying.Result!="")
 	{
 		if(!withdrawButton.hidden)
 		{
 		withdrawButton.slideUp();
 		withdrawButton.hidden=true;	
-		}
-	}
+		} 
 	}
 	/*
 	if(!withdrawButton)
