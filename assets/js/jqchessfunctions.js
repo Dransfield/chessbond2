@@ -94,6 +94,25 @@ var resultDiv;
 	DrawSound.play();
 	}
 
+function playerIsWhite(player,game)
+		{
+		var imWhite=-1;
+		if(game.Player1==player && game.Player1Color=='White')
+		{imWhite=1;}
+		if(game.Player1==player && game.Player1Color=='Black')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		if(game.Player2==player && game.Player1Color=='Black')
+		{imWhite=1;}
+		if(game.Player2==player && game.Player1Color=='White')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		return imWhite;
+		}
 
  var  boardorientations = [
         {id: '1', name: 'Left',value:'Left'},
