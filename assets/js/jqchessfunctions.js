@@ -996,7 +996,7 @@ function StartBlackClock()
 	
 	if (numberOfMovesIHaveMade(GamePlaying)>0)
 	{
-		if(withdrawbutton.hidden==false)
+		if(!withdrawbutton.hidden)
 		{
 		withdrawButton.slideUp();
 		whitdrawButton.hidden=true;	
