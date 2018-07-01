@@ -483,7 +483,7 @@ var NavbarDropDown;
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
 				withdrawDiv=addDiv(sideBoard);
-				if (GamePlaying.Move>1 && GamePlaying.Result=="")
+				if (numberOfMovesIHaveMade(GamePlaying)==0 && GamePlaying.Result=="")
 				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
