@@ -235,11 +235,11 @@ var NavbarDropDown;
 					var moves=theGame.Move-1;
 						if(moves==0)
 						{
-						console.log("player is white,moves"+moves+" thegameMoves"+theGame.Moves);	
+						console.log("player is white,moves"+moves+" thegameMoves"+theGame.Move);	
 						return 0;}
 						else
 						{
-						console.log("player is white,moves"+(Math.floor(moves/2))+" thegameMoves"+theGame.Moves);	
+						console.log("player is white,moves"+(Math.floor(moves/2))+" thegameMoves"+theGame.Move);	
 						
 						return Math.floor(moves/2);
 						}
@@ -251,11 +251,11 @@ var NavbarDropDown;
 					var moves=theGame.Move-2;
 						if(moves<1)
 						{
-						console.log("player is white,moves returned:0 thegameMoves"+theGame.Moves);	
+						console.log("player is white,moves returned:0 thegameMoves"+theGame.Move);	
 						return 0;}
 						else
 						{
-							console.log("player is white,moves"+(Math.floor(moves/2))+" thegameMoves"+theGame.Moves);	
+							console.log("player is white,moves"+(Math.floor(moves/2))+" thegameMoves"+theGame.Move);	
 						
 						return Math.floor(moves/2);
 						}
