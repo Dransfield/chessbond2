@@ -239,7 +239,7 @@ var NavbarDropDown;
 						return 0;}
 						else
 						{
-						console.log("player is white,moves"+(Math.floor(moves/2))+" thegameMoves"+theGame.Move);	
+						console.log("player is white,returner"+(Math.ceil(moves/2))+" moves"+moves);	
 						
 						return Math.floor(moves/2);
 						}
@@ -252,10 +252,10 @@ var NavbarDropDown;
 						if(moves<1)
 						{
 						console.log("player is white,moves returned:0 thegameMoves"+theGame.Move);	
-						return 0;}
+						return 0;}m
 						else
 						{
-							console.log("player is white,moves"+(Math.floor(moves/2))+" thegameMoves"+theGame.Move);	
+							console.log("player is white,moves"+(Math.ceil(moves/2))+" thegameMoves"+theGame.Move);	
 						
 						return Math.floor(moves/2);
 						}
