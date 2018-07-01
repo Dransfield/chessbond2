@@ -999,7 +999,7 @@ function StartBlackClock()
 		if(!withdrawButton.hidden)
 		{
 		withdrawButton.slideUp();
-		whitdrawButton.hidden=true;	
+		withdrawButton.hidden=true;	
 		}
 	}
 	}
