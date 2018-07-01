@@ -5,11 +5,11 @@ var squareClass = 'square-55d63';
   var squareToHighlight;
 
 var withdrawDiv;
-
+var withdrawButton;
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
-var withdrawButton;
+
 
 var turnTakerNoticeDiv;
 
@@ -996,7 +996,7 @@ function StartBlackClock()
 	
 	if (numberOfMovesIHaveMade(GamePlaying)>0)
 	{
-		if(!withdrawbutton.hidden)
+		if(!withdrawButton.hidden)
 		{
 		withdrawButton.slideUp();
 		whitdrawButton.hidden=true;	
