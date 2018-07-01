@@ -971,9 +971,19 @@ function StartBlackClock()
 		//alert('couldnt load game');
 	//	}
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
-	if(!GamePlaying.Result)
+	if(GamePlaying.Result=="")
 	{
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+	
+	if (numberOfMovesIHaveMade(GamePlaying)>0)
+	{
+		if(withdrawbutton.hidden==false)
+		{
+		withdrawButton.slideUp();
+		whitdrawButton.hidden=true;	
+		}
+	}
+	/*
 	if(!withdrawButton)
 	{
 		withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
@@ -981,6 +991,7 @@ function StartBlackClock()
 		withdrawDiv.css("padding","10px");
 	}
 	}
+	*/
 	var modified="";
 	var move;
 	if(GamePlaying.lastmove){

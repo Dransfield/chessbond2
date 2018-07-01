@@ -3543,7 +3543,7 @@ if(intendedFor === undefined) { intendedFor = ""; }
 
 	var  chatDiv=$("<span id='chatformspan'</span>");
 	elem.append(chatDiv);
-	var chatform=$("<textarea style='width:100%;height:400px;' type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+	var chatform=$("<textarea style='width:100%;height:100px;' type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		chatDiv.append(chatform);
 		chatDiv.append(chatbutton);
@@ -4694,7 +4694,7 @@ function addJoinedGame(iter,games,myelem){
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
 
 				showAnchorButton($("#joinedgameButtd"+iter),"Go to Game");
-				$("#button"+ButtonNumber).attr('href',"/humanvshuman/"+games[iter].id);
+				$("#button"+ButtonNumber).attr('href',"/humanvshumannew/"+games[iter].id);
 				}
 
 function showNewGameControls(elem){

@@ -227,6 +227,35 @@ var NavbarDropDown;
 		{
 		setupTextPage();	
 		}
+		
+		function numberOfMovesIHaveMade(theGame)
+		{
+			 if(playerIsWhite(MyID,theGame))
+			 {
+					var moves=theGame.Move-1;
+						if(moves==0)
+						{return 0;}
+						else
+						{
+						return Math.floor(moves/2);
+						}
+				
+				
+			}
+			else
+			{	
+					var moves=theGame.Move-2;
+						if(move<1)
+						{return 0;}
+						else
+						{
+						return Math.floor(moves/2);
+						}
+				
+			}
+			
+		
+		}
 	
 	
 		function updateWholeSiteVisit()
@@ -301,7 +330,7 @@ var NavbarDropDown;
 	
 	function setupPlayervsPlayerPage()
 	{
-		var roomname='/humanvshuman/'+GameID;
+		var roomname='/humanvshumannew/'+GameID;
 		
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
@@ -454,7 +483,7 @@ var NavbarDropDown;
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
 				withdrawDiv=addDiv(sideBoard);
-				if (GamePlaying.Move>1 && !GamePlaying.Result)
+				if (GamePlaying.Move>1 && GamePlaying.Result=="")
 				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				

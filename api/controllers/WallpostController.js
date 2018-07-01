@@ -157,8 +157,8 @@ module.exports = {
 			if(req.param('messagetype')=="chesschat")
 			{
 				console.log("message type is chesschat");
-			sails.sockets.broadcast('/humanvshuman/'+req.param('grpid'),'WallPost', records);
-				Notification.create({reciever:req.param('grpid'),msg:"New Game Chat Message Recieved",adr:'/humanvshuman/'+req.param('grpid')}).exec
+			sails.sockets.broadcast('/humanvshumannew/'+req.param('grpid'),'WallPost', records);
+				Notification.create({reciever:req.param('grpid'),msg:"New Game Chat Message Recieved",adr:'/humanvshumannew/'+req.param('grpid')}).exec
 				(
 					function (err, records1) 
 					{
