@@ -983,6 +983,7 @@ function StartBlackClock()
 		whitdrawButton.hidden=true;	
 		}
 	}
+	}
 	/*
 	if(!withdrawButton)
 	{
