@@ -316,7 +316,13 @@ if(drawnPageOnce==false)
 		
 		io.socket.on('DrawOffered', function (data)
 			{
+		console.log(data);
+		
+		if(data.OfferedTo==MyID)
+		{
 		showAcceptDrawButton();
+		}
+		
 		});
 		
 		$("#mousemove").mousemove(function()
