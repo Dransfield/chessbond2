@@ -3752,7 +3752,7 @@ function renderHomePage()
 	if(Accounts[MyID])
 	{
 		console.log(Accounts[MyID]);
-		$("#usr").append("<h1 align='centre'>Current Tournament</h1>");
+		$("#usr").append("<h1 align='center'>Current Tournament</h1>");
 		currentTournamentDivContainer=addDiv($("#usr"));
 		joinedPlayersDivContainer=addDiv($("#usr"));
 		
