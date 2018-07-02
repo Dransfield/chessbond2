@@ -473,7 +473,7 @@ if(drawnPageOnce==false)
 				
 				
 				drawButton=showButton(withdrawDiv,"Propose Draw","KgreenElement KregularButton");
-				drawButton.visible=false;
+				drawButton.hide();
 				drawButton.click(gameFunctions.offerDraw);
 				
 				
