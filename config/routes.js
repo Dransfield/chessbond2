@@ -112,7 +112,7 @@ module.exports.routes = {
 	'GET /forgot/password/:code':{view:'newpassword'},
 	'PUT /Withdraw':'ChessgameController.Withdraw',
 	'PUT /OfferDraw':'ChessgameController.OfferDraw',
- 	'PUT /AcceptDraw':'ChessgameController.AcceptDraw',
+ 	'POST /AcceptDraw':'ChessgameController.AcceptDraw',
 	'GET /subscribeToRoom':'PageController.subscribeToRoom',
 	'PUT /newopengame':'ChessgameController.newopengame',
 	'PUT /newsession':'PageController.newsession',
