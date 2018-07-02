@@ -7,6 +7,7 @@ var squareClass = 'square-55d63';
 var withdrawDiv;
 var withdrawButton;
 var drawButton;
+var acceptDrawButton;
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
@@ -1110,7 +1111,10 @@ currentFavicon=src;
 }
 };
 	
-	var gameFunctions={
+
+
+var gameFunctions=
+{
 		playerIsPlayer1:function(player,game)
 		{
 			if(game.Player1==player)
@@ -1138,16 +1142,46 @@ currentFavicon=src;
 		//{imWhite=false;}
 		return imWhite;
 		},
-		
-		offerDraw:function(){
-			var offerTo;
+		acceptDraw:function(){
+			var accepterName="";
 			
 			if (gameFunctions.playerIsPlayer1(MyID,GamePlaying))
-			{offerTo=GamePlaying.Player2;}
+			{
+			accepterName=GamePlaying.Player1Name;
+			}
 			else
-			{offerTo=GamePlaying.Player1;}
+			{
+			accepterName=GamePlaying.Player2Name;
+			}
 			
-			SendWallPost(MyID,GamePlaying.id,"chesschat","","opponent offered a draw","none","");
+
+		SendWallPost(MyID,GamePlaying.id,"chesschat","",accepterName+" accepted a draw","none","");
+				//io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id,p1color:GamePlaying.Player1Color,gametype:GamePlaying.GameType,gamecat:GamePlaying.GameCategory,gametime:GamePlaying.Player1TimeLimit},
+			io.socket.put('/AcceptDraw',{gameid:GamePlaying.id},
+
+			function (resData, jwr) {
+			acceptDrawButton.slideUp();
+		
+			});
+
+		
+
+		
+
+	},
+offerDraw:function(){
+			var offerTo;
+			var offererName="";
+			if (gameFunctions.playerIsPlayer1(MyID,GamePlaying))
+			{offerTo=GamePlaying.Player2;
+				offererName=GamePlaying.Player1Name;
+				}
+			else
+			{offerTo=GamePlaying.Player1;
+				offererName=GamePlaying.Player2Name;
+				}
+			
+			SendWallPost(MyID,GamePlaying.id,"chesschat","",offererName+" offered a draw","none","");
 			
 			io.socket.put('/OfferDraw', {
 		gameid:GamePlaying.id,
@@ -1158,9 +1192,10 @@ currentFavicon=src;
 		
 		});
 			
-			},
-	 withdraw:function()
-{
+},
+
+withdraw:function()
+	{
 	
 //$scope.ShowWithdrawButton=false;	
 if (!GamePlaying.Result)

@@ -51,6 +51,42 @@ function showTournamentRedirectNotice()
 
 	}
 
+function showOfferDrawButton()
+{
+
+	
+
+	
+	acceptDrawButton=showButton($("body"),"Opponent offers a draw result","KgreyElement KhugeButton");
+	var timerspan=addSpan(acceptDrawButton,"offerDrawTimer");
+	var yesButton=showButton(acceptDrawButton,"Yes","KgreenElement KhugeButton");
+	var noButton=showButton(acceptDrawButton,"No","redElement KhugeButton");
+	
+	acceptDrawbutton.css("position","fixed");
+	acceptDrawbutton.css("top","50%");
+	acceptDrawSeconds=30;
+
+	yesButton.click(gameFunctions.acceptDraw());
+noButton.click(function(){
+
+	
+		if(GamePlaying.Player1==GamePlaying.Player2)
+		{
+			console.log("player 1 is player 2");
+		
+		}
+
+	});
+
+	setInterval(function(){
+		acceptDrawSeconds=acceptDrawSeconds-1;
+		$("#offerDrawTimer").html(acceptDrawSeconds);
+		if(acceptDrawSeconds==0)
+		{acceptDrawButton.slideUp();}
+	},1000);
+
+}
+
 function showRematchButton()
 {
 
