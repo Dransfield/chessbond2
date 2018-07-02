@@ -1142,7 +1142,8 @@ var gameFunctions=
 		//{imWhite=false;}
 		return imWhite;
 		},
-		acceptDraw:function(){
+
+acceptDraw:function(){
 			var accepterName="";
 			
 			if (gameFunctions.playerIsPlayer1(MyID,GamePlaying))
@@ -1209,7 +1210,8 @@ if (!GamePlaying.Result)
 		});
 	}
 },
- movesPlayerMade:function(theGame,player)
+
+movesPlayerMade:function(theGame,player)
 		{
 			 if(this.playerIsWhite(MyID,theGame))
 			 {
@@ -1245,7 +1247,7 @@ if (!GamePlaying.Result)
 			
 		
 		},
-	 	isADraw: function(game)
+isADraw: function(game)
 		{
 			//console.log(game);
 			if(game.Result)
@@ -1261,7 +1263,7 @@ if (!GamePlaying.Result)
 			}
 		},
 		
-		isALoss:function(player,game)
+isALoss:function(player,game)
 		{
 			//console.log(game);
 			if(game.Result)
@@ -1281,7 +1283,7 @@ if (!GamePlaying.Result)
 					}
 			}
 		},
-		 isAWin:function(player,game)
+isAWin:function(player,game)
 		{
 			if (game.GameCategory=="60|0")
 			{

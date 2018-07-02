@@ -58,10 +58,10 @@ function showAcceptDrawButton()
 	
 
 	
-	acceptDrawButton=showButton($("body"),"Opponent offers a draw result","KgreyElement KhugeButton");
+	acceptDrawButton=showButton($("body"),"Opponent offers a draw","KgreyElement KhugeButton");
 	var timerspan=addSpan(acceptDrawButton,"offerDrawTimer");
 	var yesButton=showButton(acceptDrawButton,"Yes","KgreenElement KhugeButton");
-	var noButton=showButton(acceptDrawButton,"No","redElement KhugeButton");
+	var noButton=showButton(acceptDrawButton,"No","KredElement KhugeButton");
 	
 	acceptDrawButton.css("position","fixed");
 	acceptDrawButton.css("top","50%");
@@ -76,6 +76,7 @@ noButton.click(function(){
 			console.log("player 1 is player 2");
 		
 		}
+		acceptDrawButton.slideUp();
 
 	});
 
