@@ -996,7 +996,7 @@ function StartBlackClock()
 	
 	
 	}
-	if (numberOfMovesIHaveMade(GamePlaying)>0 || GamePlaying.Result!="")
+	if (gameFunctions.movesPlayerMade(GamePlaying,MyID)>0 || GamePlaying.Result!="")
 	{
 		if(!withdrawButton.hidden)
 		{
@@ -1139,6 +1139,42 @@ if (!GamePlaying.Result)
 		});
 	}
 },
+ movesPlayerMade:function(theGame,player)
+		{
+			 if(playerIsWhite(MyID,theGame))
+			 {
+					var moves=theGame.Move-1;
+						if(moves==0)
+						{
+						console.log("player is white,moves"+moves+" thegameMoves"+theGame.Move);	
+						return 0;}
+						else
+						{
+						console.log("player is white,returner"+(Math.ceil(moves/2))+" moves"+moves);	
+						
+						return Math.ceil(moves/2);
+						}
+				
+				
+			}
+			else
+			{	
+					var moves=theGame.Move-2;
+						if(moves<1)
+						{
+						console.log("player is white,moves returned:0 thegameMoves"+theGame.Move);	
+						return 0;}
+						else
+						{
+							console.log("player is white,moves"+(Math.ceil(moves/2))+" thegameMoves"+theGame.Move);	
+						
+						return Math.ceil(moves/2);
+						}
+				
+			}
+			
+		
+		},
 	 	isADraw: function(game)
 		{
 			//console.log(game);

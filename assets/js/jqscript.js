@@ -47,11 +47,17 @@ var TournamentCandidates=[];
 var OwnersVisits=[];
 var mypics=[];
 
+var drawnPageOnce=false;
+
 var NavbarDropDown;
 		subscribeToMandatoryRooms();
 		updateWholeSiteVisit();
 			var myStatus;
 			var idleTimer=5*60;
+
+if(drawnPageOnce==false)
+{
+	drawnPageOnce=true;
 			
 			setInterval(function(){
 				
@@ -227,44 +233,8 @@ var NavbarDropDown;
 		{
 		setupTextPage();	
 		}
+	}
 		
-		function numberOfMovesIHaveMade(theGame)
-		{
-			 if(playerIsWhite(MyID,theGame))
-			 {
-					var moves=theGame.Move-1;
-						if(moves==0)
-						{
-						console.log("player is white,moves"+moves+" thegameMoves"+theGame.Move);	
-						return 0;}
-						else
-						{
-						console.log("player is white,returner"+(Math.ceil(moves/2))+" moves"+moves);	
-						
-						return Math.ceil(moves/2);
-						}
-				
-				
-			}
-			else
-			{	
-					var moves=theGame.Move-2;
-						if(moves<1)
-						{
-						console.log("player is white,moves returned:0 thegameMoves"+theGame.Move);	
-						return 0;}
-						else
-						{
-							console.log("player is white,moves"+(Math.ceil(moves/2))+" thegameMoves"+theGame.Move);	
-						
-						return Math.ceil(moves/2);
-						}
-				
-			}
-			
-		
-		}
-	
 	
 		function updateWholeSiteVisit()
 		{
@@ -491,7 +461,7 @@ var NavbarDropDown;
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
 				withdrawDiv=addDiv(sideBoard);
-				if (numberOfMovesIHaveMade(GamePlaying)==0 && GamePlaying.Result=="")
+				if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
 				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
