@@ -858,59 +858,9 @@ function showStatTable(elem)
 		
 		
 	
-		
-		function gameIsAWin(player,game)
-		{
-			if (game.GameCategory=="60|0")
-			{
-			console.log(game);
-			}
-			
-			if(game.Result)
-			{
-				var splitted=game.Result.split(">");
-					for (y in splitted)
-					{
-						if(splitted[y].indexOf("Won by")>-1)
-						{
-							var name=splitted[y-1].split("<")[0];
-							
-								if (game.GameCategory=="60|0")
-								{
-								console.log("winner name is "+name);
-								}
-							
-								if(Accounts[ProfID].name==name)
-								{
-										return true;
-								}
-							
-						}
-					}
-			}
-		}
+	
 		
 		
-		function gameIsALoss(player,game)
-		{
-			//console.log(game);
-			if(game.Result)
-			{
-				var splitted=game.Result.split(">");
-					for (y in splitted)
-					{
-						if(splitted[y].indexOf("Won by")>-1)
-						{
-							var name=splitted[y-1].split("<")[0];
-								if(Accounts[ProfID].name!=name)
-								{
-										return true;
-								}
-							
-						}
-					}
-			}
-		}
 		
 		function gameMatchesCategory(game,cat)
 		{
@@ -1087,16 +1037,16 @@ function showStatTable(elem)
 			if (categoryShowString=="1|0")
 				{
 				console.log(d);
-				console.log(gameIsAWin(ProfID,d));
+				console.log(gameFunctions.isAWin(ProfID,d));
 				}
 			
-		return (gameIsAWin(ProfID,d));
+		return (gameFunctions.isAWin(ProfID,d));
 		});
 		
 		wonBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsAWin(ProfID,d));
+		return (gameFunctions.isAWin(ProfID,d));
 		});
 		
 		
@@ -1298,13 +1248,13 @@ function showStatTable(elem)
 		lostWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsALoss(ProfID,d));
+		return (gameFunctions.isALoss(ProfID,d));
 		});
 		
 		lostBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsALoss(ProfID,d));
+		return (gameFunctions.isALoss(ProfID,d));
 		});
 	
 		

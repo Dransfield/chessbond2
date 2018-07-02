@@ -1189,7 +1189,59 @@ if (!GamePlaying.Result)
 						}
 					}
 			}
+		},
+		
+		isALoss:function(player,game)
+		{
+			//console.log(game);
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Won by")>-1)
+						{
+							var name=splitted[y-1].split("<")[0];
+								if(Accounts[ProfID].name!=name)
+								{
+										return true;
+								}
+							
+						}
+					}
+			}
+		},
+		 isAWin:function(player,game)
+		{
+			if (game.GameCategory=="60|0")
+			{
+			console.log(game);
+			}
+			
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Won by")>-1)
+						{
+							var name=splitted[y-1].split("<")[0];
+							
+								if (game.GameCategory=="60|0")
+								{
+								console.log("winner name is "+name);
+								}
+							
+								if(Accounts[ProfID].name==name)
+								{
+										return true;
+								}
+							
+						}
+					}
+			}
 		}
+		
 	
 	
 }
