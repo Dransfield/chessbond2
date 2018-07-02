@@ -1012,21 +1012,9 @@ deletegame:function(req,res){
 			
 			DoDraw(gm.Player1,gm.Player2,player1color,player2color,gm.GameCategory,gm.id,'agreement');
 	
-			var player1color=gm.Player1Color;
-			var player2color;
-			if (player1color=="White")
-			{
-			player2color="Black";	
+		
 			}
-			else
-			{
-			player2color="White";	
-			}
-			
-			DoDraw(gm.Player1,gm.Player2,player1color,player2color,gm.GameCategory,gm.id,'agreement');
-	
-		}
-		return res.ok();
+			return res.ok();
 		}
 		});
 	},
