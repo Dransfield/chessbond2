@@ -1138,9 +1138,10 @@ currentFavicon=src;
 		//{imWhite=false;}
 		return imWhite;
 		},
+		
 		offerDraw:function(){
 			var offerTo;
-			if (playerIsPlayer1(MyID))
+			if (this.playerIsPlayer1(MyID))
 			{offerTo=GamePlaying.Player2;}
 			else
 			{offerTo=GamePlaying.Player1;}
