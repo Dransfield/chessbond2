@@ -1158,7 +1158,7 @@ acceptDraw:function(){
 
 		SendWallPost(MyID,GamePlaying.id,"chesschat","",accepterName+" accepted a draw","none","");
 				//io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id,p1color:GamePlaying.Player1Color,gametype:GamePlaying.GameType,gamecat:GamePlaying.GameCategory,gametime:GamePlaying.Player1TimeLimit},
-			io.socket.put('/AcceptDraw',{gameid:GamePlaying.id},
+			io.socket.post('/AcceptDraw',{gameid:GamePlaying.id},
 
 			function (resData, jwr) {
 				console.log("accept draw res "+resData);
