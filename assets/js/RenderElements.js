@@ -56,12 +56,14 @@ function showAcceptDrawButton()
 {
 
 	
-
+	
 	
 	acceptDrawButton=showButton($("body"),"Opponent offers a draw","KgreyElement KhugeButton");
-	var timerspan=addSpan(acceptDrawButton,"offerDrawTimer");
-	var yesButton=showButton(acceptDrawButton,"Yes","KgreenElement KhugeButton");
-	var noButton=showButton(acceptDrawButton,"No","KredElement KhugeButton");
+	var acceptDrawDiv=addFlexDiv(acceptDrawButton,"offer","column");
+	var timerspan=addSpan(acceptDrawDiv,"offerDrawTimer");
+	var yesnoDiv=addDiv(acceptDrawDiv);
+	var yesButton=showButton(yesnoDiv,"Yes","KgreenElement KhugeButton");
+	var noButton=showButton(yesnoDiv,"No","KredElement KhugeButton");
 	
 	acceptDrawButton.css("position","fixed");
 	acceptDrawButton.css("top","50%");

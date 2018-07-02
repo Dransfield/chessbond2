@@ -1176,13 +1176,15 @@ offerDraw:function(){
 			var offerTo;
 			var offererName="";
 			if (gameFunctions.playerIsPlayer1(MyID,GamePlaying))
-			{offerTo=GamePlaying.Player2;
+			{
+				offerTo=GamePlaying.Player2;
 				offererName=GamePlaying.Player1Name;
-				}
+			}
 			else
-			{offerTo=GamePlaying.Player1;
+			{
+				offerTo=GamePlaying.Player1;
 				offererName=GamePlaying.Player2Name;
-				}
+			}
 			
 			SendWallPost(MyID,GamePlaying.id,"chesschat","",offererName+" offered a draw","none","");
 			
