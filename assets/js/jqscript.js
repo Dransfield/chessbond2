@@ -474,7 +474,7 @@ if(drawnPageOnce==false)
 				
 				drawButton=showButton(withdrawDiv,"Propose Draw","KgreenElement KregularButton");
 				drawButton.visible=false;
-				drawButton.click(proposeDraw);
+				drawButton.click(gameFunctions.offerDraw);
 				
 				
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");

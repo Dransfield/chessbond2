@@ -1111,7 +1111,14 @@ currentFavicon=src;
 };
 	
 	var gameFunctions={
-		
+		playerIsPlayer1:function(player,game)
+		{
+			if(game.Player1==player)
+			{return true;}
+			else
+			{return false;}
+			
+			},
 	 playerIsWhite:function(player,game)
 		{
 		var imWhite=-1;
@@ -1131,6 +1138,22 @@ currentFavicon=src;
 		//{imWhite=false;}
 		return imWhite;
 		},
+		offerDraw:function(){
+			var offerTo;
+			if (playerIsPlayer1(MyID))
+			{offerTo=GamePlaying.Player2;}
+			else
+			{offerTo=GamePlaying.Player1;}
+			io.socket.put('/OfferDraw', {
+		gameid:GamePlaying.id,
+			userid:MyID,
+			OfferedTo:offerTo,
+			},function onSuccess(sailsResponse){
+		
+		
+		});
+			
+			},
 	 withdraw:function()
 {
 	
