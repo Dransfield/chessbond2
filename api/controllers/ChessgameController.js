@@ -925,7 +925,7 @@ module.exports = {
 		gm.save();
 		}
 	});
-	
+	/*
 	User.findOne({
       id: req.param('userid')
 	},function foundUser(err,user){
@@ -934,7 +934,7 @@ module.exports = {
 	sails.sockets.broadcast(req.param('gameid'),'message', {room:req.param('gameid'),content: '<p class=\'redtext\'>'+user.name+' has offered a draw<p>' });
 	}
 	});
-	
+	*/
 	},
 	
 deletegame:function(req,res){

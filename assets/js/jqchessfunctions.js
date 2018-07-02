@@ -1146,6 +1146,9 @@ currentFavicon=src;
 			{offerTo=GamePlaying.Player2;}
 			else
 			{offerTo=GamePlaying.Player1;}
+			
+			SendWallPost(MyID,GamePlaying.id,"chesschat","","opponent offered a draw","none","");
+			
 			io.socket.put('/OfferDraw', {
 		gameid:GamePlaying.id,
 			userid:MyID,
