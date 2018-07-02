@@ -1333,11 +1333,10 @@ function setupAdminPage()
 
 function renderStatsPage()
 {
-	if(!$("#statspage").keefDone)
-	{
+		
 	showStatTable($("#statspage"));
-	$("#statspage").keefDone=true;
-	}
+	
+	
 }
 
 function setupAlbumsPage()
@@ -1701,6 +1700,10 @@ function setupAlbumPage()
 
 function setupStatsPage()
 {
+	if(!$("#statspage").keefDone)
+	{
+	$("#statspage").keefDone=true;
+	
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
 	retrieveGames(ProfID).then(function(){
@@ -1714,6 +1717,7 @@ function setupStatsPage()
 						});
 					});
 				});
+	}
 }
 
 function setupChatPage()
