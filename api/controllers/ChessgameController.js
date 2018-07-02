@@ -999,7 +999,7 @@ deletegame:function(req,res){
 				console.log("gm.player1 "+gm.Player1);
 				console.log("gm.player2 "+gm.Player2);
 			
-			var player1color=cg.Player1Color;
+			var player1color=gm.Player1Color;
 			var player2color;
 			if (player1color=="White")
 			{
@@ -1012,7 +1012,7 @@ deletegame:function(req,res){
 			
 			DoDraw(gm.Player1,gm.Player2,player1color,player2color,gm.GameCategory,gm.id,'agreement');
 	
-			var player1color=cg.Player1Color;
+			var player1color=gm.Player1Color;
 			var player2color;
 			if (player1color=="White")
 			{
