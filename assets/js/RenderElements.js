@@ -67,7 +67,7 @@ function showAcceptDrawButton()
 	acceptDrawButton.css("top","50%");
 	acceptDrawSeconds=30;
 
-	yesButton.click(gameFunctions.acceptDraw());
+	yesButton.click(gameFunctions.acceptDraw);
 noButton.click(function(){
 
 	
