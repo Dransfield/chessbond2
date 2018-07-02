@@ -463,7 +463,7 @@ if(drawnPageOnce==false)
 				withdrawDiv=addDiv(sideBoard);
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
-				withdrawButton.click(withdrawFromGame);
+				withdrawButton.click(gameFunctions.withdraw);
 				withdrawDiv.css("padding","10px");
 				withdrawButton.visible=false;
 				if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")

@@ -1131,7 +1131,7 @@ currentFavicon=src;
 		//{imWhite=false;}
 		return imWhite;
 		},
-	 withdrawFromGame:function()
+	 withdraw:function()
 {
 	
 //$scope.ShowWithdrawButton=false;	
