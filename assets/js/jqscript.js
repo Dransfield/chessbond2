@@ -317,7 +317,7 @@ if(drawnPageOnce==false)
 		io.socket.on('DrawOffered', function (data)
 			{
 		showAcceptDrawButton();
-		}
+		});
 		
 		$("#mousemove").mousemove(function()
 	{
