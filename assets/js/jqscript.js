@@ -318,7 +318,7 @@ if(drawnPageOnce==false)
 			{
 		console.log(data);
 		
-		if(data.OfferedTo==MyID)
+		if(data.offeredto==MyID)
 		{
 		showAcceptDrawButton();
 		}
