@@ -1161,6 +1161,7 @@ acceptDraw:function(){
 			io.socket.put('/AcceptDraw',{gameid:GamePlaying.id},
 
 			function (resData, jwr) {
+				console.log("accept draw res "+resData);
 			acceptDrawButton.slideUp();
 		
 			});
