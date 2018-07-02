@@ -466,18 +466,16 @@ if(drawnPageOnce==false)
 				withdrawButton.click(gameFunctions.withdraw);
 				withdrawDiv.css("padding","10px");
 				withdrawButton.visible=false;
-				if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
+				if (gameFunctions.movesPlayerMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
 				{
 				withdrawButton.visible=true;
 				}
 				
-				//if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==1 && GamePlaying.Result=="")
-				//{
+				
 				drawButton=showButton(withdrawDiv,"Propose Draw","KgreenElement KregularButton");
 				drawButton.visible=false;
 				drawButton.click(proposeDraw);
 				
-				//}
 				
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
