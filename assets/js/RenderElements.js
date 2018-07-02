@@ -3,6 +3,7 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 var rematchSeconds;
+var acceptDrawSeconds;
 var recentGameIndex=0;
 var recentGamesToShow=20;
 var lastChatMessagePostedBy="";
@@ -62,8 +63,8 @@ function showAcceptDrawButton()
 	var yesButton=showButton(acceptDrawButton,"Yes","KgreenElement KhugeButton");
 	var noButton=showButton(acceptDrawButton,"No","redElement KhugeButton");
 	
-	acceptDrawbutton.css("position","fixed");
-	acceptDrawbutton.css("top","50%");
+	acceptDrawButton.css("position","fixed");
+	acceptDrawButton.css("top","50%");
 	acceptDrawSeconds=30;
 
 	yesButton.click(gameFunctions.acceptDraw());
