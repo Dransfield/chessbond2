@@ -1333,9 +1333,11 @@ function setupAdminPage()
 
 function renderStatsPage()
 {
-	
+	if(!$("#statspage").keefDone)
+	{
 	showStatTable($("#statspage"));
-	
+	$("#statspage").keefDone=true;
+	}
 }
 
 function setupAlbumsPage()
