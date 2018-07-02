@@ -461,13 +461,24 @@ if(drawnPageOnce==false)
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
 				withdrawDiv=addDiv(sideBoard);
-				if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
-				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
 				
 				withdrawButton.click(withdrawFromGame);
 				withdrawDiv.css("padding","10px");
+				withdrawButton.visible=false;
+				if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
+				{
+				withdrawButton.visible=true;
 				}
+				
+				//if (gameFunctions.movesPlayerHaveMade(GamePlaying,MyID)==1 && GamePlaying.Result=="")
+				//{
+				drawButton=showButton(withdrawDiv,"Propose Draw","KgreenElement KregularButton");
+				drawButton.visible=false;
+				drawButton.click(proposeDraw);
+				
+				//}
+				
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
 				sideBoard.css("padding-left","10px");
@@ -576,16 +587,7 @@ if(drawnPageOnce==false)
 		}
 				board1 = new ChessBoard('boardcontainer', cfg);
 		
-				//{
-	//	position: game.fen(),
-		//orientation:myColor,
-		//draggable:false,
-		//eventHandlers: {
-			//onPieceSelected: pieceSelected,
-			//onMove: onDrop,
-			//onChanged:onChangedfunc
-		//}
-	//});
+		
 	//$(".square-55d63").css();
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 	//chatDiv.css("overflow","auto");
@@ -636,7 +638,7 @@ if(drawnPageOnce==false)
 	});
 });
 }
-	
+/*	
 	function pieceSelected(notationSquare) {
 	var i,
 		movesNotation,
@@ -648,7 +650,7 @@ if(drawnPageOnce==false)
 	}
 	return movesPosition;
 }
-
+*/
 function setupProfilePage()
 {
 	console.log("MyID is "+MyID);

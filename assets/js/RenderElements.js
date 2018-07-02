@@ -904,7 +904,7 @@ function showStatTable(elem)
 		totalBlackGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
-		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
+		return  gameMatchesCategory(d,categoryShowString) && !gameFunctions.playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
 		});
 		
 		totalWhiteGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
@@ -913,12 +913,12 @@ function showStatTable(elem)
 			
 		if(categoryShowString=="1|0" && gameMatchesCategory(d,categoryShowString))
 		{
-		console.log("is player white?"+playerIsWhite(ProfID,d));	
+		console.log("is player white?"+gameFunctions.playerIsWhite(ProfID,d));	
 		console.log(d);
 		console.log(d.Player1!=d.Player2);
 		console.log(d.Result!="Both Players Timed Out");
 		}
-		var returner=gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
+		var returner=gameMatchesCategory(d,categoryShowString) && gameFunctions.playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
 		if(categoryShowString=="60|0" && gameMatchesCategory(d,categoryShowString))
 		{
 		console.log(returner);

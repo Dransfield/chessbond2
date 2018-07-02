@@ -6,6 +6,7 @@ var squareClass = 'square-55d63';
 
 var withdrawDiv;
 var withdrawButton;
+var drawButton;
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
@@ -94,25 +95,7 @@ var resultDiv;
 	DrawSound.play();
 	}
 
-function playerIsWhite(player,game)
-		{
-		var imWhite=-1;
-		if(game.Player1==player && game.Player1Color=='White')
-		{imWhite=1;}
-		if(game.Player1==player && game.Player1Color=='Black')
-		{imWhite=0;}
-		
-		//else
-		//{imWhite=false;}
-		if(game.Player2==player && game.Player1Color=='Black')
-		{imWhite=1;}
-		if(game.Player2==player && game.Player1Color=='White')
-		{imWhite=0;}
-		
-		//else
-		//{imWhite=false;}
-		return imWhite;
-		}
+
 
  var  boardorientations = [
         {id: '1', name: 'Left',value:'Left'},
@@ -970,6 +953,7 @@ function StartBlackClock()
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();
 				withdrawButton.slideUp();
+				drawButton.slideUp();
 				}
 			
 			if(GamePlaying.Result.indexOf("withdrew from the game")>-1)
@@ -1003,6 +987,11 @@ function StartBlackClock()
 		withdrawButton.slideUp();
 		withdrawButton.hidden=true;	
 		} 
+		if(!drawButton.shown)
+		{
+		drawButton.slideDown();
+		drawButton.shown=true;	
+		}
 	}
 	/*
 	if(!withdrawButton)
@@ -1123,7 +1112,25 @@ currentFavicon=src;
 	
 	var gameFunctions={
 		
-	
+	 playerIsWhite:function(player,game)
+		{
+		var imWhite=-1;
+		if(game.Player1==player && game.Player1Color=='White')
+		{imWhite=1;}
+		if(game.Player1==player && game.Player1Color=='Black')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		if(game.Player2==player && game.Player1Color=='Black')
+		{imWhite=1;}
+		if(game.Player2==player && game.Player1Color=='White')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		return imWhite;
+		},
 	 withdrawFromGame:function()
 {
 	
