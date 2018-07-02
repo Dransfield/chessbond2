@@ -314,7 +314,10 @@ if(drawnPageOnce==false)
 			console.log(JSON.stringify(resData));
 			});
 		
-			
+		io.socket.on('DrawOffered', function (data)
+			{
+		showAcceptDrawButton();
+		}
 		
 		$("#mousemove").mousemove(function()
 	{

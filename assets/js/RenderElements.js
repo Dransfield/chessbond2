@@ -51,7 +51,7 @@ function showTournamentRedirectNotice()
 
 	}
 
-function showOfferDrawButton()
+function showAcceptDrawButton()
 {
 
 	
