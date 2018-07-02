@@ -66,7 +66,7 @@ function showAcceptDrawButton()
 	var noButton=showButton(yesnoDiv,"No","KredElement KhugeButton");
 	
 	acceptDrawButton.css("position","fixed");
-	acceptDrawButton.css("top","50%");
+	acceptDrawButton.css("top","20%");
 	acceptDrawSeconds=30;
 
 	yesButton.click(gameFunctions.acceptDraw);
