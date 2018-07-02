@@ -1148,7 +1148,7 @@ if (!GamePlaying.Result)
 },
  movesPlayerMade:function(theGame,player)
 		{
-			 if(playerIsWhite(MyID,theGame))
+			 if(this.playerIsWhite(MyID,theGame))
 			 {
 					var moves=theGame.Move-1;
 						if(moves==0)
