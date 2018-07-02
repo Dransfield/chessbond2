@@ -4199,7 +4199,7 @@ elem.append(`
 
 function showOpenGameList(elem,games)
 {
-	elem.append("<h1>Open Games</h1>");
+	elem.append("<h1 align='center'>Open Games</h1>");
 
 	var roomname='openchessgameroom';
 
