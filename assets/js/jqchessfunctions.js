@@ -941,7 +941,8 @@ function StartBlackClock()
 			resultDiv.html(GamePlaying.Result);
 			resultDiv.css("padding","4px");
 			resultDiv.css("margin-left","8px");
-			ShowOfferDrawButton=false;	
+			withdrawButton.slideUp();
+				drawButton.slideUp();
 			if(!GamePlaying.tournamentGame)
 			{
 			showRematchButton();
@@ -952,8 +953,7 @@ function StartBlackClock()
 			}
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();
-				withdrawButton.slideUp();
-				drawButton.slideUp();
+				
 				}
 			
 			if(GamePlaying.Result.indexOf("withdrew from the game")>-1)

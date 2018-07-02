@@ -465,10 +465,10 @@ if(drawnPageOnce==false)
 				
 				withdrawButton.click(gameFunctions.withdraw);
 				withdrawDiv.css("padding","10px");
-				withdrawButton.visible=false;
+				withdrawButton.hide();
 				if (gameFunctions.movesPlayerMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
 				{
-				withdrawButton.visible=true;
+				withdrawButton.show();
 				}
 				
 				
