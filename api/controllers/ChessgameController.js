@@ -1026,6 +1026,7 @@ deletegame:function(req,res){
 			DoDraw(gm.Player1,gm.Player2,player1color,player2color,gm.GameCategory,gm.id,'agreement');
 	
 		}
+		return res.ok();
 		}
 		});
 	},
