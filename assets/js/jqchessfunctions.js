@@ -1141,7 +1141,7 @@ currentFavicon=src;
 		
 		offerDraw:function(){
 			var offerTo;
-			if (this.playerIsPlayer1(MyID))
+			if (this.playerIsPlayer1(MyID,GamePlaying))
 			{offerTo=GamePlaying.Player2;}
 			else
 			{offerTo=GamePlaying.Player1;}
