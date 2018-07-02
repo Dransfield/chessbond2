@@ -946,6 +946,7 @@ function StartBlackClock()
 				drawButton.slideUp();
 			if(!GamePlaying.tournamentGame)
 			{
+				console.log("showig rematch button");
 			showRematchButton();
 			}
 			else
