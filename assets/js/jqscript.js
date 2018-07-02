@@ -1670,10 +1670,7 @@ function setupAlbumPage()
 
 function setupStatsPage()
 {
-	if(!$("#statspage").keefDone)
-	{
-	$("#statspage").keefDone=true;
-	
+	console.log("drawnPageOnce "+drawnPageOnce);
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
 	retrieveGames(ProfID).then(function(){
@@ -1687,7 +1684,7 @@ function setupStatsPage()
 						});
 					});
 				});
-	}
+	
 }
 
 function setupChatPage()
