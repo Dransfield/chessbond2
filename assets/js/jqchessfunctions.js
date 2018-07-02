@@ -1121,7 +1121,10 @@ currentFavicon=src;
 }
 };
 	
-	function withdrawFromGame()
+	var gameFunctions={
+		
+	
+	 withdrawFromGame:function()
 {
 	
 //$scope.ShowWithdrawButton=false;	
@@ -1135,13 +1138,22 @@ if (!GamePlaying.Result)
 		
 		});
 	}
+},
+	 	isADraw: function(game)
+		{
+			//console.log(game);
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Drew by")>-1)
+						{
+							return true;
+						}
+					}
+			}
+		}
+	
+	
 }
-	function updatePlayersLabel(game)
-	{
-		//console.log("hello");
-		Player1Name=GamePlaying.Player1Name;
-		Player2Name=GamePlaying.ChessGameObject.Player2Name;
-		//console.log("scopep2"+$scope.Player2Name);	
-	}
-	
-	

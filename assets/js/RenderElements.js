@@ -857,21 +857,7 @@ function showStatTable(elem)
 			
 		
 		
-		function gameIsADraw(game)
-		{
-			//console.log(game);
-			if(game.Result)
-			{
-				var splitted=game.Result.split(">");
-					for (y in splitted)
-					{
-						if(splitted[y].indexOf("Drew by")>-1)
-						{
-							return true;
-						}
-					}
-			}
-		}
+	
 		
 		function gameIsAWin(player,game)
 		{
@@ -1387,13 +1373,13 @@ function showStatTable(elem)
 		drewBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsADraw(ProfID,d));
+		return (gameFunctions.isADraw(ProfID,d));
 		});
 		
 		drewWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
-		return (gameIsADraw(ProfID,d));
+		return (gameFunctions.isADraw(ProfID,d));
 		});
 		
 		
@@ -1769,20 +1755,7 @@ function showStatGraph(elem)
 		return imWhite;
 		}
 		
-		function gameIsADraw(game)
-		{
-			//console.log(game);
-			if(game.Result)
-			{
-				var splitted=game.Result.split(">");
-					for (y in splitted)
-					{
-						if(splitted[y].indexOf("Drew by")>-1)
-						{
-							return true;
-						}
-					}
-			}
+		
 		}
 		
 		function gameIsAWin(player,game)
