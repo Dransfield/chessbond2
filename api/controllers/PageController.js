@@ -757,9 +757,9 @@ function CreateTournaments()
 					//userErr,theUser)
 					//{
 						
-					if (firstPlayer=myRecords.Player1)
+					if (firstPlayer==myRecords.Player1)
 					{
-					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true','false'2);
+					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true','false',2);
 					}
 					else
 					{
