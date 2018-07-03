@@ -898,7 +898,7 @@ module.exports = {
 		
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true','false'2);
+		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true','false',2);
 		}
 		else
 		{
