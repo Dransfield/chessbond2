@@ -79,7 +79,7 @@ module.exports.routes = {
 	'/admin':{view:'adminjq'},
 	'GET /UndeleteAccount':'UserController.UndeleteAccount',
 	'/UndeletedAccount':{view:'accountundeleted'},
-	'/playvsai':{view:'humanvsai'},
+	'/playvsai':{view:'humanvsaijq'},
 	'/forgot':{view:'forgot'},
 	'GET /wholesitevisit':'UserController.visitedWholeSite',
 	'PUT /updateuser':'UserController.updateProfile',
