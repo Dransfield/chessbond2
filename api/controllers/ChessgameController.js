@@ -161,7 +161,7 @@
 	};
 	
 	
-	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
+	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,resignation,winner1or2)
 	{
 	
 	var EloRank = require('elo-rank');
@@ -271,7 +271,15 @@ var elo = new EloRank(15);
 		if (timeout=='false')
 	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> checkmate</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Checkmate</span><br>";}
 	else
-	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";}
+	{
+		if(resignation=='false')
+		{
+		resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";
+		}
+		else
+		{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> resignation</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Resignation</span><br>";}
+		
+	}
 	
 	
 	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
@@ -527,12 +535,12 @@ var elo = new EloRank(15);
 						
 					if (firstPlayer=myRecords.Player1)
 					{
-					DoGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
+					DoGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true','false',2);
 					}
 					else
 					{
 						
-					DoGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
+					DoGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true','false',1);
 					}
 					/*
 					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
@@ -764,12 +772,12 @@ module.exports = {
 	if (clrtomove==cg.Player1Color)
 		{	
 		
-		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,'false',2);
+		DoGameResult(cg.Player2,cg.Player1,player2color,player1color,cg.GameCategory,cg.id,'false','false',2);
 		}
 		else
 		{
 		
-		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.GameCategory,cg.id,'false',1);
+		DoGameResult(cg.Player1,cg.Player2,player1color,player2color,cg.GameCategory,cg.id,'false','false',1);
 		}
 	}
 	
@@ -890,11 +898,11 @@ module.exports = {
 		
 		if (clrtomove==cgame.Player1Color)
 		{
-		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true',2);
+		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true','false'2);
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true',1);
+		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true','false',1);
 		}
 		}
 		}
@@ -986,7 +994,60 @@ deletegame:function(req,res){
 	
 	},
 	
+	Resign:function(req,res){
+		Chessgame.findOne({
+		id:req.param('gameid')
+		},function foundGame(err,gm){
+	if(!err)
+		{
+			if (!gm.Result)
+			{
+			
+			var winner;
+			var loser;
+			var winnercolor;
+			var losercolor;
+			var winnerNumber;
+			
+			var player1color=gm.Player1Color;
+			var player2color;
+			
+			if (player1color=="White")
+			{
+			player2color="Black";	
+			}
+			else
+			{
+			player2color="White";	
+			}
+			
+			if(gm.Player1==req.param('resigner'))
+			{
+				winner=gm.Player2;
+				loser=gm.Player1;
+				winnercolor=player2color;
+				losercolor=player1color;
+				winnerNumber=2;
+			}
+			
+			if(gm.Player2==req.param('resigner'))
+			{
+				winner=gm.Player1;
+				loser=gm.Player2;
+				winnercolor=player1color;
+				losercolor=player2color;
+				winnerNumber=1;
+			}
+						
+			DoGameResult(winner,loser,winnercolor,losercolor,gm.GameCategory,gm.id,'false','true',winnerNumber);
 	
+		
+			}
+			return res.ok();
+		}
+		});
+		
+	},
 	AcceptDraw:function(req,res){
 		Chessgame.findOne({
 		id:req.param('gameid')

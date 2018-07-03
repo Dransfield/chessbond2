@@ -7,6 +7,7 @@ var squareClass = 'square-55d63';
 var withdrawDiv;
 var withdrawButton;
 var drawButton;
+var resignButton;
 var acceptDrawButton;
   boardEl = $('#boardcontainer');
   var chessmove;
@@ -944,6 +945,7 @@ function StartBlackClock()
 			resultDiv.css("margin-left","8px");
 			withdrawButton.slideUp();
 				drawButton.slideUp();
+				resignButton.slideUp();
 			if(!GamePlaying.tournamentGame)
 			{
 				console.log("showig rematch button");
@@ -992,6 +994,7 @@ function StartBlackClock()
 		if(!drawButton.shown)
 		{
 		drawButton.slideDown();
+		resignButton.slideDown();
 		drawButton.shown=true;	
 		}
 	}
@@ -1143,7 +1146,15 @@ var gameFunctions=
 		//{imWhite=false;}
 		return imWhite;
 		},
+resign:function(){
+	io.socket.post('/Resign',{gameid:GamePlaying.id,resigner:MyID},
 
+			function (resData, jwr) {
+				console.log("accept draw res "+resData);
+			
+		
+			});
+},
 acceptDraw:function(){
 			var accepterName="";
 			
@@ -1171,7 +1182,9 @@ acceptDraw:function(){
 
 		
 
-	},
+},
+
+
 offerDraw:function(){
 			var offerTo;
 			var offererName="";

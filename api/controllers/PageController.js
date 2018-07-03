@@ -759,12 +759,12 @@ function CreateTournaments()
 						
 					if (firstPlayer=myRecords.Player1)
 					{
-					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true',2);
+					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true','false'2);
 					}
 					else
 					{
 						
-					DoTournamentGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true',1);
+					DoTournamentGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true','false',1);
 					}
 					/*
 					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
@@ -922,7 +922,7 @@ function CreateTournaments()
 	 });
 	}
 	
-	function DoTournamentGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
+	function DoTournamentGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,resignation,winner1or2)
 	{
 	var EloRank = require('elo-rank');
 	var elo = new EloRank(15);
@@ -1030,7 +1030,16 @@ function CreateTournaments()
 		if (timeout=='false')
 	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> checkmate</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Checkmate</span><br>";}
 	else
-	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";}
+	{
+		if(resignation=='false')
+		
+		{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";}
+		
+		else
+		{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> resignation</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Resignation</span><br>";}
+		
+		
+	}
 	
 	
 	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
@@ -1223,11 +1232,11 @@ function timeOutNonMovedGames()
 						
 									if (firstPlayer=gam.Player1)
 									{
-									DoTournamentGameResult(gam.Player2,gam.Player1,'Black','White',gam.GameCategory,gam.id,'true',2);
+									DoTournamentGameResult(gam.Player2,gam.Player1,'Black','White',gam.GameCategory,gam.id,'true','false',2);
 									}
 									else
 									{
-									DoTournamentGameResult(gam.Player1,gam.Player2,'Black','White',gam.GameCategory,gam.id,'true',1);
+									DoTournamentGameResult(gam.Player1,gam.Player2,'Black','White',gam.GameCategory,gam.id,'true','false',1);
 									}
 					
 								}

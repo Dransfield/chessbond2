@@ -481,9 +481,13 @@ if(drawnPageOnce==false)
 				}
 				
 				
-				drawButton=showButton(withdrawDiv,"Propose Draw","KgreenElement KregularButton");
+				drawButton=showButton(withdrawDiv,"Propose Draw","KgreyElement KregularButton");
 				drawButton.hide();
 				drawButton.click(gameFunctions.offerDraw);
+				
+				resignButton=showButton(withdrawDiv,"Resign","KgreyElement KregularButton");
+				resignButton.hide();
+				resignButton.click(gameFunctions.resign);
 				
 				
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
