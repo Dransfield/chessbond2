@@ -1090,10 +1090,10 @@ function CreateTournaments()
 	
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
-		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+		sails.sockets.broadcast('/humanvshumannew/'+GameID, 'chessgamemove',{room:GameID});
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
-	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	sails.sockets.broadcast('/humanvshumannew/'+GameID,'message', {room:GameID,content: resultstring  });
 	assignTournamentPlayersToGames(updated[0].tournament);
 	 
 	 
@@ -1202,7 +1202,7 @@ function timeOutNonMovedGames()
 						
 						gam.Result="Both Players Timed Out";
 						gam.save();
-						sails.sockets.broadcast(gam.id, 'chessgamemove',{room:gam.id});
+						sails.sockets.broadcast('/humanvshumannew/'+gam.id, 'chessgamemove',{room:gam.id});
 	
 						//console.log("timeout "+gam.id);
 						/*

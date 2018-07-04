@@ -131,10 +131,10 @@
 
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
-		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+		sails.sockets.broadcast('/humanvshumannew/'+GameID, 'chessgamemove',{room:GameID});
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
-	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	sails.sockets.broadcast('/humanvshumannew/'+GameID,'message', {room:GameID,content: resultstring  });
 	
 	 
 	});
@@ -150,10 +150,10 @@
  {
 	 var resultstring=withdrawer+" withdrew from the game";
 	 Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:'Withdrawal'}).exec(function afterwards(err, updated){
-		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+		sails.sockets.broadcast('/humanvshumannew/'+GameID, 'chessgamemove',{room:GameID});
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
-	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	sails.sockets.broadcast('/humanvshumannew/'+GameID,'message', {room:GameID,content: resultstring  });
 	
 	 
 	});
@@ -333,10 +333,10 @@ var elo = new EloRank(15);
 	
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
-		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
+		sails.sockets.broadcast('/humanvshumannew/'+GameID, 'chessgamemove',{room:GameID});
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
-	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
+	sails.sockets.broadcast('/humanvshumannew/'+GameID,'message', {room:GameID,content: resultstring  });
 	if (updated[0].tournamentGame)
 	{
 	setTimeout(assignTournamentPlayersToGames,sails.config.globals.thirtySeconds,updated[0].tournament);
@@ -655,7 +655,7 @@ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
 					Chessgame.update({id:myRecords.id},{Result:"Both Players Timed Out"},function(
 					timeOuterr,timeOutRecords)
 					{
-					sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
+					sails.sockets.broadcast('/humanvshumannew/'+myRecords.id, 'chessgamemove',{room:myRecords.id});
 	
 					});
 						
@@ -824,7 +824,7 @@ module.exports = {
 		}
 		cg.TimeOfLastMove=Date.now();
 		cg.save();
-		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
+		sails.sockets.broadcast('/humanvshumannew/'+req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	
 		}
 		else
@@ -832,7 +832,7 @@ module.exports = {
 		cg.GameStartTime=Date.now();
 		cg.TimeOfLastMove=Date.now();
 		cg.save();
-		sails.sockets.broadcast(req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
+		sails.sockets.broadcast('/humanvshumannew/'+req.param('GameID'), 'chessgamemove',{room:req.param('GameID')});
 	
 		}
 		
@@ -890,7 +890,7 @@ module.exports = {
 			{clrtomove='White';}
 			else
 			{clrtomove='Black';}
-		sails.sockets.broadcast(req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
+		sails.sockets.broadcast('/humanvshumannew/'+req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
 		console.log('ColorToMove'+req.param('ColorToMove'));
 		console.log("cgame.Player1Color "+cgame.Player1Color);
 		
@@ -932,7 +932,7 @@ module.exports = {
 	
 	OfferDraw:function(req,res){
 		
-	sails.sockets.broadcast(req.param('gameid'), 'DrawOffered',{room:req.param('gameid'),offerer:req.param('userid'),offeredto:req.param('OfferedTo')});
+	sails.sockets.broadcast('/humanvshumannew/'+req.param('gameid'), 'DrawOffered',{room:req.param('gameid'),offerer:req.param('userid'),offeredto:req.param('OfferedTo')});
 	
 	Chessgame.findOne({
 		id:req.param('gameid')

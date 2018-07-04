@@ -253,6 +253,7 @@ if(drawnPageOnce==false)
 			console.log(JSON.stringify(resData));
 			});
 		
+		
 			io.socket.get("/subscribeToRoom",{roomName:window.location.pathname,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			console.log("subbed to window pathname "+window.location.pathname); 
 			});
@@ -308,12 +309,13 @@ if(drawnPageOnce==false)
 	
 	function setupPlayervsPlayerPage()
 	{
+		/*
 		var roomname='/humanvshumannew/'+GameID;
 		
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-		
+		*/
 		io.socket.on('DrawOffered', function (data)
 			{
 		console.log(data);

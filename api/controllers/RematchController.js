@@ -121,7 +121,7 @@ module.exports = {
 						{records.Player2WantsRematch=true;}
 			
 						records.save();
-						sails.sockets.broadcast(req.param('gam'),'rematch', {content:req.param('me')});
+						sails.sockets.broadcast('/humanvshumannew/'+req.param('gam'),'rematch', {content:req.param('me')});
 					});
 		
 			
