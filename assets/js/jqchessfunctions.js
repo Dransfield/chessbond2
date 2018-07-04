@@ -238,13 +238,13 @@ var boardThemeNames=['original','A1','A2',
 };
 
 function init(){
-		
+		/*
 		var roomname=GamePlaying.id;
 		
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
-		
+		*/
 	setInterval(function (){
 		DoPing(MyID);
 	},20000);

@@ -254,7 +254,7 @@ if(drawnPageOnce==false)
 			});
 		
 			io.socket.get("/subscribeToRoom",{roomName:window.location.pathname,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
-			console.log("subbed to "+window.location.pathname); 
+			console.log("subbed to window pathname "+window.location.pathname); 
 			});
 			
 			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
@@ -326,10 +326,10 @@ if(drawnPageOnce==false)
 		});
 		
 		$("#mousemove").mousemove(function()
-	{
+			{
 		
-		$("#favicon").attr("href","/favicon.ico");
-	});
+			$("#favicon").attr("href","/favicon.ico");
+			});
 	retrieveBannedWords().then(function(){
 		getWallposts(GameID,30000).then(function(){
 		retrieveGame(GameID).then(function()

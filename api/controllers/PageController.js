@@ -1522,7 +1522,7 @@ newdate = year + "/" + month + "/" + day;
 	
 	BroadcastPing:function(req,res){
 	
-		sails.sockets.broadcast(req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid'),ping:req.param('ping')});
+		sails.sockets.broadcast('/humanvshumannew/'+req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid'),ping:req.param('ping')});
 	 return res.ok();
 	},
 	SendMail:function(req,res){
