@@ -283,8 +283,7 @@ function init(){
 
 io.socket.on('ping',function(data){
 		if (data){
-		console.log(data.player+" has ping of "+data.ping);
-		if (data.player==GamePlaying.PlayerIDOnBottom)
+		if (data.player==PlayerIDOnBottom)
 			{
 			BottomPingDisplay.html("Ping:"+data.ping);
 			}
