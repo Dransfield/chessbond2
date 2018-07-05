@@ -313,6 +313,7 @@ if(drawnPageOnce==false)
 
 	function setupPlayervsAIPage()
 	{
+		AccountsToRetrieve[MyID]=MyID;
 		retrieveAccounts(true).then(function()
 			{
 		var overallDiv=addFlexDiv($("#playervsai"),"overall","column","nowrap");
