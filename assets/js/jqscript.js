@@ -313,6 +313,8 @@ if(drawnPageOnce==false)
 
 	function setupPlayervsAIPage()
 	{
+		retrieveAccounts(true).then(function()
+			{
 		var overallDiv=addFlexDiv($("#playervsai"),"overall","column","nowrap");
 		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 		var levelsel=showSelect(overallDiv,twentyArray,twentyArray,"Choose Difficulty");	
@@ -325,7 +327,7 @@ if(drawnPageOnce==false)
 				console.log(chosenLevel);
 				setupPlayervsAIBoard(chosenLevel,overallBoardDiv);
 				});
-		
+		});
 	}
 	
 	function setupPlayervsAIBoard(lvl,elem)
@@ -333,7 +335,7 @@ if(drawnPageOnce==false)
 		var boardDiv=addDiv(elem);
 		boardDiv.attr('id','board');
 		boardDiv.attr('style','width: 400px');
-		var game = engineGame('',theme);
+		var game = engineGame('',null);
 		game.setSkillLevel(lvl);
 		game.start();
 	}
