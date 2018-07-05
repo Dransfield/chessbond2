@@ -321,7 +321,7 @@ if(drawnPageOnce==false)
 		var levelsel=showSelect($("#playervsai"),twentyArray,twentyArray,"Choose Difficulty");	
 		var chosenLevel;
 		PlayerIDOnBottom=MyID;
-		PlayerColorOnBottom=='White'
+		PlayerColorOnBottom='White';
 				
 			var horizontalDiv=addDiv($("#playervsai"));
 				
