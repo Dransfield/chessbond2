@@ -1,6 +1,6 @@
 
  <div id="navbar"></div>
-        <div id="playvsai"></div>
+        <div id="playervsai"></div>
     <% if (req.session.passport) { %>
 			<% if (req.session.passport.user) { %>
 			<script>var MyID='<%- req.session.passport.user %>'</script>
@@ -13,31 +13,6 @@
 			<%}%>
 
 	
-	<form ng-hide="hidedifficulty" id="levelform" ng-submit="PressedGoButton()" >
-	<h2>Choose a difficulty level:</h2>
-	<select ng-model="LevelForm.level" id="levelpicker" class="form-control bg-success" data-style="btn-success">
-	  <option>1</option>
-	  <option>2</option>
-	  <option>3</option>
-	  <option>4</option>
-	  <option>5</option>
-	  <option>6</option>
-	  <option>7</option>
-	  <option>8</option>
-	  <option>9</option>
-	  <option>10</option>
-	  <option>11</option>
-	  <option>12</option>
-	  <option>13</option>
-	  <option>14</option>
-	  <option>15</option>
-	  <option>16</option>
-	  <option>17</option>
-	  <option>18</option>
-	  <option>19</option>
-	  <option>20</option>
-	</select>
-	<button id="go button" type="submit" class="btn btn-success">Go</button>
-	</form>
+
 
  

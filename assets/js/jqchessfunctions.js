@@ -894,7 +894,7 @@ function StartBlackClock()
 			{p1second="0"+p1second;}
 			
 			
-			if (GamePlaying.PlayerIDOnBottom==GamePlaying.Player1)
+			if (PlayerIDOnBottom==GamePlaying.Player1)
 			{
 				
 				BottomSeconds.html(":"+p1second);
