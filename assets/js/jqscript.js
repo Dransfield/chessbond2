@@ -343,7 +343,7 @@ if(drawnPageOnce==false)
 			orientation:myColor,
 			onMoveEnd:myMoveEndFunc,
 			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
-		};
+		
 		board1 = new ChessBoard(elem.attr('id'), cfg);
 		
 	}
