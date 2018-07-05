@@ -339,6 +339,9 @@ if(drawnPageOnce==false)
 		
 				var sideBoard=addSpan(horizontalDiv,"sideBoard");
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
+				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
+				bottomPlayerMarque.css("overflow","auto");
 				
 				levelsel.change(function()
 				{
