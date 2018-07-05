@@ -321,7 +321,7 @@ if(drawnPageOnce==false)
 				levelsel.change(function()
 				{
 					//console.log(fidesel.val());
-				chosenLevel=JSON.parse(fidesel.val());	
+				chosenLevel=JSON.parse(levelsel.val());	
 				console.log(chosenLevel);
 				setupPlayervsAIBoard(chosenLevel,overallBoardDiv);
 				});
