@@ -333,12 +333,19 @@ if(drawnPageOnce==false)
 	
 	function setupPlayervsAIBoard(lvl,elem)
 	{
-		var boardDiv=addDiv(elem);
-		boardDiv.attr('id','board');
-		boardDiv.attr('style','width: 400px');
-		var game = engineGame('',null);
-		game.setSkillLevel(lvl);
-		game.start();
+		game = new Chess();
+		var loadBoardWith=game.fen();
+		var myColor='white';
+		
+		 cfg = {
+			draggable: false,
+			position: loadBoardWith,
+			orientation:myColor,
+			onMoveEnd:myMoveEndFunc,
+			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
+		};
+		board1 = new ChessBoard(elem.attr('id'), cfg);
+		
 	}
 	
 	function setupPlayervsPlayerPage()
