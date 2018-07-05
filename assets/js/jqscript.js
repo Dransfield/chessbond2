@@ -320,7 +320,9 @@ if(drawnPageOnce==false)
 		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 		var levelsel=showSelect($("#playervsai"),twentyArray,twentyArray,"Choose Difficulty");	
 		var chosenLevel;
-		
+		PlayerIDOnBottom=MyID;
+		PlayerColorOnBottom=='White'
+				
 			var horizontalDiv=addDiv($("#playervsai"));
 				
 			
@@ -342,7 +344,7 @@ if(drawnPageOnce==false)
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
 				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
-				PlayerIDOnBottom=MyID;
+				
 				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
