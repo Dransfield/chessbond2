@@ -423,10 +423,10 @@ function changeOverallScore(piece,colour)
 
 function singlePlayerMoveFunc(old,newpos)
 {
-	
+	console.log("match?"+chessmove.to+" "+newpos);
 			$('.square-55d63').css("background-image","");
-		$('.square-' +chessmove.to).css("background-size","contain");
-	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+		$('.square-' +newpos).css("background-size","contain");
+	$('.square-' +newpos).css("background-image", "url('/images/square.png')");
 
 	
 }
@@ -517,12 +517,14 @@ function singlePlayerMoveFunc(old,newpos)
 					
 					 // console.log('move'+JSON.stringify(move));
 					//console.log("result: "+GamePlaying.Result);
+					 
 					 if(playingSinglePlayer==false)
 					 {
 					updateStatus(game,mov);
 					}
 					else
 					{
+						chessmove=mov;
 					game.move(mov);
 					//board1.move(mov);
 				board1.move(mov.from+"-"+mov.to);
