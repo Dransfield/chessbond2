@@ -13,6 +13,7 @@ var acceptDrawButton;
   var chessmove;
 var game;
 
+var playingSinglePlayer=false;
 
 var turnTakerNoticeDiv;
 
@@ -430,12 +431,7 @@ function singlePlayerMoveFunc(old,newpos)
 	
 }
 	
-	function singlePlayerOnDrop(mov)
-	{
-		console.log('single ondrop');
-		
-	}
-
+	
 	function myMoveEndFunc(old,newpos)
 	{
 		console.log(chessmove);
@@ -467,26 +463,7 @@ function singlePlayerMoveFunc(old,newpos)
 		
 		
 			
-						
-		/*
-							if (usersTurn(game,MyID)===false)
-						{ 
-							toastr.warning("It's not your turn");
-							return;}
-						// see if the move is legal
-					
-					
-					 if (GamePlaying.Result){
-						  if (GamePlaying.Result)
-							{
-								
-						  toastr.warning("The game is over");
-						 }
-						  if (game.in_check())
-							{
-						  toastr.warning("You are in check");
-						 }
-						
+						/*
 						 console.log('gameover?'+game.game_over());
 						  console.log('in check?'+game.in_check());
 						  console.log('in checkmate?'+game.in_checkmate());
@@ -496,9 +473,8 @@ function singlePlayerMoveFunc(old,newpos)
 						  
 						   return game.fen();
 						   }
-						
-				var nextPlayer,
-						status,
+						*/
+		/*		
 					move = game.move({
 						from: mov.from,
 						to: mov.to,
@@ -509,24 +485,11 @@ function singlePlayerMoveFunc(old,newpos)
 					  
 						
 					 
-							GamePlaying.Move+=1;
-							changeOverallScore(move.captured,move.color);
-							Showcapturedpiece(move.captured,move.color,true);
+						//	GamePlaying.Move+=1;
+					//		changeOverallScore(move.captured,move.color);
+				//			Showcapturedpiece(move.captured,move.color,true);
 							
 							
-							
-						if (GamePlaying.Player1==MyID)
-							{
-								GamePlaying.Player1Moved='true';
-								ShowWithdrawButton=false;
-							}
-						if (GamePlaying.Player2==MyID)
-							{
-								GamePlaying.Player2Moved='true';
-								ShowWithdrawButton=false;
-							}
-						
-						console.log("is it over?");
 							  if (game.game_over())
 								{
 						
@@ -548,45 +511,24 @@ function singlePlayerMoveFunc(old,newpos)
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
-							ShowOfferDrawButton=false;
-								if(Accounts[MyID])
-								{		
-								if(Accounts[MyID].SoundEnabled=='Sound Enabled')
-								{
-								PlayCheckMate();
-								
-								}
-								}
 							}
 							 
-	 
-						//	console.log("move from ondrop "+JSON.stringify(move));
-							var square=   $('.square-' + move.to);
-							var position =square .position();
-							 $( "img[id='highlight']" ).detach();
-						  square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
-					
-							 square=   $("b[id='lastpgn']");
-							$( "img[id='pgnhighlight']" ).detach();
-						  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
-					
-						  
-						  
-						  square=   boardEl.find('.square-' + move.from);
-							square.append("<img id='highlight' style='position:absolute;height:"+square.height()+"px;' src='/images/square.png'>");
-						
-						  Moves=game.pgn().split(".");
-					  //console.log("left"+position.left);
-					  //console.log("top"+position.top);
-					  //console.log("html"+square.html());
-					  //console.log("height"+square.height());
-					 // console.log("<img style='position:absolute;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
-					  //square.append("<img style='position:relative;height:"+square.height()+"px;top:"+position.top+"px;left:"+position.left+"px' src='/images/circle.png'>");
+	 */
 					
 					 // console.log('move'+JSON.stringify(move));
 					//console.log("result: "+GamePlaying.Result);
-					 */
+					 if(playingSinglePlayer==false)
+					 {
 					updateStatus(game,mov);
+					}
+					else
+					{
+					game.move(mov);
+					board1.move(mov);
+					board1.move(mov.from+"-"+mov.to);
+					
+	
+					}
 					//return game.fen();
 };
 

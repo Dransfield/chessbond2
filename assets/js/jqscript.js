@@ -156,7 +156,7 @@ if(drawnPageOnce==false)
 		}
 		);
 		
-				io.socket.on('PrivateConversationStarted', function (data)
+			io.socket.on('PrivateConversationStarted', function (data)
 			{
 			
 			console.log("adding go to chat to  "+JSON.stringify(data));
@@ -166,7 +166,7 @@ if(drawnPageOnce==false)
 			
 			});
 				
-				io.socket.on('FollowStarted', function (data)
+			io.socket.on('FollowStarted', function (data)
 			{
 			
 			
@@ -183,7 +183,7 @@ if(drawnPageOnce==false)
 		if($("#playervsai").length)
 		{
 		setupPlayervsAIPage();
-			
+		playingSinglePlayer=true;
 		}
 		if($("#justloggedinpage").length)
 		{
