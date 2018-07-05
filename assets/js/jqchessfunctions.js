@@ -418,6 +418,24 @@ function changeOverallScore(piece,colour)
 	
 	
 	}
+
+
+function singlePlayerMoveFunc(old,newpos)
+{
+	
+			$('.square-55d63').css("background-image","");
+		$('.square-' +chessmove.to).css("background-size","contain");
+	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+
+	
+}
+	
+	function singlePlayerOnDrop(mov)
+	{
+		console.log('single ondrop');
+		
+	}
+
 	function myMoveEndFunc(old,newpos)
 	{
 		console.log(chessmove);

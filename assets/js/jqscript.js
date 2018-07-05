@@ -371,7 +371,8 @@ if(drawnPageOnce==false)
 				});
 		});
 	}
-	
+
+
 	function setupPlayervsAIBoard(lvl,elem)
 	{
 		game = new Chess();
@@ -422,7 +423,8 @@ if(drawnPageOnce==false)
 			draggable: false,
 			position: loadBoardWith,
 			orientation:myColor,
-			onMoveEnd:myMoveEndFunc,
+			onMoveEnd:singlePlayerMoveFunc,
+			onDrop:singlePlayerOnDrop,
 			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
 		}
 		else
@@ -431,7 +433,8 @@ if(drawnPageOnce==false)
 			draggable: false,
 			position: loadBoardWith,
 			orientation:myColor,
-			onMoveEnd:myMoveEndFunc,
+			onMoveEnd:singlePlayerMoveFunc,
+			onDrop:singlePlayerOnDrop,
 			pieceTheme:'/img/chesspieces/A/{piece}.png'};
 		}
 				
