@@ -364,7 +364,17 @@ if(drawnPageOnce==false)
 			onMoveEnd:myMoveEndFunc,
 			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
 		}
-		board1 = new ChessBoard(elem, cfg);
+		else
+		{
+		 cfg = {
+			draggable: false,
+			position: loadBoardWith,
+			orientation:myColor,
+			onMoveEnd:myMoveEndFunc,
+			pieceTheme:'/img/chesspieces/A/{piece}.png'};
+		}
+				
+		board1 = new ChessBoard('boardcontainer', cfg);
 	
 	if(Accounts[MyID])
 				{
