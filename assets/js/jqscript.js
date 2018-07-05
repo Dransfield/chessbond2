@@ -424,7 +424,7 @@ if(drawnPageOnce==false)
 			position: loadBoardWith,
 			orientation:myColor,
 			onMoveEnd:singlePlayerMoveFunc,
-			onDrop:singlePlayerOnDrop,
+			
 			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
 		}
 		else
@@ -434,7 +434,6 @@ if(drawnPageOnce==false)
 			position: loadBoardWith,
 			orientation:myColor,
 			onMoveEnd:singlePlayerMoveFunc,
-			onDrop:singlePlayerOnDrop,
 			pieceTheme:'/img/chesspieces/A/{piece}.png'};
 		}
 				
