@@ -342,6 +342,23 @@ if(drawnPageOnce==false)
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
 				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
+				PlayerIDOnBottom=MyID;
+				bottomPlayerMarque.css("overflow","auto");
+				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
+				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
+				BottomMilliseconds=addSpan(bottomPlayerMarque,"bottommilliseconds");
+				
+				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+				showsmallAvatar(bottomPlayerMarque,PlayerIDOnBottom);
+				showUsername(bottomPlayerMarque,PlayerIDOnBottom);
+				if (Accounts[PlayerIDOnBottom])
+				{
+				bottomPlayerMarque.append(Accounts[PlayerIDOnBottom].ELO);
+				}
+				showFlag(bottomPlayerMarque,PlayerIDOnBottom);
+				
+				BottomPingDisplay=$("<p>Ping</p>");
+				bottomPlayerMarque.append(BottomPingDisplay);
 				
 				levelsel.change(function()
 				{
