@@ -524,8 +524,8 @@ function singlePlayerMoveFunc(old,newpos)
 					else
 					{
 					game.move(mov);
-					board1.move(mov);
-				//	board1.move(mov.from+"-"+mov.to);
+					//board1.move(mov);
+				board1.move(mov.from+"-"+mov.to);
 					
 	
 					}
