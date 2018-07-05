@@ -320,13 +320,32 @@ if(drawnPageOnce==false)
 		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 		var levelsel=showSelect(overallDiv,twentyArray,twentyArray,"Choose Difficulty");	
 		var chosenLevel;
-		var overallBoardDiv=addDiv(overallDiv);
+		
+			var horizontalDiv=addDiv(overallDiv);
+				
+			
+				horizontalDiv.css("display","flex");
+				horizontalDiv.css("align-items","flex-start");
+				//=addF(overall,"horizontal","row","wrap","flex-start");
+				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
+				//showBoardOptions(boardDivDiv);
+				
+				
+				topPlayerMarqueContainer=addDiv(boardDivDiv);
+				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","nowrap","space-between","center");
+				topPlayerMarque.css("overflow","auto");
+				
+			
+		
+					var sideBoard=addSpan(horizontalDiv,"sideBoard");
+					var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
+				
 				levelsel.change(function()
 				{
 					//console.log(fidesel.val());
 				chosenLevel=JSON.parse(levelsel.val());	
 				console.log(chosenLevel);
-				setupPlayervsAIBoard(chosenLevel,overallBoardDiv);
+				setupPlayervsAIBoard(chosenLevel,boardcontainer);
 				});
 		});
 	}
@@ -336,16 +355,78 @@ if(drawnPageOnce==false)
 		game = new Chess();
 		var loadBoardWith=game.fen();
 		var myColor='white';
-		
+		if(Accounts[MyID])
+	{
 		 cfg = {
 			draggable: false,
 			position: loadBoardWith,
 			orientation:myColor,
 			onMoveEnd:myMoveEndFunc,
 			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
-		
+		}
 		board1 = new ChessBoard(elem, cfg);
+	
+	if(Accounts[MyID])
+				{
+				
+				for (sIter in boardSizeValues)
+				{
+					console.log("boardSizeValues[sIter] "+boardSizeValues[sIter].name);
+					
+					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
+					{
+						console.log("setting bdd to "+Accounts[MyID].BoardSize);
+				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
+					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
+					//resizeBoard(boardSizeValues[sIter].value);
+					
+					
+						var finalPercent=boardSizeValues[sIter].value;
+						console.log("win width "+$(window).width());
+						console.log("board size"+boardSizeValues[sIter].value/100);
+							console.log("calc result"+($(window).width()*(boardSizeValues[sIter].value/100)));
+							if($(window).width()*(boardSizeValues[sIter].value/100)<91)
+							{
+								
+								finalPercent=40;
+							}
+							
+							$("#bdd").css("width",finalPercent+"%");
+							$("#boardcontainer").css("width","100%");
+
+							$("#sideBoard").css("width",(100-finalPercent)+"%");
+					
+					
+					}
+				}
+			}
+			if(Accounts[MyID])
+	{
+	for (btIter in boardThemeValues)
+	{
+		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
+		{
+			
+			var obj=boardThemeValues[btIter];
+	$(".white-1e1d7").css("background-color",obj.whitebackground);	
+		$(".black-3c85d").css("background-color",obj.blackbackground);
+		}
+	}
+	}
+	
 		
+				
+				
+			if(Accounts[MyID])
+			{
+				for (iter in pieceNames)
+					{
+							
+					$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+					$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+						
+					}
+			}
 	}
 	
 	function setupPlayervsPlayerPage()
