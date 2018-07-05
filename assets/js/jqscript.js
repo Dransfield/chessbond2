@@ -316,12 +316,12 @@ if(drawnPageOnce==false)
 		AccountsToRetrieve[MyID]=MyID;
 		retrieveAccounts(true).then(function()
 			{
-		var overallDiv=addFlexDiv($("#playervsai"),"overall","column","nowrap");
+		
 		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-		var levelsel=showSelect(overallDiv,twentyArray,twentyArray,"Choose Difficulty");	
+		var levelsel=showSelect($("#playervsai"),twentyArray,twentyArray,"Choose Difficulty");	
 		var chosenLevel;
 		
-			var horizontalDiv=addDiv(overallDiv);
+			var horizontalDiv=addDiv($("#playervsai"));
 				
 			
 				horizontalDiv.css("display","flex");
@@ -337,8 +337,8 @@ if(drawnPageOnce==false)
 				
 			
 		
-					var sideBoard=addSpan(horizontalDiv,"sideBoard");
-					var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
+				var sideBoard=addSpan(horizontalDiv,"sideBoard");
+				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				
 				levelsel.change(function()
 				{
@@ -355,7 +355,46 @@ if(drawnPageOnce==false)
 		game = new Chess();
 		var loadBoardWith=game.fen();
 		var myColor='white';
-		if(Accounts[MyID])
+		
+	
+	if(Accounts[MyID])
+				{
+				
+				for (sIter in boardSizeValues)
+				{
+					console.log("boardSizeValues[sIter] "+boardSizeValues[sIter].name);
+					
+					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
+					{
+						console.log("setting bdd to "+Accounts[MyID].BoardSize);
+				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
+					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
+					//resizeBoard(boardSizeValues[sIter].value);
+					
+					
+						var finalPercent=boardSizeValues[sIter].value;
+						console.log("final result "+finalPercent);
+						console.log("win width "+$(window).width());
+						console.log("board size"+boardSizeValues[sIter].value/100);
+							console.log("calc result"+($(window).width()*(boardSizeValues[sIter].value/100)));
+							if($(window).width()*(boardSizeValues[sIter].value/100)<91)
+							{
+								
+								finalPercent=40;
+							}
+							
+							$("#bdd").css("width",finalPercent+"%");
+							$("#boardcontainer").css("width","100%");
+
+							$("#sideBoard").css("width",(100-finalPercent)+"%");
+					
+					
+					}
+				}
+			}
+			
+			
+			if(Accounts[MyID])
 	{
 		 cfg = {
 			draggable: false,
@@ -375,41 +414,7 @@ if(drawnPageOnce==false)
 		}
 				
 		board1 = new ChessBoard('boardcontainer', cfg);
-	
-	if(Accounts[MyID])
-				{
-				
-				for (sIter in boardSizeValues)
-				{
-					console.log("boardSizeValues[sIter] "+boardSizeValues[sIter].name);
-					
-					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
-					{
-						console.log("setting bdd to "+Accounts[MyID].BoardSize);
-				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
-					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
-					//resizeBoard(boardSizeValues[sIter].value);
-					
-					
-						var finalPercent=boardSizeValues[sIter].value;
-						console.log("win width "+$(window).width());
-						console.log("board size"+boardSizeValues[sIter].value/100);
-							console.log("calc result"+($(window).width()*(boardSizeValues[sIter].value/100)));
-							if($(window).width()*(boardSizeValues[sIter].value/100)<91)
-							{
-								
-								finalPercent=40;
-							}
-							
-							$("#bdd").css("width",finalPercent+"%");
-							$("#boardcontainer").css("width","100%");
-
-							$("#sideBoard").css("width",(100-finalPercent)+"%");
-					
-					
-					}
-				}
-			}
+			
 			if(Accounts[MyID])
 	{
 	for (btIter in boardThemeValues)
