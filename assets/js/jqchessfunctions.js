@@ -423,7 +423,7 @@ function changeOverallScore(piece,colour)
 
 function singlePlayerMoveFunc(old,newpos)
 {
-	console.log("match?"+chessmove.to+" "+newpos);
+	console.log("match?"+chessmove.to+" "+JSON.stringify(newpos));
 			$('.square-55d63').css("background-image","");
 		$('.square-' +newpos).css("background-size","contain");
 	$('.square-' +newpos).css("background-image", "url('/images/square.png')");
