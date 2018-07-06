@@ -12,6 +12,8 @@ var acceptDrawButton;
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
+var gameSkill;
+var gameThinkTime;
 
 var playingSinglePlayer=false;
 
@@ -420,6 +422,67 @@ function changeOverallScore(piece,colour)
 	
 	}
 
+    function get_moves()
+    {
+        var moves = '';
+        var history = game.history({verbose: true});
+        
+        for(var i = 0; i < history.length; ++i) {
+            var move = history[i];
+            moves += ' ' + move.from + move.to + (move.promotion ? move.promotion : '');
+        }
+        
+        return moves;
+    }
+
+
+
+    engine.onmessage = function(event) {
+        var line;
+        
+        if (event && typeof event === "object") {
+            line = event.data;
+        } else {
+            line = event;
+        }
+        console.log("Reply: " + line)
+        if(line == 'uciok') {
+            engineStatus.engineLoaded = true;
+        } else if(line == 'readyok') {
+            engineStatus.engineReady = true;
+        } else {
+            var match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
+            /// Did the AI move?
+            if(match) {
+                isEngineRunning = false;
+                game.move({from: match[1], to: match[2], promotion: match[3]});
+                prepareMove();
+                uciCmd("eval", evaler)
+                evaluation_el.textContent = "";
+                //uciCmd("eval");
+            /// Is it sending feedback?
+            } else if(match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
+                engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
+            }
+            
+            /// Is it sending feed back with a score?
+            if(match = line.match(/^info .*\bscore (\w+) (-?\d+)/)) {
+                var score = parseInt(match[2]) * (game.turn() == 'w' ? 1 : -1);
+                /// Is it measuring in centipawns?
+                if(match[1] == 'cp') {
+                    engineStatus.score = (score / 100.0).toFixed(2);
+                /// Did it find a mate?
+                } else if(match[1] == 'mate') {
+                    engineStatus.score = 'Mate in ' + Math.abs(score);
+                }
+                
+                /// Is the score bounded?
+                if(match = line.match(/\b(upper|lower)bound\b/)) {
+                    engineStatus.score = ((match[1] == 'upper') == (game.turn() == 'w') ? '<= ' : '>= ') + engineStatus.score
+                }
+            }
+        }
+        
 
 function singlePlayerMoveFunc(old,newpos)
 {
@@ -427,7 +490,16 @@ function singlePlayerMoveFunc(old,newpos)
 			$('.square-55d63').css("background-image","");
 		$('.square-' +chessmove.to).css("background-size","contain");
 	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+console.log("game.turn() "+game.turn());
 
+if (game.turn()=='b')
+{
+	
+uciCmd('position startpos moves' + get_moves());
+    uciCmd("go " + (time.depth ? "depth " + time.depth : ""));
+                
+	
+}
 	
 }
 	

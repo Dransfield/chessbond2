@@ -379,7 +379,28 @@ if(drawnPageOnce==false)
 		var loadBoardWith=game.fen();
 		var myColor='white';
 		
-	
+		gameSkill=lvl;
+		  if (gameSkill < 5) {
+                gameThinkTime = "1";
+            } else if (gameSkill < 10) {
+                gameThinkTime = "2";
+            } else if (gameSkill < 15) {
+                gameThinkTime = "3";
+            } else {
+                /// Let the engine decide.
+                gameThinkTime = "";
+            }
+	uciCmd('setoption name Skill Level value ' + gameSkill);
+                ///NOTE: Stockfish level 20 does not make errors (intentially), so these numbers have no effect on level 20.
+            /// Level 0 starts at 1
+            err_prob = Math.round((gameSkill * 6.35) + 1);
+            /// Level 0 starts at 10
+            max_err = Math.round((gameSkill * -0.5) + 10);
+            
+            uciCmd('setoption name Skill Level Maximum Error value ' + max_err);
+            uciCmd('setoption name Skill Level Probability value ' + err_prob);
+        
+        
 	if(Accounts[MyID])
 				{
 				
