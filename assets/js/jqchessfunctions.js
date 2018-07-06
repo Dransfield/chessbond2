@@ -14,7 +14,8 @@ var acceptDrawButton;
 var game;
 var gameSkill;
 var gameThinkTime;
-
+ var engine =  STOCKFISH();
+ var engineStatus = {};
 var playingSinglePlayer=false;
 
 var turnTakerNoticeDiv;
@@ -436,7 +437,11 @@ function changeOverallScore(piece,colour)
     }
 
 
-
+    function uciCmd(cmd, which) {
+        console.log("UCI: " + cmd);
+        
+        (which || engine).postMessage(cmd);
+    }
     engine.onmessage = function(event) {
         var line;
         
@@ -483,7 +488,7 @@ function changeOverallScore(piece,colour)
             }
         }
         
-
+}
 function singlePlayerMoveFunc(old,newpos)
 {
 	
