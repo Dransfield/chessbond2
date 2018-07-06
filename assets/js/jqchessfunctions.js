@@ -457,35 +457,16 @@ function changeOverallScore(piece,colour)
         } else if(line == 'readyok') {
             engineStatus.engineReady = true;
         } else {
+			console.log("its a move");
             var match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
             /// Did the AI move?
             if(match) {
                 isEngineRunning = false;
                 game.move({from: match[1], to: match[2], promotion: match[3]});
-                prepareMove();
-                uciCmd("eval", evaler)
-                evaluation_el.textContent = "";
-                //uciCmd("eval");
-            /// Is it sending feedback?
-            } else if(match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
-                engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
-            }
+               board1.move(match[1]+"-"+match[2];
+           
             
-            /// Is it sending feed back with a score?
-            if(match = line.match(/^info .*\bscore (\w+) (-?\d+)/)) {
-                var score = parseInt(match[2]) * (game.turn() == 'w' ? 1 : -1);
-                /// Is it measuring in centipawns?
-                if(match[1] == 'cp') {
-                    engineStatus.score = (score / 100.0).toFixed(2);
-                /// Did it find a mate?
-                } else if(match[1] == 'mate') {
-                    engineStatus.score = 'Mate in ' + Math.abs(score);
-                }
-                
-                /// Is the score bounded?
-                if(match = line.match(/\b(upper|lower)bound\b/)) {
-                    engineStatus.score = ((match[1] == 'upper') == (game.turn() == 'w') ? '<= ' : '>= ') + engineStatus.score
-                }
+            
             }
         }
         
