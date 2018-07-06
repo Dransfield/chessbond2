@@ -16,6 +16,7 @@ var gameSkill;
 var gameThinkTime;
  var engine =  STOCKFISH();
  var engineStatus = {};
+  var time = { wtime: 300000, btime: 300000, winc: 2000, binc: 2000 };
 var playingSinglePlayer=false;
 
 var turnTakerNoticeDiv;
