@@ -483,7 +483,8 @@ var gameover;
 var descriptor="nothing";
 
 	if (game.game_over())
-	{gameover=true;}
+	{gameover=true;
+		console.log("game is over");}
 	
 	if (game.in_draw())
 	{state='draw';}
