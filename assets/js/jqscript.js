@@ -7,7 +7,7 @@ var timeToCurrentTournamentStartDiv;
 var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var timeCells={};
-var joinedPlayersDiv;Dear Sir/Madam
+var joinedPlayersDiv;
 /*
 I have been developing numerous personal projects alongside the work on my CV.
 Last year I made a platform game where anyone can create new levels online. Please see here:

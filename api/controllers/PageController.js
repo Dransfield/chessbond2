@@ -495,7 +495,7 @@ function CreateTournaments()
 					
 					});
 				}
-			}
+				}
 			});
 			
 		/*Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
