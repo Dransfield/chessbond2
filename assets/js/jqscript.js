@@ -22,8 +22,7 @@ Also, I would be unable to make it into the building presently as I have a leg i
 I might be able to 
 */
 //(502) 425-0220 hcc
-/*
- * 
+
 //hurstpd 499 2352
 //lmpd502-574-2111
 var bigemptyDiv=[];
