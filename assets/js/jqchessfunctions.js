@@ -464,7 +464,7 @@ function changeOverallScore(piece,colour)
                 isEngineRunning = false;
                 game.move({from: match[1], to: match[2], promotion: match[3]});
                board1.move(match[1]+"-"+match[2]);
-			singlePlayerWinFunc();
+			//singlePlayerWinFunc();
             
             
             }
