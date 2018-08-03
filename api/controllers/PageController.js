@@ -479,6 +479,8 @@ function CreateTournaments()
 		
 		Tournament.find({currentlyPlaying:false,result:"",id:record.id,players:{'>':1}}).exec(function(updateErr,tournyRecords)
 			{
+				if(tournyRecords)
+				{
 				if(tournyRecords.length>0)
 				{
 					console.log("tournyRecords "+JSON.stringify(tournyRecords[0]));
@@ -493,6 +495,7 @@ function CreateTournaments()
 					
 					});
 				}
+			}
 			});
 			
 		/*Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)

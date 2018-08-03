@@ -7,8 +7,23 @@ var timeToCurrentTournamentStartDiv;
 var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var timeCells={};
-var joinedPlayersDiv;
+var joinedPlayersDiv;Dear Sir/Madam
+/*
+I have been developing numerous personal projects alongside the work on my CV.
+Last year I made a platform game where anyone can create new levels online. Please see here:
+http://neuralnets.000webhostapp.com/platform/game.html
+
+I made a PC game which is quite old now, it would be required to run in compatibility mode on Windows 10
+http://www.mediafire.com/file/2pgtet28e6dtub6/Installmothership.exe/file
+
+I also made a game set in an office which I could upload as well.
+
+Also, I would be unable to make it into the building presently as I have a leg injury and can't drive.
+I might be able to 
+*/
 //(502) 425-0220 hcc
+/*
+ * 
 //hurstpd 499 2352
 //lmpd502-574-2111
 var bigemptyDiv=[];
