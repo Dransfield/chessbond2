@@ -479,6 +479,48 @@ function singlePlayerMoveFunc(old,newpos)
 	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
 console.log("game.turn() "+game.turn());
 
+var gameover;
+var descriptor="nothing";
+
+	if (game.game_over())
+	{gameover='true';}
+	
+	if (game.in_draw())
+	{state='draw';}
+	
+	if (game.in_checkmate())
+	{state='checkmate';}
+
+	if (game.insufficient_material())
+	{descriptor='insufficient material';}
+	
+	if (game.in_threefold_repetition())
+	{descriptor='in threefold repetition';
+		console.log("THREEFOLD");
+		}
+	
+	if (game.in_stalemate())
+	{descriptor='stalemate';}
+
+	if(gameover==true)
+	{
+		if(descriptor.find("nothing")==0)
+		{
+			
+			if (game.turn()=='b')
+			{
+			descriptor=("you won");
+			}
+			if (game.turn()=='w')
+			{
+			descriptor=("you lost");
+			}
+	
+		}
+		console.log(descriptor);
+	
+	}
+
 if (game.turn()=='b')
 {
 	
