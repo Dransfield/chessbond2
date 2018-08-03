@@ -504,7 +504,7 @@ var descriptor="nothing";
 
 	if(gameover==true)
 	{
-		if(descriptor.find("nothing")==0)
+		if(descriptor.indexOf("nothing")==0)
 		{
 			
 			if (game.turn()=='b')
