@@ -464,22 +464,17 @@ function changeOverallScore(piece,colour)
                 isEngineRunning = false;
                 game.move({from: match[1], to: match[2], promotion: match[3]});
                board1.move(match[1]+"-"+match[2]);
-           
+			singlePlayerWinFunc();
             
             
             }
         }
         
 }
-function singlePlayerMoveFunc(old,newpos)
-{
-	
-			$('.square-55d63').css("background-image","");
-		$('.square-' +chessmove.to).css("background-size","contain");
-	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
-console.log("game.turn() "+game.turn());
 
-var gameover;
+function singlePlayerWinFunc()
+{
+	var gameover;
 var descriptor="nothing";
 
 	if (game.game_over())
@@ -519,9 +514,22 @@ var descriptor="nothing";
 	
 		}
 		console.log(descriptor);
+		$("#sideBoard").append(descriptor);
 	
 	}
 
+	
+}
+
+function singlePlayerMoveFunc(old,newpos)
+{
+	
+			$('.square-55d63').css("background-image","");
+		$('.square-' +chessmove.to).css("background-size","contain");
+	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+console.log("game.turn() "+game.turn());
+
+singlePlayerWinFunc();
 if (game.turn()=='b')
 {
 	
