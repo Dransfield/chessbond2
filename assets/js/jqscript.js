@@ -379,7 +379,7 @@ if(drawnPageOnce==false)
 				BottomPingDisplay=$("<p>Ping</p>");
 				bottomPlayerMarque.append(BottomPingDisplay);
 				
-				gamesel.change(function()
+				timesel.change(function()
 				chosenLevel=JSON.parse(levelsel.val());	
 				console.log(chosenLevel);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
@@ -388,7 +388,7 @@ if(drawnPageOnce==false)
 				levelsel.change(function()
 				{
 					
-				gamesel.slideDown();
+				timesel.slideDown();
 				});
 		});
 	}
