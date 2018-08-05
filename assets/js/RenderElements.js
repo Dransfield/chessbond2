@@ -2793,6 +2793,7 @@ function showDropDown(usracc)
 
 }
 
+/*
 function showSelect(elem,optionnames,optionvalues,defaulttext)
 {
 	var selectbloke=$("<select></select>");
@@ -2804,7 +2805,24 @@ function showSelect(elem,optionnames,optionvalues,defaulttext)
 	elem.append(selectbloke);
 	return selectbloke;
 }
+*/
 
+function showSelect(elem,optionnames,optionvalues,defaulttext){
+	var btnGroup=$("<div class='btn-group'></div>");
+
+btnGroup.append($("<button type='button' class='btn btn-primary'>"+defaulttext+"</button>"))
+
+ btnGroup.append($(" <button type='button' class='btn btn-danger dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>    <span class='sr-only'>Toggle Dropdown</span></button>");
+/*
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+	*/
+}
 function showStripedTable(elem)
 {
 	//var table=$(" <table class='table table-striped'></table>");
