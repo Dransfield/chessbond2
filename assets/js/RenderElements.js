@@ -2811,8 +2811,9 @@ function showSelect(elem,optionnames,optionvalues,defaulttext){
 	var btnGroup=$("<div class='btn-group'></div>");
 
 btnGroup.append($("<button type='button' class='btn btn-primary'>"+defaulttext+"</button>"))
-
- btnGroup.append($(" <button type='button' class='btn btn-danger dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>    <span class='sr-only'>Toggle Dropdown</span></button>"));
+var arrow=$(" <button type='button' class='btn btn-primary dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> </button>");
+ btnGroup.append(arrow);
+   arrow.append($("<span class='sr-only'>Toggle Dropdown</span>"));
 var menu=$("<div class='dropdown-menu'></div>")
 btnGroup.append(menu);
 elem.append(btnGroup);
