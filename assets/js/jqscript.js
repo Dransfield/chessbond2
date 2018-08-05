@@ -334,7 +334,7 @@ if(drawnPageOnce==false)
 		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 		
 		var levelsel=showSelect($("#playervsai"),twentyArray,twentyArray,"Choose Difficulty");	
-		var timesel=showSelect($("#playervsai"),config.globals.gamecategories,"Choose Game Category");
+		var timesel=showSelect($("#playervsai"),config.globals.gamecategories,config.globals.gamecategories,"Choose Game Category");
 		timesel.hide();
 		var chosenLevel;
 		PlayerIDOnBottom=MyID;
