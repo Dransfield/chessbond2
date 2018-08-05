@@ -2810,10 +2810,7 @@ function showSelect(elem,optionnames,optionvalues,defaulttext)
 function showSelect(elem,optionnames,optionvalues,defaulttext){
 	var btnGroup=$("<div class='btn-group'></div>");
 
-btnGroup.append($("<button type='button' class='btn btn-primary'>"+defaulttext+"</button>"))
-var arrow=$(" <button type='button' class='btn btn-primary dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> </button>");
- btnGroup.append(arrow);
-   arrow.append($("<span class='sr-only'>Toggle Dropdown</span>"));
+btnGroup.append($("<button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"+defaulttext+"</button>"));
 var menu=$("<div class='dropdown-menu'></div>")
 btnGroup.append(menu);
 elem.append(btnGroup);
@@ -2821,14 +2818,10 @@ elem.append(btnGroup);
 	{
 	  menu.append("<a class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</a>");
 	}
-/*
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-	*/
+	
+<button type="button" class="btn btn-danger 
+Action
+</button>
 }
 function showStripedTable(elem)
 {
