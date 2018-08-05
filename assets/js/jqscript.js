@@ -380,6 +380,8 @@ if(drawnPageOnce==false)
 				bottomPlayerMarque.append(BottomPingDisplay);
 				
 				timesel.change({widget:levelsel},function()
+				{
+					chosenLevel=1;
 				chosenLevel=JSON.parse(event.data.widget.val());	
 				console.log(chosenLevel);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
