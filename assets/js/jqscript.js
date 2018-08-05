@@ -379,7 +379,7 @@ if(drawnPageOnce==false)
 				BottomPingDisplay=$("<p>Ping</p>");
 				bottomPlayerMarque.append(BottomPingDisplay);
 				
-				timesel.change(function({widget:levelsel})
+				timesel.change({widget:levelsel},function()
 				chosenLevel=JSON.parse(event.data.widget.val());	
 				console.log(chosenLevel);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
