@@ -2813,9 +2813,13 @@ function showSelect(elem,optionnames,optionvalues,defaulttext){
 btnGroup.append($("<button type='button' class='btn btn-primary'>"+defaulttext+"</button>"))
 
  btnGroup.append($(" <button type='button' class='btn btn-danger dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>    <span class='sr-only'>Toggle Dropdown</span></button>"));
-btnGroup.append($("<div class='dropdown-menu'></div>"));
+var menu=$("<div class='dropdown-menu'></div>")
+btnGroup.append(menu);
 elem.append(btnGroup);
-  
+  for (iter in optionnames)
+	{
+	  menu.append("<a class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</a>");
+	}
 /*
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
