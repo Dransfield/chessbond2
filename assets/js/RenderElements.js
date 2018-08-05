@@ -2819,9 +2819,7 @@ elem.append(btnGroup);
 	  menu.append("<a class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</a>");
 	}
 	
-<button type="button" class="btn btn-danger 
-Action
-</button>
+
 }
 function showStripedTable(elem)
 {
