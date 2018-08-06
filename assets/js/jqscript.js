@@ -68,6 +68,9 @@ var NavbarDropDown;
 		updateWholeSiteVisit();
 			var myStatus;
 			var idleTimer=5*60;
+			
+			
+
 
 if(drawnPageOnce==false)
 {
@@ -332,9 +335,10 @@ if(drawnPageOnce==false)
 			{
 		
 		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var catArray=gameCategoryNumberArray();
 		
 		var levelsel=showSelect($("#playervsai"),twentyArray,twentyArray,"Choose Difficulty");	
-		var timesel=showSelect($("#playervsai"),config.globals.gamecategories,config.globals.gamecategories,"Choose Game Category");
+		var timesel=showSelect($("#playervsai"),catArray,gamecategories,"Choose Game Category");
 		timesel.hide();
 		var chosenLevel;
 		PlayerIDOnBottom=MyID;

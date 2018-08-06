@@ -33,6 +33,15 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+function gameCategoryNumberArray()
+{
+	var array=[];
+	for (iter in gamecategories)
+	{
+		array.push(gamecategories.time+"-"+gamecategories.extratime);
+	}
+		return array;
+}
 
 function showTournamentRedirectNotice()
 {
