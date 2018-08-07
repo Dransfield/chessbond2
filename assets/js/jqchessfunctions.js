@@ -839,7 +839,7 @@ function StartWhiteClock()
 		WhiteTime-=121;
 			if(!GamePlaying.PlayerIDOnTop)
 			{
-			GamePlaying.Player1TimeLeft-121;
+			GamePlaying.Player1TimeLeft=GamePlaying.Player1TimeLeft-121;
 			}
 		}
 		if (WhiteTime<0)
@@ -927,7 +927,7 @@ function StartBlackClock()
 		
 			if(!GamePlaying.PlayerIDOnTop)
 			{
-			GamePlaying.Player2TimeLeft-121;
+			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-121;
 			}
 		}
 		if (BlackTime<0)
