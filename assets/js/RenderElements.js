@@ -2827,7 +2827,7 @@ elem.append(btnGroup);
 	{
 	  menu.append("<a class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</a>");
 	}
-	
+	return btnGroup;
 
 }
 function showStripedTable(elem)
