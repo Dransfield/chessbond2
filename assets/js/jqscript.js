@@ -354,10 +354,24 @@ if(drawnPageOnce==false)
 				//showBoardOptions(boardDivDiv);
 				
 				
+				
 				topPlayerMarqueContainer=addDiv(boardDivDiv);
 				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","nowrap","space-between","center");
 				topPlayerMarque.css("overflow","auto");
+				TopMinutes=addSpan(topPlayerMarque,"topminutes");
+				TopSeconds=addSpan(topPlayerMarque,"topseconds");
+				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
+				topPlayerMarque.append("<img style='position:relative;' src='/images/eye.png' height='30px'>");
+				//showsmallAvatar(topPlayerMarque,PlayerIDOnTop);
+				topPlayerMarque.append($("<span>Computer</span>");
 				
+				if (Accounts[PlayerIDOnTop])
+				{
+				topPlayerMarque.append(Accounts[PlayerIDOnTop].ELO);
+				}
+				//showFlag(topPlayerMarque,PlayerIDOnTop);
+			//	TopPingDisplay=$("<p>Ping</p>");
+				//topPlayerMarque.append(TopPingDisplay);
 			
 		
 				var sideBoard=addSpan(horizontalDiv,"sideBoard");
@@ -391,9 +405,9 @@ if(drawnPageOnce==false)
 		
 				GamePlaying.Player1TimeLeft=timesel.val().time;
 				GamePlaying.Player2TimeLeft=timesel.val().time;
-				
+				console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
 				GamePlaying.PlayerOnBottom='White';
-		
+				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
 				});
 				
