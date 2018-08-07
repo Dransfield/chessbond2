@@ -926,11 +926,12 @@ function StartBlackClock()
 		{
 		BlackTime-=121;
 		console.log("BlackTime -121"+BlackTime);
-		
+		console.log("1GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			if(!GamePlaying.PlayerIDOnTop)
 			{
+			console.log("G2amePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-121;
-			console.log("GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
+			console.log("3GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			}
 		}
 		if (BlackTime<0)
