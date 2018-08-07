@@ -923,6 +923,7 @@ function StartBlackClock()
 		{
 			BlackTime=0;
 			if(GamePlaying.PlayerIDOnTop)
+			{
 			if(!GamePlaying.Result)
 			{
 				io.socket.put('/gametimedout',{
@@ -937,6 +938,7 @@ function StartBlackClock()
 			}
 			}
 			
+		
 			if(!GamePlaying.PlayerIDOnTop)
 			{
 			if(!GamePlaying.Result)
@@ -947,6 +949,7 @@ function StartBlackClock()
 			resultDiv.css("margin-left","8px");
 			}	
 			}
+		
 		}
 		var bythousand=BlackTime/1000;
 		BlackSeconds=(parseInt((bythousand % 60))).toString();
