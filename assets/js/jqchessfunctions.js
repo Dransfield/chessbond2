@@ -915,6 +915,7 @@ function StartBlackClock()
 		else
 		{
 		BlackTime=GamePlaying.Player2TimeLeft*1000;
+		console.log("BlackTime=GamePlaying.Player2TimeLeft");
 		}
 		
 	//console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
@@ -924,10 +925,12 @@ function StartBlackClock()
 		if (BlackTime>0)
 		{
 		BlackTime-=121;
+		console.log("BlackTime -121"+BlackTime);
 		
 			if(!GamePlaying.PlayerIDOnTop)
 			{
 			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-121;
+			console.log("GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			}
 		}
 		if (BlackTime<0)
