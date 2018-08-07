@@ -2802,10 +2802,10 @@ function showDropDown(usracc)
 
 }
 
-/*
+
 function showSelect(elem,optionnames,optionvalues,defaulttext)
 {
-	var selectbloke=$("<select></select>");
+	var selectbloke=$("<select class='custom-select' ></select>");
 	selectbloke.append("<option selected disabled>"+defaulttext+"</option>");
 	for (iter in optionnames)
 	{
@@ -2814,8 +2814,8 @@ function showSelect(elem,optionnames,optionvalues,defaulttext)
 	elem.append(selectbloke);
 	return selectbloke;
 }
-*/
 
+/*
 function showSelect(elem,optionnames,optionvalues,defaulttext){
 	var btnGroup=$("<div class='btn-group'></div>");
 
@@ -2830,6 +2830,7 @@ elem.append(btnGroup);
 	return btnGroup;
 
 }
+*/
 function showStripedTable(elem)
 {
 	//var table=$(" <table class='table table-striped'></table>");
