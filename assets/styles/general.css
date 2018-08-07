@@ -322,9 +322,9 @@ background-color: #5bc0de;
 background-color:#b85c5c;
 
 }
-.paddedElement
+.marginedElement
 {
-padding: 10px;
+margin: 10px;
 }
   /* Small screens */
 @media all and (max-width: 500px) {
