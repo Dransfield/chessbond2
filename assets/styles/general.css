@@ -320,6 +320,11 @@ background-color: #5bc0de;
 .KredElement
 {
 background-color:#b85c5c;
+
+}
+.paddedElement
+{
+padding: 10px;
 }
   /* Small screens */
 @media all and (max-width: 500px) {
