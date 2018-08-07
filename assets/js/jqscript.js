@@ -375,6 +375,7 @@ if(drawnPageOnce==false)
 			
 		
 				var sideBoard=addSpan(horizontalDiv,"sideBoard");
+				resultDiv=addDiv(sideBoard,"resultDiv");
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
 				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
@@ -404,12 +405,12 @@ if(drawnPageOnce==false)
 				console.log(chosenLevel);
 				var timeobj=JSON.parse(timesel.val());
 				
-				GamePlaying.Player1TimeLeft=timeobj.time;
-				GamePlaying.Player2TimeLeft=timeobj.time;
-				console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
-				console.log("timesobj "+timeobj);
-				console.log("timesobj.time "+timeobj.time);
-				console.log("timesobj['time'] "+timeobj['"time"']);
+				GamePlaying.Player1TimeLeft=timeobj.time*60;
+				GamePlaying.Player2TimeLeft=timeobj.time*60;
+				//console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
+				//console.log("timesobj "+timeobj);
+				//console.log("timesobj.time "+timeobj.time);
+				//console.log("timesobj['time'] "+timeobj['"time"']);
 				
 				GamePlaying.PlayerOnBottom='White';
 				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);

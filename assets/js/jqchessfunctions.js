@@ -514,7 +514,11 @@ var descriptor="nothing";
 	
 		}
 		console.log(descriptor);
-		$("#sideBoard").append(descriptor);
+		GamePlaying.Result=descriptor;
+		resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
+		
 	
 	}
 
@@ -523,22 +527,25 @@ var descriptor="nothing";
 
 function singlePlayerMoveFunc(old,newpos)
 {
-	
-			$('.square-55d63').css("background-image","");
+	if (!GamePlaying.Result)
+	{
+		$('.square-55d63').css("background-image","");
 		$('.square-' +chessmove.to).css("background-size","contain");
-	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
-console.log("game.turn() "+game.turn());
+		$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+		console.log("game.turn() "+game.turn());
+		singlePlayerWinFunc();
+		if (game.turn()=='b')
+		{
+		uciCmd('position startpos moves' + get_moves());
+		uciCmd("go " + (time.depth ? "depth " + time.depth : ""));
+		}
+		StartRightClock();	
+	}
+	else
+	{
+	toastr.warning("Game is over");
+	}
 
-singlePlayerWinFunc();
-if (game.turn()=='b')
-{
-	
-uciCmd('position startpos moves' + get_moves());
-    uciCmd("go " + (time.depth ? "depth " + time.depth : ""));
-                
-	
-}
-StartRightClock();	
 }
 	
 	
@@ -830,6 +837,8 @@ function StartWhiteClock()
 		if (WhiteTime<0)
 		{
 			WhiteTime=0;
+			if(GamePlaying.PlayerIDOnTop)
+			{
 			if(!GamePlaying.Result)
 			{
 				io.socket.put('/gametimedout',{
@@ -842,6 +851,16 @@ function StartWhiteClock()
 			}
 			);
 			}
+			}
+		
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			if(!GamePlaying.Result)
+			{
+			GamePlaying.Result="Player Timed Out";
+			}	
+			}
+		
 		}
 		var bythousand=WhiteTime/1000;
 		WhiteSeconds=(parseInt((bythousand % 60))).toString();
