@@ -385,7 +385,7 @@ if(drawnPageOnce==false)
 				
 				timesel.change({widget:levelsel},function(event)
 				{
-					chosenLevel=1;
+				chosenLevel=1;
 				chosenLevel=JSON.parse(event.data.widget.val());	
 				console.log(chosenLevel);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
