@@ -38,7 +38,7 @@ function gameCategoryNumberArray()
 	var array=[];
 	for (iter in gamecategories)
 	{
-		array.push(gamecategories.time+"-"+gamecategories.extratime);
+		array.push(gamecategories[iter].time+"-"+gamecategories[iter].extratime);
 	}
 		return array;
 }
