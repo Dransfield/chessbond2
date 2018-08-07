@@ -407,7 +407,9 @@ if(drawnPageOnce==false)
 				GamePlaying.Player2TimeLeft=timesel.val().time;
 				console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
 				console.log("timesel.val() "+timesel.val());
-				console.log(JSON.stringify(timesel.val()));
+				console.log("timesel.val().time "+timesel.val().time);
+				console.log("timesel.val()['time'] "+timesel.val()['time']);
+				
 				GamePlaying.PlayerOnBottom='White';
 				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
