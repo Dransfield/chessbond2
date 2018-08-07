@@ -409,7 +409,7 @@ if(drawnPageOnce==false)
 				console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
 				console.log("timesobj "+timeobj);
 				console.log("timesobj.time "+timeobj.time);
-				console.log("timesobj['time'] "+timeobj['time']);
+				console.log("timesobj['time'] "+timeobj['"time"']);
 				
 				GamePlaying.PlayerOnBottom='White';
 				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
