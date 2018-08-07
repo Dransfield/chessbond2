@@ -2825,7 +2825,7 @@ btnGroup.append(menu);
 elem.append(btnGroup);
   for (iter in optionnames)
 	{
-	  menu.append("<a class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</a>");
+	  menu.append("<div class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</div>");
 	}
 	return btnGroup;
 
