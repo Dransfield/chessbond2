@@ -383,7 +383,7 @@ if(drawnPageOnce==false)
 				BottomPingDisplay=$("<p>Ping</p>");
 				bottomPlayerMarque.append(BottomPingDisplay);
 				
-				timesel.change({widget:levelsel},function()
+				timesel.change({widget:levelsel},function(event)
 				{
 					chosenLevel=1;
 				chosenLevel=JSON.parse(event.data.widget.val());	
