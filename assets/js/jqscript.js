@@ -363,7 +363,7 @@ if(drawnPageOnce==false)
 				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
 				topPlayerMarque.append("<img style='position:relative;' src='/images/eye.png' height='30px'>");
 				//showsmallAvatar(topPlayerMarque,PlayerIDOnTop);
-				topPlayerMarque.append($("<span>Computer</span>");
+				topPlayerMarque.append($("<span>Computer</span>"));
 				
 				if (Accounts[PlayerIDOnTop])
 				{
