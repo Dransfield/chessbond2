@@ -402,7 +402,7 @@ if(drawnPageOnce==false)
 				chosenLevel=1;
 				chosenLevel=JSON.parse(event.data.widget.val());	
 				console.log(chosenLevel);
-				var timeobj=timesel.val();
+				var timeobj=JSON.parse(timesel.val());
 				
 				GamePlaying.Player1TimeLeft=timeobj.time;
 				GamePlaying.Player2TimeLeft=timeobj.time;
