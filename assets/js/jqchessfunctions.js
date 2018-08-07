@@ -539,6 +539,10 @@ function singlePlayerMoveFunc(old,newpos)
 		uciCmd('position startpos moves' + get_moves());
 		uciCmd("go " + (time.depth ? "depth " + time.depth : ""));
 		}
+		if(GamePlaying.Result=="")
+		{
+		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+		}
 		StartRightClock();	
 	}
 	else
@@ -833,6 +837,10 @@ function StartWhiteClock()
 		if (WhiteTime>0)
 		{
 		WhiteTime-=121;
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			GamePlaying.Player1TimeLeft-121;
+			}
 		}
 		if (WhiteTime<0)
 		{
@@ -917,7 +925,10 @@ function StartBlackClock()
 		{
 		BlackTime-=121;
 		
-				
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			GamePlaying.Player2TimeLeft-121;
+			}
 		}
 		if (BlackTime<0)
 		{

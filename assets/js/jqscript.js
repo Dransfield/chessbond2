@@ -413,6 +413,10 @@ if(drawnPageOnce==false)
 				//console.log("timesobj['time'] "+timeobj['"time"']);
 				
 				GamePlaying.PlayerOnBottom='White';
+				GamePlaying.Player1Color='White';
+				GamePlaying.PlayerIDOnBottom=MyID;
+				GamePlaying.Player1=MyID;
+				
 				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
 				});
