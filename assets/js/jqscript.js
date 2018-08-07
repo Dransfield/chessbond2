@@ -388,6 +388,12 @@ if(drawnPageOnce==false)
 				chosenLevel=1;
 				chosenLevel=JSON.parse(event.data.widget.val());	
 				console.log(chosenLevel);
+		
+				GamePlaying.Player1TimeLeft=timesel.val().time;
+				GamePlaying.Player2TimeLeft=timesel.val().time;
+				
+				GamePlaying.PlayerOnBottom='White';
+		
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
 				});
 				
@@ -405,7 +411,6 @@ if(drawnPageOnce==false)
 		game = new Chess();
 		var loadBoardWith=game.fen();
 		var myColor='white';
-		
 		gameSkill=lvl;
 		  if (gameSkill < 5) {
                 gameThinkTime = "1";
@@ -465,8 +470,8 @@ if(drawnPageOnce==false)
 			}
 			
 			
-			if(Accounts[MyID])
-	{
+		if(Accounts[MyID])
+		{
 		 cfg = {
 			draggable: false,
 			position: loadBoardWith,

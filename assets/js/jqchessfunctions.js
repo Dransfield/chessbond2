@@ -538,7 +538,7 @@ uciCmd('position startpos moves' + get_moves());
                 
 	
 }
-	
+StartRightClock();	
 }
 	
 	
