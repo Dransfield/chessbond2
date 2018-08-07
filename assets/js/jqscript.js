@@ -402,13 +402,14 @@ if(drawnPageOnce==false)
 				chosenLevel=1;
 				chosenLevel=JSON.parse(event.data.widget.val());	
 				console.log(chosenLevel);
-		
-				GamePlaying.Player1TimeLeft=timesel.val().time;
-				GamePlaying.Player2TimeLeft=timesel.val().time;
+				var timeobj=timesel.val();
+				
+				GamePlaying.Player1TimeLeft=timeobj.time;
+				GamePlaying.Player2TimeLeft=timeobj.time;
 				console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
-				console.log("timesel.val() "+timesel.val());
-				console.log("timesel.val().time "+timesel.val().time);
-				console.log("timesel.val()['time'] "+timesel.val()['time']);
+				console.log("timesobj "+timeobj);
+				console.log("timesobj.time "+timeobj.time);
+				console.log("timesobj['time'] "+timeobj['time']);
 				
 				GamePlaying.PlayerOnBottom='White';
 				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
