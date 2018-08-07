@@ -2805,7 +2805,7 @@ function showDropDown(usracc)
 
 function showSelect(elem,optionnames,optionvalues,defaulttext)
 {
-	var selectbloke=$("<select class='custom-select custom-select-lg' ></select>");
+	var selectbloke=$("<select class='KgreenElement ' ></select>");
 	selectbloke.append("<option selected disabled>"+defaulttext+"</option>");
 	for (iter in optionnames)
 	{
