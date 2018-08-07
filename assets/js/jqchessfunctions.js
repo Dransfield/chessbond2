@@ -858,6 +858,9 @@ function StartWhiteClock()
 			if(!GamePlaying.Result)
 			{
 			GamePlaying.Result="Player Timed Out";
+			resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
 			}	
 			}
 		
@@ -919,6 +922,7 @@ function StartBlackClock()
 		if (BlackTime<0)
 		{
 			BlackTime=0;
+			if(GamePlaying.PlayerIDOnTop)
 			if(!GamePlaying.Result)
 			{
 				io.socket.put('/gametimedout',{
@@ -930,6 +934,18 @@ function StartBlackClock()
 			{
 			}
 			);
+			}
+			}
+			
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			if(!GamePlaying.Result)
+			{
+			GamePlaying.Result="Computer Timed Out";
+			resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
+			}	
 			}
 		}
 		var bythousand=BlackTime/1000;
