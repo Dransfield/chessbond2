@@ -932,7 +932,7 @@ function StartBlackClock()
 			if(!GamePlaying.PlayerIDOnTop)
 			{
 			console.log("G2amePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
-			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-121;
+			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-(121/1000);
 			console.log("3GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			}
 		}
