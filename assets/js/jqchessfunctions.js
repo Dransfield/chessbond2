@@ -916,6 +916,7 @@ function StartBlackClock()
 		{
 		BlackTime=GamePlaying.Player2TimeLeft*1000;
 		console.log("BlackTime=GamePlaying.Player2TimeLeft");
+		console.log("0GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 		}
 		
 	//console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
