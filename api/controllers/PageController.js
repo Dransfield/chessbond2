@@ -643,7 +643,7 @@ function CreateTournaments()
 						//console.log("White: "+p1+" Black: "+p2);
 						//console.log("White: "+p2+" Black: "+p1);
 						var num1=thetourn.category.split(":")[0];
-						var num2=thetourn.category.split(":")[0];
+						var num2=thetourn.category.split(":")[1];
 						num1=num1*60;
 						num2=num2*60;
 						
@@ -868,7 +868,7 @@ function CreateTournaments()
 		
 		
 		
-		Chessgame.create({tournamentGame:true,started:false,tournament:tourn.id,Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+		Chessgame.create({tournamentGame:true,started:false,tournament:tourn.id,Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player1ExtraTimeLeft:num2,Player2TimeLimit:num1,Player2TimeLeft:num1,Player2ExtraTimelimit:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
 			
 			function (err, records) {
 				if(err){

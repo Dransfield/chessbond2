@@ -541,7 +541,7 @@ function singlePlayerMoveFunc(old,newpos)
 		}
 		if(GamePlaying.Result=="")
 		{
-		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
 		}
 		StartRightClock();	
 	}
@@ -824,11 +824,31 @@ function StartWhiteClock()
 		
 		if (GamePlaying.PlayerOnBottom=='White')
 		{
+		
+		if(GamePlaying.Player1TimeLeft>0)
+		{	
 		WhiteTime=GamePlaying.Player1TimeLeft*1000;
 		}
 		else
+		{	
+		WhiteTime=GamePlaying.Player1ExtraTimeLeft*1000;
+		}
+		
+		
+		
+		}
+		else
 		{
+			
+		if(GamePlaying.Player2TimeLeft>0)
+		{	
 		WhiteTime=GamePlaying.Player2TimeLeft*1000;
+		}
+		else
+		{	
+		WhiteTime=GamePlaying.Player2ExtraTimeLeft*1000;
+		}
+		
 		}
 	console.log("start white clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
 	WhiteInterval=setInterval(function (){
@@ -839,7 +859,17 @@ function StartWhiteClock()
 		WhiteTime-=121;
 			if(!GamePlaying.PlayerIDOnTop)
 			{
+				
+			if(GamePlaying.Player1TimeLeft>0)
+			{	
 			GamePlaying.Player1TimeLeft=GamePlaying.Player1TimeLeft-(121/1000);
+			}
+			else
+			{
+			GamePlaying.Player1ExtraTimeLeft=GamePlaying.Player1TimeLeft-(121/1000);
+			
+			}
+			
 			}
 		}
 		if (WhiteTime<0)
@@ -910,11 +940,29 @@ function StartBlackClock()
 	
 		if (GamePlaying.Player1Color=='Black')
 		{
-		BlackTime=GamePlaying.Player1TimeLeft*1000;
+			
+			if(GamePlaying.Player2TimeLeft>0)
+			{
+			BlackTime=GamePlaying.Player1TimeLeft*1000;
+			}
+			else
+			{
+			BlackTime=GamePlaying.Player1ExtraTimeLeft*1000;
+			}
+			
 		}
 		else
 		{
-		BlackTime=GamePlaying.Player2TimeLeft*1000;
+			
+			if(GamePlaying.Player2TimeLeft>0)
+			{
+			BlackTime=GamePlaying.Player2TimeLeft*1000;
+			}
+			else
+			{
+			BlackTime=GamePlaying.Player2ExtraTimeLeft*1000;
+			
+			}
 		console.log("BlackTime=GamePlaying.Player2TimeLeft");
 		console.log("0GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 		console.log("BlackTime "+BlackTime);
@@ -932,7 +980,14 @@ function StartBlackClock()
 			if(!GamePlaying.PlayerIDOnTop)
 			{
 			console.log("G2amePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
+			if (GamePlaying.Player2TimeLeft>0)
+			{
 			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-(121/1000);
+			}
+			else
+			{
+			GamePlaying.Player2ExtraTimeLeft=GamePlaying.Player2ExtraTimeLeft-(121/1000);
+			}
 			console.log("3GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			}
 		}
@@ -1004,16 +1059,40 @@ function StartBlackClock()
 		
 	}
 	
-	function UpdateClocks(player1time,player2time)
+	function UpdateClocks(player1time,player2time,player1extratime,player2extratime)
 		{
-			var intp1minute=parseInt(player1time/60);
-			var p1minute=intp1minute.toString();
-			var intp2minute=parseInt(player2time/60);
-			var p2minute=intp2minute.toString();
-			var intp1second=parseInt(player1time % 60);
-			var p1second=intp1second.toString();
-			var intp2second=parseInt(player2time % 60);
-			var p2second=intp2second.toString();
+			
+			var intp1minute;
+			var p1minute;
+			var intp2minute;
+			var p2minute;
+			var intp1second;
+			var p1second;
+			var intp2second;
+			var p2second;
+			
+			var p1time;
+			var p2time;
+			
+			if(player1time>0)
+			{p1time=player1time;)
+				else
+			{p1time=player1extratime;}
+			
+			if(player2time>0)
+			{p2time=player2time;)
+				else
+			{p2time=player2extratime;}
+			
+			intp1minute=parseInt(p1time/60);
+			p1minute=intp1minute.toString();
+			intp1second=parseInt(p1time % 60);
+			p1second=intp1second.toString();
+			
+			intp2minute=parseInt(p2time/60);
+			p2minute=intp2minute.toString();
+			intp2second=parseInt(p2time % 60);
+			p2second=intp2second.toString();
 			
 			if (intp2second<10)
 			{p2second="0"+p2second;}
@@ -1106,7 +1185,7 @@ function StartBlackClock()
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
 	if(GamePlaying.Result=="")
 	{
-	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
 	
 	
 	}
