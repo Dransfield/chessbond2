@@ -872,7 +872,7 @@ function StartWhiteClock()
 			
 			}
 		}
-		if (WhiteTime<0 && GamePlaying.Player1TimeLeft && GamePlaying.Player1ExtraTimeLeft)
+		if (WhiteTime<0 && GamePlaying.Player1TimeLeft<0 && GamePlaying.Player1ExtraTimeLeft<0)
 		{
 			WhiteTime=0;
 			if(GamePlaying.PlayerIDOnTop)
@@ -902,6 +902,15 @@ function StartWhiteClock()
 			}	
 			}
 		
+		}
+		else
+		{
+				if(WhiteTime<0 && GamePlaying.Player1TimeLeft<0 && GamePlaying.Player1ExtraTimeLeft>0)
+				{
+				console.log("and your extra time");
+				WhiteTime=	GamePlaying.Player1ExtraTimeLeft*1000;
+				}
+			
 		}
 		var bythousand=WhiteTime/1000;
 		WhiteSeconds=(parseInt((bythousand % 60))).toString();
