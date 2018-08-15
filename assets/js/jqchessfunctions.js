@@ -872,7 +872,7 @@ function StartWhiteClock()
 			
 			}
 		}
-		if (WhiteTime<0)
+		if (WhiteTime<0 && GamePlaying.Player1TimeLeft && GamePlaying.Player1ExtraTimeLeft)
 		{
 			WhiteTime=0;
 			if(GamePlaying.PlayerIDOnTop)
@@ -991,7 +991,7 @@ function StartBlackClock()
 			console.log("3GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			}
 		}
-		if (BlackTime<0)
+		if (BlackTime<0 && GamePlaying.Player2ExtraTimeLeft<0 && GamePlaying.Player2TimeLeft<0)
 		{
 			BlackTime=0;
 			if(GamePlaying.PlayerIDOnTop)
