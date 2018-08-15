@@ -1075,12 +1075,12 @@ function StartBlackClock()
 			var p2time;
 			
 			if(player1time>0)
-			{p1time=player1time;)
+			{p1time=player1time;}
 				else
 			{p1time=player1extratime;}
 			
 			if(player2time>0)
-			{p2time=player2time;)
+			{p2time=player2time;}
 				else
 			{p2time=player2extratime;}
 			
