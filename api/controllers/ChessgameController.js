@@ -4,6 +4,58 @@
  * @description :: Server-side logic for managing chessgames
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+ 
+ function DoGameTimedOut(req)
+ {
+	
+		
+		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
+		if (cgame)
+		{
+		//console.log("chess game turn duration"+cgame.TimeLimit);
+		//console.log("chess game move in timer"+cgame.Move);
+		//console.log("chess game move outside of timer "+OldMoveNumber);
+		if (!cgame.Result)
+		{
+		if (cgame.Move==OldMoveNumber)
+		{
+			var clrtomove;
+			if (req.param('ColorToMove')=='w')
+			{clrtomove='White';}
+			else
+			{clrtomove='Black';}
+		sails.sockets.broadcast('/humanvshumannew/'+req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
+		console.log('ColorToMove'+req.param('ColorToMove'));
+		console.log("cgame.Player1Color "+cgame.Player1Color);
+		
+		
+		var player1color=cg.Player1Color;
+			var player2color;
+			if (player1color=="White")
+			{
+			player2color="Black";	
+			}
+			else
+			{
+			player2color="White";	
+			}
+		
+		if (clrtomove==cgame.Player1Color)
+		{
+		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true','false',2);
+		}
+		else
+		{
+		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true','false',1);
+		}
+		}
+		}
+		}
+		
+		});
+	}
+		
+	
  function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDescriptor)
 	{
 	
@@ -144,7 +196,7 @@
 	});
 
 	};
-	
+
 	
 	 function DoWithdraw(withdrawer,GameID)
  {
@@ -859,6 +911,8 @@ module.exports = {
 		TimerList.push(TimerObject);
 		*/	
 		var timeleft;
+		var extratimeleft;
+		
 		var clrtomove;
 			if (req.param('ColorToMove')=='w')
 			{clrtomove='White';}
@@ -872,56 +926,43 @@ module.exports = {
 		{
 		timeleft=cg.Player2TimeLeft*1000;
 		}
-	
-	setTimeout(		function(){
-		
-		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
-		if (cgame)
+		if (clrtomove==cg.Player1Color)
 		{
-		//console.log("chess game turn duration"+cgame.TimeLimit);
-		//console.log("chess game move in timer"+cgame.Move);
-		//console.log("chess game move outside of timer "+OldMoveNumber);
-		if (!cgame.Result)
-		{
-		if (cgame.Move==OldMoveNumber)
-		{
-			var clrtomove;
-			if (req.param('ColorToMove')=='w')
-			{clrtomove='White';}
-			else
-			{clrtomove='Black';}
-		sails.sockets.broadcast('/humanvshumannew/'+req.param('GameID'), 'timeoutevent',{msg:"gametimedout"});
-		console.log('ColorToMove'+req.param('ColorToMove'));
-		console.log("cgame.Player1Color "+cgame.Player1Color);
-		
-		
-		var player1color=cg.Player1Color;
-			var player2color;
-			if (player1color=="White")
-			{
-			player2color="Black";	
-			}
-			else
-			{
-			player2color="White";	
-			}
-		
-		if (clrtomove==cgame.Player1Color)
-		{
-		DoGameResult(cgame.Player2,cgame.Player1,player2color,player1color,cgame.GameCategory,cgame.id,'true','false',2);
+		extratimeleft=cg.Player1ExtraTimeLeft*1000;
 		}
 		else
 		{
-		DoGameResult(cgame.Player1,cgame.Player2,player1color,player2color,cgame.GameCategory,cgame.id,'true','false',1);
-		}
-		}
-		}
+		extratimeleft=cg.Player2ExtraTimeLeft*1000;
 		}
 		
-		});
-	}
-		//,td*60);
-	,timeleft);
+		
+		
+				setTimeout(function(){
+					if (clrtomove==cg.Player1Color)
+					{
+						
+						Chessgame.update({id:req.param('GameID')},{Player1TimeLeft:0},function(timeOuterr,timeOutRecords)
+						{
+					
+						});
+						
+					}
+					else
+					{
+					
+						Chessgame.update({id:req.param('GameID')},{Player2TimeLeft:0},function(timeOuterr,timeOutRecords)
+						{
+					
+						});
+						
+					}
+					
+					setTimeout(DoGameTimedOut,extratimeleft,req);
+					
+				},timeleft);			
+			
+	
+	
 	
 	});
 	
