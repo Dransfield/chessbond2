@@ -959,7 +959,7 @@ module.exports = {
 						
 					}
 					
-					setTimeout(DoGameTimedOut,extratimeleft,OldMoveNumber,req);
+					setTimeout(DoGameTimedOut,extratimeleft,req,OldMoveNumber);
 					
 				},timeleft);			
 			
