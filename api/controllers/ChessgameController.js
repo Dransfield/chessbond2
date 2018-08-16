@@ -5,10 +5,11 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
  
- function DoGameTimedOut(req)
+ function DoGameTimedOut(req,OldMoveNumber)
  {
 	
-		
+		console.log(req);
+		console.log("OldMoveNumber "+OldMoveNumber);
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		if (cgame)
 		{
@@ -17,6 +18,7 @@
 		//console.log("chess game move outside of timer "+OldMoveNumber);
 		if (!cgame.Result)
 		{
+		
 		if (cgame.Move==OldMoveNumber)
 		{
 			var clrtomove;
@@ -957,7 +959,7 @@ module.exports = {
 						
 					}
 					
-					setTimeout(DoGameTimedOut,extratimeleft,req);
+					setTimeout(DoGameTimedOut,extratimeleft,OldMoveNumber,req);
 					
 				},timeleft);			
 			
