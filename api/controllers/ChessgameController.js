@@ -755,6 +755,7 @@ module.exports = {
 			if (!game.Player2)
 			{
 			//	game.Player2=MyID;
+			console.log("makegame player1timelimit:"+req.param('Player1TimeLimit')+" Player1ExtraTimeLimit "+req.param('Player1ExtraTimeLimit'));
 	   MakeGame(req.param('MyID'),req.param('PlayerID'),game.Player1Color,req.param('GameCategory'),req.param('GameType'),req.param('Player1TimeLimit'),req.param('Player1ExtraTimeLimit'));
 	   
 		return res.ok();
