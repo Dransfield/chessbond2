@@ -1061,7 +1061,7 @@ function StartBlackClock()
 		
 		BottomMinutes.html(BlackMinutes);
 		BottomSeconds.html(":"+BlackSeconds);	
-		BottomMilliseconds.html(milli);
+		BottomMilliseconds.html("m:"+milli);
 		
 		}
 		else
@@ -1070,7 +1070,7 @@ function StartBlackClock()
 		
 		TopMinutes.html(BlackMinutes);	
 		TopSeconds.html(":"+BlackSeconds);	
-		TopMilliseconds.html(milli);
+		TopMilliseconds.html("m:"+milli);
 		
 		
 		}
