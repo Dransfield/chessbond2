@@ -347,7 +347,7 @@ if(drawnPageOnce==false)
 				
 				
 				topPlayerMarqueContainer=addDiv(boardDivDiv);
-				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","nowrap","space-between","center");
+				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","wrap","space-between","center");
 				topPlayerMarque.css("overflow","auto");
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
@@ -369,7 +369,7 @@ if(drawnPageOnce==false)
 				resultDiv=addDiv(sideBoard,"resultDiv");
 				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
-				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","wrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
 				
 				bottomPlayerMarque.css("overflow","auto");
@@ -627,7 +627,7 @@ if(drawnPageOnce==false)
 					});
 				
 				topPlayerMarqueContainer=addDiv(boardDivDiv);
-				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","nowrap","space-between","center");
+				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","wrap","space-between","center");
 				topPlayerMarque.css("overflow","auto");
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
@@ -680,7 +680,7 @@ if(drawnPageOnce==false)
 				}
 				}
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
-				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","wrap","space-between","center");
 				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
