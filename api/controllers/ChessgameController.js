@@ -684,7 +684,7 @@ function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
 		
 		
 		
-		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player1ExtraTimeLeft:num2,Player2TimeLimit:num2,Player2TimeLeft:num2,Player2ExtraTimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player1ExtraTimeLeft:num2,Player2TimeLimit:num1,Player2TimeLeft:num1,Player2ExtraTimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
 			
 			function (err, records) {
 				if(err){
