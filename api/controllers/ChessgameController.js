@@ -8,8 +8,8 @@
  function DoGameTimedOut(req,OldMoveNumber)
  {
 	
-		console.log(req);
-		console.log("OldMoveNumber "+OldMoveNumber);
+		//console.log(req);
+		//console.log("OldMoveNumber "+OldMoveNumber);
 		Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cgame) {
 		if (cgame)
 		{
@@ -958,7 +958,7 @@ module.exports = {
 						});
 						
 					}
-					
+					console.log("extratimeleft "+extratimeleft);
 					setTimeout(DoGameTimedOut,extratimeleft,req,OldMoveNumber);
 					
 				},timeleft);			
