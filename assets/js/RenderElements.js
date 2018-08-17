@@ -4350,7 +4350,7 @@ io.socket.on('connect',function(){
 			GameType:games[iter].GameType,
 			GameCategory:games[iter].GameCategory,
 			Player1TimeLimit:games[iter].TimeLimit*60,
-			Player2TimeLimit:games[iter].TimeLimit*60
+			Player1ExtraTimeLimit:games[iter].ExtraTimeLimit*60
 		}
 
 		,function(resData,jwres)
