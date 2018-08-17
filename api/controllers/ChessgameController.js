@@ -31,7 +31,7 @@
 		console.log("cgame.Player1Color "+cgame.Player1Color);
 		
 		
-		var player1color=cg.Player1Color;
+		var player1color=cgame.Player1Color;
 			var player2color;
 			if (player1color=="White")
 			{
