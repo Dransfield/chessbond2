@@ -301,7 +301,17 @@ io.socket.on('ping',function(data){
 		
 		});
 		
-			
+
+io.socket.on('onExtraTime',function(data){
+	
+	if (data.playerID==GamePlaying.Player1)
+	{GamePlaying.Player1TimeLeft=0;}
+	if (data.playerID==GamePlaying.Player2)
+	{GamePlaying.Player2TimeLeft=0;}
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
+	StartRightClock();
+	
+		});
 		
 	
 }
@@ -1109,8 +1119,8 @@ function StartBlackClock()
 			{p1second="0"+p1second;}
 			
 			
-			if (PlayerIDOnBottom==GamePlaying.Player1)
-			{
+				if (PlayerIDOnBottom==GamePlaying.Player1)
+				{
 				
 				BottomSeconds.html(":"+p1second);
 				BottomMinutes.html(p1minute);
@@ -1128,7 +1138,7 @@ function StartBlackClock()
 				
 				}
 				
-			}
+		}
 			
 			
 			

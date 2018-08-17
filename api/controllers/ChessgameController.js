@@ -919,7 +919,7 @@ module.exports = {
 		*/	
 		var timeleft;
 		var extratimeleft;
-		
+		var plyrtomove;
 		var clrtomove;
 			if (req.param('ColorToMove')=='w')
 			{clrtomove='White';}
@@ -928,10 +928,13 @@ module.exports = {
 		if (clrtomove==cg.Player1Color)
 		{
 		timeleft=cg.Player1TimeLeft*1000;
+		plyrtomove=cg.Player1;
 		}
 		else
 		{
 		timeleft=cg.Player2TimeLeft*1000;
+		plyrtomove=cg.Player2;
+		
 		}
 		if (clrtomove==cg.Player1Color)
 		{
@@ -963,8 +966,8 @@ module.exports = {
 						});
 						
 					}
-					console.log("extratimeleft "+extratimeleft);
-					console.log(Date.now());
+					sails.sockets.broadcast('/humanvshumannew/'+req.param('GameID'), 'onExtraTime',{playerID:plyrtomove});
+	
 					setTimeout(DoGameTimedOut,extratimeleft,req,OldMoveNumber);
 					
 				},timeleft);			
