@@ -1124,18 +1124,19 @@ function StartBlackClock()
 				
 				BottomSeconds.html(":"+p1second);
 				BottomMinutes.html(p1minute);
-				BottomMilliseconds.html("000");
+				BottomMilliseconds.html(":000");
 				TopSeconds.html(":"+p2second);
 				TopMinutes.html(p2minute);
+				TopMilliseconds.html(":000");
 				}
 				else
 				{
 				BottomSeconds.html(":"+p2second);
 				BottomMinutes.html(p2minute);
-				BottomMilliseconds.html("000");
+				BottomMilliseconds.html(":000");
 				TopSeconds.html(":"+p1second);
 				TopMinutes.html(p1minute);
-				
+				TopMilliseconds.html(":000");
 				}
 				
 		}
