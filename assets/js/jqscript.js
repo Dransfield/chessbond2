@@ -8,13 +8,16 @@ var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var timeCells={};
 var joinedPlayersDiv;
-/*
+/*103.117.180.122
+ server IP 103.117.180.122
 new server pass 8-C6[_+H2#A9@uQ
 * Weblink: https://www.ewebguru.com/
 
 Username: ewg36119
 email: newdesign3210@gmail.com
 password: Happy123$foryou
+* 
+* User I'd is 85180208 password is Asmart5000work
 */
 var bigemptyDiv=[];
 var threeMinutes=(60*1000)*3;
