@@ -1144,17 +1144,10 @@ function StartBlackClock()
 			//console.log(JSON.stringify(resData));
 		   
 		   GamePlaying=resData;
-		  // GamePlaying.OverallScore
-		// console.log(GamePlaying);
-		  // console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
-		  // if (GamePlaying2.id)
-		//   { 
-		//	   console.log("object2 "+JSON.stringify(GamePlaying2));
-		//	  GamePlaying= GamePlaying2;
-		 // }
+		 
 		  if (GamePlaying.Result)
 			{
-				//console.log("recieved chessmove with result"+GamePlaying.Result);
+				
 			resultDiv.html(GamePlaying.Result);
 			resultDiv.css("padding","4px");
 			resultDiv.css("margin-left","8px");
