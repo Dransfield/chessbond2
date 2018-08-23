@@ -213,7 +213,7 @@ var boardThemeNames=['original','A1','A2',
 	var EnableSound=function()
 {
 			
-	console.log("Sound Enabled");
+	
 	BellSound= new Audio('/alert.mp3');
 	MoveSound=new Audio('/move.mp3');
 	CheckMateSound=new Audio("/checkmate.mp3");
@@ -243,13 +243,7 @@ var boardThemeNames=['original','A1','A2',
 };
 
 function init(){
-		/*
-		var roomname=GamePlaying.id;
 		
-			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
-			console.log(JSON.stringify(resData));
-			});
-		*/
 	setInterval(function (){
 		DoPing(MyID);
 	},20000);
@@ -699,13 +693,11 @@ function updateTurnTakerLabel(game)
 
 function updateStatus(game,move)
 {
-	//console.log("update status");
 GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 GamePlaying.Move+=1;
 
-console.log("piece taken "+game.get(move.to));
-console.log("move.to "+move.to);
+
 var pieceTaken=game.get(move.to);
 if(pieceTaken)
 {
@@ -833,7 +825,7 @@ function usersTurn(game,me)
 function StartWhiteClock()
 	{
 		
-		if (GamePlaying.PlayerOnBottom=='White')
+		if (GamePlaying.Player1Color=='White')
 		{
 		
 		if(GamePlaying.Player1TimeLeft>0)
@@ -861,7 +853,7 @@ function StartWhiteClock()
 		}
 		
 		}
-	console.log("start white clock PlayerOnBottomID "+PlayerIDOnBottom);
+	
 	WhiteInterval=setInterval(function (){
 		
 		
@@ -918,7 +910,7 @@ function StartWhiteClock()
 		{
 				if(WhiteTime<0 && GamePlaying.Player1TimeLeft<0 && GamePlaying.Player1ExtraTimeLeft>0)
 				{
-				console.log("and your extra time");
+				
 				WhiteTime=	GamePlaying.Player1ExtraTimeLeft*1000;
 				}
 			
@@ -983,23 +975,20 @@ function StartBlackClock()
 			BlackTime=GamePlaying.Player2ExtraTimeLeft*1000;
 			
 			}
-		console.log("BlackTime=GamePlaying.Player2TimeLeft");
-		console.log("0GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
-		console.log("BlackTime "+BlackTime);
+		
 		}
 		
-	//console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+	
 	BlackInterval=setInterval(function (){
 		
 		
 		if (BlackTime>0)
 		{
 		BlackTime-=121;
-		console.log("BlackTime -121="+BlackTime);
-		console.log("1GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
+
 			if(!GamePlaying.PlayerIDOnTop)
 			{
-			console.log("G2amePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
+			
 			if (GamePlaying.Player2TimeLeft>0)
 			{
 			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-(121/1000);
@@ -1008,7 +997,6 @@ function StartBlackClock()
 			{
 			GamePlaying.Player2ExtraTimeLeft=GamePlaying.Player2ExtraTimeLeft-(121/1000);
 			}
-			console.log("3GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			}
 		}
 		if (BlackTime<0 && GamePlaying.Player2ExtraTimeLeft<0 && GamePlaying.Player2TimeLeft<0)
@@ -1044,7 +1032,7 @@ function StartBlackClock()
 		
 		}
 		var bythousand=BlackTime/1000;
-		console.log("black time/1000="+bythousand);
+		
 		BlackSeconds=(parseInt((bythousand % 60))).toString();
 		BlackMinutes=(parseInt((bythousand/60))).toString();
 		var intmilli=parseInt(BlackTime % 1000);
