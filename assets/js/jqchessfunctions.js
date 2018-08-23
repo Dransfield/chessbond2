@@ -308,6 +308,7 @@ io.socket.on('onExtraTime',function(data){
 	{GamePlaying.Player1TimeLeft=0;}
 	if (data.playerID==GamePlaying.Player2)
 	{GamePlaying.Player2TimeLeft=0;}
+	console.log("on extratime socket recieved");
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
 	StartRightClock();
 	
@@ -860,7 +861,7 @@ function StartWhiteClock()
 		}
 		
 		}
-	console.log("start white clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+	console.log("start white clock PlayerOnBottomID "+PlayerIDOnBottom);
 	WhiteInterval=setInterval(function (){
 		
 		
@@ -994,7 +995,7 @@ function StartBlackClock()
 		if (BlackTime>0)
 		{
 		BlackTime-=121;
-		console.log("BlackTime -121"+BlackTime);
+		console.log("BlackTime -121="+BlackTime);
 		console.log("1GamePlaying.Player2TimeLeft "+GamePlaying.Player2TimeLeft);
 			if(!GamePlaying.PlayerIDOnTop)
 			{
@@ -1043,6 +1044,7 @@ function StartBlackClock()
 		
 		}
 		var bythousand=BlackTime/1000;
+		console.log("black time/1000="+bythousand);
 		BlackSeconds=(parseInt((bythousand % 60))).toString();
 		BlackMinutes=(parseInt((bythousand/60))).toString();
 		var intmilli=parseInt(BlackTime % 1000);
