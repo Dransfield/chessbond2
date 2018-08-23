@@ -1579,6 +1579,10 @@ var myTurn;
 	{
 		if(squareSelected)
 		{
+			if(!CURRENT_POSITION[squareSelected])
+			{
+			console.log("no current position "+squareSelected);	
+			}
 			if(myColor==CURRENT_POSITION[squareSelected].charAt(0))
 			{
 			
