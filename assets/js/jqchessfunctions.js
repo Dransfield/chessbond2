@@ -302,8 +302,8 @@ io.socket.on('onExtraTime',function(data){
 	{GamePlaying.Player1TimeLeft=0;}
 	if (data.playerID==GamePlaying.Player2)
 	{GamePlaying.Player2TimeLeft=0;}
-	console.log("on extratime socket recieved");
-	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
+	//console.log("on extratime socket recieved");
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
 	StartRightClock();
 	
 		});
@@ -546,7 +546,7 @@ function singlePlayerMoveFunc(old,newpos)
 		}
 		if(GamePlaying.Result=="")
 		{
-		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
+		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
 		}
 		StartRightClock();	
 	}
@@ -953,7 +953,7 @@ function StartBlackClock()
 		if (GamePlaying.Player1Color=='Black')
 		{
 			
-			if(GamePlaying.Player2TimeLeft>0)
+			if(GamePlaying.Player1TimeLeft>0)
 			{
 			BlackTime=GamePlaying.Player1TimeLeft*1000;
 			}
@@ -1188,7 +1188,7 @@ function StartBlackClock()
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
 	if(GamePlaying.Result=="")
 	{
-	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
 	
 	
 	}

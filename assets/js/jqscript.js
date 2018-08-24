@@ -413,7 +413,7 @@ if(drawnPageOnce==false)
 				GamePlaying.Player1Color='White';
 				GamePlaying.PlayerIDOnBottom=MyID;
 				GamePlaying.Player1=MyID;
-				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
+				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
 				setupPlayervsAIBoard(chosenLevel,boardcontainer);
 				});
 				
@@ -836,7 +836,7 @@ if(drawnPageOnce==false)
 		
 		
 	//$(".square-55d63").css();
-	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player2ExtraTimeLeft);
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
 	//chatDiv.css("overflow","auto");
 			
 					topPlayerMarque.css("width","100%");
