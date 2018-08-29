@@ -9,7 +9,7 @@
 module.exports = {
 	
 	upcomingTournamentsWithTime:function(req,res){
-	Tournament.find({ activated:false,sort: 'timeToAvailable ASC'}).exec(function(err,latestOne)
+	Tournament.find({ activated:false,sort: 'timeToAvailable ASC',result:""}).exec(function(err,latestOne)
 		{
 			Tournament.find({activated:true,currentlyPlaying:false,sort: 'createdAt DESC',limit:1}).exec(function(err2,latestOne2)
 			{
