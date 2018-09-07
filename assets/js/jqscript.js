@@ -12,7 +12,9 @@ var joinedPlayersDiv;
  server IP 103.117.180.122
 new server pass 8-C6[_+H2#A9@uQ
 * Weblink: https://www.ewebguru.com/
-
+* 
+https://client.ewebguru.com/submitticket.php
+* 
 Username: ewg36119
 email: newdesign3210@gmail.com
 password: Happy123$foryou
@@ -346,7 +348,13 @@ if(drawnPageOnce==false)
 				//=addF(overall,"horizontal","row","wrap","flex-start");
 				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
 				//showBoardOptions(boardDivDiv);
-				
+					coverall=$("<div style='background-color:white;position:fixed;height: 20%;width: 30%;top:30px;right:0px;border-style:solid;border-color:black;border-width:2;'><p>Ready to begin? (Click here to enable sound)</p></div>");
+					horizontalDiv.append(coverall);
+				coverall.css("z-order",9999);
+				coverall.click(function(){
+					EnableSound();
+					coverall.detach();
+					});
 				
 				
 				topPlayerMarqueContainer=addDiv(boardDivDiv);
