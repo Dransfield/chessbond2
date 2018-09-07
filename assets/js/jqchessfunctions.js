@@ -466,11 +466,8 @@ function changeOverallScore(piece,colour)
             var match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
             /// Did the AI move?
             if(match) {
-                isEngineRunning = false;
-                game.move({from: match[1], to: match[2], promotion: match[3]});
-               board1.move(match[1]+"-"+match[2]);
-			//singlePlayerWinFunc();
-            if(Accounts[MyID])
+				
+				 if(Accounts[MyID])
 			{	
 					
 			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
@@ -478,6 +475,11 @@ function changeOverallScore(piece,colour)
 			PlayMove();
 			}
 			}
+                isEngineRunning = false;
+                game.move({from: match[1], to: match[2], promotion: match[3]});
+               board1.move(match[1]+"-"+match[2]);
+			//singlePlayerWinFunc();
+           
 		
             
             }
