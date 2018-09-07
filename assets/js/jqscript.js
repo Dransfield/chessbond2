@@ -441,11 +441,11 @@ if(drawnPageOnce==false)
 		var myColor='white';
 		gameSkill=lvl;
 		  if (gameSkill < 5) {
-                gameThinkTime = "1";
+                gameThinkTime = "1000";
             } else if (gameSkill < 10) {
-                gameThinkTime = "2";
+                gameThinkTime = "2000";
             } else if (gameSkill < 15) {
-                gameThinkTime = "3";
+                gameThinkTime = "3000";
             } else {
                 /// Let the engine decide.
                 gameThinkTime = "";
