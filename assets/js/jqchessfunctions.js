@@ -470,16 +470,16 @@ function changeOverallScore(piece,colour)
 				 if(Accounts[MyID])
 			{	
 					
-			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
-			{
-			PlayMove();
-			}
-			}
+			
                 isEngineRunning = false;
                 game.move({from: match[1], to: match[2], promotion: match[3]});
                board1.move(match[1]+"-"+match[2]);
 			//singlePlayerWinFunc();
-           
+           if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+			{
+			PlayMove();
+			}
+			}
 		
             
             }

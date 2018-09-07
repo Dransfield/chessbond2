@@ -456,7 +456,7 @@ if(drawnPageOnce==false)
             err_prob = Math.round((gameSkill * 6.35) + 1);
             /// Level 0 starts at 10
             max_err = Math.round((gameSkill * -0.5) + 10);
-            
+            uciCmd('setoption name Minimum Thinking Time value '+gameThinkTime);
             uciCmd('setoption name Skill Level Maximum Error value ' + max_err);
             uciCmd('setoption name Skill Level Probability value ' + err_prob);
         
