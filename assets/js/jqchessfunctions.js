@@ -470,7 +470,15 @@ function changeOverallScore(piece,colour)
                 game.move({from: match[1], to: match[2], promotion: match[3]});
                board1.move(match[1]+"-"+match[2]);
 			//singlePlayerWinFunc();
-            
+            if(Accounts[MyID])
+			{	
+					
+			if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+			{
+			PlayMove();
+			}
+			}
+		
             
             }
         }
@@ -654,7 +662,15 @@ function singlePlayerMoveFunc(old,newpos)
 					game.move(mov);
 					//board1.move(mov);
 				board1.move(mov.from+"-"+mov.to);
+					if(Accounts[MyID])
+					{	
 					
+					if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+						{
+						PlayMove();
+						}
+					}
+		
 	
 					}
 					//return game.fen();
