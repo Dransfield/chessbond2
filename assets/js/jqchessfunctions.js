@@ -674,7 +674,7 @@ function singlePlayerMoveFunc(old,newpos)
 						}
 					}
 		
-					    board.position(game.fen());
+					    
 					}
 					//return game.fen();
 };
