@@ -559,6 +559,7 @@ function singlePlayerMoveFunc(old,newpos)
 		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
 		}
 		StartRightClock();	
+		
 	}
 	else
 	{
@@ -581,7 +582,7 @@ function singlePlayerMoveFunc(old,newpos)
 		$('.square-' +chessmove.to).css("background-size","contain");
 		//boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
 	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
-		
+		    board1.position(game.fen());
 		}
 	
 	function onChangedfunc(obj)
@@ -594,7 +595,7 @@ function singlePlayerMoveFunc(old,newpos)
 		}
 		
 	}
-	var onSnapEnd = function() {};
+	var onSnapEnd = function() {console.log("snap end");};
 	 function onDrop(mov) {
 		
 		
@@ -673,7 +674,7 @@ function singlePlayerMoveFunc(old,newpos)
 						}
 					}
 		
-	
+					    board.position(game.fen());
 					}
 					//return game.fen();
 };
