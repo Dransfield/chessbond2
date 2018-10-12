@@ -2417,7 +2417,7 @@ for(rowIter in visarr)
 				//console.log(visarr[rowIter].visitorIP);
 			$.ajax({
 				//url:"https://api.ipstack.com/"+visarr[rowIter].visitorIP+"?access_key=7bca87a8ece647655b1fac301d2ae11c",
-				url:"https://ip-api.com/json/"+visarr[rowIter].visitorIP,
+				url:"  https://api.ipdata.co/"+visarr[rowIter].visitorIP+"?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a/",
 			crossDomain: true,
 				 
 				 accepts: {
