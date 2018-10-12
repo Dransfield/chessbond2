@@ -2423,8 +2423,8 @@ for(rowIter in visarr)
 				 accepts: {
 				mycustomtype: 'application/json'
 				},
-				dataType: "mycustomtype",
-				headers: { "accepts": "application/json", 'Access-Control-Allow-Origin': '*' },
+				dataType: "jsonp",
+				headers: {  'Access-Control-Allow-Origin': '*' },
 				context:(cell)
 				}).done(function(data){
 				if(data)
