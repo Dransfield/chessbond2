@@ -2415,6 +2415,7 @@ for(rowIter in visarr)
 				cell=$("<td></td>");
 				row.append(cell);
 				//console.log(visarr[rowIter].visitorIP);
+				/*
 			$.ajax({
 				//url:"https://api.ipstack.com/"+visarr[rowIter].visitorIP+"?access_key=7bca87a8ece647655b1fac301d2ae11c",
 				url:"  https://api.ipdata.co/"+visarr[rowIter].visitorIP+"?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a",
@@ -2426,7 +2427,7 @@ for(rowIter in visarr)
 				dataType: "jsonp",
 				headers: {  'Access-Control-Allow-Origin': '*' },
 				context:(cell)
-				}).done(function(data){
+				}).onreadystatechange (function(data){
 				if(data)
 				{
 					console.log(JSON.stringify(data));
@@ -2434,8 +2435,24 @@ for(rowIter in visarr)
 				$(this).append(addition);
 				
 				}
-				});
+				});*/
 			}
+			var request = new XMLHttpRequest();
+  
+  request.open('GET', 'https://api.ipdata.co/8.8.8.8?api-key=test/');
+  
+  request.setRequestHeader('Accept', 'application/json');
+  
+  request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+    }
+  };
+  
+  request.send();
+                  
 			
 			cell=$("<td>"+timeOfDayForDate(visarr[rowIter].createdAt)+"</td>");
 			row.append(cell);
