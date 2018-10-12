@@ -2420,7 +2420,7 @@ for(rowIter in visarr)
 				url:"https://tools.keycdn.com/geo.json?host="+visarr[rowIter].visitorIP,
 			crossDomain: true,
 				 dataType: "jsonp",
-				headers: {  'Access-Control-Allow-Origin': '*' },
+				headers: { "accept": "application/json", 'Access-Control-Allow-Origin': '*' },
 				context:(cell)
 				}).done(function(data){
 				if(data)
