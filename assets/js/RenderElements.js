@@ -2439,7 +2439,7 @@ for(rowIter in visarr)
 			}
 			var request = new XMLHttpRequest();
   
-  request.open('GET', 'https://api.ipdata.co/8.8.8.8?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a/');
+  request.open('GET', 'https://api.ipdata.co/8.8.8.8?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
   
   request.setRequestHeader('Accept', 'application/json');
   
