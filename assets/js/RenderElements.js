@@ -2422,6 +2422,7 @@ for(rowIter in visarr)
 				}).done(function(data){
 				if(data)
 				{
+					console.log(JSON.stringify(data));
 				var addition=data.country_name+":"+data.city;
 				$(this).append(addition);
 				
