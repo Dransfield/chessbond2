@@ -12,7 +12,13 @@ var joinedPlayersDiv;
  server IP 103.117.180.122
 new server pass 8-C6[_+H2#A9@uQ
 * Weblink: https://www.ewebguru.com/
-* 
+
+new window ctrl-b c
+* mongod
+new window ctrl-b c
+* /etc/init.d/apache2 stop
+cd node-redirect/bin
+node server
 https://client.ewebguru.com/submitticket.php
 * 
 Username: ewg36119

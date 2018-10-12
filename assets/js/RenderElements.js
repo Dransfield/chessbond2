@@ -455,7 +455,7 @@ var headers=["Game Category","Available to Join.."," Interested"];
 	var row=$("<tr></tr>");
 		tbl.append(row);
 		
-		var cell=$("<td></td>");
+	 	var cell=$("<td></td>");
 		cell.append(TournamentCandidates[iter].category);
 		row.append(cell);
 	}	
@@ -2416,7 +2416,8 @@ for(rowIter in visarr)
 				row.append(cell);
 				//console.log(visarr[rowIter].visitorIP);
 			$.ajax({
-				url: "https://freegeoip.net/json/"+visarr[rowIter].visitorIP,
+				url:"http://api.ipstack.com/"+visarr[rowIter].visitorIP"?access_key=7bca87a8ece647655b1fac301d2ae11c",
+				
 				context:(cell)
 				}).done(function(data){
 				if(data)

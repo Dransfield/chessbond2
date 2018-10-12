@@ -547,7 +547,7 @@ function singlePlayerMoveFunc(old,newpos)
 		$('.square-55d63').css("background-image","");
 		$('.square-' +chessmove.to).css("background-size","contain");
 		$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
-		console.log("game.turn() "+game.turn());
+		//console.log("game.turn() "+game.turn());
 		singlePlayerWinFunc();
 		if (game.turn()=='b')
 		{
