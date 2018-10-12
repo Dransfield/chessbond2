@@ -2416,7 +2416,7 @@ for(rowIter in visarr)
 				row.append(cell);
 				//console.log(visarr[rowIter].visitorIP);
 			$.ajax({
-				url:"http://api.ipstack.com/"+visarr[rowIter].visitorIP+"?access_key=7bca87a8ece647655b1fac301d2ae11c",
+				url:"https://api.ipstack.com/"+visarr[rowIter].visitorIP+"?access_key=7bca87a8ece647655b1fac301d2ae11c",
 				
 				context:(cell)
 				}).done(function(data){
