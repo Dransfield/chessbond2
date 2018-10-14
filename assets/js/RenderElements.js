@@ -2442,11 +2442,11 @@ for(rowIter in visarr)
   var theIP;
   if (visarr[rowIter].visitorIP[0]==":")
 	{
-	theIP=  
+	theIP=visarr[rowIter].visitorIP;
 	}
 	else
 	{
-	theIP=visarr[rowIter].visitorIP[7..];
+	theIP=visarr[rowIter].visitorIP[6..];
 	}
   console.log(theIP):
   request.open('GET', 'https://api.ipdata.co/'+theIP+'?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
