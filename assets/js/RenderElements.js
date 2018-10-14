@@ -2439,7 +2439,17 @@ for(rowIter in visarr)
 			}
 	var request = new XMLHttpRequest();
   
-  request.open('GET', 'https://api.ipdata.co/'+visarr[rowIter].visitorIP+'?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
+  var theIP;
+  if (visarr[rowIter].visitorIP[0]==":")
+	{
+	theIP=  
+	}
+	else
+	{
+	theIP=visarr[rowIter].visitorIP[7..];
+	}
+  console.log(theIP):
+  request.open('GET', 'https://api.ipdata.co/'+theIP+'?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
   
   request.setRequestHeader('Accept', 'application/json');
   
@@ -2448,6 +2458,8 @@ for(rowIter in visarr)
       console.log('Status:', this.status);
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
+      var addition=this.responseText.country_name+":"+this.responseText.city;
+				$(this).append(addition);
     }
   };
   
