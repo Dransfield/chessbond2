@@ -15,7 +15,7 @@ ip2loc.IP2Location_init("/root/db.bin");
  console.log(req.param('ip'));
  
 
-    var returner={city:ip2loc.IP2Location_get_city(req.param('ip')),country:IP2Location_get_country_long(req.param('ip'))};
+    var returner={city:ip2loc.IP2Location_get_city(req.param('ip')),country:ip2loc.IP2Location_get_country_long(req.param('ip'))};
 	return res.json(returner);
 	/*
     for (var key in result) {
