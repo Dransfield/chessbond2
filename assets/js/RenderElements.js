@@ -2441,8 +2441,6 @@ for(rowIter in visarr)
   
   var theIP;
   
-  console.log("visarr[rowIter].visitorIP.indexOf(':')"+visarr[rowIter].visitorIP.indexOf(":"));
-  
   if (visarr[rowIter].visitorIP.indexOf(":")==-1)
 	{
 	theIP=visarr[rowIter].visitorIP;
@@ -2451,12 +2449,12 @@ for(rowIter in visarr)
 	{
 	theIP=visarr[rowIter].visitorIP.slice(7,visarr[rowIter].visitorIP.length-1);
 	}
-  console.log(theIP);
+  
   request.open('GET', 'https://api.ipdata.co/'+theIP+'?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
   
   request.setRequestHeader('Accept', 'application/json');
   
-  var theRow=row;
+  var theCell=cell;
   
   request.onreadystatechange = function () {
     if (this.readyState === 4) {
@@ -2464,11 +2462,9 @@ for(rowIter in visarr)
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
       
-      console.log(JSON.stringify(this.responseText));
       var theObj=JSON.parse(this.responseText);
-      console.log(JSON.stringify(theObj));
       var addition=theObj.country_name+":"+theObj.city;
-				theRow.append(addition);
+				theCell.append(addition);
     }
   };
   
