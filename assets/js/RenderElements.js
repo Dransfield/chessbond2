@@ -2443,7 +2443,7 @@ for(rowIter in visarr)
   
   console.log("visarr[rowIter].visitorIP.indexOf(':')"+visarr[rowIter].visitorIP.indexOf(":"));
   
-  if (visarr[rowIter].visitorIP.indexOf(":")==0)
+  if (visarr[rowIter].visitorIP.indexOf(":")==-1)
 	{
 	theIP=visarr[rowIter].visitorIP;
 	}
