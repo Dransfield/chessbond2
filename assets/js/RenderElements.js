@@ -2438,12 +2438,12 @@ for(rowIter in visarr)
 				});*/
 			}
 			
-			var theCell=cell;
+			var obj={theCell:cell);
 	io.socket.get('/locationforip',{ip:visarr[rowIter].visitorIP},function (resData, jwr) {
-var addition=resData.country_name+":"+resData.city;
-				theCell.append(addition);
+var addition=resData.country+":"+resData.city;
+				obj.cell.append(addition);
 	console.log((resData.city));
-	});
+	}.bind(obj));
 			/*
 	var request = new XMLHttpRequest();
   
