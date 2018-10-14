@@ -2441,7 +2441,7 @@ for(rowIter in visarr)
 			var obj={theCell:cell};
 	io.socket.get('/locationforip',{ip:visarr[rowIter].visitorIP},function (resData, jwr) {
 var addition=resData.country+":"+resData.city;
-				obj.theCell.append(addition);
+				this.theCell.append(addition);
 	console.log((resData.city));
 	}.bind(obj));
 			/*
