@@ -2440,6 +2440,9 @@ for(rowIter in visarr)
 	var request = new XMLHttpRequest();
   
   var theIP;
+  
+  console.log("visarr[rowIter].visitorIP.indexOf(':')"+visarr[rowIter].visitorIP.indexOf(":"));
+  
   if (visarr[rowIter].visitorIP.indexOf(":")==0)
 	{
 	theIP=visarr[rowIter].visitorIP;
