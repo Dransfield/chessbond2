@@ -2440,7 +2440,7 @@ for(rowIter in visarr)
 	var request = new XMLHttpRequest();
   
   var theIP;
-  if (visarr[rowIter].visitorIP.slice(0,0)==":")
+  if (visarr[rowIter].visitorIP.indexOf(":")==0)
 	{
 	theIP=visarr[rowIter].visitorIP;
 	}
