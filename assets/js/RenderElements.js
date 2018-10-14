@@ -2410,7 +2410,7 @@ for(rowIter in visarr)
 			row.append(cell);
 			}
 			
-				if(visarr[rowIter].visitorIP)
+			if(visarr[rowIter].visitorIP)
 			{
 				cell=$("<td></td>");
 				row.append(cell);
@@ -2453,13 +2453,15 @@ for(rowIter in visarr)
   
   request.setRequestHeader('Accept', 'application/json');
   
+  var theRow=row;
+  
   request.onreadystatechange = function () {
     if (this.readyState === 4) {
       console.log('Status:', this.status);
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
       var addition=this.responseText.country_name+":"+this.responseText.city;
-				$(this).append(addition);
+				theRow.append(addition);
     }
   };
   
