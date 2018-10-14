@@ -22,7 +22,7 @@ ip2loc.IP2Location_init("/root/db.bin");
         returner=returner+(key + ": " + result[key]);
     }
    */
-}
+
  
 }
 };
