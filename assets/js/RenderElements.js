@@ -2440,13 +2440,13 @@ for(rowIter in visarr)
 	var request = new XMLHttpRequest();
   
   var theIP;
-  if (visarr[rowIter].visitorIP[0]==":")
+  if (visarr[rowIter].visitorIP.slice(0,0)==":")
 	{
 	theIP=visarr[rowIter].visitorIP;
 	}
 	else
 	{
-	theIP=visarr[rowIter].visitorIP[6..];
+	theIP=visarr[rowIter].visitorIP.slice(6,visarr[rowIter].visitorIP.length-1);
 	}
   console.log(theIP):
   request.open('GET', 'https://api.ipdata.co/'+theIP+'?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
