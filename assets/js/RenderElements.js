@@ -2438,15 +2438,13 @@ for(rowIter in visarr)
 				});*/
 			}
 			
-			
+			var theCell=cell;
 	io.socket.get('/locationforip',{ip:visarr[rowIter].visitorIP},function (resData, jwr) {
-
+var addition=resData.country_name+":"+resData.city;
+				theCell.append(addition);
 	console.log((resData.city));
-	
-	
-	//console.log(JSON.stringify(resData));
 	});
-			
+			/*
 	var request = new XMLHttpRequest();
   
   var theIP;
@@ -2480,7 +2478,7 @@ for(rowIter in visarr)
   
   request.send();
                   
-			
+			*/
 			cell=$("<td>"+timeOfDayForDate(visarr[rowIter].createdAt)+"</td>");
 			row.append(cell);
 			
