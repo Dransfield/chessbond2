@@ -2441,7 +2441,7 @@ for(rowIter in visarr)
 			
 	io.socket.get('/locationforip',{ip:visarr[rowIter].visitorIP},function (resData, jwr) {
 
-	console.log(resData);
+	console.log(JSON.parse(resData));
 	console.log(resData[0]);
 	
 	//console.log(JSON.stringify(resData));
