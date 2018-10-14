@@ -2463,7 +2463,11 @@ for(rowIter in visarr)
       console.log('Status:', this.status);
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
-      var addition=this.responseText.Body.country_name+":"+this.responseText.Body.city;
+      
+      console.log(JSON.stringify(this.responseText));
+      var theObj=JSON.parse(this.responseText);
+      console.log(JSON.stringify(theObj));
+      var addition=theObj.country_name+":"+theObj.city;
 				theRow.append(addition);
     }
   };
