@@ -16,7 +16,7 @@
     "grunt": "1.0.1",
    
     "node-schedule": "*",
-	
+	 "ip2location-nodejs":"*",
    
 	"passport": "*",
     "passport-facebook": "*",
