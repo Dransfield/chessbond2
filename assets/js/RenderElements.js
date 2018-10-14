@@ -2439,17 +2439,11 @@ for(rowIter in visarr)
 			}
 			
 			
-			var ip2loc = require("ip2location-nodejs");
- 
-ip2loc.IP2Location_init("/root/db.bin");
- 
-testip = ['8.8.8.8', '2404:6800:4001:c01::67', '2001:0200:0102:0000:0000:0000:0000:0000', '2001:0200:0135:0000:0000:0000:0000:0000', '2001:0200:017A:0000:0000:0000:0000:0000'];
-for (var x = 0; x < testip.length; x++) {
-    result = ip2loc.IP2Location_get_all(testip[x]);
-    for (var key in result) {
-        console.log(key + ": " + result[key]);
-    }
-}
+	io.socket.get('/locationforip',{ip:visarr[rowIter].visitorIP},function (resData, jwr) {
+
+	console.log(resData);
+	console.log(JSON.stringify(resData);
+	});
 			
 	var request = new XMLHttpRequest();
   

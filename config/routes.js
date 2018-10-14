@@ -83,6 +83,7 @@ module.exports.routes = {
 	'/forgot':{view:'forgot'},
 	'GET /wholesitevisit':'UserController.visitedWholeSite',
 	'PUT /updateuser':'UserController.updateProfile',
+	'GET /locationforip':'CityController.getLocation',
 	//'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'}
 //	'/tournamentjq':{view:'go'},
