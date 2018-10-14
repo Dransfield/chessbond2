@@ -2454,19 +2454,19 @@ for(rowIter in visarr)
   
   request.setRequestHeader('Accept', 'application/json');
   
-  var theCell=cell;
+  request.theCell=cell;
   
   request.onreadystatechange = function () {
     if (this.readyState === 4) {
-      console.log('Status:', this.status);
-      console.log('Headers:', this.getAllResponseHeaders());
-      console.log('Body:', this.responseText);
+      //console.log('Status:', this.status);
+      //console.log('Headers:', this.getAllResponseHeaders());
+      //console.log('Body:', this.responseText);
       
       var theObj=JSON.parse(this.responseText);
       var addition=theObj.country_name+":"+theObj.city;
-				theCell.append(addition);
+				this.theCell.append(addition);
     }
-  };
+  }.bind(request);
   
   request.send();
                   
