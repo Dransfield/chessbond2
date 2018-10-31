@@ -80,7 +80,7 @@ module.exports.routes = {
 	'GET /UndeleteAccount':'UserController.UndeleteAccount',
 	'/UndeletedAccount':{view:'accountundeleted'},
 	'/playvsai':{view:'humanvsaijq'},
-	'/forgot':{view:'forgot'},
+	'/forgot':{view:'forgotjq'},
 	'GET /wholesitevisit':'UserController.visitedWholeSite',
 	'PUT /updateuser':'UserController.updateProfile',
 	'GET /locationforip':'CityController.getLocation',

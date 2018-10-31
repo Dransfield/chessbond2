@@ -212,6 +212,11 @@ if(drawnPageOnce==false)
 		{
 		setupMessagesPage();
 		}
+		if($("#forgotpage").length)
+		{
+		setupForgotPage();
+		}
+		
 		if($("#albumspage").length)
 		{
 		setupAlbumsPage();
@@ -1947,6 +1952,20 @@ function setupStatsPage()
 						});
 					});
 				});
+	
+}
+
+function setupForgotPage()
+{
+	console.log("drawnPageOnce "+drawnPageOnce);
+	AccountsToRetrieve[MyID]=MyID;
+	renderForgotPage();
+	
+}
+
+function renderForgotPage()
+{
+	$("#adminpage").append("<h1>Forgot Password</h1>");
 	
 }
 
