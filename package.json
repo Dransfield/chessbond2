@@ -22,9 +22,10 @@
     "passport-twitter": "*",
     "node-schedule":"*",
     "core-js": "^2.4.1",
-    "rxjs": "5.0.1",
+    
     "systemjs": "0.19.39",
     "zone.js": "^0.8.4",
+    "rxjs": "5.0.1",
     "express": "^4.14.0",
     "rc": "1.0.1",
     "sails": "~0.12.8",

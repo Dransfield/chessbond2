@@ -136,7 +136,9 @@
 
 function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDescriptor)
 	{
-	var elo = require('elo-rank')(15);
+	//var elo = require('elo-rank')(15);
+	var EloRank = require('elo-rank');
+	var elo = new EloRank(15);
 	console.log("player1 "+player1);
 	console.log("player2 "+player2);
 	var player1gamecategory;
@@ -277,7 +279,9 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	
 	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
 	{
-	var elo = require('elo-rank')(15);
+	//var elo = require('elo-rank')(15);
+	var EloRank = require('elo-rank');
+	var elo = new EloRank(15);
 	console.log("winner "+winner);
 	console.log("loser "+loser);
 	var winnergamecategory;
