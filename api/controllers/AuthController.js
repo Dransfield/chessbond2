@@ -17,6 +17,11 @@ module.exports = {
     
         logingoogle:function(req,res){
 passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
+<<<<<<< HEAD
+=======
+//passport.authenticate('google',{ scope: ['https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/userinfo.email'] })(req, res);
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	},
 	googlecallback:function(req,res)
 	{
@@ -48,6 +53,10 @@ passport.authenticate('google',{ scope: ['profile','email'] })(req, res);
 		//console.log("RES"+JSON.stringify(res));
 		*/
 		 passport.authenticate('google',{
+<<<<<<< HEAD
+=======
+			  
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
             successRedirect : '/justloggedin',
             failureRedirect : '/',
             failureFlash: true

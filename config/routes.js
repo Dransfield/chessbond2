@@ -31,16 +31,30 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+<<<<<<< HEAD
 	
 	'GET /':{view:'jqhp'},
+=======
+
+ 'GET /':{view:'jqhp'},
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	'GET /upcomingTournamentsWithTime':'TournamentController.upcomingTournamentsWithTime',
 	'POST /JoinTournament':'Tournamententry.joinTournament',
 	'POST /LeaveTournament':'Tournamententry.leaveTournament',
 	'GET /tournamentview/:ID': {view:'tournamentview'},
+<<<<<<< HEAD
 	'POST /starttempconversation':'TempConversationController.New',
 	'POST /lefttempconversation':'TempConversationController.Left',
 	'GET /myprofilemg': {view: 'messagesjq'},
 	'/seeprivateconversation/:ID': {view:'privateconversationjq'},
+=======
+	'GET /mytournaments/:ID': {view:'mytournaments'},
+	'GET /getplayerstournamentgames': 'TournamentController.getPlayersGames',
+	'POST /startprivateconversation':'PrivateConversationController.New',
+	'POST /leftprivateconversation':'PrivateConversationController.Left',
+	'GET /myprofilemg': {view: 'messagesjq'},
+	'/myprof/:ID': {view:'privateconversationjq'},
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	'POST /chatmsg':'PageController.chatmsg',
 	'POST /sawmessage':'WallpostController.SawMessage',
 	'POST /wantstodeletemessage':'WallpostController.wantsToDelete',
@@ -77,10 +91,18 @@ module.exports.routes = {
 	'/admin':{view:'adminjq'},
 	'GET /UndeleteAccount':'UserController.UndeleteAccount',
 	'/UndeletedAccount':{view:'accountundeleted'},
+<<<<<<< HEAD
 	'/playvsai':{view:'humanvsai'},
 	'/forgot':{view:'forgot'},
 	'GET /wholesitevisit':'UserController.visitedWholeSite',
 	'PUT /updateuser':'UserController.updateProfile',
+=======
+	'/playvsai':{view:'humanvsaijq'},
+	'/forgot':{view:'forgotjq'},
+	'GET /wholesitevisit':'UserController.visitedWholeSite',
+	'PUT /updateuser':'UserController.updateProfile',
+	'GET /locationforip':'CityController.getLocation',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	//'GET /profilealbum': {view: 'myfile'},
 	//'/myfile2': {view: 'myfile2'}
 //	'/tournamentjq':{view:'go'},
@@ -93,9 +115,15 @@ module.exports.routes = {
 	'POST /uploadavatar':'UploadController.Upload',
 	'POST /uploadavatar/:albumID':'UploadController.UploadToAlbum',
 	'/justloggedin':'PageController.JustLoggedIn',
+<<<<<<< HEAD
 	'GET /updateGameTime':'PageController.updateGameTime',
 	'/MyLogout':'AuthController.logout',
 	'PUT /joingame':'PageController.Joingame',
+=======
+	'GET /updateGameTime':'ChessgameController.updateGameTime',
+	'/MyLogout':'AuthController.logout',
+	'PUT /joingame':'ChessgameController.Joingame',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	'PUT /imidle':'PageController.AnnounceIdle',
 	'PUT /banuser':'UserController.banUser',
 	'PUT /unbanuser':'UserController.unbanUser',
@@ -108,6 +136,7 @@ module.exports.routes = {
 	'PUT /unblockavatar':'AvatarController.unblockpic',
 	'PUT /ResetPassword':'ForgotBackController.ResetPassword',
 	'GET /forgot/password/:code':{view:'newpassword'},
+<<<<<<< HEAD
 	'PUT /Withdraw':'PageController.Withdraw',
 	'PUT /OfferDraw':'PageController.OfferDraw',
  	'PUT /AcceptDraw':'PageController.AcceptDraw',
@@ -116,6 +145,17 @@ module.exports.routes = {
 	'PUT /newsession':'PageController.newsession',
 	'PUT /deleteopengame':'PageController.deleteopengame',
 	'PUT /deletegame':'PageController.deletegame',
+=======
+	'PUT /Withdraw':'ChessgameController.Withdraw',
+	'POST /Resign':'ChessgameController.Resign',
+	'PUT /OfferDraw':'ChessgameController.OfferDraw',
+ 	'POST /AcceptDraw':'ChessgameController.AcceptDraw',
+	'GET /subscribeToRoom':'PageController.subscribeToRoom',
+	'PUT /newopengame':'ChessgameController.newopengame',
+	'PUT /newsession':'PageController.newsession',
+	'PUT /deleteopengame':'ChessgameController.deleteopengame',
+	'PUT /deletegame':'ChessgameController.deletegame',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	'PUT /updatelevelbeaten':'PageController.UpdateLevelBeaten',
 	'POST /newnotification':'NotificationController.newnotification',
 	'GET /visitnotification':'NotificationController.visitnotification',
@@ -123,7 +163,11 @@ module.exports.routes = {
 	
 	'POST /newwallpost':'WallpostController.wallpost',
 	'PUT /LookedAtProfile':'PageController.LookedAtProfile',
+<<<<<<< HEAD
 	'PUT /chessgamemove':'PageController.chessgamemove',
+=======
+	'PUT /chessgamemove':'ChessgameController.chessgamemove',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	'PUT /BroadcastPing':'PageController.BroadcastPing',
 	'PUT /pingtest':'PageController.ReturnPing',
 	'/logintwitter': 'AuthController.logintwitter',
@@ -134,7 +178,10 @@ module.exports.routes = {
 	'/auth/facebook_oauth2':'AuthController.facebookcallback',
 	'POST /register':'AuthController.register',
 	'PUT /login':'AuthController.login'
+<<<<<<< HEAD
   
+=======
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

@@ -55,6 +55,10 @@ try {
   }
 }
 
+<<<<<<< HEAD
 require('ts-node').register({ /* options */ }); // See options in https://www.npmjs.com/package/ts-node
+=======
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 // Start server
 sails.lift(rc('sails'));

@@ -19,6 +19,7 @@ module.exports = {
 
 
 ssl: {
+<<<<<<< HEAD
      //ca: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/bundle.crt')),
       ca: files.join(),
    
@@ -26,3 +27,11 @@ ssl: {
     cert: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/www_chessbond_com.crt'))
    }
    };
+=======
+    ca: files.join(),
+		
+     key: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/chessbond.key')),
+    cert: require('fs').readFileSync(require('path').resolve(__dirname,'ssl/www_chessbond_com.crt'))
+   }
+   };
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc

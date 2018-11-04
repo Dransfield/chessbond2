@@ -3,6 +3,10 @@ var UserNamesPrinted={};
 var DropDowns={};
 var Navbar={};
 var rematchSeconds;
+<<<<<<< HEAD
+=======
+var acceptDrawSeconds;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var recentGameIndex=0;
 var recentGamesToShow=20;
 var lastChatMessagePostedBy="";
@@ -32,6 +36,76 @@ var gamecategories=[{time:1,extratime:0},
 					{time:30,extratime:10},
 					{time:60,extratime:10}];
 
+<<<<<<< HEAD
+=======
+function gameCategoryNumberArray()
+{
+	var array=[];
+	for (iter in gamecategories)
+	{
+		array.push(gamecategories[iter].time+"-"+gamecategories[iter].extratime);
+	}
+		return array;
+}
+
+function showTournamentRedirectNotice()
+{
+	
+	var redirectButton=showButton($("body"),"Redirecting in ","KgreenElement KhugeButton");
+	var timerspan=addSpan(redirectButton,"rematchTimer");
+	redirectButton.css("position","fixed");
+	redirectButton.css("top","50%");
+	var redirectSeconds=30;
+	
+	setInterval(function(){
+		redirectSeconds=redirectSeconds-1;
+		$("#rematchTimer").html(redirectSeconds);
+		if(rematchSeconds==0)
+		{redirectbutton.slideUp();}
+	},1000);
+
+	}
+
+function showAcceptDrawButton()
+{
+
+	
+	
+	
+	acceptDrawButton=showButton($("body"),"Opponent offers a draw","KgreyElement KhugeButton");
+	var acceptDrawDiv=addFlexDiv(acceptDrawButton,"offer","column");
+	var timerspan=addSpan(acceptDrawDiv,"offerDrawTimer");
+	var yesnoDiv=addDiv(acceptDrawDiv);
+	var yesButton=showButton(yesnoDiv,"Yes","KgreenElement KhugeButton");
+	var noButton=showButton(yesnoDiv,"No","KredElement KhugeButton");
+	
+	acceptDrawButton.css("position","fixed");
+	acceptDrawButton.css("top","20%");
+	acceptDrawSeconds=30;
+
+	yesButton.click(gameFunctions.acceptDraw);
+noButton.click(function(){
+
+	
+		if(GamePlaying.Player1==GamePlaying.Player2)
+		{
+			console.log("player 1 is player 2");
+		
+		}
+		acceptDrawButton.slideUp();
+
+	});
+
+	setInterval(function(){
+		acceptDrawSeconds=acceptDrawSeconds-1;
+		$("#offerDrawTimer").html(acceptDrawSeconds);
+		if(acceptDrawSeconds==0)
+		{acceptDrawButton.slideUp();}
+	},1000);
+
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function showRematchButton()
 {
 
@@ -376,7 +450,11 @@ function showUpcomingTournamentTable(elem)
 {
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
+<<<<<<< HEAD
 var headers=["Game Category","Starts in..","Players Interested"];
+=======
+var headers=["Game Category","Available to Join.."," Interested"];
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	for( h in headers)
 	{
 	var header=$("<th>"+headers[h]+"</th>");
@@ -387,7 +465,11 @@ var headers=["Game Category","Starts in..","Players Interested"];
 	var row=$("<tr></tr>");
 		tbl.append(row);
 		
+<<<<<<< HEAD
 		var cell=$("<td></td>");
+=======
+	 	var cell=$("<td></td>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		cell.append(TournamentCandidates[iter].category);
 		row.append(cell);
 	}	
@@ -472,6 +554,10 @@ function sortTourn(a,b)
 					
 					currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
+<<<<<<< HEAD
+=======
+				timeToCurrentTournamentStartDiv.detach();
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				viewbuttonDiv.detach();
 				withdrawbuttonDiv.detach();
 				joinedPlayersDiv.detach();
@@ -491,6 +577,7 @@ function sortTourn(a,b)
 		
 		}
 
+<<<<<<< HEAD
 function showTournamentGameSchedule(elem,entries)
 {
 var gameNumber=0;
@@ -572,6 +659,42 @@ var gameNumber=0;
 function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv)
 {
 //	TournamentEntries=[];
+=======
+function showTournamentGameSchedule(elem,thetournid)
+{
+var gameNumber=0;
+				elem.append("<h1>Game Schedule</h1>");
+				var games=JoinedGames[thetournid];
+				console.log(JSON.stringify(games));
+				
+				
+					for (gameIter=0; gameIter<games.length;gameIter++)
+						{
+						if(games[gameIter].Result.length==0 && games[gameIter].started==true)
+							{
+							elem.append("<div>Now Playing</div>");
+							}
+							
+						elem.append("<a href='/humanvshumannew/"+games[gameIter].id+"'><h2>:"+(gameIter+1)+"</h2></a>");
+						elem.append("<h4><div>White:</div></h4>");
+						showUsername(elem,games[gameIter].Player1);
+						elem.append("<h4><div> Black: </div></h4>");
+						showUsername(elem,games[gameIter].Player2);
+							
+							
+							if(games[gameIter].Result.length>0)
+							{
+							elem.append("<div>Result:"+games[gameIter].Result+"</div>");
+							}
+						
+						}
+	
+}
+
+function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDiv,entries)
+{
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 //retrieveSpecificTournamentEntries(tournID).then
 	//				(function()
 	//				{
@@ -579,6 +702,7 @@ function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDi
 					joinedPlayersDiv=addFlexDiv(joinedPlayersDivContainer,"playerList","column");
 				
 					//console.log("TournamentEntries.length "+TournamentEntries.length);
+<<<<<<< HEAD
 					joinedPlayersDiv.append("<div>"+TournamentEntries.length+" players joined</div>");
 					
 					
@@ -587,6 +711,16 @@ function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDi
 						
 						
 						 io.socket.get('/user/'+TournamentEntries[playerIter].player,
+=======
+					joinedPlayersDiv.append("<div>"+entries.length+" players joined</div>");
+					
+					
+						for(playerIter in entries)
+						{
+						console.log(entries[playerIter]);
+						
+						 io.socket.get('/user/'+entries[playerIter].player,
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 							function(usr)
 							{
 							//joinedPlayersDiv.append(usr.name);	
@@ -598,7 +732,11 @@ function showTournamentEntries(tournID,joinedPlayersDivContainer,joinedPlayersDi
 					
 					
 					
+<<<<<<< HEAD
 			//		});
+=======
+					
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				
 }
 
@@ -649,7 +787,11 @@ function showUpcomingTournamentTable2(elem)
 	
 	
 	
+<<<<<<< HEAD
 	
+=======
+	console.log("howUpcomingTournamentTable2");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	console.log("Tournaments length "+Tournaments.length);
 	
 	//for(iter in Tournaments)
@@ -661,10 +803,25 @@ function showUpcomingTournamentTable2(elem)
 	
 	for (iter in Tournaments)
 	{
+<<<<<<< HEAD
 	Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
 	}
 	
 	var timeCells={};
+=======
+		if(!Tournaments[iter].activated)
+		{
+		Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+		}
+		else
+		{
+		Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+			
+		}
+	}
+	
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 	for (iter in Tournaments)
 	{
@@ -686,10 +843,21 @@ function showUpcomingTournamentTable2(elem)
 					currentTournamentDiv.append(timeCells[iter]);
 					timeCells[iter].append("<h2>Time Category:"+Tournaments[iter].category+"</h2>");
 					bigemptyDiv[0]=showHeader(currentTournamentDivContainer,1," ");
+<<<<<<< HEAD
 				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
 				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,1," ");
 				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
 				bigemptyDiv[2]=showHeader(currentTournamentDivContainer,1," ");
+=======
+				timeToCurrentTournamentStartDiv=addFlexDiv(currentTournamentDivContainer,"","row");
+				timeToCurrentTournamentStartDiv.append(displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
+				bigemptyDiv[1]=showHeader(currentTournamentDivContainer,1," ");
+				
+				joinbuttonDiv=addFlexDiv(currentTournamentDivContainer,"joinbuttonflex","row");
+				bigemptyDiv[2]=showHeader(currentTournamentDivContainer,1," ");
+				viewbuttonDiv=addFlexDiv(currentTournamentDivContainer,"viewbuttonflex","row");
+				bigemptyDiv[3]=showHeader(currentTournamentDivContainer,1," ");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				withdrawbuttonDiv=addFlexDiv(currentTournamentDivContainer,"withdrawbuttonflex","row");
 				//currentTournamentDiv.append(cell2);
 			
@@ -720,7 +888,11 @@ function showUpcomingTournamentTable2(elem)
 	var tbl=$("<table id='ipTable'></table>");
 	elem.append(tbl);
 	var tablePosition=1;
+<<<<<<< HEAD
 var headers=["Position","Game Category","Starts in..","Players Interested"];
+=======
+var headers=["Position","Game Category","Available in..","Players Interested"];
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	for( h in headers)
 	{
 	var header=$("<th>"+headers[h]+"</th>");
@@ -740,11 +912,19 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 			if(Tournaments[iter].timeToAvailable>0)
 			{
 	
+<<<<<<< HEAD
 				var nowDate=new Date(serverTime);
 				var date1=new Date(Tournaments[iter].dateAvailable);
 				
 				//var date2=new Date(Tournaments[iter].createdAt);
 				var diff=date1-nowDate;
+=======
+				//var nowDate=new Date(serverTime);
+				//var date1=new Date(Tournaments[iter].dateAvailable);
+				
+				//var date2=new Date(Tournaments[iter].createdAt);
+				//var diff=date1-nowDate;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				//console.log(nowDate);
 				//console.log(date1);
 				//console.log(date2);
@@ -766,7 +946,11 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 					timeCells[iter]=$("<td></td>");
 		
 		
+<<<<<<< HEAD
 					Tournaments[iter].currentTime=diff;
+=======
+					//Tournaments[iter].currentTime=diff;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					
 					//cell.append(Tournaments[iter].timeToAvailable);
 					row.append(timeCells[iter]);
@@ -788,11 +972,31 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 			
 			
 	Tournaments.sort(sortTourn);
+<<<<<<< HEAD
+=======
+	/*
+	for (iter in Tournaments)
+	{
+		Tournaments[iter].timeToAvailable=timeToAvailFunc(Tournaments[iter]);
+					if(Tournaments[iter].timeToAvailable>0)
+					{
+					timeToCurrentTournamentStartDiv.html(displayableTime(Tournaments[iter].timeToAvailable));
+					}
+					else
+					{
+					timeToCurrentTournamentStartDiv.html(displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
+						
+					}
+	}
+	*/
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 		for (iter in Tournaments)
 				{
 					if(Tournaments[iter].timeToAvailable>0)
 					{
+<<<<<<< HEAD
 						//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
 					Tournaments[iter].currentTime=Tournaments[iter].currentTime-500;
 					var bythousand=Tournaments[iter].currentTime/1000;
@@ -808,11 +1012,56 @@ var headers=["Position","Game Category","Starts in..","Players Interested"];
 					}
 				}
 			
+=======
+						if(timeCells[iter])
+						{
+						//console.log("Tavailable "+Tournaments[iter].timeToAvailable);
+						Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
+						timeCells[iter].html(displayableTime(Tournaments[iter].timeToAvailable));
+							
+						if(Tournaments[iter].activated==true)
+						{
+						timeToCurrentTournamentStartDiv.html(displayableTime(Tournaments[iter].timeToAvailable));
+						}
+						
+						}
+						
+					}
+					
+					else
+					
+					{
+						Tournaments[iter].timeToAvailable=Tournaments[iter].timeToAvailable-500;
+						
+						timeToCurrentTournamentStartDiv.html("Tournament starts in:"+displayableTime(threeMinutes+Tournaments[iter].timeToAvailable));
+					}
+					
+				}
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		}
 	
 	return tbl;
 }
 
+<<<<<<< HEAD
+=======
+function displayableTime(millis)
+
+	{
+	
+			var bythousand=millis/1000;
+					var secondsToShow=(parseInt((bythousand % 60))).toString();
+					var	minutesToShow=(parseInt((bythousand/60))).toString();
+					
+					if (secondsToShow<10)
+					{secondsToShow="0"+secondsToShow;}
+					
+					return minutesToShow+":"+secondsToShow;
+			
+	}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function showStatTable(elem)
 {
 	elem.append("<div>"+JoinedGames[ProfID].length+" games found</div>");
@@ -829,6 +1078,7 @@ function showStatTable(elem)
 	}
 
 			
+<<<<<<< HEAD
 		function playerIsWhite(player,game)
 		{
 		var imWhite=-1;
@@ -917,6 +1167,14 @@ function showStatTable(elem)
 					}
 			}
 		}
+=======
+		
+		
+	
+	
+		
+		
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 		function gameMatchesCategory(game,cat)
 		{
@@ -960,7 +1218,11 @@ function showStatTable(elem)
 		totalBlackGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
 		function(d)
 		{
+<<<<<<< HEAD
 		return  gameMatchesCategory(d,categoryShowString) && !playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
+=======
+		return  gameMatchesCategory(d,categoryShowString) && !gameFunctions.playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		});
 		
 		totalWhiteGamesPlayed[categoryShowString]=JoinedGames[ProfID].filter(
@@ -969,12 +1231,20 @@ function showStatTable(elem)
 			
 		if(categoryShowString=="1|0" && gameMatchesCategory(d,categoryShowString))
 		{
+<<<<<<< HEAD
 		console.log("is player white?"+playerIsWhite(ProfID,d));	
+=======
+		console.log("is player white?"+gameFunctions.playerIsWhite(ProfID,d));	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		console.log(d);
 		console.log(d.Player1!=d.Player2);
 		console.log(d.Result!="Both Players Timed Out");
 		}
+<<<<<<< HEAD
 		var returner=gameMatchesCategory(d,categoryShowString) && playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
+=======
+		var returner=gameMatchesCategory(d,categoryShowString) && gameFunctions.playerIsWhite(ProfID,d) && d.Player1!=d.Player2 && d.Result!="Both Players Timed Out";
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		if(categoryShowString=="60|0" && gameMatchesCategory(d,categoryShowString))
 		{
 		console.log(returner);
@@ -1093,16 +1363,27 @@ function showStatTable(elem)
 			if (categoryShowString=="1|0")
 				{
 				console.log(d);
+<<<<<<< HEAD
 				console.log(gameIsAWin(ProfID,d));
 				}
 			
 		return (gameIsAWin(ProfID,d));
+=======
+				console.log(gameFunctions.isAWin(ProfID,d));
+				}
+			
+		return (gameFunctions.isAWin(ProfID,d));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		});
 		
 		wonBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
+<<<<<<< HEAD
 		return (gameIsAWin(ProfID,d));
+=======
+		return (gameFunctions.isAWin(ProfID,d));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		});
 		
 		
@@ -1304,13 +1585,21 @@ function showStatTable(elem)
 		lostWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
+<<<<<<< HEAD
 		return (gameIsALoss(ProfID,d));
+=======
+		return (gameFunctions.isALoss(ProfID,d));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		});
 		
 		lostBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
 		{
+<<<<<<< HEAD
 		return (gameIsALoss(ProfID,d));
+=======
+		return (gameFunctions.isALoss(ProfID,d));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		});
 	
 		
@@ -1378,6 +1667,7 @@ function showStatTable(elem)
 		
 		drewBlackGames[categoryShowString]=totalBlackGamesPlayed[categoryShowString].filter(
 		function(d)
+<<<<<<< HEAD
 		{
 		return (gameIsADraw(ProfID,d));
 		});
@@ -2137,6 +2427,232 @@ function showStatGraph(elem)
 		}
 }
 */
+=======
+		{
+		return (gameFunctions.isADraw(ProfID,d));
+		});
+		
+		drewWhiteGames[categoryShowString]=totalWhiteGamesPlayed[categoryShowString].filter(
+		function(d)
+		{
+		return (gameFunctions.isADraw(ProfID,d));
+		});
+		
+		
+		
+	}
+		
+
+for (x in gamecategories)
+		{
+		var categoryString=gamecategories[x].time+"x"+gamecategories[x].extratime;
+		var categoryShowString=gamecategories[x].time+"|"+gamecategories[x].extratime;
+		
+		var row=$("<tr></tr>");
+		tbl.append(row);
+		
+		var cell=$("<td></td>");
+		cell.append(categoryShowString);
+		row.append(cell);
+		
+		cell=$("<td></td>");
+		cell.append("White");
+		row.append(cell);
+		
+		
+		cell=$("<td></td>");
+		cell.append(Accounts[ProfID]['ratingWhite'+categoryShowString]);
+		row.append(cell);
+		
+			cell=$("<td></td>");
+			if (categoryShowString=="10|0")
+			{
+				console.log(wonWhiteGames[categoryShowString].length);
+				console.log(wonWhiteGames[categoryShowString][0]);
+				
+			}
+		cell.append(parseInt((wonWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+			cell=$("<td></td>");
+		cell.append(parseInt((lostWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+		cell=$("<td></td>");
+		cell.append(parseInt((drewWhiteGames[categoryShowString].length/totalWhiteGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+		if(highestRatingsWhite[categoryShowString]>0)
+		{
+		cell=$("<td>"+highestRatingsWhite[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		
+		if(lowestRatingsWhite[categoryShowString]!=99999)
+		{
+		cell=$("<td>"+lowestRatingsWhite[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		
+		cell=$("<td></td>");
+		cell.append(parseInt(averageWhiteOppositionRatings[categoryShowString]));
+		row.append(cell);
+	
+	
+		if(highestWinWhite[categoryShowString]!=0)
+		{
+		cell=$("<td>"+highestWinWhite[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		
+		if(lowestLossWhite[categoryShowString]==99999)
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td>"+lowestLossWhite[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		
+		cell=$("<td>"+	totalWhiteGamesPlayed[categoryShowString].length+"</td>");
+		row.append(cell);
+		
+		
+		cell=$("<td>"+	totalWhiteMovesPlayed[categoryShowString]+"</td>");
+		row.append(cell);
+	
+		
+		var avgmov=parseInt(averageWhiteMovesPlayed[categoryShowString]);
+		if (avgmov)
+		{
+		cell=$("<td>"+avgmov+"</td>");
+		}
+		else
+		{
+		cell=$("<td></td>");
+		}
+		
+		row.append(cell);
+	
+		row=$("<tr></tr>");
+		tbl.append(row);
+		
+		cell=$("<td></td>");
+		cell.append(categoryShowString);
+		row.append(cell);
+		cell=$("<td></td>");
+		cell.append("Black");
+		row.append(cell);
+	
+				cell=$("<td></td>");
+		cell.append(Accounts[ProfID]['ratingBlack'+categoryShowString]);
+		row.append(cell);
+		
+		cell=$("<td></td>");
+		cell.append(parseInt((wonBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+		cell=$("<td></td>");
+		cell.append(parseInt((lostBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+		
+		cell=$("<td></td>");
+		cell.append(parseInt((drewBlackGames[categoryShowString].length/totalBlackGamesPlayed[categoryShowString].length)*100));
+		row.append(cell);
+	
+	
+		if(highestRatingsBlack[categoryShowString]>0)
+		{
+		cell=$("<td>"+highestRatingsBlack[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		
+		if(lowestRatingsBlack[categoryShowString]!=99999)
+		{
+		cell=$("<td>"+lowestRatingsBlack[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		
+		cell=$("<td></td>");
+		cell.append(parseInt(averageBlackOppositionRatings[categoryShowString]));
+		row.append(cell);
+	
+	
+		if(highestWinBlack[categoryShowString]!=0)
+		{
+		cell=$("<td>"+highestWinBlack[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		
+		if(lowestLossBlack[categoryShowString]==99999)
+		{
+		cell=$("<td></td>");
+		row.append(cell);
+		}
+		else
+		{
+		cell=$("<td>"+lowestLossBlack[categoryShowString]+"</td>");
+		row.append(cell);
+		}
+		
+		cell=$("<td>"+	totalBlackGamesPlayed[categoryShowString].length+"</td>");
+		row.append(cell);
+	
+	
+		cell=$("<td>"+	totalBlackMovesPlayed[categoryShowString]+"</td>");
+		row.append(cell);
+	
+		avgmov=parseInt(averageBlackMovesPlayed[categoryShowString]);
+		if(avgmov)
+		{
+		cell=$("<td>"+avgmov+"</td>");
+		}
+		else
+		{
+		cell=$("<td></td>");
+		}
+		
+		row.append(cell);
+	
+		
+		
+		}
+
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function showPersonLeft(elem,prsn)
 {
 
@@ -2268,6 +2784,12 @@ else
 	
 }
 }
+<<<<<<< HEAD
+=======
+
+//loadin page//showChatMessage(thisDiv,WallPosts[iter],"none",true,del);
+//recieved //showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true,del);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function showChatMessage(elem,msg,Replyto,allowreplies,deletebutton,showall)
 {
 	
@@ -2294,7 +2816,11 @@ if(deletebutton === undefined) { deletebutton = false; }
 	{
 		postHeaderDiv=$("<div  style='display:flex;flex-wrap:wrap;justify-content:flex-start;background-color:lightgreen;padding:4px;'></div>");
 
+<<<<<<< HEAD
 	}
+=======
+	}add
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	*/
 	if(msg.unread=="true")
 	{
@@ -2302,11 +2828,19 @@ if(deletebutton === undefined) { deletebutton = false; }
 		
 		if (MyID==msg.intendedFor || !msg.intendedFor)
 		{
+<<<<<<< HEAD
 		
 			io.socket.post('/sawmessage',{id:msg.id},function (resData, jwr) {
 				console.log("sending saw message ");
 			});	
 	
+=======
+			setTimeout(function(){
+			io.socket.post('/sawmessage',{id:msg.id,location:window.location.pathname},function (resData, jwr) {
+				console.log("sending saw message ");
+			});	
+			},(5*1000));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		}
 	
 	}
@@ -2949,24 +3483,94 @@ for(rowIter in visarr)
 			row.append(cell);
 			}
 			
+<<<<<<< HEAD
 				if(visarr[rowIter].visitorIP)
+=======
+			if(visarr[rowIter].visitorIP)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			{
 				cell=$("<td></td>");
 				row.append(cell);
 				//console.log(visarr[rowIter].visitorIP);
+<<<<<<< HEAD
 			$.ajax({
 				url: "https://freegeoip.net/json/"+visarr[rowIter].visitorIP,
 				context:(cell)
 				}).done(function(data){
 				if(data)
 				{
+=======
+				/*
+			$.ajax({
+				//url:"https://api.ipstack.com/"+visarr[rowIter].visitorIP+"?access_key=7bca87a8ece647655b1fac301d2ae11c",
+				url:"  https://api.ipdata.co/"+visarr[rowIter].visitorIP+"?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a",
+			crossDomain: true,
+				 
+				 accepts: {
+				mycustomtype: 'application/json'
+				},
+				dataType: "jsonp",
+				headers: {  'Access-Control-Allow-Origin': '*' },
+				context:(cell)
+				}).onreadystatechange (function(data){
+				if(data)
+				{
+					console.log(JSON.stringify(data));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				var addition=data.country_name+":"+data.city;
 				$(this).append(addition);
 				
 				}
+<<<<<<< HEAD
 				});
 			}
 			
+=======
+				});*/
+			}
+			
+			var obj={theCell:cell};
+	io.socket.get('/locationforip',{ip:visarr[rowIter].visitorIP},function (resData, jwr) {
+var addition=resData.country+":"+resData.city;
+				this.theCell.append(addition);
+	console.log((resData.city));
+	}.bind(obj));
+			/*
+	var request = new XMLHttpRequest();
+  
+  var theIP;
+  
+  if (visarr[rowIter].visitorIP.indexOf(":")==-1)
+	{
+	theIP=visarr[rowIter].visitorIP;
+	}
+	else
+	{
+	theIP=visarr[rowIter].visitorIP.slice(7,visarr[rowIter].visitorIP.length-1);
+	}
+  
+  request.open('GET', 'https://api.ipdata.co/'+theIP+'?api-key=8176185c8dbe7464442da3124c0879b5b6c1c577690eada4157eda1a');
+  
+  request.setRequestHeader('Accept', 'application/json');
+  
+  request.theCell=cell;
+  
+  request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      //console.log('Status:', this.status);
+      //console.log('Headers:', this.getAllResponseHeaders());
+      //console.log('Body:', this.responseText);
+      
+      var theObj=JSON.parse(this.responseText);
+      var addition=theObj.country_name+":"+theObj.city;
+				this.theCell.append(addition);
+    }
+  }.bind(request);
+  
+  request.send();
+                  
+			*/
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			cell=$("<td>"+timeOfDayForDate(visarr[rowIter].createdAt)+"</td>");
 			row.append(cell);
 			
@@ -2996,7 +3600,11 @@ for(rowIter in visarr)
 	for(posIter=position;posIter<26;posIter++)
 	{	
 	var row=$("<tr></tr>");
+<<<<<<< HEAD
 	console.log(posIter);
+=======
+	//console.log(posIter);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	tbl.append(row);	
 	var cell=$("<td>"+posIter+"</td>");
 			row.append(cell);
@@ -3195,7 +3803,13 @@ else
 	d.addClass("userdropdown");
 var sp=addSpan(d,"circlediv"+Accounts[usracc].name);
 sp.addClass("onlinecircle");
+<<<<<<< HEAD
 var im=$("<img class='profilepic' alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+=======
+var im=$("<img class='profilepic'  alt='this image was deleted by admin' src='"+Accounts[usracc].picture+"'></img>");
+//console.log("picrot "+Accounts[usracc].pictureRotation);
+im.css("transform","rotate("+Accounts[usracc].pictureRotation+"deg)");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 d.append(im);
 return d;
 }
@@ -3213,7 +3827,11 @@ function showUsername(elem,usracc)
 
 	if(Accounts[usracc])
 	{
+<<<<<<< HEAD
 		console.log("accounts exists to show username");
+=======
+	//	console.log("accounts exists to show username");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		//class ='userdropdown'
 		//"+showDropDown(usracc)+"
 		var usr=$("<div style='display:flex'><span class='userdropdown'  id='usernamedropdown"+usracc+"-"+thisuserprinted+"' ><span  class='redtext'>"+Accounts[usracc].FideTitle+"</span> <b>"+Accounts[usracc].name+"</b> </span><!--<span class='idlesquare' id='circlediv"+Accounts[usracc].name+"'</span>--></div>");
@@ -3339,9 +3957,16 @@ function showDropDown(usracc)
 
 }
 
+<<<<<<< HEAD
 function showSelect(elem,optionnames,optionvalues,defaulttext)
 {
 	var selectbloke=$("<select></select>");
+=======
+
+function showSelect(elem,optionnames,optionvalues,defaulttext)
+{
+	var selectbloke=$("<select class='custom-select custom-select-lg marginedElement' ></select>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	selectbloke.append("<option selected disabled>"+defaulttext+"</option>");
 	for (iter in optionnames)
 	{
@@ -3351,6 +3976,25 @@ function showSelect(elem,optionnames,optionvalues,defaulttext)
 	return selectbloke;
 }
 
+<<<<<<< HEAD
+=======
+/*
+function showSelect(elem,optionnames,optionvalues,defaulttext){
+	var btnGroup=$("<div class='btn-group'></div>");
+
+btnGroup.append($("<button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"+defaulttext+"</button>"));
+var menu=$("<div class='dropdown-menu'></div>")
+btnGroup.append(menu);
+elem.append(btnGroup);
+  for (iter in optionnames)
+	{
+	  menu.append("<div class='dropdown-item' value='"+optionvalues[iter]+"'>"+optionnames[iter]+"</div>");
+	}
+	return btnGroup;
+
+}
+*/
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function showStripedTable(elem)
 {
 	//var table=$(" <table class='table table-striped'></table>");
@@ -3367,6 +4011,19 @@ function showStripedTable(elem)
 
 }
 
+<<<<<<< HEAD
+=======
+
+function updateAvatarInfo(words,avar)
+{
+		io.socket.put('/avatar/'+avar.id+"?"+words+"="+avar[words],{},
+		function(resData,jwres)
+		{
+		}
+		);
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function updateAccountInfo(words,usracc)
 {
 	console.log("words "+words);
@@ -3502,7 +4159,11 @@ if(intendedFor === undefined) { intendedFor = ""; }
 
 	var  chatDiv=$("<span id='chatformspan'</span>");
 	elem.append(chatDiv);
+<<<<<<< HEAD
 	var chatform=$("<textarea style='width:100%;height:400px;' type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+=======
+	var chatform=$("<textarea style='width:100%;height:100px;' type='text' autocomplete='off' class='form-control' placeholder='post message' name='name' >");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		var chatbutton=$("<button id='postbutton' class='btn btn-default btn-sm' type='submit' >Post Message</button>");
 		chatDiv.append(chatform);
 		chatDiv.append(chatbutton);
@@ -3525,6 +4186,10 @@ if(intendedFor === undefined) { intendedFor = ""; }
 		
 		msgToSend=(censor(msgToSend));
 		 	SendWallPost(MyID,chatID,msgtype,"",msgToSend,ReplyTo,intendedFor);
+<<<<<<< HEAD
+=======
+		 	//SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		 	chatform.val("");
 		},200);
 	}
@@ -3964,10 +4629,19 @@ function showBoardOptions(elem)
 		topPlayerMarque.css("width","100%");
 		bottomPlayerMarque.css("width","100%");
 		$("#sideBoard").css("height",$("#bdd").css("height"));
+<<<<<<< HEAD
+=======
+		if($("#chatDiv"))
+		{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		$("#chatDiv").css("max-height","100%");
 		$("#chatDiv").css("overflow","auto");
 		$("#chatDiv2").css("max-height","85%");
 		$("#chatDiv2").css("overflow","auto");
+<<<<<<< HEAD
+=======
+		}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		console.log("sideboard new height "+$("#sideBoard").css("height"));
 		console.log("chatdiv1 new height "+$("#chatDiv").css("height"));
 		console.log("chatdiv2 new height "+$("#chatDiv2").css("height"));
@@ -4133,10 +4807,20 @@ elem.append(`<nav class="navbar navbar-default navbar-inverse">
 NavbarDropDown=$("<ul  style='z-index:9999;width:inherit;position:absolute;right:10px;background-color:white;padding:30px 5px 10px 5px;box-shadow: 10px 10px 5px grey;'></ul>");
 NavbarDropDown.attr("id","NavBarDropDown");
 NDDlinks['ProfileLink']=$("<a  id='profilelink' href='/profile/"+Accounts[MyID].id+"'><li style='list-style-position: inside;color:black'> My Profile</li></a>");
+<<<<<<< HEAD
+=======
+NDDlinks['TournamentsLink']=$("<a  id='tournamentslink' href='/mytournaments/"+Accounts[MyID].id+"'><li style='list-style-position: inside;color:black'> My Tournaments</li></a>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 NDDlinks['MessagesLink']=$("<a  id='messageslink' href='/myprofilemg'><li style='list-style-position: inside;color:black'> My Messages</li></a>");
 
 NDDlinks['AlbumLink']=$("<a id='albumlink' href='/albums/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Albums</li></a>");
 NDDlinks['StatsLink']=$("<a id='statslink' href='/stats/"+Accounts[MyID].id+"' ><li style='list-style-position: inside;color:black'>My Stats</li></a>");
+<<<<<<< HEAD
+=======
+
+
+if(bookmarks){
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 if(bookmarks.length>0)
 {
 	for (bookIter in bookmarks)
@@ -4147,6 +4831,11 @@ if(bookmarks.length>0)
 		NDDlinks['BookmarksLink'+bookIter].click({thisadr:"/profile/"+bookmarks[bookIter].observed},visitBookmark);
 	}
 }
+<<<<<<< HEAD
+=======
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 NDDlinks['LogoutLink']=$("<a href='/MyLogout'><li style='list-style-position: inside;color:black'>Logout</li></a>");
 
 if (Accounts[MyID].admin)
@@ -4162,7 +4851,11 @@ else
 NDDlinks['DeleteLink']=$("<a href='/UndeleteAccount'><li style='list-style-position: inside;color:black'>UnDelete Account</li></a>");
 }
 
+<<<<<<< HEAD
 console.log("bookmarks.length "+bookmarks.length);
+=======
+//console.log("bookmarks.length "+bookmarks.length);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 if(Notifications.length>0)
 {
@@ -4393,6 +5086,10 @@ function afterTournamentJoinMainPage()
 		currentTournamentDiv.detach();
 		joinbuttonDiv.detach();
 		viewbuttonDiv.detach();
+<<<<<<< HEAD
+=======
+		timeToCurrentTournamentStartDiv.detach();
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		withdrawbuttonDiv.detach();
 		joinedPlayersDiv.detach();
 				
@@ -4645,7 +5342,11 @@ function addJoinedGame(iter,games,myelem){
 				$("#joinedgamerow"+games[iter].id).append("<td id='joinedgameButtd"+iter+"'></td>");
 
 				showAnchorButton($("#joinedgameButtd"+iter),"Go to Game");
+<<<<<<< HEAD
 				$("#button"+ButtonNumber).attr('href',"/humanvshuman/"+games[iter].id);
+=======
+				$("#button"+ButtonNumber).attr('href',"/humanvshumannew/"+games[iter].id);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				}
 
 function showNewGameControls(elem){
@@ -4727,7 +5428,11 @@ elem.append(`
 
 function showOpenGameList(elem,games)
 {
+<<<<<<< HEAD
 	elem.append("<h1>Open Games</h1>");
+=======
+	elem.append("<h1 align='center'>Open Games</h1>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 	var roomname='openchessgameroom';
 
@@ -4849,7 +5554,11 @@ io.socket.on('connect',function(){
 			GameType:games[iter].GameType,
 			GameCategory:games[iter].GameCategory,
 			Player1TimeLimit:games[iter].TimeLimit*60,
+<<<<<<< HEAD
 			Player2TimeLimit:games[iter].TimeLimit*60
+=======
+			Player1ExtraTimeLimit:games[iter].ExtraTimeLimit*60
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		}
 
 		,function(resData,jwres)

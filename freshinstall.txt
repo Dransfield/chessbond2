@@ -1,0 +1,19 @@
+fresh install:
+copy api/models
+copy api/controllers
+copy api/policies
+copy assets: mp3,images,img
+copy  passport,MD5,sailsmongo,corejs,systemjs,zonejs,node-schedule to package.json
+copy /views,assets/js,assets/styles
+copy js files from tasks/pipeline.js to tasks/pipeline.js
+in config/views.js set partials to true
+copy config/connections.js
+copy config/routes.js to config/routes.js
+copy config/passport.js
+copy config/policies.js
+copy config/models.js
+copy config/session.js
+copy ssl folder from config folder
+db.createUser({user: "chessbondprakash",pwd: "Chessmaster123!",roles: [ "readWrite", "dbAdmin"]});
+
+mongoimport --db chessdb --collection city --fields country,city --type csv --file mydb.txt

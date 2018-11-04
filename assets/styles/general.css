@@ -305,6 +305,17 @@ border-right-style:solid;
 background: #5cb85c;
 
 }
+<<<<<<< HEAD
+=======
+.KgreyElement
+{
+background-color:#222222;
+}
+.KlightgreyElement
+{
+background-color:#AAAAAA;
+}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 .KcyanElement
 {
 background-color: #5bc0de;
@@ -312,6 +323,14 @@ background-color: #5bc0de;
 .KredElement
 {
 background-color:#b85c5c;
+<<<<<<< HEAD
+=======
+
+}
+.marginedElement
+{
+margin: 10px;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 }
   /* Small screens */
 @media all and (max-width: 500px) {

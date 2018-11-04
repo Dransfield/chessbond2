@@ -1,0 +1,18 @@
+
+ <div id="navbar"></div>
+        <div id="playervsai"></div>
+    <% if (req.session.passport) { %>
+			<% if (req.session.passport.user) { %>
+			<script>var MyID='<%- req.session.passport.user %>'</script>
+			<% }else{ %>
+			<script>var MyID=''</script>
+	
+			<%}%>
+			<% }else{ %>
+			<script>var MyID=''</script>
+			<%}%>
+
+	
+
+
+ 

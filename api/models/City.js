@@ -8,7 +8,13 @@
 module.exports = {
 
   attributes: {
+<<<<<<< HEAD
 
+=======
+ country:{ type: 'string', unique: false,defaultsTo: 'None'},
+ city:{ type: 'string', unique: false,defaultsTo: 'None'}
+   
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
   }
 };
 

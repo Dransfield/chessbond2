@@ -8,6 +8,7 @@
  * For more information on bootstrapping your app, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
+<<<<<<< HEAD
 
 module.exports.bootstrap = function(cb) {
  
@@ -38,4 +39,9 @@ module.exports.bootstrap = function(cb) {
  
     //}).listen(80);
     cb();
+=======
+module.exports.bootstrap = function(cb) {
+
+  cb();
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 };

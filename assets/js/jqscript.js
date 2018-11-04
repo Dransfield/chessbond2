@@ -3,12 +3,41 @@ var tournamentTable;
 var tournamentTableContainer;
 var currentTournamentDiv;
 var joinbuttonDiv;
+<<<<<<< HEAD
 var viewbuttonDiv;
 var joinedPlayersDivContainer;
 var joinedPlayersDiv;
 
 var bigemptyDiv=[];
 
+=======
+var timeToCurrentTournamentStartDiv;
+var viewbuttonDiv;
+var joinedPlayersDivContainer;
+var timeCells={};
+var joinedPlayersDiv;
+/*103.117.180.122
+ server IP 103.117.180.122
+new server pass 8-C6[_+H2#A9@uQ
+* Weblink: https://www.ewebguru.com/
+
+new window ctrl-b c
+* mongod
+new window ctrl-b c
+* /etc/init.d/apache2 stop
+cd node-redirect/bin
+node server
+https://client.ewebguru.com/submitticket.php
+* 
+Username: ewg36119
+email: newdesign3210@gmail.com
+password: Happy123$foryou
+* 
+* User I'd is 85180208 password is Asmart5000work
+*/
+var bigemptyDiv=[];
+var threeMinutes=(60*1000)*3;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var myuser;
 var userIndex=0;
 var Accounts={};
@@ -26,7 +55,11 @@ var PrivateConversations={};
 var PrivateMessages={};
 var Follows={};
 var Blocks={};
+<<<<<<< HEAD
 var Bookmarks={};
+=======
+var bookmarks={};
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var WallPosts=[];
 var WallPostsToRetrieve=[];
 var Reports=[];
@@ -36,18 +69,37 @@ var UploadedImages=[];
 var BannedWords=[];
 var Notifications=[];
 var OthersVisits=[];
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var Tournaments=[];
 var TournamentEntries=[];
 var TournamentCandidates=[];
 var OwnersVisits=[];
 var mypics=[];
 
+<<<<<<< HEAD
+=======
+var drawnPageOnce=false;
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var NavbarDropDown;
 		subscribeToMandatoryRooms();
 		updateWholeSiteVisit();
 			var myStatus;
 			var idleTimer=5*60;
 			
+<<<<<<< HEAD
+=======
+			
+
+
+if(drawnPageOnce==false)
+{
+	drawnPageOnce=true;
+			
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			setInterval(function(){
 				
 				idleTimer=idleTimer-1;
@@ -100,6 +152,23 @@ var NavbarDropDown;
 				NavbarDropDown.append("<hr>");
 				
 			});
+<<<<<<< HEAD
+=======
+			
+			
+			io.socket.on('newmygameevent', function (data)
+			{
+			console.log('recieved new game event '+data);
+			
+			data.phrase=phrasefordate(data.createdAt);
+			//JoinedGames[MyID].push(data);
+			//addJoinedGame(games.length-1,games,myelem);
+			//addGamesToRecentGames2(MyID);
+		$(location).attr('href', '/humanvshumannew/'+data.id);
+			
+			});
+			
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		io.socket.on('IdleNotification',function (data)
 			{
 				//console.log(JSON.stringify(data));
@@ -131,17 +200,29 @@ var NavbarDropDown;
 		}
 		);
 		
+<<<<<<< HEAD
 				io.socket.on('PrivateConversationStarted', function (data)
+=======
+			io.socket.on('PrivateConversationStarted', function (data)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			{
 			
 			console.log("adding go to chat to  "+JSON.stringify(data));
 			$("#PrivateConversationDD"+data.user).empty();
+<<<<<<< HEAD
 			$("#PrivateConversationDD"+data.user).append("<a href='/seeprivateconversation/"+PrivateConversations[MyID][data.user].id+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
+=======
+			$("#PrivateConversationDD"+data.user).append("<a href='/myprof/"+PrivateConversations[MyID][data.user].id+"' id='GoToPrivateDiv"+data.user+"'>Go To Chat</a>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			
 			
 			});
 				
+<<<<<<< HEAD
 				io.socket.on('FollowStarted', function (data)
+=======
+			io.socket.on('FollowStarted', function (data)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			{
 			
 			
@@ -155,6 +236,14 @@ var NavbarDropDown;
 			
 		setupPlayervsPlayerPage();
 		}
+<<<<<<< HEAD
+=======
+		if($("#playervsai").length)
+		{
+		setupPlayervsAIPage();
+		playingSinglePlayer=true;
+		}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		if($("#justloggedinpage").length)
 		{
 		setupJustLoggedInPage();
@@ -163,6 +252,14 @@ var NavbarDropDown;
 		{
 		setupMessagesPage();
 		}
+<<<<<<< HEAD
+=======
+		if($("#forgotpage").length)
+		{
+		setupForgotPage();
+		}
+		
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		if($("#albumspage").length)
 		{
 		setupAlbumsPage();
@@ -181,6 +278,10 @@ var NavbarDropDown;
 		}
 		if($("#homepage").length)
 		{
+<<<<<<< HEAD
+=======
+			console.log("found omepage div");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		setupHomePage();
 		}
 		if($("#statspage").length)
@@ -199,16 +300,34 @@ var NavbarDropDown;
 		{
 		setupOpenTournament();	
 		}
+<<<<<<< HEAD
+=======
+		if($("#showalltournamentspage").length)
+		{
+		setupShowAllTournamentsPage();
+		}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		if($("#textpage").length)
 		{
 		setupTextPage();	
 		}
+<<<<<<< HEAD
 	
+=======
+	}
+		
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 		function updateWholeSiteVisit()
 		{
 			io.socket.get("/wholesitevisit",{person:MyID,theDate:new Date()},function (resData,jwres){
+<<<<<<< HEAD
 			console.log(JSON.stringify(resData));
+=======
+				if (resData){
+			console.log(JSON.stringify(resData));
+				}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			});
 		}
 		function subscribeToMandatoryRooms()
@@ -220,12 +339,29 @@ var NavbarDropDown;
 			console.log(JSON.stringify(resData));
 			});
 		
+<<<<<<< HEAD
 			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
 			console.log("blade "+JSON.stringify(resData));
 			if (resData.message=="not logged in")
 			{
 				console.log(window.location.hostname);
 				window.location.replace("/");}
+=======
+		
+			io.socket.get("/subscribeToRoom",{roomName:window.location.pathname,reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
+			console.log("subbed to window pathname "+window.location.pathname); 
+			});
+			
+			io.socket.get("/subscribeToRoom",{roomName:'im online',reqhref:window.location.href,reqhost:window.location.hostname,reqpath:window.location.pathname},function (resData,jwres){
+			console.log("blade "+JSON.stringify(resData));
+			
+			if (resData.message=="not logged in")
+			{
+				console.log(window.location.hostname);
+				console.log(window.location);
+				//window.location.replace("/");
+				}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			});
 		
 			//io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
@@ -268,14 +404,247 @@ var NavbarDropDown;
 	
 
 
+<<<<<<< HEAD
 	
 	function setupPlayervsPlayerPage()
 	{
 		var roomname='/humanvshuman/'+GameID;
+=======
+	function setupPlayervsAIPage()
+	{
+		AccountsToRetrieve[MyID]=MyID;
+		retrieveAccounts(true).then(function()
+			{
+		
+		var twentyArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var catArray=gameCategoryNumberArray();
+		
+		var levelsel=showSelect($("#playervsai"),twentyArray,twentyArray,"Choose Difficulty");	
+		var timesel=showSelect($("#playervsai"),catArray,gamecategories,"Choose Game Category");
+		timesel.hide();
+		var chosenLevel;
+		PlayerIDOnBottom=MyID;
+		PlayerColorOnBottom='White';
+				
+			var horizontalDiv=addDiv($("#playervsai"));
+				
+			
+				horizontalDiv.css("display","flex");
+				horizontalDiv.css("align-items","flex-start");
+				//=addF(overall,"horizontal","row","wrap","flex-start");
+				var boardDivDiv=addFlexDiv(horizontalDiv,"bdd","column","wrap","flex-start");
+				//showBoardOptions(boardDivDiv);
+					coverall=$("<div style='background-color:white;position:fixed;height: 20%;width: 30%;top:30px;right:0px;border-style:solid;border-color:black;border-width:2;'><p>Ready to begin? (Click here to enable sound)</p></div>");
+					horizontalDiv.append(coverall);
+				coverall.css("z-order",9999);
+				coverall.click(function(){
+					EnableSound();
+					coverall.detach();
+					});
+				
+				
+				topPlayerMarqueContainer=addDiv(boardDivDiv);
+				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","wrap","space-between","center");
+				topPlayerMarque.css("overflow","auto");
+				TopMinutes=addSpan(topPlayerMarque,"topminutes");
+				TopSeconds=addSpan(topPlayerMarque,"topseconds");
+				TopMilliseconds=addSpan(topPlayerMarque,"topmilliseconds");
+				topPlayerMarque.append("<img style='position:relative;' src='/images/eye.png' height='30px'>");
+				//showsmallAvatar(topPlayerMarque,PlayerIDOnTop);
+				topPlayerMarque.append($("<span>Computer</span>"));
+				
+				if (Accounts[PlayerIDOnTop])
+				{
+				topPlayerMarque.append(Accounts[PlayerIDOnTop].ELO);
+				}
+				//showFlag(topPlayerMarque,PlayerIDOnTop);
+			//	TopPingDisplay=$("<p>Ping</p>");
+				//topPlayerMarque.append(TopPingDisplay);
+			
+		
+				var sideBoard=addSpan(horizontalDiv,"sideBoard");
+				resultDiv=addDiv(sideBoard,"resultDiv");
+				var boardcontainer=addFlexDiv(boardDivDiv,"boardcontainer","row","wrap","flex-start");
+				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","wrap","space-between","center");
+				bottomPlayerMarque.css("overflow","auto");
+				
+				bottomPlayerMarque.css("overflow","auto");
+				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
+				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
+				BottomMilliseconds=addSpan(bottomPlayerMarque,"bottommilliseconds");
+				
+				bottomPlayerMarque.append("<img style='position:relative;' src='/images/eye2.png' height='30px'>");
+				showsmallAvatar(bottomPlayerMarque,PlayerIDOnBottom);
+				showUsername(bottomPlayerMarque,PlayerIDOnBottom);
+				if (Accounts[PlayerIDOnBottom])
+				{
+				bottomPlayerMarque.append(Accounts[PlayerIDOnBottom].ELO);
+				}
+				showFlag(bottomPlayerMarque,PlayerIDOnBottom);
+				
+				BottomPingDisplay=$("<p>Ping</p>");
+				bottomPlayerMarque.append(BottomPingDisplay);
+				
+				timesel.change({widget:levelsel},function(event)
+				{
+				chosenLevel=1;
+				chosenLevel=JSON.parse(event.data.widget.val());	
+				console.log(chosenLevel);
+				var timeobj=JSON.parse(timesel.val());
+				
+				GamePlaying.Player1TimeLeft=timeobj.time*60;
+				GamePlaying.Player2TimeLeft=timeobj.time*60;
+				GamePlaying.Player1ExtraTimeLeft=timeobj.extratime*60;
+				GamePlaying.Player2ExtraTimeLeft=timeobj.extratime*60;
+				
+				//console.log("GamePlaying.Player1TimeLeft "+GamePlaying.Player1TimeLeft);
+				//console.log("timesobj "+timeobj);
+				//console.log("timesobj.time "+timeobj.time);
+				//console.log("timesobj['time'] "+timeobj['"time"']);
+				
+				GamePlaying.PlayerOnBottom='White';
+				GamePlaying.Player1Color='White';
+				GamePlaying.PlayerIDOnBottom=MyID;
+				GamePlaying.Player1=MyID;
+				UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
+				setupPlayervsAIBoard(chosenLevel,boardcontainer);
+				});
+				
+				levelsel.change(function()
+				{
+					
+				timesel.slideDown();
+				});
+		});
+	}
+
+
+	function setupPlayervsAIBoard(lvl,elem)
+	{
+		game = new Chess();
+		var loadBoardWith=game.fen();
+		var myColor='white';
+		gameSkill=lvl;
+		  if (gameSkill < 5) {
+                gameThinkTime = "1000";
+            } else if (gameSkill < 10) {
+                gameThinkTime = "2000";
+            } else if (gameSkill < 15) {
+                gameThinkTime = "3000";
+            } else {
+                /// Let the engine decide.
+                gameThinkTime = "";
+            }
+	uciCmd('setoption name Skill Level value ' + gameSkill);
+                ///NOTE: Stockfish level 20 does not make errors (intentially), so these numbers have no effect on level 20.
+            /// Level 0 starts at 1
+            err_prob = Math.round((gameSkill * 6.35) + 1);
+            /// Level 0 starts at 10
+            max_err = Math.round((gameSkill * -0.5) + 10);
+            uciCmd('setoption name Minimum Thinking Time value '+gameThinkTime);
+            uciCmd('setoption name Skill Level Maximum Error value ' + max_err);
+            uciCmd('setoption name Skill Level Probability value ' + err_prob);
+        
+        
+	if(Accounts[MyID])
+				{
+				
+				for (sIter in boardSizeValues)
+				{
+					console.log("boardSizeValues[sIter] "+boardSizeValues[sIter].name);
+					
+					if (boardSizeValues[sIter].value==Accounts[MyID].BoardSize)
+					{
+						console.log("setting bdd to "+Accounts[MyID].BoardSize);
+				//	boardDivDiv.css("width",boardSizeValues[sIter].value+"%");
+					//sideBoard.css("width",(100-boardSizeValues[sIter].value)+"%");
+					//resizeBoard(boardSizeValues[sIter].value);
+					
+					
+						var finalPercent=boardSizeValues[sIter].value;
+						console.log("final result "+finalPercent);
+						console.log("win width "+$(window).width());
+						console.log("board size"+boardSizeValues[sIter].value/100);
+							console.log("calc result"+($(window).width()*(boardSizeValues[sIter].value/100)));
+							if($(window).width()*(boardSizeValues[sIter].value/100)<91)
+							{
+								
+								finalPercent=40;
+							}
+							
+							$("#bdd").css("width",finalPercent+"%");
+							$("#boardcontainer").css("width","100%");
+
+							$("#sideBoard").css("width",(100-finalPercent)+"%");
+					
+					
+					}
+				}
+			}
+			
+			
+		if(Accounts[MyID])
+		{
+		 cfg = {
+			draggable: false,
+			position: loadBoardWith,
+			orientation:myColor,
+			onMoveEnd:singlePlayerMoveFunc,
+			
+			pieceTheme:'/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/{piece}.png'};
+		}
+		else
+		{
+		 cfg = {
+			draggable: false,
+			position: loadBoardWith,
+			orientation:myColor,
+			onMoveEnd:singlePlayerMoveFunc,
+			pieceTheme:'/img/chesspieces/A/{piece}.png'};
+		}
+				
+		board1 = new ChessBoard('boardcontainer', cfg);
+			
+			if(Accounts[MyID])
+	{
+	for (btIter in boardThemeValues)
+	{
+		if (boardThemeValues[btIter].name==Accounts[MyID].BoardTheme)
+		{
+			
+			var obj=boardThemeValues[btIter];
+	$(".white-1e1d7").css("background-color",obj.whitebackground);	
+		$(".black-3c85d").css("background-color",obj.blackbackground);
+		}
+	}
+	}
+	
+		
+				
+				
+			if(Accounts[MyID])
+			{
+				for (iter in pieceNames)
+					{
+							
+					$("div.chess_board div.chess_player_black.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/b'+pieceNamesInitial[iter]+'.png)');
+					$("div.chess_board div.chess_player_white.chess_piece_"+pieceNames[iter]).css("background-image",'url(/img/chesspieces/'+Accounts[MyID].ChessPieceTheme+'/w'+pieceNamesInitial[iter]+'.png)');
+						
+					}
+			}
+	}
+	
+	function setupPlayervsPlayerPage()
+	{
+		/*
+		var roomname='/humanvshumannew/'+GameID;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
+<<<<<<< HEAD
 		
 			
 		
@@ -284,6 +653,25 @@ var NavbarDropDown;
 		
 		$("#favicon").attr("href","/favicon.ico");
 	});
+=======
+		*/
+		io.socket.on('DrawOffered', function (data)
+			{
+		console.log(data);
+		
+		if(data.offeredto==MyID)
+		{
+		showAcceptDrawButton();
+		}
+		
+		});
+		
+		$("#mousemove").mousemove(function()
+			{
+		
+			$("#favicon").attr("href","/favicon.ico");
+			});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	retrieveBannedWords().then(function(){
 		getWallposts(GameID,30000).then(function(){
 		retrieveGame(GameID).then(function()
@@ -348,7 +736,11 @@ var NavbarDropDown;
 					});
 				
 				topPlayerMarqueContainer=addDiv(boardDivDiv);
+<<<<<<< HEAD
 				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","nowrap","space-between","center");
+=======
+				topPlayerMarque=addFlexDiv(topPlayerMarqueContainer,"topPlayerMarque","row","wrap","space-between","center");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				topPlayerMarque.css("overflow","auto");
 				TopMinutes=addSpan(topPlayerMarque,"topminutes");
 				TopSeconds=addSpan(topPlayerMarque,"topseconds");
@@ -401,7 +793,11 @@ var NavbarDropDown;
 				}
 				}
 				bottomPlayerMarqueContainer=addDiv(boardDivDiv);
+<<<<<<< HEAD
 				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","nowrap","space-between","center");
+=======
+				bottomPlayerMarque=addFlexDiv(bottomPlayerMarqueContainer,"bottomPlayerMarque","row","wrap","space-between","center");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				bottomPlayerMarque.css("overflow","auto");
 				BottomMinutes=addSpan(bottomPlayerMarque,"bottomminutes");
 				BottomSeconds=addSpan(bottomPlayerMarque,"bottomseconds");
@@ -424,6 +820,7 @@ var NavbarDropDown;
 				bottomPlayerMarque.css("width",boardDivDiv.css("width"));
 				
 				withdrawDiv=addDiv(sideBoard);
+<<<<<<< HEAD
 				if (GamePlaying.Move>1 && !GamePlaying.Result)
 				{
 				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
@@ -431,6 +828,28 @@ var NavbarDropDown;
 				withdrawButton.click(withdrawFromGame);
 				withdrawDiv.css("padding","10px");
 				}
+=======
+				withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
+				
+				withdrawButton.click(gameFunctions.withdraw);
+				withdrawDiv.css("padding","10px");
+				withdrawButton.hide();
+				if (gameFunctions.movesPlayerMade(GamePlaying,MyID)==0 && GamePlaying.Result=="")
+				{
+				withdrawButton.show();
+				}
+				
+				
+				drawButton=showButton(withdrawDiv,"Propose Draw","KlightgreyElement KregularButton");
+				drawButton.hide();
+				drawButton.click(gameFunctions.offerDraw);
+				
+				resignButton=showButton(withdrawDiv,"Resign","KlightgreyElement KregularButton");
+				resignButton.hide();
+				resignButton.click(gameFunctions.resign);
+				
+				
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				var resultTitle=$("<div><div class='label label-default' >Result: </div></div>");
 				sideBoard.append(resultTitle);
 				sideBoard.css("padding-left","10px");
@@ -464,7 +883,11 @@ var NavbarDropDown;
 			showChatForm($("#chatinput"),GamePlaying.id,"chesschat","none");		
 					io.socket.on('WallPost', function (data)
 			{
+<<<<<<< HEAD
 			console.log("recieved wall post socket"+JSON.stringify(data));
+=======
+			console.log("recieved chesschat socket"+JSON.stringify(data));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		//	console.log("recieved wall post socket"+JSON.stringify(data[0]));
 				if (document.visibilityState=='hidden')
 			{
@@ -539,6 +962,7 @@ var NavbarDropDown;
 		}
 				board1 = new ChessBoard('boardcontainer', cfg);
 		
+<<<<<<< HEAD
 				//{
 	//	position: game.fen(),
 		//orientation:myColor,
@@ -551,6 +975,11 @@ var NavbarDropDown;
 	//});
 	//$(".square-55d63").css();
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+=======
+		
+	//$(".square-55d63").css();
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	//chatDiv.css("overflow","auto");
 			
 					topPlayerMarque.css("width","100%");
@@ -599,7 +1028,11 @@ var NavbarDropDown;
 	});
 });
 }
+<<<<<<< HEAD
 	
+=======
+/*	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	function pieceSelected(notationSquare) {
 	var i,
 		movesNotation,
@@ -611,7 +1044,11 @@ var NavbarDropDown;
 	}
 	return movesPosition;
 }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function setupProfilePage()
 {
 	console.log("MyID is "+MyID);
@@ -1135,7 +1572,12 @@ function setupProfilePage()
 			showHeader(tblRight,2,"Comment Wall");
 			var chatDiv=addFlexDiv(tblRight,"chatdiv","column",'wrap');
 			chatDiv.css("align-items","flex-start");
+<<<<<<< HEAD
 			showChatForm(chatDiv,ProfID,"wall","none");
+=======
+			showChatForm(chatDiv,ProfID,"wall","none",ProfID);
+			//showChatForm(elem,chatID,msgtype,ReplyTo,intendedFor)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			//console.log(JSON.stringify(WallPosts));
 			for(iter in WallPosts)
 					{	
@@ -1144,6 +1586,10 @@ function setupProfilePage()
 					if(MyID==ProfID)
 					{del=true;}
 					showChatMessage(thisDiv,WallPosts[iter],"none",true,del);
+<<<<<<< HEAD
+=======
+					
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					}
 					
 					
@@ -1165,14 +1611,26 @@ function setupProfilePage()
 			}
 			if(WallPosts[(WallPosts.length-1)].replyto=='none')
 			{
+<<<<<<< HEAD
+=======
+				console.log("replyto is none");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				var thisDiv=addFlexDiv(chatDiv,WallPosts[(WallPosts.length-1)].id,"column");
 				var del=false;
 					if(MyID==ProfID)
 					{del=true;}
 			showChatMessage(thisDiv,WallPosts[(WallPosts.length-1)],"none",true,del);
+<<<<<<< HEAD
 			}
 			else
 			{
+=======
+			
+			}
+			else
+			{
+				console.log("reply to is not none");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					var replydiv=addFlexDiv($("#"+WallPosts[(WallPosts.length-1)].replyto),43,"column");
 						replydiv.css("padding-left","20%");
 						var del=false;
@@ -1183,9 +1641,24 @@ function setupProfilePage()
 			showChatMessage(replydiv,WallPosts[(WallPosts.length-1)],WallPosts[(WallPosts.length-1)].replyto,true,del);
 			}
 			
+<<<<<<< HEAD
 			//$("#favicon").attr("href","/favicon2.ico");
 				//	$("#privateconversationpage").append(data.content);
 			});
+=======
+						
+			//$("#favicon").attr("href","/favicon2.ico");
+				//	$("#privateconversationpage").append(data.content);
+			});
+			
+			io.socket.on('seenmessage', function (data)
+						{
+						setTimeout(function(){
+							console.log("recieved seen message and timed out");
+						$("#msgheader"+data).css("background-color","lightgreen");
+						},2000);
+						});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		if(Accounts[MyID].Invisible)
 		{
 			console.log("IM INVISIBLE");
@@ -1252,9 +1725,16 @@ function setupAdminPage()
 
 function renderStatsPage()
 {
+<<<<<<< HEAD
 	
 	showStatTable($("#statspage"));
 	
+=======
+		
+	showStatTable($("#statspage"));
+	
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 }
 
 function setupAlbumsPage()
@@ -1296,6 +1776,64 @@ function setupAlbumsPage()
 					
 }
 
+<<<<<<< HEAD
+=======
+function setupShowAllTournamentsPage()
+{
+	AccountsToRetrieve[MyID]=MyID;
+	retrievePrivatesandFollows().then(function(){
+	retrieveAccounts().then(function(){
+	
+	retrievePlayersTournamentGames(ProfID).then(function(){
+		
+			var promiseArray=[];
+			var gamesFound=0;
+			var temp={};
+			for (entryIter in JoinedGames[ProfID])
+			{
+				gamesFound=gamesFound+1;
+				promiseArray.push(retrieveTournament(JoinedGames[ProfID][entryIter].tournament));
+				console.log("tournid "+JoinedGames[ProfID][entryIter].tournament);
+				temp[JoinedGames[ProfID][entryIter].tournament]=JoinedGames[ProfID][entryIter].tournament;
+			}
+			
+			console.log("gamesFound "+gamesFound);
+			for(iter in temp)
+			{
+			console.log("gamesFound "+temp[iter]);
+				
+			}
+			Promise.all(promiseArray).then(function(values) { 
+			showHeader($("#showalltournamentspage"),1,"Entered Tournaments");
+			console.log("Tournaments.length "+Tournaments.length);
+			console.log(JSON.stringify(Tournaments));
+			var iter2=0;
+			for(iter in Tournaments)
+			{
+			var dateObj=new Date(Tournaments[iter].createdAt);
+			var month = dateObj.getUTCMonth() + 1; //months from 1-12
+			var day = dateObj.getUTCDate();
+			var year = dateObj.getUTCFullYear();
+			var hour=dateObj.getUTCHours();
+			var minute=dateObj.getUTCMinutes();
+		
+			if(minute<10)
+			{minute="0"+minute;}
+			
+			$("#showalltournamentspage").append("<a href='/tournamentview/"+Tournaments[iter].id+"'> <h1>"+(iter2+1)+"</h1></a>");
+			$("#showalltournamentspage").append("<span>"+month+"/"+day+"/"+year+"</span>");
+			$("#showalltournamentspage").append("<span style='width:30px'></span>");
+			$("#showalltournamentspage").append("          <span>"+hour+":"+minute+"</span>");
+			iter2=iter2+1;
+			}
+			});				
+			
+		});
+	});
+});
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function setupTournamentViewPage()
 {
 
@@ -1309,6 +1847,11 @@ function setupTournamentViewPage()
 			{
 				retrieveTournamentEntries(ProfID).then(function()
 				{
+<<<<<<< HEAD
+=======
+					retrieveTournamentGames(ProfID).then(function()
+					{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					retrievePrivatesandFollows().then(function()
 					{		
 						retrieveAccounts().then(function()
@@ -1322,10 +1865,21 @@ function setupTournamentViewPage()
 							console.log("Tournaments "+JSON.stringify(Tournaments));
 							
 							showHeader($("#tournamentviewpage"),1,"Tournament");
+<<<<<<< HEAD
 							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[0].category);
 							
 							
 							var joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
+=======
+							showHeader($("#tournamentviewpage"),2,"Category:"+Tournaments[ProfID].category);
+							
+							if(Tournaments[ProfID].result)
+							{
+								showHeader($("#tournamentviewpage"),2,Tournaments[ProfID].result);
+							}
+							
+							joinbuttonDiv=addFlexDiv($("#tournamentviewpage"),"joinbuttonflex","row");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 							var withdrawbuttonDiv=addFlexDiv($("#tournamentviewpage"),"withdrawbuttonflex","row");
 							joinedPlayersDivContainer=addDiv($("#tournamentviewpage"));
 							
@@ -1333,17 +1887,35 @@ function setupTournamentViewPage()
 							var joinTournamentButton;
 							var withdrawTournamentButton;
 							
+<<<<<<< HEAD
 							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv);
 							console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
 							showTournamentGameSchedule($("#tournamentviewpage"),TournamentEntries);
+=======
+							//TournamentEntries=[];
+							//retrieveTournamentEntries(ProfID).then(function()
+							//{
+							showTournamentEntries(ProfID,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+							//console.log("TournamentEntries "+JSON.stringify(TournamentEntries));
+							showTournamentGameSchedule($("#tournamentviewpage"),ProfID);
+					
+							//});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 							
 				io.socket.on('tournament entries',function (data)
 				{
 						//console.log("recieved tourn entries "+JSON.stringify(data));
+<<<<<<< HEAD
 				TournamentEntries=[];
 				if(data.tournID==ProfID)
 				{
 					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+=======
+				//TournamentEntries=[];
+				if(data.tournID==ProfID)
+				{
+					showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv,data.entries);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				}
 					
 				});
@@ -1366,7 +1938,11 @@ function setupTournamentViewPage()
 					});
 				});
 			});
+<<<<<<< HEAD
 					
+=======
+		});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 }
 
 
@@ -1401,6 +1977,7 @@ function renderAlbumPage(alb)
 							
 							
 						
+<<<<<<< HEAD
 						
 							
 					rightbut.click(function()
@@ -1409,19 +1986,36 @@ function renderAlbumPage(alb)
 						{
 						imgIndex=imgIndex+1;
 								$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
+=======
+						function refresh()
+						{
+						if(!mypics[imgIndex].rotation)
+						{mypics[imgIndex].rotation=0;}
+						imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
+						
+										$("#imageyouarelookingfor").attr("src","/user/avatar/"+mypics[imgIndex].id);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 								$("#dateSpan").empty();
 						$("#dateSpan").append("Created at "+mypics[imgIndex].phrase);
 						$("#descSpan").empty();
 						var theText=showHeader($("#descSpan"),3,mypics[imgIndex].description);
+<<<<<<< HEAD
 					
 					if(alb.user==MyID)
+=======
+						if(alb.user==MyID)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 						{
 						showGenericTextwithInput($("#descSpan"),"description",theText,mypics[imgIndex].description,updatePicDescription,mypics[imgIndex].id)
 						}
 						
 						$("#button"+rightbuttonnumber).text(">("+((mypics.length-imgIndex)-1)+")");
 						$("#button"+leftbuttonnumber).text("<  ("+imgIndex+")");
+<<<<<<< HEAD
 							
+=======
+						
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 						if(alb.user==MyID)
 						{	
 							var setAvatarButton=showButton(descSpan,"Set image as avatar","KgreenElement KregularButton");
@@ -1429,6 +2023,7 @@ function renderAlbumPage(alb)
 							setAvatar(MyID,mypics[imgIndex].id);
 						
 						
+<<<<<<< HEAD
 						});
 							}
 							}
@@ -1466,10 +2061,57 @@ function renderAlbumPage(alb)
 									}
 								}
 							});
+=======
+							});
+								
+								
+							var rotateImageButton=showButton(descSpan,"Rotate Image","KgreenElement KregularButton");
+							rotateImageButton.click(function(){
+							console.log("rotation "+mypics[imgIndex].rotation);	
+							mypics[imgIndex].rotation=mypics[imgIndex].rotation+90;
+							if(mypics[imgIndex].rotation>270)
+							{mypics[imgIndex].rotation=0;}
+							imgelem.css("transform","rotate("+mypics[imgIndex].rotation+"deg)");
+							updateAvatarInfo("rotation",mypics[imgIndex]);
+							
+							if(Accounts[MyID].avatarid==mypics[imgIndex].id)
+							{
+							Accounts[MyID].pictureRotation=mypics[imgIndex].rotation;
+							updateAccountInfo("pictureRotation",MyID);
+							}
+							
+							});
+							
+						}
+						
+						
+						}
+							
+					rightbut.click(function()
+					{
+						if (imgIndex<mypics.length-1)
+						{
+						imgIndex=imgIndex+1;
+						refresh();
+						}
+					
+					});						
+						
+						
+					leftbut.click(function()
+					{
+						if (imgIndex>0)
+						{
+						imgIndex=imgIndex-1;
+						refresh();
+						}
+					});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 												
 						var rightSpan=addFlexDiv(displayFlex,"rightspan","column");
 						
 						var dateSpan=addSpan(rightSpan,"dateSpan");
+<<<<<<< HEAD
 						dateSpan.empty();
 						dateSpan.append("Created at "+mypics[imgIndex].phrase);
 						console.log("mypics[iter].description "+mypics[0].description);
@@ -1487,6 +2129,12 @@ function renderAlbumPage(alb)
 						});
 						
 						}
+=======
+						//showHeader(rightSpan,1,"Description");
+						var descSpan=addSpan(rightSpan,"descSpan");
+						refresh();
+						
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 }
 
@@ -1560,6 +2208,10 @@ function setupAlbumPage()
 
 function setupStatsPage()
 {
+<<<<<<< HEAD
+=======
+	console.log("drawnPageOnce "+drawnPageOnce);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	AccountsToRetrieve[MyID]=MyID;
 	AccountsToRetrieve[ProfID]=ProfID;
 	retrieveGames(ProfID).then(function(){
@@ -1573,6 +2225,24 @@ function setupStatsPage()
 						});
 					});
 				});
+<<<<<<< HEAD
+=======
+	
+}
+
+function setupForgotPage()
+{
+	console.log("drawnPageOnce "+drawnPageOnce);
+	AccountsToRetrieve[MyID]=MyID;
+	renderForgotPage();
+	
+}
+
+function renderForgotPage()
+{
+	$("#adminpage").append("<h1>Forgot Password</h1>");
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 }
 
 function setupChatPage()
@@ -1639,7 +2309,11 @@ function setupChatPage()
 	
 	io.socket.on('WallPost', function (data)
 			{
+<<<<<<< HEAD
 			console.log("recieved wall post socket");
+=======
+			console.log("recieved chat message socket");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 			showChatMessage(msgbox,data,"none",false);
 			//console.log("document.visibilityState "+document.visibilityState);
@@ -1734,7 +2408,11 @@ function SendWallPost(Myid,groupid,msgtype,address,msg,replyto,intendedfor)
 		{
 			var none='none';
 			
+<<<<<<< HEAD
 			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype,intendedFor:intendedfor},
+=======
+			io.socket.post("/newwallpost",{ReplyTo:replyto,content:msg,sender:Myid,grpid:groupid,messagetype:msgtype,location:window.location.pathname,intendedFor:intendedfor},
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			function onSuccess (){
 			//$scope.chatInput = null;
 			
@@ -1827,6 +2505,47 @@ var cg = new Promise
 return cg;
 }
 
+<<<<<<< HEAD
+=======
+function retrieveTournamentGames(tournID)
+{
+
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/chessgame",{tournament:tournID,limit:30000},
+		function (resData,jwres){
+			
+			if(jwres.statusCode!=403)
+			{
+			if (resData)
+			{
+			resData.sort(function(b,a)
+			{
+				return (new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime());
+				}
+			
+			);
+			JoinedGames[tournID]=[];
+	
+			for (y in resData)
+			{
+			JoinedGames[tournID].push(resData[y]);
+			AccountsToRetrieve[resData[y].Player1]=resData[y].Player1;
+			AccountsToRetrieve[resData[y].Player2]=resData[y].Player2;			
+			}	
+		
+			resolve(resData);
+			}
+			}
+		});		
+});
+
+return cg;
+
+	
+}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 function retrieveGames(person)
 {
@@ -1880,6 +2599,61 @@ return cg;
 
 }
 
+<<<<<<< HEAD
+=======
+function retrievePlayersTournamentGames(person)
+{
+	//var PromiseArray=[];
+	//for (x in persons)
+	//{
+		console.log("retrieve games");
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/chessgame",{or:[{'Player1':person},{'Player2':person}],tournamentGame:true,limit:30000},
+		function (resData,jwres){
+			
+			if(jwres.statusCode!=403)
+			{
+			if (resData)
+			{
+			resData.sort(function(b,a)
+			{
+			//	console.log(a.createdAt);
+			//	console.log(new Date(a.createdAt).getTime());
+				return (new Date(a.createdAt).getTime()-new Date(b.createdAt).getTime());
+				}
+			
+			);
+			JoinedGames[person]=[];
+			//console.log(JSON.stringify(resData));
+		//	console.log(resData);
+			for (y in resData)
+			{
+			JoinedGames[person].push(resData[y]);
+			AccountsToRetrieve[resData[y].Player1]=resData[y].Player1;
+			AccountsToRetrieve[resData[y].Player2]=resData[y].Player2;
+			
+			//console.log("resdata");
+			//console.log(JSON.stringify(resData[y]));
+			}	
+		
+			//console.log("joined games persons[x]");
+			//console.log(JSON.stringify(JoinedGames[persons[x]][0]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]][1]));
+			//console.log(JSON.stringify(JoinedGames[persons[x]]['0'][1]));
+			resolve(resData);
+			}
+			}
+		});		
+});
+//PromiseArray.push(cg);	
+
+//}
+return cg;
+
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function setupJustLoggedInPage()
 {
 	AccountsToRetrieve[MyID]=MyID;
@@ -2784,6 +3558,32 @@ var cg = new Promise
 return cg;	
 }
 
+<<<<<<< HEAD
+=======
+function retrievePlayersTournamentEntries(userID)
+{
+	
+
+var cg = new Promise
+((resolve, reject) => {
+		io.socket.get("/tournamententry",{'player':userID},
+		function (resData,jwres){
+			for (x in resData)
+			{
+			TournamentEntries.push(resData[x]);
+			
+			AccountsToRetrieve[resData[x].player]=resData[x].player;
+			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
+			}
+			resolve(resData);
+		});
+
+});
+return cg;	
+}
+
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function retrieveTournamentEntries(tournID)
 {
 	
@@ -2828,16 +3628,33 @@ var cg = new Promise
 return cg;	
 }
 
+<<<<<<< HEAD
 function retrieveTournament(tournID)
 {
 
+=======
+
+
+
+function retrieveTournament(tournID)
+{
+if (!Tournaments[tournID])
+{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var cg = new Promise
 ((resolve, reject) => {
 		io.socket.get("/tournament/"+tournID,{},
 		function (resData,jwres){
+<<<<<<< HEAD
 			for (x in resData)
 			{
 			Tournaments[0]=resData;
+=======
+			
+			for (x in resData)
+			{
+			Tournaments[resData.id]=resData;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
@@ -2848,6 +3665,10 @@ var cg = new Promise
 });
 return cg;	
 }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 function retrieveSpecificTournamentEntries(tournID)
 {
@@ -2883,6 +3704,10 @@ var cg = new Promise
 			for (x in resData.tourneys)
 			{
 			Tournaments.push(resData.tourneys[x]);
+<<<<<<< HEAD
+=======
+			//Tournaments=resData.tourneys[x];
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			//console.log(JSON.stringify(resData[x]));
 			//AccountsToRetrieve[resData[x].reporter]=resData[x].reporter;
 			//WallPostsToRetrieve[resData[x].msgID]=resData[x].msgID;
@@ -2942,7 +3767,11 @@ function addSeeChat(usracc)
 {
 	console.log("adding see chat for "+usracc);
 	//PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
+<<<<<<< HEAD
 	PrivateconText=$("<a href='/seeprivateconversation/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
+=======
+	PrivateconText=$("<a href='/myprof/"+PrivateConversations[MyID][usracc].id+"'>Go To Chat</a>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				
 	DropDowns[usracc]['Priv'].append(PrivateconText);
 }
@@ -3070,7 +3899,11 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 								PrivateConversations[MyID][usracc]=resData;
 								io.socket.post('/startprivateconversation',{Talker1:MyID,Talker2:usracc},
 							function (resData, jwRes) {
+<<<<<<< HEAD
 								console.log("resData[0].id "+resData.id);
+=======
+							//	console.log("resData[0].id "+resData.id);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 								
 								});
 					
@@ -3078,10 +3911,15 @@ DropDowns[usracc]['BeginChat']=$("<a id='StartPrivateDiv"+usracc+"'>Begin Chat</
 					
 					
 					});
+<<<<<<< HEAD
 	
 
 
 }
+=======
+}
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 function addBeginFollow(usracc)
 {
 		DropDowns[usracc]['Foll'].empty();
@@ -3226,9 +4064,15 @@ function addPrivatePromises()
 						//console.log(pc);
 							for (y in pc)
 							{
+<<<<<<< HEAD
 									
 						
 							/*if(MyID==pc[y].Talker1)
+=======
+							//console.log("add private "+JSON.stringify(pc[y]));
+						
+							if(MyID==pc[y].Talker1)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 							{
 							PrivateConversations[MyID][pc[y].Talker2]=pc[y];
 						
@@ -3237,13 +4081,22 @@ function addPrivatePromises()
 							{
 							PrivateConversations[MyID][pc[y].Talker1]=pc[y];	
 							
+<<<<<<< HEAD
 							}*/
 							PrivateConversations[MyID]=pc;
+=======
+							}
+							//PrivateConversations[MyID]=pc[y];
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					
 							
 							
 							}
+<<<<<<< HEAD
 							console.log("resolve privatecon");
+=======
+							//console.log("resolve privatecon");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 						resolve(pc);
 				
 						
@@ -3513,7 +4366,11 @@ function renderHomePage()
 	if(Accounts[MyID])
 	{
 		console.log(Accounts[MyID]);
+<<<<<<< HEAD
 		$("#usr").append("<h1>Current Tournament</h1>");
+=======
+		$("#usr").append("<h1 align='center'>Current Tournament</h1>");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		currentTournamentDivContainer=addDiv($("#usr"));
 		joinedPlayersDivContainer=addDiv($("#usr"));
 		
@@ -3530,11 +4387,24 @@ function renderHomePage()
 						if(Tournaments[iter].timeToAvailable<1)
 						{
 					//	console.log("found current tournament"+Tournaments[iter].id);
+<<<<<<< HEAD
 						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv);
 						}
 					}
 	showRecentGames($("#usr"),MyID);
 	}
+=======
+						var thisTournament=Tournaments[iter];
+							retrieveTournamentEntries(thisTournament.id).then(function()
+							{
+							showTournamentEntries(thisTournament.id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+							});
+						}
+					}
+		showRecentGames($("#usr"),MyID);
+	}
+			console.log("render home page show login form");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	showLoginForm($("#loginform"));
 	
 	$("#newGameControls").css("text-align","center");
@@ -3545,6 +4415,7 @@ function renderHomePage()
 	
 	showNewGameControls($("#newGameControls"));
 	}
+<<<<<<< HEAD
 	io.socket.on('newmygameevent', function (data)
 			{
 			console.log('recieved new game event '+data);
@@ -3556,6 +4427,9 @@ function renderHomePage()
 		$(location).attr('href', '/humanvshumannew/'+data.id);
 			
 			});
+=======
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			
 			
 			io.socket.on('activate tournament',function(data)
@@ -3593,6 +4467,10 @@ function renderHomePage()
 				currentTournamentDiv.detach();
 				joinbuttonDiv.detach();
 				viewbuttonDiv.detach();
+<<<<<<< HEAD
+=======
+				timeToCurrentTournamentStartDiv.detach();
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				withdrawbuttonDiv.detach();
 				joinedPlayersDiv.detach();
 				
@@ -3607,16 +4485,30 @@ function renderHomePage()
 					{
 						if(Tournaments[iter].timeToAvailable<1)
 						{
+<<<<<<< HEAD
 						console.log("found current tournament"+Tournaments[iter].id);
 						showTournamentEntries(Tournaments[iter].id,joinedPlayersDivContainer,joinedPlayersDiv);
+=======
+							var thisTournament=Tournaments[iter];
+						retrieveTournamentEntries(thisTournament.id).then(function()
+						{	
+						console.log("found current tournament"+thisTournament.id);
+						showTournamentEntries(thisTournament.id,joinedPlayersDivContainer,joinedPlayersDiv,TournamentEntries);
+						});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 						}
 					}
 			});
 			
 			io.socket.on('tournament entries',function (data)
 			{
+<<<<<<< HEAD
 			
 			showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv);
+=======
+			console.log("entries recieved "+data.entries);
+			showTournamentEntries(data.tournID,joinedPlayersDivContainer,joinedPlayersDiv,data.entries);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			
 			});
 				

@@ -25,8 +25,12 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
+<<<<<<< HEAD
 
    '*': true,
+=======
+'*': true,
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 	//'*': 'isLoggedIn',
 	'myApiAction': ['hasJsonWebToken'],
@@ -58,6 +62,17 @@ module.exports.policies = {
 	  create: 'isLoggedIn',
 	  destroy: 'isLoggedIn'
   }
+<<<<<<< HEAD
+=======
+  // '*': true,
+
+  /***************************************************************************
+  *                                                                          *
+  * Here's an example of mapping some policies to run before a controller    *
+  * and its actions                                                          *
+  *                                                                          *
+  ***************************************************************************/
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions

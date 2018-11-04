@@ -17,7 +17,11 @@ module.exports.models = {
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
+<<<<<<< HEAD
    connection: 'someMongodbServer',
+=======
+  connection: 'someMongodbServer',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
   /***************************************************************************
   *                                                                          *
@@ -27,6 +31,10 @@ module.exports.models = {
   * See http://sailsjs.org/#!/documentation/concepts/ORM/model-settings.html  *
   *                                                                          *
   ***************************************************************************/
+<<<<<<< HEAD
    migrate: 'safe'
+=======
+  migrate: 'safe'
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 };

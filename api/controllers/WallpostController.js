@@ -12,9 +12,16 @@ module.exports = {
 		function (err, records) 
 			{
 				//console.log(req.param('id'));
+<<<<<<< HEAD
 				console.log("message is seen "+records[0].groupid);
 				console.log("records[0].intendedFor "+records[0].groupid);
 				sails.sockets.broadcast('/msgroom/'+records[0].groupid,'seenmessage', records[0].id);
+=======
+				console.log("message is seen "+records[0].id);
+				console.log("records[0].intendedFor "+records[0].groupid);
+				console.log("sending to  "+req.param('location'));
+				sails.sockets.broadcast(req.param('location'),'seenmessage', records[0].id);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 						
 				return res.ok();
 			});
@@ -140,7 +147,12 @@ module.exports = {
 			if(req.param('messagetype')=="wall")
 			{
 				console.log("message type is wall");
+<<<<<<< HEAD
 			sails.sockets.broadcast('/profile/'+req.param('grpid'),'WallPost', records);
+=======
+				console.log("sending to "+req.param('location'));
+				sails.sockets.broadcast(req.param('location'),'WallPost', records);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				Notification.create({reciever:req.param('grpid'),msg:"New Wall Post Recieved",adr:'/profile/'+req.param('grpid')}).exec
 				(
 					function (err, records1) 
@@ -155,8 +167,13 @@ module.exports = {
 			if(req.param('messagetype')=="chesschat")
 			{
 				console.log("message type is chesschat");
+<<<<<<< HEAD
 			sails.sockets.broadcast('/humanvshuman/'+req.param('grpid'),'WallPost', records);
 				Notification.create({reciever:req.param('grpid'),msg:"New Game Chat Message Recieved",adr:'/humanvshuman/'+req.param('grpid')}).exec
+=======
+			sails.sockets.broadcast('/humanvshumannew/'+req.param('grpid'),'WallPost', records);
+				Notification.create({reciever:req.param('grpid'),msg:"New Game Chat Message Recieved",adr:'/humanvshumannew/'+req.param('grpid')}).exec
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				(
 					function (err, records1) 
 					{

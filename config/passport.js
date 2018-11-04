@@ -395,7 +395,11 @@ if(loc.indexOf(statecodes[x].name)>-1)
 passport.use(new GoogleStrategy({
     clientID: '79902088919-rlb7uk2od7s3337tchn9h32jmo0elo7v.apps.googleusercontent.com',
     clientSecret: 'AChKZobq7KFTCf_jbs7hsxYn',
+<<<<<<< HEAD
     callbackURL: "http://www.chessbond.com/auth/google_oauth2/"
+=======
+    callbackURL: "https://www.chessbond.com/auth/google_oauth2/"
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
   },
   function(accessToken, refreshToken, profile, done) {
 	 // console.log(profile);
@@ -464,7 +468,11 @@ passport.use(new GoogleStrategy({
    passport.use(new TwitterStrategy({
         consumerKey: 'ovZrQ8rjklukSpUdgyaxIFbM5',
         consumerSecret: "Ldrie1diKTTgQMWEV0AvL8WTa7jEYkaxPECoWbWDowig929PWd",
+<<<<<<< HEAD
         callbackURL: 'http://www.chessbond.com/auth/twitter_oauth/'
+=======
+        callbackURL: 'https://www.chessbond.com/auth/twitter_oauth/'
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
       },
       function(token, tokenSecret, profile, done) {
         User.findOne({ twitterId: profile.id }, function (err, user) {
@@ -561,7 +569,11 @@ passport.use(new FacebookStrategy({
 */
 		clientID: '204758053307163',
 		clientSecret:'efc1758be36f4bfc488ea18f5680cb60',
+<<<<<<< HEAD
 		 callbackURL: 'http://www.chessbond.com/auth/facebook_oauth2/',
+=======
+		 callbackURL: 'https://www.chessbond.com/auth/facebook_oauth2/',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		 profileFields: ['id', 'displayName', 'photos','email','gender','hometown','locale','location','birthday']
     },
 

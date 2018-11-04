@@ -1,7 +1,11 @@
 {
   "generators": {
+<<<<<<< HEAD
     "modules": {
       "mailin-api": "sails-hook-mailin/generator"
     }
+=======
+    "modules": {}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
   }
 }

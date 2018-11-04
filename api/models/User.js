@@ -28,8 +28,13 @@ BoardSize:{type:'integer',defaultsTo:300},
    CurrentCity:{type:'string',defaultsTo:""},
    FideTitle:{type:'string',defaultsTo:""},
    ValidFideID:{type:'string',defaultsTo:""},
+<<<<<<< HEAD
    FideRatings:{type:'string',defaultsTo:""}
 
+=======
+   FideRatings:{type:'string',defaultsTo:""},
+pictureRotation:{type:'integer',defaultsTo:0}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 },
   beforeCreate: function(user, cb) {
     user.password = md5(user.password);

@@ -123,6 +123,7 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
+<<<<<<< HEAD
     //console.log("socket disconnected socket:"+sails.sockets.getId(req));
    // console.log("socket disconnected socket:"+JSON.stringify(socket));
  // console.log("socket id is "+socket['id']);
@@ -177,6 +178,20 @@ module.exports.sockets = {
      // By default: do nothing.
      return cb();
    }
+=======
+	 var theUser="";
+	   if(session.passport)
+	   {
+		   theUser=session.passport.user;
+	   }
+   Subscription.destroy({subscriber:theUser}).exec(function(){
+	//console.log(JSON.stringify(session.passport.user));   
+	
+    return cb();
+	
+	});
+   },
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
   /***************************************************************************
   *                                                                          *

@@ -6,7 +6,11 @@
  * may be an important part of your international strategy.
  *
  *
+<<<<<<< HEAD
  * For more informationom i18n in Sails, check out:
+=======
+ * For more information on i18n in Sails, check out:
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
  * http://sailsjs.org/#!/documentation/concepts/Internationalization
  *
  * For a complete list of i18n options, see:

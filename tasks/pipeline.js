@@ -27,6 +27,7 @@ var jsFilesToInject = [
 
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
+<<<<<<< HEAD
 	//'js/dependencies/angular.1.3.js',
 	//'js/dependencies/angular-sanitize.js',
 	'js/dependencies/jquery-1.10.1.min.js',
@@ -39,6 +40,15 @@ var jsFilesToInject = [
   'js/HomepageModule.js',
   'js/AccountService.js',
 	
+=======
+
+  // Dependencies like jQuery, or Angular are brought in here
+  'js/dependencies/jquery-1.10.1.min.js',
+  'js/dependencies/**/*.js',
+	'js/RenderElements.js',
+  
+  //'js/AccountService.js',
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'

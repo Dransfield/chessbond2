@@ -7,17 +7,834 @@
  
 
 
+<<<<<<< HEAD
 
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 
  function MakeGame(p1,p2,p1color,gamecat,gametype,num1,num2)
  {
+=======
+// it's possible to access imap object from node-imap library for performing additional actions. E.x.
+
+ 
+
+ 
+	
+
+
+
+
+	
+	
+
+sails.on("lifted", deleteAllSubs);
+sails.on("lifted",UpdateAccountsMarkedForDeletion);
+sails.on("lifted",UpdateBannedAccounts);
+sails.on("lifted",timeOutNonMovedGames);
+sails.on("lifted",CreateTournaments);
+
+
+
+
+	
+function CreateTournaments()
+{
+	
+	
+		var myInterval=0;
+		Tournament.update({activated:true,result:""},{result:"Cancelled due to server restart"}).exec(function(uperr,uprec)
+		{
+	
+			Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
+			{
+			console.log("just deleted "+deletedcandidates);
+		/*
+		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
+		{
+			Tournament.update({id:latestOne.id},{result:""}).exec(function(latesterr,updated)
+			{
+			var createdAt;
+			
+			if (updated)
+			{
+			createdAt=new Date(updated.createdAt);
+			}
+			else
+			{
+			createdAt=new Date();
+			}
+			//console.log("lattestOne "+JSON.stringify(latestOne));
+			var seconds_ago=(Date.now()-createdAt)/1000;
+			//console.log("was created "+seconds_ago+" seconds ago");
+			//myInterval=seconds_ago;
+			
+			var minutes_ago=seconds_ago/60;
+			*/
+		/*	
+			var  theCategory;
+			
+			if(updated)
+			{
+				theCategory=updated.category;
+			}
+			else
+			{
+				theCategory=sails.config.globals.gamecategories[0].time+":"+sails.config.globals.gamecategories[0].extratime;
+				console.log(theCategory);
+			}
+			*/
+			//var circList=createCircList(theCategory);
+			
+			
+			
+			//for (iter in circList)
+			for (iter in sails.config.globals.gamecategories)
+				{
+					var tournamentTimeout=(sails.config.globals.oneMinute*myInterval);
+						//var lastTournCreated=seconds_ago*1000;
+						/*
+						console.log("seconds_ago "+seconds_ago);
+						console.log("lastTournCreated "+lastTournCreated);
+						console.log("createDelay1 "+totalTimeout);
+						if(lastTournCreated>sails.config.globals.threeMinutes)
+						{
+						lastTournCreated=0;
+						console.log("lastTournCreated set to zero "+lastTournCreated);
+						}
+						else
+						{
+						lastTournCreated=sails.config.globals.threeMinutes-lastTournCreated;
+						console.log("lastTournCreated  reversed"+lastTournCreated);
+						}
+					
+					var totalTimeout=tournamentTimeout-lastTournCreated;
+						
+					*/
+					
+					/*
+						console.log("seconds ago "+seconds_ago);
+						console.log("mins "+mins);
+						console.log("threeMinutes "+threeMinutes);
+						console.log("minuser "+minuser);
+						
+						console.log("threeminutes-minuser "+minuser);
+						
+						console.log("myInterval "+myInterval);
+						console.log("createDelay "+createDelay);
+					*/
+						//console.log(circList[iter].time);
+					//	createTournamentCandidate(circList[iter],myInterval);
+						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
+					//	console.log("(seconds_ago)"+((seconds_ago)));
+					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
+					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
+						
+						
+					//	console.log("createDelay "+createDelay);
+						
+						setTournamentTimeout(iter,tournamentTimeout,sails.config.globals.gamecategories);
+						myInterval=myInterval+3;
+				}	
+						
+		//});
+	//});
+	
+		});
+	});
+	//console.log("create tournaments");
+	
+	/*CurrentTournamententry.destroy({}).exec
+						(function afterwards(cdestroyErr,cdestroyRecords)
+						{
+							
+							
+							});
+	*/
+	//Tournamententry.destroy({}).exec
+		//				(function afterwards(cdestroyErr,cdestroyRecords)
+			//			{
+							
+							
+				//			});
+	//check tournaments
+	
+	
+	//********************
+	//set currently playing with result to not currently playing
+	//**********************
+	function setCurrentlyPlayingWithResultToNotCurrentlyPlaying()
+	{
+		Tournament.update({currentlyPlaying:true,result:{'!':""}},{currentlyPlaying:false}).exec(function(updateErr,updatedRecords)
+			{
+				console.log("set not currently playing "+JSON.stringify(updatedRecords));
+		});
+	}
+	
+	 setCurrentlyPlayingWithResultToNotCurrentlyPlaying();
+	setInterval( setCurrentlyPlayingWithResultToNotCurrentlyPlaying
+		,sails.config.globals.threeMinutes);
+	
+	//****************************************
+	//set tournament to currently playing=true
+	//****************************************
+	
+	
+	
+	//setTournamentToCurrentlyPlaying();
+	//setInterval(setTournamentToCurrentlyPlaying
+		//,sails.config.globals.threeMinutes);
+	
+	
+	
+	
+	//*********************************
+	//judge currently playing tournament
+	//******************************
+	
+	function judgeCurrentlyPlayingTournaments()
+	{
+		
+	
+		Tournament.find({currentlyPlaying:true}).
+		exec
+		(
+		function afterwards(tournyerr,tournyRecords)
+		{
+			console.log("looked for tournaments currently playing");
+			for (tIter in tournyRecords)
+			{
+			
+			console.log("tournaments currently playing:"+JSON.stringify(tournyRecords[tIter]));
+					var createdDate=new Date(tournyRecords[tIter].createdAt);
+					console.log(Date.now()-createdDate);
+			
+			}
+		
+		}
+		);
+			
+	}
+	
+	judgeCurrentlyPlayingTournaments();
+	setInterval(judgeCurrentlyPlayingTournaments
+		,sails.config.globals.threeMinutes);
+	
+	//	Tournament.find({
+	
+	
+	//*****************************************
+	//destroy tournaments with less than 2 players
+	//****************************************
+	setInterval(function(){
+	//	Tournament.find({players:{ '<': 2 }}).
+		Tournament.find({
+		 or : [
+    { players: 0 },
+    { players: 1 },
+   // { players: 2 },
+    //{ players: 3 },
+    { players:null }
+  ],activated:true}).
+		exec(function afterwards(err, records)
+			{
+				//console.log("records "+records);
+				for (iter in records)
+				{
+					var createdDate=new Date(records[iter].createdAt);
+					//console.log(Date.now()-createdDate);
+					//console.log(createdDate);
+					if((Date.now()-createdDate)>sails.config.globals.threeMinutes)
+					{
+						records[iter].destroy();
+								Tournamententry.destroy({tournid:records[iter].id}).exec
+								(function afterwards(tdestroyErr,tdestroyRecords)
+								{	
+						
+						
+						
+								});
+			
+					}
+					console.log("looking for tournament entry with id "+records[iter].id);
+					
+					
+					
+				}
+			});
+		},sails.config.globals.tenMinutes);
+		//},sails.config.globals.threeMinutes);
+		
+		
+	}
+	
+	/*
+
+		
+	
+	Tournament.destroy({activated:false}).exec(function (candidateerr,deletedcandidates)
+	{
+		console.log("just deleted "+deletedcandidates);
+		Tournament.findOne({ id: { '!': null },sort: 'createdAt DESC'}).exec(function(err,latestOne)
+		{
+
+			if (latestOne)
+			{
+			//console.log("lattestOne "+JSON.stringify(latestOne));
+			var createdAt=new Date(latestOne.createdAt);
+			var seconds_ago=(Date.now()-createdAt)/1000;
+			//console.log("was created "+seconds_ago+" seconds ago");
+			//myInterval=seconds_ago;
+			
+			var minutes_ago=seconds_ago/60;
+			
+			
+			var circList=createCircList(latestOne.category);
+			
+			
+			
+			
+
+			
+		
+			for (iter in circList)
+				{
+					var tournamentTimeout=((60*1000)*myInterval);
+						var lastTournCreated=seconds_ago*1000;
+						console.log("seconds_ago "+seconds_ago);
+						console.log("lastTournCreated "+lastTournCreated);
+						console.log("createDelay1 "+totalTimeout);
+						if(lastTournCreated>threeMinutes)
+						{
+					
+						lastTournCreated=0;
+						console.log("lastTournCreated set to zero "+lastTournCreated);
+						}
+						else
+						{
+							lastTournCreated=threeMinutes-lastTournCreated;
+							console.log("lastTournCreated  reversed"+lastTournCreated);
+							}
+					
+					var totalTimeout=tournamentTimeout-lastTournCreated;
+						
+					
+					
+						//console.log(circList[iter].time);
+					//	createTournamentCandidate(circList[iter],myInterval);
+						//var createDelay=((60*1000)*myInterval)-(seconds_ago*1000);
+					//	console.log("(seconds_ago)"+((seconds_ago)));
+					//	console.log("(seconds_ago)/1000"+((seconds_ago/1000)));
+					//	console.log("((60*1000)*myInterval) "+((60*1000)*myInterval));
+						
+						
+					//	console.log("createDelay "+createDelay);
+						
+						setTournamentTimeout(iter,totalTimeout,circList);
+						myInterval=myInterval+3;
+				}	
+				}		
+		});
+	});
+	*/
+	
+	
+
+	function setTournamentTimeout(iter,time,list){
+		
+		//createTournamentCandidate(list[iter],time);
+		
+	//	setTimeout(
+	setTournamentInterval(time,iter,list);
+	//,time,iter,list);
+	
+	}
+	
+	
+	function assignTournamentPlayersToGames(tournid)
+	{
+		var freePlayers=[];
+		console.log("assign tournid "+tournid);
+		
+		Chessgame.find({tournament:tournid,Result:""}).exec(function(availErr,availableGames)
+			{
+				
+				if(availableGames.length==0)
+				{
+					Tournamententry.destroy({tournid:tournid}).exec
+						(function afterwards(doneErr,doneRecords)
+						{
+							
+						Chessgame.find({tournament:tournid}).exec(function(finishedErr,finishedGames)
+							{	
+							
+							var winners={};
+							var countWinner=[];
+							var highestNumber=0;
+							var winnersString="Winners: ";
+							for (gameIter in finishedGames)
+							{
+							winners[finishedGames[gameIter].Player1]={name:finishedGames[gameIter].Player1Name,acct:finishedGames[gameIter].Player1,won:0};
+							//console.log(JSON.stringify(winners[finishedGames[gameIter]]));
+							winners[finishedGames[gameIter].Player2]={name:finishedGames[gameIter].Player2Name,acct:finishedGames[gameIter].Player2,won:0};
+							}
+							
+							for (gameIter in finishedGames)
+							{
+								
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player1Name,finishedGames[gameIter]))
+								{
+								winners[finishedGames[gameIter].Player1].won=winners[finishedGames[gameIter].Player1].won+1;	
+								}
+								if (sails.config.globals.gameIsAWin(finishedGames[gameIter].Player2Name,finishedGames[gameIter]))
+								{
+								winners[finishedGames[gameIter].Player2].won=winners[finishedGames[gameIter].Player2].won+1;	
+								}
+								
+							}
+							
+							for(winnerIter in winners)
+							{
+								console.log(winnerIter);
+								if (winners[winnerIter].won>highestNumber)
+								{
+								highestNumber=winners[winnerIter].won;
+								}
+							}
+							
+							if (highestNumber>0)
+							{
+							for(winnerIter in winners)
+							{
+								if (winners[winnerIter].won==highestNumber)
+								{
+									winnersString=winnersString.concat(" "+winners[winnerIter].name);
+								}
+							}
+							}
+							else
+							{
+								winnersString=winnersString.concat("none");
+							}
+							
+							Tournament.update({id:tournid},{result:winnersString}).exec(function(){
+							
+							});
+							
+							});
+							});
+				}
+				
+			if (availableGames.length>0)
+			{
+				Chessgame.find({tournament:tournid}).exec(function(allGameErr,allgames)
+				{
+					for (allIter in allgames)
+					{
+					freePlayers[allgames[allIter].Player1]=allgames[allIter].Player1;				
+					freePlayers[allgames[allIter].Player2]=allgames[allIter].Player2;				
+					}
+		
+			
+		
+				Chessgame.find({tournament:tournid,started:true,Result:""}).exec(function(narrowErr,narrow)
+				{
+		
+					for (narrowIter in narrow)
+					{
+					console.log(narrow[narrowIter].Player1+" not free");
+					console.log(narrow[narrowIter].Player2+" not free");
+					console.log("because of game "+narrow[narrowIter].id);
+					freePlayers[narrow[narrowIter].Player1]="";				
+					freePlayers[narrow[narrowIter].Player2]="";				
+					}
+		
+					Chessgame.find({tournament:tournid,started:false,Result:""}).exec(function(gameErr,opengames)
+					{
+						
+						
+						
+						for (openIter in opengames)
+						{
+							
+							var player1=opengames[openIter].Player1;
+							var player2=opengames[openIter].Player2;
+						
+								if (freePlayers[player1]==player1)
+								{
+									if (freePlayers[player2]==player2)
+									{
+									console.log("activating "+opengames[openIter].id);
+									activateTournamentGame(player1,player2,opengames[openIter].id);
+									freePlayers[player1]="";
+									freePlayers[player2]="";
+									}
+								}
+							
+							
+						}
+					});
+		
+		
+				});
+		});
+	}
+	});
+	}
+			function setTournamentToCurrentlyPlaying(record)
+	{
+		//console.log("set tournament to currently playing?"+JSON.stringify(record));
+		
+		Tournament.find({currentlyPlaying:false,result:"",id:record.id,players:{'>':1}}).exec(function(updateErr,tournyRecords)
+			{
+				if(tournyRecords)
+				{
+				if(tournyRecords.length>0)
+				{
+					console.log("tournyRecords "+JSON.stringify(tournyRecords[0]));
+					Tournament.update({id:tournyRecords[0].id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					{
+					console.log("set tournament to currently playing2 "+JSON.stringify(updatedRecords2));
+	
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(updatedRecords2[0]);
+					
+					
+					
+					});
+				}
+				}
+			});
+			
+		/*Tournament.find({currentlyPlaying:false,result:"",players:{'>':1}}).exec(function(updateErr,tournyRecords)
+			{
+				if(tournyRecords)
+				{
+				console.log("this tournament is now currently playing "+JSON.stringify(tournyRecords));	
+					for (tIter in tournyRecords)
+					{
+					var thisTourn=tournyRecords[tIter];
+					
+					setTimeout(function(){
+					
+					Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr2,updatedRecords2)
+					{
+					console.log("this tournament is now currently playing "+updatedRecords2[0].id);	
+					setupTournamentGames(thisTourn.id);
+					});
+						},(sails.config.globals.threeMinutes)-1000);
+					
+					
+						}
+				}
+		
+			});
+			*/
+		/*
+		Tournament.find({players:{ '>': 1 },result:""}).
+		exec
+		(
+		function afterwards(tournyerr,tournyRecords)
+		{
+			console.log("looked for tournaments with more than 1 entrant and no result");
+			for (tIter in tournyRecords)
+			{
+			
+			console.log("tournaments with more than 1 entrant:"+JSON.stringify(tournyRecords[tIter]));
+			
+			if(!tournyRecords[tIter].currentlyPlaying)
+			{
+			var thisTourn=tournyRecords[tIter];
+				setTimeout(function(){
+			
+			Tournament.update({id:thisTourn.id},{currentlyPlaying:true}).exec(function(updateErr,updatedRecords)
+			{
+			console.log("this tournament is now currently playing "+updatedRecords[0].id);	
+			});
+				},sails.config.globals.threeMinutes);
+				
+			}
+			
+			}
+		
+		}
+		*/
+		
+		
+		
+	}
+	
+	function activate_tournament(record)
+	{
+		console.log("activate this record "+JSON.stringify(record));
+		console.log("sixtySixMinutes "+sails.config.globals.sixtySixMinutes);
+		if(record)
+		{
+		sails.sockets.broadcast('im online', 'activate tournament',record);
+				var now=Date.now();
+				//console.log("now "+now);
+				now=now+sails.config.globals.sixtySixMinutes;
+				//console.log("now+time"+now);
+				var availDate=new Date(now);
+				var aDateString=availDate.toString();
+				
+				Tournament.create({category:record.category,timeToAvailable:record.timeToAvailable,dateAvailable:aDateString}).
+					exec(function afterwards(err, newcreatedT)
+						{
+							//sails.sockets.broadcast('im online', 'new tournament',newcreatedT);
+							Tournament.find({ activated:false,sort: 'timeToAvailable ASC'}).
+								exec(function(err,tournamentList)
+									{
+									
+									
+									Tournament.update({id:record.id},{activated:true,timeToAvailable:0}).
+									exec(function afterwards(err3,updatedRecord)
+										{
+										
+										var dat=Date.now();
+									//	console.log("updated Record"+JSON.stringify(updatedRecord));
+										sender={serverTime:dat,tourneys:tournamentList};
+										sails.sockets.broadcast('im online', 'tournament list',sender);
+										
+										setTimeout(setTournamentToCurrentlyPlaying,sails.config.globals.threeMinutes,updatedRecord[0]);
+										
+										//return res.send(sender);
+										});
+									});
+							
+							setTimeout(activate_tournament,sails.config.globals.sixtySixMinutes,newcreatedT);
+						});
+			
+		}
+				
+	//	records.activated=true;
+		//records.save();
+		
+	}
+	
+	function setupTournamentGames(thetourn)
+	{
+		//console.log("setupTournamentGames");
+	//	setTimeout(function(){
+		//		console.log("thetournid "+thetournid);
+		
+		
+		Tournamententry.find({tournid:thetourn.id}).exec(function(err3,entries)
+			{
+				
+				
+				
+				
+				
+				
+				
+				console.log("entries "+JSON.stringify(entries));
+				
+				var promiseArray=[];
+				
+			for (playerIter in entries)
+				{
+					
+					var startMakingGames=false;
+				//	console.log("every other player than "+entries[playerIter].player);
+				 
+					for(otherIter in entries)
+					{
+						//console.log("otherIter "+otherIter+" id:"+entries[otherIter].player);
+						if (entries[playerIter].id!=entries[otherIter].id)
+						{
+						//if(startMakingGames==true)
+						//{
+						var p1=entries[otherIter].player;
+						var p2=entries[playerIter].player;
+						
+						//console.log("White: "+p1+" Black: "+p2);
+						//console.log("White: "+p2+" Black: "+p1);
+						var num1=thetourn.category.split(":")[0];
+						var num2=thetourn.category.split(":")[1];
+						num1=num1*60;
+						num2=num2*60;
+						
+						promiseArray.push(MakeChessGameForTournament(p1,p2,"White",thetourn.category,"timed",num1,num2,thetourn));
+						promiseArray.push(MakeChessGameForTournament(p2,p1,"White",thetourn.category,"timed",num1,num2,thetourn));
+						
+						}
+						
+						if(entries[otherIter].player == entries[playerIter].player)
+						{
+						startMakingGames=true;
+						//console.log(" matched "+entries[otherIter].player+" and "+entries[playerIter].player);
+							
+						}
+						else
+						{
+						//console.log("didnt match"+entries[otherIter].player+" and "+entries[playerIter].player);
+							
+						}
+						
+						
+					}
+									
+									
+				}
+				
+				Promise.all(promiseArray).then(values => 
+				{ 
+					/*
+					console.log("made all tournament games"+JSON.stringify(values));
+					console.log("entries.length "+entries.length);
+					var activate=true;
+					
+						for (playerIter=0;playerIter<entries.length;playerIter++)
+						{
+							if(activate==true)
+							{
+								var nextOne=playerIter+1;
+								if ((nextOne)<entries.length)
+								{
+									console.log("playeriter"+playerIter);
+									activateTournamentGame(entries[playerIter].player,entries[nextOne].player,thetourn.id);
+									activate=false;
+								}
+							}
+							else
+							{activate=true;}
+						}
+					*/
+					assignTournamentPlayersToGames(thetourn.id);
+				});
+						
+		//},sails.config.globals.threeMinutes);
+	});
+	}
+	
+	function activateTournamentGame(player1,player2,thegame)
+	{
+		//console.log(entry1.player);
+		//console.log(entry2.player);
+		Chessgame.update({id:thegame},{started:true}).exec(
+		function(err3,records)
+		{
+			
+			if (err3)
+			{console.log(err3);}
+			else
+			{
+			
+			var theGame=records;
+			console.log("theGame "+JSON.stringify(theGame));
+			/*
+			
+			var promiseArray=[];
+			promiseArray.push(retrieveSubPromise(entry1.player));
+			promiseArray.push(retrieveSubPromise(entry2.player));
+			
+			Promise.all(promiseArray).then(values => 
+				{ 
+				console.log(values);
+				
+				if(values[0] && values[1])
+				{
+				if(values[0].subscriber &&  values[1].subscriber)
+				{ 
+				*/
+				sails.sockets.broadcast(theGame[0].Player1,'newmygameevent', theGame[0]);
+				sails.sockets.broadcast(theGame[0].Player2,'newmygameevent', theGame[0]);
+				/*
+				}
+				}
+				
+				});
+				*/
+				
+				
+				sails.config.globals.initialTimeouts[theGame[0].id]=setTimeout(function(gamID)
+			{
+				console.log("inaction timeout"+gamID);
+				Chessgame.findOne({id:gamID}).exec(function(
+				myerr,myRecords)
+				{
+					//console.log("Move "+myRecords.Move);
+					if (myRecords.Move==1)
+					{
+					
+					var firstPlayer;
+					if (sails.config.globals.playerIsWhite(myRecords.Player1,myRecords))
+					{firstPlayer=myRecords.Player1;}
+					else
+					{firstPlayer=myRecords.Player2;}
+					
+					//User.findOne({id:firstPlayer}).exec(function(
+					//userErr,theUser)
+					//{
+						
+					if (firstPlayer==myRecords.Player1)
+					{
+					DoTournamentGameResult(myRecords.Player2,myRecords.Player1,'Black','White',myRecords.GameCategory,myRecords.id,'true','false',2);
+					}
+					else
+					{
+						
+					DoTournamentGameResult(myRecords.Player1,myRecords.Player2,'Black','White',myRecords.GameCategory,myRecords.id,'true','false',1);
+					}
+					/*
+					Chessgame.update({id:myRecords.id},{Result:theUser.name+" Timed Out"},function(
+					timeOuterr,timeOutRecords)
+					{
+					//sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
+	
+					});
+					*/
+					
+					//});	
+						
+					}
+				});
+					
+					},30000,theGame[0].id);
+				
+				
+			}
+			
+		});
+	}
+								
+	
+	function retrieveSubPromise(user,game)
+	{
+		
+	 return new Promise((resolve,reject)=>{
+	Subscription.findOne({
+	subscriber : user,room:'im online'
+	}).exec(function (err, records){	
+	if (err)
+	{reject();}
+	else
+	{
+	resolve(records);
+	}
+	});
+	});
+}
+	
+	function MakeChessGameForTournament(p1,p2,p1color,gamecat,gametype,num1,num2,tourn)
+ {
+	 
+	 
+		 return new Promise((resolve,reject)=>{
+	 gametype="timed";
+	 console.log("MakeChessGameForTournament");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	User.find({
 	id : [p1,p2]
 	}).exec(function (err, players){
 		
+<<<<<<< HEAD
 		if (err) return res.negotiate(err);
+=======
+		if (err) 
+		{reject();}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 		// If session refers to a user who no longer exists, still allow logout.
 			if (!players) {
@@ -64,11 +881,16 @@
 		
 		
 		
+<<<<<<< HEAD
 		Chessgame.create({Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player2TimeLimit:num2,Player2TimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+=======
+		Chessgame.create({tournamentGame:true,started:false,tournament:tourn.id,Player1ELO:p1ELO,Player1CategoryELO:p1CategoryELO,Player2ELO:p2ELO,Player2CategoryELO:p2CategoryELO,GameCategory:gamecat,Player1TimeLimit:num1,Player1TimeLeft:num1,Player1ExtraTimeLeft:num2,Player2TimeLimit:num1,Player2TimeLeft:num1,Player2ExtraTimeLeft:num2,GameType:gametype,Move:1,Player1Color:p1color,Player1:p1ID,Player2:p2ID,Player1Name:p1Name,Player2Name:p2Name}).exec(
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			
 			function (err, records) {
 				if(err){
 			console.log('Cant create joined game.');
+<<<<<<< HEAD
 			//console.log(JSON.stringify(err));
 			}
 			//console.log("records"+JSON.stringify(records));
@@ -280,6 +1102,62 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	function DoGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,winner1or2)
 	{
 	//var elo = require('elo-rank')(15);
+=======
+			//console.log(JSON.stringify(err));
+			reject();
+			}
+			else
+			{resolve(records);}
+			//console.log("records"+JSON.stringify(records));
+			//console.log(records);
+			//console.log("broadcasting to "+p1ID);
+			 
+			 // sails.sockets.broadcast(p1ID,'newmygameevent', records);
+			 //if (p1ID!=p2ID)
+			//{
+			 // sails.sockets.broadcast(p2ID,'newmygameevent', records);
+			//}
+			/*
+			sails.config.globals.initialTimeouts[records.id]=setTimeout(function(gamID)
+			{
+				console.log("inaction timeout"+gamID);
+				Chessgame.findOne({id:gamID}).exec(function(
+				myerr,myRecords)
+				{
+					//console.log("Move "+myRecords.Move);
+					if (myRecords.Move==1)
+					{
+					Chessgame.update({id:myRecords.id},{Result:"Both Players Timed Out"},function(
+					timeOuterr,timeOutRecords)
+					{
+					//sails.sockets.broadcast(myRecords.id, 'chessgamemove',{room:myRecords.id});
+	
+					});
+						
+					}
+					});
+					},30000,records.id);
+			*/
+			//return res.json(records);
+			
+			
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+			//game.destroy();
+			}); 
+	 });
+	}
+	
+	function DoTournamentGameResult(winner,loser,winnercolor,losercolor,gamecat,GameID,timeout,resignation,winner1or2)
+	{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	var EloRank = require('elo-rank');
 	var elo = new EloRank(15);
 	console.log("winner "+winner);
@@ -384,9 +1262,31 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	var resultstring="";
 	
 		if (timeout=='false')
+<<<<<<< HEAD
 	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> checkmate</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Checkmate</span><br>";}
 	else
 	{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";}
+=======
+	{
+
+		if(resignation=='false')
+		{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> checkmate</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Checkmate</span><br>";}
+		else
+		{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> resignation</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Resignation</span><br>";}
+		
+		
+		}
+	
+	else
+	{
+		
+		{resultstring+="<span class='redtext'>"+winnerRecord.name+"</span> Won by<span class='redtext'> timeout</span><span> against </span><span class='redtext'>"+loserRecord.name+"</span><br><span>Result:</span><span class='redtext'>Timeout</span><br>";}
+		
+		
+		
+		
+	}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 	
 	resultstring+="<span>New</span> <span class='redtext'>ELO ratings </span><span>of</span><span class='redtext'> "+winnerRecord.name+"</span><span>:</span> <span class='redtext'>"+winnerRecord.ELO+" ("+WinnereloSentence+")</span>";
@@ -430,11 +1330,20 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	
 	Chessgame.update({id:GameID},{Result:resultstring,TurnTakerSentence:tts,Player1ELOafter:player1Record.ELO,Player2ELOafter:player2Record.ELO,Player1CategoryELOafter:player1Record[player1gamecategory],Player2CategoryELOafter:player2Record[player2gamecategory]}).exec(function afterwards(err, updated){
 	//sails.sockets.broadcast(GameID, 'ELOAdjustments',updated);
+<<<<<<< HEAD
 		sails.sockets.broadcast(GameID, 'chessgamemove',{room:GameID});
 
 	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
 	sails.sockets.broadcast(GameID,'message', {room:GameID,content: resultstring  });
 	
+=======
+		sails.sockets.broadcast('/humanvshumannew/'+GameID, 'chessgamemove',{room:GameID});
+
+	Chatmessage.create({room:GameID,content:resultstring }).exec(function (err, records) {
+	sails.sockets.broadcast('/humanvshumannew/'+GameID,'message', {room:GameID,content: resultstring  });
+	assignTournamentPlayersToGames(updated[0].tournament);
+	 
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	 
 	});
 	});
@@ -443,6 +1352,7 @@ function DoDraw(player1,player2,player1color,player2color,gamecat,GameID,GameDes
 	});
 
 	};
+<<<<<<< HEAD
 
 
 //	 sails.on("lifted", deleteAllSubs);
@@ -630,6 +1540,11 @@ function CreateTournaments()
 	
 	function setTournamentInterval(time,iter,list){
 	console.log("set tourn inter"+iter+" t"+list[iter].time);
+=======
+	
+	function setTournamentInterval(time,iter,list){
+	//console.log("set tourn inter"+iter+" t"+list[iter].time);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 	var now=Date.now();
 	//console.log("now "+now);
@@ -685,7 +1600,11 @@ function CreateTournaments()
 	
 	function createCircList(latcat)
 			{
+<<<<<<< HEAD
 			var indexNum=gamecategories.findIndex(function(cat){
+=======
+			var indexNum=sails.config.globals.gamecategories.findIndex(function(cat){
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				
 				var theString=cat.time+":"+cat.extratime;
 				//console.log("cat "+theString);
@@ -694,6 +1613,7 @@ function CreateTournaments()
 			});
 			console.log("index of "+latcat+" is "+JSON.stringify(indexNum));
 			
+<<<<<<< HEAD
 			var arr1=gamecategories.slice(indexNum+1);
 			var arr2=[];
 			var arr3=[];
@@ -789,18 +1709,48 @@ function CreateTournaments()
 function timeOutNonMovedGames()
 {
 						Chessgame.find({Move:1}).
+=======
+			var arr1=sails.config.globals.gamecategories.slice(indexNum+1);
+			var arr2=[];
+			var arr3=[];
+			
+			if(indexNum>0)
+			{
+			arr2=sails.config.globals.gamecategories.slice(0,indexNum+1);	
+			}
+			
+		
+			arr3=arr1.concat(arr2);
+			return arr3;
+			}
+	
+
+
+
+function timeOutNonMovedGames()
+{
+						Chessgame.find({Move:1,tournamentGame:false,Result:""}).
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					exec(function afterwards(err, records){
 				for(iter in records)
 				{
 					//if (!records[iter].Result)	
 					//{
+<<<<<<< HEAD
 				initialTimeouts[records[iter].id]=setTimeout(function(gam)
+=======
+				sails.config.globals.initialTimeouts[records[iter].id]=setTimeout(function(gam)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					{
 						
 						
 						gam.Result="Both Players Timed Out";
 						gam.save();
+<<<<<<< HEAD
 						sails.sockets.broadcast(gam.id, 'chessgamemove',{room:gam.id});
+=======
+						sails.sockets.broadcast('/humanvshumannew/'+gam.id, 'chessgamemove',{room:gam.id});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 						//console.log("timeout "+gam.id);
 						/*
@@ -817,7 +1767,44 @@ function timeOutNonMovedGames()
 					//}
 				}
 				});
+<<<<<<< HEAD
 	
+=======
+				
+					Chessgame.find({started:true,Move:1,tournamentGame:true,Result:""}).
+					exec(function afterwards(err, records)
+					{
+						for(iter in records)
+						{
+						sails.config.globals.initialTimeouts[records[iter].id]=setTimeout(function(gam)
+							{
+								if (gam.Move==1)
+								{
+					
+								var firstPlayer;
+									if (sails.config.globals.playerIsWhite(gam.Player1,gam))
+									{firstPlayer=gam.Player1;}
+									else
+									{firstPlayer=gam.Player2;}
+					
+						
+									if (firstPlayer=gam.Player1)
+									{
+									DoTournamentGameResult(gam.Player2,gam.Player1,'Black','White',gam.GameCategory,gam.id,'true','false',2);
+									}
+									else
+									{
+									DoTournamentGameResult(gam.Player1,gam.Player2,'Black','White',gam.GameCategory,gam.id,'true','false',1);
+									}
+					
+								}
+						  
+						
+					
+							},30000,records[iter]);
+						}
+					});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 }
 
  function UpdateBannedAccounts()
@@ -970,7 +1957,11 @@ module.exports = {
 					}
 	user.Numberoftimesloggedin+=1;
 	var dateObj=new Date();
+<<<<<<< HEAD
 	console.log("date obj "+JSON.stringify(dateObj));
+=======
+	console.log("just logged in date obj "+JSON.stringify(dateObj));
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	var month = dateObj.getUTCMonth() + 1; //months from 1-12
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
@@ -984,6 +1975,7 @@ newdate = year + "/" + month + "/" + day;
 	});
    },
 	
+<<<<<<< HEAD
 	deletegame:function(req,res){
 	Chessgame.destroy({id:req.param('gameid')}).exec
 	(function(err){
@@ -1096,6 +2088,11 @@ deleteopengame:function(req,res){
 	});
 	
 	},
+=======
+	
+
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 	newsession:function(req,res){
 	console.log("all params of new session"+req.allParams());
@@ -1117,6 +2114,7 @@ deleteopengame:function(req,res){
 	
 	
 	
+<<<<<<< HEAD
 	newopengame:function(req,res){
 	console.log("all params of new open game"+JSON.stringify(req.allParams()));
 	Openchessgame.create(
@@ -1132,6 +2130,9 @@ deleteopengame:function(req,res){
 	
 	
 	},
+=======
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	/*
 	   ChangeUsersCurrentGame: function (req,res){
 	    User.findOne({
@@ -1149,6 +2150,7 @@ deleteopengame:function(req,res){
    },
    
 	*/
+<<<<<<< HEAD
 	Joingame: function(req,res)  {
 	   var sentresponse=false;
 	   
@@ -1183,6 +2185,9 @@ deleteopengame:function(req,res){
 		 });
     
     },
+=======
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 	 UpdateLevelBeaten: function(req,res)  {
 		User.findOne(req.session.passport.user, function foundUser(err, user) {
@@ -1230,6 +2235,7 @@ deleteopengame:function(req,res){
 	},
 	
 */
+<<<<<<< HEAD
 	updateGameTime:function(req,res){
 	Chessgame.findOne(req.param('GameID'), function foundChessgame(err, cg) {
 		if(cg)
@@ -1439,6 +2445,10 @@ deleteopengame:function(req,res){
 	
 	}
 	},
+=======
+	
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	ReturnPing:function(req,res){
 	//sails.sockets.broadcast(req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid') });
 	//console.log("game id "+req.param('gameid'));
@@ -1447,9 +2457,16 @@ deleteopengame:function(req,res){
 	 return res.ok();
 		
 	},
+<<<<<<< HEAD
 	BroadcastPing:function(req,res){
 	
 		sails.sockets.broadcast(req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid'),ping:req.param('ping')});
+=======
+	
+	BroadcastPing:function(req,res){
+	
+		sails.sockets.broadcast('/humanvshumannew/'+req.param('gameid'),'ping', {room:req.param('gameid'),player:req.param('playerid'),ping:req.param('ping')});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	 return res.ok();
 	},
 	SendMail:function(req,res){
@@ -1500,12 +2517,20 @@ transporter.sendMail(mailOptions, function(error, info){
 
 		
   var roomName = req.param('roomName');
+<<<<<<< HEAD
  console.log("joining room "+roomName);
+=======
+ //console.log("joining room "+roomName);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 var reqpath=req.param('reqpath');
 	if(req.param('reqpath'))
 	{
+<<<<<<< HEAD
 	console.log("reqpath is"+reqpath);
+=======
+	//console.log("reqpath is"+reqpath);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	var loggedin=false;
 	 if (req.session)
     {

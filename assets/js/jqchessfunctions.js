@@ -5,11 +5,27 @@ var squareClass = 'square-55d63';
   var squareToHighlight;
 
 var withdrawDiv;
+<<<<<<< HEAD
 
   boardEl = $('#boardcontainer');
   var chessmove;
 var game;
 var withdrawButton;
+=======
+var withdrawButton;
+var drawButton;
+var resignButton;
+var acceptDrawButton;
+  boardEl = $('#boardcontainer');
+  var chessmove;
+var game;
+var gameSkill;
+var gameThinkTime;
+ var engine =  STOCKFISH();
+ var engineStatus = {};
+  var time = { wtime: 300000, btime: 300000, winc: 2000, binc: 2000 };
+var playingSinglePlayer=false;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 
 var turnTakerNoticeDiv;
 
@@ -95,6 +111,10 @@ var resultDiv;
 	}
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
  var  boardorientations = [
         {id: '1', name: 'Left',value:'Left'},
 	  {id: '2', name: 'Right',value:'Right'}
@@ -200,11 +220,19 @@ var boardThemeNames=['original','A1','A2',
 	var DrawSound=new Audio("/draw.mp3");
 	var WithdrawSound=new Audio("/withdraw.mp3");
 	var SoundEnabled=false;
+<<<<<<< HEAD
 	$("#SoundModal").modal()
 	var EnableSound=function()
 {
 			
 	console.log("Sound Enabled");
+=======
+	//$("#SoundModal").modal()
+	var EnableSound=function()
+{
+			
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	BellSound= new Audio('/alert.mp3');
 	MoveSound=new Audio('/move.mp3');
 	CheckMateSound=new Audio("/checkmate.mp3");
@@ -235,12 +263,15 @@ var boardThemeNames=['original','A1','A2',
 
 function init(){
 		
+<<<<<<< HEAD
 		var roomname=GamePlaying.id;
 		
 			io.socket.get("/subscribeToRoom",{roomName:roomname},function (resData,jwres){
 			console.log(JSON.stringify(resData));
 			});
 		
+=======
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	setInterval(function (){
 		DoPing(MyID);
 	},20000);
@@ -279,8 +310,12 @@ function init(){
 
 io.socket.on('ping',function(data){
 		if (data){
+<<<<<<< HEAD
 		console.log(data.player+" has ping of "+data.ping);
 		if (data.player==GamePlaying.PlayerIDOnBottom)
+=======
+		if (data.player==PlayerIDOnBottom)
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			{
 			BottomPingDisplay.html("Ping:"+data.ping);
 			}
@@ -293,7 +328,22 @@ io.socket.on('ping',function(data){
 		
 		});
 		
+<<<<<<< HEAD
 			
+=======
+
+io.socket.on('onExtraTime',function(data){
+	
+	if (data.playerID==GamePlaying.Player1)
+	{GamePlaying.Player1TimeLeft=0;}
+	if (data.playerID==GamePlaying.Player2)
+	{GamePlaying.Player2TimeLeft=0;}
+	//console.log("on extratime socket recieved");
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
+	StartRightClock();
+	
+		});
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 	
 }
@@ -415,6 +465,150 @@ function changeOverallScore(piece,colour)
 	
 	
 	}
+<<<<<<< HEAD
+=======
+
+    function get_moves()
+    {
+        var moves = '';
+        var history = game.history({verbose: true});
+        
+        for(var i = 0; i < history.length; ++i) {
+            var move = history[i];
+            moves += ' ' + move.from + move.to + (move.promotion ? move.promotion : '');
+        }
+        
+        return moves;
+    }
+
+
+    function uciCmd(cmd, which) {
+        console.log("UCI: " + cmd);
+        
+        (which || engine).postMessage(cmd);
+    }
+    engine.onmessage = function(event) {
+        var line;
+        
+        if (event && typeof event === "object") {
+            line = event.data;
+        } else {
+            line = event;
+        }
+        console.log("Reply: " + line)
+        if(line == 'uciok') {
+            engineStatus.engineLoaded = true;
+        } else if(line == 'readyok') {
+            engineStatus.engineReady = true;
+        } else {
+			console.log("its a move");
+            var match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
+            /// Did the AI move?
+            if(match) {
+				
+				 if(Accounts[MyID])
+			{	
+					
+			
+                isEngineRunning = false;
+                game.move({from: match[1], to: match[2], promotion: match[3]});
+               board1.move(match[1]+"-"+match[2]);
+			//singlePlayerWinFunc();
+           if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+			{
+			PlayMove();
+			}
+			}
+		
+            
+            }
+        }
+        
+}
+
+function singlePlayerWinFunc()
+{
+	var gameover;
+var descriptor="nothing";
+
+	if (game.game_over())
+	{gameover=true;
+		console.log("game is over");}
+	
+	if (game.in_draw())
+	{state='draw';}
+	
+	if (game.in_checkmate())
+	{state='checkmate';}
+
+	if (game.insufficient_material())
+	{descriptor='insufficient material';}
+	
+	if (game.in_threefold_repetition())
+	{descriptor='in threefold repetition';
+		console.log("THREEFOLD");
+		}
+	
+	if (game.in_stalemate())
+	{descriptor='stalemate';}
+
+	if(gameover==true)
+	{
+		if(descriptor.indexOf("nothing")==0)
+		{
+			
+			if (game.turn()=='b')
+			{
+			descriptor=("you won");
+			}
+			if (game.turn()=='w')
+			{
+			descriptor=("you lost");
+			}
+	
+		}
+		console.log(descriptor);
+		GamePlaying.Result=descriptor;
+		resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
+		
+	
+	}
+
+	
+}
+
+function singlePlayerMoveFunc(old,newpos)
+{
+	if (!GamePlaying.Result)
+	{
+		$('.square-55d63').css("background-image","");
+		$('.square-' +chessmove.to).css("background-size","contain");
+		$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+		//console.log("game.turn() "+game.turn());
+		singlePlayerWinFunc();
+		if (game.turn()=='b')
+		{
+		uciCmd('position startpos moves' + get_moves());
+		uciCmd("go " + (time.depth ? "depth " + time.depth : ""));
+		}
+		if(GamePlaying.Result=="")
+		{
+		UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
+		}
+		StartRightClock();	
+		board1.position(game.fen())
+	}
+	else
+	{
+	toastr.warning("Game is over");
+	}
+
+}
+	
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	function myMoveEndFunc(old,newpos)
 	{
 		console.log(chessmove);
@@ -428,7 +622,11 @@ function changeOverallScore(piece,colour)
 		$('.square-' +chessmove.to).css("background-size","contain");
 		//boardEl.find('.square-' +chessmove.to).addClass('highlight-white');
 	$('.square-' +chessmove.to).css("background-image", "url('/images/square.png')");
+<<<<<<< HEAD
 		
+=======
+		    ;
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		}
 	
 	function onChangedfunc(obj)
@@ -441,11 +639,16 @@ function changeOverallScore(piece,colour)
 		}
 		
 	}
+<<<<<<< HEAD
 	var onSnapEnd = function() {};
+=======
+	var onSnapEnd = function() {console.log("snap end");};
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	 function onDrop(mov) {
 		
 		
 			
+<<<<<<< HEAD
 						
 		/*
 							if (usersTurn(game,MyID)===false)
@@ -466,6 +669,9 @@ function changeOverallScore(piece,colour)
 						  toastr.warning("You are in check");
 						 }
 						
+=======
+						/*
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 						 console.log('gameover?'+game.game_over());
 						  console.log('in check?'+game.in_check());
 						  console.log('in checkmate?'+game.in_checkmate());
@@ -475,9 +681,14 @@ function changeOverallScore(piece,colour)
 						  
 						   return game.fen();
 						   }
+<<<<<<< HEAD
 						
 				var nextPlayer,
 						status,
+=======
+						*/
+		/*		
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					move = game.move({
 						from: mov.from,
 						to: mov.to,
@@ -488,6 +699,7 @@ function changeOverallScore(piece,colour)
 					  
 						
 					 
+<<<<<<< HEAD
 							GamePlaying.Move+=1;
 							changeOverallScore(move.captured,move.color);
 							Showcapturedpiece(move.captured,move.color,true);
@@ -506,6 +718,13 @@ function changeOverallScore(piece,colour)
 							}
 						
 						console.log("is it over?");
+=======
+						//	GamePlaying.Move+=1;
+					//		changeOverallScore(move.captured,move.color);
+				//			Showcapturedpiece(move.captured,move.color,true);
+							
+							
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 							  if (game.game_over())
 								{
 						
@@ -527,6 +746,7 @@ function changeOverallScore(piece,colour)
 							{
 							  toastr.success("Checkmate!");
 							  console.log("checkmate");
+<<<<<<< HEAD
 							ShowOfferDrawButton=false;
 								if(Accounts[MyID])
 								{		
@@ -566,6 +786,36 @@ function changeOverallScore(piece,colour)
 					//console.log("result: "+GamePlaying.Result);
 					 */
 					updateStatus(game,mov);
+=======
+							}
+							 
+	 */
+					
+					 // console.log('move'+JSON.stringify(move));
+					//console.log("result: "+GamePlaying.Result);
+					 
+					 if(playingSinglePlayer==false)
+					 {
+					updateStatus(game,mov);
+					}
+					else
+					{
+						chessmove=mov;
+					game.move(mov);
+					//board1.move(mov);
+				board1.move(mov.from+"-"+mov.to);
+					if(Accounts[MyID])
+					{	
+					
+					if(Accounts[MyID].SoundEnabled=='Sound Enabled')
+						{
+						PlayMove();
+						}
+					}
+		
+					    
+					}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 					//return game.fen();
 };
 
@@ -602,13 +852,20 @@ function updateTurnTakerLabel(game)
 
 function updateStatus(game,move)
 {
+<<<<<<< HEAD
 	//console.log("update status");
+=======
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 GamePlaying.fen=game.fen();
 GamePlaying.lastmove=move.from+move.to;
 GamePlaying.Move+=1;
 
+<<<<<<< HEAD
 console.log("piece taken "+game.get(move.to));
 console.log("move.to "+move.to);
+=======
+
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 var pieceTaken=game.get(move.to);
 if(pieceTaken)
 {
@@ -736,6 +993,7 @@ function usersTurn(game,me)
 function StartWhiteClock()
 	{
 		
+<<<<<<< HEAD
 		if (GamePlaying.PlayerOnBottom=='White')
 		{
 		WhiteTime=GamePlaying.Player1TimeLeft*1000;
@@ -745,16 +1003,70 @@ function StartWhiteClock()
 		WhiteTime=GamePlaying.Player2TimeLeft*1000;
 		}
 	console.log("start white clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+=======
+		if (GamePlaying.Player1Color=='White')
+		{
+		
+		if(GamePlaying.Player1TimeLeft>0)
+		{	
+		WhiteTime=GamePlaying.Player1TimeLeft*1000;
+		}
+		else
+		{	
+		WhiteTime=GamePlaying.Player1ExtraTimeLeft*1000;
+		}
+		
+		
+		
+		}
+		else
+		{
+			
+		if(GamePlaying.Player2TimeLeft>0)
+		{	
+		WhiteTime=GamePlaying.Player2TimeLeft*1000;
+		}
+		else
+		{	
+		WhiteTime=GamePlaying.Player2ExtraTimeLeft*1000;
+		}
+		
+		}
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	WhiteInterval=setInterval(function (){
 		
 		
 		if (WhiteTime>0)
 		{
 		WhiteTime-=121;
+<<<<<<< HEAD
 		}
 		if (WhiteTime<0)
 		{
 			WhiteTime=0;
+=======
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+				
+			if(GamePlaying.Player1TimeLeft>0)
+			{	
+			GamePlaying.Player1TimeLeft=GamePlaying.Player1TimeLeft-(121/1000);
+			}
+			else
+			{
+			GamePlaying.Player1ExtraTimeLeft=GamePlaying.Player1TimeLeft-(121/1000);
+			
+			}
+			
+			}
+		}
+		if (WhiteTime<0 && GamePlaying.Player1TimeLeft<0 && GamePlaying.Player1ExtraTimeLeft<0)
+		{
+			WhiteTime=0;
+			if(GamePlaying.PlayerIDOnTop)
+			{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			if(!GamePlaying.Result)
 			{
 				io.socket.put('/gametimedout',{
@@ -767,6 +1079,31 @@ function StartWhiteClock()
 			}
 			);
 			}
+<<<<<<< HEAD
+=======
+			}
+		
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			if(!GamePlaying.Result)
+			{
+			GamePlaying.Result="Player Timed Out";
+			resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
+			}	
+			}
+		
+		}
+		else
+		{
+				if(WhiteTime<0 && GamePlaying.Player1TimeLeft<0 && GamePlaying.Player1ExtraTimeLeft>0)
+				{
+				
+				WhiteTime=	GamePlaying.Player1ExtraTimeLeft*1000;
+				}
+			
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		}
 		var bythousand=WhiteTime/1000;
 		WhiteSeconds=(parseInt((bythousand % 60))).toString();
@@ -805,6 +1142,7 @@ function StartBlackClock()
 	
 		if (GamePlaying.Player1Color=='Black')
 		{
+<<<<<<< HEAD
 		BlackTime=GamePlaying.Player1TimeLeft*1000;
 		}
 		else
@@ -813,18 +1151,69 @@ function StartBlackClock()
 		}
 		
 	//console.log("start black clock $scope.PlayerOnBottom "+PlayerIDOnBottom);
+=======
+			
+			if(GamePlaying.Player1TimeLeft>0)
+			{
+			BlackTime=GamePlaying.Player1TimeLeft*1000;
+			}
+			else
+			{
+			BlackTime=GamePlaying.Player1ExtraTimeLeft*1000;
+			}
+			
+		}
+		else
+		{
+			
+			if(GamePlaying.Player2TimeLeft>0)
+			{
+			BlackTime=GamePlaying.Player2TimeLeft*1000;
+			}
+			else
+			{
+			BlackTime=GamePlaying.Player2ExtraTimeLeft*1000;
+			
+			}
+		
+		}
+		
+	
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	BlackInterval=setInterval(function (){
 		
 		
 		if (BlackTime>0)
 		{
 		BlackTime-=121;
+<<<<<<< HEAD
 		
 				
 		}
 		if (BlackTime<0)
 		{
 			BlackTime=0;
+=======
+
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			
+			if (GamePlaying.Player2TimeLeft>0)
+			{
+			GamePlaying.Player2TimeLeft=GamePlaying.Player2TimeLeft-(121/1000);
+			}
+			else
+			{
+			GamePlaying.Player2ExtraTimeLeft=GamePlaying.Player2ExtraTimeLeft-(121/1000);
+			}
+			}
+		}
+		if (BlackTime<0 && GamePlaying.Player2ExtraTimeLeft<0 && GamePlaying.Player2TimeLeft<0)
+		{
+			BlackTime=0;
+			if(GamePlaying.PlayerIDOnTop)
+			{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			if(!GamePlaying.Result)
 			{
 				io.socket.put('/gametimedout',{
@@ -837,8 +1226,28 @@ function StartBlackClock()
 			}
 			);
 			}
+<<<<<<< HEAD
 		}
 		var bythousand=BlackTime/1000;
+=======
+			}
+			
+		
+			if(!GamePlaying.PlayerIDOnTop)
+			{
+			if(!GamePlaying.Result)
+			{
+			GamePlaying.Result="Computer Timed Out";
+			resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
+			}	
+			}
+		
+		}
+		var bythousand=BlackTime/1000;
+		
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		BlackSeconds=(parseInt((bythousand % 60))).toString();
 		BlackMinutes=(parseInt((bythousand/60))).toString();
 		var intmilli=parseInt(BlackTime % 1000);
@@ -857,7 +1266,11 @@ function StartBlackClock()
 		
 		BottomMinutes.html(BlackMinutes);
 		BottomSeconds.html(":"+BlackSeconds);	
+<<<<<<< HEAD
 		BottomMilliseconds.html(milli);
+=======
+		BottomMilliseconds.html("m:"+milli);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 		}
 		else
@@ -866,7 +1279,11 @@ function StartBlackClock()
 		
 		TopMinutes.html(BlackMinutes);	
 		TopSeconds.html(":"+BlackSeconds);	
+<<<<<<< HEAD
 		TopMilliseconds.html(milli);
+=======
+		TopMilliseconds.html("m:"+milli);
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		
 		
 		}
@@ -874,6 +1291,7 @@ function StartBlackClock()
 		
 	}
 	
+<<<<<<< HEAD
 	function UpdateClocks(player1time,player2time)
 		{
 			var intp1minute=parseInt(player1time/60);
@@ -884,6 +1302,42 @@ function StartBlackClock()
 			var p1second=intp1second.toString();
 			var intp2second=parseInt(player2time % 60);
 			var p2second=intp2second.toString();
+=======
+	function UpdateClocks(player1time,player2time,player1extratime,player2extratime)
+		{
+			
+			var intp1minute;
+			var p1minute;
+			var intp2minute;
+			var p2minute;
+			var intp1second;
+			var p1second;
+			var intp2second;
+			var p2second;
+			
+			var p1time;
+			var p2time;
+			
+			if(player1time>0)
+			{p1time=player1time;}
+				else
+			{p1time=player1extratime;}
+			
+			if(player2time>0)
+			{p2time=player2time;}
+				else
+			{p2time=player2extratime;}
+			
+			intp1minute=parseInt(p1time/60);
+			p1minute=intp1minute.toString();
+			intp1second=parseInt(p1time % 60);
+			p1second=intp1second.toString();
+			
+			intp2minute=parseInt(p2time/60);
+			p2minute=intp2minute.toString();
+			intp2second=parseInt(p2time % 60);
+			p2second=intp2second.toString();
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			
 			if (intp2second<10)
 			{p2second="0"+p2second;}
@@ -891,6 +1345,7 @@ function StartBlackClock()
 			{p1second="0"+p1second;}
 			
 			
+<<<<<<< HEAD
 			if (GamePlaying.PlayerIDOnBottom==GamePlaying.Player1)
 			{
 				
@@ -899,11 +1354,23 @@ function StartBlackClock()
 				BottomMilliseconds.html("000");
 				TopSeconds.html(":"+p2second);
 				TopMinutes.html(p2minute);
+=======
+				if (PlayerIDOnBottom==GamePlaying.Player1)
+				{
+				
+				BottomSeconds.html(":"+p1second);
+				BottomMinutes.html(p1minute);
+				BottomMilliseconds.html(":000");
+				TopSeconds.html(":"+p2second);
+				TopMinutes.html(p2minute);
+				TopMilliseconds.html(":000");
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				}
 				else
 				{
 				BottomSeconds.html(":"+p2second);
 				BottomMinutes.html(p2minute);
+<<<<<<< HEAD
 				BottomMilliseconds.html("000");
 				TopSeconds.html(":"+p1second);
 				TopMinutes.html(p1minute);
@@ -911,6 +1378,15 @@ function StartBlackClock()
 				}
 				
 			}
+=======
+				BottomMilliseconds.html(":000");
+				TopSeconds.html(":"+p1second);
+				TopMinutes.html(p1minute);
+				TopMilliseconds.html(":000");
+				}
+				
+		}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 			
 			
 			
@@ -925,6 +1401,7 @@ function StartBlackClock()
 			//console.log(JSON.stringify(resData));
 		   
 		   GamePlaying=resData;
+<<<<<<< HEAD
 		  // GamePlaying.OverallScore
 		// console.log(GamePlaying);
 		  // console.log("recieved game playing, overall score:"+GamePlaying.OverallScore);
@@ -944,6 +1421,30 @@ function StartBlackClock()
 			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
 			{PlayDraw();
 				withdrawButton.slideUp();
+=======
+		 
+		  if (GamePlaying.Result)
+			{
+				
+			resultDiv.html(GamePlaying.Result);
+			resultDiv.css("padding","4px");
+			resultDiv.css("margin-left","8px");
+			withdrawButton.slideUp();
+				drawButton.slideUp();
+				resignButton.slideUp();
+			if(!GamePlaying.tournamentGame)
+			{
+				console.log("showig rematch button");
+			showRematchButton();
+			}
+			else
+			{
+			showTournamentRedirectNotice();	
+			}
+			if(GamePlaying.Result.indexOf("Result:</span><span class='redtext'>Draw</span><br>")>-1)
+			{PlayDraw();
+				
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 				}
 			
 			if(GamePlaying.Result.indexOf("withdrew from the game")>-1)
@@ -964,9 +1465,33 @@ function StartBlackClock()
 		//alert('couldnt load game');
 	//	}
 	//console.log("last move"+$scope.ChessGameObject.lastmove);
+<<<<<<< HEAD
 	if(!GamePlaying.Result)
 	{
 	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft);
+=======
+	if(GamePlaying.Result=="")
+	{
+	UpdateClocks(GamePlaying.Player1TimeLeft,GamePlaying.Player2TimeLeft,GamePlaying.Player1ExtraTimeLeft,GamePlaying.Player2ExtraTimeLeft);
+	
+	
+	}
+	if (gameFunctions.movesPlayerMade(GamePlaying,MyID)>0 || GamePlaying.Result!="")
+	{
+		if(!withdrawButton.hidden)
+		{
+		withdrawButton.slideUp();
+		withdrawButton.hidden=true;	
+		} 
+		if(!drawButton.shown)
+		{
+		drawButton.slideDown();
+		resignButton.slideDown();
+		drawButton.shown=true;	
+		}
+	}
+	/*
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	if(!withdrawButton)
 	{
 		withdrawButton=showButton(withdrawDiv,"Withdraw","KgreenElement KregularButton");
@@ -974,6 +1499,10 @@ function StartBlackClock()
 		withdrawDiv.css("padding","10px");
 	}
 	}
+<<<<<<< HEAD
+=======
+	*/
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	var modified="";
 	var move;
 	if(GamePlaying.lastmove){
@@ -1005,6 +1534,10 @@ function StartBlackClock()
 		
 	
 		board1.move(modified);
+<<<<<<< HEAD
+=======
+		if(move){
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		if(move.to){
 		var square=   boardEl.find('.square-' + move.to);
 		
@@ -1016,6 +1549,10 @@ function StartBlackClock()
 			  square.append("<img id='pgnhighlight' style='position:absolute;height:"+square.height()+"px;' src='/images/pgnhighlight.png'>");
 					
 		}
+<<<<<<< HEAD
+=======
+		}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 		Moves=game.pgn().split(".");
 		
 		
@@ -1080,8 +1617,110 @@ currentFavicon=src;
 }
 };
 	
+<<<<<<< HEAD
 	function withdrawFromGame()
 {
+=======
+
+
+var gameFunctions=
+{
+		playerIsPlayer1:function(player,game)
+		{
+			if(game.Player1==player)
+			{return true;}
+			else
+			{return false;}
+			
+			},
+	 playerIsWhite:function(player,game)
+		{
+		var imWhite=-1;
+		if(game.Player1==player && game.Player1Color=='White')
+		{imWhite=1;}
+		if(game.Player1==player && game.Player1Color=='Black')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		if(game.Player2==player && game.Player1Color=='Black')
+		{imWhite=1;}
+		if(game.Player2==player && game.Player1Color=='White')
+		{imWhite=0;}
+		
+		//else
+		//{imWhite=false;}
+		return imWhite;
+		},
+resign:function(){
+	io.socket.post('/Resign',{gameid:GamePlaying.id,resigner:MyID},
+
+			function (resData, jwr) {
+				console.log("accept draw res "+resData);
+			
+		
+			});
+},
+acceptDraw:function(){
+			var accepterName="";
+			
+			if (gameFunctions.playerIsPlayer1(MyID,GamePlaying))
+			{
+			accepterName=GamePlaying.Player1Name;
+			}
+			else
+			{
+			accepterName=GamePlaying.Player2Name;
+			}
+			
+
+		SendWallPost(MyID,GamePlaying.id,"chesschat","",accepterName+" accepted a draw","none","");
+				//io.socket.put('/WantRematch',{me:MyID,gam:GamePlaying.id,p1color:GamePlaying.Player1Color,gametype:GamePlaying.GameType,gamecat:GamePlaying.GameCategory,gametime:GamePlaying.Player1TimeLimit},
+			io.socket.post('/AcceptDraw',{gameid:GamePlaying.id},
+
+			function (resData, jwr) {
+				console.log("accept draw res "+resData);
+			acceptDrawButton.slideUp();
+		
+			});
+
+		
+
+		
+
+},
+
+
+offerDraw:function(){
+			var offerTo;
+			var offererName="";
+			if (gameFunctions.playerIsPlayer1(MyID,GamePlaying))
+			{
+				offerTo=GamePlaying.Player2;
+				offererName=GamePlaying.Player1Name;
+			}
+			else
+			{
+				offerTo=GamePlaying.Player1;
+				offererName=GamePlaying.Player2Name;
+			}
+			
+			SendWallPost(MyID,GamePlaying.id,"chesschat","",offererName+" offered a draw","none","");
+			
+			io.socket.put('/OfferDraw', {
+		gameid:GamePlaying.id,
+			userid:MyID,
+			OfferedTo:offerTo,
+			},function onSuccess(sailsResponse){
+		
+		
+		});
+			
+},
+
+withdraw:function()
+	{
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
 	
 //$scope.ShowWithdrawButton=false;	
 if (!GamePlaying.Result)
@@ -1094,6 +1733,7 @@ if (!GamePlaying.Result)
 		
 		});
 	}
+<<<<<<< HEAD
 }
 	function updatePlayersLabel(game)
 	{
@@ -1104,3 +1744,113 @@ if (!GamePlaying.Result)
 	}
 	
 	
+=======
+},
+
+movesPlayerMade:function(theGame,player)
+		{
+			 if(this.playerIsWhite(MyID,theGame))
+			 {
+					var moves=theGame.Move-1;
+						if(moves==0)
+						{
+						console.log("player is white,moves"+moves+" thegameMoves"+theGame.Move);	
+						return 0;}
+						else
+						{
+						console.log("player is white,returner"+(Math.ceil(moves/2))+" moves"+moves);	
+						
+						return Math.ceil(moves/2);
+						}
+				
+				
+			}
+			else
+			{	
+					var moves=theGame.Move-2;
+						if(moves<1)
+						{
+						console.log("player is white,moves returned:0 thegameMoves"+theGame.Move);	
+						return 0;}
+						else
+						{
+							console.log("player is white,moves"+(Math.ceil(moves/2))+" thegameMoves"+theGame.Move);	
+						
+						return Math.ceil(moves/2);
+						}
+				
+			}
+			
+		
+		},
+isADraw: function(game)
+		{
+			//console.log(game);
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Drew by")>-1)
+						{
+							return true;
+						}
+					}
+			}
+		},
+		
+isALoss:function(player,game)
+		{
+			//console.log(game);
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Won by")>-1)
+						{
+							var name=splitted[y-1].split("<")[0];
+								if(Accounts[ProfID].name!=name)
+								{
+										return true;
+								}
+							
+						}
+					}
+			}
+		},
+isAWin:function(player,game)
+		{
+			if (game.GameCategory=="60|0")
+			{
+			console.log(game);
+			}
+			
+			if(game.Result)
+			{
+				var splitted=game.Result.split(">");
+					for (y in splitted)
+					{
+						if(splitted[y].indexOf("Won by")>-1)
+						{
+							var name=splitted[y-1].split("<")[0];
+							
+								if (game.GameCategory=="60|0")
+								{
+								console.log("winner name is "+name);
+								}
+							
+								if(Accounts[ProfID].name==name)
+								{
+										return true;
+								}
+							
+						}
+					}
+			}
+		}
+		
+	
+	
+}
+>>>>>>> 6129dc5205591780bc5563a488aafcdd855c80bc
